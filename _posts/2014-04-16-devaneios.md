@@ -94,7 +94,7 @@ A relatividade é um conceito amplo, antigo[^26] e cientificamente verificável[
 
 Existem muitas alegorias que tentam ilustrar a relatividade. Uma delas, simplória, mas o suficiente para o caso, considera a existência de dois observadores. Um deles encontra-se na lua _(B)_, enquanto o outro na terra _(A)_. Do ponto de vista do observador _“B”_, a terra gira em torno da lua, e do ponto de vista do observador _“A”_, é a lua que gira em torno da terra. Ambos tiram sua conclusão em evidências verificáveis. Qualquer um pode olhar ao céu e observar a evidência diante de seus olhos, e diante destas evidências ambos estão corretos. Neste caso o conhecimento é relativo à perspectiva do observador e ao método utilizado. Entretanto o conhecimento obtido através da perspectiva do observador limita a compreensão do todo.
 
-![Lua e tarra, observadores.](/assets/images/posts/devaneios/vistas-lua-terra-ccbysa-jcem.png)
+![Lua e tarra, observadores.](/assets/images/posts/devaneios/vistas-lua-terra-visao2-ccbysa-jcem.png)
 {: .jcem-image-full }
 
 {% include jcem/components/columns.html content=jcem_relativity_columns columns=2 %}
