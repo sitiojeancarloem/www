@@ -42,7 +42,7 @@
 	--dark--jcem-wide-header-lift: clamp(4rem, 12vh, 5rem);
 	--dark--jcem-quote-bg: #2b303b;
 	--dark--jcem-alert-bg: #3c222a;
-	--dark--jcem-alert-border: #ce5763;
+	--dark--jcem-alert-background: #cd182a;
 	--dark--jcem-glitch-a: #ff21d0;
 	--dark--jcem-glitch-b: #00abe7;
 	--dark--primary-color: var(--dark--pri);
@@ -92,7 +92,7 @@
 	--clean--jcem-wide-header-lift: clamp(4rem, 12vh, 5rem);
 	--clean--jcem-quote-bg: #f4f8fa;
 	--clean--jcem-alert-bg: #fff3f3;
-	--clean--jcem-alert-border: #9f3a3a;
+	--clean--jcem-alert-background: #c01e1e;
 	--clean--jcem-glitch-a: #c0188e;
 	--clean--jcem-glitch-b: #0079a8;
 	--clean--primary-color: var(--clean--pri);
@@ -158,7 +158,7 @@ body > input.radio.jcem-theme-radio {
 	--jcem-wide-header-lift: var(--clean--jcem-wide-header-lift);
 	--jcem-quote-bg: var(--clean--jcem-quote-bg);
 	--jcem-alert-bg: var(--clean--jcem-alert-bg);
-	--jcem-alert-border: var(--clean--jcem-alert-border);
+	--jcem-alert-background: var(--clean--jcem-alert-background);
 	--jcem-glitch-a: var(--clean--jcem-glitch-a);
 	--jcem-glitch-b: var(--clean--jcem-glitch-b);
 	--primary-color: var(--clean--primary-color);
@@ -208,7 +208,7 @@ body > input.radio#jcem-theme-dark:checked ~ .main_jcem_wrapper {
 	--jcem-wide-header-lift: var(--dark--jcem-wide-header-lift);
 	--jcem-quote-bg: var(--dark--jcem-quote-bg);
 	--jcem-alert-bg: var(--dark--jcem-alert-bg);
-	--jcem-alert-border: var(--dark--jcem-alert-border);
+	--jcem-alert-background: var(--dark--jcem-alert-background);
 	--jcem-glitch-a: var(--dark--jcem-glitch-a);
 	--jcem-glitch-b: var(--dark--jcem-glitch-b);
 	--primary-color: var(--dark--primary-color);
