@@ -74,6 +74,9 @@ Tome como exemplo um homem que está viajando, e em sua viagem passa, sem saber,
 
 Perceba neste exemplo que o homem possui uma convicção (crença), baseada em conhecimento factual, entretanto esta crença é incorreta. Não é a verdade! O único motivo para ele crer que são restaurantes é porque tem evidências de que são, e nada que o leve a duvidar desta certeza. Ele não possui qualquer evidência – e neste caso evidência seria conhecimento – de que o que ele vê não é real. Perceba, que ele crê porque tem conhecimento – mesmo que questionável – e não o contrário. Crer sem conhecimento é impossível[^22][^23].
 
+![Observador Restaurantes.](/assets/images/posts/devaneios/observador-restaurantes-jcem-ccbysa.png)
+{: .jcem-image-full }
+
 > Existe apenas um bem, o saber, e apenas um mal, a ignorância
 >
 > — [Sócrates](https://pt.wikipedia.org/wiki/Sócrates)
