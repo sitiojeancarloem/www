@@ -271,74 +271,25 @@ aside {
 }
 
 .jcem-post-header > .jcem-date-flag {
-	margin: 0 0 1.15rem;
+	position: absolute;
+	margin: 0 0 2rem 0.1em;
+	background: url(/assets/jcem/img/flagCinza.svg);
+	background-repeat: no-repeat !important;
+	background-size: 100% auto;
+	height: 88px;
+	width: 48px;
+	padding: 7px 3px;
+	padding-left: 9px;
+	margin-top: -2.2em; // necessário validar valor contra várias situações
 }
 
 .jcem-date-flag {
-	position: relative;
 	z-index: 2;
 	width: 2.75em;
 	color: #fff;
 	font-size: 0.78rem;
 	line-height: 1;
 	text-transform: uppercase;
-}
-
-.jcem-date-flag::before,
-.jcem-date-flag::after,
-.jcem-date-flag time::after {
-	position: absolute;
-	display: block;
-	font-family: inherit;
-	content: '';
-}
-
-.jcem-date-flag::before {
-	top: 0.18em;
-	bottom: 0.34em;
-	left: -0.44em;
-	width: 0.7em;
-	background: var(--jcem-date-flag-back);
-}
-
-.jcem-date-flag::after,
-.jcem-date-flag time::after {
-	left: 50%;
-	width: 0;
-	height: 0;
-	transform: translateX(-50%);
-}
-
-.jcem-date-flag::after {
-	bottom: -0.78em;
-	border-top: 0.78em solid var(--jcem-date-flag-border);
-	border-right: 1.38em solid transparent;
-	border-left: 1.38em solid transparent;
-}
-
-.jcem-date-flag time {
-	position: relative;
-	z-index: 1;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	min-height: 4.35em;
-	padding: 0.32em 0.18em 0.48em;
-	border: 0.12em solid var(--jcem-date-flag-border);
-	background: var(--jcem-date-flag-bg);
-	color: inherit;
-	font-weight: 800;
-	text-align: center;
-	text-shadow: 0 0.08em 0 rgba(0, 0, 0, 0.35);
-	box-shadow: 0 0.08rem 0.24rem rgba(0, 0, 0, 0.28);
-}
-
-.jcem-date-flag time::after {
-	bottom: -0.58em;
-	border-top: 0.58em solid var(--jcem-date-flag-fold);
-	border-right: 1.14em solid transparent;
-	border-left: 1.14em solid transparent;
 }
 
 .jcem-date-flag__year,
