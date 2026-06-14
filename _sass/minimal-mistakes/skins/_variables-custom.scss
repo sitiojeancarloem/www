@@ -260,6 +260,11 @@ body > input.radio#jcem-theme-dark:checked ~ .main_jcem_wrapper {
 	background-color: var(--ftbg) !important;
 }
 
+.masthead__inner-wrap {
+	padding-bottom: 0.3rem;
+	padding-top: 0.3rem;
+}
+
 .main_jcem_wrapper .masthead,
 .main_jcem_wrapper .page__footer,
 .main_jcem_wrapper .author__urls,
