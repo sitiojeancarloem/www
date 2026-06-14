@@ -7,7 +7,7 @@
 	width: auto;
 	margin: 0;
 	transform: translateY(-37%);
-	margin-top: -0.75rem;
+	margin-top: -0.7rem; // PENDENTE: validar alinhamento vertical mantendo extrapolação no topo e no bottom
 }
 
 .masthead__inner-wrap .site-title {
@@ -280,7 +280,7 @@ aside {
 	width: 48px;
 	padding: 7px 3px;
 	padding-left: 9px;
-	margin-top: -2.2em; // necessário validar valor contra várias situações
+	margin-top: -2.2em; // PENDENTE: necessário validar valor contra várias situações
 }
 
 .jcem-date-flag {
