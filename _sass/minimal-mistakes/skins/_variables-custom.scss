@@ -618,7 +618,6 @@ body
 	display: inline;
 	font-family: inherit;
 	font-size: 0.9em;
-	font-weight: 800;
 	line-height: 1;
 	color: var(--link);
 }
@@ -684,6 +683,13 @@ body
 	transition:
 		opacity 0.12s ease 0.35s,
 		transform 0.12s ease 0.35s;
+}
+
+.main_jcem_wrapper sup[id^='fnref']::before,
+.main_jcem_wrapper sup[id^='fnref']::after,
+.main_jcem_wrapper sup[id^='fnref'] > a,
+.main_jcem_wrapper sup[id^='fnref'] > a * {
+	font-weight: 600 !important;
 }
 
 .main_jcem_wrapper
