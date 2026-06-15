@@ -338,6 +338,42 @@ const validatePage = async (page, url, theme, viewportName) => {
 		const blockquotes = Array.from(
 			document.querySelectorAll('.page__content blockquote'),
 		);
+		const blockquotePanels = Array.from(
+			document.querySelectorAll('.page__content .jcem-panel--blockquote'),
+		);
+		const tablePanels = blockquotePanels.filter((panel) => {
+			const table = panel.querySelector(':scope > table.jcem-panel__table');
+			const body = table?.querySelector('td.jcem-panel__body');
+			const topLeft = table?.querySelector('.jcem-panel__corner--top-left');
+			const topRight = table?.querySelector('.jcem-panel__corner--top-right');
+			const bottomLeft = table?.querySelector('.jcem-panel__corner--bottom-left');
+			const bottomRight = table?.querySelector('.jcem-panel__corner--bottom-right');
+			const cornerStyle = topLeft ? window.getComputedStyle(topLeft) : null;
+			const tableStyle = table ? window.getComputedStyle(table) : null;
+			const tableRect = table?.getBoundingClientRect();
+			const leftRect = topLeft?.getBoundingClientRect();
+			const rightRect = topRight?.getBoundingClientRect();
+
+			return Boolean(
+				table &&
+					body &&
+					topLeft &&
+					topRight &&
+					bottomLeft &&
+					bottomRight &&
+					cornerStyle?.backgroundImage.includes('painel.svg') &&
+					cornerStyle?.backgroundSize.includes('auto') &&
+					!cornerStyle?.backgroundSize.includes('100% 100%') &&
+					tableStyle?.tableLayout !== 'fixed' &&
+					tableRect &&
+					leftRect &&
+					rightRect &&
+					leftRect.width < Math.min(190, tableRect.width * 0.38) &&
+					rightRect.width < Math.min(120, tableRect.width * 0.3) &&
+					Math.abs(leftRect.left - tableRect.left) <= 2 &&
+					Math.abs(rightRect.right - tableRect.right) <= 2,
+			);
+		});
 		const shareButtons = visible('.page__share .btn');
 
 		return {
@@ -379,11 +415,8 @@ const validatePage = async (page, url, theme, viewportName) => {
 					document.querySelector('article.page.jcem-blockquote-panels'),
 				),
 				blockquoteCount: blockquotes.length,
-				panelBlockquoteCount: blockquotes.filter(
-					(quote) =>
-						quote.classList.contains('jcem-panel') &&
-						quote.querySelector(':scope > .jcem-panel__body'),
-				).length,
+				panelBlockquoteCount: blockquotePanels.length,
+				tablePanelBlockquoteCount: tablePanels.length,
 				shareButtons: shareButtons.length,
 			},
 			styles: [
@@ -501,10 +534,17 @@ const validatePage = async (page, url, theme, viewportName) => {
 
 	if (
 		result.post.blockquotePanelsEnabled &&
-		result.post.blockquoteCount > 0 &&
-		result.post.panelBlockquoteCount !== result.post.blockquoteCount
+		result.post.blockquoteCount > 0
 	) {
-		fail(`Blockquote sem painel futurista em ${url} ${theme} ${viewportName}`);
+		fail(`Blockquote remanescente apos conversao em ${url} ${theme} ${viewportName}`);
+	}
+
+	if (
+		result.post.blockquotePanelsEnabled &&
+		result.post.panelBlockquoteCount > 0 &&
+		result.post.tablePanelBlockquoteCount !== result.post.panelBlockquoteCount
+	) {
+		fail(`Painel futurista sem tabela setorizada em ${url} ${theme} ${viewportName}`);
 	}
 
 	if (result.post.shareButtons > 0 && result.post.shareButtons < 4) {

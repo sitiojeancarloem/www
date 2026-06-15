@@ -316,20 +316,75 @@ const bindJcemBlockquotePanels = (): void => {
 				return;
 			}
 
-			const body = document.createElement('div');
+			const panel = document.createElement('div');
+			const table = document.createElement('table');
+			const colgroup = document.createElement('colgroup');
+			const leftColumn = document.createElement('col');
+			const centerColumn = document.createElement('col');
+			const rightColumn = document.createElement('col');
+			const tbody = document.createElement('tbody');
+			const top = document.createElement('tr');
+			const contentRow = document.createElement('tr');
+			const final = document.createElement('tr');
+			const body = document.createElement('td');
+			const topLeft = document.createElement('td');
+			const topCenter = document.createElement('td');
+			const topRight = document.createElement('td');
+			const finalLeft = document.createElement('td');
+			const finalCenter = document.createElement('td');
+			const finalRight = document.createElement('td');
+
+			panel.className = [
+				'painel',
+				'jcem-panel',
+				'jcem-panel--blockquote',
+				'jcem-panel--futuristic',
+				quote.className,
+			]
+				.filter(Boolean)
+				.join(' ');
+			panel.dataset.jcemPanelSource = 'blockquote';
+
+			table.className = 'nohover jcem-panel__table';
+			table.cellSpacing = '0';
+			table.cellPadding = '0';
+			table.border = '0';
+			table.setAttribute('role', 'presentation');
+			leftColumn.className = 'jcem-panel__column jcem-panel__column--left';
+			centerColumn.className = 'jcem-panel__column jcem-panel__column--center';
+			rightColumn.className = 'jcem-panel__column jcem-panel__column--right';
+			top.className = 'jcem-panel__edge jcem-panel__edge--top';
+			contentRow.className = 'content jcem-panel__content-row';
+			final.className = 'final jcem-panel__edge jcem-panel__edge--bottom';
 			body.className = 'jcem-panel__body';
+			body.colSpan = 3;
+			topLeft.className = 'jcem-panel__corner jcem-panel__corner--top-left';
+			topCenter.className = 'jcem-panel__edge-fill jcem-panel__edge-fill--top';
+			topRight.className =
+				'f3 jcem-panel__corner jcem-panel__corner--top-right';
+			finalLeft.className =
+				'jcem-panel__corner jcem-panel__corner--bottom-left';
+			finalCenter.className = 'jcem-panel__edge-fill jcem-panel__edge-fill--bottom';
+			finalRight.className =
+				'f3 jcem-panel__corner jcem-panel__corner--bottom-right';
 
 			while (quote.firstChild) {
 				body.append(quote.firstChild);
 			}
 
-			quote.classList.add(
-				'jcem-panel',
-				'jcem-panel--blockquote',
-				'jcem-panel--futuristic',
-			);
-			quote.dataset.jcemPanelSource = 'blockquote';
-			quote.append(body);
+			const finalFill = document.createElement('div');
+			finalFill.setAttribute('aria-hidden', 'true');
+			finalCenter.append(finalFill);
+
+			top.append(topLeft, topCenter, topRight);
+			contentRow.append(body);
+			final.append(finalLeft, finalCenter, finalRight);
+			colgroup.append(leftColumn, centerColumn, rightColumn);
+			tbody.append(top, contentRow, final);
+			table.append(colgroup);
+			table.append(tbody);
+			panel.append(table);
+			quote.replaceWith(panel);
 		});
 };
 

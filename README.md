@@ -18,4 +18,4 @@ jcem:
   blockquote_panels: false
 ```
 
-Quando ativado, o Markdown original permanece como `blockquote`; a conversão ocorre no JavaScript estático gerado por `tsc`, preservando o texto original dentro de `.jcem-panel__body`.
+Quando ativado, o JavaScript estático gerado por `tsc` substitui cada `blockquote` por uma estrutura HTML própria do painel: `div.jcem-panel` contendo uma tabela de setores. O texto original é movido para `.jcem-panel__body`, preservando o conteúdo e mantendo o SVG `assets/jcem/img/painel.svg` aplicado nas quinas sem distorção.

@@ -15,4 +15,5 @@ Estado operacional:
 - UI Devaneios em 2026-06-14: logo realinhado sem ampliar masthead; crop wide reancorado ao cabeçalho do post com superfície clara sólida e degradê escuro de topo para transparente; build, validação visual geral e checagem Playwright desktop/reduced/mobile concluídos.
 - UI Devaneios em 2026-06-14: flag SVG responsiva realinhada sem sobrepor título, overflow horizontal corrigido, blockquotes convertidos opcionalmente para painel futurista, compartilhamento suavizado; npm run check, build:prod e validate:visual concluídos.
 - UI Devaneios em 2026-06-15: correção da flag preservando somente background SVG flagCinza/flagVermelho, título afastado por padding do header, header alinhado ao container visual do artigo e validação lateral 720px incluída; npm run check, build:prod e validate:visual concluídos.
+- UI Devaneios em 2026-06-15: blockquotes substituídos por painel futurista com HTML setorizado por tabela conforme old-root, `painel.svg` aplicado nas quinas sem distorção e colunas reais `[10.5em|auto|6.5em]`; npm run check, build:prod e validate:visual concluídos.
 - Pendências persistentes: nenhuma.
