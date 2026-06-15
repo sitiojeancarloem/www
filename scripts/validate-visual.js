@@ -322,6 +322,14 @@ const validatePage = async (page, url, theme, viewportName) => {
 				: null;
 		};
 		const flag = document.querySelector('.jcem-post-header > .jcem-date-flag');
+		const titleAnchor = document.querySelector('.jcem-post-header .page__title a');
+		const titleAnchorRect = titleAnchor?.getBoundingClientRect();
+		const titleAnchorStyle = titleAnchor
+			? window.getComputedStyle(titleAnchor)
+			: null;
+		const titleTextStart = titleAnchorRect
+			? titleAnchorRect.left + Number.parseFloat(titleAnchorStyle?.paddingLeft || '0')
+			: null;
 		const flagTime = flag?.querySelector('time');
 		const flagTimeRect = flagTime?.getBoundingClientRect();
 		const flagTextMaxOffset = flagTimeRect
@@ -412,6 +420,9 @@ const validatePage = async (page, url, theme, viewportName) => {
 				articleSurface:
 					boxInfo('article.page .page__inner-wrap') || boxInfo('article.page'),
 				title: boxInfo('.jcem-post-header .page__title'),
+				titleTextStart,
+				readtime: boxInfo('.jcem-post-header .page__meta-readtime'),
+				firstPanel: boxInfo('.page__content .jcem-panel--blockquote'),
 				flag: boxInfo('.jcem-post-header > .jcem-date-flag'),
 				flagTextMaxOffset,
 				blockquotePanelsEnabled: Boolean(
@@ -531,8 +542,28 @@ const validatePage = async (page, url, theme, viewportName) => {
 		}
 	}
 
-	if (overlaps(result.post.flag, result.post.title)) {
+	if (
+		overlaps(result.post.flag, result.post.title) &&
+		(!Number.isFinite(result.post.titleTextStart) ||
+			result.post.flag.right > result.post.titleTextStart + 2)
+	) {
 		fail(`Flag de data sobreposta ao titulo em ${url} ${theme} ${viewportName}`);
+	}
+
+	if (
+		result.post.readtime &&
+		Number.isFinite(result.post.titleTextStart) &&
+		Math.abs(result.post.readtime.left - result.post.titleTextStart) > 12
+	) {
+		fail(`Tempo de leitura desalinhado do titulo em ${url} ${theme} ${viewportName}`);
+	}
+
+	if (
+		result.post.readtime &&
+		result.post.firstPanel &&
+		result.post.readtime.bottom > result.post.firstPanel.top - 2
+	) {
+		fail(`Tempo de leitura colado ao painel em ${url} ${theme} ${viewportName}`);
 	}
 
 	if (

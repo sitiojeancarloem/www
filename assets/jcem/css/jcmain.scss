@@ -116,6 +116,7 @@
 	z-index: 10020;
 	border-color: transparent;
 	background: rgba(0, 0, 0, 0.1) !important;
+	box-shadow: 0.2rem 2rem 3rem 0.2rem rgba(0, 0, 0, 0.45);
 }
 
 .masthead__inner-wrap {
@@ -295,8 +296,9 @@ aside {
 		width: calc(100% + 1.3em);
 		line-height: 1.2em;
 		padding: 0.1em 2.4em;
-		background: var(--mtc);
+		background: var(--clean--jcem-panel-text);
 		margin: 0 -1rem;
+		border-bottom: 0.5px solid var(--jcem-rule-color);
 	}
 }
 
@@ -310,7 +312,7 @@ aside {
 .jcem-post-header > .jcem-date-flag {
 	position: absolute;
 	top: var(--jcem-date-flag-top);
-	left: 0;
+	left: -0.8em;
 	width: var(--jcem-date-flag-width);
 	margin: 0;
 	margin-top: -8px;
