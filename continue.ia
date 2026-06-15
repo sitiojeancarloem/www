@@ -17,4 +17,5 @@ Estado operacional:
 - UI Devaneios em 2026-06-15: correção da flag preservando somente background SVG flagCinza/flagVermelho, título afastado por padding do header, header alinhado ao container visual do artigo e validação lateral 720px incluída; npm run check, build:prod e validate:visual concluídos.
 - UI Devaneios em 2026-06-15: blockquotes substituídos por painel futurista com HTML setorizado por tabela conforme old-root, `painel.svg` aplicado nas quinas sem distorção e colunas reais `[10.5em|auto|6.5em]`; npm run check, build:prod e validate:visual concluídos.
 - Impressão em 2026-06-15: mídia print força aliases do tema claro mesmo com tema escuro habilitado; validate-visual cobre `print` com `#jcem-theme-dark` ativo; npm run check, build:prod e validate:visual concluídos.
+- Painel claro e impressão em 2026-06-15: `painel-modo-claro.svg` derivado de `painel.svg`, modo claro/print usam painel claro, imagem destacada e controles decorativos ocultos em print, colunas impressas forçadas para 1; build:prod e validate:visual concluídos.
 - Pendências persistentes: nenhuma.

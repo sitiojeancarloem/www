@@ -26,6 +26,9 @@
 	--dark--jcem-panel-line: rgba(43, 146, 219, 0.32);
 	--dark--jcem-panel-accent: #2b92db;
 	--dark--jcem-panel-accent-hot: #f4d400;
+	--dark--jcem-panel-image: url('/assets/jcem/img/painel.svg');
+	--dark--jcem-panel-surface: rgba(47, 155, 233, 0.12);
+	--dark--jcem-panel-text: #f1f8fb;
 	--dark--jcem-rule-color: #f4d400;
 	--dark--jcem-rule-shadow: rgba(244, 212, 0, 0.22);
 	--dark--jcem-social-color: rgba(234, 234, 234, 0.62);
@@ -76,6 +79,9 @@
 	--clean--jcem-panel-line: rgba(47, 125, 149, 0.26);
 	--clean--jcem-panel-accent: #2f7d95;
 	--clean--jcem-panel-accent-hot: #b28700;
+	--clean--jcem-panel-image: url('/assets/jcem/img/painel-modo-claro.svg');
+	--clean--jcem-panel-surface: rgba(39, 122, 144, 0.18);
+	--clean--jcem-panel-text: #263238;
 	--clean--jcem-rule-color: #b08b00;
 	--clean--jcem-rule-shadow: rgba(176, 139, 0, 0.22);
 	--clean--jcem-social-color: #928d80;
@@ -153,6 +159,9 @@ body > input.radio.jcem-theme-radio {
 	--jcem-panel-line: var(--clean--jcem-panel-line);
 	--jcem-panel-accent: var(--clean--jcem-panel-accent);
 	--jcem-panel-accent-hot: var(--clean--jcem-panel-accent-hot);
+	--jcem-panel-image: var(--clean--jcem-panel-image);
+	--jcem-panel-surface: var(--clean--jcem-panel-surface);
+	--jcem-panel-text: var(--clean--jcem-panel-text);
 	--jcem-rule-color: var(--clean--jcem-rule-color);
 	--jcem-rule-shadow: var(--clean--jcem-rule-shadow);
 	--jcem-social-color: var(--clean--jcem-social-color);
@@ -204,6 +213,9 @@ body > input.radio#jcem-theme-dark:checked ~ .main_jcem_wrapper {
 	--jcem-panel-line: var(--dark--jcem-panel-line);
 	--jcem-panel-accent: var(--dark--jcem-panel-accent);
 	--jcem-panel-accent-hot: var(--dark--jcem-panel-accent-hot);
+	--jcem-panel-image: var(--dark--jcem-panel-image);
+	--jcem-panel-surface: var(--dark--jcem-panel-surface);
+	--jcem-panel-text: var(--dark--jcem-panel-text);
 	--jcem-rule-color: var(--dark--jcem-rule-color);
 	--jcem-rule-shadow: var(--dark--jcem-rule-shadow);
 	--jcem-social-color: var(--dark--jcem-social-color);
@@ -257,6 +269,9 @@ body > input.radio#jcem-theme-dark:checked ~ .main_jcem_wrapper {
 		--jcem-panel-line: var(--clean--jcem-panel-line);
 		--jcem-panel-accent: var(--clean--jcem-panel-accent);
 		--jcem-panel-accent-hot: var(--clean--jcem-panel-accent-hot);
+		--jcem-panel-image: var(--clean--jcem-panel-image);
+		--jcem-panel-surface: var(--clean--jcem-panel-surface);
+		--jcem-panel-text: var(--clean--jcem-panel-text);
 		--jcem-rule-color: var(--clean--jcem-rule-color);
 		--jcem-rule-shadow: var(--clean--jcem-rule-shadow);
 		--jcem-social-color: var(--clean--jcem-social-color);
@@ -283,6 +298,111 @@ body > input.radio#jcem-theme-dark:checked ~ .main_jcem_wrapper {
 		background: var(--clean--bg-solid) !important;
 		color: var(--clean--tc) !important;
 		color-scheme: light;
+	}
+
+	@page {
+		margin: 14mm;
+	}
+
+	*,
+	*::before,
+	*::after {
+		// PROTECAO: impressão não deve capturar transições entre temas.
+		animation: none !important;
+		box-shadow: none !important;
+		text-shadow: none !important;
+		transition: none !important;
+	}
+
+	.main_jcem_wrapper .masthead,
+	.main_jcem_wrapper .page__hero,
+	.main_jcem_wrapper .page__hero--overlay,
+	.main_jcem_wrapper .jcem-featured-image,
+	.main_jcem_wrapper .jcem-featured-image__img,
+	.main_jcem_wrapper .page__footer,
+	.main_jcem_wrapper .sobpostbar,
+	.main_jcem_wrapper .page__share,
+	.main_jcem_wrapper .jcem-theme-toggle,
+	.main_jcem_wrapper .jcem-nav-toggle,
+	.main_jcem_wrapper .jcem-nav-backdrop,
+	.main_jcem_wrapper .jcem-scroll-top,
+	.main_jcem_wrapper .jcem-date-flag,
+	#silktide-wrapper,
+	#silktide-banner,
+	#silktide-modal,
+	#silktide-cookie-icon,
+	#silktide-backdrop,
+	#silktide-backdrop-global {
+		display: none !important;
+	}
+
+	.main_jcem_wrapper,
+	.main_jcem_wrapper .initial-content,
+	.main_jcem_wrapper article.page,
+	.main_jcem_wrapper .page,
+	.main_jcem_wrapper .page__inner-wrap,
+	.main_jcem_wrapper .page__content {
+		float: none !important;
+		width: 100% !important;
+		max-width: none !important;
+		min-height: 0 !important;
+		margin: 0 !important;
+		padding: 0 !important;
+		border: 0 !important;
+		background: #fff !important;
+		overflow: visible !important;
+	}
+
+	.main_jcem_wrapper
+		.jcem-featured-style--wide
+		.page__inner-wrap::before {
+		display: none !important;
+	}
+
+	.main_jcem_wrapper .jcem-featured-style--wide .jcem-post-header {
+		margin-top: 0 !important;
+		padding-left: 0 !important;
+	}
+
+	.main_jcem_wrapper .page__title,
+	.main_jcem_wrapper .page__content h2,
+	.main_jcem_wrapper hr {
+		border-color: var(--clean--jcem-rule-color) !important;
+	}
+
+	.main_jcem_wrapper .jcem-glitch,
+	.main_jcem_wrapper .page__title,
+	.main_jcem_wrapper .archive__subtitle {
+		animation: none !important;
+		text-shadow: none !important;
+	}
+
+	.main_jcem_wrapper .c-markdown-columns,
+	.main_jcem_wrapper .jcem-markdown-columns {
+		column-count: 1 !important;
+		column-width: auto !important;
+	}
+
+	.main_jcem_wrapper img,
+	.main_jcem_wrapper figure,
+	.main_jcem_wrapper table,
+	.main_jcem_wrapper .jcem-panel--futuristic {
+		break-inside: avoid;
+		page-break-inside: avoid;
+	}
+
+	.main_jcem_wrapper img {
+		max-width: 100% !important;
+		height: auto !important;
+	}
+
+	.main_jcem_wrapper a {
+		color: var(--clean--link) !important;
+	}
+
+	.main_jcem_wrapper a[href]::after {
+		content: none !important;
+		display: none !important;
 	}
 }
 
@@ -374,12 +494,18 @@ body > input.radio#jcem-theme-dark:checked ~ .main_jcem_wrapper {
 	border-color: var(--bc);
 }
 
-.main_jcem_wrapper table,
-.main_jcem_wrapper thead,
-.main_jcem_wrapper tbody,
-.main_jcem_wrapper tr {
-	background-color: var(--bg);
-	color: var(--tc);
+.main_jcem_wrapper {
+	table:not(.jcem-panel__table) > thead,
+	table:not(.jcem-panel__table) > tbody {
+		th,
+		tr {
+			&,
+			td {
+				background-color: var(--bg);
+				color: var(--tc);
+			}
+		}
+	}
 }
 
 .main_jcem_wrapper
@@ -656,7 +782,6 @@ body
 
 .main_jcem_wrapper .jcem-panel--futuristic {
 	// uso: moldura do painel futurista importado do old-root.
-	--jcem-panel-frame-bg: rgba(47, 155, 233, 0.12);
 	--jcem-panel-sprite-height: 17em;
 	--jcem-panel-corner-left: clamp(6.25rem, 27vw, 10.5em);
 	--jcem-panel-corner-right: clamp(4.75rem, 19vw, 6.5em);
@@ -705,7 +830,6 @@ body
 .main_jcem_wrapper .jcem-panel--futuristic .jcem-panel__table tr,
 .main_jcem_wrapper .jcem-panel--futuristic .jcem-panel__table td {
 	border: 0;
-	background-color: transparent;
 	color: inherit;
 }
 
@@ -734,21 +858,20 @@ body
 	.jcem-panel--futuristic
 	.jcem-panel__edge--top
 	> td.jcem-panel__edge-fill.jcem-panel__edge-fill--top,
-.main_jcem_wrapper .jcem-panel--futuristic .jcem-panel__content-row,
 .main_jcem_wrapper
 	.jcem-panel--futuristic
 	.jcem-panel__edge--bottom
 	> td
 	> div,
 .main_jcem_wrapper .jcem-panel--futuristic td.jcem-panel__body {
-	background-color: var(--jcem-panel-frame-bg);
+	background-color: var(--jcem-panel-surface);
 	font-size: 1.25rem;
-	color: #fff;
+	color: var(--jcem-panel-text);
 	line-height: 1.15rem;
 }
 
 .main_jcem_wrapper .jcem-panel--futuristic .jcem-panel__corner {
-	background-image: url('/assets/jcem/img/painel.svg');
+	background-image: var(--jcem-panel-image);
 	background-repeat: no-repeat;
 	background-size: auto var(--jcem-panel-sprite-height);
 }
@@ -830,7 +953,25 @@ body
 .main_jcem_wrapper .jcem-panel--futuristic .jcem-panel__body p,
 .main_jcem_wrapper .jcem-panel--futuristic .jcem-panel__body span {
 	color: inherit;
-	line-height: 1.4;
+	line-height: 1.2em;
+	margin-bottom: 0.4em;
+}
+
+.jcem-panel--blockquote table cite {
+	&,
+	& a {
+		font-size: 0.7em;
+		font-style: italic;
+		display: block;
+		line-height: 1.15em;
+		margin-bottom: -1em;
+
+		&::before {
+			content: '— '; /* Adiciona o travessão seguido de um espaço */
+			color: #333; /* Define a cor da linha ou símbolo */
+			font-weight: bold;
+		}
+	}
 }
 
 .main_jcem_wrapper .jcem-panel--futuristic a {
@@ -1196,6 +1337,22 @@ body
 	.main_jcem_wrapper .jcem-markdown-columns {
 		column-count: 1;
 		column-width: auto;
+	}
+}
+
+@media print {
+	.main_jcem_wrapper .c-markdown-columns,
+	.main_jcem_wrapper .c-markdown-columns--2,
+	.main_jcem_wrapper .c-markdown-columns--3,
+	.main_jcem_wrapper .c-markdown-columns--4,
+	.main_jcem_wrapper .jcem-markdown-columns,
+	.main_jcem_wrapper .jcem-markdown-columns--2,
+	.main_jcem_wrapper .jcem-markdown-columns--3,
+	.main_jcem_wrapper .jcem-markdown-columns--4 {
+		--jcem-columns: 1;
+		column-count: 1 !important;
+		column-width: auto !important;
+		columns: auto 1 !important;
 	}
 }
 

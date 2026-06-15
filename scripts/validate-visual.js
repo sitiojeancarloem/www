@@ -239,7 +239,10 @@ const validatePage = async (page, url, theme, viewportName) => {
 		}, null, { timeout: 15000 })
 		.catch(() => {});
 
-	const result = await page.evaluate(() => {
+	const expectedPanelImage =
+		theme === 'light' ? 'painel-modo-claro.svg' : 'painel.svg';
+
+	const result = await page.evaluate((expectedPanelImage) => {
 		const visible = (selector) =>
 			Array.from(document.querySelectorAll(selector)).filter((node) => {
 				const rect = node.getBoundingClientRect();
@@ -361,7 +364,7 @@ const validatePage = async (page, url, theme, viewportName) => {
 					topRight &&
 					bottomLeft &&
 					bottomRight &&
-					cornerStyle?.backgroundImage.includes('painel.svg') &&
+					cornerStyle?.backgroundImage.includes(expectedPanelImage) &&
 					cornerStyle?.backgroundSize.includes('auto') &&
 					!cornerStyle?.backgroundSize.includes('100% 100%') &&
 					tableStyle?.tableLayout !== 'fixed' &&
@@ -428,7 +431,7 @@ const validatePage = async (page, url, theme, viewportName) => {
 				readStyle('.page__share .btn'),
 			].filter(Boolean),
 		};
-	});
+	}, expectedPanelImage);
 
 	if (result.overflowX > 2) {
 		fail(`Overflow horizontal em ${url} ${theme} ${viewportName}: ${result.overflowX}px`);
@@ -673,10 +676,52 @@ const validatePrintTheme = async (page, url, viewportName) => {
 
 	const result = await page.evaluate(() => {
 		const wrapper = document.querySelector('.main_jcem_wrapper');
+		const article = document.querySelector('article.page');
+		const panelCorner = document.querySelector(
+			'.page__content .jcem-panel--blockquote .jcem-panel__corner--top-left',
+		);
+		const firstContentLink = document.querySelector('.page__content a[href]');
+		const markdownColumns = document.querySelector(
+			'.page__content .jcem-markdown-columns, .page__content .c-markdown-columns',
+		);
+		const markdownColumnStates = Array.from(
+			document.querySelectorAll(
+				'.page__content .jcem-markdown-columns, .page__content .c-markdown-columns',
+			),
+		).map((node) => {
+			const style = window.getComputedStyle(node);
+			return {
+				className: node.className || '',
+				columnCount: style.columnCount || '',
+				columnWidth: style.columnWidth || '',
+				jcemColumns: style.getPropertyValue('--jcem-columns').trim(),
+			};
+		});
 		const wrapperStyle = wrapper ? window.getComputedStyle(wrapper) : null;
+		const articleStyle = article ? window.getComputedStyle(article) : null;
+		const panelCornerStyle = panelCorner
+			? window.getComputedStyle(panelCorner)
+			: null;
+		const firstContentLinkAfterStyle = firstContentLink
+			? window.getComputedStyle(firstContentLink, '::after')
+			: null;
+		const markdownColumnsStyle = markdownColumns
+			? window.getComputedStyle(markdownColumns)
+			: null;
 		const bodyStyle = window.getComputedStyle(document.body);
 		const rootStyle = window.getComputedStyle(document.documentElement);
 		const value = (style, name) => style?.getPropertyValue(name).trim() || '';
+		const visible = (selector) =>
+			Array.from(document.querySelectorAll(selector)).some((node) => {
+				const rect = node.getBoundingClientRect();
+				const style = window.getComputedStyle(node);
+				return (
+					rect.width > 1 &&
+					rect.height > 1 &&
+					style.display !== 'none' &&
+					style.visibility !== 'hidden'
+				);
+			});
 
 		return {
 			darkChecked: Boolean(document.querySelector('#jcem-theme-dark')?.checked),
@@ -689,6 +734,19 @@ const validatePrintTheme = async (page, url, viewportName) => {
 			cleanTc: value(rootStyle, '--clean--tc'),
 			darkBgSolid: value(rootStyle, '--dark--bg-solid'),
 			bodyBackground: bodyStyle.backgroundColor,
+			articleBackground: articleStyle?.backgroundColor || '',
+			panelCount: document.querySelectorAll(
+				'.page__content .jcem-panel--blockquote',
+			).length,
+			panelImage: panelCornerStyle?.backgroundImage || '',
+			hasContentLink: Boolean(firstContentLink),
+			linkAfterDisplay: firstContentLinkAfterStyle?.display || '',
+			linkAfterContent: firstContentLinkAfterStyle?.content || '',
+			columnCount: markdownColumnsStyle?.columnCount || '',
+			markdownColumnStates,
+			hiddenChrome: !visible(
+				'.masthead, .page__hero, .jcem-featured-image, .jcem-featured-image__img, .page__footer, .sobpostbar, .page__share, .jcem-theme-toggle, .jcem-scroll-top, #silktide-wrapper, #silktide-cookie-icon',
+			),
 		};
 	});
 
@@ -712,6 +770,37 @@ const validatePrintTheme = async (page, url, viewportName) => {
 
 	if (result.bgSolid === result.darkBgSolid) {
 		fail(`Impressao manteve fundo escuro em ${url}`);
+	}
+
+	if (
+		result.panelCount > 0 &&
+		(!result.panelImage.includes('painel-modo-claro.svg') ||
+			result.panelImage.includes('/painel.svg'))
+	) {
+		fail(`Impressao nao usa painel claro em ${url}`);
+	}
+
+	if (!result.hiddenChrome) {
+		fail(`Impressao exibe elementos decorativos ou controles em ${url}`);
+	}
+
+	if (
+		result.columnCount &&
+		!['1', 'auto'].includes(result.columnCount)
+	) {
+		fail(
+			`Impressao manteve colunas no conteudo em ${url}: ${JSON.stringify(result.markdownColumnStates)}`,
+		);
+	}
+
+	if (
+		result.hasContentLink &&
+		result.linkAfterDisplay !== 'none' ||
+		(result.hasContentLink &&
+			result.linkAfterContent &&
+			result.linkAfterContent !== 'none')
+	) {
+		fail(`Impressao exibe URLs automaticas em links em ${url}`);
 	}
 };
 
