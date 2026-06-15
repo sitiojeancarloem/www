@@ -1,7 +1,7 @@
 .masthead__inner-wrap .site-logo img {
 	position: absolute;
 	top: 50%;
-	left: 0.25rem;
+	left: 0;
 	max-height: none !important;
 	height: 3.9rem;
 	width: auto;
@@ -34,7 +34,10 @@
 .greedy-nav {
 	display: flex;
 	align-items: center;
+	box-sizing: border-box;
 	gap: 0.35rem;
+	padding-right: clamp(1rem, 1.4vw, 1.375rem);
+	padding-left: clamp(1rem, 1.4vw, 1.375rem);
 }
 
 .greedy-nav .site-logo {
@@ -43,7 +46,7 @@
 	display: block;
 	width: 10.95rem;
 	height: 2.05rem;
-	margin-left: 0.5rem;
+	margin-left: 0;
 	overflow: visible;
 }
 
@@ -268,28 +271,48 @@ aside {
 
 .jcem-post-header {
 	position: relative;
+	--jcem-date-flag-gap: clamp(0.7rem, 1.8vw, 1rem);
+	--jcem-date-flag-top: clamp(-1.25rem, -2.5vw, -0.85rem);
+	--jcem-date-flag-width: clamp(42px, 4.8vw, 48px);
+}
+
+.jcem-post-header:has(> .jcem-date-flag) {
+	min-height: calc(var(--jcem-date-flag-width) * 1.55);
+	padding-left: calc(
+		var(--jcem-date-flag-width) + var(--jcem-date-flag-gap)
+	);
 }
 
 .jcem-post-header > .jcem-date-flag {
 	position: absolute;
-	margin: 0 0 2rem 0.1em;
-	background: url(/assets/jcem/img/flagCinza.svg);
-	background-repeat: no-repeat !important;
-	background-size: 100% auto;
-	height: 88px;
-	width: 48px;
-	padding: 7px 3px;
-	padding-left: 9px;
-	margin-top: -2.2em; // PENDENTE: necessário validar valor contra várias situações
+	top: var(--jcem-date-flag-top);
+	left: 0;
+	width: var(--jcem-date-flag-width);
+	margin: 0;
+	margin-top: -8px;
 }
 
 .jcem-date-flag {
 	z-index: 2;
-	width: 2.75em;
+	aspect-ratio: 256 / 420;
+	background: url('/assets/jcem/img/flagCinza.svg') no-repeat top left;
+	background-size: 100% 100%;
 	color: #fff;
-	font-size: 0.78rem;
+	font-size: clamp(10px, 1.6vw, 12px);
 	line-height: 1;
+	text-align: center;
 	text-transform: uppercase;
+}
+
+.jcem-date-flag time {
+	box-sizing: border-box;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 100%;
+	height: 100%;
+	background: transparent !important;
+	padding: 0.48em 0.18em 0 0.54em;
 }
 
 .jcem-date-flag__year,
@@ -300,35 +323,24 @@ aside {
 }
 
 .jcem-date-flag__year {
-	font-size: 0.9em;
+	font-size: 1em;
+	font-weight: bold;
 }
 
 .jcem-date-flag__month {
 	margin-top: 0.08em;
-	font-size: 1.05em;
+	font-size: 1.2em;
+	font-weight: bold;
 }
 
 .jcem-date-flag__day {
 	margin-top: 0.06em;
-	font-size: 1.24em;
+	font-size: 1.4em;
+	font-weight: bold;
 }
 
 .jcem-date-flag--updated {
-	&::before {
-		background: var(--jcem-date-flag-updated-back);
-	}
-
-	&::after {
-		border-top-color: var(--jcem-date-flag-border);
-	}
-
-	time {
-		background: var(--jcem-date-flag-updated-bg);
-	}
-
-	time::after {
-		border-top-color: var(--jcem-date-flag-updated-fold);
-	}
+	background-image: url('/assets/jcem/img/flagVermelho.svg');
 }
 
 .jcem-featured-image {

@@ -193,6 +193,28 @@ const bindJcemCollapsibleSections = () => {
         openJcemCollapsibleForHash(window.location.hash);
     });
 };
+const bindJcemBlockquotePanels = () => {
+    const article = select('article.page.jcem-blockquote-panels');
+    const content = select('.page__content');
+    if (!article || !content) {
+        return;
+    }
+    content
+        .querySelectorAll('blockquote:not(.jcem-panel)')
+        .forEach((quote) => {
+        if (quote.closest('.footnotes, .jcem-references')) {
+            return;
+        }
+        const body = document.createElement('div');
+        body.className = 'jcem-panel__body';
+        while (quote.firstChild) {
+            body.append(quote.firstChild);
+        }
+        quote.classList.add('jcem-panel', 'jcem-panel--blockquote', 'jcem-panel--futuristic');
+        quote.dataset.jcemPanelSource = 'blockquote';
+        quote.append(body);
+    });
+};
 const footnoteSummaryMaxLength = 260;
 const summarizeFootnote = (text) => {
     const normalized = text.replace(/\s+/g, ' ').trim();
@@ -232,6 +254,7 @@ document.addEventListener('DOMContentLoaded', () => {
     bindJcemNav();
     bindJcemScrollTop();
     bindJcemCollapsibleSections();
+    bindJcemBlockquotePanels();
     bindJcemFootnotes();
     hideNoScript();
 });

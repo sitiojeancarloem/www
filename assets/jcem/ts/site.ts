@@ -301,6 +301,38 @@ const bindJcemCollapsibleSections = (): void => {
 	});
 };
 
+const bindJcemBlockquotePanels = (): void => {
+	const article = select<HTMLElement>('article.page.jcem-blockquote-panels');
+	const content = select<HTMLElement>('.page__content');
+
+	if (!article || !content) {
+		return;
+	}
+
+	content
+		.querySelectorAll<HTMLQuoteElement>('blockquote:not(.jcem-panel)')
+		.forEach((quote) => {
+			if (quote.closest('.footnotes, .jcem-references')) {
+				return;
+			}
+
+			const body = document.createElement('div');
+			body.className = 'jcem-panel__body';
+
+			while (quote.firstChild) {
+				body.append(quote.firstChild);
+			}
+
+			quote.classList.add(
+				'jcem-panel',
+				'jcem-panel--blockquote',
+				'jcem-panel--futuristic',
+			);
+			quote.dataset.jcemPanelSource = 'blockquote';
+			quote.append(body);
+		});
+};
+
 const footnoteSummaryMaxLength = 260;
 
 const summarizeFootnote = (text: string): string => {
@@ -357,6 +389,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	bindJcemNav();
 	bindJcemScrollTop();
 	bindJcemCollapsibleSections();
+	bindJcemBlockquotePanels();
 	bindJcemFootnotes();
 	hideNoScript();
 });

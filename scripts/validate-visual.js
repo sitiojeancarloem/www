@@ -6,11 +6,12 @@ import { chromium } from 'playwright';
 
 const root = path.resolve(process.env.VISUAL_SITE_DIR || '_site');
 const artifactDir = path.resolve(process.env.VISUAL_ARTIFACT_DIR || 'visual-artifacts');
-const pages = ['/', '/sobre/'];
+const pages = ['/', '/sobre/', '/p/devaneios/'];
 const themes = ['dark', 'light'];
 const viewports = [
 	{ name: 'desktop', width: 1366, height: 768 },
 	{ name: 'reduced', width: 900, height: 700 },
+	{ name: 'side', width: 720, height: 768 },
 	{ name: 'mobile', width: 390, height: 844 },
 ];
 
@@ -220,7 +221,8 @@ const validateCompactMenu = async (page, url, theme, viewportName) => {
 };
 
 const validatePage = async (page, url, theme, viewportName) => {
-	await page.goto(url, { waitUntil: 'networkidle' });
+	await page.goto(url, { waitUntil: 'domcontentloaded' });
+	await page.waitForLoadState('load', { timeout: 15000 }).catch(() => {});
 
 	if (theme === 'light') {
 		await page.locator('label[for="jcem-theme-light"]').click();
@@ -229,6 +231,13 @@ const validatePage = async (page, url, theme, viewportName) => {
 	}
 
 	await page.waitForTimeout(150);
+	await page
+		.waitForFunction(() => {
+			const icon = document.querySelector('label[for="jcem-theme-light"] i');
+			const pseudo = icon ? window.getComputedStyle(icon, '::before') : null;
+			return pseudo && pseudo.display !== 'none' && pseudo.content !== 'none' && pseudo.content !== '""';
+		}, null, { timeout: 15000 })
+		.catch(() => {});
 
 	const result = await page.evaluate(() => {
 		const visible = (selector) =>
@@ -294,6 +303,42 @@ const validatePage = async (page, url, theme, viewportName) => {
 					}
 				: null;
 		};
+		const boxInfo = (selector) => {
+			const element = document.querySelector(selector);
+			const rect = element?.getBoundingClientRect();
+
+			return rect
+				? {
+						left: Math.round(rect.left),
+						top: Math.round(rect.top),
+						right: Math.round(rect.right),
+						bottom: Math.round(rect.bottom),
+						width: Math.round(rect.width),
+						height: Math.round(rect.height),
+					}
+				: null;
+		};
+		const flag = document.querySelector('.jcem-post-header > .jcem-date-flag');
+		const flagTime = flag?.querySelector('time');
+		const flagTimeRect = flagTime?.getBoundingClientRect();
+		const flagTextMaxOffset = flagTimeRect
+			? Math.max(
+					...Array.from(
+						flag.querySelectorAll(
+							'.jcem-date-flag__year, .jcem-date-flag__month, .jcem-date-flag__day',
+						),
+					).map((node) => {
+						const rect = node.getBoundingClientRect();
+						return Math.abs(
+							rect.left + rect.width / 2 - (flagTimeRect.left + flagTimeRect.width / 2),
+						);
+					}),
+				)
+			: 0;
+		const blockquotes = Array.from(
+			document.querySelectorAll('.page__content blockquote'),
+		);
+		const shareButtons = visible('.page__share .btn');
 
 		return {
 			overflowX: document.documentElement.scrollWidth - document.documentElement.clientWidth,
@@ -319,8 +364,27 @@ const validatePage = async (page, url, theme, viewportName) => {
 			headerControls: {
 				viewportWidth: window.innerWidth,
 				logo: rectInfo('.site-logo'),
+				logoImg: rectInfo('.site-logo img'),
 				theme: rectInfo('.jcem-theme-toggle'),
 				navToggle: rectInfo('.jcem-nav-toggle'),
+			},
+			post: {
+				article: boxInfo('article.page'),
+				articleSurface:
+					boxInfo('article.page .page__inner-wrap') || boxInfo('article.page'),
+				title: boxInfo('.jcem-post-header .page__title'),
+				flag: boxInfo('.jcem-post-header > .jcem-date-flag'),
+				flagTextMaxOffset,
+				blockquotePanelsEnabled: Boolean(
+					document.querySelector('article.page.jcem-blockquote-panels'),
+				),
+				blockquoteCount: blockquotes.length,
+				panelBlockquoteCount: blockquotes.filter(
+					(quote) =>
+						quote.classList.contains('jcem-panel') &&
+						quote.querySelector(':scope > .jcem-panel__body'),
+				).length,
+				shareButtons: shareButtons.length,
 			},
 			styles: [
 				readStyle('.main_jcem_wrapper'),
@@ -328,6 +392,7 @@ const validatePage = async (page, url, theme, viewportName) => {
 				readStyle('.jcem-theme-toggle'),
 				readStyle('.initial-content'),
 				readStyle('.jcem-panel, .archive__item, .jcem-sobre'),
+				readStyle('.page__share .btn'),
 			].filter(Boolean),
 		};
 	});
@@ -365,11 +430,14 @@ const validatePage = async (page, url, theme, viewportName) => {
 	if (viewportName !== 'desktop') {
 		const header = result.headerControls;
 
-		if (!header.logo || !header.theme || !header.navToggle) {
+		if (!header.logo || !header.logoImg || !header.theme || !header.navToggle) {
 			fail(`Controles do header ausentes em ${url} ${theme} ${viewportName}`);
 		}
 
-		if (header.logo.left > 24) {
+		if (
+			result.post.articleSurface &&
+			Math.abs(header.logoImg.left - result.post.articleSurface.left) > 3
+		) {
 			fail(`Logo do header desalinhado da esquerda em ${url} ${theme} ${viewportName}`);
 		}
 
@@ -377,9 +445,70 @@ const validatePage = async (page, url, theme, viewportName) => {
 			fail(`Controles do header sobrepostos ou alinhados a esquerda em ${url} ${theme} ${viewportName}`);
 		}
 
-		if (header.viewportWidth - header.navToggle.right > 24) {
+		if (
+			result.post.articleSurface &&
+			Math.abs(header.navToggle.right - result.post.articleSurface.right) > 3
+		) {
 			fail(`Controles do header desalinhados da direita em ${url} ${theme} ${viewportName}`);
 		}
+	}
+
+	if (result.post.articleSurface && result.headerControls.logoImg) {
+		if (result.headerControls.logoImg.left < result.post.articleSurface.left - 2) {
+			fail(`Logo extrapola a margem do artigo em ${url} ${theme} ${viewportName}`);
+		}
+	}
+
+	if (result.post.articleSurface && result.headerControls.theme) {
+		if (result.headerControls.theme.right > result.post.articleSurface.right + 2) {
+			fail(`Switch de tema extrapola a margem do artigo em ${url} ${theme} ${viewportName}`);
+		}
+	}
+
+	if (
+		result.post.articleSurface &&
+		result.headerControls.navToggle &&
+		result.headerControls.navToggle.width > 1 &&
+		result.headerControls.navToggle.right > result.post.articleSurface.right + 2
+	) {
+		fail(`Botao de menu extrapola a margem do artigo em ${url} ${theme} ${viewportName}`);
+	}
+
+	const overlaps = (a, b) =>
+		Boolean(a && b) &&
+		a.left < b.right &&
+		a.right > b.left &&
+		a.top < b.bottom &&
+		a.bottom > b.top;
+
+	if (result.post.flag) {
+		if (result.post.flag.left < -2 || result.post.flag.right > result.headerControls.viewportWidth + 2) {
+			fail(`Flag de data fora da janela em ${url} ${theme} ${viewportName}`);
+		}
+
+		if (result.post.flag.width < 34 || result.post.flag.height < 54) {
+			fail(`Flag de data pequena em ${url} ${theme} ${viewportName}`);
+		}
+
+		if (result.post.flagTextMaxOffset > 3) {
+			fail(`Texto da flag desalinhado em ${url} ${theme} ${viewportName}`);
+		}
+	}
+
+	if (overlaps(result.post.flag, result.post.title)) {
+		fail(`Flag de data sobreposta ao titulo em ${url} ${theme} ${viewportName}`);
+	}
+
+	if (
+		result.post.blockquotePanelsEnabled &&
+		result.post.blockquoteCount > 0 &&
+		result.post.panelBlockquoteCount !== result.post.blockquoteCount
+	) {
+		fail(`Blockquote sem painel futurista em ${url} ${theme} ${viewportName}`);
+	}
+
+	if (result.post.shareButtons > 0 && result.post.shareButtons < 4) {
+		fail(`Botoes de compartilhamento incompletos em ${url} ${theme} ${viewportName}`);
 	}
 
 	for (const style of result.styles) {
@@ -492,7 +621,8 @@ const validatePage = async (page, url, theme, viewportName) => {
 };
 
 const validateNoScriptPage = async (page, url, viewportName) => {
-	await page.goto(url, { waitUntil: 'networkidle' });
+	await page.goto(url, { waitUntil: 'domcontentloaded' });
+	await page.waitForLoadState('load', { timeout: 15000 }).catch(() => {});
 	await page.waitForTimeout(150);
 
 	const result = await page.evaluate(() => {

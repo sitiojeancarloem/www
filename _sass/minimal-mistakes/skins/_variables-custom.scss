@@ -30,21 +30,21 @@
 	--dark--jcem-rule-shadow: rgba(244, 212, 0, 0.22);
 	--dark--jcem-social-color: rgba(234, 234, 234, 0.62);
 	--dark--jcem-social-color-hover: #f4d400;
-	--dark--jcem-article-bg: transparent;
+	--dark--jcem-article-bg: rgba(16, 16, 16, 0.4);
 	--dark--jcem-article-fade: linear-gradient(
 		to bottom,
-		#000 0%,
-		rgba(0, 0, 0, 0.82) 18%,
-		rgba(0, 0, 0, 0.3) 44%,
-		rgba(0, 0, 0, 0) 70%,
-		rgba(0, 0, 0, 0) 100%
+		rgba(16, 16, 16, 0.85) 0%,
+		rgba(16, 16, 16, 0.3) 20%,
+		rgba(16, 16, 16, 0.4) 50%,
+		rgba(16, 16, 16, 0.4) calc(100% - 2.5rem),
+		rgba(16, 16, 16, 0.4) 100%
 	);
 	--dark--jcem-wide-header-lift: clamp(4rem, 12vh, 5rem);
 	--dark--jcem-quote-bg: #2b303b;
 	--dark--jcem-alert-bg: #3c222a;
 	--dark--jcem-alert-background: #cd182a;
-	--dark--jcem-glitch-a: #ff21d0;
-	--dark--jcem-glitch-b: #00abe7;
+	--dark--jcem-glitch-a: rgba(244, 212, 0, 0.55);
+	--dark--jcem-glitch-b: rgba(255, 33, 120, 0.36);
 	--dark--primary-color: var(--dark--pri);
 	--dark--background-color: var(--dark--bg);
 	--dark--text-color: var(--dark--tc);
@@ -85,7 +85,7 @@
 		to bottom,
 		rgba(239, 239, 239, 0.85) 0%,
 		rgba(239, 239, 239, 0.7) 20%,
-		rgba(239, 239, 239, 0.7) 70%,
+		rgba(239, 239, 239, 0.7) 50%,
 		rgba(239, 239, 239, 1) calc(100% - 2.5rem),
 		rgba(239, 239, 239, 1) 100%
 	);
@@ -113,14 +113,17 @@ body > input.radio.jcem-theme-radio {
 }
 
 .main_jcem_wrapper {
+	width: 100%;
+	max-width: 100%;
 	min-height: 100vh;
+	overflow-x: clip;
 	background-color: var(--bg);
 	color: var(--tc);
 	color-scheme: light;
 	transition:
 		background-color 0.2s ease,
 		color 0.2s ease;
-	display: table;
+	display: block;
 
 	// Tema ativo: claro.
 	--tblb: var(--clean--tblb);
@@ -142,6 +145,7 @@ body > input.radio.jcem-theme-radio {
 	--mlink: var(--clean--mlink);
 	--mlink-h: var(--clean--mlink-h);
 	--nav-h: var(--clean--nav-h);
+	--jcem-article-border: var(--clean--b);
 	--jcem-panel-bg: var(--clean--jcem-panel-bg);
 	--jcem-panel-title-bg: var(--clean--jcem-panel-title-bg);
 	--jcem-panel-border: var(--clean--jcem-panel-border);
@@ -192,6 +196,7 @@ body > input.radio#jcem-theme-dark:checked ~ .main_jcem_wrapper {
 	--mlink: var(--dark--mlink);
 	--mlink-h: var(--dark--mlink-h);
 	--nav-h: var(--dark--nav-h);
+	--jcem-article-border: var(--dark--cbgd);
 	--jcem-panel-bg: var(--dark--jcem-panel-bg);
 	--jcem-panel-title-bg: var(--dark--jcem-panel-title-bg);
 	--jcem-panel-border: var(--dark--jcem-panel-border);
@@ -332,9 +337,11 @@ body > input.radio#jcem-theme-dark:checked ~ .main_jcem_wrapper {
 }
 
 .main_jcem_wrapper .jcem-panel,
+.main_jcem_wrapper .jcem-blockquote-panels .page__content blockquote,
 .main_jcem_wrapper .archive__item {
 	position: relative;
 	overflow: hidden;
+	isolation: isolate;
 	background:
 		linear-gradient(
 			90deg,
@@ -358,6 +365,10 @@ body > input.radio#jcem-theme-dark:checked ~ .main_jcem_wrapper {
 }
 
 .main_jcem_wrapper .jcem-panel:hover,
+.main_jcem_wrapper
+	.jcem-blockquote-panels
+	.page__content
+	blockquote:hover,
 .main_jcem_wrapper .archive__item:hover {
 	border-color: var(--jcem-panel-accent-hot);
 	box-shadow:
@@ -517,7 +528,8 @@ body > input.radio#jcem-theme-dark:checked ~ .main_jcem_wrapper {
 	overflow: visible;
 	background: var(--jcem-article-bg);
 	padding: 1em;
-	border: 1pz solid --clean--foc;
+	border: 0.5px solid var(--jcem-article-border);
+	border-top: none;
 
 	h1 > a::after {
 		display: none;
@@ -549,7 +561,9 @@ body
 	height: calc(var(--jcem-wide-header-lift) + 1.25rem);
 	background: var(--jcem-article-fade);
 	content: '';
-	pointer-events: none;
+	border: 0.5px solid var(--jcem-article-border);
+	border-bottom: none;
+	margin: 0 -1px;
 }
 
 .main_jcem_wrapper .jcem-featured-style--wide .page__inner-wrap > * {
@@ -568,7 +582,10 @@ body
 	margin-top: calc(var(--jcem-wide-header-lift) * -1);
 }
 
-.main_jcem_wrapper blockquote {
+.main_jcem_wrapper
+	article:not(.jcem-blockquote-panels)
+	.page__content
+	blockquote:not(.jcem-panel) {
 	background:
 		linear-gradient(
 			90deg,
@@ -580,6 +597,49 @@ body
 	border-color: var(--jcem-panel-accent);
 	box-shadow: inset 0.35rem 0 0 var(--jcem-panel-accent);
 	color: var(--tc);
+}
+
+.main_jcem_wrapper .jcem-panel--futuristic {
+	// uso: moldura do painel futurista importado do old-root.
+	border-color: rgba(43, 146, 219, 0.46);
+}
+
+.main_jcem_wrapper .jcem-panel--futuristic::before,
+.main_jcem_wrapper
+	.jcem-blockquote-panels
+	.page__content
+	blockquote::before {
+	position: absolute;
+	inset: 0;
+	z-index: 0;
+	display: block;
+	background: url('/assets/jcem/img/painel.svg') no-repeat center;
+	background-size: 100% 100%;
+	content: '';
+	opacity: 0.72;
+	pointer-events: none;
+}
+
+.main_jcem_wrapper .jcem-panel--futuristic > *,
+.main_jcem_wrapper
+	.jcem-blockquote-panels
+	.page__content
+	blockquote
+	> * {
+	position: relative;
+	z-index: 1;
+}
+
+.main_jcem_wrapper .jcem-panel--blockquote,
+.main_jcem_wrapper .jcem-blockquote-panels .page__content blockquote {
+	margin: 1.5rem 0;
+}
+
+.main_jcem_wrapper
+	.jcem-blockquote-panels
+	.page__content
+	blockquote:not(.jcem-panel) {
+	padding: 1rem;
 }
 
 .main_jcem_wrapper .footnotes,
@@ -655,13 +715,17 @@ body
 .main_jcem_wrapper
 	sup[id^='fnref']
 	a[role='doc-noteref'][data-footnote]::before {
-	position: absolute;
-	bottom: calc(100% + 0.55rem);
-	left: 50%;
+	position: fixed;
+	top: auto;
+	right: 1rem;
+	bottom: 1rem;
+	left: 1rem;
 	z-index: 20;
-	display: block;
-	width: max-content;
-	max-width: min(24rem, calc(100vw - 2rem));
+	display: none;
+	width: auto;
+	max-width: 24rem;
+	margin-right: auto;
+	margin-left: auto;
 	padding: 0.45rem 0.55rem;
 	border: 1px solid var(--bc);
 	border-radius: 0.25rem;
@@ -679,7 +743,7 @@ body
 	content: attr(data-footnote);
 	opacity: 0;
 	pointer-events: none;
-	transform: translate(-50%, 0.2rem);
+	transform: translateY(0.2rem);
 	transition:
 		opacity 0.12s ease 0.35s,
 		transform 0.12s ease 0.35s;
@@ -704,8 +768,9 @@ body
 .main_jcem_wrapper
 	sup[id^='fnref']
 	a[role='doc-noteref'][data-footnote]:focus-visible::before {
+	display: block;
 	opacity: 1;
-	transform: translate(-50%, 0);
+	transform: translateY(0);
 }
 
 .main_jcem_wrapper .reversefootnote,
@@ -745,6 +810,96 @@ body
 	a:focus-visible
 	.svg-inline--fa {
 	color: var(--jcem-social-color-hover) !important;
+}
+
+.main_jcem_wrapper .page__share {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 0.65rem;
+	padding-top: 1.25rem;
+	border-top: 1px solid var(--jcem-rule-color);
+}
+
+.main_jcem_wrapper .page__share-title {
+	flex: 0 0 100%;
+	margin: 0 0 0.1rem;
+	color: var(--tc);
+	font-size: 0.92rem;
+	letter-spacing: 0;
+}
+
+.main_jcem_wrapper .page__share .btn {
+	--jcem-share-brand: var(--link);
+	display: inline-flex;
+	align-items: center;
+	gap: 0.38rem;
+	min-height: 2.35rem;
+	margin: 0;
+	padding: 0.52rem 0.78rem;
+	border: 1px solid
+		color-mix(in srgb, var(--jcem-share-brand) 42%, var(--bc));
+	border-radius: 0.3rem;
+	background: linear-gradient(
+		135deg,
+		color-mix(in srgb, var(--jcem-share-brand) 18%, var(--fbg)) 0%,
+		color-mix(in srgb, var(--jcem-share-brand) 9%, var(--fbg)) 100%
+	);
+	box-shadow: 0 0.35rem 0.8rem rgba(0, 0, 0, 0.14);
+	color: var(--tc) !important;
+	font-size: 0.88rem;
+	font-weight: 700;
+	line-height: 1;
+	text-shadow: none;
+	transition:
+		border-color 0.15s ease,
+		box-shadow 0.15s ease,
+		transform 0.15s ease;
+}
+
+.main_jcem_wrapper .page__share .btn::after {
+	color: currentcolor;
+	opacity: 0.46;
+}
+
+.main_jcem_wrapper .page__share .btn i {
+	color: var(--jcem-share-brand);
+	font-size: 1rem;
+}
+
+.main_jcem_wrapper .page__share .btn:hover,
+.main_jcem_wrapper .page__share .btn:focus-visible {
+	border-color: color-mix(
+		in srgb,
+		var(--jcem-share-brand) 70%,
+		var(--bc)
+	);
+	box-shadow: 0 0.45rem 1rem rgba(0, 0, 0, 0.18);
+	color: var(--tc) !important;
+	transform: translateY(-1px);
+}
+
+.main_jcem_wrapper .page__share .btn--x {
+	--jcem-share-brand: #6b747a; // uso: acento X suavizado.
+}
+
+.main_jcem_wrapper .page__share .btn--facebook {
+	--jcem-share-brand: #466aa3; // uso: acento Facebook suavizado.
+}
+
+.main_jcem_wrapper .page__share .btn--linkedin {
+	--jcem-share-brand: #277fa6; // uso: acento LinkedIn suavizado.
+}
+
+.main_jcem_wrapper .page__share .btn--bluesky {
+	--jcem-share-brand: #2c8fca; // uso: acento Bluesky suavizado.
+}
+
+@media (max-width: 38em) {
+	.main_jcem_wrapper .page__share .btn {
+		flex: 1 1 min(100%, 8.5rem);
+		justify-content: center;
+	}
 }
 
 .main_jcem_wrapper .c-collapsible,
@@ -832,6 +987,14 @@ body
 .main_jcem_wrapper .jcem-markdown-columns > *,
 .main_jcem_wrapper .jcem-markdown-columns__item {
 	break-inside: avoid;
+}
+
+@media (max-width: 48em) {
+	.main_jcem_wrapper .c-markdown-columns,
+	.main_jcem_wrapper .jcem-markdown-columns {
+		column-count: 1;
+		column-width: auto;
+	}
 }
 
 .main_jcem_wrapper .c-markdown-columns__item img,
