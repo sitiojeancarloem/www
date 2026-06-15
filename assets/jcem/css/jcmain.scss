@@ -7,7 +7,7 @@
 	width: auto;
 	margin: 0;
 	transform: translateY(-37%);
-	margin-top: -0.7rem; // PENDENTE: validar alinhamento vertical mantendo extrapolação no topo e no bottom
+	margin-top: -0.8rem; // PENDENTE: validar alinhamento vertical mantendo extrapolação no topo e no bottom
 }
 
 .masthead__inner-wrap .site-title {
@@ -18,6 +18,20 @@
 	clip: rect(0 0 0 0);
 	clip-path: inset(50%);
 	white-space: nowrap;
+}
+
+.masthead__inner-wrap .masthead__menu > nav.greedy-nav {
+	> ul.visible-links {
+		&,
+		li,
+		li > a {
+			font-size: 0.8rem;
+		}
+
+		> li > a {
+			margin: 0 0.5em;
+		}
+	}
 }
 
 .masthead__menu,
@@ -467,8 +481,11 @@ div.sobpostbar {
 	}
 }
 
+.sobpostbar {
+	font-size: 0.8rem;
+}
+
 .main_jcem_wrapper > .sobpostbar {
-	font-size: 1rem;
 	padding-top: 0;
 
 	> p {
