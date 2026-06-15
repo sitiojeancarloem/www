@@ -224,6 +224,68 @@ body > input.radio#jcem-theme-dark:checked ~ .main_jcem_wrapper {
 	background-color: var(--bg-solid) !important;
 }
 
+@media print {
+	.main_jcem_wrapper,
+	body > input.radio#jcem-theme-dark:checked ~ .main_jcem_wrapper {
+		color-scheme: light;
+
+		// PROTECAO: impressão usa aliases claros mesmo com tema escuro ativo.
+		--tblb: var(--clean--tblb);
+		--bg: var(--clean--bg);
+		--bg-solid: var(--clean--bg-solid);
+		--cbg: var(--clean--cbg);
+		--cbgd: var(--clean--cbgd);
+		--tc: var(--clean--tc);
+		--mtc: var(--clean--mtc);
+		--bc: var(--clean--bc);
+		--fbg: var(--clean--fbg);
+		--ftbg: var(--clean--ftbg);
+		--pri: var(--clean--pri);
+		--foc: var(--clean--foc);
+		--act: var(--clean--act);
+		--link: var(--clean--link);
+		--link-h: var(--clean--link-h);
+		--link-v: var(--clean--link-v);
+		--mlink: var(--clean--mlink);
+		--mlink-h: var(--clean--mlink-h);
+		--nav-h: var(--clean--nav-h);
+		--jcem-article-border: var(--clean--b);
+		--jcem-panel-bg: var(--clean--jcem-panel-bg);
+		--jcem-panel-title-bg: var(--clean--jcem-panel-title-bg);
+		--jcem-panel-border: var(--clean--jcem-panel-border);
+		--jcem-panel-shadow: var(--clean--jcem-panel-shadow);
+		--jcem-panel-line: var(--clean--jcem-panel-line);
+		--jcem-panel-accent: var(--clean--jcem-panel-accent);
+		--jcem-panel-accent-hot: var(--clean--jcem-panel-accent-hot);
+		--jcem-rule-color: var(--clean--jcem-rule-color);
+		--jcem-rule-shadow: var(--clean--jcem-rule-shadow);
+		--jcem-social-color: var(--clean--jcem-social-color);
+		--jcem-social-color-hover: var(--clean--jcem-social-color-hover);
+		--jcem-article-bg: var(--clean--jcem-article-bg);
+		--jcem-article-fade: var(--clean--jcem-article-fade);
+		--jcem-wide-header-lift: var(--clean--jcem-wide-header-lift);
+		--jcem-quote-bg: var(--clean--jcem-quote-bg);
+		--jcem-alert-bg: var(--clean--jcem-alert-bg);
+		--jcem-alert-background: var(--clean--jcem-alert-background);
+		--jcem-glitch-a: var(--clean--jcem-glitch-a);
+		--jcem-glitch-b: var(--clean--jcem-glitch-b);
+		--primary-color: var(--clean--primary-color);
+		--background-color: var(--clean--background-color);
+		--text-color: var(--clean--text-color);
+
+		background: var(--bg) !important;
+		background-color: var(--bg-solid) !important;
+		color: var(--tc) !important;
+	}
+
+	html,
+	body {
+		background: var(--clean--bg-solid) !important;
+		color: var(--clean--tc) !important;
+		color-scheme: light;
+	}
+}
+
 .main_jcem_wrapper h1,
 .main_jcem_wrapper h2,
 .main_jcem_wrapper h3,

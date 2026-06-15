@@ -660,6 +660,61 @@ const validatePage = async (page, url, theme, viewportName) => {
 	await validateCompactMenu(page, url, theme, viewportName);
 };
 
+const validatePrintTheme = async (page, url, viewportName) => {
+	if (viewportName !== 'desktop') {
+		return;
+	}
+
+	await page.goto(url, { waitUntil: 'domcontentloaded' });
+	await page.waitForLoadState('load', { timeout: 15000 }).catch(() => {});
+	await page.locator('label[for="jcem-theme-dark"]').click();
+	await page.emulateMedia({ media: 'print' });
+	await page.waitForTimeout(150);
+
+	const result = await page.evaluate(() => {
+		const wrapper = document.querySelector('.main_jcem_wrapper');
+		const wrapperStyle = wrapper ? window.getComputedStyle(wrapper) : null;
+		const bodyStyle = window.getComputedStyle(document.body);
+		const rootStyle = window.getComputedStyle(document.documentElement);
+		const value = (style, name) => style?.getPropertyValue(name).trim() || '';
+
+		return {
+			darkChecked: Boolean(document.querySelector('#jcem-theme-dark')?.checked),
+			colorScheme: wrapperStyle?.colorScheme || '',
+			bg: value(wrapperStyle, '--bg'),
+			bgSolid: value(wrapperStyle, '--bg-solid'),
+			tc: value(wrapperStyle, '--tc'),
+			cleanBg: value(rootStyle, '--clean--bg'),
+			cleanBgSolid: value(rootStyle, '--clean--bg-solid'),
+			cleanTc: value(rootStyle, '--clean--tc'),
+			darkBgSolid: value(rootStyle, '--dark--bg-solid'),
+			bodyBackground: bodyStyle.backgroundColor,
+		};
+	});
+
+	await page.emulateMedia({ media: 'screen' });
+
+	if (!result.darkChecked) {
+		fail(`Tema escuro nao foi habilitado antes do teste de impressao em ${url}`);
+	}
+
+	if (!result.colorScheme.includes('light')) {
+		fail(`Impressao nao forca color-scheme claro em ${url}`);
+	}
+
+	if (
+		result.bg !== result.cleanBg ||
+		result.bgSolid !== result.cleanBgSolid ||
+		result.tc !== result.cleanTc
+	) {
+		fail(`Impressao nao usa aliases claros em ${url}`);
+	}
+
+	if (result.bgSolid === result.darkBgSolid) {
+		fail(`Impressao manteve fundo escuro em ${url}`);
+	}
+};
+
 const validateNoScriptPage = async (page, url, viewportName) => {
 	await page.goto(url, { waitUntil: 'domcontentloaded' });
 	await page.waitForLoadState('load', { timeout: 15000 }).catch(() => {});
@@ -725,6 +780,8 @@ try {
 			for (const theme of themes) {
 				await validatePage(page, `${baseUrl}${pagePath}`, theme, viewport.name);
 			}
+
+			await validatePrintTheme(page, `${baseUrl}${pagePath}`, viewport.name);
 		}
 
 		await context.close();
