@@ -175,7 +175,7 @@ Entretanto o conhecimento por si só não é nada. É necessário aos observador
 
 Em outras palavras, isto significa que se não em todos os casos, pelo menos na maioria, o ser humano enxergará um fato ou evidência da forma como ele quer ver, da forma como ele se condicionou a ver; e não necessariamente da forma que realmente é.
 
-![Origem da convicção](/assets/images/posts/devaneios/OrigemDaConvicao.jpg)
+![Origem da convicção](/assets/images/posts/devaneios/OrigemDaConvicao-jcem-ccbysanc.png)
 
 ## Um Castelo de Cartas
 
