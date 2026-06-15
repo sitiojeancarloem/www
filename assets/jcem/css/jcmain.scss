@@ -283,11 +283,21 @@ aside {
 	--jcem-date-flag-border: #171a1d; // uso: contorno da flag.
 }
 
-.jcem-post-header {
+.page__inner-wrap header.jcem-post-header {
 	position: relative;
-	--jcem-date-flag-gap: clamp(0.7rem, 1.8vw, 1rem);
+	//--jcem-date-flag-gap: clamp(0.7rem, 1.8vw, 1rem);
 	--jcem-date-flag-top: clamp(-1.25rem, -2.5vw, -0.85rem);
 	--jcem-date-flag-width: clamp(42px, 4.8vw, 48px);
+	padding-top: 1em;
+
+	> h1 > a {
+		display: block;
+		width: calc(100% + 1.3em);
+		line-height: 1.2em;
+		padding: 0.1em 2.4em;
+		background: var(--mtc);
+		margin: 0 -1rem;
+	}
 }
 
 .jcem-post-header:has(> .jcem-date-flag) {

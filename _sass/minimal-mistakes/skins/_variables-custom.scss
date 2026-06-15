@@ -95,7 +95,7 @@
 		rgba(239, 239, 239, 1) calc(100% - 2.5rem),
 		rgba(239, 239, 239, 1) 100%
 	);
-	--clean--jcem-wide-header-lift: clamp(4rem, 12vh, 5rem);
+	--clean--jcem-wide-header-lift: clamp(4rem, 9vh, 5rem);
 	--clean--jcem-quote-bg: #f4f8fa;
 	--clean--jcem-alert-bg: #fff3f3;
 	--clean--jcem-alert-background: #c01e1e;
@@ -724,8 +724,7 @@ body
 	.page__inner-wrap {
 	border-color: transparent;
 
-	&:not([id^='fnref']),
-	&:not([id^='fnref'])::before {
+	&:not([id^='fnref']) {
 		box-shadow: 0.2rem 0.2rem 0.6rem 0.2rem var(--clean--cbgd);
 	}
 }
