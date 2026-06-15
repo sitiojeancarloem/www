@@ -94,9 +94,10 @@ const normalizeJcemText = (text) => text
     .replace(/\s+/g, ' ')
     .trim()
     .toLowerCase();
+const normalizeJcemHeadingText = (text) => normalizeJcemText(text).replace(/\s*permalink$/, '');
 const findJcemSectionHeading = (content, title) => {
     const normalizedTitle = normalizeJcemText(title);
-    return (Array.from(content.querySelectorAll('h2, h3')).find((heading) => normalizeJcemText(heading.textContent || '') === normalizedTitle) || null);
+    return (Array.from(content.querySelectorAll('h2, h3')).find((heading) => normalizeJcemHeadingText(heading.textContent || '') === normalizedTitle) || null);
 };
 const createJcemDetails = (id, label, modifier) => {
     const details = document.createElement('details');
@@ -107,6 +108,14 @@ const createJcemDetails = (id, label, modifier) => {
     details.append(summary);
     return details;
 };
+const insertJcemDetailsBefore = (details, target) => {
+    const parent = target.parentNode;
+    if (!parent) {
+        return false;
+    }
+    parent.insertBefore(details, target);
+    return true;
+};
 const moveUntilNextHeading = (details, start) => {
     let node = start.nextSibling;
     details.append(start);
@@ -115,6 +124,11 @@ const moveUntilNextHeading = (details, start) => {
         const next = current.nextSibling;
         if (current instanceof HTMLHeadingElement &&
             ['H2', 'H3'].includes(current.tagName)) {
+            break;
+        }
+        if (current instanceof HTMLDetailsElement &&
+            (current.classList.contains('c-collapsible') ||
+                current.classList.contains('jcem-collapsible'))) {
             break;
         }
         details.append(current);
@@ -131,7 +145,9 @@ const wrapJcemFootnotes = (content) => {
     const details = createJcemDetails((heading === null || heading === void 0 ? void 0 : heading.id) || 'referencias', 'Referências', 'references');
     if (heading) {
         heading.removeAttribute('id');
-        content.insertBefore(details, heading);
+        if (!insertJcemDetailsBefore(details, heading)) {
+            return;
+        }
         details.append(heading);
         details.append(footnotes);
         return;
@@ -147,7 +163,9 @@ const wrapJcemBibliography = (content) => {
     const id = heading.id || 'bibliografia';
     const details = createJcemDetails(id, 'Bibliografia', 'bibliography');
     heading.removeAttribute('id');
-    content.insertBefore(details, heading);
+    if (!insertJcemDetailsBefore(details, heading)) {
+        return;
+    }
     moveUntilNextHeading(details, heading);
 };
 const openJcemCollapsibleForHash = (hash) => {

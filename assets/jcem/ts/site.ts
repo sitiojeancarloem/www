@@ -139,6 +139,9 @@ const normalizeJcemText = (text: string): string =>
 		.trim()
 		.toLowerCase();
 
+const normalizeJcemHeadingText = (text: string): string =>
+	normalizeJcemText(text).replace(/\s*permalink$/, '');
+
 const findJcemSectionHeading = (
 	content: HTMLElement,
 	title: string,
@@ -150,7 +153,7 @@ const findJcemSectionHeading = (
 			content.querySelectorAll<HTMLHeadingElement>('h2, h3'),
 		).find(
 			(heading) =>
-				normalizeJcemText(heading.textContent || '') === normalizedTitle,
+				normalizeJcemHeadingText(heading.textContent || '') === normalizedTitle,
 		) || null
 	);
 };
@@ -171,6 +174,20 @@ const createJcemDetails = (
 	return details;
 };
 
+const insertJcemDetailsBefore = (
+	details: HTMLDetailsElement,
+	target: Element,
+): boolean => {
+	const parent = target.parentNode;
+
+	if (!parent) {
+		return false;
+	}
+
+	parent.insertBefore(details, target);
+	return true;
+};
+
 const moveUntilNextHeading = (
 	details: HTMLDetailsElement,
 	start: Element,
@@ -186,6 +203,14 @@ const moveUntilNextHeading = (
 		if (
 			current instanceof HTMLHeadingElement &&
 			['H2', 'H3'].includes(current.tagName)
+		) {
+			break;
+		}
+
+		if (
+			current instanceof HTMLDetailsElement &&
+			(current.classList.contains('c-collapsible') ||
+				current.classList.contains('jcem-collapsible'))
 		) {
 			break;
 		}
@@ -213,7 +238,9 @@ const wrapJcemFootnotes = (content: HTMLElement): void => {
 
 	if (heading) {
 		heading.removeAttribute('id');
-		content.insertBefore(details, heading);
+		if (!insertJcemDetailsBefore(details, heading)) {
+			return;
+		}
 		details.append(heading);
 		details.append(footnotes);
 
@@ -235,7 +262,9 @@ const wrapJcemBibliography = (content: HTMLElement): void => {
 	const details = createJcemDetails(id, 'Bibliografia', 'bibliography');
 
 	heading.removeAttribute('id');
-	content.insertBefore(details, heading);
+	if (!insertJcemDetailsBefore(details, heading)) {
+		return;
+	}
 	moveUntilNextHeading(details, heading);
 };
 

@@ -1,7 +1,9 @@
 {% assign references = page.references | default: empty %}
 {% if references != empty %}
-  <section class="jcem-references" aria-labelledby="jcem-references-title">
-    <h2 id="jcem-references-title">Referências</h2>
+  <details id="jcem-references" class="c-collapsible c-collapsible--references jcem-collapsible jcem-collapsible--references jcem-references">
+    <summary>Referências</summary>
+    <section aria-labelledby="jcem-references-title">
+      <h2 id="jcem-references-title">Referências</h2>
     <ol>
       {% for reference in references %}
         {% assign ref_id = reference.id | default: forloop.index | slugify %}
@@ -15,5 +17,6 @@
         </li>
       {% endfor %}
     </ol>
-  </section>
+    </section>
+  </details>
 {% endif %}

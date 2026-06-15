@@ -1490,6 +1490,26 @@ body
 	color: var(--link-h);
 }
 
+.main_jcem_wrapper .fa-sun::before,
+.main_jcem_wrapper .fa-moon::before,
+.main_jcem_wrapper .fa-arrow-up::before {
+	display: inline-block;
+	font-family: var(--_fa-family, 'Font Awesome 7 Free');
+	font-weight: var(--fa-style, 600);
+}
+
+.main_jcem_wrapper .fa-sun::before {
+	content: '\f185';
+}
+
+.main_jcem_wrapper .fa-moon::before {
+	content: '\f186';
+}
+
+.main_jcem_wrapper .fa-arrow-up::before {
+	content: '\f062';
+}
+
 body
 	> input.radio#jcem-theme-light:checked
 	~ .main_jcem_wrapper

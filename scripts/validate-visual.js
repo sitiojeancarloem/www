@@ -4,6 +4,8 @@ import { existsSync } from 'node:fs';
 import path from 'node:path';
 import { chromium } from 'playwright';
 
+process.env.PW_TEST_SCREENSHOT_NO_FONTS_READY ??= '1';
+
 const root = path.resolve(process.env.VISUAL_SITE_DIR || '_site');
 const artifactDir = path.resolve(process.env.VISUAL_ARTIFACT_DIR || 'visual-artifacts');
 const pages = ['/', '/sobre/', '/p/devaneios/'];
@@ -26,6 +28,30 @@ const contentTypes = new Map([
 	['.gif', 'image/gif'],
 	['.ico', 'image/x-icon'],
 ]);
+
+const browserCandidates = [
+	process.env.PLAYWRIGHT_CHROMIUM_EXECUTABLE,
+	process.env.CHROME_EXECUTABLE,
+	process.env.EDGE_EXECUTABLE,
+	'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe',
+	'C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe',
+	'C:\\Program Files\\Microsoft\\Edge\\Application\\msedge.exe',
+	'C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe',
+].filter(Boolean);
+
+const findLocalBrowser = () =>
+	browserCandidates.find((candidate) => existsSync(candidate));
+
+const launchBrowser = async () => {
+	const executablePath = findLocalBrowser();
+
+	if (executablePath) {
+		// PROTECAO: validação visual não depende do download do browser gerenciado.
+		return chromium.launch({ executablePath });
+	}
+
+	return chromium.launch();
+};
 
 const fail = (message) => {
 	throw new Error(message);
@@ -602,7 +628,15 @@ const validatePage = async (page, url, theme, viewportName) => {
 
 	if (result.scrollHeight > result.clientHeight + 240) {
 		await page.evaluate(() => window.scrollTo(0, Math.min(520, document.documentElement.scrollHeight)));
-		await page.waitForTimeout(250);
+		await page
+			.waitForFunction(
+				() =>
+					window.scrollY > 240 &&
+					document.querySelector('.jcem-scroll-top')?.classList.contains('is-visible'),
+				null,
+				{ timeout: 1500 },
+			)
+			.catch(() => {});
 
 		const scrolledState = await page.evaluate(() => {
 			const scrollTop = document.querySelector('.jcem-scroll-top');
@@ -886,7 +920,7 @@ const validateNoScriptPage = async (page, url, viewportName) => {
 const server = await startServer();
 const address = server.address();
 const baseUrl = `http://127.0.0.1:${address.port}`;
-const browser = await chromium.launch();
+const browser = await launchBrowser();
 
 try {
 	await mkdir(artifactDir, { recursive: true });

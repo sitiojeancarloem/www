@@ -8,6 +8,8 @@
 		"check:ts": "tsc --noEmit",
 		"build:ts": "tsc",
 		"check": "npm run check:ts",
+		"playwright:install": "cross-env PLAYWRIGHT_CHROMIUM_DOWNLOAD_HOST=https://cdn.playwright.dev npx playwright install chromium",
+		"playwright:install:esrp": "cross-env PLAYWRIGHT_CHROMIUM_DOWNLOAD_HOST=https://playwright.download.prss.microsoft.com/dbazure/download/playwright npx playwright install chromium",
 		"validate:visual": "node scripts/validate-visual.js",
 		"test": "npm run check && bundle exec ruby scripts/jekyll_local.rb build",
 		"build": "npm run build:ts && bundle exec ruby scripts/jekyll_local.rb build",

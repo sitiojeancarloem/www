@@ -24,9 +24,6 @@ layout: default
 {% elsif page.header.overlay_image %}
   {% assign jcem_featured_image_path = page.header.overlay_image %}
 {% endif %}
-{% if jcem_featured_style == "" and jcem_featured_image_path != "" %}
-  {% assign jcem_featured_style = "wide" %}
-{% endif %}
 {% assign jcem_custom_featured = false %}
 {% if jcem_featured_image_path != "" %}
   {% if jcem_featured_style == "wide" or jcem_featured_style == "content" %}
@@ -47,6 +44,11 @@ layout: default
 {% assign jcem_blockquote_panels = true %}
 {% if site.jcem.blockquote_panels == false %}
   {% assign jcem_blockquote_panels = false %}
+{% endif %}
+{% if page.blockquote_panels != null %}
+  {% assign jcem_blockquote_panels = page.blockquote_panels %}
+{% elsif page.jcem.blockquote_panels != null %}
+  {% assign jcem_blockquote_panels = page.jcem.blockquote_panels %}
 {% endif %}
 
 {% if jcem_custom_featured and jcem_featured_style == "wide" %}
