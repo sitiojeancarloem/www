@@ -200,7 +200,7 @@ Olhando o mundo atual, de frenesi, correria, estresse e depressão, a conclusão
 
 [^19]: Bíblia. NTLH. Mateus 12:12. “_Pois uma pessoa vale muito mais do que uma ovelha. Portanto, a nossa Lei permite ajudar os outros no sábado. Mateus 12:12._“
 
-[^20]: Bíblia. Nestlé-Aland|LXX. Lucas 4:16. “_Καὶ ἦλθεν εἰς τὴν Ναζαρέτ, οὗ ἦν τεθραμμένος· καὶ εἰσῆλθεν, κατὰ τὸ εἰωθὸς αὐτῷ, ἐν τῇ ἡμέρᾳ τῶν σαββάτων εἰς τὴν συναγωγήν, καὶ ἀνέστη ἀναγνῶναι._“
+[^20]: Bíblia. Nestlé-Aland\|LXX. Lucas 4:16. “_Καὶ ἦλθεν εἰς τὴν Ναζαρέτ, οὗ ἦν τεθραμμένος· καὶ εἰσῆλθεν, κατὰ τὸ εἰωθὸς αὐτῷ, ἐν τῇ ἡμέρᾳ τῶν σαββάτων εἰς τὴν συναγωγήν, καὶ ἀνέστη ἀναγνῶναι._“
 
 [^21]: a b c Bíblia. RA. I João 2:3-6. “_Ora, sabemos que o temos conhecido por isto: se guardamos os seus mandamentos. 4 Aquele que diz: Eu o conheço e não guarda os seus mandamentos é mentiroso, e nele não está a verdade. 6 Aquele, entretanto, que guarda a sua palavra, nele, verdadeiramente, tem sido aperfeiçoado o amor de Deus. Nisto sabemos que estamos nele: 6 aquele que diz que permanece nele, esse deve também andar assim como ele andou_“
 

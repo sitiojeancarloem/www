@@ -37,16 +37,21 @@ Para o presente problema há uma premissa notória, que é a **perfeição**. É
 Portanto, tem-se 3 premissas para a salvação: **Espirito Santo**, **Esforço Humano** e **Perfeição**. Montando a tabela verdade, tem-se:
 (1)   ![\begin{equation*}  qLinhas = R^P \therefore qLinhas = 2^3 = 8 \end{equation*}](https://web.archive.org/web/20201004153207im_/https://blog.jeancarloem.com/wp-content/ql-cache/quicklatex.com-d9c96bf06e24f95918c3b3a790f4197a_l3.png "Rendered by QuickLaTeX.com")
 
-|  | Esforço Humano | Espírito Santo | Perfeição | É possível? |
-| --- | --- | --- | --- | --- |
-| 1 | Falso | Falso | Falso |  |
-| 2 | Falso | Falso | Verdade |  |
-| 3 | Falso | Verdade | Falso |  |
-| 4 | Falso | Verdade | Verdade |  |
-| 5 | Verdade | Falso | Falso |  |
-| 6 | Verdade | Falso | Verdade |  |
-| 7 | Verdade | Verdade | Falso |  |
-| 8 | Verdade | Verdade | Verdade |  |
+<table>
+<thead>
+<tr><th></th><th>Esforço Humano</th><th>Espírito Santo</th><th>Perfeição</th><th>É possível?</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>Falso</td><td>Falso</td><td>Falso</td><td></td></tr>
+<tr><td>2</td><td>Falso</td><td>Falso</td><td>Verdade</td><td></td></tr>
+<tr><td>3</td><td>Falso</td><td>Verdade</td><td>Falso</td><td></td></tr>
+<tr><td>4</td><td>Falso</td><td>Verdade</td><td>Verdade</td><td></td></tr>
+<tr><td>5</td><td>Verdade</td><td>Falso</td><td>Falso</td><td></td></tr>
+<tr><td>6</td><td>Verdade</td><td>Falso</td><td>Verdade</td><td></td></tr>
+<tr><td>7</td><td>Verdade</td><td>Verdade</td><td>Falso</td><td></td></tr>
+<tr><td>8</td><td>Verdade</td><td>Verdade</td><td>Verdade</td><td></td></tr>
+</tbody>
+</table>
 O objetivo é saber se a combinação “**E**” de cada linha é ou não possível e mais, se é ou não necessária para a salvação. Para tanto, tem-se que estabelecer as 3 (três) perguntas no que diz respeito a salvação. Assim, para ser salvo:
 
 1.  **É necessário Esforço humano?**
@@ -181,16 +186,21 @@ Evidentemente, o espírito de profecia diz abertamente, esforço humano não sal
 #### Atualizando a Tabela
 Conforme visto, pode-se considerar todas as linhas que não consideram o Esforço Humano necessário como erradas. Atualizando, a tabela fica assim:
 
-|  | Esforço Humano | Espírito Santo | Perfeição | É possível? |
-| --- | --- | --- | --- | --- |
-| 1 | **Falso** | Falso | Falso | **Não** |
-| 2 | **Falso** | Falso | Verdade | **Não** |
-| 3 | **Falso** | Verdade | Falso | **Não** |
-| 4 | **Falso** | Verdade | Verdade | **Não** |
-| 5 | Verdade | Falso | Falso |  |
-| 6 | Verdade | Falso | Verdade |  |
-| 7 | Verdade | Verdade | Falso |  |
-| 8 | Verdade | Verdade | Verdade |  |
+<table>
+<thead>
+<tr><th></th><th>Esforço Humano</th><th>Espírito Santo</th><th>Perfeição</th><th>É possível?</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td><strong>Falso</strong></td><td>Falso</td><td>Falso</td><td><strong>Não</strong></td></tr>
+<tr><td>2</td><td><strong>Falso</strong></td><td>Falso</td><td>Verdade</td><td><strong>Não</strong></td></tr>
+<tr><td>3</td><td><strong>Falso</strong></td><td>Verdade</td><td>Falso</td><td><strong>Não</strong></td></tr>
+<tr><td>4</td><td><strong>Falso</strong></td><td>Verdade</td><td>Verdade</td><td><strong>Não</strong></td></tr>
+<tr><td>5</td><td>Verdade</td><td>Falso</td><td>Falso</td><td></td></tr>
+<tr><td>6</td><td>Verdade</td><td>Falso</td><td>Verdade</td><td></td></tr>
+<tr><td>7</td><td>Verdade</td><td>Verdade</td><td>Falso</td><td></td></tr>
+<tr><td>8</td><td>Verdade</td><td>Verdade</td><td>Verdade</td><td></td></tr>
+</tbody>
+</table>
 ### Espírito Santo
 Que o esforço humano é necessário para obter a salvação foi verificado; ele não é o suficiente, mas faz parte do processo, pois Quem de fato salva é Cristo; o esforço deve ser de permanecer salvo. Mas ainda resta uma dúvida, neste processo de salvação há a necessidade do Espírito Santo? É o objetivo agora, saber se é ou não necessário para a salvação, o Espírito Santo.
 
@@ -250,16 +260,21 @@ Novamente, se você acredita no espírito de profecia conforme consta em _Apocal
 #### Atualizando a Tabela
 Conforme visto, pode-se considerar todas as linhas que não incluem o Espírito Santo como erradas, afinal, o que a bíblia e o espírito de profecia ensinam é que, **deve haver uma cooperação entre DEUS e homem**. Apenas um, sem o outro, não dará certo. Portanto, atualizando a tabela, fica assim:
 
-|  | Esforço Humano | Espírito Santo | Perfeição | É possível? |
-| --- | --- | --- | --- | --- |
-| 1 | Falso | Falso | Falso | **Não** |
-| 2 | Falso | Falso | Verdade | **Não** |
-| 3 | Falso | Verdade | Falso | **Não** |
-| 4 | Falso | Verdade | Verdade | **Não** |
-| 5 | Verdade | **Falso** | Falso | **Não** |
-| 6 | Verdade | **Falso** | Verdade | **Não** |
-| 7 | Verdade | Verdade | Falso |  |
-| 8 | Verdade | Verdade | Verdade |  |
+<table>
+<thead>
+<tr><th></th><th>Esforço Humano</th><th>Espírito Santo</th><th>Perfeição</th><th>É possível?</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>Falso</td><td>Falso</td><td>Falso</td><td><strong>Não</strong></td></tr>
+<tr><td>2</td><td>Falso</td><td>Falso</td><td>Verdade</td><td><strong>Não</strong></td></tr>
+<tr><td>3</td><td>Falso</td><td>Verdade</td><td>Falso</td><td><strong>Não</strong></td></tr>
+<tr><td>4</td><td>Falso</td><td>Verdade</td><td>Verdade</td><td><strong>Não</strong></td></tr>
+<tr><td>5</td><td>Verdade</td><td><strong>Falso</strong></td><td>Falso</td><td><strong>Não</strong></td></tr>
+<tr><td>6</td><td>Verdade</td><td><strong>Falso</strong></td><td>Verdade</td><td><strong>Não</strong></td></tr>
+<tr><td>7</td><td>Verdade</td><td>Verdade</td><td>Falso</td><td></td></tr>
+<tr><td>8</td><td>Verdade</td><td>Verdade</td><td>Verdade</td><td></td></tr>
+</tbody>
+</table>
 ## Importa ser Perfeito?
 Até agora, apenas duas linhas da tabela restaram. Apenas duas possibilidades existem e, em ambas as possibilidades é preciso ter a cooperação entre o esforço humano e atuação DIVINA. Qualquer pessoa que creia ou ensine algo diferente estará, como verificado pela tabela verdade, no erro e mentindo.
 Agora chega então, o grande momento em que é necessário definir se é ou não possível ser perfeito. Mas infelizmente haverá um desapontamento. Isso porque NÃO existe na bíblia um único texto sequer que afirme uma coisa ou outra. Existe sim, textos que dão a entende uma coisa e outros que dão a entender outra. O grande problema deste “_dão a entender_“, é que não passa de puro _achismo_, tornando-se tão somente uma questão pessoal. Ache um único texto que defina o problema, e toda a polêmica teria acabado e, inclusive, este artigo se tornaria inútil. A verdade e doutrinas, não podem jamais ser baseadas numa interpretação particular[^52] das escrituras e, qualquer que defenda qualquer das posição, sem haver um claro “_assim diz o Senhor_“, está cometendo um terrível erro. A bíblia deve sempre, ser sua própria intérprete[^53]. “_As coisas encobertas pertencem ao SENHOR, nosso Deus, porém as reveladas nos pertencem, a nós e a nossos filhos, para sempre_“[^54]. Não compete ao homem ir além[^55] daquilo que foi revelado e, se DEUS não revelou é porque **NÃO IMPORTA** para a salvação.
@@ -275,16 +290,21 @@ Qualquer pessoa, líder, pastor, ou irmão leigo que discuta este assunto, almej
 > — Bíblia. ARA. Gálatas 1:8-9[^55]
 Veja como a Tabela Verdade termina:
 
-|  | Esforço Humano | Espírito Santo | Perfeição | É possível? |
-| --- | --- | --- | --- | --- |
-| 1 | Falso | Falso | Falso | **Não** |
-| 2 | Falso | Falso | Verdade | **Não** |
-| 3 | Falso | Verdade | Falso | **Não** |
-| 4 | Falso | Verdade | Verdade | **Não** |
-| 5 | Verdade | **Falso** | Falso | **Não** |
-| 6 | Verdade | **Falso** | Verdade | **Não** |
-| 7 | Verdade | Verdade | Falso | **Não importa** |
-| 8 | Verdade | Verdade | Verdade |  |
+<table>
+<thead>
+<tr><th></th><th>Esforço Humano</th><th>Espírito Santo</th><th>Perfeição</th><th>É possível?</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>Falso</td><td>Falso</td><td>Falso</td><td><strong>Não</strong></td></tr>
+<tr><td>2</td><td>Falso</td><td>Falso</td><td>Verdade</td><td><strong>Não</strong></td></tr>
+<tr><td>3</td><td>Falso</td><td>Verdade</td><td>Falso</td><td><strong>Não</strong></td></tr>
+<tr><td>4</td><td>Falso</td><td>Verdade</td><td>Verdade</td><td><strong>Não</strong></td></tr>
+<tr><td>5</td><td>Verdade</td><td><strong>Falso</strong></td><td>Falso</td><td><strong>Não</strong></td></tr>
+<tr><td>6</td><td>Verdade</td><td><strong>Falso</strong></td><td>Verdade</td><td><strong>Não</strong></td></tr>
+<tr><td>7</td><td>Verdade</td><td>Verdade</td><td>Falso</td><td><strong>Não importa</strong></td></tr>
+<tr><td>8</td><td>Verdade</td><td>Verdade</td><td>Verdade</td><td></td></tr>
+</tbody>
+</table>
 ## O Espírito de profecia
 Definitivamente, a bíblia não define se é ou não possível a perfeição, porém o Espírito de Profecia define abertamente. Antes porém, é necessário fazer uma consideração.
 Igualmente ao que acontece com a bíblia, há diversos textos do Espírito de Profecia que dão margem a um entendimento e outros que dão margem a outro, o que gera afincos debates. Contudo, DEUS não se contraria. E estes textos normalmente não afirmam de forma explícita, mas é o leitor que de forma subjetiva tira a conclusão a partir do texto lido, tentando entender as entrelinhas e comete um terrível erro.

@@ -24,6 +24,9 @@ layout: default
 {% elsif page.header.overlay_image %}
   {% assign jcem_featured_image_path = page.header.overlay_image %}
 {% endif %}
+{% if jcem_featured_style == "" and jcem_featured_image_path != "" %}
+  {% assign jcem_featured_style = "wide" %}
+{% endif %}
 {% assign jcem_custom_featured = false %}
 {% if jcem_featured_image_path != "" %}
   {% if jcem_featured_style == "wide" or jcem_featured_style == "content" %}

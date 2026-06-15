@@ -52,54 +52,74 @@ Portanto, para o exemplo, tem-se:
 (2)   ![\begin{equation*}  qLinhas = R^P \therefore qLinhas = 2^2 = 4 \end{equation*}](https://web.archive.org/web/20201005013131im_/https://blog.jeancarloem.com/wp-content/ql-cache/quicklatex.com-f4c308f8962ea758d92ace7c57350f13_l3.png "Rendered by QuickLaTeX.com")
 Assim, a tabela deve ter 4 (quatro) linhas e, uma coluna para cada premissa, ficando da seguinte forma:
 
-|  | Premissa 1 / Chuva | Premissa 2 / Nublado |
-| --- | --- | --- |
-| 1 |  |  |
-| 2 |  |  |
-| 3 |  |  |
-| 4 |  |  |
+<table>
+<thead>
+<tr><th></th><th>Premissa 1 / Chuva</th><th>Premissa 2 / Nublado</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td></td><td></td></tr>
+<tr><td>2</td><td></td><td></td></tr>
+<tr><td>3</td><td></td><td></td></tr>
+<tr><td>4</td><td></td><td></td></tr>
+</tbody>
+</table>
 ### Exemplo de preenchimento de Tabela com 4 premissas
 Para preencher a tabela, independente de quantidade de linhas ou colunas é muito simples. Se as respostas possíveis são duas, verdadeiro/falso ou 1/0, então, da direita para esquerda será intercalado na mesma quantidade (2) verticalmente as possibilidades. Veja um **exemplo** mais complexo, para o caso de duas respostas e 4 (quatro) premissas (note que “1” é verdadeiro e “0” é falso):
 (3)   ![\begin{equation*}  qLinhas = R^P \therefore qLinhas = 2^4 = 16 \end{equation*}](https://web.archive.org/web/20201005013131im_/https://blog.jeancarloem.com/wp-content/ql-cache/quicklatex.com-9bc79ca69b9137092922fb3ae8b15dfa_l3.png "Rendered by QuickLaTeX.com")
 
-|  | Premissa 1 / Coluna 4 / _Intercala de oito em oito_ | Premissa 2 / Coluna 3 / _Intercala de quatro em quatro_ | Premissa 3 / Coluna 2 / _Intercala de dois em dois_ | Premissa 4 / Coluna 1 / _Intercala de um em um_ |
-| --- | --- | --- | --- | --- |
-| 1 | **0** | **0** | **0** | **0** |
-| 2 | **0** | **0** | **0** | 1 |
-| 3 | **0** | **0** | 1 | 0 |
-| 4 | **0** | **0** | 1 | 1 |
-| 5 | **0** | 1 | 0 | 0 |
-| 6 | **0** | 1 | 0 | 1 |
-| 7 | **0** | 1 | 1 | 0 |
-| 8 | **0** | 1 | 1 | 1 |
-| 9 | 1 | 0 | 0 | 0 |
-| 10 | 1 | 0 | 0 | 1 |
-| 11 | 1 | 0 | 1 | 0 |
-| 12 | 1 | 0 | 1 | 1 |
-| 13 | 1 | 1 | 0 | 0 |
-| 14 | 1 | 1 | 0 | 1 |
-| 15 | 1 | 1 | 1 | 0 |
-| 16 | 1 | 1 | 1 | 1 |
+<table>
+<thead>
+<tr><th></th><th>Premissa 1 / Coluna 4 / <em>Intercala de oito em oito</em></th><th>Premissa 2 / Coluna 3 / <em>Intercala de quatro em quatro</em></th><th>Premissa 3 / Coluna 2 / <em>Intercala de dois em dois</em></th><th>Premissa 4 / Coluna 1 / <em>Intercala de um em um</em></th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td><strong>0</strong></td><td><strong>0</strong></td><td><strong>0</strong></td><td><strong>0</strong></td></tr>
+<tr><td>2</td><td><strong>0</strong></td><td><strong>0</strong></td><td><strong>0</strong></td><td>1</td></tr>
+<tr><td>3</td><td><strong>0</strong></td><td><strong>0</strong></td><td>1</td><td>0</td></tr>
+<tr><td>4</td><td><strong>0</strong></td><td><strong>0</strong></td><td>1</td><td>1</td></tr>
+<tr><td>5</td><td><strong>0</strong></td><td>1</td><td>0</td><td>0</td></tr>
+<tr><td>6</td><td><strong>0</strong></td><td>1</td><td>0</td><td>1</td></tr>
+<tr><td>7</td><td><strong>0</strong></td><td>1</td><td>1</td><td>0</td></tr>
+<tr><td>8</td><td><strong>0</strong></td><td>1</td><td>1</td><td>1</td></tr>
+<tr><td>9</td><td>1</td><td>0</td><td>0</td><td>0</td></tr>
+<tr><td>10</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
+<tr><td>11</td><td>1</td><td>0</td><td>1</td><td>0</td></tr>
+<tr><td>12</td><td>1</td><td>0</td><td>1</td><td>1</td></tr>
+<tr><td>13</td><td>1</td><td>1</td><td>0</td><td>0</td></tr>
+<tr><td>14</td><td>1</td><td>1</td><td>0</td><td>1</td></tr>
+<tr><td>15</td><td>1</td><td>1</td><td>1</td><td>0</td></tr>
+<tr><td>16</td><td>1</td><td>1</td><td>1</td><td>1</td></tr>
+</tbody>
+</table>
 Perceba que o preenchimento é feito na vertical, de cima para baixo e depois da direita para a esquerda. Assim, na primeira coluna da direita para a esquerda, preenche-se verticalmente intercalando de um em um, 0, 1, 0, 1, … Já na segunda coluna, dobra-se o valor e, preenche-se intercalando de dois em dois, 0, 0, 1, 1, 0, 0, … Na terceira dobra-se novamente, intercalando verticalmente de quatro em quatro 0, 0, 0, 0, 1, 1, 1, 1… Isso se faz até preencher todas as colunas, sempre dobrando a quantidade de intercalamento.
 Este preenchimento garante que **todas as possibilidades** de combinação foram satisfeitas.
 
 ### Preenchendo a Tabela
 Voltando, seguindo o exemplo anterior, o preenchimento da tabela para resolver a questão das nuvens e da chuva fica da seguinte forma:
 
-|  | Premissa 1 / Chuva | Premissa 2 / Nublado |
-| --- | --- | --- |
-| 1 | 0 | 0 |
-| 2 | 0 | 1 |
-| 3 | 1 | 0 |
-| 4 | 1 | 1 |
+<table>
+<thead>
+<tr><th></th><th>Premissa 1 / Chuva</th><th>Premissa 2 / Nublado</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>0</td><td>0</td></tr>
+<tr><td>2</td><td>0</td><td>1</td></tr>
+<tr><td>3</td><td>1</td><td>0</td></tr>
+<tr><td>4</td><td>1</td><td>1</td></tr>
+</tbody>
+</table>
 A tabela acima é a mesma que a tabela abaixo, apenas usa-se notação diferente:
 
-|  | Premissa 1 / Chuva | Premissa 2 / Nublado |
-| --- | --- | --- |
-| 1 | Falso | Falso |
-| 2 | Falso | Verdadeiro |
-| 3 | Verdadeiro | Falso |
-| 4 | Verdadeiro | Verdadeiro |
+<table>
+<thead>
+<tr><th></th><th>Premissa 1 / Chuva</th><th>Premissa 2 / Nublado</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>Falso</td><td>Falso</td></tr>
+<tr><td>2</td><td>Falso</td><td>Verdadeiro</td></tr>
+<tr><td>3</td><td>Verdadeiro</td><td>Falso</td></tr>
+<tr><td>4</td><td>Verdadeiro</td><td>Verdadeiro</td></tr>
+</tbody>
+</table>
 ## Identificando o objetivo
 Basicamente o que se quer fazer é verificar se as combinações das premissas podem ou não ser verdadeiras. Esta verificação preenche todas as possibilidades e, permite identificar se há impossibilidades.
 Contudo, para realizar a combinação das premissas, deve-se entender o contexto e o objetivo. Há 3 tipos de combinações:
@@ -113,12 +133,17 @@ Portanto, de forma simples, a combinação das possibilidades de cada linha é p
 ## Aplicando
 Para aplicar este conceito, agora precisa-se adicionar uma coluna à tabela com a pergunta: “_isso é possível?_“:
 
-|  | Premissa 1 / Chuva | Premissa 2 / Nublado | Isso é Possível? |
-| --- | --- | --- | --- |
-| 1 | Falso | Falso |  |
-| 2 | Falso | Verdadeiro |  |
-| 3 | Verdadeiro | Falso |  |
-| 4 | Verdadeiro | Verdadeiro |  |
+<table>
+<thead>
+<tr><th></th><th>Premissa 1 / Chuva</th><th>Premissa 2 / Nublado</th><th>Isso é Possível?</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>Falso</td><td>Falso</td><td></td></tr>
+<tr><td>2</td><td>Falso</td><td>Verdadeiro</td><td></td></tr>
+<tr><td>3</td><td>Verdadeiro</td><td>Falso</td><td></td></tr>
+<tr><td>4</td><td>Verdadeiro</td><td>Verdadeiro</td><td></td></tr>
+</tbody>
+</table>
 E para cada linha adicionar se a combinação a “**E**” das respostas à premissa são verdadeiras. E como fazer isso? É simples, para cada linha faça a pergunta:
 
 *   LINHA 1 – é possível não chover **e** não estar nublado? **sim**;
@@ -127,12 +152,17 @@ E para cada linha adicionar se a combinação a “**E**” das respostas à pre
 *   LINHA 4 – é possível chover **e** estar nublado? **sim**.
 Assim, a tabela deve ficar assim:
 
-|  | Premissa 1 / Chuva | Premissa 2 / Nublado | Isso é Possível? |
-| --- | --- | --- | --- |
-| 1 | Falso | Falso | Verdadeiro |
-| 2 | Falso | Verdadeiro | Verdadeiro |
-| 3 | Verdadeiro | Falso | Falso |
-| 4 | Verdadeiro | Verdadeiro | Verdadeiro |
+<table>
+<thead>
+<tr><th></th><th>Premissa 1 / Chuva</th><th>Premissa 2 / Nublado</th><th>Isso é Possível?</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>Falso</td><td>Falso</td><td>Verdadeiro</td></tr>
+<tr><td>2</td><td>Falso</td><td>Verdadeiro</td><td>Verdadeiro</td></tr>
+<tr><td>3</td><td>Verdadeiro</td><td>Falso</td><td>Falso</td></tr>
+<tr><td>4</td><td>Verdadeiro</td><td>Verdadeiro</td><td>Verdadeiro</td></tr>
+</tbody>
+</table>
 Perceba que, das 4 (quatro) possibilidades, apenas uma combinação é impossível, a 3ª linha. Além disso a tabela revela todas as possibilidades.
 O que isso significa?
 

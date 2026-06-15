@@ -38,22 +38,27 @@ Este texto acima revela que o homem foi formado na criação, na realidade, dian
 > — Bíblia. RA. Gênesis 2:1-2[^2]
 Isso significa que o homem NÃO existia antes disso. O texto hebraico antigo não deixa margem para outra interpretação:
 
-> | Texto | Tradução |
-> | --- | --- |
-> | וַיִּיצֶר֩ | Então formou |
-> | יְהוָ֙ה | Senhor |
-> | אֱלֹהִ֜ים | Deus |
-> | את־הָֽאָדָ֗ם | o homem |
-> | עָפָר֙ | pó |
-> | מִן־הָ֣אֲדָמָ֔ה | da terra |
-> | וַיִּפַּ֥ח | e soprou |
-> | בְּאַפָּ֖יו | no nariz |
-> | נִשְׁמַ֣ת | fôlego |
-> | חַיִּ֑ים | vida |
-> | וַֽיְהִ֥י | e tornou-se |
-> | הָֽאָדָ֖ם | o homem |
-> | לְנֶ֥פֶשׁ | uma alma |
-> | חַיָּֽה׃ | viva |
+> <table>
+> <thead>
+> <tr><th>Texto</th><th>Tradução</th></tr>
+> </thead>
+> <tbody>
+> <tr><td>וַיִּיצֶר֩</td><td>Então formou</td></tr>
+> <tr><td>יְהוָ֙ה</td><td>Senhor</td></tr>
+> <tr><td>אֱלֹהִ֜ים</td><td>Deus</td></tr>
+> <tr><td>את־הָֽאָדָ֗ם</td><td>o homem</td></tr>
+> <tr><td>עָפָר֙</td><td>pó</td></tr>
+> <tr><td>מִן־הָ֣אֲדָמָ֔ה</td><td>da terra</td></tr>
+> <tr><td>וַיִּפַּ֥ח</td><td>e soprou</td></tr>
+> <tr><td>בְּאַפָּ֖יו</td><td>no nariz</td></tr>
+> <tr><td>נִשְׁמַ֣ת</td><td>fôlego</td></tr>
+> <tr><td>חַיִּ֑ים</td><td>vida</td></tr>
+> <tr><td>וַֽיְהִ֥י</td><td>e tornou-se</td></tr>
+> <tr><td>הָֽאָדָ֖ם</td><td>o homem</td></tr>
+> <tr><td>לְנֶ֥פֶשׁ</td><td>uma alma</td></tr>
+> <tr><td>חַיָּֽה׃</td><td>viva</td></tr>
+> </tbody>
+> </table>
 > — Bíblia. WLC [^2]. Gênesis 2:7[^3]
 O termo hebraico **יצר** significa “_molde_“, “_preparar_“, “_formar_“, “_criar_“, “concreto”. Retirando qualquer possibilidade de que o homem preexistisse em outra forma, como um espírito, alma, entidade espectral ou coisa parecida.
 
@@ -61,31 +66,36 @@ O termo hebraico **יצר** significa “_molde_“, “_preparar_“, “_forma
 O termo hebraico **יצר** deixa claro que o homem foi formado do pó da terra ou do barro. Isso significa que a composição humana é terra. Isso elimina a possibilidade de que o homem seja algum tipo de agente espectral, espírito ou o consenso popular de alma, que habita um corpo. O homem não habita um corpo, mas ele é um corpo. Esta é sua composição!
 O texto grego antigo, ajuda a esclarecer ainda mais:
 
-> | Texto | Tradução |
-> | --- | --- |
-> | καὶ | Então |
-> | ἔπλασεν | formou |
-> | ὁ | o |
-> | θεὸς | Deus |
-> | τὸν | o |
-> | ἄνθρωπον | homem |
-> | χοῦν | pó |
-> | ἀπὸ τῆς | da |
-> | γῆς | terra |
-> | καὶ | e |
-> | ἐνεφύσησεν | soprou |
-> | εἰς τὸ | na |
-> | πρόσωπον | face |
-> | αὐτοῦ | dele |
-> | πνοὴν | fôlego |
-> | ζωῆς | vida |
-> | καὶ | e |
-> | ἐγένετο | tornou-se |
-> | ὁ | o |
-> | ἄνθρωπος | homem |
-> | εἰς | em |
-> | ψυχὴν | alma |
-> | ζῶσαν | viva |
+> <table>
+> <thead>
+> <tr><th>Texto</th><th>Tradução</th></tr>
+> </thead>
+> <tbody>
+> <tr><td>καὶ</td><td>Então</td></tr>
+> <tr><td>ἔπλασεν</td><td>formou</td></tr>
+> <tr><td>ὁ</td><td>o</td></tr>
+> <tr><td>θεὸς</td><td>Deus</td></tr>
+> <tr><td>τὸν</td><td>o</td></tr>
+> <tr><td>ἄνθρωπον</td><td>homem</td></tr>
+> <tr><td>χοῦν</td><td>pó</td></tr>
+> <tr><td>ἀπὸ τῆς</td><td>da</td></tr>
+> <tr><td>γῆς</td><td>terra</td></tr>
+> <tr><td>καὶ</td><td>e</td></tr>
+> <tr><td>ἐνεφύσησεν</td><td>soprou</td></tr>
+> <tr><td>εἰς τὸ</td><td>na</td></tr>
+> <tr><td>πρόσωπον</td><td>face</td></tr>
+> <tr><td>αὐτοῦ</td><td>dele</td></tr>
+> <tr><td>πνοὴν</td><td>fôlego</td></tr>
+> <tr><td>ζωῆς</td><td>vida</td></tr>
+> <tr><td>καὶ</td><td>e</td></tr>
+> <tr><td>ἐγένετο</td><td>tornou-se</td></tr>
+> <tr><td>ὁ</td><td>o</td></tr>
+> <tr><td>ἄνθρωπος</td><td>homem</td></tr>
+> <tr><td>εἰς</td><td>em</td></tr>
+> <tr><td>ψυχὴν</td><td>alma</td></tr>
+> <tr><td>ζῶσαν</td><td>viva</td></tr>
+> </tbody>
+> </table>
 > — Bíblia. LXX [^3]. Gênesis 2:7[^4]
 O termo do grego antigo **ἔπλασεν** significa “_moldado_“, “_criado_“, “_formado_” e pode ser verificado _in loco_, comparando outros textos que utilizam o mesmo termo, como é o caso de Êxodo 32:4, que fala da criação de um bezerro de outro por Arão.
 

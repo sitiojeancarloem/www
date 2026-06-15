@@ -9,12 +9,12 @@
 		"build:ts": "tsc",
 		"check": "npm run check:ts",
 		"validate:visual": "node scripts/validate-visual.js",
-		"test": "npm run check && bundle exec jekyll build",
-		"build": "npm run build:ts && bundle exec jekyll build",
-		"build:prod": "npm run build:ts && cross-env JEKYLL_ENV=production bundle exec jekyll build",
-		"dev": "cross-env JEKYLL_ENV=development bundle exec jekyll serve --host 127.0.0.1 --livereload --drafts",
-		"dev-mini": "cross-env RUBYOPT=\"-W:no-deprecated\" JEKYLL_ENV=production bundle exec jekyll serve --host 127.0.0.1 --force_polling --livereload --drafts",
-		"dev-live": "cross-env RUBYOPT=\"-W:no-deprecated\" JEKYLL_ENV=production bundle exec jekyll serve --host 127.0.0.1 --force_polling --livereload"
+		"test": "npm run check && bundle exec ruby scripts/jekyll_local.rb build",
+		"build": "npm run build:ts && bundle exec ruby scripts/jekyll_local.rb build",
+		"build:prod": "npm run build:ts && cross-env JEKYLL_ENV=production bundle exec ruby scripts/jekyll_local.rb build",
+		"dev": "cross-env JEKYLL_ENV=development bundle exec ruby scripts/jekyll_local.rb serve --host 127.0.0.1 --livereload --drafts",
+		"dev-mini": "cross-env RUBYOPT=\"-W:no-deprecated\" JEKYLL_ENV=production bundle exec ruby scripts/jekyll_local.rb serve --host 127.0.0.1 --force_polling --livereload --drafts",
+		"dev-live": "cross-env RUBYOPT=\"-W:no-deprecated\" JEKYLL_ENV=production bundle exec ruby scripts/jekyll_local.rb serve --host 127.0.0.1 --force_polling --livereload"
 	},
 	"keywords": [],
 	"author": "",
