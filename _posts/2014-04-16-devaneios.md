@@ -72,9 +72,10 @@ Não conhecemos porque cremos, mas sim, cremos porque conhecemos. Não é da con
 
 Tome como exemplo um homem que está viajando, e em sua viagem passa, sem saber, por um local onde é costume construírem fachadas de restaurantes beirando a estrada – não cabe aqui o motivo da construção dessas fachadas, mas o fato de serem construídas. Este homem, ao passar pela estrada verá, o que para ele, são restaurantes, simplesmente porque ele possui conhecimento obtido através de sua experiência anterior, da aparência de um restaurante, e também porque pode ler perfeitamente os letreiros beirando a estrada com os dizeres “restaurantes”. O homem adquiriu um conhecimento – ele vê o que parece ser vários restaurantes – e está convicto disso (crê). Coincidentemente entre estas dezenas de fachadas de restaurantes, existe um que é real, onde ele por obra do acaso estaciona e entra. Ao entrar confirma ainda mais o conhecimento anteriormente obtido: ele realmente vê um verdadeiro restaurante.
 
+![Observador Restaurantes.](/assets/images/posts/devaneios/observador-restaurantes-jcem-ccbysa.png)
+
 Perceba neste exemplo que o homem possui uma convicção (crença), baseada em conhecimento factual, entretanto esta crença é incorreta. Não é a verdade! O único motivo para ele crer que são restaurantes é porque tem evidências de que são, e nada que o leve a duvidar desta certeza. Ele não possui qualquer evidência – e neste caso evidência seria conhecimento – de que o que ele vê não é real. Perceba, que ele crê porque tem conhecimento – mesmo que questionável – e não o contrário. Crer sem conhecimento é impossível[^22][^23].
 
-![Observador Restaurantes.](/assets/images/posts/devaneios/observador-restaurantes-jcem-ccbysa.png)
 {: .jcem-image-full }
 
 > Existe apenas um bem, o saber, e apenas um mal, a ignorância
