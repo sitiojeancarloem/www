@@ -320,8 +320,16 @@ body > input.radio#jcem-theme-dark:checked ~ .main_jcem_wrapper {
 	color: var(--tc);
 }
 
-.main_jcem_wrapper tbody tr:nth-child(odd) > td,
-.main_jcem_wrapper tbody tr:nth-child(odd) > th {
+.main_jcem_wrapper
+	table:not(.jcem-panel__table)
+	tbody
+	tr:nth-child(odd)
+	> td,
+.main_jcem_wrapper
+	table:not(.jcem-panel__table)
+	tbody
+	tr:nth-child(odd)
+	> th {
 	background-color: var(--cbg);
 }
 
@@ -341,19 +349,10 @@ body > input.radio#jcem-theme-dark:checked ~ .main_jcem_wrapper {
 	position: relative;
 	overflow: hidden;
 	isolation: isolate;
-	background:
-		linear-gradient(
-			90deg,
-			var(--jcem-panel-line) 1px,
-			transparent 1px
-		),
-		linear-gradient(
-			0deg,
-			var(--jcem-panel-line) 1px,
-			transparent 1px
-		),
-		var(--jcem-panel-bg);
+
 	background-size: 2.25rem 2.25rem;
+}
+.main_jcem_wrapper .archive__item {
 	border: 1px solid var(--jcem-panel-border);
 	box-shadow: 0 0 1rem var(--jcem-panel-shadow);
 	color: var(--tc);
@@ -596,27 +595,13 @@ body
 
 .main_jcem_wrapper .jcem-panel--futuristic {
 	// uso: moldura do painel futurista importado do old-root.
-	--jcem-panel-frame-bg: rgba(43, 146, 219, 0.12);
+	--jcem-panel-frame-bg: rgba(47, 155, 233, 0.12);
 	--jcem-panel-sprite-height: 17em;
 	--jcem-panel-corner-left: clamp(6.25rem, 27vw, 10.5em);
 	--jcem-panel-corner-right: clamp(4.75rem, 19vw, 6.5em);
 	--jcem-panel-top-height: 2.2em;
 	--jcem-panel-bottom-height: 3.5em;
 	border: 0;
-	background:
-		linear-gradient(
-			90deg,
-			var(--jcem-panel-line) 1px,
-			transparent 1px
-		),
-		linear-gradient(
-			0deg,
-			var(--jcem-panel-line) 1px,
-			transparent 1px
-		),
-		var(--jcem-panel-bg);
-	background-size: 2.25rem 2.25rem;
-	box-shadow: 0 0 1rem var(--jcem-panel-shadow);
 }
 
 .main_jcem_wrapper .jcem-panel--futuristic:hover {
@@ -672,27 +657,33 @@ body
 	width: var(--jcem-panel-corner-left);
 }
 
-.main_jcem_wrapper .jcem-panel--futuristic .jcem-panel__column--center {
+.main_jcem_wrapper
+	.jcem-panel--futuristic
+	.jcem-panel__column--center {
 	width: auto;
 }
 
-.main_jcem_wrapper .jcem-panel--futuristic .jcem-panel__column--right {
+.main_jcem_wrapper
+	.jcem-panel--futuristic
+	.jcem-panel__column--right {
 	width: var(--jcem-panel-corner-right);
 }
 
 .main_jcem_wrapper
 	.jcem-panel--futuristic
 	.jcem-panel__edge--top
-	> td,
-.main_jcem_wrapper
-	.jcem-panel--futuristic
-	.jcem-panel__content-row,
+	> td.jcem-panel__edge-fill.jcem-panel__edge-fill--top,
+.main_jcem_wrapper .jcem-panel--futuristic .jcem-panel__content-row,
 .main_jcem_wrapper
 	.jcem-panel--futuristic
 	.jcem-panel__edge--bottom
 	> td
-	> div {
+	> div,
+.main_jcem_wrapper .jcem-panel--futuristic td.jcem-panel__body {
 	background-color: var(--jcem-panel-frame-bg);
+	font-size: 1.25rem;
+	color: #fff;
+	line-height: 1.15rem;
 }
 
 .main_jcem_wrapper .jcem-panel--futuristic .jcem-panel__corner {
@@ -701,25 +692,33 @@ body
 	background-size: auto var(--jcem-panel-sprite-height);
 }
 
-.main_jcem_wrapper .jcem-panel--futuristic .jcem-panel__corner--top-left {
+.main_jcem_wrapper
+	.jcem-panel--futuristic
+	.jcem-panel__corner--top-left {
 	width: var(--jcem-panel-corner-left);
 	height: var(--jcem-panel-top-height);
 	background-position: top left;
 }
 
-.main_jcem_wrapper .jcem-panel--futuristic .jcem-panel__corner--top-right {
+.main_jcem_wrapper
+	.jcem-panel--futuristic
+	.jcem-panel__corner--top-right {
 	width: var(--jcem-panel-corner-right);
 	height: var(--jcem-panel-top-height);
 	background-position: top right;
 }
 
-.main_jcem_wrapper .jcem-panel--futuristic .jcem-panel__corner--bottom-left {
+.main_jcem_wrapper
+	.jcem-panel--futuristic
+	.jcem-panel__corner--bottom-left {
 	width: var(--jcem-panel-corner-left);
 	height: var(--jcem-panel-bottom-height);
 	background-position: bottom left;
 }
 
-.main_jcem_wrapper .jcem-panel--futuristic .jcem-panel__corner--bottom-right {
+.main_jcem_wrapper
+	.jcem-panel--futuristic
+	.jcem-panel__corner--bottom-right {
 	width: var(--jcem-panel-corner-right);
 	height: var(--jcem-panel-bottom-height);
 	background-position: bottom right;
@@ -753,11 +752,17 @@ body
 	font-style: italic;
 }
 
-.main_jcem_wrapper .jcem-panel--futuristic .jcem-panel__body > :first-child {
+.main_jcem_wrapper
+	.jcem-panel--futuristic
+	.jcem-panel__body
+	> :first-child {
 	margin-top: 0;
 }
 
-.main_jcem_wrapper .jcem-panel--futuristic .jcem-panel__body > :last-child {
+.main_jcem_wrapper
+	.jcem-panel--futuristic
+	.jcem-panel__body
+	> :last-child {
 	margin-bottom: 0;
 }
 
