@@ -80,7 +80,7 @@
 	--clean--jcem-panel-accent: #2f7d95;
 	--clean--jcem-panel-accent-hot: #b28700;
 	--clean--jcem-panel-image: url('/assets/jcem/img/painel-modo-claro.svg');
-	--clean--jcem-panel-surface: rgba(39, 122, 144, 0.18);
+	--clean--jcem-panel-surface: #d1d3b27b;
 	--clean--jcem-panel-text: #263238;
 	--clean--jcem-rule-color: #b08b00;
 	--clean--jcem-rule-shadow: rgba(176, 139, 0, 0.22);
@@ -724,8 +724,8 @@ body
 	.page__inner-wrap {
 	border-color: transparent;
 
-	&,
-	::before {
+	&:not([id^='fnref']),
+	&:not([id^='fnref'])::before {
 		box-shadow: 0.2rem 0.2rem 0.6rem 0.2rem var(--clean--cbgd);
 	}
 }
