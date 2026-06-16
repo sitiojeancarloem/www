@@ -13,11 +13,13 @@
 		<style>
 			/* Cores: aliases do tema ativo. */
 			.jcem-404 {
-				min-height: 100vh;
-				padding: clamp(1.25rem, 3vw, 3rem);
+				display: grid;
+				align-items: center;
+				min-height: calc(100dvh - 2.2rem);
+				padding: clamp(16px, 2vw, 28px);
 				background:
-					radial-gradient(circle at 78% 20%, var(--jcem-glitch-b), transparent 28rem),
-					radial-gradient(circle at 22% 15%, var(--jcem-glitch-a), transparent 24rem),
+					radial-gradient(circle at 74% 18%, var(--jcem-glitch-a), transparent 16rem),
+					radial-gradient(circle at 20% 24%, rgba(0, 0, 0, 0.16), transparent 18rem),
 					var(--bg);
 				color: var(--tc);
 				font-family: inherit;
@@ -33,72 +35,72 @@
 			}
 
 			.jcem-404__wrap {
-				width: min(100%, 62rem);
+				width: min(100%, 48rem);
 				margin: 0 auto;
 			}
 
 			.jcem-404__brand {
 				display: inline-flex;
 				align-items: center;
-				gap: 0.7rem;
-				color: var(--tc);
-				font-size: clamp(1rem, 2.4vw, 1.2rem);
-				font-weight: 700;
+				width: clamp(8rem, 15vw, 9.2rem);
+				height: 2.25rem;
+				color: var(--link);
 			}
 
 			.jcem-404__brand object {
-				width: clamp(2.5rem, 6vw, 3.5rem);
-				height: clamp(2.5rem, 6vw, 3.5rem);
+				display: block;
+				width: 100%;
+				height: 100%;
+				object-fit: contain;
 				pointer-events: none;
 			}
 
 			.jcem-404__brand-fallback {
 				display: inline-flex;
 				align-items: center;
-				justify-content: center;
 				width: 100%;
 				height: 100%;
-				border: 1px solid var(--bc);
-				color: var(--jcem-panel-accent);
-				font-weight: 900;
+				color: var(--link);
+				font-weight: 800;
+				letter-spacing: 0;
 			}
 
 			.jcem-404__hero {
 				display: grid;
 				grid-template-columns: minmax(0, 1fr) auto;
 				align-items: end;
-				gap: clamp(1.5rem, 5vw, 4rem);
-				padding: clamp(3.25rem, 9vw, 6.5rem) 0 clamp(1.5rem, 4vw, 2.5rem);
+				gap: clamp(1.25rem, 5vw, 3rem);
+				padding: 1.4rem 0 1rem;
 			}
 
 			.jcem-404__title {
-				max-width: 24rem;
+				max-width: 21rem;
 				margin: 0;
 				color: var(--tc);
-				font-size: clamp(2rem, 5vw, 3.4rem);
+				font-size: 2.25rem;
 				line-height: 1.08;
 				letter-spacing: 0;
 			}
 
 			.jcem-404__lead {
-				max-width: 27rem;
-				margin: 1rem 0 0;
+				max-width: 24rem;
+				margin: 0.75rem 0 0;
 				color: var(--mtc);
-				font-size: clamp(1rem, 2vw, 1.18rem);
+				font-size: 0.88rem;
+				line-height: 1.45;
 			}
 
 			.main_jcem_wrapper .jcem-404__code {
 				position: relative;
+				isolation: isolate;
 				margin: 0;
-				color: var(--jcem-title-color);
-				font-size: clamp(5rem, 17vw, 10rem);
+				color: color-mix(in srgb, var(--tc) 86%, var(--link));
+				font-size: 6rem;
 				font-weight: 900;
-				line-height: 0.8;
+				line-height: 0.78;
 				letter-spacing: 0;
-				text-shadow:
-					0 0 0.75rem var(--jcem-glitch-a),
-					0 0 1.5rem var(--jcem-glitch-b);
-				animation: jcem-404-shake 2.2s steps(1, end) infinite;
+				text-shadow: 0 0 0.75rem var(--jcem-glitch-a);
+				animation: jcem-404-pulse 3.6s steps(1, end) infinite;
 			}
 
 			.jcem-404__code::before,
@@ -108,55 +110,63 @@
 				display: block;
 				content: attr(data-text);
 				overflow: hidden;
+				pointer-events: none;
 			}
 
 			.jcem-404__code::before {
-				color: var(--jcem-panel-accent);
-				clip-path: inset(0 0 48% 0);
-				transform: translate(-0.08em, -0.015em);
-				animation: jcem-404-slice-a 1.1s infinite linear alternate-reverse;
+				z-index: -1;
+				color: var(--link);
+				clip-path: inset(20% 0 64% 0);
+				opacity: 0.36;
+				transform: translateX(-0.018em);
+				animation: jcem-404-slice-a 2.4s infinite steps(2, jump-none);
 			}
 
 			.jcem-404__code::after {
-				color: var(--jcem-alert-background);
-				clip-path: inset(52% 0 0 0);
-				transform: translate(0.07em, 0.018em);
-				animation: jcem-404-slice-b 0.9s infinite linear alternate-reverse;
+				z-index: -2;
+				color: var(--jcem-title-color);
+				clip-path: inset(60% 0 24% 0);
+				opacity: 0.26;
+				transform: translateX(0.018em);
+				animation: jcem-404-slice-b 2.1s infinite steps(2, jump-none);
 			}
 
 			.jcem-404__terminal {
+				width: min(100%, 36rem);
+				margin: 0 auto;
 				overflow: hidden;
-				border: 1px solid var(--bc);
-				border-radius: 0.45rem;
+				border: 1px solid color-mix(in srgb, var(--bc) 76%, transparent);
+				border-radius: 0.4rem;
 				background:
 					linear-gradient(90deg, var(--jcem-panel-line) 1px, transparent 1px),
-					var(--cbgd);
-				background-size: 2.5rem 2.5rem;
-				box-shadow: 0 1rem 2.4rem var(--jcem-panel-shadow);
+					color-mix(in srgb, var(--cbgd) 88%, transparent);
+				background-size: 2.35rem 2.35rem;
+				box-shadow: 0 0.75rem 1.8rem color-mix(in srgb, var(--jcem-panel-shadow) 70%, transparent);
 			}
 
 			.jcem-404__bar {
 				display: grid;
 				grid-template-columns: auto 1fr auto;
 				align-items: center;
-				gap: 1rem;
-				padding: 0.75rem 1rem;
-				border-bottom: 1px solid var(--bc);
-				background: color-mix(in srgb, var(--ftbg) 78%, transparent);
+				gap: 0.75rem;
+				min-height: 1.85rem;
+				padding: 0.35rem 0.65rem;
+				border-bottom: 1px solid color-mix(in srgb, var(--bc) 70%, transparent);
+				background: color-mix(in srgb, var(--ftbg) 70%, transparent);
 				color: var(--mtc);
 				font-family: Monaco, Consolas, "Lucida Console", monospace;
-				font-size: 0.8rem;
+				font-size: 0.68rem;
 			}
 
 			.jcem-404__dots {
 				display: inline-flex;
-				gap: 0.45rem;
+				gap: 0.35rem;
 			}
 
 			/* Cores: controles visuais do terminal. */
 			.jcem-404__dots span {
-				width: 0.72rem;
-				height: 0.72rem;
+				width: 0.55rem;
+				height: 0.55rem;
 				border-radius: 999px;
 			}
 
@@ -182,11 +192,12 @@
 			}
 
 			.jcem-404__screen {
+				max-height: 10rem;
 				margin: 0;
-				padding: clamp(1.1rem, 3vw, 1.8rem);
-				overflow-x: auto;
+				padding: 0.7rem 0.85rem;
+				overflow: auto;
 				color: var(--mtc);
-				font: 0.86rem/1.55 Monaco, Consolas, "Lucida Console", monospace;
+				font: 0.72rem/1.38 Monaco, Consolas, "Lucida Console", monospace;
 				overflow-wrap: anywhere;
 				white-space: pre-wrap;
 			}
@@ -203,44 +214,42 @@
 				color: var(--jcem-alert-background);
 			}
 
+			.jcem-404__actions {
+				display: flex;
+				flex-wrap: wrap;
+				align-items: center;
+				justify-content: space-between;
+				gap: 0.8rem 1.2rem;
+				margin-top: clamp(0.9rem, 2.6vw, 1.35rem);
+				padding-top: 0.75rem;
+				border-top: 1px solid color-mix(in srgb, var(--bc) 72%, transparent);
+			}
+
 			.jcem-404__status {
-				display: grid;
-				grid-template-columns: repeat(4, minmax(0, 1fr));
-				gap: 0;
-				margin: clamp(1rem, 3vw, 1.5rem) 0 0;
-				border-top: 1px solid var(--bc);
-				border-bottom: 1px solid var(--bc);
-			}
-
-			.jcem-404__status p {
+				display: flex;
+				flex-wrap: wrap;
+				gap: 0.45rem 0.9rem;
 				margin: 0;
-				padding: 0.9rem;
-				border-right: 1px solid var(--bc);
-				color: var(--tc);
-				font-size: clamp(0.9rem, 1.8vw, 1rem);
-			}
-
-			.jcem-404__status p:last-child {
-				border-right: 0;
-			}
-
-			.jcem-404__status span {
-				display: block;
-				margin-bottom: 0.2rem;
+				padding: 0;
 				color: var(--mtc);
-				font-size: 0.68rem;
+				font-size: 0.74rem;
+				line-height: 1.35;
+				list-style: none;
+			}
+
+			.jcem-404__status strong {
+				color: var(--tc);
 				font-weight: 700;
-				letter-spacing: 0;
-				text-transform: uppercase;
 			}
 
 			.jcem-404__home {
 				display: inline-flex;
 				align-items: center;
 				gap: 0.45rem;
-				margin-top: clamp(1.5rem, 4vw, 2.5rem);
 				color: var(--link);
+				font-size: 0.82rem;
 				font-weight: 700;
+				white-space: nowrap;
 			}
 
 			.jcem-404__home:hover,
@@ -248,92 +257,80 @@
 				color: var(--link-h);
 			}
 
-			@keyframes jcem-404-shake {
+			@keyframes jcem-404-pulse {
 				0%,
-				78%,
+				88%,
 				100% {
-					transform: translate(0, 0) skewX(0);
+					transform: translateX(0);
 				}
 
-				80% {
-					transform: translate(-0.018em, 0.008em) skewX(7deg);
+				90% {
+					transform: translateX(-0.006em);
 				}
 
-				82% {
-					transform: translate(0.02em, -0.006em) skewX(-5deg);
-				}
-
-				84% {
-					transform: translate(-0.01em, 0.004em) skewX(4deg);
+				92% {
+					transform: translateX(0.006em);
 				}
 			}
 
 			@keyframes jcem-404-slice-a {
-				0% {
-					clip-path: inset(4% 0 62% 0);
-				}
-
-				45% {
-					clip-path: inset(30% 0 34% 0);
-				}
-
+				0%,
 				100% {
-					clip-path: inset(66% 0 8% 0);
+					clip-path: inset(18% 0 62% 0);
+					transform: translateX(-0.018em);
+				}
+
+				50% {
+					clip-path: inset(42% 0 44% 0);
+					transform: translateX(0.014em);
 				}
 			}
 
 			@keyframes jcem-404-slice-b {
-				0% {
-					clip-path: inset(58% 0 12% 0);
-				}
-
-				55% {
-					clip-path: inset(10% 0 70% 0);
-				}
-
+				0%,
 				100% {
-					clip-path: inset(38% 0 42% 0);
+					clip-path: inset(58% 0 20% 0);
+					transform: translateX(0.018em);
+				}
+
+				50% {
+					clip-path: inset(30% 0 58% 0);
+					transform: translateX(-0.014em);
 				}
 			}
 
 			@media (max-width: 48em) {
 				.jcem-404__hero {
 					grid-template-columns: 1fr;
-					padding-top: 3rem;
+					gap: 0.9rem;
+					padding-top: clamp(1.5rem, 7vw, 2.4rem);
 				}
 
 				.jcem-404__code {
 					justify-self: start;
 				}
 
-				.jcem-404__status {
-					grid-template-columns: 1fr 1fr;
+				.jcem-404__terminal {
+					width: 100%;
 				}
 
-				.jcem-404__status p:nth-child(2) {
-					border-right: 0;
-				}
-
-				.jcem-404__status p:nth-child(n + 3) {
-					border-top: 1px solid var(--bc);
+				.jcem-404__actions {
+					display: grid;
 				}
 			}
 
 			@media (max-width: 30em) {
 				.jcem-404 {
-					padding: 1rem;
+					padding: 0.85rem;
 				}
 
-				.jcem-404__status {
-					grid-template-columns: 1fr;
+				.jcem-404__brand {
+					width: 8rem;
+					height: 2.1rem;
 				}
 
-				.jcem-404__status p {
-					border-right: 0;
-				}
-
-				.jcem-404__status p + p {
-					border-top: 1px solid var(--bc);
+				.jcem-404__screen {
+					max-height: 15rem;
 				}
 			}
 
@@ -349,14 +346,34 @@
 	<body class="layout--404">
 		<input class="radio jcem-theme-radio" type="radio" name="jcem-theme" id="jcem-theme-light" value="light" />
 		<input class="radio jcem-theme-radio" type="radio" name="jcem-theme" id="jcem-theme-dark" value="dark" checked />
-		<main class="main_jcem_wrapper jcem-404">
-			<div class="jcem-404__wrap">
-				<a class="jcem-404__brand" href="/" aria-label="Ir para a página inicial JeanCarloEM">
-					<object data="https://jcem.pro/logo/logo-animado.gif" type="image/gif" aria-hidden="true">
-						<span class="jcem-404__brand-fallback">JC</span>
-					</object>
-					<span>JeanCarloEM</span>
-				</a>
+		<div class="main_jcem_wrapper">
+			<div class="sobpostbar" data-jcem-fragment="sobpostbar">
+				<ul id="menu-topo-2" class="menu">
+					<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1871">
+						<a href="/sobre/">Sobre</a>
+					</li>
+					<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1869">
+						<a href="https://jeancarloem.com/termos-de-uso">Legal</a>
+					</li>
+					<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1875">
+						<a href="https://jeancarloem.com/avisos-gerais/">Advertências</a>
+					</li>
+					<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1875">
+						<a href="https://jeancarloem.com/privacidade/">Privacidade</a>
+					</li>
+					<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1872">
+						<a title="Licenca" href="https://jeancarloem.com/licenca/">Licença</a>
+					</li>
+				</ul>
+			</div>
+
+			<main class="jcem-404">
+				<div class="jcem-404__wrap">
+					<a class="jcem-404__brand" href="/" aria-label="Ir para a página inicial JeanCarloEM">
+						<object data="https://jcem.pro/logo/logo-animado.gif" type="image/gif" aria-hidden="true">
+							<span class="jcem-404__brand-fallback">JeanCarloEM</span>
+						</object>
+					</a>
 
 				<section class="jcem-404__hero" aria-labelledby="jcem-404-title">
 					<div>
@@ -374,30 +391,144 @@
 					</div>
 					<pre class="jcem-404__screen"><span class="jcem-404__prompt">&gt;</span> <span class="jcem-404__cmd">cd ~/JeanCarloEM</span>
 /home/user/JeanCarloEM
-
-<span class="jcem-404__prompt">&gt;</span> <span class="jcem-404__cmd">ls</span>
-posts   sobre   tags   arquivos
-
 <span class="jcem-404__prompt">&gt;</span> <span class="jcem-404__cmd">find pagina.md</span>
-Searching in /home/user/JeanCarloEM
 No results found
-
 <span class="jcem-404__prompt">&gt;</span> <span class="jcem-404__cmd">curl https://www.jeancarloem.com/pagina</span>
 HTTP/1.1 <span class="jcem-404__err">404 Not Found</span>
-
 <span class="jcem-404__prompt">&gt;</span> <span class="jcem-404__cmd">open pagina</span>
 <span class="jcem-404__err">Error: página não encontrada █</span></pre>
 				</section>
 
-				<section class="jcem-404__status" aria-label="Mensagem 404 em idiomas distintos">
-					<p><span>PT-BR</span>Página não encontrada</p>
-					<p><span>ES</span>Página no encontrada</p>
-					<p><span>EN</span>Page not found</p>
-					<p><span>中文</span>页面未找到</p>
-				</section>
+					<div class="jcem-404__actions">
+						<ul class="jcem-404__status" aria-label="Mensagem 404 em idiomas distintos">
+							<li><strong>PT-BR</strong> Página não encontrada</li>
+							<li><strong>ES</strong> Página no encontrada</li>
+							<li><strong>EN</strong> Page not found</li>
+							<li><strong>中文</strong> 页面未找到</li>
+						</ul>
+						<a class="jcem-404__home" href="/">Ir para a página inicial <span aria-hidden="true">-&gt;</span></a>
+					</div>
+				</div>
+			</main>
 
-				<a class="jcem-404__home" href="/">Ir para a página inicial <span aria-hidden="true">-&gt;</span></a>
+			<div id="footer" class="page__footer" data-jcem-fragment="footer">
+				<footer>
+					<!-- start custom footer snippets -->
+					<div class="jcem-foot">
+						<p>
+							<b>Importante:</b> Ao acessar este e qualquer domínio e/ou
+							subdomínio de <b>jeancarloem.com</b>, você concorda, de forma
+							<b>irretratável e irrevogável</b>, com os
+							<a href="https://jeancarloem.com/termos-e-condicoes-de-uso"><b>Termos e Políticas de Uso</b></a>,
+							declarando-se ciente de que, caso <b>não</b> os aceite
+							ou concorde, <b><u>NÃO</u></b> deverá usar, acessar, salvar (ou
+							armazenar em quaisquer meios), compartilhar e/ou replicar (mesmo
+							que parcialmente) qualquer site, blog ou informação de
+							<b>jeancarloem.com</b> (e seus subdomínios), devendo ainda
+							<b>abandonar (sair) imediata e impreterivelmente</b> de qualquer
+							domínio ou subdomínio de <b>jeancarloem.com</b>.
+						</p>
+
+						<p>
+							<b>AVISO DE CONTEÚDO SENSÍVEL:</b> Este e qualquer site de
+							<b>jeancarloem.com</b> e seus subdomínios podem conter
+							<b>informações, opiniões pessoais, sugestões, dicas, orientações,
+							propagandas, patrocínios explícitos e implícitos</b>, entre outros
+							conteúdos. Tais materiais são de <b>responsabilidade exclusiva do autor</b>
+							e <b>não</b> implicam em concordância e/ou endosso por parte
+							deste(s) site(s) ou de seu(s) proprietário(s). O conteúdo é
+							fornecido pelo autor e disponibilizado “como está”, sem
+							quaisquer garantias implícitas e/ou explícitas, diretas e/ou
+							indiretas, nos termos da
+							<a href="https://jeancarloem.com/licenca"><b>licença</b></a>.
+							Pode conter ainda teor <b>polêmico, religioso, filosófico ou político</b>,
+							entre outros, que podem ser considerados <b>inapropriados e até ofensivos</b>,
+							a depender da cultura, crença ou localidade. Todavia, tais conteúdos
+							se inserem <b>estritamente no escopo de ideias, conceitos e abstrações</b>,
+							<b><i>NÃO configurando, sob qualquer hipótese, incentivo, promoção
+							ou apologia ao ódio, discriminação, violação de leis,
+							agressão, desrespeito, racismo ou condutas análogas</i></b>.
+							Caso algum texto leve o leitor a interpretar de modo diverso,
+							fica desde já esclarecido que <b>tal nunca foi a intenção</b>,
+							devendo eventual interpretação ser revista à luz deste esclarecimento.
+							O leitor poderá, se desejar, comunicar-se especificando precisamente o
+							<b>trecho, termos ou combinações de palavras</b> que possam ter
+							ocasionado má compreensão, ciente de que, dentro do contexto de
+							ideias, <b>opiniões divergentes podem naturalmente gerar desconforto
+							ou ofensa a valores pessoais</b> — o que é inerente ao exercício do
+							debate e da liberdade de expressão</i>. Tais manifestações são
+							resguardadas pelo <b>direito à livre expressão</b>, garantido pela
+							<a href="http://www.senado.leg.br/atividade/const/con1988/con1988_15.12.2016/art_5_.asp" target="_blank" rel="noopener"><b>Constituição Federal do Brasil</b>, em seu artigo 5º,
+							incisos IV, VI, VIII e IX</a>, que legisla sobre a
+							<b>liberdade de pensamento, religião e comunicação</b>,
+							independentemente de censura ou licença, bem como pela
+							<a href="http://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/L13709.htm" target="_blank" rel="noopener"><b>Lei Geral de Proteção de Dados Pessoais</b>, artigo 2º,
+							inciso III</a>.
+						</p>
+
+						<p class="atencao">
+							<b>ATENÇÃO:</b> É expressamente <b><u>PROIBIDO</u></b> visualizar,
+							acessar, armazenar, usar, compartilhar, distribuir ou permanecer neste site
+							sem antes concordar com <b><u>TODOS</u></b> os
+							<a href="https://jeancarloem.com/termos-e-condicoes-de-uso"><b>Termos e Políticas de Uso</b></a>
+							e AVISO DE CONTEÚDO SENSÍVEL acima.
+						</p>
+					</div>
+
+					<div class="page__footer-follow">
+						<ul class="social-icons">
+							<li><strong>Siga:</strong></li>
+							<li><a href="https://x.com/jeancarloem" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-twitter-square" aria-hidden="true"></i> Twitter</a></li>
+							<li><a href="https://www.facebook.com/JeanCarloEM/" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-facebook-square" aria-hidden="true"></i> Facebook</a></li>
+							<li><a href="https://github.com/jeanCarloEM" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+							<li><a href="https://www.instagram.com/jeancarlo.em/" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-instagram" aria-hidden="true"></i> Instagram</a></li>
+							<li><a href="/feed.xml"><i class="fas fa-fw fa-square-rss" aria-hidden="true"></i> Feed</a></li>
+						</ul>
+					</div>
+
+					<div class="page__footer-copyright">&copy; 2014 - 2026 <a href="https://www.jeancarloem.com">JeanCarloEM</a>. Desenvolvido com <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/jekyll-themes/minimal-mistakes/" rel="nofollow">Minimal Mistakes</a>.</div>
+				</footer>
+				<p class="copy">
+					Copyright &copy; 2012 - 2026 JeanCarloEM. Todos os direitos reservados.
+					<span>Feito com <a href="https://mmistakes.github.io/minimal-mistakes/" target="_blank">Minimal Mistakes</a>.</span>
+				</p>
+				<div class="sobpostbar">
+					<ul id="menu-topo-2-footer" class="menu">
+						<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1871"><a href="/sobre/">Sobre</a></li>
+						<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1869"><a href="https://jeancarloem.com/termos-de-uso">Legal</a></li>
+						<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1875"><a href="https://jeancarloem.com/avisos-gerais/">Advertências</a></li>
+						<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1875"><a href="https://jeancarloem.com/privacidade/">Privacidade</a></li>
+						<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1872"><a title="Licenca" href="https://jeancarloem.com/licenca/">Licença</a></li>
+					</ul>
+				</div>
 			</div>
-		</main>
+
+			<script>
+				(() => {
+					const replaceFragment = (selector, source) => {
+						const target = document.querySelector(selector);
+						if (target && source) target.replaceWith(source.cloneNode(true));
+					};
+
+					const hydrateFragments = async () => {
+						try {
+							const response = await fetch('/?jcem-fragments=1', { credentials: 'same-origin' });
+							if (!response.ok) return;
+							const doc = new DOMParser().parseFromString(await response.text(), 'text/html');
+							replaceFragment('[data-jcem-fragment="sobpostbar"]', doc.querySelector('.main_jcem_wrapper > .sobpostbar'));
+							replaceFragment('[data-jcem-fragment="footer"]', doc.querySelector('#footer'));
+						} catch (_error) {
+							// PROTECAO: fallback estatico preserva a pagina quando fetch nao estiver disponivel.
+						}
+					};
+
+					if (document.readyState === 'loading') {
+						document.addEventListener('DOMContentLoaded', hydrateFragments, { once: true });
+						return;
+					}
+					hydrateFragments();
+				})();
+			</script>
+		</div>
 	</body>
 </html>
