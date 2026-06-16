@@ -131,7 +131,7 @@
 			.jcem-404 {
 				display: grid;
 				align-items: center;
-				min-height: calc(100dvh - 2.2rem);
+				min-height: calc(100dvh - 6.8rem);
 				padding: clamp(16px, 2vw, 28px);
 				background:
 					radial-gradient(circle at 74% 18%, var(--jcem-glitch-a), transparent 16rem),
@@ -146,6 +146,24 @@
 				box-sizing: border-box;
 			}
 
+			.layout--404 .masthead .site-logo {
+				width: clamp(6.75rem, 13vw, 7.75rem);
+				height: auto;
+				aspect-ratio: 31 / 16;
+				font-size: 0;
+				line-height: 0;
+			}
+
+			.layout--404 .masthead .site-logo img {
+				position: static;
+				display: block;
+				width: 100%;
+				height: 100%;
+				margin: 0;
+				object-fit: contain;
+				transform: none;
+			}
+
 			.jcem-404 a::after {
 				display: none !important;
 			}
@@ -153,32 +171,6 @@
 			.jcem-404__wrap {
 				width: min(100%, 48rem);
 				margin: 0 auto;
-			}
-
-			.jcem-404__brand {
-				display: inline-flex;
-				align-items: center;
-				width: clamp(8rem, 15vw, 9.2rem);
-				height: 2.25rem;
-				color: var(--link);
-			}
-
-			.jcem-404__brand object {
-				display: block;
-				width: 100%;
-				height: 100%;
-				object-fit: contain;
-				pointer-events: none;
-			}
-
-			.jcem-404__brand-fallback {
-				display: inline-flex;
-				align-items: center;
-				width: 100%;
-				height: 100%;
-				color: var(--link);
-				font-weight: 800;
-				letter-spacing: 0;
 			}
 
 			.jcem-404__hero {
@@ -274,9 +266,9 @@
 				display: grid;
 				grid-template-columns: auto 1fr auto;
 				align-items: center;
-				gap: 0.75rem;
-				min-height: 1.85rem;
-				padding: 0.35rem 0.65rem;
+				gap: 0.6rem;
+				min-height: 2rem;
+				padding: 0.25rem 0 0.25rem 0.7rem;
 				border-bottom: 1px solid var(--jcem-404-terminal-border);
 				background: var(--jcem-404-terminal-head);
 				color: var(--jcem-404-terminal-muted);
@@ -284,37 +276,43 @@
 				font-size: 0.68rem;
 			}
 
-			.jcem-404__dots {
+			.jcem-404__app-mark {
 				display: inline-flex;
-				gap: 0.35rem;
-			}
-
-			/* Cores: controles visuais do terminal. */
-			.jcem-404__dots span {
-				width: 0.55rem;
-				height: 0.55rem;
-				border-radius: 999px;
-			}
-
-			.jcem-404__dots span:nth-child(1) {
-				background: #ef5350;
-			}
-
-			.jcem-404__dots span:nth-child(2) {
-				background: #f4d35e;
-			}
-
-			.jcem-404__dots span:nth-child(3) {
-				background: #43a047;
+				align-items: center;
+				justify-content: center;
+				width: 1rem;
+				height: 1rem;
+				border-radius: 0.18rem;
+				background: color-mix(in srgb, var(--jcem-404-terminal-command) 18%, transparent);
+				color: var(--jcem-404-terminal-command);
+				font-size: 0.56rem;
+				font-weight: 800;
 			}
 
 			.jcem-404__bar-title {
-				text-align: center;
+				justify-self: start;
+				text-align: left;
 			}
 
-			.jcem-404__bar-icon {
-				color: var(--jcem-panel-accent-hot);
-				font-weight: 700;
+			.jcem-404__window-controls {
+				display: inline-grid;
+				grid-template-columns: repeat(3, 2rem);
+				align-self: stretch;
+				min-height: 1.5rem;
+			}
+
+			/* Cores: controles discretos do terminal Windows. */
+			.jcem-404__window-controls span {
+				display: inline-flex;
+				align-items: center;
+				justify-content: center;
+				color: var(--jcem-404-terminal-muted);
+				font-size: 0.72rem;
+				line-height: 1;
+			}
+
+			.jcem-404__window-controls span:last-child {
+				color: #f27b86;
 			}
 
 			.main_jcem_wrapper .jcem-404__screen {
@@ -476,11 +474,6 @@
 					padding: 0.85rem;
 				}
 
-				.jcem-404__brand {
-					width: 8rem;
-					height: 2.1rem;
-				}
-
 				.jcem-404__screen {
 					max-height: 15rem;
 				}
@@ -606,14 +599,31 @@
 				</ul>
 			</div>
 
+			<div class="masthead" data-jcem-fragment="masthead">
+				<div class="masthead__inner-wrap">
+					<div class="masthead__menu">
+						<input class="jcem-nav-state" type="checkbox" id="jcem-nav-state" />
+						<nav id="site-nav" class="greedy-nav">
+							<a class="site-logo" href="/"><img src="/assets/jcem/img/logo-animado.gif" alt="JeanCarloEM" /></a>
+							<a class="site-title" href="/">JeanCarloEM</a>
+							<ul class="visible-links">
+								<li class="masthead__menu-item"><a href="/sobre/">Sobre</a></li>
+								<li class="masthead__menu-item">
+									<a href="https://mmistakes.github.io/minimal-mistakes/docs/quick-start-guide/">Quick-Start Guide</a>
+								</li>
+							</ul>
+							<label class="jcem-nav-toggle" for="jcem-nav-state" aria-label="Alternar menu">
+								<span class="visually-hidden">Alternar menu</span>
+								<span class="navicon"></span>
+							</label>
+						</nav>
+						<label class="jcem-nav-backdrop" for="jcem-nav-state" aria-hidden="true"></label>
+					</div>
+				</div>
+			</div>
+
 			<main class="jcem-404">
 				<div class="jcem-404__wrap">
-					<a class="jcem-404__brand" href="/" aria-label="Ir para a página inicial JeanCarloEM">
-						<object data="https://jcem.pro/logo/logo-animado.gif" type="image/gif" aria-hidden="true">
-							<span class="jcem-404__brand-fallback">JeanCarloEM</span>
-						</object>
-					</a>
-
 				<section class="jcem-404__hero" aria-labelledby="jcem-404-title">
 					<div>
 						<h1 class="jcem-404__title" id="jcem-404-title">Ops! Algo saiu da rota.</h1>
@@ -624,9 +634,9 @@
 
 				<section class="jcem-404__terminal" aria-label="Terminal JeanCarloEM">
 					<div class="jcem-404__bar" aria-hidden="true">
-						<span class="jcem-404__dots"><span></span><span></span><span></span></span>
+						<span class="jcem-404__app-mark">&gt;_</span>
 						<span class="jcem-404__bar-title">~/JeanCarloEM</span>
-						<span class="jcem-404__bar-icon">&gt;_</span>
+						<span class="jcem-404__window-controls"><span>&minus;</span><span>&#9633;</span><span>&times;</span></span>
 					</div>
 					<pre class="jcem-404__screen"><span class="jcem-404__prompt">&gt;</span> <span class="jcem-404__cmd">cd ~/JeanCarloEM</span>
 /home/user/JeanCarloEM
@@ -757,6 +767,31 @@ HTTP/1.1 <span class="jcem-404__err">404 Not Found</span>
 						if (target && source) target.replaceWith(source.cloneNode(true));
 					};
 
+					const sanitizeMasthead = (source) => {
+						if (!source) return null;
+						const masthead = source.cloneNode(true);
+						masthead.setAttribute('data-jcem-fragment', 'masthead');
+						masthead.querySelectorAll(
+							'.jcem-theme-toggle, .search__toggle, .greedy-nav__toggle, .hidden-links'
+						).forEach((node) => node.remove());
+						return masthead;
+					};
+
+					const normalizeMastheadLogo = () => {
+						const logo = document.querySelector('.masthead .site-logo img');
+						if (!logo) return;
+						const fallbackSrc = '/assets/jcem/img/logo-animado.gif';
+						const applyFallback = () => {
+							if (logo.dataset.jcemLogoFallback === '1') return;
+							logo.dataset.jcemLogoFallback = '1';
+							logo.src = fallbackSrc;
+						};
+						logo.addEventListener('error', applyFallback, { once: true });
+						if (logo.complete && logo.naturalWidth === 0 && logo.src !== new URL(fallbackSrc, location.href).href) {
+							applyFallback();
+						}
+					};
+
 					const normalizeSocialIcons = () => {
 						document.querySelectorAll('#footer .social-icons a').forEach((link) => {
 							if (link.querySelector('.jcem-404-social-badge')) return;
@@ -780,6 +815,7 @@ HTTP/1.1 <span class="jcem-404__err">404 Not Found</span>
 						try {
 							const response = await fetch('/?jcem-fragments=1', { credentials: 'same-origin' });
 							if (!response.ok) {
+								normalizeMastheadLogo();
 								normalizeSocialIcons();
 								return;
 							}
@@ -787,10 +823,12 @@ HTTP/1.1 <span class="jcem-404__err">404 Not Found</span>
 							replaceFragment('head noscript[data-jcem-fragment="noscript-style"]', doc.head.querySelector('noscript'));
 							replaceFragment('body > noscript[data-jcem-fragment="noscript-content"]', doc.body.querySelector('noscript'));
 							replaceFragment('[data-jcem-fragment="sobpostbar"]', doc.querySelector('.main_jcem_wrapper > .sobpostbar'));
+							replaceFragment('[data-jcem-fragment="masthead"]', sanitizeMasthead(doc.querySelector('.masthead')));
 							replaceFragment('[data-jcem-fragment="footer"]', doc.querySelector('#footer'));
 						} catch (_error) {
 							// PROTECAO: fallback estatico preserva a pagina quando fetch nao estiver disponivel.
 						}
+						normalizeMastheadLogo();
 						normalizeSocialIcons();
 					};
 
