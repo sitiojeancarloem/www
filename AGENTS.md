@@ -496,6 +496,32 @@ Exceto:
 
 ---
 
+[404]
+
+`404.html`:
+
+- deve ficar no root, sem front matter, editável manualmente
+- deve herdar `/assets/css/main.css`
+- não deve duplicar CSS do tema
+- CSS/JS local somente para conteúdo 404, terminal e fallbacks mínimos
+- cabeçalho, `sobpostbar`, `noscript` e footer devem espelhar a origem do tema
+- quando possível, hidratar fragmentos a partir da home
+- sanitizar fragmentos importados para remover recursos pesados ou indevidos
+- não importar switch de tema claro/escuro
+- não importar Silktide, consent managers ou análogos
+- não importar recurso dependente de cookie ou `localStorage`
+- não expor controle visual de tema na 404
+- tema deve seguir o padrão vigente; terminal permanece escuro
+- terminal deve ser compacto, responsivo e com aparência Windows 11
+
+Validação local:
+
+- se a porta estiver ocupada, presumir `dev-live` já ativo pelo desenvolvedor
+- validar contra o servidor existente antes de iniciar outro
+- não encerrar processo de servidor sem confirmação explícita
+
+---
+
 [FINAL]
 
 Adicionar:

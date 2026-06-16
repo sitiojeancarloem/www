@@ -7,6 +7,8 @@
 		<meta name="apple-mobile-web-app-title" content="JeanCarloEM" />
 		<title>404 - JeanCarloEM</title>
 		<link rel="stylesheet" href="/assets/css/main.css" />
+		<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+		<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css" /></noscript>
 		<link rel="icon" type="image/png" href="https://jcem.pro/logo/favicon-96x96.png" sizes="96x96" />
 		<link rel="icon" type="image/svg+xml" href="https://jcem.pro/logo/favicon.svg" />
 		<link rel="shortcut icon" href="https://jcem.pro/logo/favicon.ico" />
@@ -144,24 +146,6 @@
 			.jcem-404,
 			.jcem-404 * {
 				box-sizing: border-box;
-			}
-
-			.layout--404 .masthead .site-logo {
-				width: clamp(6.75rem, 13vw, 7.75rem);
-				height: auto;
-				aspect-ratio: 31 / 16;
-				font-size: 0;
-				line-height: 0;
-			}
-
-			.layout--404 .masthead .site-logo img {
-				position: static;
-				display: block;
-				width: 100%;
-				height: 100%;
-				margin: 0;
-				object-fit: contain;
-				transform: none;
 			}
 
 			.jcem-404 a::after {
@@ -380,31 +364,6 @@
 			.jcem-404__home:hover,
 			.jcem-404__home:focus-visible {
 				color: var(--link-h);
-			}
-
-			.jcem-404-social-badge {
-				display: inline-flex;
-				align-items: center;
-				justify-content: center;
-				min-width: 2.15em;
-				height: 2.15em;
-				margin-right: 0.45em;
-				padding: 0 0.38em;
-				border: 1px solid color-mix(in srgb, var(--jcem-social-color) 62%, transparent);
-				border-radius: 0.25rem;
-				background: color-mix(in srgb, var(--fbg) 70%, transparent);
-				color: var(--jcem-social-color);
-				font-size: 0.58rem;
-				font-weight: 800;
-				line-height: 1;
-				text-transform: uppercase;
-				vertical-align: middle;
-			}
-
-			.main_jcem_wrapper .page__footer-follow .social-icons a:hover .jcem-404-social-badge,
-			.main_jcem_wrapper .page__footer-follow .social-icons a:focus-visible .jcem-404-social-badge {
-				border-color: var(--jcem-social-color-hover);
-				color: var(--jcem-social-color-hover);
 			}
 
 			@keyframes jcem-404-pulse {
@@ -754,14 +713,6 @@ HTTP/1.1 <span class="jcem-404__err">404 Not Found</span>
 
 			<script>
 				(() => {
-					const socialBadges = [
-						{ pattern: /x\.com|twitter/i, label: 'X' },
-						{ pattern: /facebook/i, label: 'FB' },
-						{ pattern: /github/i, label: 'GH' },
-						{ pattern: /instagram/i, label: 'IG' },
-						{ pattern: /feed\.xml|rss/i, label: 'RSS' },
-					];
-
 					const replaceFragment = (selector, source) => {
 						const target = document.querySelector(selector);
 						if (target && source) target.replaceWith(source.cloneNode(true));
@@ -792,31 +743,11 @@ HTTP/1.1 <span class="jcem-404__err">404 Not Found</span>
 						}
 					};
 
-					const normalizeSocialIcons = () => {
-						document.querySelectorAll('#footer .social-icons a').forEach((link) => {
-							if (link.querySelector('.jcem-404-social-badge')) return;
-							const text = `${link.href} ${link.textContent || ''}`;
-							const social = socialBadges.find((item) => item.pattern.test(text));
-							if (!social) return;
-							const badge = document.createElement('span');
-							badge.className = 'jcem-404-social-badge';
-							badge.setAttribute('aria-hidden', 'true');
-							badge.textContent = social.label;
-							const icon = link.querySelector('i');
-							if (icon) {
-								icon.replaceWith(badge);
-								return;
-							}
-							link.prepend(badge);
-						});
-					};
-
 					const hydrateFragments = async () => {
 						try {
 							const response = await fetch('/?jcem-fragments=1', { credentials: 'same-origin' });
 							if (!response.ok) {
 								normalizeMastheadLogo();
-								normalizeSocialIcons();
 								return;
 							}
 							const doc = new DOMParser().parseFromString(await response.text(), 'text/html');
@@ -829,7 +760,6 @@ HTTP/1.1 <span class="jcem-404__err">404 Not Found</span>
 							// PROTECAO: fallback estatico preserva a pagina quando fetch nao estiver disponivel.
 						}
 						normalizeMastheadLogo();
-						normalizeSocialIcons();
 					};
 
 					if (document.readyState === 'loading') {
