@@ -10,6 +10,122 @@
 		<link rel="icon" type="image/png" href="https://jcem.pro/logo/favicon-96x96.png" sizes="96x96" />
 		<link rel="icon" type="image/svg+xml" href="https://jcem.pro/logo/favicon.svg" />
 		<link rel="shortcut icon" href="https://jcem.pro/logo/favicon.ico" />
+		<noscript data-jcem-fragment="noscript-style">
+			<style>
+				:root {
+					--jcem-noscript-blue: #c08282;
+					--jcem-noscript-amber: #cc4c1e;
+					--jcem-noscript-bg: #ebebeb;
+					--jcem-noscript-text: #222;
+					--jcem-noscript-radius: 1rem;
+				}
+
+				html,
+				body {
+					margin: 0;
+					padding: 0;
+					min-height: 100vh;
+					overflow: hidden;
+					background: var(--jcem-noscript-bg);
+				}
+
+				body > .main_jcem_wrapper,
+				body > .loader-bar {
+					/* PROTECAO: sem JavaScript, somente o painel noscript deve aparecer. */
+					display: none !important;
+				}
+
+				body > noscript {
+					position: fixed;
+					inset: 0;
+					z-index: 2147483647;
+					display: flex;
+					width: 100vw;
+					min-height: 100vh;
+					padding: 1rem;
+					overflow: auto;
+					background: var(--jcem-noscript-bg);
+				}
+
+				body > noscript,
+				body > noscript * {
+					box-sizing: border-box;
+					font-family: 'Noto Sans', 'Segoe UI', Tahoma, sans-serif;
+					color: var(--jcem-noscript-text);
+				}
+
+				.jcem-noscript {
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					width: 100%;
+					min-height: calc(100vh - 2rem);
+				}
+
+				.jcem-noscript__panel {
+					/* FIX-BUG: centraliza o painel sem depender de largura fixa. */
+					width: min(100%, 28rem);
+					margin: auto;
+					padding: 1.5rem;
+					border: 0.1rem solid var(--jcem-noscript-blue);
+					border-radius: var(--jcem-noscript-radius);
+					background: #fff;
+					box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1);
+					text-align: left;
+				}
+
+				.jcem-noscript h1 {
+					display: flex;
+					align-items: center;
+					gap: 0.5rem;
+					margin: -1rem -1rem 1rem;
+					padding: 0.6em 1em;
+					border-radius: var(--jcem-noscript-radius) var(--jcem-noscript-radius) 0 0;
+					background: #845050;
+					color: #fff;
+					font-size: clamp(1.1rem, 5vw, 1.5rem);
+					font-weight: 700;
+				}
+
+				.jcem-noscript h1 span {
+					color: inherit;
+					font-size: 1.5rem;
+				}
+
+				.jcem-noscript p {
+					margin: 0.2rem 0;
+					line-height: 1.4;
+				}
+
+				.jcem-noscript__lang {
+					margin-top: 1rem;
+					padding-top: 0.5rem;
+					border-top: 1px solid rgba(0, 0, 0, 0.1);
+					font-size: 0.9rem;
+				}
+
+				.jcem-noscript__lang:first-of-type {
+					border-top: 0;
+				}
+
+				.jcem-noscript__lang h2 {
+					margin: 0 0 0.2rem;
+					color: var(--jcem-noscript-blue);
+					font-size: 0.9rem;
+				}
+
+				.jcem-noscript strong {
+					color: var(--jcem-noscript-amber);
+					font-size: 1.05rem;
+					font-style: italic;
+				}
+
+				.jcem-noscript p span {
+					font-size: 1.3rem;
+					vertical-align: text-bottom;
+				}
+			</style>
+		</noscript>
 		<style>
 			/* Cores: aliases do tema ativo. */
 			.jcem-404 {
@@ -257,6 +373,31 @@
 				color: var(--link-h);
 			}
 
+			.jcem-404-social-badge {
+				display: inline-flex;
+				align-items: center;
+				justify-content: center;
+				min-width: 2.15em;
+				height: 2.15em;
+				margin-right: 0.45em;
+				padding: 0 0.38em;
+				border: 1px solid color-mix(in srgb, var(--jcem-social-color) 62%, transparent);
+				border-radius: 0.25rem;
+				background: color-mix(in srgb, var(--fbg) 70%, transparent);
+				color: var(--jcem-social-color);
+				font-size: 0.58rem;
+				font-weight: 800;
+				line-height: 1;
+				text-transform: uppercase;
+				vertical-align: middle;
+			}
+
+			.main_jcem_wrapper .page__footer-follow .social-icons a:hover .jcem-404-social-badge,
+			.main_jcem_wrapper .page__footer-follow .social-icons a:focus-visible .jcem-404-social-badge {
+				border-color: var(--jcem-social-color-hover);
+				color: var(--jcem-social-color-hover);
+			}
+
 			@keyframes jcem-404-pulse {
 				0%,
 				88%,
@@ -344,6 +485,52 @@
 		</style>
 	</head>
 	<body class="layout--404">
+		<noscript data-jcem-fragment="noscript-content">
+			<div class="jcem-noscript">
+				<main class="jcem-noscript__panel">
+					<h1><span>⚠️</span>Problem / Problema / 问题</h1>
+
+					<div class="jcem-noscript__lang">
+						<h2>🇺🇸 English</h2>
+						<p>
+							<span>⚠️</span>
+							<strong>JavaScript is disabled.</strong><br />
+							JavaScript is required to manage your agreement with the Terms of Use,
+							Privacy Notice and consent preferences.
+						</p>
+					</div>
+
+					<div class="jcem-noscript__lang">
+						<h2>🇧🇷 Português</h2>
+						<p>
+							<span>⚠️</span>
+							<strong>O JavaScript está desativado.</strong><br />
+							O JavaScript é necessário para gerenciar sua adesão aos Termos de Uso,
+							Aviso de Privacidade e preferências de consentimento.
+						</p>
+					</div>
+
+					<div class="jcem-noscript__lang">
+						<h2>🇪🇸 Español</h2>
+						<p>
+							<span>⚠️</span>
+							<strong>JavaScript está deshabilitado.</strong><br />
+							JavaScript es necesario para gestionar su aceptación de los Términos de
+							Uso, Aviso de Privacidad y preferencias de consentimiento.
+						</p>
+					</div>
+
+					<div class="jcem-noscript__lang">
+						<h2>🇨🇳 中文（普通话）</h2>
+						<p>
+							<span>⚠️</span>
+							<strong>JavaScript 已被禁用。</strong><br />
+							需要启用 JavaScript 以管理您对使用条款、隐私声明和同意偏好的确认。
+						</p>
+					</div>
+				</main>
+			</div>
+		</noscript>
 		<input class="radio jcem-theme-radio" type="radio" name="jcem-theme" id="jcem-theme-light" value="light" />
 		<input class="radio jcem-theme-radio" type="radio" name="jcem-theme" id="jcem-theme-dark" value="dark" checked />
 		<div class="main_jcem_wrapper">
@@ -505,21 +692,54 @@ HTTP/1.1 <span class="jcem-404__err">404 Not Found</span>
 
 			<script>
 				(() => {
+					const socialBadges = [
+						{ pattern: /x\.com|twitter/i, label: 'X' },
+						{ pattern: /facebook/i, label: 'FB' },
+						{ pattern: /github/i, label: 'GH' },
+						{ pattern: /instagram/i, label: 'IG' },
+						{ pattern: /feed\.xml|rss/i, label: 'RSS' },
+					];
+
 					const replaceFragment = (selector, source) => {
 						const target = document.querySelector(selector);
 						if (target && source) target.replaceWith(source.cloneNode(true));
 					};
 
+					const normalizeSocialIcons = () => {
+						document.querySelectorAll('#footer .social-icons a').forEach((link) => {
+							if (link.querySelector('.jcem-404-social-badge')) return;
+							const text = `${link.href} ${link.textContent || ''}`;
+							const social = socialBadges.find((item) => item.pattern.test(text));
+							if (!social) return;
+							const badge = document.createElement('span');
+							badge.className = 'jcem-404-social-badge';
+							badge.setAttribute('aria-hidden', 'true');
+							badge.textContent = social.label;
+							const icon = link.querySelector('i');
+							if (icon) {
+								icon.replaceWith(badge);
+								return;
+							}
+							link.prepend(badge);
+						});
+					};
+
 					const hydrateFragments = async () => {
 						try {
 							const response = await fetch('/?jcem-fragments=1', { credentials: 'same-origin' });
-							if (!response.ok) return;
+							if (!response.ok) {
+								normalizeSocialIcons();
+								return;
+							}
 							const doc = new DOMParser().parseFromString(await response.text(), 'text/html');
+							replaceFragment('head noscript[data-jcem-fragment="noscript-style"]', doc.head.querySelector('noscript'));
+							replaceFragment('body > noscript[data-jcem-fragment="noscript-content"]', doc.body.querySelector('noscript'));
 							replaceFragment('[data-jcem-fragment="sobpostbar"]', doc.querySelector('.main_jcem_wrapper > .sobpostbar'));
 							replaceFragment('[data-jcem-fragment="footer"]', doc.querySelector('#footer'));
 						} catch (_error) {
 							// PROTECAO: fallback estatico preserva a pagina quando fetch nao estiver disponivel.
 						}
+						normalizeSocialIcons();
 					};
 
 					if (document.readyState === 'loading') {
