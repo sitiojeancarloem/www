@@ -248,16 +248,26 @@
 			}
 
 			.jcem-404__terminal {
+				--jcem-404-terminal-bg: #171d26;
+				--jcem-404-terminal-head: #131923;
+				--jcem-404-terminal-border: #3a4554;
+				--jcem-404-terminal-grid: rgba(119, 199, 228, 0.12);
+				--jcem-404-terminal-shadow: rgba(0, 0, 0, 0.36);
+				--jcem-404-terminal-text: #c4cbd6;
+				--jcem-404-terminal-muted: #8c96a4;
+				--jcem-404-terminal-prompt: #f4d35e;
+				--jcem-404-terminal-command: #77c7e4;
+				--jcem-404-terminal-error: #ff4d5a;
 				width: min(100%, 36rem);
 				margin: 0 auto;
 				overflow: hidden;
-				border: 1px solid color-mix(in srgb, var(--bc) 76%, transparent);
+				border: 1px solid var(--jcem-404-terminal-border);
 				border-radius: 0.4rem;
 				background:
-					linear-gradient(90deg, var(--jcem-panel-line) 1px, transparent 1px),
-					color-mix(in srgb, var(--cbgd) 88%, transparent);
+					linear-gradient(90deg, var(--jcem-404-terminal-grid) 1px, transparent 1px),
+					var(--jcem-404-terminal-bg);
 				background-size: 2.35rem 2.35rem;
-				box-shadow: 0 0.75rem 1.8rem color-mix(in srgb, var(--jcem-panel-shadow) 70%, transparent);
+				box-shadow: 0 0.75rem 1.8rem var(--jcem-404-terminal-shadow);
 			}
 
 			.jcem-404__bar {
@@ -267,9 +277,9 @@
 				gap: 0.75rem;
 				min-height: 1.85rem;
 				padding: 0.35rem 0.65rem;
-				border-bottom: 1px solid color-mix(in srgb, var(--bc) 70%, transparent);
-				background: color-mix(in srgb, var(--ftbg) 70%, transparent);
-				color: var(--mtc);
+				border-bottom: 1px solid var(--jcem-404-terminal-border);
+				background: var(--jcem-404-terminal-head);
+				color: var(--jcem-404-terminal-muted);
 				font-family: Monaco, Consolas, "Lucida Console", monospace;
 				font-size: 0.68rem;
 			}
@@ -307,27 +317,28 @@
 				font-weight: 700;
 			}
 
-			.jcem-404__screen {
+			.main_jcem_wrapper .jcem-404__screen {
 				max-height: 10rem;
 				margin: 0;
 				padding: 0.7rem 0.85rem;
 				overflow: auto;
-				color: var(--mtc);
+				background: var(--jcem-404-terminal-bg) !important;
+				color: var(--jcem-404-terminal-text);
 				font: 0.72rem/1.38 Monaco, Consolas, "Lucida Console", monospace;
 				overflow-wrap: anywhere;
 				white-space: pre-wrap;
 			}
 
 			.jcem-404__prompt {
-				color: var(--jcem-panel-accent-hot);
+				color: var(--jcem-404-terminal-prompt);
 			}
 
 			.jcem-404__cmd {
-				color: var(--link);
+				color: var(--jcem-404-terminal-command);
 			}
 
 			.jcem-404__err {
-				color: var(--jcem-alert-background);
+				color: var(--jcem-404-terminal-error);
 			}
 
 			.jcem-404__actions {
@@ -533,6 +544,47 @@
 		</noscript>
 		<input class="radio jcem-theme-radio" type="radio" name="jcem-theme" id="jcem-theme-light" value="light" />
 		<input class="radio jcem-theme-radio" type="radio" name="jcem-theme" id="jcem-theme-dark" value="dark" checked />
+		<script>
+			(() => {
+				const themeKey = 'jcem-theme';
+				const defaultTheme = 'dark';
+				const allowedThemes = new Set(['light', 'dark']);
+				const getCookieTheme = () => {
+					const row = document.cookie
+						.split('; ')
+						.find((item) => item.startsWith(`${themeKey}=`));
+					return row ? decodeURIComponent(row.split('=').slice(1).join('=')) : '';
+				};
+				const getStoredTheme = () => {
+					try {
+						return localStorage.getItem(themeKey) || getCookieTheme();
+					} catch (_error) {
+						return getCookieTheme();
+					}
+				};
+				const applyTheme = (theme) => {
+					if (!allowedThemes.has(theme)) return;
+					const radio = document.getElementById(`jcem-theme-${theme}`);
+					if (radio) radio.checked = true;
+				};
+				const detectSourceDefaultTheme = async () => {
+					try {
+						const response = await fetch('/?jcem-theme-default=1', { credentials: 'same-origin' });
+						if (!response.ok) return '';
+						const doc = new DOMParser().parseFromString(await response.text(), 'text/html');
+						const checked = doc.querySelector('input[name="jcem-theme"][checked]');
+						return checked && allowedThemes.has(checked.value) ? checked.value : '';
+					} catch (_error) {
+						return '';
+					}
+				};
+				const storedTheme = getStoredTheme();
+				applyTheme(allowedThemes.has(storedTheme) ? storedTheme : defaultTheme);
+				detectSourceDefaultTheme().then((sourceTheme) => {
+					if (!allowedThemes.has(storedTheme) && sourceTheme) applyTheme(sourceTheme);
+				});
+			})();
+		</script>
 		<div class="main_jcem_wrapper">
 			<div class="sobpostbar" data-jcem-fragment="sobpostbar">
 				<ul id="menu-topo-2" class="menu">
