@@ -1,0 +1,403 @@
+<!doctype html>
+<html lang="pt-BR">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="robots" content="noindex, follow" />
+		<meta name="apple-mobile-web-app-title" content="JeanCarloEM" />
+		<title>404 - JeanCarloEM</title>
+		<link rel="stylesheet" href="/assets/css/main.css" />
+		<link rel="icon" type="image/png" href="https://jcem.pro/logo/favicon-96x96.png" sizes="96x96" />
+		<link rel="icon" type="image/svg+xml" href="https://jcem.pro/logo/favicon.svg" />
+		<link rel="shortcut icon" href="https://jcem.pro/logo/favicon.ico" />
+		<style>
+			/* Cores: aliases do tema ativo. */
+			.jcem-404 {
+				min-height: 100vh;
+				padding: clamp(1.25rem, 3vw, 3rem);
+				background:
+					radial-gradient(circle at 78% 20%, var(--jcem-glitch-b), transparent 28rem),
+					radial-gradient(circle at 22% 15%, var(--jcem-glitch-a), transparent 24rem),
+					var(--bg);
+				color: var(--tc);
+				font-family: inherit;
+			}
+
+			.jcem-404,
+			.jcem-404 * {
+				box-sizing: border-box;
+			}
+
+			.jcem-404 a::after {
+				display: none !important;
+			}
+
+			.jcem-404__wrap {
+				width: min(100%, 62rem);
+				margin: 0 auto;
+			}
+
+			.jcem-404__brand {
+				display: inline-flex;
+				align-items: center;
+				gap: 0.7rem;
+				color: var(--tc);
+				font-size: clamp(1rem, 2.4vw, 1.2rem);
+				font-weight: 700;
+			}
+
+			.jcem-404__brand object {
+				width: clamp(2.5rem, 6vw, 3.5rem);
+				height: clamp(2.5rem, 6vw, 3.5rem);
+				pointer-events: none;
+			}
+
+			.jcem-404__brand-fallback {
+				display: inline-flex;
+				align-items: center;
+				justify-content: center;
+				width: 100%;
+				height: 100%;
+				border: 1px solid var(--bc);
+				color: var(--jcem-panel-accent);
+				font-weight: 900;
+			}
+
+			.jcem-404__hero {
+				display: grid;
+				grid-template-columns: minmax(0, 1fr) auto;
+				align-items: end;
+				gap: clamp(1.5rem, 5vw, 4rem);
+				padding: clamp(3.25rem, 9vw, 6.5rem) 0 clamp(1.5rem, 4vw, 2.5rem);
+			}
+
+			.jcem-404__title {
+				max-width: 24rem;
+				margin: 0;
+				color: var(--tc);
+				font-size: clamp(2rem, 5vw, 3.4rem);
+				line-height: 1.08;
+				letter-spacing: 0;
+			}
+
+			.jcem-404__lead {
+				max-width: 27rem;
+				margin: 1rem 0 0;
+				color: var(--mtc);
+				font-size: clamp(1rem, 2vw, 1.18rem);
+			}
+
+			.main_jcem_wrapper .jcem-404__code {
+				position: relative;
+				margin: 0;
+				color: var(--jcem-title-color);
+				font-size: clamp(5rem, 17vw, 10rem);
+				font-weight: 900;
+				line-height: 0.8;
+				letter-spacing: 0;
+				text-shadow:
+					0 0 0.75rem var(--jcem-glitch-a),
+					0 0 1.5rem var(--jcem-glitch-b);
+				animation: jcem-404-shake 2.2s steps(1, end) infinite;
+			}
+
+			.jcem-404__code::before,
+			.jcem-404__code::after {
+				position: absolute;
+				inset: 0;
+				display: block;
+				content: attr(data-text);
+				overflow: hidden;
+			}
+
+			.jcem-404__code::before {
+				color: var(--jcem-panel-accent);
+				clip-path: inset(0 0 48% 0);
+				transform: translate(-0.08em, -0.015em);
+				animation: jcem-404-slice-a 1.1s infinite linear alternate-reverse;
+			}
+
+			.jcem-404__code::after {
+				color: var(--jcem-alert-background);
+				clip-path: inset(52% 0 0 0);
+				transform: translate(0.07em, 0.018em);
+				animation: jcem-404-slice-b 0.9s infinite linear alternate-reverse;
+			}
+
+			.jcem-404__terminal {
+				overflow: hidden;
+				border: 1px solid var(--bc);
+				border-radius: 0.45rem;
+				background:
+					linear-gradient(90deg, var(--jcem-panel-line) 1px, transparent 1px),
+					var(--cbgd);
+				background-size: 2.5rem 2.5rem;
+				box-shadow: 0 1rem 2.4rem var(--jcem-panel-shadow);
+			}
+
+			.jcem-404__bar {
+				display: grid;
+				grid-template-columns: auto 1fr auto;
+				align-items: center;
+				gap: 1rem;
+				padding: 0.75rem 1rem;
+				border-bottom: 1px solid var(--bc);
+				background: color-mix(in srgb, var(--ftbg) 78%, transparent);
+				color: var(--mtc);
+				font-family: Monaco, Consolas, "Lucida Console", monospace;
+				font-size: 0.8rem;
+			}
+
+			.jcem-404__dots {
+				display: inline-flex;
+				gap: 0.45rem;
+			}
+
+			/* Cores: controles visuais do terminal. */
+			.jcem-404__dots span {
+				width: 0.72rem;
+				height: 0.72rem;
+				border-radius: 999px;
+			}
+
+			.jcem-404__dots span:nth-child(1) {
+				background: #ef5350;
+			}
+
+			.jcem-404__dots span:nth-child(2) {
+				background: #f4d35e;
+			}
+
+			.jcem-404__dots span:nth-child(3) {
+				background: #43a047;
+			}
+
+			.jcem-404__bar-title {
+				text-align: center;
+			}
+
+			.jcem-404__bar-icon {
+				color: var(--jcem-panel-accent-hot);
+				font-weight: 700;
+			}
+
+			.jcem-404__screen {
+				margin: 0;
+				padding: clamp(1.1rem, 3vw, 1.8rem);
+				overflow-x: auto;
+				color: var(--mtc);
+				font: 0.86rem/1.55 Monaco, Consolas, "Lucida Console", monospace;
+				overflow-wrap: anywhere;
+				white-space: pre-wrap;
+			}
+
+			.jcem-404__prompt {
+				color: var(--jcem-panel-accent-hot);
+			}
+
+			.jcem-404__cmd {
+				color: var(--link);
+			}
+
+			.jcem-404__err {
+				color: var(--jcem-alert-background);
+			}
+
+			.jcem-404__status {
+				display: grid;
+				grid-template-columns: repeat(4, minmax(0, 1fr));
+				gap: 0;
+				margin: clamp(1rem, 3vw, 1.5rem) 0 0;
+				border-top: 1px solid var(--bc);
+				border-bottom: 1px solid var(--bc);
+			}
+
+			.jcem-404__status p {
+				margin: 0;
+				padding: 0.9rem;
+				border-right: 1px solid var(--bc);
+				color: var(--tc);
+				font-size: clamp(0.9rem, 1.8vw, 1rem);
+			}
+
+			.jcem-404__status p:last-child {
+				border-right: 0;
+			}
+
+			.jcem-404__status span {
+				display: block;
+				margin-bottom: 0.2rem;
+				color: var(--mtc);
+				font-size: 0.68rem;
+				font-weight: 700;
+				letter-spacing: 0;
+				text-transform: uppercase;
+			}
+
+			.jcem-404__home {
+				display: inline-flex;
+				align-items: center;
+				gap: 0.45rem;
+				margin-top: clamp(1.5rem, 4vw, 2.5rem);
+				color: var(--link);
+				font-weight: 700;
+			}
+
+			.jcem-404__home:hover,
+			.jcem-404__home:focus-visible {
+				color: var(--link-h);
+			}
+
+			@keyframes jcem-404-shake {
+				0%,
+				78%,
+				100% {
+					transform: translate(0, 0) skewX(0);
+				}
+
+				80% {
+					transform: translate(-0.018em, 0.008em) skewX(7deg);
+				}
+
+				82% {
+					transform: translate(0.02em, -0.006em) skewX(-5deg);
+				}
+
+				84% {
+					transform: translate(-0.01em, 0.004em) skewX(4deg);
+				}
+			}
+
+			@keyframes jcem-404-slice-a {
+				0% {
+					clip-path: inset(4% 0 62% 0);
+				}
+
+				45% {
+					clip-path: inset(30% 0 34% 0);
+				}
+
+				100% {
+					clip-path: inset(66% 0 8% 0);
+				}
+			}
+
+			@keyframes jcem-404-slice-b {
+				0% {
+					clip-path: inset(58% 0 12% 0);
+				}
+
+				55% {
+					clip-path: inset(10% 0 70% 0);
+				}
+
+				100% {
+					clip-path: inset(38% 0 42% 0);
+				}
+			}
+
+			@media (max-width: 48em) {
+				.jcem-404__hero {
+					grid-template-columns: 1fr;
+					padding-top: 3rem;
+				}
+
+				.jcem-404__code {
+					justify-self: start;
+				}
+
+				.jcem-404__status {
+					grid-template-columns: 1fr 1fr;
+				}
+
+				.jcem-404__status p:nth-child(2) {
+					border-right: 0;
+				}
+
+				.jcem-404__status p:nth-child(n + 3) {
+					border-top: 1px solid var(--bc);
+				}
+			}
+
+			@media (max-width: 30em) {
+				.jcem-404 {
+					padding: 1rem;
+				}
+
+				.jcem-404__status {
+					grid-template-columns: 1fr;
+				}
+
+				.jcem-404__status p {
+					border-right: 0;
+				}
+
+				.jcem-404__status p + p {
+					border-top: 1px solid var(--bc);
+				}
+			}
+
+			@media (prefers-reduced-motion: reduce) {
+				.jcem-404__code,
+				.jcem-404__code::before,
+				.jcem-404__code::after {
+					animation: none;
+				}
+			}
+		</style>
+	</head>
+	<body class="layout--404">
+		<input class="radio jcem-theme-radio" type="radio" name="jcem-theme" id="jcem-theme-light" value="light" />
+		<input class="radio jcem-theme-radio" type="radio" name="jcem-theme" id="jcem-theme-dark" value="dark" checked />
+		<main class="main_jcem_wrapper jcem-404">
+			<div class="jcem-404__wrap">
+				<a class="jcem-404__brand" href="/" aria-label="Ir para a página inicial JeanCarloEM">
+					<object data="https://jcem.pro/logo/logo-animado.gif" type="image/gif" aria-hidden="true">
+						<span class="jcem-404__brand-fallback">JC</span>
+					</object>
+					<span>JeanCarloEM</span>
+				</a>
+
+				<section class="jcem-404__hero" aria-labelledby="jcem-404-title">
+					<div>
+						<h1 class="jcem-404__title" id="jcem-404-title">Ops! Algo saiu da rota.</h1>
+						<p class="jcem-404__lead">The requested path ended outside the published map.</p>
+					</div>
+					<p class="jcem-404__code" data-text="404" aria-label="Erro 404">404</p>
+				</section>
+
+				<section class="jcem-404__terminal" aria-label="Terminal JeanCarloEM">
+					<div class="jcem-404__bar" aria-hidden="true">
+						<span class="jcem-404__dots"><span></span><span></span><span></span></span>
+						<span class="jcem-404__bar-title">~/JeanCarloEM</span>
+						<span class="jcem-404__bar-icon">&gt;_</span>
+					</div>
+					<pre class="jcem-404__screen"><span class="jcem-404__prompt">&gt;</span> <span class="jcem-404__cmd">cd ~/JeanCarloEM</span>
+/home/user/JeanCarloEM
+
+<span class="jcem-404__prompt">&gt;</span> <span class="jcem-404__cmd">ls</span>
+posts   sobre   tags   arquivos
+
+<span class="jcem-404__prompt">&gt;</span> <span class="jcem-404__cmd">find pagina.md</span>
+Searching in /home/user/JeanCarloEM
+No results found
+
+<span class="jcem-404__prompt">&gt;</span> <span class="jcem-404__cmd">curl https://www.jeancarloem.com/pagina</span>
+HTTP/1.1 <span class="jcem-404__err">404 Not Found</span>
+
+<span class="jcem-404__prompt">&gt;</span> <span class="jcem-404__cmd">open pagina</span>
+<span class="jcem-404__err">Error: página não encontrada █</span></pre>
+				</section>
+
+				<section class="jcem-404__status" aria-label="Mensagem 404 em idiomas distintos">
+					<p><span>PT-BR</span>Página não encontrada</p>
+					<p><span>ES</span>Página no encontrada</p>
+					<p><span>EN</span>Page not found</p>
+					<p><span>中文</span>页面未找到</p>
+				</section>
+
+				<a class="jcem-404__home" href="/">Ir para a página inicial <span aria-hidden="true">-&gt;</span></a>
+			</div>
+		</main>
+	</body>
+</html>
