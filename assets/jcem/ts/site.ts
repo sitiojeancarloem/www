@@ -458,6 +458,10 @@ const bindJcemFootnotes = (): void => {
 		});
 };
 
+const revealJcemPage = (): void => {
+	document.documentElement.classList.add('jcem-page-loaded');
+};
+
 const hideNoScript = (): void => {
 	const noScript = select<HTMLElement>('body > noscript');
 
@@ -467,6 +471,12 @@ const hideNoScript = (): void => {
 
 	// PROTECAO: o conteudo permanece visivel mesmo sem JavaScript.
 };
+
+if (document.readyState === 'complete') {
+	revealJcemPage();
+} else {
+	window.addEventListener('load', revealJcemPage, { once: true });
+}
 
 document.addEventListener('DOMContentLoaded', () => {
 	bindJcemTheme();

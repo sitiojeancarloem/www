@@ -51,6 +51,110 @@
 			background-position: -200% 0;
 		}
 	}
+
+	@keyframes carregandoPagina {
+		0%,
+		10%,
+		100% {
+			width: 5em;
+			height: 5em;
+		}
+		65% {
+			width: 10em;
+			height: 10em;
+		}
+	}
+
+	@keyframes loaderBlock {
+		0%,
+		30% {
+			transform: rotate(0);
+		}
+		55% {
+			background-color: rgba(0, 0, 70, 0.9);
+		}
+		100% {
+			transform: rotate(90deg);
+		}
+	}
+
+	@keyframes loaderBlockInverse {
+		0%,
+		20% {
+			transform: rotate(0);
+		}
+		55% {
+			background-color: rgba(0, 0, 70, 0.9);
+		}
+		100% {
+			transform: rotate(-90deg);
+		}
+	}
+
+	html:not(.jcem-page-loaded) body {
+		/* PROTECAO: a pagina real so aparece depois de window.load. */
+		overflow: hidden;
+	}
+
+	html:not(.jcem-page-loaded) body > :not(.carregandoPagina) {
+		visibility: hidden !important;
+	}
+
+	body > .carregandoPagina {
+		position: fixed;
+		top: 50%;
+		left: 50%;
+		z-index: 2147483600;
+		width: 6rem;
+		height: 6rem;
+		pointer-events: none;
+		transform: translate(-50%, -50%) rotate(45deg) translate3d(0, 0, 0);
+		animation: carregandoPagina 1.2s infinite ease-in-out;
+		transition:
+			opacity 0.22s ease,
+			visibility 0.22s ease;
+	}
+
+	html:not(.jcem-page-loaded) body > .carregandoPagina,
+	html:not(.jcem-page-loaded) body > .carregandoPagina * {
+		visibility: visible !important;
+	}
+
+	html.jcem-page-loaded body > .carregandoPagina {
+		visibility: hidden;
+		opacity: 0;
+	}
+
+	body > .carregandoPagina span {
+		position: absolute;
+		display: block;
+		width: 2.7rem;
+		height: 2.7rem;
+		background-color: #2b92db;
+		animation: loaderBlock 1.2s infinite ease-in-out both;
+	}
+
+	body > .carregandoPagina span:nth-child(1) {
+		top: 0;
+		left: 0;
+	}
+
+	body > .carregandoPagina span:nth-child(2) {
+		top: 0;
+		right: 0;
+		animation: loaderBlockInverse 1.2s infinite ease-in-out both;
+	}
+
+	body > .carregandoPagina span:nth-child(3) {
+		bottom: 0;
+		left: 0;
+		animation: loaderBlockInverse 1.2s infinite ease-in-out both;
+	}
+
+	body > .carregandoPagina span:nth-child(4) {
+		right: 0;
+		bottom: 0;
+	}
 </style>
 
 <noscript>

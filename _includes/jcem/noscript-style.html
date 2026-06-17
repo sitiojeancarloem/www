@@ -17,7 +17,8 @@
 	}
 
 	body > .main_jcem_wrapper,
-	body > .loader-bar {
+	body > .loader-bar,
+	body > .carregandoPagina {
 		/* PROTECAO: sem JavaScript, somente o painel noscript deve aparecer. */
 		display: none !important;
 	}
@@ -36,6 +37,7 @@
 
 	body > noscript,
 	body > noscript * {
+		visibility: visible !important;
 		box-sizing: border-box;
 		font-family: 'Noto Sans', 'Segoe UI', Tahoma, sans-serif;
 		color: var(--jcem-noscript-text);

@@ -317,12 +317,21 @@ const bindJcemFootnotes = () => {
         link.setAttribute('aria-label', `Nota ${link.textContent || ''}: ${summary}`);
     });
 };
+const revealJcemPage = () => {
+    document.documentElement.classList.add('jcem-page-loaded');
+};
 const hideNoScript = () => {
     const noScript = select('body > noscript');
     if (noScript) {
         noScript.style.display = 'none';
     }
 };
+if (document.readyState === 'complete') {
+    revealJcemPage();
+}
+else {
+    window.addEventListener('load', revealJcemPage, { once: true });
+}
 document.addEventListener('DOMContentLoaded', () => {
     bindJcemTheme();
     bindJcemNav();

@@ -10,6 +10,7 @@ const root = path.resolve(process.env.VISUAL_SITE_DIR || '_site');
 const artifactDir = path.resolve(process.env.VISUAL_ARTIFACT_DIR || 'visual-artifacts');
 const pages = ['/', '/sobre/', '/p/devaneios/'];
 const themes = ['dark', 'light'];
+const notFoundPage = '/rota-inexistente-codex/';
 const viewports = [
 	{ name: 'desktop', width: 1366, height: 768 },
 	{ name: 'reduced', width: 900, height: 700 },
@@ -28,6 +29,10 @@ const contentTypes = new Map([
 	['.gif', 'image/gif'],
 	['.ico', 'image/x-icon'],
 ]);
+const loadingProbeGif = Buffer.from(
+	'R0lGODlhAQABAPAAAP///wAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==',
+	'base64',
+);
 
 const browserCandidates = [
 	process.env.PLAYWRIGHT_CHROMIUM_EXECUTABLE,
@@ -56,6 +61,10 @@ const launchBrowser = async () => {
 const fail = (message) => {
 	throw new Error(message);
 };
+
+const delay = (ms) => new Promise((resolve) => {
+	setTimeout(resolve, ms);
+});
 
 const routePath = (urlPath) => {
 	const decoded = decodeURIComponent(urlPath.split('?')[0] || '/');
@@ -87,8 +96,19 @@ const startServer = async () =>
 			const target = routePath(request.url || '/');
 
 			if (!target) {
-				response.writeHead(404);
-				response.end('Not found');
+				const fallback = path.join(root, '404.html');
+
+				if (!existsSync(fallback)) {
+					response.writeHead(404);
+					response.end('Not found');
+					return;
+				}
+
+				const body = await readFile(fallback);
+				response.writeHead(404, {
+					'content-type': 'text/html; charset=utf-8',
+				});
+				response.end(body);
 				return;
 			}
 
@@ -110,6 +130,112 @@ const seedCookieConsent = async (context) => {
 		localStorage.setItem('silktideCookieChoice_estat_sticos', 'false');
 		localStorage.setItem('silktideCookieChoice_publicit_rios', 'false');
 	});
+};
+
+const readLoadingState = async (page) =>
+	page.evaluate(() => {
+		const isVisible = (element) => {
+			if (!element) return false;
+			const rect = element.getBoundingClientRect();
+			const style = window.getComputedStyle(element);
+
+			return (
+				rect.width > 1 &&
+				rect.height > 1 &&
+				style.display !== 'none' &&
+				style.visibility !== 'hidden' &&
+				style.opacity !== '0'
+			);
+		};
+		const loader = document.querySelector('.carregandoPagina');
+		const wrapper = document.querySelector('.main_jcem_wrapper');
+		const wrapperStyle = wrapper ? window.getComputedStyle(wrapper) : null;
+
+		return {
+			pageLoadedClass: document.documentElement.classList.contains('jcem-page-loaded'),
+			urlChecked: document.documentElement.dataset.jcem404UrlChecked || '',
+			loaderVisible: isVisible(loader),
+			wrapperVisible: isVisible(wrapper),
+			wrapperVisibility: wrapperStyle?.visibility || '',
+			bodyOverflow: window.getComputedStyle(document.body).overflow,
+		};
+	});
+
+const validateLoadingGate = async (browser, baseUrl, url, viewport) => {
+	const context = await browser.newContext({ viewport });
+	await seedCookieConsent(context);
+	let releaseRoutes = () => {};
+	const routeGate = new Promise((resolve) => {
+		releaseRoutes = resolve;
+	});
+	await context.route('**/assets/jcem/js/site.js', async (route) => {
+		await routeGate;
+		await route.continue();
+	});
+	await context.route('**/*logo-animado.gif', async (route) => {
+		await routeGate;
+		await route.fulfill({
+			status: 200,
+			contentType: 'image/gif',
+			body: loadingProbeGif,
+		});
+	});
+
+	const page = await context.newPage();
+
+	try {
+		await page.goto(`${baseUrl}${url}`, { waitUntil: 'commit' });
+		await page.waitForSelector('.carregandoPagina', { state: 'attached' });
+		await page.waitForTimeout(50);
+
+		const beforeLoad = await readLoadingState(page);
+
+		if (beforeLoad.pageLoadedClass) {
+			fail(`Classe de pagina carregada aplicada antes de window.load em ${url}`);
+		}
+
+		if (!beforeLoad.loaderVisible) {
+			fail(`.carregandoPagina invisivel antes de window.load em ${url}`);
+		}
+
+		if (beforeLoad.wrapperVisible || beforeLoad.wrapperVisibility !== 'hidden') {
+			fail(`Conteudo visivel antes de window.load em ${url}`);
+		}
+
+		if (url === notFoundPage && beforeLoad.urlChecked !== 'true') {
+			fail(`404 sem conclusao do gate de URL antes do load em ${url}`);
+		}
+
+		releaseRoutes();
+		await page.waitForLoadState('load', { timeout: 15000 });
+		await page.waitForFunction(() => document.documentElement.classList.contains('jcem-page-loaded'));
+		await page.waitForFunction(() => {
+			const loader = document.querySelector('.carregandoPagina');
+			if (!loader) return false;
+			const style = window.getComputedStyle(loader);
+			return style.visibility === 'hidden' || style.opacity === '0';
+		});
+
+		const afterLoad = await readLoadingState(page);
+
+		if (!afterLoad.pageLoadedClass) {
+			fail(`Classe de pagina carregada ausente depois de window.load em ${url}`);
+		}
+
+		if (afterLoad.loaderVisible) {
+			fail(`.carregandoPagina visivel depois de window.load em ${url}`);
+		}
+
+		if (!afterLoad.wrapperVisible || afterLoad.wrapperVisibility === 'hidden') {
+			fail(`Conteudo oculto depois de window.load em ${url}`);
+		}
+
+		if (url === notFoundPage && afterLoad.urlChecked !== 'true') {
+			fail(`404 liberada sem conclusao do gate de URL em ${url}`);
+		}
+	} finally {
+		await context.close();
+	}
 };
 
 const contrastRatio = (foreground, background) => {
@@ -877,8 +1003,10 @@ const validateNoScriptPage = async (page, url, viewportName) => {
 	const result = await page.evaluate(() => {
 		const panel = document.querySelector('.jcem-noscript__panel');
 		const wrapper = document.querySelector('.main_jcem_wrapper');
+		const loader = document.querySelector('.carregandoPagina');
 		const panelRect = panel?.getBoundingClientRect();
 		const wrapperStyle = wrapper ? window.getComputedStyle(wrapper) : null;
+		const loaderStyle = loader ? window.getComputedStyle(loader) : null;
 
 		return {
 			hasPanel: Boolean(panelRect),
@@ -888,6 +1016,7 @@ const validateNoScriptPage = async (page, url, viewportName) => {
 				? Math.abs(panelRect.left + panelRect.width / 2 - window.innerWidth / 2)
 				: Number.POSITIVE_INFINITY,
 			wrapperDisplay: wrapperStyle?.display || '',
+			loaderDisplay: loaderStyle?.display || '',
 			bodyText: document.body.innerText || '',
 		};
 	});
@@ -898,6 +1027,10 @@ const validateNoScriptPage = async (page, url, viewportName) => {
 
 	if (result.wrapperDisplay !== 'none') {
 		fail(`Conteudo do blog visivel sem JavaScript em ${url} ${viewportName}`);
+	}
+
+	if (result.loaderDisplay !== 'none') {
+		fail(`.carregandoPagina visivel sem JavaScript em ${url} ${viewportName}`);
 	}
 
 	if (result.panelCenterOffset > 3) {
@@ -917,6 +1050,83 @@ const validateNoScriptPage = async (page, url, viewportName) => {
 	});
 };
 
+const validate404Page = async (page, url, viewportName) => {
+	await page.goto(url, { waitUntil: 'domcontentloaded' });
+	await page.waitForLoadState('load', { timeout: 15000 }).catch(() => {});
+	await page.waitForFunction(() => document.documentElement.classList.contains('jcem-page-loaded'));
+	await page.waitForFunction(() => {
+		const loader = document.querySelector('.carregandoPagina');
+		if (!loader) return false;
+		const style = window.getComputedStyle(loader);
+		return style.visibility === 'hidden' || style.opacity === '0';
+	});
+
+	const result = await page.evaluate(() => {
+		const page404 = document.querySelector('.jcem-404');
+		const terminal = document.querySelector('.jcem-404__terminal');
+		const themeToggle = document.querySelector('.jcem-theme-toggle');
+		const loader = document.querySelector('.carregandoPagina');
+		const rectFor = (element) => {
+			const rect = element?.getBoundingClientRect();
+			const style = element ? window.getComputedStyle(element) : null;
+
+			return rect && style
+				? {
+						width: rect.width,
+						height: rect.height,
+						display: style.display,
+						visibility: style.visibility,
+						opacity: style.opacity,
+					}
+				: null;
+		};
+
+		return {
+			pageLoadedClass: document.documentElement.classList.contains('jcem-page-loaded'),
+			urlChecked: document.documentElement.dataset.jcem404UrlChecked || '',
+			hasThemeToggle: Boolean(themeToggle),
+			page404: rectFor(page404),
+			terminal: rectFor(terminal),
+			loader: rectFor(loader),
+			text: document.body.innerText || '',
+			overflowX: document.documentElement.scrollWidth - document.documentElement.clientWidth,
+		};
+	});
+
+	if (!result.pageLoadedClass || result.urlChecked !== 'true') {
+		fail(`404 exibida sem gate finalizado em ${url} ${viewportName}`);
+	}
+
+	if (result.hasThemeToggle) {
+		fail(`404 importou switch de tema em ${url} ${viewportName}`);
+	}
+
+	if (!result.page404 || result.page404.width <= 1 || result.page404.height <= 1 || result.page404.visibility === 'hidden') {
+		fail(`Conteudo 404 invisivel em ${url} ${viewportName}`);
+	}
+
+	if (!result.terminal || result.terminal.width <= 1 || result.terminal.height <= 1 || result.terminal.visibility === 'hidden') {
+		fail(`Terminal 404 invisivel em ${url} ${viewportName}`);
+	}
+
+	if (result.loader && result.loader.visibility !== 'hidden' && result.loader.opacity !== '0') {
+		fail(`.carregandoPagina persistiu na 404 depois do load em ${url} ${viewportName}`);
+	}
+
+	if (!result.text.includes('Página não encontrada') || !result.text.includes('HTTP/1.1 404 Not Found')) {
+		fail(`Texto essencial da 404 ausente em ${url} ${viewportName}`);
+	}
+
+	if (result.overflowX > 2) {
+		fail(`Overflow horizontal na 404 em ${url} ${viewportName}: ${result.overflowX}px`);
+	}
+
+	await page.screenshot({
+		path: path.join(artifactDir, `404-${viewportName}.png`),
+		fullPage: true,
+	});
+};
+
 const server = await startServer();
 const address = server.address();
 const baseUrl = `http://127.0.0.1:${address.port}`;
@@ -926,6 +1136,9 @@ try {
 	await mkdir(artifactDir, { recursive: true });
 
 	for (const viewport of viewports) {
+		await validateLoadingGate(browser, baseUrl, '/', viewport);
+		await validateLoadingGate(browser, baseUrl, notFoundPage, viewport);
+
 		const context = await browser.newContext({ viewport });
 		await seedCookieConsent(context);
 		const page = await context.newPage();
@@ -938,6 +1151,8 @@ try {
 			await validatePrintTheme(page, `${baseUrl}${pagePath}`, viewport.name);
 		}
 
+		await validate404Page(page, `${baseUrl}${notFoundPage}`, viewport.name);
+
 		await context.close();
 
 		const noScriptContext = await browser.newContext({
@@ -946,7 +1161,7 @@ try {
 		});
 		const noScriptPage = await noScriptContext.newPage();
 
-		for (const pagePath of pages) {
+		for (const pagePath of [...pages, notFoundPage]) {
 			await validateNoScriptPage(noScriptPage, `${baseUrl}${pagePath}`, viewport.name);
 		}
 
