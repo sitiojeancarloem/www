@@ -59,6 +59,26 @@ const bindJcemNav = () => {
         });
     });
 };
+const bindJcemMasthead = () => {
+    const masthead = select('.masthead');
+    if (!masthead) {
+        return;
+    }
+    let ticking = false;
+    const syncState = () => {
+        ticking = false;
+        document.documentElement.classList.toggle('jcem-masthead-stuck', window.scrollY > 0 && masthead.getBoundingClientRect().top <= 0);
+    };
+    const requestSync = () => {
+        if (!ticking) {
+            ticking = true;
+            window.requestAnimationFrame(syncState);
+        }
+    };
+    window.addEventListener('scroll', requestSync, { passive: true });
+    window.addEventListener('resize', requestSync, { passive: true });
+    syncState();
+};
 const bindJcemScrollTop = () => {
     const button = select('.jcem-scroll-top');
     if (!button) {
@@ -335,6 +355,7 @@ else {
 document.addEventListener('DOMContentLoaded', () => {
     bindJcemTheme();
     bindJcemNav();
+    bindJcemMasthead();
     bindJcemScrollTop();
     bindJcemCollapsibleSections();
     bindJcemBlockquotePanels();

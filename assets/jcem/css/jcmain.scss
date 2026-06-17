@@ -122,6 +122,10 @@
 		box-shadow 0.18s ease;
 }
 
+.jcem-masthead-stuck .masthead {
+	box-shadow: 0 0.35rem 0.9rem var(--jcem-masthead-shadow);
+}
+
 .masthead__inner-wrap {
 	background: transparent;
 	overflow: visible;
@@ -278,6 +282,7 @@ aside {
 }
 
 .main_jcem_wrapper {
+	--jcem-masthead-shadow: rgba(0, 0, 0, 0.22); // uso: sombra da masthead fixa.
 	--jcem-date-flag-bg: #405160; // uso: flag de publicação.
 	--jcem-date-flag-fold: #303d49; // uso: dobra da flag de publicação.
 	--jcem-date-flag-back: #c6633c; // uso: camada posterior da flag.

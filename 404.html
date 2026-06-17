@@ -792,9 +792,26 @@ HTTP/1.1 <span class="jcem-404__err">404 Not Found</span>
 
 			<script>
 				(() => {
+					let mastheadTicking = false;
+
 					const replaceFragment = (selector, source) => {
 						const target = document.querySelector(selector);
 						if (target && source) target.replaceWith(source.cloneNode(true));
+					};
+
+					const syncMastheadState = () => {
+						mastheadTicking = false;
+						const masthead = document.querySelector('.masthead');
+						document.documentElement.classList.toggle(
+							'jcem-masthead-stuck',
+							Boolean(masthead) && window.scrollY > 0 && masthead.getBoundingClientRect().top <= 0
+						);
+					};
+
+					const requestMastheadSync = () => {
+						if (mastheadTicking) return;
+						mastheadTicking = true;
+						window.requestAnimationFrame(syncMastheadState);
 					};
 
 					const sanitizeMasthead = (source) => {
@@ -827,6 +844,7 @@ HTTP/1.1 <span class="jcem-404__err">404 Not Found</span>
 							const response = await fetch('/?jcem-fragments=1', { credentials: 'same-origin' });
 							if (!response.ok) {
 								normalizeMastheadLogo();
+								syncMastheadState();
 								return;
 							}
 							const doc = new DOMParser().parseFromString(await response.text(), 'text/html');
@@ -839,7 +857,11 @@ HTTP/1.1 <span class="jcem-404__err">404 Not Found</span>
 							// PROTECAO: fallback estatico preserva a pagina quando fetch nao estiver disponivel.
 						}
 						normalizeMastheadLogo();
+						syncMastheadState();
 					};
+
+					window.addEventListener('scroll', requestMastheadSync, { passive: true });
+					window.addEventListener('resize', requestMastheadSync, { passive: true });
 
 					if (document.readyState === 'loading') {
 						document.addEventListener('DOMContentLoaded', hydrateFragments, { once: true });

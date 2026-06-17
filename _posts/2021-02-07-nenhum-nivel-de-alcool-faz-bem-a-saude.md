@@ -42,7 +42,8 @@ A OMS internacional (who.int) também possui um [site específico para tema](htt
 
 > não há nível seguro de consumo de álcool
 > — DEPARTMENT OF HEALTH. UK chief medical officers’ low risk drinking guidelines. 2016. Citado de BURTON e SHERON (2018)
-> Só para ser ter uma ideia, a população total brasileira na data da publicação deste é estimada em 211,7 milhões de pessoas pelo IBGE[^4]. Ou seja, mais do que toda a população brasileira inteira tem doenças decorrentes do uso do álcool. Além disso, o Distrito Federal possui 3 milhões pessoas[^4], número de pessoas que morrem por ano; portanto imagine uma cidade de Brasília de mortos por ano, decorrente do consumo de álcool. Em dez anos são mais de 30 milhões de vidas perdidas, e 3,7 bilhões de pessoas doentes em decorrência do álcool.
+
+Só para se ter uma ideia, a população total brasileira na data da publicação deste é estimada em 211,7 milhões de pessoas pelo IBGE[^4]. Ou seja, mais do que toda a população brasileira inteira tem doenças decorrentes do uso do álcool. Além disso, o Distrito Federal possui 3 milhões pessoas[^4], número de pessoas que morrem por ano; portanto imagine uma cidade de Brasília de mortos por ano, decorrente do consumo de álcool. Em dez anos são mais de 30 milhões de vidas perdidas, e 3,7 bilhões de pessoas doentes em decorrência do álcool.
 
 ## Estudos provam benefícios do álcool?
 
@@ -53,12 +54,15 @@ Em meio a falta de unicidade no meio acadêmico acerca do tema, GOLAN (2019) ao 
 
 > o álcool é um **problema colossal de saúde** global
 > — [^1] BURTON e SHERON (2018)
-> A fim de não tornar este artigo exaustivo, não se pode esquecer, mesmo que de forma resumida, da cerveja, a principal bebida alcoólica consumida no mundo[^8]. Segundo KAPLAN (2000)[^11] o “ _conteúdo antioxidante da cerveja é equivalente ao do vinho, mas os antioxidantes específicos são diferentes porque a cevada e o lúpulo usados ​​na produção de cerveja contêm flavonóides diferentes daqueles nas uvas usadas na produção de vinho”_ . Levando em conta que “_flavonoides são compostos presentes em alimentos como frutas, verduras e cereais_“[^9] conclui-se que não é o álcool que faz bem. Ou seja, os benefícios da cerveja advém, a exemplo do vinho, NÃO do álcool em si, mas do componente do qual é fabricada: a cevada.
-> A citação de Chen (2014) abaixo é esclarecedora:
+
+A fim de não tornar este artigo exaustivo, não se pode esquecer, mesmo que de forma resumida, da cerveja, a principal bebida alcoólica consumida no mundo[^8]. Segundo KAPLAN (2000)[^11] o “ _conteúdo antioxidante da cerveja é equivalente ao do vinho, mas os antioxidantes específicos são diferentes porque a cevada e o lúpulo usados ​​na produção de cerveja contêm flavonóides diferentes daqueles nas uvas usadas na produção de vinho”_ . Levando em conta que “_flavonoides são compostos presentes em alimentos como frutas, verduras e cereais_“[^9] conclui-se que não é o álcool que faz bem. Ou seja, os benefícios da cerveja advêm, a exemplo do vinho, NÃO do álcool em si, mas do componente do qual é fabricada: a cevada.
+
+A citação de Chen (2014) abaixo é esclarecedora:
 
 > Além da água, a ‘_Lei Alemã de Pureza da Cerveja_‘, baseada na Lei da Pureza da Cerveja da Baviera de 1516, permite apenas a cevada, o lúpulo, o fermento e a água para a produção de cerveja. Os **extratos desses ingredientes**, especialmente o **lúpulo**, contêm uma abundância de polifenóis, como caempferol, quercetina, tirosol, ácido ferúlico, xanthohumol/isoxanthohumol/8‐prenylnaringenin, ácidos α-amargos como a humulona e ácidos β-amargos como a lupulona. \[O\] 8-prenilnaringenina é o fitoestrogênio **mais potente conhecido** até o momento. **Estes compostos demonstraram possuir vários efeitos antibacterianos, antiinflamatórios, antioxidantes, antiangiogênicos, antimelanogênicos, antiosteoporóticos e anticancerígenos**.
 > — Chen (2014)
-> Perceba como é evidente para a ciência que os benefícios da bebida alcoólica advém, não do álcool (e fermentação), mas dos componentes de fabricação, que poderiam ser facilmente obtidos sem ingerir o nocivo álcool .
+
+Perceba como é evidente para a ciência que os benefícios da bebida alcoólica advêm, não do álcool (e fermentação), mas dos componentes de fabricação, que poderiam ser facilmente obtidos sem ingerir o nocivo álcool.
 
 ## A Bíblia demonstra a onisciência do Criador
 
@@ -66,34 +70,45 @@ A bíblia é muito clara e explícita em afirmar que aqueles que destroem o corp
 
 > Não sabeis que sois santuário de Deus e que o Espírito de Deus habita em vós? **Se alguém destruir** o santuário de Deus, **Deus o destruirá**; porque o santuário de Deus, que **sois vós**, é **sagrado**.
 > — Bíblia. RA. 1 Coríntios 3:16-17[^10]
-> Há mais de 2.500 anos, muito antes da ciência moderna, Deus, em Sua infinita sabedoria já havia avisado o ser humano que bebida alcoólica não deveria ser consumida:
+
+Há mais de 2.500 anos, muito antes da ciência moderna, Deus, em Sua infinita sabedoria já havia avisado o ser humano que bebida alcoólica não deveria ser consumida:
 
 > O vinho é escarnecedor, e a bebida forte, alvoroçadora; todo aquele que por eles é vencido não é sábio.
 > — Bíblia. RA. Provérbios 20:1[^11]
-> Novamente no Novo testamento, Deus afirma:
+
+Novamente no Novo Testamento, Deus afirma:
 
 > E não vos embriagueis com vinho, no qual há dissolução, mas enchei-vos do Espírito.
 > — Bíblia. RA. Efésios 5:18[^12]
-> Este texto bíblico é muito esclarecedor pois ele diz o motivo de não se poder beber vinho, pois no vinho há “_dissolução_“,e no anterior, afirma o vinho é “_escarnecedor_“. Isso é importante, pois, a bebida mais comum no judaísmo era o vinho, portanto é lógico que ela seja mencionada nominalmente. Mas estes textos deixam claro que o motivo de o vinho ser reprovado era ser capaz de causar “_dissolução_“, de ser “_escarnecedor_“. Portanto, este texto claramente condena não especificamente o vinho, mas todas as bebidas que podem causar dissolução ou ser escarnecedora, e cita o vinho, dado seu amplo consumo. E aí, entendido isso, o texto de Gálatas é arrebatador:
+
+Este texto bíblico é muito esclarecedor pois ele diz o motivo de não se poder beber vinho, pois no vinho há “_dissolução_“, e no anterior, afirma o vinho é “_escarnecedor_“. Isso é importante, pois, a bebida mais comum no judaísmo era o vinho, portanto é lógico que ela seja mencionada nominalmente. Mas estes textos deixam claro que o motivo de o vinho ser reprovado era ser capaz de causar “_dissolução_“, de ser “_escarnecedor_“. Portanto, este texto claramente condena não especificamente o vinho, mas todas as bebidas que podem causar dissolução ou ser escarnecedora, e cita o vinho, dado seu amplo consumo. E aí, entendido isso, o texto de Gálatas é arrebatador:
 
 > Ora, as obras da carne são conhecidas e são: prostituição, impureza… **bebedices, glutonarias** e coisas semelhantes a estas, a respeito das quais eu vos declaro, como já, outrora, vos preveni, que n**ão herdarão o reino de Deus os que tais coisas praticam**.
 > — Bíblia. RA. Gálatas 5:20-21[^13]
 > **Não estejas entre os bebedores de vinho** nem entre os comilões de carne. 21 Porque o beberrão e o comilão caem em pobreza; e a sonolência vestirá de trapos o homem.
 > — Bíblia. RA. Provérbios 23:20-21[^14]
-> Ninguém que ingira bebida alcoólica, tanto quanto glutões, dentro do contexto bíblico de Provérbios e Efésios herdará o reino, o céu. Veja o que Provérbios continuando afirmando:
+
+Ninguém que ingira bebida alcoólica, tanto quanto glutões, dentro do contexto bíblico de Provérbios e Efésios herdará o reino, o céu. Veja o que Provérbios continua afirmando:
 
 > Para quem são os ais? Para quem, os pesares? Para quem, as rixas? Para quem, as queixas? Para quem, as feridas sem causa? E para quem, os olhos vermelhos? 30 Para os que se demoram em beber vinho, para os que andam buscando bebida misturada. 31 Não olhes para o vinho, quando se mostra vermelho, quando resplandece no copo e se escoa suavemente. 32Pois ao cabo morderá como a cobra e picará como o basilisco. 33Os teus olhos verão coisas esquisitas, e o teu coração falará perversidades. 34Serás como o que se deita no meio do mar e como o que se deita no alto do mastro 35 e dirás: Espancaram-me, e não me doeu; bateram-me, e não o senti; quando despertarei? Então, tornarei a beber.
 > — Bíblia. RA. Provérbios 23:29-35.[^15]
-> Mas alguém pode afirmar: “_Jesus bebeu vinho e serviu vinho no casamento e ainda falaram que era o melhor_“. Primeiramente, tem que ter em mente de que Jesus não pecou, nem tão pouco fez qualquer coisa errada. Ele mesmo afirma isso: “_eu tenho guardado os mandamentos de meu Pai_“[^16]. E se ELE houvesse bebido bebida alcoólica, ELE teria desobedecido a ordem do Pai, teria pecado, cometendo ato que destrói, ainda que lentamente, o templo do Espírito Santo[^10].
-> Os temos mais comuns para vinho no hebraico são ‎ **יָ֑יִן** (yayin*)* que é a palavra comum para vinho envelhecido e, portanto, intoxicante[^17], e ‎ **ותִירֹ֖שׁ** (tirosh*)* usada para designar o suco de uva fresco ou o vinho ainda não completamente envelhecido mas já intoxicante[^18]. Porém, a versão grega do antigo testamento, a Septuaginta, traduz ambas as palavras hebraicas para **οἴνῳ** (oînos*)*. No novo testamento o grego **οἴνῳ** (oînos), é usada para descrever o suco de uva pura como o vinho, pois vinho nada mais é que suco de uva fermentado. Um exemplo do uso como suco de uva pura é o de João 2:9 e 10 e Marcos 14:23-25 e do uso no sentido de vinho o de Efésios 5:18, Coríntios 3:16, 17; 6:19, 20; e 1 Timóteo 3:2, 3, 11
-> O grego clássico não faz distinção e, a interpretação dependerá do contexto imediato! Portanto, é óbvio que quando a bíblia condena o vinho, inclusive no Novo Testamento com já visto, e o chama de escarnecedor e causador de dissolução, está se referindo ao suco da uva fermentado (vinho) e não ao suco de uva puro.
-> A uva foi criada por Deus e é boa, e há benção nela:“_assim diz o SENHOR: Como quando se acha vinho num cacho de uvas, dizem: Não o desperdices, pois há bênção nele…”_[^19]. O vinho servido miraculosamente por Jesus no casamento era o melhor, pois ele foi feito do mais puro suco da uva, aquele perfeito, semelhante ao original criado por Deus no Jardim do Éden. O suco servido por Jesus, não estava contaminado por milênios de pecado e corrupção. É possível perceber isso, comparando a uva atual com a uva de quase 3 mil anos atrás, conforme o livro de Números:
+
+Mas alguém pode afirmar: “_Jesus bebeu vinho e serviu vinho no casamento e ainda falaram que era o melhor_“. Primeiramente, tem que ter em mente de que Jesus não pecou, nem tão pouco fez qualquer coisa errada. Ele mesmo afirma isso: “_eu tenho guardado os mandamentos de meu Pai_“[^16]. E se ELE houvesse bebido bebida alcoólica, ELE teria desobedecido a ordem do Pai, teria pecado, cometendo ato que destrói, ainda que lentamente, o templo do Espírito Santo[^10].
+
+Os termos mais comuns para vinho no hebraico são ‎ **יָ֑יִן** (yayin*)* que é a palavra comum para vinho envelhecido e, portanto, intoxicante[^17], e ‎ **ותִירֹ֖שׁ** (tirosh*)* usada para designar o suco de uva fresco ou o vinho ainda não completamente envelhecido mas já intoxicante[^18]. Porém, a versão grega do Antigo Testamento, a Septuaginta, traduz ambas as palavras hebraicas para **οἴνῳ** (oînos*)*. No Novo Testamento o grego **οἴνῳ** (oînos), é usada para descrever o suco de uva pura como o vinho, pois vinho nada mais é que suco de uva fermentado. Um exemplo do uso como suco de uva pura é o de João 2:9 e 10 e Marcos 14:23-25 e do uso no sentido de vinho o de Efésios 5:18, Coríntios 3:16, 17; 6:19, 20; e 1 Timóteo 3:2, 3, 11
+
+O grego clássico não faz distinção e, a interpretação dependerá do contexto imediato! Portanto, é óbvio que quando a bíblia condena o vinho, inclusive no Novo Testamento como já visto, e o chama de escarnecedor e causador de dissolução, está se referindo ao suco da uva fermentado (vinho) e não ao suco de uva puro.
+
+A uva foi criada por Deus e é boa, e há bênção nela: “_assim diz o SENHOR: Como quando se acha vinho num cacho de uvas, dizem: Não o desperdices, pois há bênção nele…”_[^19]. O vinho servido miraculosamente por Jesus no casamento era o melhor, pois ele foi feito do mais puro suco da uva, aquele perfeito, semelhante ao original criado por Deus no Jardim do Éden. O suco servido por Jesus, não estava contaminado por milênios de pecado e corrupção. É possível perceber isso, comparando a uva atual com a uva de quase 3 mil anos atrás, conforme o livro de Números:
 
 > Depois, vieram até ao vale de Escol e dali cortaram um ramo de vide com **um** cacho de uvas, o qual trouxeram **dois homens** numa vara, como também romãs e figos.
 > — Bíblia. RA. Números 13:23[^20]
-> As frutas não são mais as mesmas e, quanto mais passa o tempo, mais a natureza se deteriora. Do tempo de Números até Jesus houvera cerca de 1.500 anos, e isso foi o suficiente para alterar a qualidade da uva. Hoje, é possível encontrar um cacho de uva tão grande que é necessário dois homens para carregá-lo? Quando Jesus fez o milagre, ELE fez o suco legítimo da uva, aquele sem qualquer traço de deterioração. Jamais Jesus daria a alguém algo que faça mal, ainda que pouco mal, como o vinho fermentado, que causa “_escarnecimento_” e “_dissolução_“! **Deus não é incoerente**!
-> Não há glória em destruir o corpo (templo), ainda que lentamente: “_Portanto, quer comais, quer bebais ou façais outra coisa qualquer, fazei tudo para a glória de Deus”_[^21]
-> Hoje, milênios depois, a ciência prova que a bíblia está correta, que Deus está correto!
+
+As frutas não são mais as mesmas e, quanto mais passa o tempo, mais a natureza se deteriora. Do tempo de Números até Jesus houvera cerca de 1.500 anos, e isso foi o suficiente para alterar a qualidade da uva. Hoje, é possível encontrar um cacho de uva tão grande que é necessário dois homens para carregá-lo? Quando Jesus fez o milagre, ELE fez o suco legítimo da uva, aquele sem qualquer traço de deterioração. Jamais Jesus daria a alguém algo que faça mal, ainda que pouco mal, como o vinho fermentado, que causa “_escarnecimento_” e “_dissolução_“! **Deus não é incoerente**!
+
+Não há glória em destruir o corpo (templo), ainda que lentamente: “_Portanto, quer comais, quer bebais ou façais outra coisa qualquer, fazei tudo para a glória de Deus”_[^21]
+
+Hoje, milênios depois, a ciência prova que a bíblia está correta, que Deus está correto!
 
 ## Conclusão
 
