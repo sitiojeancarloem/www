@@ -12,6 +12,11 @@ _data
 _site/
 old-root/
 
+# testes da IA - elimina artefatos da IA
+visual-artifacts/
+http-127*
+http-local*
+
 # Cache e arquivos temporários do Jekyll
 .jekyll-cache/
 .jekyll-metadata
