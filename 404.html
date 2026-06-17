@@ -9,8 +9,7 @@
 		(()=>{"use strict";
 		try{
 		const R=[
-			["/produto","/catalogo"],
-			["/teste","/novo"]
+			["/produto","/catalogo"], /*exemplo*/			
 		];
 
 		const N=s=>{
@@ -63,6 +62,7 @@
 		<link rel="icon" type="image/png" href="https://jcem.pro/logo/favicon-96x96.png" sizes="96x96" />
 		<link rel="icon" type="image/svg+xml" href="https://jcem.pro/logo/favicon.svg" />
 		<link rel="shortcut icon" href="https://jcem.pro/logo/favicon.ico" />
+		<style>@keyframes carregandoPagina{0%, 10%, 100%{width:5em;height:5em}65%{width:10em;height:10em}}@keyframes loaderBlock{0%, 30%{transform:rotate(0)}55%{background-color:rgba(0,0,70,0.9)}100%{transform:rotate(90deg)}}@keyframes loaderBlockInverse{0%, 20%{transform:rotate(0)}55%{background-color:rgba(0,0,70,0.9)}100%{transform:rotate(-90deg)}}div.carregandoPagina{position:absolute;top:50%;left:50%;width:6rem;height:6rem;transform:translate(-50%, -50%) rotate(45deg) translate3d(0, 0, 0);animation:carregandoPagina 1.2s infinite ease-in-out}div.carregandoPagina span{position:absolute;display:block;width:2.7rem;height:2.7rem;background-color:#2b92db;animation:loaderBlock 1.2s infinite ease-in-out both}div.carregandoPagina span:nth-child(1){top:0;left:0}div.carregandoPagina span:nth-child(2){top:0;right:0;animation:loaderBlockInverse 1.2s infinite ease-in-out both}div.carregandoPagina span:nth-child(3){bottom:0;left:0;animation:loaderBlockInverse 1.2s infinite ease-in-out both}div.carregandoPagina span:nth-child(4){bottom:0;right:0}</style>
 		<noscript data-jcem-fragment="noscript-style">
 			<style>
 				:root {
@@ -499,6 +499,7 @@
 		</style>
 	</head>
 	<body class="layout--404">
+		<div id="carregandoPagina" class="carregandoPagina"><span></span><span></span><span></span><span></span></div>
 		<noscript data-jcem-fragment="noscript-content">
 			<div class="jcem-noscript">
 				<main class="jcem-noscript__panel">
