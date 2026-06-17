@@ -516,70 +516,128 @@ Exceto:
 
 Validação local:
 
-- se a porta estiver ocupada, presumir `dev-live` já ativo pelo desenvolvedor
 - validar contra o servidor existente antes de iniciar outro
 - não encerrar processo de servidor sem confirmação explícita
 
 Canonical Path Redirect Script:
 
-- Objetivo: Definir comportamento de script client-side que converte URLs equivalentes em uma única URL canônica via redirecionamento.
+- Objetivo
+  - Normalizar URLs recebidas para diretórios canônicos.
+  - Redirecionar somente quando o diretório resultante corresponder ao mapa configurado.
 
-- Entrada, Mapa de rotas:
+- Configuração
+  - O mapa possui formato:
 
-[
-[fromPathName, toPathName],
-...
-]
+    [
+    [fromPathName, toPathName],
+    ...
+    ]
 
-- `fromPathName`: origem a ser detectada.
-- `toPathName`: destino canônico.
+  - `fromPathName`
+    - Sempre representa diretório.
+    - Nunca contém arquivo.
+    - Nunca contém extensão.
+
+  - `toPathName`
+    - Sempre representa diretório canônico.
+    - Nunca contém arquivo terminal.
 
 - Execução
   - Executa antes do DOM.
-  - Não depende de `DOMContentLoaded`.
+  - Não depende de eventos de carregamento.
   - Captura `location.pathname` imediatamente.
-  - Processa a validação de forma assíncrona, sem bloquear parsing/renderização.
-  - Bloqueia apenas no momento do redirect.
+  - Processa comparação de forma assíncrona.
+  - Bloqueia somente durante redirect confirmado.
 
-- Canonicalização
-  -Antes da comparação:
-  - `decodeURIComponent` quando possível.
-  - Normalização Unicode quando disponível.
-  - Conversão para lowercase.
-  - Remoção de barras finais.
-  - Remoção de arquivo padrão terminal.
+- Normalização do pathname recebido
+  - O pathname deve ser convertido para diretório canônico.
 
-- Arquivos padrão: `index|default|home|main`
-- Extensões: `html|htm|php|asp|aspx|jsp|cgi`
-- Exemplo:`/A/INDEX.HTML/` → `/a`
-- Matching
-- Comparar:
-  - `canonical(location.pathname)` com `canonical(fromPathName)`
-    : Sem distinção de caixa.
+  - Aplicar:
+    - decode URI quando possível.
+    - normalização Unicode quando disponível.
+    - lowercase.
+    - remoção de espaços inconsistentes.
+    - redução de barras duplicadas.
+    - remoção de barra final.
+
+  - Arquivo terminal sempre deve ser removido:
+    - index
+    - default
+    - home
+    - main
+
+  - Extensões aceitas para remoção:
+    - html
+    - htm
+    - php
+    - asp
+    - aspx
+    - jsp
+    - cgi
+
+- Exemplos
+  - Entrada:
+
+    /produto/index.html?x=1
+
+    Resultado:
+
+    /produto/?x=1
+
+  - Entrada:
+
+    /Produto/
+
+    Resultado:
+
+    /produto
+
+  - Entrada:
+
+    /produto/default.php?a=b
+
+    Resultado:
+
+    /produto/?a=b
+
+- Comparação
+  - Comparar:
+
+    # canonical(pathname recebido)
+
+    canonical(fromPathName)
+
+  - A comparação ignora:
+    - caixa.
+    - arquivo terminal.
+    - extensão.
+    - barra final.
+    - espaços inválidos.
 
 - Redirect
-  Quando houver match:
-  - Substituir somente `pathname`.
-  - Preservar:
-    - protocolo;
-    - host;
-    - porta;
-    - search;
-    - hash.
-- Usar substituição de histórico.
-- No Match
-  Nenhuma ação.
+  - Em caso de match:
+    - Substituir somente pathname.
+    - Preservar:
+      - protocolo.
+      - domínio.
+      - porta.
+      - query string.
+      - hash.
+
+  - Usar substituição de histórico.
+
+- Sem match
+  - Nenhuma alteração.
 
 - Garantias
   - Sem dependências.
   - Sem erro não tratado.
-  - Tolerância a URI inválida.
-  - Proteção contra redirect redundante.
+  - Sem bloqueio de renderização.
   - Compatível ES2020+.
-  - Não interfere no carregamento normal da página.
-  - Sem evento circular com botão de voltar do navegador.
+  - Evitar conflito e evento circular com botão de voltar do navegador.
+
 - Resultado
-  Uma única representação canônica por rota.
+  - Toda rota equivalente converge para uma única representação sem arquivo terminal.
 
 ---
 

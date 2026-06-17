@@ -8,28 +8,38 @@
 		<script>
 		(()=>{"use strict";
 		try{
-		const R=[			
-			["/antigo/default.html","/novo"],/* exemplo */
+		const R=[
+			["/produto","/catalogo"],
+			["/teste","/novo"]
 		];
+
+		const N=s=>{
+			try{s=decodeURIComponent(s)}catch(_){}
+			try{s=s.normalize("NFKC")}catch(_){}
+			return (s||"/")
+				.toLowerCase()
+				.replace(/\s+/g,"")
+				.replace(/\/+/g,"/")
+				.replace(/\/(?:index|default|home|main)(?:\.[a-z0-9]+)?$/i,"/")
+				.replace(/\/$/,"")||"/"
+		};
 
 		const F=()=>{
 			try{
-				const N=s=>{
-					try{s=decodeURIComponent(s)}catch(_){}
-					return (s||"/")
-						.normalize?.("NFKC")
-						.toLowerCase()
-						.replace(/\/+(?=$|[?#])/g,"/")
-						.replace(/\/(?:index|default|home|main)\.(?:html?|php|asp|aspx|jsp|cgi)?$/i,"")
-						.replace(/\/$/,"")||"/"
-				};
-
-				const p=N(location.pathname);
+				const raw=location.pathname;
+				const p=N(raw);
 
 				for(let i=0;i<R.length;i++){
-					if(N(R[i][0])===p){
+					if(p===N(R[i][0])){
+						let dest=R[i][1].startsWith("/")?R[i][1]:"/"+R[i][1];
+
+						const hadFile=/(?:\/(?:index|default|home|main)(?:\.[a-z0-9]+)?|\/)$/i.test(raw);
+
+						if(hadFile && (location.search||location.hash) && !dest.endsWith("/"))
+							dest+="/";
+
 						const u=new URL(location.href);
-						u.pathname=R[i][1].charAt(0)==="/"?R[i][1]:"/"+R[i][1];
+						u.pathname=dest;
 
 						if(u.href!==location.href)
 							location.replace(u.href);
@@ -41,7 +51,6 @@
 		};
 
 		(typeof queueMicrotask==="function"?queueMicrotask:setTimeout)(F,0);
-
 		}catch(_){}
 		})();
 		</script>
