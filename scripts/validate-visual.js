@@ -1084,6 +1084,7 @@ const validate404Page = async (page, url, viewportName) => {
 		return {
 			pageLoadedClass: document.documentElement.classList.contains('jcem-page-loaded'),
 			urlChecked: document.documentElement.dataset.jcem404UrlChecked || '',
+			title: document.title,
 			hasThemeToggle: Boolean(themeToggle),
 			page404: rectFor(page404),
 			terminal: rectFor(terminal),
@@ -1095,6 +1096,10 @@ const validate404Page = async (page, url, viewportName) => {
 
 	if (!result.pageLoadedClass || result.urlChecked !== 'true') {
 		fail(`404 exibida sem gate finalizado em ${url} ${viewportName}`);
+	}
+
+	if (result.title !== '404 - Página não encontrada - JeanCarloEm') {
+		fail(`Titulo da 404 incorreto em ${url} ${viewportName}: ${result.title}`);
 	}
 
 	if (result.hasThemeToggle) {

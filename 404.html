@@ -4,7 +4,7 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<meta name="robots" content="noindex, follow" />
-
+		<title>... - JeanCarloEM</title>
 		<script>
 			(() => {
 				let urlChecked = false;
@@ -31,7 +31,8 @@
 		const R=[
 			["/produto","/catalogo"], /*exemplo*/			
 		];
-		const D=()=>{try{window.__jcem404UrlReady&&window.__jcem404UrlReady()}catch(_){}};		
+		const T="404 - Página não encontrada - JeanCarloEm";
+		const D=n=>{try{if(n)document.title=T;window.__jcem404UrlReady&&window.__jcem404UrlReady()}catch(_){}};		
 
 		const N=s=>{
 			try{s=decodeURIComponent(s)}catch(_){}
@@ -66,12 +67,12 @@
 							return;
 						}
 
-						D();
+						D(false);
 						return;
 					}
 				}
-				D();
-			}catch(_){D()}
+				D(true);
+			}catch(_){D(false)}
 		};
 
 		(typeof queueMicrotask==="function"?queueMicrotask:setTimeout)(F,0);
@@ -79,8 +80,7 @@
 		})();
 		</script>
 
-		<meta name="apple-mobile-web-app-title" content="JeanCarloEM" />
-		<title>404 - JeanCarloEM</title>
+		<meta name="apple-mobile-web-app-title" content="JeanCarloEM" />		
 		<link rel="stylesheet" href="/assets/css/main.css" />
 		<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
 		<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css" /></noscript>
