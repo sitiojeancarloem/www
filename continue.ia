@@ -1,4 +1,5 @@
 Estado operacional:
+- se a porta estiver ocupada, possível que `dev-live` já ativo pelo desenvolvedor
 - AGENTS.md relido em 2026-06-13; ajustes aplicados em tema/validador visual.
 - Validações concluídas: npm run check, npm run build:prod, npm run validate:visual.
 - Menu/header ajustados em 2026-06-13: links imediatos do header alinhados à direita; menu aberto nítido acima do backdrop; conteúdo externo desfocado via backdrop.
