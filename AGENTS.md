@@ -520,6 +520,67 @@ Validação local:
 - validar contra o servidor existente antes de iniciar outro
 - não encerrar processo de servidor sem confirmação explícita
 
+Canonical Path Redirect Script:
+
+- Objetivo: Definir comportamento de script client-side que converte URLs equivalentes em uma única URL canônica via redirecionamento.
+
+- Entrada, Mapa de rotas:
+
+[
+[fromPathName, toPathName],
+...
+]
+
+- `fromPathName`: origem a ser detectada.
+- `toPathName`: destino canônico.
+
+- Execução
+  - Executa antes do DOM.
+  - Não depende de `DOMContentLoaded`.
+  - Captura `location.pathname` imediatamente.
+  - Processa a validação de forma assíncrona, sem bloquear parsing/renderização.
+  - Bloqueia apenas no momento do redirect.
+
+- Canonicalização
+  -Antes da comparação:
+  - `decodeURIComponent` quando possível.
+  - Normalização Unicode quando disponível.
+  - Conversão para lowercase.
+  - Remoção de barras finais.
+  - Remoção de arquivo padrão terminal.
+
+- Arquivos padrão: `index|default|home|main`
+- Extensões: `html|htm|php|asp|aspx|jsp|cgi`
+- Exemplo:`/A/INDEX.HTML/` → `/a`
+- Matching
+- Comparar:
+  - `canonical(location.pathname)` com `canonical(fromPathName)`
+    : Sem distinção de caixa.
+
+- Redirect
+  Quando houver match:
+  - Substituir somente `pathname`.
+  - Preservar:
+    - protocolo;
+    - host;
+    - porta;
+    - search;
+    - hash.
+- Usar substituição de histórico.
+- No Match
+  Nenhuma ação.
+
+- Garantias
+  - Sem dependências.
+  - Sem erro não tratado.
+  - Tolerância a URI inválida.
+  - Proteção contra redirect redundante.
+  - Compatível ES2020+.
+  - Não interfere no carregamento normal da página.
+  - Sem evento circular com botão de voltar do navegador.
+- Resultado
+  Uma única representação canônica por rota.
+
 ---
 
 [FINAL]

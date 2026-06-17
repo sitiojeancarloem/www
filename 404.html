@@ -4,6 +4,48 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<meta name="robots" content="noindex, follow" />
+
+		<script>
+		(()=>{"use strict";
+		try{
+		const R=[			
+			["/antigo/default.html","/novo"],/* exemplo */
+		];
+
+		const F=()=>{
+			try{
+				const N=s=>{
+					try{s=decodeURIComponent(s)}catch(_){}
+					return (s||"/")
+						.normalize?.("NFKC")
+						.toLowerCase()
+						.replace(/\/+(?=$|[?#])/g,"/")
+						.replace(/\/(?:index|default|home|main)\.(?:html?|php|asp|aspx|jsp|cgi)?$/i,"")
+						.replace(/\/$/,"")||"/"
+				};
+
+				const p=N(location.pathname);
+
+				for(let i=0;i<R.length;i++){
+					if(N(R[i][0])===p){
+						const u=new URL(location.href);
+						u.pathname=R[i][1].charAt(0)==="/"?R[i][1]:"/"+R[i][1];
+
+						if(u.href!==location.href)
+							location.replace(u.href);
+
+						return;
+					}
+				}
+			}catch(_){}
+		};
+
+		(typeof queueMicrotask==="function"?queueMicrotask:setTimeout)(F,0);
+
+		}catch(_){}
+		})();
+		</script>
+
 		<meta name="apple-mobile-web-app-title" content="JeanCarloEM" />
 		<title>404 - JeanCarloEM</title>
 		<link rel="stylesheet" href="/assets/css/main.css" />
