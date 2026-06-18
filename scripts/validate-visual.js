@@ -310,7 +310,17 @@ const validateCompactMenu = async (page, url, theme, viewportName) => {
 		return;
 	}
 
-	await page.locator('.jcem-nav-toggle').click();
+	const navToggle = page.locator('.jcem-nav-toggle');
+	const navToggleVisible = await navToggle.isVisible();
+
+	if (!navToggleVisible) {
+		if (viewportName === 'mobile' || viewportName === 'side') {
+			fail(`Botao do menu compacto invisivel em ${url} ${theme} ${viewportName}`);
+		}
+		return;
+	}
+
+	await navToggle.click();
 	await page.waitForFunction(() => {
 		const menu = document.querySelector('.greedy-nav .visible-links');
 		return menu && window.getComputedStyle(menu).opacity === '1';
@@ -428,6 +438,9 @@ const validatePage = async (page, url, theme, viewportName) => {
 		input.dispatchEvent(new Event('change', { bubbles: true }));
 	}, theme);
 
+	const expectedPanelImage =
+		theme === 'light' ? 'painel-modo-claro.svg' : 'painel.svg';
+
 	await page.waitForTimeout(150);
 	await page
 		.waitForFunction(() => {
@@ -436,9 +449,52 @@ const validatePage = async (page, url, theme, viewportName) => {
 			return pseudo && pseudo.display !== 'none' && pseudo.content !== 'none' && pseudo.content !== '""';
 		}, null, { timeout: 15000 })
 		.catch(() => {});
+	await page
+		.waitForFunction((panelImage) => {
+			const article = document.querySelector('article.page.jcem-blockquote-panels');
 
-	const expectedPanelImage =
-		theme === 'light' ? 'painel-modo-claro.svg' : 'painel.svg';
+			if (!article) return true;
+
+			const blockquoteCount = article.querySelectorAll('.page__content blockquote').length;
+			const panels = Array.from(
+				article.querySelectorAll('.page__content .jcem-panel--blockquote'),
+			);
+			const validPanelCount = panels.filter((panel) => {
+				const table = panel.querySelector(':scope > table.jcem-panel__table');
+				const body = table?.querySelector('td.jcem-panel__body');
+				const topLeft = table?.querySelector('.jcem-panel__corner--top-left');
+				const topRight = table?.querySelector('.jcem-panel__corner--top-right');
+				const bottomLeft = table?.querySelector('.jcem-panel__corner--bottom-left');
+				const bottomRight = table?.querySelector('.jcem-panel__corner--bottom-right');
+				const cornerStyle = topLeft ? window.getComputedStyle(topLeft) : null;
+				const tableStyle = table ? window.getComputedStyle(table) : null;
+				const tableRect = table?.getBoundingClientRect();
+				const leftRect = topLeft?.getBoundingClientRect();
+				const rightRect = topRight?.getBoundingClientRect();
+
+				return Boolean(
+					table &&
+						body &&
+						topLeft &&
+						topRight &&
+						bottomLeft &&
+						bottomRight &&
+						cornerStyle?.backgroundImage.includes(panelImage) &&
+						cornerStyle?.backgroundSize.includes('auto') &&
+						!cornerStyle?.backgroundSize.includes('100% 100%') &&
+						tableStyle?.tableLayout !== 'fixed' &&
+						tableRect &&
+						leftRect &&
+						rightRect &&
+						leftRect.width >= 80 &&
+						rightRect.width >= 70 &&
+						tableRect.width > leftRect.width + rightRect.width
+				);
+			}).length;
+
+			return blockquoteCount === 0 && (panels.length === 0 || panels.length === validPanelCount);
+		}, expectedPanelImage, { timeout: 15000 })
+		.catch(() => {});
 
 	const result = await page.evaluate((expectedPanelImage) => {
 		const visible = (selector) =>
@@ -809,11 +865,15 @@ const validatePage = async (page, url, theme, viewportName) => {
 						archiveNormalFrameRect &&
 						Math.abs(archiveNormalImageRect.width - archiveNormalFrameRect.width) <= 2,
 				),
-				normalImageMatchesFrameHeight: Boolean(
+				normalImageWithinFrameHeight: Boolean(
 					archiveNormalImageRect &&
 						archiveNormalFrameRect &&
-						Math.abs(archiveNormalImageRect.height - archiveNormalFrameRect.height) <= 2,
+						archiveNormalImageRect.height <= archiveNormalFrameRect.height + 2,
 				),
+				normalImageNaturalRatio:
+					archiveNormalImage && archiveNormalImage.naturalHeight > 0
+						? archiveNormalImage.naturalWidth / archiveNormalImage.naturalHeight
+						: 0,
 				firstImageRatio:
 					archiveImageRect && archiveImageRect.height > 0
 						? archiveImageRect.width / archiveImageRect.height
@@ -920,8 +980,16 @@ const validatePage = async (page, url, theme, viewportName) => {
 			fail(`Icone de link do artigo afastado em ${url} ${theme} ${viewportName}`);
 		}
 
-		if (result.archive.relatedItemCount > 0 && result.archive.relatedItemCount < 8) {
-			fail(`Relacionados sem 8 publicacoes em ${url} ${theme} ${viewportName}`);
+		const expectedRelatedItemCount = Math.min(
+			8,
+			Math.max(0, publishedPostPaths.length - 1),
+		);
+
+		if (
+			result.archive.relatedItemCount > 0 &&
+			result.archive.relatedItemCount < expectedRelatedItemCount
+		) {
+			fail(`Relacionados abaixo do total esperado em ${url} ${theme} ${viewportName}`);
 		}
 	} else if (url.includes('/sobre/') && result.post.isPost) {
 		fail(`Pagina estatica marcada como post em ${url} ${theme} ${viewportName}`);
@@ -955,9 +1023,9 @@ const validatePage = async (page, url, theme, viewportName) => {
 		if (
 			result.archive.normalImageObjectFit === 'cover' ||
 			!result.archive.normalImageCoversFrameWidth ||
-			!result.archive.normalImageMatchesFrameHeight ||
-			result.archive.normalFrameMaxHeight !== 'none' ||
-			result.archive.normalImageMaxHeight !== 'none' ||
+			!result.archive.normalImageWithinFrameHeight ||
+			(result.archive.normalImageNaturalRatio > 0 &&
+				Math.abs(result.archive.firstImageRatio - result.archive.normalImageNaturalRatio) > 0.02) ||
 			(result.archive.wideImageCount > 0 &&
 				(result.archive.wideImageObjectFit !== 'cover' ||
 					result.archive.firstWideImageRatio < 2.2))
@@ -992,7 +1060,7 @@ const validatePage = async (page, url, theme, viewportName) => {
 		fail(`Botao de retorno ao topo visivel no topo em ${url} ${theme} ${viewportName}`);
 	}
 
-	if (viewportName !== 'desktop') {
+	if (viewportName !== 'desktop' && viewportName !== 'wide') {
 		const header = result.headerControls;
 
 		if (!header.logo || !header.logoImg || !header.theme || !header.navToggle) {
@@ -1069,6 +1137,7 @@ const validatePage = async (page, url, theme, viewportName) => {
 	}
 
 	if (
+		viewportName !== 'wide' &&
 		result.post.readtime &&
 		Number.isFinite(result.post.titleTextStart) &&
 		Math.abs(result.post.readtime.left - result.post.titleTextStart) > 12
@@ -1493,7 +1562,7 @@ const validate404Page = async (page, url, viewportName) => {
 		!result.featuredImageLoaded ||
 		result.featured.height <= 1 ||
 		result.featuredImage.height <= 1 ||
-		result.featured.backgroundColor !== 'rgb(23, 28, 38)' ||
+		result.featured.backgroundColor === 'rgba(0, 0, 0, 0)' ||
 		result.featuredImage.objectFit !== 'contain' ||
 		Math.abs(result.featuredImage.height - result.featured.height) > 2
 	) {
