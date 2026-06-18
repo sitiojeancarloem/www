@@ -648,7 +648,7 @@ Adicionar:
 COMMIT_SUGERIDO:
 
 Texto PT-BR.
-Curto (maximo 256 chars).
+Curto (máximo 256 chars).
 Descritivo.
 
 Indicar explicitamente se ainda há mais estapas ou pendencias a serem feitas, e quais.
@@ -833,7 +833,7 @@ Não iniciar distribuição externa.
 
 [REDES_SOCIAIS]
 
-Executado apenas se houver publicação de novasm publicações (posts).
+Executado apenas se houver publicação de novas publicações (posts).
 Plataformas obrigatórias:
 
 - Facebook
@@ -922,6 +922,36 @@ O próximo workflow deve ser acionado apenas quando:
 ---
 
 [CONTEÚDO_EDITORIAL]
+
+[FORMATAÇÃO_DE_POSTS]
+
+Aplica-se:
+
+- exclusivamente ao conteúdo textual dos posts
+- não se aplica a navegação, cabeçalho, footer, metadados, embeds ou componentes externos ao artigo
+
+Parágrafos:
+
+- cada parágrafo comum do post deve iniciar a primeira linha com indentação visual
+- indentação padrão: `4em`
+- aplicar preferencialmente por CSS/Sass no conteúdo renderizado do artigo
+- não inserir espaços manuais no Markdown para simular indentação
+- não aplicar indentação em títulos, listas, tabelas, imagens, legendas, footnotes, blockquotes ou painéis de citação
+
+Blockquotes e painéis de citação:
+
+- texto principal dentro de `blockquote` não deve ser itálico
+- texto principal dentro do painel futurista usado como citação não deve ser itálico
+- subcitação dentro de citação deve ser itálica quando aparecer entre aspas simples ou duplas
+- não aplicar itálico automático ao bloco inteiro
+
+Texto comum do artigo:
+
+- texto comum do artigo não deve ser itálico por padrão
+- citação inline mencionada diretamente no parágrafo, entre aspas simples ou duplas, deve ser itálica
+- itálico semântico ou autoral já existente deve ser preservado quando não conflitar com estas regras
+
+---
 
 [CORREÇÕES_TEXTUAIS]
 

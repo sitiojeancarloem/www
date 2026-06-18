@@ -662,6 +662,32 @@ body > input.radio#jcem-theme-dark:checked ~ .main_jcem_wrapper {
 	word-break: normal;
 }
 
+.main_jcem_wrapper article.jcem-post .page__content p {
+	text-indent: 4em;
+	font-style: normal;
+}
+
+.main_jcem_wrapper
+	article.jcem-post
+	.page__content
+	:is(blockquote, .jcem-panel, .footnotes, .jcem-references, li, td, th, figcaption)
+	p,
+.main_jcem_wrapper article.jcem-post .page__content p:has(> img:only-child),
+.main_jcem_wrapper article.jcem-post .page__content p:has(> picture:only-child) {
+	text-indent: 0;
+}
+
+.main_jcem_wrapper article.jcem-post .page__content blockquote,
+.main_jcem_wrapper article.jcem-post .page__content blockquote p,
+.main_jcem_wrapper article.jcem-post .page__content .jcem-panel,
+.main_jcem_wrapper article.jcem-post .page__content .jcem-panel p {
+	font-style: normal;
+}
+
+.main_jcem_wrapper article.jcem-post .page__content .jcem-inline-quote {
+	font-style: italic;
+}
+
 .main_jcem_wrapper .archive > .page__title,
 .main_jcem_wrapper .archive > .pagination {
 	grid-column: 1 / -1;
@@ -981,7 +1007,8 @@ body
 	.jcem-panel__table
 	td.jcem-panel__body {
 	padding: 0 1em 0.35em;
-	font-style: italic;
+	// FIX-BUG: painel de citação não deve aplicar itálico ao bloco inteiro.
+	font-style: normal;
 }
 
 .main_jcem_wrapper

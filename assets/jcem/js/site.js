@@ -309,6 +309,108 @@ const bindJcemBlockquotePanels = () => {
         quote.replaceWith(panel);
     });
 };
+const jcemQuotePairs = new Map([
+    ['"', '"'],
+    ["'", "'"],
+    ['“', '”'],
+    ['‘', '’'],
+]);
+const jcemWordCharacterPattern = /[0-9A-Za-zÀ-ÖØ-öø-ÿ]/;
+const jcemQuoteContentPattern = /[0-9A-Za-zÀ-ÖØ-öø-ÿ]/;
+const isJcemWordCharacter = (value) => jcemWordCharacterPattern.test(value);
+const isJcemSingleQuoteBoundary = (text, index, opening) => {
+    const previous = text[index - 1] || '';
+    const next = text[index + 1] || '';
+    if (opening) {
+        return !isJcemWordCharacter(previous) && Boolean(next.trim());
+    }
+    return !isJcemWordCharacter(next) && Boolean(previous.trim());
+};
+const findJcemClosingQuote = (text, start, closeQuote) => {
+    for (let index = start + 1; index < text.length; index += 1) {
+        if (text[index] !== closeQuote) {
+            continue;
+        }
+        if (closeQuote === "'" &&
+            !isJcemSingleQuoteBoundary(text, index, false)) {
+            continue;
+        }
+        return index;
+    }
+    return -1;
+};
+const wrapJcemInlineQuotesInText = (textNode) => {
+    const text = textNode.textContent || '';
+    if (!/["'“‘]/.test(text)) {
+        return false;
+    }
+    const fragment = document.createDocumentFragment();
+    let cursor = 0;
+    let lastAppend = 0;
+    let changed = false;
+    while (cursor < text.length) {
+        const openQuote = text[cursor];
+        const closeQuote = jcemQuotePairs.get(openQuote);
+        if (!closeQuote ||
+            (openQuote === "'" && !isJcemSingleQuoteBoundary(text, cursor, true))) {
+            cursor += 1;
+            continue;
+        }
+        const closeIndex = findJcemClosingQuote(text, cursor, closeQuote);
+        if (closeIndex <= cursor + 1) {
+            cursor += 1;
+            continue;
+        }
+        const quoted = text.slice(cursor, closeIndex + 1);
+        if (!jcemQuoteContentPattern.test(quoted)) {
+            cursor += 1;
+            continue;
+        }
+        if (cursor > lastAppend) {
+            fragment.append(document.createTextNode(text.slice(lastAppend, cursor)));
+        }
+        const quote = document.createElement('em');
+        quote.className = 'jcem-inline-quote';
+        quote.textContent = quoted;
+        fragment.append(quote);
+        lastAppend = closeIndex + 1;
+        cursor = closeIndex + 1;
+        changed = true;
+    }
+    if (!changed) {
+        return false;
+    }
+    if (lastAppend < text.length) {
+        fragment.append(document.createTextNode(text.slice(lastAppend)));
+    }
+    textNode.replaceWith(fragment);
+    return changed;
+};
+const bindJcemEditorialFormatting = () => {
+    const article = select('article.page.jcem-post');
+    const content = select('.page__content');
+    if (!article || !content) {
+        return;
+    }
+    const walker = document.createTreeWalker(content, NodeFilter.SHOW_TEXT, {
+        acceptNode(node) {
+            const parent = node.parentElement;
+            const text = node.textContent || '';
+            if (!parent || !/["'“‘]/.test(text)) {
+                return NodeFilter.FILTER_REJECT;
+            }
+            if (parent.closest('a, em, i, cite, code, pre, kbd, samp, script, style, .footnotes, .jcem-references, .jcem-inline-quote')) {
+                return NodeFilter.FILTER_REJECT;
+            }
+            return NodeFilter.FILTER_ACCEPT;
+        },
+    });
+    const textNodes = [];
+    while (walker.nextNode()) {
+        textNodes.push(walker.currentNode);
+    }
+    textNodes.forEach(wrapJcemInlineQuotesInText);
+};
 const footnoteSummaryMaxLength = 260;
 const summarizeFootnote = (text) => {
     const normalized = text.replace(/\s+/g, ' ').trim();
@@ -359,6 +461,7 @@ document.addEventListener('DOMContentLoaded', () => {
     bindJcemScrollTop();
     bindJcemCollapsibleSections();
     bindJcemBlockquotePanels();
+    bindJcemEditorialFormatting();
     bindJcemFootnotes();
     hideNoScript();
 });

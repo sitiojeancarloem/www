@@ -1,5 +1,5 @@
 import { createServer } from 'node:http';
-import { mkdir, readFile } from 'node:fs/promises';
+import { mkdir, readFile, readdir } from 'node:fs/promises';
 import { existsSync } from 'node:fs';
 import path from 'node:path';
 import { chromium } from 'playwright';
@@ -60,6 +60,21 @@ const launchBrowser = async () => {
 
 const fail = (message) => {
 	throw new Error(message);
+};
+
+const readPublishedPostPaths = async () => {
+	const postRoot = path.join(root, 'p');
+
+	if (!existsSync(postRoot)) {
+		return [];
+	}
+
+	const entries = await readdir(postRoot, { withFileTypes: true });
+
+	return entries
+		.filter((entry) => entry.isDirectory())
+		.map((entry) => `/p/${entry.name}/`)
+		.sort();
 };
 
 const delay = (ms) => new Promise((resolve) => {
@@ -538,6 +553,46 @@ const validatePage = async (page, url, theme, viewportName) => {
 			);
 		});
 		const shareButtons = visible('.page__share .btn');
+		const isPost = Boolean(document.querySelector('article.page.jcem-post'));
+		const readEditorialStyle = (element) => {
+			if (!element) return null;
+			const style = window.getComputedStyle(element);
+
+			return {
+				textIndent: style.textIndent,
+				fontStyle: style.fontStyle,
+			};
+		};
+		const normalPostParagraph = Array.from(
+			document.querySelectorAll('article.jcem-post .page__content p'),
+		).find((paragraph) => {
+			if (
+				paragraph.closest(
+					'blockquote, .jcem-panel, .footnotes, .jcem-references, li, td, th, figcaption',
+				)
+			) {
+				return false;
+			}
+
+			if (
+				paragraph.children.length === 1 &&
+				['IMG', 'PICTURE'].includes(paragraph.children[0].tagName) &&
+				!(paragraph.textContent || '').trim()
+			) {
+				return false;
+			}
+
+			return Boolean((paragraph.textContent || '').trim());
+		});
+		const panelBody = document.querySelector(
+			'article.jcem-post .page__content .jcem-panel__body',
+		);
+		const panelParagraph = document.querySelector(
+			'article.jcem-post .page__content .jcem-panel__body p',
+		);
+		const inlineQuote = document.querySelector(
+			'article.jcem-post .page__content .jcem-inline-quote',
+		);
 
 		return {
 			overflowX: document.documentElement.scrollWidth - document.documentElement.clientWidth,
@@ -584,6 +639,16 @@ const validatePage = async (page, url, theme, viewportName) => {
 				panelBlockquoteCount: blockquotePanels.length,
 				tablePanelBlockquoteCount: tablePanels.length,
 				shareButtons: shareButtons.length,
+				isPost,
+				editorial: {
+					normalParagraph: readEditorialStyle(normalPostParagraph),
+					panelBody: readEditorialStyle(panelBody),
+					panelParagraph: readEditorialStyle(panelParagraph),
+					inlineQuoteCount: document.querySelectorAll(
+						'article.jcem-post .page__content .jcem-inline-quote',
+					).length,
+					inlineQuote: readEditorialStyle(inlineQuote),
+				},
 			},
 			styles: [
 				readStyle('.main_jcem_wrapper'),
@@ -602,6 +667,44 @@ const validatePage = async (page, url, theme, viewportName) => {
 
 	if (result.sidebars > 0) {
 		fail(`Sidebar visivel em ${url} ${theme} ${viewportName}`);
+	}
+
+	if (url.includes('/p/')) {
+		const editorial = result.post.editorial;
+		const paragraphIndent = Number.parseFloat(
+			editorial.normalParagraph?.textIndent || '0',
+		);
+		const panelParagraphIndent = Number.parseFloat(
+			editorial.panelParagraph?.textIndent || '0',
+		);
+
+		if (!result.post.isPost) {
+			fail(`Post sem classe editorial em ${url} ${theme} ${viewportName}`);
+		}
+
+		if (!editorial.normalParagraph || paragraphIndent < 48) {
+			fail(`Paragrafo de post sem indentacao editorial em ${url} ${theme} ${viewportName}`);
+		}
+
+		if (editorial.normalParagraph.fontStyle !== 'normal') {
+			fail(`Paragrafo de post em italico por padrao em ${url} ${theme} ${viewportName}`);
+		}
+
+		if (result.post.panelBlockquoteCount > 0) {
+			if (editorial.panelBody?.fontStyle !== 'normal') {
+				fail(`Painel de citacao em italico por padrao em ${url} ${theme} ${viewportName}`);
+			}
+
+			if (panelParagraphIndent !== 0) {
+				fail(`Painel de citacao com indentacao de paragrafo em ${url} ${theme} ${viewportName}`);
+			}
+		}
+
+		if (editorial.inlineQuoteCount < 1 || editorial.inlineQuote?.fontStyle !== 'italic') {
+			fail(`Citacao inline sem italico editorial em ${url} ${theme} ${viewportName}`);
+		}
+	} else if (url.includes('/sobre/') && result.post.isPost) {
+		fail(`Pagina estatica marcada como post em ${url} ${theme} ${viewportName}`);
 	}
 
 	if (result.siteTitleWidth > 2 || result.siteTitleHeight > 2) {
@@ -1132,13 +1235,137 @@ const validate404Page = async (page, url, viewportName) => {
 	});
 };
 
+const validatePublishedPostEditorialFormatting = async (page, baseUrl, postPath) => {
+	await page.goto(`${baseUrl}${postPath}`, { waitUntil: 'domcontentloaded' });
+	await page.waitForLoadState('load', { timeout: 15000 }).catch(() => {});
+	await page.waitForTimeout(150);
+
+	const result = await page.evaluate(() => {
+		const readStyle = (element) => {
+			if (!element) return null;
+			const style = window.getComputedStyle(element);
+
+			return {
+				textIndent: Number.parseFloat(style.textIndent || '0'),
+				fontStyle: style.fontStyle,
+			};
+		};
+		const ignoredSelector =
+			'blockquote, .jcem-panel, .footnotes, .jcem-references, li, td, th, figcaption';
+		const normalParagraphs = Array.from(
+			document.querySelectorAll('article.jcem-post .page__content p'),
+		).filter((paragraph) => {
+			if (paragraph.closest(ignoredSelector)) {
+				return false;
+			}
+
+			if (
+				paragraph.children.length === 1 &&
+				['IMG', 'PICTURE'].includes(paragraph.children[0].tagName) &&
+				!(paragraph.textContent || '').trim()
+			) {
+				return false;
+			}
+
+			return Boolean((paragraph.textContent || '').trim());
+		});
+		const quotedParagraphs = normalParagraphs.filter((paragraph) =>
+			/["'“‘][^"'“‘”’]+["'”’]/.test(paragraph.textContent || ''),
+		);
+		const badParagraphs = normalParagraphs.filter((paragraph) => {
+			const style = readStyle(paragraph);
+			return !style || style.textIndent < 48 || style.fontStyle !== 'normal';
+		});
+		const panelBodies = Array.from(
+			document.querySelectorAll(
+				'article.jcem-post .page__content .jcem-panel__body',
+			),
+		);
+		const badPanelBodies = panelBodies.filter(
+			(panelBody) => readStyle(panelBody)?.fontStyle !== 'normal',
+		);
+		const badPanelParagraphs = Array.from(
+			document.querySelectorAll(
+				'article.jcem-post .page__content .jcem-panel__body p',
+			),
+		).filter((paragraph) => {
+			const style = readStyle(paragraph);
+			return !style || style.textIndent !== 0 || style.fontStyle !== 'normal';
+		});
+		const inlineQuotes = Array.from(
+			document.querySelectorAll(
+				'article.jcem-post .page__content .jcem-inline-quote',
+			),
+		);
+		const badInlineQuotes = inlineQuotes.filter(
+			(quote) => readStyle(quote)?.fontStyle !== 'italic',
+		);
+
+		return {
+			isPost: Boolean(document.querySelector('article.page.jcem-post')),
+			normalParagraphCount: normalParagraphs.length,
+			quotedParagraphCount: quotedParagraphs.length,
+			inlineQuoteCount: inlineQuotes.length,
+			badParagraphCount: badParagraphs.length,
+			panelBodyCount: panelBodies.length,
+			badPanelBodyCount: badPanelBodies.length,
+			badPanelParagraphCount: badPanelParagraphs.length,
+			badInlineQuoteCount: badInlineQuotes.length,
+		};
+	});
+
+	if (!result.isPost) {
+		fail(`Post publicado sem classe editorial em ${postPath}`);
+	}
+
+	if (result.normalParagraphCount < 1) {
+		fail(`Post publicado sem paragrafo comum validavel em ${postPath}`);
+	}
+
+	if (result.badParagraphCount > 0) {
+		fail(`Post publicado com paragrafo comum fora da regra editorial em ${postPath}`);
+	}
+
+	if (result.badPanelBodyCount > 0 || result.badPanelParagraphCount > 0) {
+		fail(`Post publicado com painel de citacao fora da regra editorial em ${postPath}`);
+	}
+
+	if (
+		result.quotedParagraphCount > 0 &&
+		(result.inlineQuoteCount < 1 || result.badInlineQuoteCount > 0)
+	) {
+		fail(`Post publicado com citacao inline fora da regra editorial em ${postPath}`);
+	}
+};
+
 const server = await startServer();
 const address = server.address();
 const baseUrl = `http://127.0.0.1:${address.port}`;
 const browser = await launchBrowser();
+const publishedPostPaths = await readPublishedPostPaths();
 
 try {
 	await mkdir(artifactDir, { recursive: true });
+
+	if (publishedPostPaths.length < 1) {
+		fail('Nenhum post publicado encontrado em _site/p/');
+	}
+
+	const editorialContext = await browser.newContext({ viewport: viewports[0] });
+	await seedCookieConsent(editorialContext);
+	const editorialPage = await editorialContext.newPage();
+
+	try {
+		for (const postPath of publishedPostPaths) {
+			await validatePublishedPostEditorialFormatting(
+				editorialPage,
+				baseUrl,
+				postPath,
+			);
+		}
+	} finally {
+		await editorialContext.close();
+	}
 
 	for (const viewport of viewports) {
 		await validateLoadingGate(browser, baseUrl, '/', viewport);
