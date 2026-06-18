@@ -649,12 +649,16 @@ const validatePage = async (page, url, theme, viewportName) => {
 		const archiveNormalImage = document.querySelector(
 			'.entries-grid .archive__item:not(.archive__item--wide) .archive__item-image',
 		);
+		const archiveNormalFrame = archiveNormalImage?.closest('.archive__item-teaser');
 		const archiveWideImage = document.querySelector(
 			'.entries-grid .archive__item--wide .archive__item-image',
 		);
+		const archiveGrid = document.querySelector('.entries-grid');
 		const archiveItemRect = archiveItem?.getBoundingClientRect();
 		const archiveLinkRect = archiveLink?.getBoundingClientRect();
 		const archiveImageRect = archiveImage?.getBoundingClientRect();
+		const archiveNormalImageRect = archiveNormalImage?.getBoundingClientRect();
+		const archiveNormalFrameRect = archiveNormalFrame?.getBoundingClientRect();
 		const archiveWideImageRect = archiveWideImage?.getBoundingClientRect();
 		const archiveImageStyle = archiveImage
 			? window.getComputedStyle(archiveImage)
@@ -783,8 +787,19 @@ const validatePage = async (page, url, theme, viewportName) => {
 						Math.abs(archiveItemRect.bottom - archiveLinkRect.bottom) <= 2,
 				),
 				firstCenterClickable: archiveCenterTarget === archiveLink,
+				columnCount: archiveGrid
+					? window
+							.getComputedStyle(archiveGrid)
+							.gridTemplateColumns.split(' ')
+							.filter(Boolean).length
+					: 0,
 				firstImageObjectFit: archiveImageStyle?.objectFit || '',
 				normalImageObjectFit: archiveNormalImageStyle?.objectFit || '',
+				normalImageCoversFrameWidth: Boolean(
+					archiveNormalImageRect &&
+						archiveNormalFrameRect &&
+						Math.abs(archiveNormalImageRect.width - archiveNormalFrameRect.width) <= 2,
+				),
 				firstImageRatio:
 					archiveImageRect && archiveImageRect.height > 0
 						? archiveImageRect.width / archiveImageRect.height
@@ -910,7 +925,17 @@ const validatePage = async (page, url, theme, viewportName) => {
 		}
 
 		if (
+			result.archive.columnCount < 1 ||
+			result.archive.columnCount > 3 ||
+			(viewportName === 'desktop' && result.archive.columnCount !== 3) ||
+			(viewportName === 'mobile' && result.archive.columnCount !== 1)
+		) {
+			fail(`Grade de publicacoes fora do limite 1-3 colunas em ${url} ${theme} ${viewportName}`);
+		}
+
+		if (
 			result.archive.normalImageObjectFit === 'cover' ||
+			!result.archive.normalImageCoversFrameWidth ||
 			(result.archive.wideImageCount > 0 &&
 				(result.archive.wideImageObjectFit !== 'cover' ||
 					result.archive.firstWideImageRatio < 2.2))
