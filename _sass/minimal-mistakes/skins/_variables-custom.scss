@@ -649,6 +649,11 @@ body > input.radio#jcem-theme-dark:checked ~ .main_jcem_wrapper {
 	object-position: center;
 }
 
+.main_jcem_wrapper .archive__item:not(.archive__item--wide) .archive__item-teaser,
+.main_jcem_wrapper .archive__item:not(.archive__item--wide) .archive__item-teaser img {
+	max-height: none;
+}
+
 .main_jcem_wrapper .archive__item--wide .archive__item-teaser {
 	aspect-ratio: 828 / 315;
 }

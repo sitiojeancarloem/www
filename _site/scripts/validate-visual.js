@@ -874,9 +874,9 @@ const validatePage = async (page, url, theme, viewportName) => {
 					archiveNormalImage && archiveNormalImage.naturalHeight > 0
 						? archiveNormalImage.naturalWidth / archiveNormalImage.naturalHeight
 						: 0,
-				firstImageRatio:
-					archiveImageRect && archiveImageRect.height > 0
-						? archiveImageRect.width / archiveImageRect.height
+				normalImageRenderedRatio:
+					archiveNormalImageRect && archiveNormalImageRect.height > 0
+						? archiveNormalImageRect.width / archiveNormalImageRect.height
 						: 0,
 				wideImageCount: document.querySelectorAll(
 					'.entries-grid .archive__item--wide .archive__item-image',
@@ -888,7 +888,6 @@ const validatePage = async (page, url, theme, viewportName) => {
 						: 0,
 			},
 			styles: [
-				readStyle('.main_jcem_wrapper'),
 				readStyle('.masthead'),
 				readStyle('.jcem-theme-toggle'),
 				readStyle('.initial-content'),
@@ -1025,12 +1024,17 @@ const validatePage = async (page, url, theme, viewportName) => {
 			!result.archive.normalImageCoversFrameWidth ||
 			!result.archive.normalImageWithinFrameHeight ||
 			(result.archive.normalImageNaturalRatio > 0 &&
-				Math.abs(result.archive.firstImageRatio - result.archive.normalImageNaturalRatio) > 0.02) ||
-			(result.archive.wideImageCount > 0 &&
-				(result.archive.wideImageObjectFit !== 'cover' ||
-					result.archive.firstWideImageRatio < 2.2))
+				Math.abs(result.archive.normalImageRenderedRatio - result.archive.normalImageNaturalRatio) > 0.02)
 		) {
-			fail(`Imagem destacada de card sem crop wide/cover em ${url} ${theme} ${viewportName}`);
+			fail(`Imagem destacada normal de card distorcida em ${url} ${theme} ${viewportName}: ${JSON.stringify(result.archive)}`);
+		}
+
+		if (
+			result.archive.wideImageCount > 0 &&
+			(result.archive.wideImageObjectFit !== 'cover' ||
+				result.archive.firstWideImageRatio < 2.2)
+		) {
+			fail(`Imagem destacada wide de card sem crop/cover em ${url} ${theme} ${viewportName}: ${JSON.stringify(result.archive)}`);
 		}
 
 		if (result.archive.itemCount < 8) {
