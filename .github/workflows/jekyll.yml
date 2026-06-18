@@ -2,6 +2,7 @@ name: Customizado Jekyll
 
 env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+  CI_TOTAL_TIMEOUT_SECONDS: 600
 
 on:
   push:
@@ -23,6 +24,7 @@ jobs:
   jekyll:
     if: github.ref == 'refs/heads/main' # Segurança extra
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     outputs:
       has_posts: ${{ steps.posts.outputs.has_posts }}
       post_count: ${{ steps.posts.outputs.post_count }}
@@ -67,15 +69,17 @@ jobs:
 
       - name: Install Ruby dependencies
         run: |
-          gem install bundler -v 4.0.10
-          bundle config set path vendor/bundle
-          bundle install --jobs 4 --retry 3
+          ruby scripts/ci_timed_step.rb "Install Ruby dependencies" 120 -- bash -lc '
+            gem install bundler -v 4.0.10
+            bundle config set path vendor/bundle
+            bundle install --jobs 4 --retry 3
+          '
 
       - name: Install Node dependencies
-        run: npm ci
+        run: ruby scripts/ci_timed_step.rb "Install Node dependencies" 120 -- npm ci
 
       - name: Install Playwright browser
-        run: npx playwright install chromium --with-deps
+        run: ruby scripts/ci_timed_step.rb "Install Playwright browser" 180 -- npx playwright install chromium --with-deps
 
       - name: Detect build scope
         id: build_scope
@@ -83,17 +87,17 @@ jobs:
           BEFORE: ${{ github.event.before }}
           HEAD: ${{ github.sha }}
           EVENT_NAME: ${{ github.event_name }}
-        run: ruby scripts/jekyll_build_scope.rb detect
+        run: ruby scripts/ci_timed_step.rb "Detect build scope" 30 -- ruby scripts/jekyll_build_scope.rb detect
 
       - name: Check committed _site cohesion
         id: committed_site
         env:
           HEAD: ${{ github.sha }}
-        run: ruby scripts/jekyll_build_scope.rb local
+        run: ruby scripts/ci_timed_step.rb "Check committed _site cohesion" 30 -- ruby scripts/jekyll_build_scope.rb local
 
       - name: Remove non-cohesive checkout render
         if: steps.build_scope.outputs.mode == 'incremental' && steps.committed_site.outputs.trusted != 'true'
-        run: rm -rf _site .jekyll-cache .jekyll-metadata .sass-cache
+        run: ruby scripts/ci_timed_step.rb "Remove non-cohesive checkout render" 30 -- rm -rf _site .jekyll-cache .jekyll-metadata .sass-cache
 
       - name: Restore Jekyll render cache
         id: render_cache
@@ -116,27 +120,29 @@ jobs:
           TENTATIVE_REASON: ${{ steps.build_scope.outputs.reason }}
           BEFORE: ${{ github.event.before }}
           HEAD: ${{ github.sha }}
-        run: ruby scripts/jekyll_build_scope.rb resolve
+        run: ruby scripts/ci_timed_step.rb "Resolve _site cohesion" 30 -- ruby scripts/jekyll_build_scope.rb resolve
 
       - name: Detect published posts
         id: posts
         run: |
-          ruby scripts/collect_published_posts.rb \
-            --diff-base "${{ github.event.before }}" \
-            --diff-head "${{ github.sha }}" \
-            --site-url "${{ steps.pages.outputs.base_url }}" \
-            --out published-posts.json
+          ruby scripts/ci_timed_step.rb "Detect published posts" 45 -- ruby scripts/collect_published_posts.rb \
+              --diff-base "${{ github.event.before }}" \
+              --diff-head "${{ github.sha }}" \
+              --site-url "${{ steps.pages.outputs.base_url }}" \
+              --out published-posts.json
 
       - name: Build Jekyll site
         if: steps.cohesion.outputs.mode != 'trusted_site'
         run: |
-          npm run build:ts
-          if [ "${{ steps.cohesion.outputs.mode }}" = "incremental" ]; then
-            bundle exec jekyll build --incremental --trace --baseurl=
-          else
-            rm -rf _site .jekyll-cache .jekyll-metadata .sass-cache
-            bundle exec jekyll build --trace --baseurl=
-          fi
+          ruby scripts/ci_timed_step.rb "Build Jekyll site" 240 -- bash -lc '
+            npm run build:ts
+            if [ "${{ steps.cohesion.outputs.mode }}" = "incremental" ]; then
+              bundle exec jekyll build --incremental --trace --baseurl=
+            else
+              rm -rf _site .jekyll-cache .jekyll-metadata .sass-cache
+              bundle exec jekyll build --trace --baseurl=
+            fi
+          '
         env:
           JEKYLL_ENV: production
 
@@ -146,19 +152,13 @@ jobs:
           SOURCE_SHA: ${{ github.sha }}
           BUILD_MODE: ${{ steps.cohesion.outputs.mode }}
           BUILD_REASON: ${{ steps.cohesion.outputs.reason }}
-        run: ruby scripts/jekyll_build_manifest.rb write
+        run: ruby scripts/ci_timed_step.rb "Write _site cohesion manifest" 45 -- ruby scripts/jekyll_build_manifest.rb write
 
       - name: Validate light and dark visuals
-        run: npm run validate:visual
+        run: ruby scripts/ci_timed_step.rb "Validate light and dark visuals" 240 -- npm run validate:visual
 
       - name: Verify root deployment paths
-        run: |
-          test -f _site/CNAME
-          test "$(cat _site/CNAME)" = "www.jeancarloem.com"
-          if grep -RInE '((href|src)=["'\'']\/blog\/|url\(["'\'']?\/blog\/)' _site; then
-            echo "::error::O site foi gerado com caminhos sob /blog. O deploy deve ficar na raiz do dominio."
-            exit 1
-          fi
+        run: ruby scripts/ci_timed_step.rb "Verify root deployment paths" 30 -- ruby scripts/verify_root_deployment.rb
 
       - name: Upload build artifact
         uses: actions/upload-pages-artifact@v3

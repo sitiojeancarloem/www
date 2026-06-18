@@ -33,6 +33,9 @@ _site/*
 !_site/**/*.scss
 !_site/**/*.css
 !_site/**/*.css.map
+_site/scripts/ci_timed_step.rb
+_site/scripts/jekyll_build_*.rb
+_site/scripts/verify_root_deployment.rb
 
 old-root/
 
@@ -40,6 +43,7 @@ old-root/
 visual-artifacts/
 http-127*
 http-local*
+.ci-timer-start
 
 # Cache e arquivos temporários do Jekyll
 .jekyll-cache/
