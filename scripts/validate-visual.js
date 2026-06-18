@@ -637,9 +637,18 @@ const validatePage = async (page, url, theme, viewportName) => {
 			? window.getComputedStyle(quoteReference)
 			: null;
 		const panelBodyStyle = panelBody ? window.getComputedStyle(panelBody) : null;
+		const articleLink = document.querySelector(
+			'article.jcem-post .page__content p a[href]:not(.footnote):not(.reversefootnote)',
+		);
+		const articleLinkIconStyle = articleLink
+			? window.getComputedStyle(articleLink, '::after')
+			: null;
 		const archiveItem = document.querySelector('.entries-grid .archive__item');
 		const archiveLink = archiveItem?.querySelector('.archive__item-link');
 		const archiveImage = archiveItem?.querySelector('.archive__item-image');
+		const archiveNormalImage = document.querySelector(
+			'.entries-grid .archive__item:not(.archive__item--wide) .archive__item-image',
+		);
 		const archiveWideImage = document.querySelector(
 			'.entries-grid .archive__item--wide .archive__item-image',
 		);
@@ -649,6 +658,12 @@ const validatePage = async (page, url, theme, viewportName) => {
 		const archiveWideImageRect = archiveWideImage?.getBoundingClientRect();
 		const archiveImageStyle = archiveImage
 			? window.getComputedStyle(archiveImage)
+			: null;
+		const archiveNormalImageStyle = archiveNormalImage
+			? window.getComputedStyle(archiveNormalImage)
+			: null;
+		const archiveWideImageStyle = archiveWideImage
+			? window.getComputedStyle(archiveWideImage)
 			: null;
 		const archiveCenterTarget = archiveItemRect
 			? document
@@ -740,6 +755,15 @@ const validatePage = async (page, url, theme, viewportName) => {
 								linkWidth: footnoteLinkRect?.width || 0,
 							}
 						: null,
+					linkIcon: articleLinkIconStyle
+						? {
+								display: articleLinkIconStyle.display,
+								marginLeft: articleLinkIconStyle.marginLeft,
+								paddingTop: articleLinkIconStyle.paddingTop,
+								width: articleLinkIconStyle.width,
+								content: articleLinkIconStyle.content,
+							}
+						: null,
 				},
 			},
 			archive: {
@@ -760,6 +784,7 @@ const validatePage = async (page, url, theme, viewportName) => {
 				),
 				firstCenterClickable: archiveCenterTarget === archiveLink,
 				firstImageObjectFit: archiveImageStyle?.objectFit || '',
+				normalImageObjectFit: archiveNormalImageStyle?.objectFit || '',
 				firstImageRatio:
 					archiveImageRect && archiveImageRect.height > 0
 						? archiveImageRect.width / archiveImageRect.height
@@ -767,6 +792,7 @@ const validatePage = async (page, url, theme, viewportName) => {
 				wideImageCount: document.querySelectorAll(
 					'.entries-grid .archive__item--wide .archive__item-image',
 				).length,
+				wideImageObjectFit: archiveWideImageStyle?.objectFit || '',
 				firstWideImageRatio:
 					archiveWideImageRect && archiveWideImageRect.height > 0
 						? archiveWideImageRect.width / archiveWideImageRect.height
@@ -853,6 +879,17 @@ const validatePage = async (page, url, theme, viewportName) => {
 		) {
 			fail(`Footnote inline distorcida em ${url} ${theme} ${viewportName}`);
 		}
+
+		if (
+			editorial.linkIcon &&
+			(editorial.linkIcon.display !== 'inline' ||
+				Number.parseFloat(editorial.linkIcon.marginLeft || '0') > 0 ||
+				Number.parseFloat(editorial.linkIcon.paddingTop || '0') > 0 ||
+				editorial.linkIcon.content === 'none' ||
+				editorial.linkIcon.content === '""')
+		) {
+			fail(`Icone de link do artigo afastado em ${url} ${theme} ${viewportName}`);
+		}
 	} else if (url.includes('/sobre/') && result.post.isPost) {
 		fail(`Pagina estatica marcada como post em ${url} ${theme} ${viewportName}`);
 	} else if (new URL(url).pathname === '/') {
@@ -873,9 +910,10 @@ const validatePage = async (page, url, theme, viewportName) => {
 		}
 
 		if (
-			result.archive.firstImageObjectFit !== 'cover' ||
+			result.archive.normalImageObjectFit === 'cover' ||
 			(result.archive.wideImageCount > 0 &&
-				result.archive.firstWideImageRatio < 2.2)
+				(result.archive.wideImageObjectFit !== 'cover' ||
+					result.archive.firstWideImageRatio < 2.2))
 		) {
 			fail(`Imagem destacada de card sem crop wide/cover em ${url} ${theme} ${viewportName}`);
 		}
