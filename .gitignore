@@ -19,7 +19,9 @@ _site/*
 !_site/**/
 
 # 4. Libera apenas os arquivos com as extensões desejadas
-# (para cache em build no github Actions)
+# para cache em build no github Actions
+# ignora arquivo grandes e que não depende de jekyll
+# ou que o jekyll não compila, apenas copia (como imagens, pdf e outros anexos)
 !_site/**/*.html
 !_site/**/*.rb
 !_site/**/*.ps1
