@@ -1,0 +1,85 @@
+version: 1
+description: >
+  Mapa de impacto do build Jekyll. O GitHub Pages recebe sempre um artefato
+  _site completo; este mapa decide quando o workflow pode reaproveitar um
+  _site coeso restaurado de cache.
+
+cohesion:
+  manifest: _site/.jcem-build-manifest.json
+  state: .jekyll-cache/jcem-build-state.json
+  rule: >
+    Nunca mesclar _site do checkout com _site do cache. Um _site local so e
+    confiavel quando o manifesto versionado aponta para o commit atual e todos
+    os arquivos listados existem com o hash esperado. Caso contrario, o _site
+    confiavel e o restaurado de cache do commit anterior; se ele nao existir,
+    executar build completo.
+
+impact:
+  full_build:
+    reason: >
+      Alteracoes que podem afetar rotas, Liquid, includes, layout, Sass,
+      JavaScript do tema, dados globais, dependencias, validadores ou arquivos
+      de workflow exigem build completo para evitar artefato obsoleto.
+    patterns:
+      - _config.yml
+      - Gemfile
+      - Gemfile.lock
+      - package.json
+      - package-lock.json
+      - tsconfig*
+      - 404.html
+      - index.html
+      - _posts/**
+      - _data/**
+      - _layouts/**
+      - _includes/**
+      - _sass/**
+      - assets/css/**
+      - assets/jcem/css/**
+      - assets/jcem/js/**
+      - scripts/**
+      - .github/workflows/**
+      - .github/jekyll-build-impact.yml
+
+  incremental_allowed:
+    reason: >
+      Arquivos copiados como assets estaticos podem reutilizar _site coeso e
+      recompilar de forma incremental. Se o cache coeso nao existir, o workflow
+      volta para build completo.
+    patterns:
+      - assets/images/**
+      - assets/jcem/img/**
+      - CNAME
+      - robots.txt
+      - favicon.*
+
+embedded_links:
+  css_entrypoint:
+    file: assets/css/main.scss
+    embeds:
+      - minimal-mistakes skin selecionada por site.minimal_mistakes_skin
+      - minimal-mistakes partials
+      - assets/jcem/css/jcmain.scss
+      - _sass/minimal-mistakes/skins/_variables-custom.scss
+  post_layout:
+    file: _layouts/single.html
+    embeds:
+      - _includes/jcem/post-featured-image.html
+      - _includes/jcem/post-date-flag.html
+      - _includes/page__hero.html
+      - _includes/page__hero_video.html
+  archive_cards:
+    file: _includes/archive-single.html
+    embeds:
+      - assets gerados em archive__item-teaser
+      - flags de data via _includes/jcem/post-date-flag.html
+  global_scripts:
+    sources:
+      - src/**
+      - assets/jcem/js/site.js
+    affects:
+      - tema claro/escuro
+      - menu
+      - loading
+      - footnotes
+      - paineis de citacao

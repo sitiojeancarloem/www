@@ -888,7 +888,6 @@ const validatePage = async (page, url, theme, viewportName) => {
 						: 0,
 			},
 			styles: [
-				readStyle('.main_jcem_wrapper'),
 				readStyle('.masthead'),
 				readStyle('.jcem-theme-toggle'),
 				readStyle('.initial-content'),

@@ -65,18 +65,6 @@ jobs:
           restore-keys: |
             playwright-${{ runner.os }}-
 
-      - name: Restore Jekyll render cache
-        uses: actions/cache@v4
-        with:
-          path: |
-            _site
-            .jekyll-cache
-            .jekyll-metadata
-            .sass-cache
-          key: jekyll-render-${{ runner.os }}-${{ github.ref_name }}-${{ github.sha }}
-          restore-keys: |
-            jekyll-render-${{ runner.os }}-${{ github.ref_name }}-
-
       - name: Install Ruby dependencies
         run: |
           gem install bundler -v 4.0.10
@@ -95,55 +83,40 @@ jobs:
           BEFORE: ${{ github.event.before }}
           HEAD: ${{ github.sha }}
           EVENT_NAME: ${{ github.event_name }}
-        run: |
-          set -euo pipefail
+        run: ruby scripts/jekyll_build_scope.rb detect
 
-          mode="full"
-          reason="manual_dispatch"
-          zero_sha="0000000000000000000000000000000000000000"
+      - name: Check committed _site cohesion
+        id: committed_site
+        env:
+          HEAD: ${{ github.sha }}
+        run: ruby scripts/jekyll_build_scope.rb local
 
-          if [[ "$EVENT_NAME" != "workflow_dispatch" && -n "${BEFORE:-}" && "$BEFORE" != "$zero_sha" ]] && git cat-file -e "${BEFORE}^{commit}" 2>/dev/null; then
-            mapfile -t changed_files < <(git diff --name-only --diff-filter=ACMRT "$BEFORE" "$HEAD")
-            mapfile -t deleted_files < <(git diff --name-only --diff-filter=D "$BEFORE" "$HEAD")
+      - name: Remove non-cohesive checkout render
+        if: steps.build_scope.outputs.mode == 'incremental' && steps.committed_site.outputs.trusted != 'true'
+        run: rm -rf _site .jekyll-cache .jekyll-metadata .sass-cache
 
-            if (( ${#deleted_files[@]} > 0 )); then
-              reason="deleted_file_requires_full_build"
-            elif (( ${#changed_files[@]} == 0 )); then
-              reason="no_changed_files_detected"
-            else
-              mode="incremental"
-              reason="safe_incremental_paths"
-              structural_pattern='^(_config\.yml|Gemfile|Gemfile\.lock|package(-lock)?\.json|tsconfig.*|404\.html|index\.html|_posts/|_layouts/|_includes/|_sass/|assets/css/|assets/jcem/css/|assets/jcem/js/|scripts/|\.github/workflows/)'
-              safe_incremental_pattern='^(assets/(images|jcem/img)/|CNAME$|robots\.txt$|favicon\.)'
+      - name: Restore Jekyll render cache
+        id: render_cache
+        if: steps.build_scope.outputs.mode == 'incremental' && steps.committed_site.outputs.trusted != 'true'
+        uses: actions/cache@v4
+        with:
+          path: |
+            _site
+            .jekyll-cache
+            .jekyll-metadata
+            .sass-cache
+          key: jekyll-render-${{ runner.os }}-${{ github.ref_name }}-${{ github.sha }}
+          restore-keys: |
+            jekyll-render-${{ runner.os }}-${{ github.ref_name }}-
 
-              for file in "${changed_files[@]}"; do
-                if [[ "$file" =~ $structural_pattern ]]; then
-                  mode="full"
-                  reason="structural_change:${file}"
-                  break
-                fi
-
-                if [[ "$file" =~ $safe_incremental_pattern ]]; then
-                  continue
-                fi
-
-                mode="full"
-                reason="unclassified_change:${file}"
-                break
-              done
-            fi
-          else
-            reason="missing_diff_base"
-          fi
-
-          if [[ "$mode" == "incremental" && ! -f .jekyll-metadata ]]; then
-            mode="full"
-            reason="render_cache_missing"
-          fi
-
-          echo "mode=$mode" >> "$GITHUB_OUTPUT"
-          echo "reason=$reason" >> "$GITHUB_OUTPUT"
-          echo "build_mode=$mode reason=$reason"
+      - name: Resolve _site cohesion
+        id: cohesion
+        env:
+          TENTATIVE_MODE: ${{ steps.build_scope.outputs.mode }}
+          TENTATIVE_REASON: ${{ steps.build_scope.outputs.reason }}
+          BEFORE: ${{ github.event.before }}
+          HEAD: ${{ github.sha }}
+        run: ruby scripts/jekyll_build_scope.rb resolve
 
       - name: Detect published posts
         id: posts
@@ -155,9 +128,10 @@ jobs:
             --out published-posts.json
 
       - name: Build Jekyll site
+        if: steps.cohesion.outputs.mode != 'trusted_site'
         run: |
           npm run build:ts
-          if [ "${{ steps.build_scope.outputs.mode }}" = "incremental" ]; then
+          if [ "${{ steps.cohesion.outputs.mode }}" = "incremental" ]; then
             bundle exec jekyll build --incremental --trace --baseurl=
           else
             rm -rf _site .jekyll-cache .jekyll-metadata .sass-cache
@@ -165,6 +139,14 @@ jobs:
           fi
         env:
           JEKYLL_ENV: production
+
+      - name: Write _site cohesion manifest
+        if: steps.cohesion.outputs.mode != 'trusted_site'
+        env:
+          SOURCE_SHA: ${{ github.sha }}
+          BUILD_MODE: ${{ steps.cohesion.outputs.mode }}
+          BUILD_REASON: ${{ steps.cohesion.outputs.reason }}
+        run: ruby scripts/jekyll_build_manifest.rb write
 
       - name: Validate light and dark visuals
         run: npm run validate:visual

@@ -22,6 +22,7 @@ _site/*
 # para cache em build no github Actions
 # ignora arquivo grandes e que não depende de jekyll
 # ou que o jekyll não compila, apenas copia (como imagens, pdf e outros anexos)
+!_site/.jcem-build-manifest.json
 !_site/**/*.html
 !_site/**/*.rb
 !_site/**/*.ps1
