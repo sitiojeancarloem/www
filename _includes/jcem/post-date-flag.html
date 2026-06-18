@@ -1,15 +1,16 @@
-{% assign flag_date = page.date %}
+{% assign flag_date = include.post.date | default: page.date %}
 {% if flag_date %}
   {% assign months = "JAN,FEV,MAR,ABR,MAI,JUN,JUL,AGO,SET,OUT,NOV,DEZ" | split: "," %}
   {% assign month_index = flag_date | date: "%-m" | minus: 1 %}
   {% assign flag_month = months[month_index] %}
   {% assign published_day = flag_date | date: "%Y-%m-%d" %}
-  {% assign modified_day = page.last_modified_at | date: "%Y-%m-%d" %}
+  {% assign modified_at = include.post.last_modified_at | default: page.last_modified_at %}
+  {% assign modified_day = modified_at | date: "%Y-%m-%d" %}
   {% assign flag_updated = false %}
-  {% if page.last_modified_at and modified_day != published_day %}
+  {% if modified_at and modified_day != published_day %}
     {% assign flag_updated = true %}
   {% endif %}
-  {% capture flag_label %}Publicado em {{ flag_date | date: "%d/%m/%Y" }}{% if flag_updated %}; atualizado em {{ page.last_modified_at | date: "%d/%m/%Y" }}{% endif %}{% endcapture %}
+  {% capture flag_label %}Publicado em {{ flag_date | date: "%d/%m/%Y" }}{% if flag_updated %}; atualizado em {{ modified_at | date: "%d/%m/%Y" }}{% endif %}{% endcapture %}
   <div class="jcem-date-flag{% if flag_updated %} jcem-date-flag--updated{% endif %}{% if include.placement %} jcem-date-flag--{{ include.placement }}{% endif %}">
     <time datetime="{{ flag_date | date_to_xmlschema }}" title="{{ flag_label | strip | escape }}" aria-label="{{ flag_label | strip | escape }}">
       <span class="jcem-date-flag__year">{{ flag_date | date: "%Y" }}</span>

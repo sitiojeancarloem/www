@@ -1,0 +1,50 @@
+{% assign locale = include.locale | default: site.locale %}
+{% assign archive_title = post.title | markdownify | remove: "<p>" | remove: "</p>" %}
+{% assign archive_url = post.link | default: post.url | relative_url %}
+{% assign archive_featured_style = post.featured_image_style | default: post.featured_image.style | default: post.header.image_style | default: post.header.featured_style | default: "" | downcase %}
+{% if archive_featured_style == "inline" %}
+  {% assign archive_featured_style = "content" %}
+{% elsif archive_featured_style == "full" or archive_featured_style == "full-width" or archive_featured_style == "bleed" %}
+  {% assign archive_featured_style = "wide" %}
+{% endif %}
+{% assign archive_image_path = "" %}
+{% if post.featured_image.path %}
+  {% assign archive_image_path = post.featured_image.path %}
+{% elsif post.featured_image.url %}
+  {% assign archive_image_path = post.featured_image.url %}
+{% elsif post.featured_image.src %}
+  {% assign archive_image_path = post.featured_image.src %}
+{% elsif post.featured_image.image %}
+  {% assign archive_image_path = post.featured_image.image %}
+{% elsif post.featured_image %}
+  {% assign archive_image_path = post.featured_image %}
+{% elsif post.header.image %}
+  {% assign archive_image_path = post.header.image %}
+{% elsif post.header.overlay_image %}
+  {% assign archive_image_path = post.header.overlay_image %}
+{% elsif post.header.teaser %}
+  {% assign archive_image_path = post.header.teaser %}
+{% elsif site.teaser %}
+  {% assign archive_image_path = site.teaser %}
+{% endif %}
+{% assign archive_image_alt = post.featured_image.alt | default: post.header.image_description | default: post.title | markdownify | strip_html | strip_newlines | escape_once %}
+
+<div class="{{ include.type | default: 'list' }}__item">
+  <article class="archive__item{% if archive_image_path != "" %} archive__item--has-image{% endif %}{% if archive_featured_style != "" %} archive__item--{{ archive_featured_style }}{% endif %}" itemscope itemtype="https://schema.org/CreativeWork"{% if post.locale %} lang="{{ post.locale }}"{% endif %}>
+    <a class="archive__item-link u-url" href="{{ archive_url }}"{% unless post.link %} rel="permalink"{% endunless %}>
+      <header class="archive__item-header">
+        {% if archive_image_path != "" %}
+          <figure class="archive__item-teaser">
+            <img class="archive__item-image u-photo" src="{{ archive_image_path | relative_url }}" alt="{{ archive_image_alt }}" loading="lazy">
+          </figure>
+        {% endif %}
+        {% include jcem/post-date-flag.html post=post placement="archive" %}
+        <h2 class="archive__item-title no_toc p-name" itemprop="headline">{{ archive_title }}</h2>
+      </header>
+      <div class="archive__item-body">
+        {% include page__meta.html locale=locale type=include.type %}
+        {% if post.excerpt %}<p class="archive__item-excerpt p-summary" itemprop="description">{{ post.excerpt | markdownify | strip_html | truncate: 160 }}</p>{% endif %}
+      </div>
+    </a>
+  </article>
+</div>

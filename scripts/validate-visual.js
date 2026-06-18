@@ -415,11 +415,17 @@ const validatePage = async (page, url, theme, viewportName) => {
 	await page.goto(url, { waitUntil: 'domcontentloaded' });
 	await page.waitForLoadState('load', { timeout: 15000 }).catch(() => {});
 
-	if (theme === 'light') {
-		await page.locator('label[for="jcem-theme-light"]').click();
-	} else {
-		await page.locator('label[for="jcem-theme-dark"]').click();
-	}
+	await page.evaluate((selectedTheme) => {
+		const input = document.querySelector(
+			`#jcem-theme-${selectedTheme}`,
+		);
+
+		if (!(input instanceof HTMLInputElement)) return;
+
+		input.checked = true;
+		input.dispatchEvent(new Event('input', { bubbles: true }));
+		input.dispatchEvent(new Event('change', { bubbles: true }));
+	}, theme);
 
 	await page.waitForTimeout(150);
 	await page
@@ -624,10 +630,34 @@ const validatePage = async (page, url, theme, viewportName) => {
 			'article.jcem-post .page__content sup[id^="fnref"]',
 		);
 		const footnoteMarkerRect = footnoteMarker?.getBoundingClientRect();
+		const footnoteLinkRect = footnoteMarker
+			?.querySelector('a')
+			?.getBoundingClientRect();
 		const quoteReferenceStyle = quoteReference
 			? window.getComputedStyle(quoteReference)
 			: null;
 		const panelBodyStyle = panelBody ? window.getComputedStyle(panelBody) : null;
+		const archiveItem = document.querySelector('.entries-grid .archive__item');
+		const archiveLink = archiveItem?.querySelector('.archive__item-link');
+		const archiveImage = archiveItem?.querySelector('.archive__item-image');
+		const archiveWideImage = document.querySelector(
+			'.entries-grid .archive__item--wide .archive__item-image',
+		);
+		const archiveItemRect = archiveItem?.getBoundingClientRect();
+		const archiveLinkRect = archiveLink?.getBoundingClientRect();
+		const archiveImageRect = archiveImage?.getBoundingClientRect();
+		const archiveWideImageRect = archiveWideImage?.getBoundingClientRect();
+		const archiveImageStyle = archiveImage
+			? window.getComputedStyle(archiveImage)
+			: null;
+		const archiveCenterTarget = archiveItemRect
+			? document
+					.elementFromPoint(
+						archiveItemRect.left + archiveItemRect.width / 2,
+						archiveItemRect.top + archiveItemRect.height / 2,
+					)
+					?.closest('a.archive__item-link')
+			: null;
 
 		return {
 			overflowX: document.documentElement.scrollWidth - document.documentElement.clientWidth,
@@ -707,9 +737,40 @@ const validatePage = async (page, url, theme, viewportName) => {
 						? {
 								width: footnoteMarkerRect.width,
 								height: footnoteMarkerRect.height,
+								linkWidth: footnoteLinkRect?.width || 0,
 							}
 						: null,
 				},
+			},
+			archive: {
+				itemCount: document.querySelectorAll('.entries-grid .archive__item').length,
+				teaserCount: document.querySelectorAll(
+					'.entries-grid .archive__item-teaser .archive__item-image',
+				).length,
+				flagCount: document.querySelectorAll(
+					'.entries-grid .archive__item .jcem-date-flag--archive',
+				).length,
+				firstLinkCoversItem: Boolean(
+					archiveItemRect &&
+						archiveLinkRect &&
+						Math.abs(archiveItemRect.left - archiveLinkRect.left) <= 2 &&
+						Math.abs(archiveItemRect.top - archiveLinkRect.top) <= 2 &&
+						Math.abs(archiveItemRect.right - archiveLinkRect.right) <= 2 &&
+						Math.abs(archiveItemRect.bottom - archiveLinkRect.bottom) <= 2,
+				),
+				firstCenterClickable: archiveCenterTarget === archiveLink,
+				firstImageObjectFit: archiveImageStyle?.objectFit || '',
+				firstImageRatio:
+					archiveImageRect && archiveImageRect.height > 0
+						? archiveImageRect.width / archiveImageRect.height
+						: 0,
+				wideImageCount: document.querySelectorAll(
+					'.entries-grid .archive__item--wide .archive__item-image',
+				).length,
+				firstWideImageRatio:
+					archiveWideImageRect && archiveWideImageRect.height > 0
+						? archiveWideImageRect.width / archiveWideImageRect.height
+						: 0,
 			},
 			styles: [
 				readStyle('.main_jcem_wrapper'),
@@ -787,13 +848,37 @@ const validatePage = async (page, url, theme, viewportName) => {
 
 		if (
 			editorial.footnoteMarker &&
-			(editorial.footnoteMarker.width > 64 ||
-				editorial.footnoteMarker.height > 36)
+			(editorial.footnoteMarker.width > Math.max(28, editorial.footnoteMarker.linkWidth + 16) ||
+				editorial.footnoteMarker.height > 18)
 		) {
 			fail(`Footnote inline distorcida em ${url} ${theme} ${viewportName}`);
 		}
 	} else if (url.includes('/sobre/') && result.post.isPost) {
 		fail(`Pagina estatica marcada como post em ${url} ${theme} ${viewportName}`);
+	} else if (new URL(url).pathname === '/') {
+		if (result.archive.itemCount < 1) {
+			fail(`Home sem cards de arquivo em ${url} ${theme} ${viewportName}`);
+		}
+
+		if (result.archive.teaserCount < result.archive.itemCount) {
+			fail(`Card de arquivo sem imagem destacada em ${url} ${theme} ${viewportName}`);
+		}
+
+		if (result.archive.flagCount < result.archive.itemCount) {
+			fail(`Card de arquivo sem flag de data em ${url} ${theme} ${viewportName}`);
+		}
+
+		if (!result.archive.firstLinkCoversItem || !result.archive.firstCenterClickable) {
+			fail(`Card de arquivo sem link cobrindo o quadro em ${url} ${theme} ${viewportName}`);
+		}
+
+		if (
+			result.archive.firstImageObjectFit !== 'cover' ||
+			(result.archive.wideImageCount > 0 &&
+				result.archive.firstWideImageRatio < 2.2)
+		) {
+			fail(`Imagem destacada de card sem crop wide/cover em ${url} ${theme} ${viewportName}`);
+		}
 	}
 
 	if (result.siteTitleWidth > 2 || result.siteTitleHeight > 2) {
@@ -1421,7 +1506,8 @@ const validatePublishedPostEditorialFormatting = async (page, baseUrl, postPath)
 		);
 		const badFootnoteMarkers = footnoteMarkers.filter((marker) => {
 			const rect = marker.getBoundingClientRect();
-			return rect.width > 64 || rect.height > 36;
+			const linkRect = marker.querySelector('a')?.getBoundingClientRect();
+			return rect.width > Math.max(28, (linkRect?.width || 0) + 16) || rect.height > 18;
 		});
 
 		return {
