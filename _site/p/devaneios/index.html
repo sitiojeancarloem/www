@@ -1,0 +1,1933 @@
+<!doctype html><!--Minimal Mistake with Jekyll-->
+
+
+<html lang="pt-BR" class="no-js">
+  <head>
+    
+<meta charset="utf-8">
+
+
+<!-- begin _includes/seo.html --><title>Devaneios - JeanCarloEM</title>
+<meta name="description" content="O que é real? Seria tudo uma ilusão, um delírio da mente? Existe uma verdade absoluta ou é relativo? Qual é a verdade? É possível encontrá-la?">
+
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="JeanCarloEM">
+<meta property="og:title" content="Devaneios">
+<meta property="og:url" content="https://www.jeancarloem.com/p/devaneios/">
+
+
+  <meta property="og:description" content="O que é real? Seria tudo uma ilusão, um delírio da mente? Existe uma verdade absoluta ou é relativo? Qual é a verdade? É possível encontrá-la?">
+
+
+
+  <meta property="og:image" content="https://www.jeancarloem.com/assets/images/posts/devaneios/devaneios-grande.png">
+  
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2014-04-16T00:55:57-03:00">
+
+
+
+  <meta property="article:modified_time" content="2020-10-08T00:40:55-03:00">
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="https://www.jeancarloem.com/p/devaneios/">
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="JeanCarloEM Feed">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+  
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css"></noscript>
+
+
+  
+    <script src="/assets/jcem/consent-manager/silktide.js"></script>
+  
+    <script src="/assets/jcem/consent-manager/start.js"></script>
+  
+
+
+    <meta name="apple-mobile-web-app-title" content="JeanCarloEM" />
+
+<link
+	rel="icon"
+	type="image/png"
+	href="https://jcem.pro/logo/favicon-96x96.png"
+	sizes="96x96"
+/>
+
+<link
+	type="image/svg+xml"
+	href="https://jcem.pro/logo/favicon.svg"
+	rel="icon"
+/>
+
+<link rel="shortcut icon" href="https://jcem.pro/logo/favicon.ico" />
+
+<link
+	rel="apple-touch-icon"
+	sizes="180x180"
+	href="https://jcem.pro/logo/apple-touch-icon.png"
+/>
+<link rel="manifest" href="https://jcem.pro/logo/site.webmanifest" />
+
+<style>
+	@keyframes carregandoPagina {
+		0%,
+		10%,
+		100% {
+			width: 5em;
+			height: 5em;
+		}
+		65% {
+			width: 10em;
+			height: 10em;
+		}
+	}
+
+	@keyframes loaderBlock {
+		0%,
+		30% {
+			transform: rotate(0);
+		}
+		55% {
+			background-color: rgba(0, 0, 70, 0.9);
+		}
+		100% {
+			transform: rotate(90deg);
+		}
+	}
+
+	@keyframes loaderBlockInverse {
+		0%,
+		20% {
+			transform: rotate(0);
+		}
+		55% {
+			background-color: rgba(0, 0, 70, 0.9);
+		}
+		100% {
+			transform: rotate(-90deg);
+		}
+	}
+
+	html:not(.jcem-page-loaded) body {
+		/* PROTECAO: a pagina real so aparece depois de window.load. */
+		overflow: hidden;
+	}
+
+	html:not(.jcem-page-loaded) body > :not(.carregandoPagina) {
+		visibility: hidden !important;
+	}
+
+	body > .carregandoPagina {
+		position: fixed;
+		inset: 0;
+		z-index: 2147483600;
+		pointer-events: none;
+		transition:
+			opacity 0.22s ease,
+			visibility 0.22s ease;
+	}
+
+	body > .carregandoPagina .jcem-load-progress {
+		--jcem-load-progress: 8%;
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 0.5rem;
+		overflow: hidden;
+		background: rgba(17, 17, 17, 0.24);
+		box-shadow: 0 0.18rem 0.55rem rgba(0, 0, 0, 0.22);
+	}
+
+	body > .carregandoPagina .jcem-load-progress > span {
+		position: absolute;
+		top: 0;
+		left: 0;
+		display: block;
+		width: var(--jcem-load-progress);
+		height: 100%;
+		background: linear-gradient(90deg, #2b92db, #f4d400);
+		box-shadow: 0 0 0.65rem rgba(244, 212, 0, 0.32);
+		transition: width 0.18s ease;
+	}
+
+	body > .carregandoPagina .carregandoPagina__mark {
+		position: fixed;
+		top: 50%;
+		left: 50%;
+		width: 6rem;
+		height: 6rem;
+		transform: translate(-50%, -50%) rotate(45deg) translate3d(0, 0, 0);
+		animation: carregandoPagina 1.2s infinite ease-in-out;
+	}
+
+	html:not(.jcem-page-loaded) body > .carregandoPagina,
+	html:not(.jcem-page-loaded) body > .carregandoPagina * {
+		visibility: visible !important;
+	}
+
+	html.jcem-page-loaded body > .carregandoPagina {
+		visibility: hidden;
+		opacity: 0;
+	}
+
+	body > .carregandoPagina .carregandoPagina__mark span {
+		position: absolute;
+		display: block;
+		width: 2.7rem;
+		height: 2.7rem;
+		background-color: #2b92db;
+		animation: loaderBlock 1.2s infinite ease-in-out both;
+	}
+
+	body > .carregandoPagina .carregandoPagina__mark span:nth-child(1) {
+		top: 0;
+		left: 0;
+	}
+
+	body > .carregandoPagina .carregandoPagina__mark span:nth-child(2) {
+		top: 0;
+		right: 0;
+		animation: loaderBlockInverse 1.2s infinite ease-in-out both;
+	}
+
+	body > .carregandoPagina .carregandoPagina__mark span:nth-child(3) {
+		bottom: 0;
+		left: 0;
+		animation: loaderBlockInverse 1.2s infinite ease-in-out both;
+	}
+
+	body > .carregandoPagina .carregandoPagina__mark span:nth-child(4) {
+		right: 0;
+		bottom: 0;
+	}
+</style>
+
+<noscript>
+	<style>
+	:root {
+		--jcem-noscript-blue: #c08282;
+		--jcem-noscript-amber: #cc4c1e;
+		--jcem-noscript-bg: #ebebeb;
+		--jcem-noscript-text: #222;
+		--jcem-noscript-radius: 1rem;
+	}
+
+	html,
+	body {
+		margin: 0;
+		padding: 0;
+		min-height: 100vh;
+		overflow: hidden;
+		background: var(--jcem-noscript-bg);
+	}
+
+	body > .main_jcem_wrapper,
+	body > .loader-bar,
+	body > .carregandoPagina {
+		/* PROTECAO: sem JavaScript, somente o painel noscript deve aparecer. */
+		display: none !important;
+	}
+
+	body > noscript {
+		position: fixed;
+		inset: 0;
+		z-index: 2147483647;
+		display: flex;
+		width: 100vw;
+		min-height: 100vh;
+		padding: 1rem;
+		overflow: auto;
+		background: var(--jcem-noscript-bg);
+	}
+
+	body > noscript,
+	body > noscript * {
+		visibility: visible !important;
+		box-sizing: border-box;
+		font-family: 'Noto Sans', 'Segoe UI', Tahoma, sans-serif;
+		color: var(--jcem-noscript-text);
+	}
+
+	.jcem-noscript {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 100%;
+		min-height: calc(100vh - 2rem);
+	}
+
+	.jcem-noscript__panel {
+		/* FIX-BUG: centraliza o painel sem depender de largura fixa. */
+		width: min(100%, 28rem);
+		margin: auto;
+		padding: 1.5rem;
+		border: 0.1rem solid var(--jcem-noscript-blue);
+		border-radius: var(--jcem-noscript-radius);
+		background: #fff;
+		box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1);
+		text-align: left;
+	}
+
+	.jcem-noscript h1 {
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+		margin: -1rem -1rem 1rem;
+		padding: 0.6em 1em;
+		border-radius: var(--jcem-noscript-radius) var(--jcem-noscript-radius) 0 0;
+		background: #845050;
+		color: #fff;
+		font-size: clamp(1.1rem, 5vw, 1.5rem);
+		font-weight: 700;
+	}
+
+	.jcem-noscript h1 span {
+		color: inherit;
+		font-size: 1.5rem;
+	}
+
+	.jcem-noscript p {
+		margin: 0.2rem 0;
+		line-height: 1.4;
+	}
+
+	.jcem-noscript__lang {
+		margin-top: 1rem;
+		padding-top: 0.5rem;
+		border-top: 1px solid rgba(0, 0, 0, 0.1);
+		font-size: 0.9rem;
+	}
+
+	.jcem-noscript__lang:first-of-type {
+		border-top: 0;
+	}
+
+	.jcem-noscript__lang h2 {
+		margin: 0 0 0.2rem;
+		color: var(--jcem-noscript-blue);
+		font-size: 0.9rem;
+	}
+
+	.jcem-noscript strong {
+		color: var(--jcem-noscript-amber);
+		font-size: 1.05rem;
+		font-style: italic;
+	}
+
+	.jcem-noscript p span {
+		font-size: 1.3rem;
+		vertical-align: text-bottom;
+	}
+</style>
+
+</noscript>
+
+<script src="/assets/jcem/js/site.js" type="module"></script>
+
+  </head>
+
+  <body class="layout--single" dir="ltr">
+    <div id="carregandoPagina" class="carregandoPagina" aria-hidden="true">
+	<div class="jcem-load-progress" role="progressbar" aria-label="Carregamento da página" aria-valuemin="0" aria-valuemax="100" aria-valuenow="8"><span></span></div>
+	<div class="carregandoPagina__mark"><span></span><span></span><span></span><span></span></div>
+</div>
+
+<noscript>
+	<div class="jcem-noscript">
+	<main class="jcem-noscript__panel">
+		<h1><span>⚠️</span>Problem / Problema / 问题</h1>
+
+		<div class="jcem-noscript__lang">
+			<h2>🇺🇸 English</h2>
+			<p>
+				<span>⚠️</span>
+				<strong>JavaScript is disabled.</strong><br />
+				JavaScript is required to manage your agreement with the Terms of Use,
+				Privacy Notice and consent preferences.
+			</p>
+		</div>
+
+		<div class="jcem-noscript__lang">
+			<h2>🇧🇷 Português</h2>
+			<p>
+				<span>⚠️</span>
+				<strong>O JavaScript está desativado.</strong><br />
+				O JavaScript é necessário para gerenciar sua adesão aos Termos de Uso,
+				Aviso de Privacidade e preferências de consentimento.
+			</p>
+		</div>
+
+		<div class="jcem-noscript__lang">
+			<h2>🇪🇸 Español</h2>
+			<p>
+				<span>⚠️</span>
+				<strong>JavaScript está deshabilitado.</strong><br />
+				JavaScript es necesario para gestionar su aceptación de los Términos de
+				Uso, Aviso de Privacidad y preferencias de consentimiento.
+			</p>
+		</div>
+
+		<div class="jcem-noscript__lang">
+			<h2>🇨🇳 中文（普通话）</h2>
+			<p>
+				<span>⚠️</span>
+				<strong>JavaScript 已被禁用。</strong><br />
+				需要启用 JavaScript 以管理您对使用条款、隐私声明和同意偏好的确认。
+			</p>
+		</div>
+	</main>
+</div>
+
+</noscript>
+
+<input
+	class="radio jcem-theme-radio"
+	type="radio"
+	name="jcem-theme"
+	id="jcem-theme-light"
+	value="light"
+/>
+<input
+	class="radio jcem-theme-radio"
+	type="radio"
+	name="jcem-theme"
+	id="jcem-theme-dark"
+	value="dark"
+	checked
+/>
+
+
+    <div class="main_jcem_wrapper">
+      <p class="copy">
+	Copyright &copy; 2012 - 2026 JeanCarloEM. Todos
+	os direitos reservados.
+	<span
+		>Feito com
+		<a
+			href="https://mmistakes.github.io/minimal-mistakes/"
+			target="_blank"
+		>
+			Minimal Mistakes</a
+		>.
+	</span>
+</p>
+
+<div class="sobpostbar">
+	<ul id="menu-topo-2" class="menu">
+		<li
+			class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1871"
+		>
+			<a href="/sobre/">Sobre</a>
+		</li>
+		<li
+			class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1869"
+		>
+			<a href="https://jeancarloem.com/termos-de-uso">Legal</a>
+		</li>
+		<li
+			class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1875"
+		>
+			<a href="https://jeancarloem.com/avisos-gerais/"
+				>Advertências</a
+			>
+		</li>
+		<li
+			class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1875"
+		>
+			<a href="https://jeancarloem.com/privacidade/">Privacidade</a>
+		</li>
+		<li
+			class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1872"
+		>
+			<a title="Licenca" href="https://jeancarloem.com/licenca/"
+				>Licença</a
+			>
+		</li>
+	</ul>
+</div>
+
+      
+<nav class="skip-links" aria-label="Skip links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Pular para navegação primária</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Pular para conteúdo</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Pular para rodapé</a></li>
+  </ul>
+</nav>
+
+      
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <input class="jcem-nav-state" type="checkbox" id="jcem-nav-state" />
+      <nav id="site-nav" class="greedy-nav">
+        
+          <a class="site-logo" href="/"><img src="https://jcem.pro/logo/logo-animado.gif" alt="JeanCarloEM"></a>
+        
+        <a class="site-title" href="/">
+          JeanCarloEM
+          
+        </a>
+        <ul class="visible-links">
+            <li class="masthead__menu-item">
+              <a href="/sobre/">Sobre</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="https://mmistakes.github.io/minimal-mistakes/docs/quick-start-guide/"
+                
+                
+              >Quick-Start Guide</a>
+            </li></ul>
+        <div class="jcem-theme-toggle" role="group" aria-label="Alternar tema">
+          <label class="jcem-theme-toggle__option jcem-theme-toggle__option--light" for="jcem-theme-light" title="Tema claro">
+            <span class="visually-hidden">Tema claro</span>
+            <i class="fas fa-sun" aria-hidden="true"></i>
+          </label>
+          <label class="jcem-theme-toggle__option jcem-theme-toggle__option--dark" for="jcem-theme-dark" title="Tema escuro">
+            <span class="visually-hidden">Tema escuro</span>
+            <i class="fas fa-moon" aria-hidden="true"></i>
+          </label>
+        </div>
+        
+        <label class="jcem-nav-toggle" for="jcem-nav-state" aria-label="Alternar menu">
+          <span class="visually-hidden">Chavear menu</span>
+          <span class="navicon"></span>
+        </label>
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Chavear menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+      <label class="jcem-nav-backdrop" for="jcem-nav-state" aria-hidden="true"></label>
+    </div>
+  </div>
+</div>
+
+
+      <div class="initial-content">
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  
+  <figure class="jcem-featured-image jcem-featured-image--wide">
+    
+    <img class="jcem-featured-image__img u-photo" src="/assets/images/posts/devaneios/devaneios-grande.png" alt="Devaneios">
+    
+  </figure>
+
+
+
+
+
+
+
+
+<div id="main" role="main">
+  
+
+
+
+  <article class="page h-entry jcem-post jcem-featured-style--wide jcem-blockquote-panels" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Devaneios">
+    <meta itemprop="description" content="  Penso, logo Existo  — Descartes">
+    <meta itemprop="datePublished" content="2014-04-16T00:55:57-03:00">
+    <meta itemprop="dateModified" content="2020-10-08T00:40:55-03:00">
+
+    <div class="page__inner-wrap">
+      
+        <header class="jcem-post-header">
+          
+            
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <div class="jcem-date-flag jcem-date-flag--updated">
+    <time datetime="2014-04-16T00:55:57-03:00" title="Publicado em 16/04/2014; atualizado em 08/10/2020" aria-label="Publicado em 16/04/2014; atualizado em 08/10/2020">
+      <span class="jcem-date-flag__year">2014</span>
+      <span class="jcem-date-flag__month">ABR</span>
+      <span class="jcem-date-flag__day">16</span>
+    </time>
+  </div>
+
+
+          
+          <h1 id="page-title" class="page__title p-name" itemprop="headline">
+            <a href="https://www.jeancarloem.com/p/devaneios/" itemprop="url">Devaneios
+</a>
+          </h1>
+          
+
+
+  
+  
+  <p class="page__meta">
+    <span class="page__meta-readtime">
+      <i class="far fa-clock" aria-hidden="true"></i>
+      
+        22 minuto(s) de leitura
+      
+    </span>
+  </p>
+
+
+        </header>
+      
+
+      <section class="page__content e-content" itemprop="text">
+        
+          <aside class="sidebar__right ">
+            <nav class="toc" aria-label="Table of contents">
+              <header><h4 class="nav__title"><i class="fas fa-cof"></i> Sumário</h4></header>
+              <ul class="toc__menu"><li><a href="#a-realidade">A Realidade</a></li><li><a href="#convicções">Convicções</a><ul><li><a href="#conhecimento-a-base-das-convicções">Conhecimento, a base das convicções</a><ul><li><a href="#conhecimento-relativo">Conhecimento Relativo</a></li><li><a href="#conhecimento-absoluto">Conhecimento Absoluto</a></li><li><a href="#a-falibilidade-do-conhecimento-humano">A falibilidade do Conhecimento Humano</a></li><li><a href="#conhecimento-vs-verdade">Conhecimento VS Verdade</a><ul><li><a href="#o-conhecimento--verdade">O Conhecimento ≠ Verdade</a></li><li><a href="#o-conhecimento--verdade-1">O Conhecimento = Verdade</a></li></ul></li></ul></li><li><a href="#processamento-do-conhecimento">Processamento do conhecimento</a></li></ul></li><li><a href="#um-castelo-de-cartas">Um Castelo de Cartas</a></li><li><a href="#a-insuficiência-humana">A Insuficiência Humana</a></li><li><a href="#referências">Referências</a></li><li><a href="#bibliografia">Bibliografia</a></li></ul>
+            </nav>
+          </aside>
+        
+        <blockquote>
+  <p>Penso, logo Existo</p>
+
+  <p>— <a href="https://pt.wikipedia.org/wiki/Descartes">Descartes</a></p>
+</blockquote>
+
+<p class="jcem-markdown-columns jcem-markdown-columns--2">O <a href="https://pt.wikipedia.org/wiki/Renascentismo">renascentismo</a> e <a href="https://pt.wikipedia.org/wiki/Iluminismo">iluminismo</a> foram entre muitos outros, os principais agentes a proporcionar que a “filosofia” da <em>“era das luzes”</em> e <em>“era das trevas”</em> perdurasse por anos a fio. Muito embora hoje, distantes dos fatos, existam alguns que preguem uma Idade Média sem um mergulho profundo à obscuridade e ignorância<sup id="fnref:1"><a href="#fn:1" class="footnote" rel="footnote" role="doc-noteref">1</a></sup>, abster-se dos fatos, porém, propondo que não houve qualquer tipo de declínio ou limitação imposta pelo agente dominante da época através de métodos como crendice, tortura, encarceramento e condenação<sup id="fnref:2"><a href="#fn:2" class="footnote" rel="footnote" role="doc-noteref">2</a></sup> – que em alguns casos era condenação à morte<sup id="fnref:3"><a href="#fn:3" class="footnote" rel="footnote" role="doc-noteref">3</a></sup> – para coagir, erradicar e limitar pensamentos que o contradissessem, como no <a href="https://en.wikipedia.org/wiki/Galileo_affair">caso de Galileu Galilei</a>, é um extremo que não reflete a realidade<sup id="fnref:4"><a href="#fn:4" class="footnote" rel="footnote" role="doc-noteref">4</a></sup><sup id="fnref:5"><a href="#fn:5" class="footnote" rel="footnote" role="doc-noteref">5</a></sup><sup id="fnref:6"><a href="#fn:6" class="footnote" rel="footnote" role="doc-noteref">6</a></sup> e é tão prejudicial e fictício<sup id="fnref:7"><a href="#fn:7" class="footnote" rel="footnote" role="doc-noteref">7</a></sup> como qualquer mito. Mas é neste tempo conturbado<sup id="fnref:8"><a href="#fn:8" class="footnote" rel="footnote" role="doc-noteref">8</a></sup> advindo da <a href="https://pt.wikipedia.org/wiki/Idade_Média">Idade Média</a>, preconceituosamente<sup id="fnref:1:1"><a href="#fn:1" class="footnote" rel="footnote" role="doc-noteref">1</a></sup> (até certo ponto) pintado pelos intelectuais da época como “tempo de ignorância e superstição”<sup id="fnref:9"><a href="#fn:9" class="footnote" rel="footnote" role="doc-noteref">9</a></sup> <em>onde os dogmas e crendices se sobrepunham ao racionalismo e experiência pessoal<sup id="fnref:1:2"><a href="#fn:1" class="footnote" rel="footnote" role="doc-noteref">1</a></sup>, e cultivava um crescente declínio cultural</em><sup id="fnref:10"><a href="#fn:10" class="footnote" rel="footnote" role="doc-noteref">10</a></sup> – não é à toa a denominação desse período por alguns intelectuais de <a href="https://pt.wikipedia.org/wiki/Idade_das_Trevas">“idade das trevas”</a> e a existência de inúmeras crenças populares, muitas das quais, ainda acreditadas hoje<sup id="fnref:11"><a href="#fn:11" class="footnote" rel="footnote" role="doc-noteref">11</a></sup> – perdido entre tantas teorias, questionando-se sobre tudo, é que o renomado filósofo <a href="https://pt.wikipedia.org/wiki/Descartes">Descartes</a> expressa o pensamento supra.</p>
+
+<h2 id="a-realidade">A Realidade</h2>
+
+<p class="jcem-markdown-columns jcem-markdown-columns--2">O que é real? O que é verdade? Às vezes parece que todas as alternativas demonstram verdade, e noutras não há alternativa. Como distinguir então? E se tudo em que se acredita é irreal? E se o que é presenciado, sentido e até mesmo cientificamente provado for apenas uma mera ilusão? E se nada é o que parece, e como numa ficção futurista, todos estivessem desde sempre, presos à <a href="https://pt.wikipedia.org/wiki/Matrix">Matrix?</a></p>
+
+<blockquote>
+  <p>Ora, quem pode assegurar que (…) não haja nenhuma terra, nenhum céu, nenhum corpo extenso, nenhuma figura, nenhuma grandeza, nenhum lugar e que, não obstante, eu tenha o sentimento de todas essas coisas … E, mesmo, (…) que eu me engane todas as vezes em que faço a adição de dois mais três, ou em que enumero os lados de um quadrado, ou faço outra coisa que se possa imaginar ainda mais fácil?</p>
+
+  <p>— Descartes<sup id="fnref:12"><a href="#fn:12" class="footnote" rel="footnote" role="doc-noteref">12</a></sup></p>
+</blockquote>
+
+<p>Foi em meio a tantas perguntas<sup id="fnref:12:1"><a href="#fn:12" class="footnote" rel="footnote" role="doc-noteref">12</a></sup>, questionando a própria existência<sup id="fnref:13"><a href="#fn:13" class="footnote" rel="footnote" role="doc-noteref">13</a></sup>, que Descartes concluiu a primeira certeza: “duvido, logo existo”, e como duvidar é um modo de pensar então: <em>“Cogito ergo sum”,</em> em português: <em>“Penso, logo existo”</em>. Ele não poderia questionar que estivesse duvidando, pois assim ele simplesmente confirmaria que estava duvidando. A existência de pensamento sobre a própria existência, prova em si, a existência de um “eu” para fazer o pensamento. Na verdade Descartes não foi o único a expor esta ideia, filósofos como <a href="https://pt.wikipedia.org/wiki/Platão">Platão</a>, <a href="https://pt.wikipedia.org/wiki/Aristóteles">Aristóteles</a> e <a href="https://pt.wikipedia.org/wiki/Parmênides">Parmênides</a><sup id="fnref:14"><a href="#fn:14" class="footnote" rel="footnote" role="doc-noteref">14</a></sup> também esboçaram pensamentos semelhantes:</p>
+
+<blockquote>
+  <p>… estamos conscientes de que percebemos, e quando pensamos, estamos conscientes de que nós pensamos, e estar conscientes de que estamos percebendo ou pensando é estar consciente de que existimos</p>
+
+  <p>— Aristóteles em <a href="https://pt.wikipedia.org/wiki/Ética%20a%20Nicômaco">Ética a Nicômaco</a></p>
+</blockquote>
+
+<p>Os humanos da recém-inaugurada <a href="https://pt.wikipedia.org/wiki/Idade%20moderna">idade moderna</a> “partiram” desta premissa e galgaram o desconhecido em busca de novas verdades, questionando, repensando e provando. Surge então o que hoje é denominado “método científico”<sup id="fnref:15"><a href="#fn:15" class="footnote" rel="footnote" role="doc-noteref">15</a></sup></p>
+
+<h2 id="convicções">Convicções</h2>
+
+<p>O dicionário define “convicção” como “certeza” e associa o substantivo “crença”<sup id="fnref:16"><a href="#fn:16" class="footnote" rel="footnote" role="doc-noteref">16</a></sup> à convicção como um sinônimo ao defini-la como “convicção íntima”<sup id="fnref:17"><a href="#fn:17" class="footnote" rel="footnote" role="doc-noteref">17</a></sup><sup id="fnref:18"><a href="#fn:18" class="footnote" rel="footnote" role="doc-noteref">18</a></sup><sup id="fnref:19"><a href="#fn:19" class="footnote" rel="footnote" role="doc-noteref">19</a></sup>. Exemplificando, aquele que é convicto, crê; da mesma forma, o que crê, é convicto. Se o indivíduo crê, ou seja é convicto, ele tem uma crença<sup id="fnref:20"><a href="#fn:20" class="footnote" rel="footnote" role="doc-noteref">20</a></sup>, uma convicção. Convicção é algo que se tem, embora conceitualmente intangível. Neste artigo “convicção” será melhor analisada, mas por ora, conforme definição do dicionário, pode-se concluir convicção como:</p>
+
+<blockquote>
+  <ul>
+    <li>Certeza;</li>
+    <li>Crença;</li>
+    <li>Opinião<sup id="fnref:21"><a href="#fn:21" class="footnote" rel="footnote" role="doc-noteref">21</a></sup>;</li>
+    <li>“Ideia na qual se acredita e portanto se tem como certa.”</li>
+  </ul>
+</blockquote>
+
+<p>Em termos práticos, convicção é o resultado natural do pensamento humano<sup id="fnref:22"><a href="#fn:22" class="footnote" rel="footnote" role="doc-noteref">22</a></sup><sup id="fnref:23"><a href="#fn:23" class="footnote" rel="footnote" role="doc-noteref">23</a></sup>. Mas humanos pensam? De fato todos pensam, talvez não da forma como deveriam, da forma correta, se é que existe uma forma correta. Mas pensam! Baseado no conhecimento adquirido até o presente, formam-se <a href="https://pt.wiktionary.org/wiki/convicção">convicções</a> sobre o que é real e o que não é, sobre o que é verdade e o que é falso. Independentemente do grau e profundidade do conhecimento adquirido, é sobre ele<sup id="fnref:22:1"><a href="#fn:22" class="footnote" rel="footnote" role="doc-noteref">22</a></sup><sup id="fnref:23:1"><a href="#fn:23" class="footnote" rel="footnote" role="doc-noteref">23</a></sup><sup id="fnref:24"><a href="#fn:24" class="footnote" rel="footnote" role="doc-noteref">24</a></sup><sup id="fnref:25"><a href="#fn:25" class="footnote" rel="footnote" role="doc-noteref">25</a></sup>, que se baseiam todos os princípios, crenças e convicções.</p>
+
+<h3 id="conhecimento-a-base-das-convicções">Conhecimento, a base das convicções</h3>
+
+<p>Não conhecemos porque cremos, mas sim, cremos porque conhecemos. Não é da convicção que se obtém conhecimento, mas do conhecimento é que se forma convicção (crença). Para crer em “algo” (ser convicto de “algo”), é necessário antes ter conhecimento sobre “algo”. É impossível extrair conhecimento de uma crença, e é impossível crer em algo do qual não se tem conhecimento. Então, na história da “origem”, primeiro vem o conhecimento, e depois, baseado neste conhecimento, a convicção. A convicção (crença) nada mais é que o resultado natural da reflexão do conhecimento<sup id="fnref:22:2"><a href="#fn:22" class="footnote" rel="footnote" role="doc-noteref">22</a></sup><sup id="fnref:23:2"><a href="#fn:23" class="footnote" rel="footnote" role="doc-noteref">23</a></sup>.</p>
+
+<p>Tome como exemplo um homem que está viajando, e em sua viagem passa, sem saber, por um local onde é costume construírem fachadas de restaurantes beirando a estrada – não cabe aqui o motivo da construção dessas fachadas, mas o fato de serem construídas. Este homem, ao passar pela estrada verá, o que para ele, são restaurantes, simplesmente porque ele possui conhecimento obtido através de sua experiência anterior, da aparência de um restaurante, e também porque pode ler perfeitamente os letreiros beirando a estrada com os dizeres “restaurantes”. O homem adquiriu um conhecimento – ele vê o que parece ser vários restaurantes – e está convicto disso (crê). Coincidentemente entre estas dezenas de fachadas de restaurantes, existe um que é real, onde ele por obra do acaso estaciona e entra. Ao entrar confirma ainda mais o conhecimento anteriormente obtido: ele realmente vê um verdadeiro restaurante.</p>
+
+<p><img src="/assets/images/posts/devaneios/observador-restaurantes-jcem-ccbysa.png" alt="Observador Restaurantes." /></p>
+
+<p>Perceba neste exemplo que o homem possui uma convicção (crença), baseada em conhecimento factual, entretanto esta crença é incorreta. Não é a verdade! O único motivo para ele crer que são restaurantes é porque tem evidências de que são, e nada que o leve a duvidar desta certeza. Ele não possui qualquer evidência – e neste caso evidência seria conhecimento – de que o que ele vê não é real. Perceba, que ele crê porque tem conhecimento – mesmo que questionável – e não o contrário. Crer sem conhecimento é impossível<sup id="fnref:22:3"><a href="#fn:22" class="footnote" rel="footnote" role="doc-noteref">22</a></sup><sup id="fnref:23:3"><a href="#fn:23" class="footnote" rel="footnote" role="doc-noteref">23</a></sup>.</p>
+
+<blockquote class="jcem-image-full">
+  <p>Existe apenas um bem, o saber, e apenas um mal, a ignorância</p>
+
+  <p>— <a href="https://pt.wikipedia.org/wiki/Sócrates">Sócrates</a></p>
+</blockquote>
+
+<p>É neste ponto que Sócrates é certeiro ao classificar o bem e o mal, relacionando-os ao saber e à ignorância respectivamente, uma vez que é sobre o conhecimento adquirido que os humanos definem suas convicções. Sem conhecimento não é possível crer em qualquer coisa. Assim, conhecimento, bem como o grau e profundidade do mesmo, passa a ser essencial para formação de corretas convicções. Conhecimento superficial ou baseado em leitura unilateral ou equivocada de evidência(s) leva à formação de falsas convicções. Mas aí surge o problema…</p>
+
+<h4 id="conhecimento-relativo">Conhecimento Relativo</h4>
+
+<blockquote>
+  <p>Todo conhecimento humano é relativo. Cada subida prepara a queda proporcional. Cada fossa abre espaço para a altura equivalente. No final da estrada estamos no mesmo ponto de onde saímos, no zero, no nada.</p>
+
+  <p>— <a href="https://pt.wikipedia.org/wiki/Carlos%20Heitor%20Cony">Carlos Heitor Cony</a></p>
+</blockquote>
+
+<p>A relatividade é um conceito amplo, antigo<sup id="fnref:26"><a href="#fn:26" class="footnote" rel="footnote" role="doc-noteref">26</a></sup> e cientificamente verificável<sup id="fnref:27"><a href="#fn:27" class="footnote" rel="footnote" role="doc-noteref">27</a></sup><sup id="fnref:28"><a href="#fn:28" class="footnote" rel="footnote" role="doc-noteref">28</a></sup><sup id="fnref:29"><a href="#fn:29" class="footnote" rel="footnote" role="doc-noteref">29</a></sup> haja vista a <a href="https://pt.wikipedia.org/wiki/Teoria%20da%20relatividade">Teoria da relatividade</a> de <a href="https://pt.wikipedia.org/wiki/Albert%20Einstein">Albert Einstein</a> que demonstra a aplicabilidade à física, matemática e portanto ao cosmo – embora notadamente não comprovada. Filósofos e cientistas como Galileu<sup id="fnref:26:1"><a href="#fn:26" class="footnote" rel="footnote" role="doc-noteref">26</a></sup> e Protágoras já esboçaram esta teoria:</p>
+
+<blockquote>
+  <p>O homem é a medida de todas as coisas.</p>
+
+  <p>— <a href="https://pt.wikipedia.org/wiki/Protágoras">Protágoras</a></p>
+</blockquote>
+
+<p>Existem muitas alegorias que tentam ilustrar a relatividade. Uma delas, simplória, mas o suficiente para o caso, considera a existência de dois observadores. Um deles encontra-se na lua <em>(B)</em>, enquanto o outro na terra <em>(A)</em>. Do ponto de vista do observador <em>“B”</em>, a terra gira em torno da lua, e do ponto de vista do observador <em>“A”</em>, é a lua que gira em torno da terra. Ambos tiram sua conclusão em evidências verificáveis. Qualquer um pode olhar ao céu e observar a evidência diante de seus olhos, e diante destas evidências ambos estão corretos. Neste caso o conhecimento é relativo à perspectiva do observador e ao método utilizado. Entretanto o conhecimento obtido através da perspectiva do observador limita a compreensão do todo.</p>
+
+<p class="jcem-image-full"><img src="/assets/images/posts/devaneios/vistas-lua-terra-visao2-ccbysa-jcem.png" alt="Lua e tarra, observadores." /></p>
+
+<div class="c-markdown-columns c-markdown-columns--2 jcem-markdown-columns jcem-markdown-columns--2 ">
+  
+</div>
+
+<p>Este exemplo, bem como o “das fachadas de restaurantes”, demonstram a relatividade do conhecimento humano indicando também a fragilidade humana na percepção do todo, o que prejudica notoriamente suas convicções. Por isso talvez, nenhum dos pontos, relativismo ou absolutismo, está correto, mas possivelmente um “<em>convergencialismo</em>“.</p>
+
+<h4 id="conhecimento-absoluto">Conhecimento Absoluto</h4>
+
+<blockquote>
+  <p>… [algo] não depende, para sua existência, da minha atual percepção do mesmo</p>
+
+  <p>— <a href="https://pt.wikipedia.org/wiki/Taylor">Taylor</a><sup id="fnref:30"><a href="#fn:30" class="footnote" rel="footnote" role="doc-noteref">30</a></sup><sup id="fnref:31"><a href="#fn:31" class="footnote" rel="footnote" role="doc-noteref">31</a></sup></p>
+</blockquote>
+
+<p>Devido à verificabilidade do “conhecimento relativo”, existe uma enorme controvérsia entre a existência ou não de um “conhecimento absoluto”, aquele conhecimento que não depende do observador, reflexo exato da realidade. Mas no final, é racional concluir que existe um “conhecimento absoluto”, que independentemente do conhecimento humano (relativo), continuará a ser absoluto. A percepção humana do “conhecimento absoluto” não o mudará, e tampouco o “conhecimento relativo” tornar-se-á absoluto pela convicção nele. Não há nada que a convicção humana faça para mudar a realidade. A lua continuará girando em torno da terra, mesmo que para o observador “B”, da ilustração anterior, seja que a “terra gira em torno da lua”, convicção esta concluída com base no conhecimento relativo verificável. Da mesma forma, as fachadas de restaurantes beirando a estrada – do exemplo anterior – não se transmutarão em verdadeiros restaurantes simplesmente porque o observador assim crê. A realidade é o que é, independente do “conhecimento” e convicção do ser humano (observador).</p>
+
+<h4 id="a-falibilidade-do-conhecimento-humano">A falibilidade do Conhecimento Humano</h4>
+
+<blockquote>
+  <p>Todo mundo tem direito à sua própria opinião, mas não aos seus próprios fatos.</p>
+
+  <p>— <a href="https://pt.wikipedia.org/wiki/Daniel%20Patrick%20Moynihan">Daniel Patrick Moynihan</a><sup id="fnref:32"><a href="#fn:32" class="footnote" rel="footnote" role="doc-noteref">32</a></sup></p>
+</blockquote>
+
+<p>Da mesma forma que a percepção humana não muda ou desvirtua o “conhecimento absoluto”, o mesmo, não invalidará necessariamente o “conhecimento relativo” obtido da perspectiva humana, já que há possibilidade de que a perspectiva humana e o método utilizado traduzam um conhecimento relativo que reflita com exatidão pelo menos uma fração do “conhecimento absoluto”.</p>
+
+<p>Entretanto é impossível ao homem saber, para além do questionamento e independentemente do método ou da perspectiva, se determinado conhecimento é absoluto, uma vez que o conhecimento é ilimitado e a capacidade cerebral humana é limitada<sup id="fnref:33"><a href="#fn:33" class="footnote" rel="footnote" role="doc-noteref">33</a></sup> – limite este ainda desconhecido<sup id="fnref:33:1"><a href="#fn:33" class="footnote" rel="footnote" role="doc-noteref">33</a></sup>. “Colocar” o conhecimento infinito em um recipiente (cérebro) finito<sup id="fnref:34"><a href="#fn:34" class="footnote" rel="footnote" role="doc-noteref">34</a></sup> é irracional, e traduz a impossibilidade humana de compreender a totalidade do conhecimento<sup id="fnref:35"><a href="#fn:35" class="footnote" rel="footnote" role="doc-noteref">35</a></sup>. Além disso, uma percepção não relativista exigiria do homem extrapolar sua própria existência a fim de perceber “o todo” de forma impessoal.</p>
+
+<p><img src="/assets/images/posts/devaneios/CONHECIMENTO.svg" alt="ilustração do Conhecimento." /></p>
+
+<p>É com o que o biólogo britânico nascido no Brasil e ganhador do <a href="https://pt.wikipedia.org/wiki/Prêmio%20Nobel">Prêmio Nobel</a>, <a href="https://pt.wikipedia.org/wiki/Peter%20Brian%20Medawar">Peter Brian Medawar</a>, parece concordar ao declarar: “Os limites da ciência transparecem na sua <strong>incapacidade</strong> de responder a perguntas básicas, como as que fazem as crianças, perguntas sobre as primeiras e as últimas coisas: ‘Como tudo começou?’, ‘Porque estamos aqui?’, ‘Qual o sentido da existência?’”<sup id="fnref:36"><a href="#fn:36" class="footnote" rel="footnote" role="doc-noteref">36</a></sup>, e ele não está sozinho, uma vez que <a href="https://pt.wikipedia.org/wiki/Francis%20Collins">Francis Collins</a>, <a href="https://pt.wikipedia.org/wiki/Genética">geneticista</a> diretor do <a href="https://pt.wikipedia.org/wiki/Projeto%20Genoma%20Humano">Projeto Genoma Humano</a> e responsável pelo mapeamento do <a href="https://pt.wikipedia.org/wiki/DNA">DNA</a> humano, afirmou:</p>
+
+<blockquote>
+  <p>A ciência é <strong>impotente</strong> para responder a perguntas fundamentais. Francis Collins</p>
+</blockquote>
+
+<p>Portanto qualquer convicção formada a partir de conhecimento parcial humano e lida a partir da estreita lente humana – adiante explicado – resultará definitivamente em convicções incoerentes, polêmicas e possivelmente falsas. Resta apenas a crença efêmera de que a percepção e os métodos utilizados reflitam, em algum momento, uma fração do “conhecimento absoluto”.</p>
+
+<blockquote>
+  <p>A forma mais rápida de um cientista desacreditar a si, e à sua profissão, é declarar audaciosamente (sobretudo quando não há necessidade), que a ciência sabe, ou um dia saberá, as respostas de todas as perguntas da vida. E que são irrelevantes as perguntas que não podem ser respondidas cientificamente, ou pseudo-perguntas feitas por ignorantes e respondidas por crédulos. <a href="https://pt.wikipedia.org/wiki/Peter%20Brian%20Medawar">Peter Brian Medawar</a>, Conselhos a um jovem cientista</p>
+</blockquote>
+
+<h4 id="conhecimento-vs-verdade">Conhecimento VS Verdade</h4>
+
+<p>Muitas vezes conhecimento e verdade podem ser confundidos, entretanto conhecimento não é necessariamente verdade. Para compreender melhor, o dicionário lança luz a este conceito ao definir verdade da seguinte forma:</p>
+
+<blockquote>
+  <ul>
+    <li>Conformidade com o real; <strong>exatidão, realidade</strong>: <em>a verdade do ocorrido</em>;</li>
+    <li>Coisa verdadeira ou certa: <em>A verdade foi escamoteada por todos.</em></li>
+    <li>Princípio certo: <em>A maioria das doutrinas políticas apresenta erros e verdades.</em></li>
+    <li><strong>Representação fiel de alguma coisa da natureza</strong>: Há verdade neste quadro.</li>
+  </ul>
+
+  <p>— Dicionário Aurélio<sup id="fnref:37"><a href="#fn:37" class="footnote" rel="footnote" role="doc-noteref">37</a></sup></p>
+</blockquote>
+
+<h5 id="o-conhecimento--verdade">O Conhecimento ≠ Verdade</h5>
+
+<p>A definição que o dicionário Aurélio dá para o substantivo “verdade” é esclarecedora. Um conhecimento ou convicção que não reflete exatamente a realidade, não pode ser considerado verdade. É impossível existir “verdade relativa”, uma vez que por definição verdade é a exata realidade, do contrário não seria verdade. Perceba o paradoxo de uma “verdade relativa”. Racionalizando, uma “verdade relativa” se autoaniquila, afinal seria isto – “verdade relativa” – uma verdade ou também é relativo? Verdade é um conceito absoluto<sup id="fnref:38"><a href="#fn:38" class="footnote" rel="footnote" role="doc-noteref">38</a></sup>. Se o indivíduo tem conhecimento ou convicção de “algo” que não é a realidade em si, então não é verdade!</p>
+
+<p>O conhecimento e a convicção do observador (B) do exemplo da terra e da lua anterior não é uma verdade, e muito menos uma “verdade relativa”. Pode até ser um “conhecimento relativo”, uma vez que o conhecimento do observador é relativo à sua percepção, mas por definição não é uma verdade, e sim uma mentira, pois não reflete a realidade com exatidão. A verdade não é condicionada, influenciada ou dependente de convicção ou percepção humana, ela está além. Verdade é verdade e pronto. Qualquer “coisa” diferente, é mentira. Mesmo que um dado indivíduo considere tal convicção como verdade, a consideração do mesmo não influenciará o estado da verdade:</p>
+
+<blockquote>
+  <p>O que é absolutamente verdade é sempre correto, em todos os lugares, o tempo todo, em qualquer condição. Capacidade de uma entidade de discernir estas coisas é irrelevante para o estado da verdade</p>
+
+  <p>— <a href="https://en.wikipedia.org/wiki/Steven%20Robiner">Steven Robiner</a><sup id="fnref:39"><a href="#fn:39" class="footnote" rel="footnote" role="doc-noteref">39</a></sup></p>
+</blockquote>
+
+<blockquote>
+  <p>Conhecimento RELATIVO é <strong>DIFERENTE</strong> da VERDADE</p>
+</blockquote>
+
+<h5 id="o-conhecimento--verdade-1">O Conhecimento = Verdade</h5>
+
+<p>Como demonstrado anteriormente, verificou-se a existência de um “conhecimento absoluto”, que existe independente do observador. Esse conhecimento, impossível ao homem obter, é a totalidade exata da realidade. Portanto, no que se refere ao “conhecimento absoluto”, pode-se afirmar sem sombra de dúvida, que conhecimento é igual a verdade. Conclui-se, portanto, que “conhecimento absoluto” e verdade são sinônimos.</p>
+
+<blockquote>
+  <p>Conhecimento ABSOLUTO é <strong>IGUAL</strong> a VERDADE</p>
+</blockquote>
+
+<h3 id="processamento-do-conhecimento">Processamento do conhecimento</h3>
+
+<p>Mas não bastasse a limitação do “conhecimento relativo” em função da perspectiva e dos métodos do observador, existe ainda uma camada adicional entre o conhecimento e a convicção. O conhecimento não é o único fator determinante na definição de uma convicção. Se não houvesse esta camada, poder-se-ia dizer que conhecimento é igual à convicção, mas isso foge do observado. O que se observa em muitas situações é a interpretação (leitura) de um mesmo “conhecimento relativo” de formas diferentes que resultam em convicções diversas.</p>
+
+<p><img src="/assets/images/posts/devaneios/CopoDagua.svg" alt="Como meio cheio, ou meio vazio?" /></p>
+
+<p>Para ilustrar esta camada de forma mais evidente, considere a seguinte ilustração: dois observadores “A” e “B”, observam um mesmo objeto, neste caso um copo, com capacidade total de 300 ml, preenchido com a quantidade exata de 150 ml de água. Ambos observam de uma mesma perspectiva (lente), ambos “absorvem” exatamente o mesmo “conhecimento”. Diferente dos observadores do exemplo da “lua e da terra”, que recebem informações diferentes, estes agora, recebem exatamente a mesma informação.</p>
+
+<p>Entretanto o conhecimento por si só não é nada. É necessário aos observadores processar o conhecimento adquirido. Assim o resultado natural deste processamento, ou como preferir, leitura, reflexão ou análise – que neste artigo são sinônimos – será uma convicção<sup id="fnref:23:4"><a href="#fn:23" class="footnote" rel="footnote" role="doc-noteref">23</a></sup>. Assim a forma como cada observador analisa os dados recebidos, influenciará completa e distintamente o resultado deste processamento, e portanto a convicção de cada um. Para o observador “A”, o copo está “meio cheio”, enquanto para o observador “B”, o copo está “meio vazio”. Todas as afirmações fazem sentido e refletem a informação tal como ela foi absorvida por ambos, mas possuem sentidos opostos, convicções diferentes a respeito de um mesmo conhecimento. Neste caso, a lente pela qual é analisada uma mesma informação define a convicção. Portanto convicção é o resultado natural da reflexão/análise do conhecimento relativo em que se baseia. <a href="https://pt.wikipedia.org/wiki/Thomas_Kuhn">Thomas S. Kuhn</a> confirmou este pensamento ao afirmar o seguinte:</p>
+
+<blockquote>
+  <p>O que um homem vê, depende tanto daquilo que ele olha como daquilo que sua <strong>experiência visual-conceitual prévia o ensinou a ver</strong>.” Thomas S. Kuhn, A estrutura das revoluções científicas</p>
+</blockquote>
+
+<p>Em outras palavras, isto significa que se não em todos os casos, pelo menos na maioria, o ser humano enxergará um fato ou evidência da forma como ele quer ver, da forma como ele se condicionou a ver; e não necessariamente da forma que realmente é.</p>
+
+<p><img src="/assets/images/posts/devaneios/OrigemDaConvicao-jcem-ccbysanc.png" alt="Origem da convicção" /></p>
+
+<h2 id="um-castelo-de-cartas">Um Castelo de Cartas</h2>
+
+<p>Definitivamente, parece vã a confiança depositada no conhecimento humano, sobretudo nos conceitos por eles extraídos, mesmo quando se dá o nome de ciência. De fato, meses depois, pode-se mudar por completo o que outrora acreditava-se como empírico. Mas a situação se agrava ainda mais quando se leva em consideração que muitos, inclusive cientistas, são levados a dar crédito a declarações e afirmações simplesmente por serem emitidas por pessoas de renome.</p>
+
+<p>Existe um perigo real e invariavelmente ilógico, de se tomar uma afirmação de um cientista, como uma afirmação científica. Como <a href="https://pt.wikipedia.org/wiki/John%20Lennox">John Lennox</a>, matemático e professor da <a href="https://pt.wikipedia.org/wiki/Universidade%20de%20Oxford">Universidade de Oxford</a> afirmou: “a ilogicidade é disfarçada pelo fato de ter sido dita por um cientista. No debate contemporâneo existe o perigo muito real de confundir ‘enunciado [afirmação] de um cientista’, com um ‘enunciado [afirmação] científico’. Nem todo enunciado [afirmação] feito por um cientista é um ‘enunciado [afirmação] científico’. Por isso não tem a mesma autoridade que atribuímos à ciência em si. <strong>Um enorme prestígio e autoridade não justificam uma lógica falaciosa</strong>.”<sup id="fnref:40"><a href="#fn:40" class="footnote" rel="footnote" role="doc-noteref">40</a></sup>. Não é por ser alguém de intelecto a declarar, que suas afirmações serão verdade. Opinião não é o mesmo que fato como declarou <a href="https://pt.wikipedia.org/wiki/Daniel%20Patrick%20Moynihan">Daniel Patrick Moynihan:</a> “Todo mundo tem direito à sua própria opinião, mas não aos seus próprios fatos”<sup id="fnref:32:1"><a href="#fn:32" class="footnote" rel="footnote" role="doc-noteref">32</a></sup>. Contudo, mesmo que sejam de fato afirmações científicas, não significa que representem necessariamente a verdade/conhecimento absoluto, como já visto, mas apenas e provavelmente um conhecimento relativo, lido e refletido por uma estreita lente, que cedo ou tarde poderá se mostrar falho, e inevitavelmente abandonado, como relata a história.</p>
+
+<p>Neste intervalo, inúmeras teorias mirabolantes formam-se no que não passa de mito, opiniões particulares de um cientista ou grupo de cientistas de prestígio. Muito do que hoje é considerado ciência nada mais é que um castelo de cartas frágeis tão bem posicionadas e equilibradas que passam uma falsa e intensa sensação de serem sólidas e confiáveis. Teorias baseadas em teorias e conceitos baseados em opinião. Por falta de bases verdadeiramente sólidas, cedo ou tarde o castelo de cartas virá ao chão.</p>
+
+<h2 id="a-insuficiência-humana">A Insuficiência Humana</h2>
+
+<blockquote>
+  <p>Não importa por onde eu comecei, pois para lá eu voltarei sempre.</p>
+
+  <p>— <a href="https://pt.wikipedia.org/wiki/Parmênides">Parmênides</a></p>
+</blockquote>
+
+<p>Ao se referir à catástrofe de <a href="https://pt.wikipedia.org/wiki/Barragem_de_Vajont">Vajont</a>, o professor da University of East Anglia, David Petley, declarou a respeito da capacidade humana: “Vajont demonstra a estupidez do homem em seu fracasso em entender os sistemas naturais”<sup id="fnref:41"><a href="#fn:41" class="footnote" rel="footnote" role="doc-noteref">41</a></sup>. Não há dúvida que as convicções humanas, mesmo aquelas que são tachadas factuais pela dita “ciência dominante”, são na verdade racionalizações individuais e controversas de um conhecimento puramente relativo e especulativo. Como na brincadeira <a href="https://pt.wikipedia.org/wiki/Telefone%20sem%20fio%20(brincadeira)">“telefone sem fio”</a>, o “ruído” e infinitas variáveis incidentes no inesgotável “conhecimento absoluto” até que seja, em parcela desprezível absorvida pela finita mente humana – se é que é absorvido – é demasiado forte e longo, destruindo a efêmera chance de que o conhecimento humano, bem como suas convicções sejam de fato o espelho da realidade.</p>
+
+<p>Afinal, mesmo após séculos, o mundo continua o mesmo. O monopólio de um “pensamento dominante” que arbitrariamente e preconceituosamente discrimina, descarta, persegue e limita qualquer outro que se oponha<sup id="fnref:42"><a href="#fn:42" class="footnote" rel="footnote" role="doc-noteref">42</a></sup><sup id="fnref:43"><a href="#fn:43" class="footnote" rel="footnote" role="doc-noteref">43</a></sup><sup id="fnref:44"><a href="#fn:44" class="footnote" rel="footnote" role="doc-noteref">44</a></sup>, sem, contudo, deixar de ser, como muitos outros antes e muitos outros que virão, simples <strong>devaneios</strong>, ilusões de mentes limitadas que somente demonstram o conturbado mundo onde nada mudou, e onde a única certeza científica a que se pode chegar ainda é: <strong>“Penso, logo existo”,</strong> as palavras de Carlos Cony encerram poeticamente a triste realidade humana:</p>
+
+<blockquote>
+  <p>… <strong>No final da estrada estamos no mesmo ponto de onde saímos, no zero, no nada.</strong></p>
+
+  <p>— <a href="https://pt.wikipedia.org/wiki/Carlos%20Heitor%20Cony">Carlos Heitor Cony</a></p>
+</blockquote>
+
+<h2 id="referências">Referências</h2>
+
+<h2 id="bibliografia">Bibliografia</h2>
+
+<ul>
+  <li>LINDBERG, David C.. (2003). “When Science &amp; Christianity Meet”. Chicago: Chicago University Press;</li>
+  <li>DAVIES, Norman. Europe: A History. Oxford: Oxford University Press, 1996. ISBN 0-19-520912-5;</li>
+  <li>RUSSELL, Jeffrey Burton. Inventing the Flat Earth-Columbus and Modern Historians. Westport, CT: Praeger, 1991. ISBN 0-275-95904-X;</li>
+  <li>DESCARTES, René. Meditações Metafísicas. Tradução de Bento Prado Junior e J. Guinburg (Coleção Pensadores, Ed. Victor Civita, Abril Cultural, São Paulo, 1973);</li>
+  <li>ROCHA, Ethel Menezes. Observações sobre a dúvida cartesiana;</li>
+  <li>FERREIRA, Aurélio Buarque de Holanda. O Novo Dicionário Aurélio da Língua Portuguesa. 3ª edição. 1ª impressão da Editora Positivo, revista e atualizada do Aurélio Século XXI, O Dicionário da Língua Portuguesa, contendo 435 mil verbetes, locuções e definições; Versão Digital Positivo.</li>
+  <li>BORBA, Francisco da Silva. Dicionário UNESP do português contemporâneo. Editora UNESP, 2004. ISBN: 8-57-1395764-4;</li>
+  <li><a href="https://pt.wikipedia.org/wiki/Wikipedia">Wikipédia;</a></li>
+  <li><a href="https://pt.wikipedia.org/wiki/Wikicionário">Wikicionário;</a></li>
+  <li>GEISLER, Norman. TUREK, Frank. Não tenho fé suficiente para ser ateu. Tradução Emison Justino. 2ª impressão. ISBN: 8-57-367928.</li>
+  <li><strong><a href="https://pt.wikipedia.org/wiki/Peter%20Brian%20Medawar">MEDAWAR</a></strong>, Peter Brian. Conselhos a um jovem cientista.</li>
+</ul>
+<div class="footnotes" role="doc-endnotes">
+  <ol>
+    <li id="fn:1">
+      <p><a href="#ref_Lindberg_2013">Lindberg 2003</a>, pp 8. <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;</a> <a href="#fnref:1:1" class="reversefootnote" role="doc-backlink">&#8617;<sup>2</sup></a> <a href="#fnref:1:2" class="reversefootnote" role="doc-backlink">&#8617;<sup>3</sup></a></p>
+    </li>
+    <li id="fn:2">
+      <p>Bishop, J (2006). Aquino sobre a Tortura New Blackfriars, 87:229. <a href="#fnref:2" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:3">
+      <p>KIRSH, Jonathan. O Manual dos Grandes Inquisidores: Uma História de Terror em Nome de Deus. HarperOne. ISBN 0-06-081699-6 <a href="#fnref:3" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:4">
+      <p>FINOCCHIARO, Maurice (2007) Repetindo Galileu. University of California Press. <a href="#fnref:4" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:5">
+      <p>Papal Condenação (Sentença) do Galileu, em 1633. <a href="https://en.wikipedia.org/wiki/University%20of%20Missouri–Kansas%20City">University of Missouri–Kansas City</a>. <em>(página em <a href="https://pt.wikipedia.org/wiki/Lingua_inglesa">inglês)</a></em>. Página visitada em 11/04/2014. <a href="#fnref:5" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:6">
+      <p>SILVA, Rodrigo. Evidências: Galileu Galilei, o Cientista de DEUS. <em>(página em <a href="https://pt.wikipedia.org/wiki/Lingua%20Portuguesa">português)</a></em>. Página visitada em 11/04/2014. <a href="#fnref:6" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:7">
+      <p>SILVA, Rodrigo. “EVIDÊNCIAS: A Idade das Trevas.” Parte 1 e Parte 2 (em <a href="https://pt.wikipedia.org/wiki/Lingua%20portuguesa">português)</a>. Vídeos visitados em 15/04/2014. <a href="#fnref:7" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:8">
+      <p>Wikipedia. <a href="https://en.wikipedia.org/wiki/Early_modern_period">Idade Moderna</a> <em>(página em <a href="https://pt.wikipedia.org/wiki/Lingua%20Inglesa">inglês)</a></em>. Página visitada em 15/03/2014. <a href="#fnref:8" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:9">
+      <p>Equipe Brasil Escola, O conceito de Idade Média por de Demercino Júnior <em>(página em <a href="https://pt.wikipedia.org/wiki/Lingua%20Portuguesa">português)</a></em>. Página visitada em 15/03/2014. <a href="#fnref:9" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:10">
+      <p><a href="#ref_Davies_1996">Davies 1996</a>, pp 291-293. <a href="#fnref:10" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:11">
+      <p><a href="#ref_Lindberg_2013">Russell 1991</a>, pp 49 a 58. <a href="#fnref:11" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:12">
+      <p><a href="#ref_descartes_1973">AT VII</a>, pp 21. <em>Tradução alterada. Na tradução francesa do Duque de Luynes e, por conseguinte, na tradução para a língua portuguesa de Bento Prado Junior, na última frase dessa passagem citada é introduzido o verbo julgar. Na tradução francesa lê-se: “(…) ou que je juge de quelque chose encore plus facile, si l’n se peut imaginer rien de plus facile que cela?”. Na brasileira lê-se “ ou em que julgo alguma coisa ainda mais fácil, se é que se pode imaginar algo mais fácil do que isso?” No original em latim, esse termo não aparece. Tendo em vista que a argumentação aqui apresentada pretende mostrar que Descartes nessa passagem visa pôr em questão a legitimidade da operação puramente mental da abstração utilizando as matemáticas como exemplo, e tendo em vista que a operação mental abstrativa não envolve um juízo, preferimos manter os termos presentes no original. No original lê-se: “vel si quid aliud facilius fingi potest”.</em> <a href="#fnref:12" class="reversefootnote" role="doc-backlink">&#8617;</a> <a href="#fnref:12:1" class="reversefootnote" role="doc-backlink">&#8617;<sup>2</sup></a></p>
+    </li>
+    <li id="fn:13">
+      <p>Wikipédia. <a href="https://pt.wikipedia.org/wiki/Dúvida%20hiperbólica">Dúvida hiperbólica</a> <em>(página em <a href="https://pt.wikipedia.org/wiki/Lingua%20Portuguesa">português)</a></em>. Página visitada em 07/02/2014. <a href="#fnref:13" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:14">
+      <p>UOL. Pensador: Frases de Parmênides <em>(página em <a href="https://pt.wikipedia.org/wiki/Lingua%20Portuguesa">português)</a></em>. Página visitada em 05/04/2014. <a href="#fnref:14" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:15">
+      <p>Infoescola. Surgimento do Método Científico <em>(página em <a href="https://pt.wikipedia.org/wiki/Lingua%20Portuguesa">português)</a></em>. Página visitada em 15/03/2014. <a href="#fnref:15" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:16">
+      <p><em>Neste artigo, vamos tratar das palavras “crença” e talvez “fé”, em sentido absoluto, sem qualquer teor ou conotação religiosa. A palavra “crença” vem do latim “credentia” (Pronuncia-se /credência/, pela pronúncia tradicional do latim), do verbo “credere” (Pronuncia-se /crédere/, pela pronúncia tradicional), “crer”, que significa “aderir pela fé, ter a firme convicção, não ter a menor sombra de dúvida”. A crença indica a persuasão que se tem da verdade de algo. Assim, podemos dizer que temos crença no “mundo” extremamente pequeno e no “mundo” dos átomos e das partículas subatômicas. A palavra “crença” indica o convencimento fundado em algum motivo, em alguma coisa que é evidente ou não, mas com elementos que induzem-na como verdade…Cidade do Cérebro: Emotologia, Crença e Fé.</em> <a href="#fnref:16" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:17">
+      <p><a href="#ref_aurelio_2004">Dicionário Aurélio</a>. Convicção; Crença. <a href="#fnref:17" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:18">
+      <p><a href="#dicioUnesp">Dicionário UNESP do português contemporâneo</a>, Crença: pp 358; Convicção, pp 342. <a href="#fnref:18" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:19">
+      <p><a href="#wikicionario">Wikicionário</a>. Crença; Convicção. <a href="#fnref:19" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:20">
+      <p>DPLP – Dicionário Priberam da Língua Portuguesa. Convicções. <a href="#fnref:20" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:21">
+      <p><a href="#wikicionario">Wikicionário</a>. Opinião. <a href="#fnref:21" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:22">
+      <p>BOUCHARDET, Roberta. A imaginação na Teoria da Mente segundo Hume: Uma análise a partir do Livro I do Tratado <em>(página em <a href="https://pt.wikipedia.org/wiki/Lingua%20Portuguesa">português)</a></em>. Página visitada em 06/04/2014. <em>(Entende-se “impressões” como a percepção do observador, portanto, “impressões” deve ser entendidas como conhecimento, o conhecimento absorvido pelo observador).</em> <a href="#fnref:22" class="reversefootnote" role="doc-backlink">&#8617;</a> <a href="#fnref:22:1" class="reversefootnote" role="doc-backlink">&#8617;<sup>2</sup></a> <a href="#fnref:22:2" class="reversefootnote" role="doc-backlink">&#8617;<sup>3</sup></a> <a href="#fnref:22:3" class="reversefootnote" role="doc-backlink">&#8617;<sup>4</sup></a></p>
+    </li>
+    <li id="fn:23">
+      <p><a href="https://pt.wikipedia.org/wiki/Olavo%20de%20Carvalho">Olavo de Carvalho</a>. Crença e percepção (página em <a href="https://pt.wikipedia.org/wiki/Lingua%20portuguesa">português)</a>. Página visitada em 28/02/2014. <a href="#fnref:23" class="reversefootnote" role="doc-backlink">&#8617;</a> <a href="#fnref:23:1" class="reversefootnote" role="doc-backlink">&#8617;<sup>2</sup></a> <a href="#fnref:23:2" class="reversefootnote" role="doc-backlink">&#8617;<sup>3</sup></a> <a href="#fnref:23:3" class="reversefootnote" role="doc-backlink">&#8617;<sup>4</sup></a> <a href="#fnref:23:4" class="reversefootnote" role="doc-backlink">&#8617;<sup>5</sup></a></p>
+    </li>
+    <li id="fn:24">
+      <p>CURTIS, Gary N.. Falácias <a href="#fnref:24" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:25">
+      <p><a href="https://pt.wikipedia.org/wiki/Unilever">Unilever</a>. Como se forma a personalidade (página em <a href="https://pt.wikipedia.org/wiki/Lingua%20portuguesa">português)</a>. Página visitada em 28/02/2014. <a href="#fnref:25" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:26">
+      <p>Wikipedia. <a href="https://en.wikipedia.org/wiki/Galilean%20invariance">Invariância de Galileu</a> <em>(página em <a href="https://pt.wikipedia.org/wiki/Lingua%20Inglesa">inglês)</a></em>. Página visitada em 08/02/2014. <a href="#fnref:26" class="reversefootnote" role="doc-backlink">&#8617;</a> <a href="#fnref:26:1" class="reversefootnote" role="doc-backlink">&#8617;<sup>2</sup></a></p>
+    </li>
+    <li id="fn:27">
+      <p>ROBERTS, Tom; SCHLEIF, Siegmar. (Outubro de 2007). <a href="https://www.edu-observatory.org/physics-faq/Relativity/SR/experiments.html">“Qual é a base experimental da Relatividade Especial?”</a> . <em>Usenet Física FAQ</em> . Retirado 2008/09/17 . <a href="#fnref:27" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:28">
+      <p>O Globo. <a href="https://g1.globo.com/ciencia-e-saude/noticia/2013/04/descoberta-de-par-de-estrelas-reforca-teoria-da-relatividade-de-einstein.html">Descoberta de par de estrelas reforça teoria da Relatividade de Einstein</a> <em>(página em <a href="https://pt.wikipedia.org/wiki/Lingua%20portuguesa">português)</a></em>. Notícia de 26/04/2013. Página visitada em 08/02/2014. <a href="#fnref:28" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:29">
+      <p><a href="https://pt.wikipedia.org/wiki/Super%20interessante">Superinteressante</a>. <a href="https://super.abril.com.br/tecnologia/curvatura-espaco-tempo-sol-prova-faltava-439102.shtml">A Prova que Faltava</a> <em>(página em <a href="https://pt.wikipedia.org/wiki/Lingua%20portuguesa">português)</a></em>. Página visitada em 08/02/2014. <a href="#fnref:29" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:30">
+      <p>TAYLOR, John. Elements of Metaphysics. Cambridge : Cambridge University Press, 1907. <a href="#fnref:30" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:31">
+      <p>Tradução realizada pelo autor do artigo. <a href="#fnref:31" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:32">
+      <p>Citado em <a href="https://en.wikipedia.org/wiki/Robert_Sobel">Robert Sobel</a> revisão ‘s de <em>Past Imperfect: História De acordo com os filmes</em> editados por Mark C. Carnes. <a href="#fnref:32" class="reversefootnote" role="doc-backlink">&#8617;</a> <a href="#fnref:32:1" class="reversefootnote" role="doc-backlink">&#8617;<sup>2</sup></a></p>
+    </li>
+    <li id="fn:33">
+      <p>Terra. Existe um limite para a memória no cérebro? <em>(página em <a href="https://pt.wikipedia.org/wiki/Lingua%20Portuguesa">português)</a></em>. Página visitada em 28/02/2014. <a href="#fnref:33" class="reversefootnote" role="doc-backlink">&#8617;</a> <a href="#fnref:33:1" class="reversefootnote" role="doc-backlink">&#8617;<sup>2</sup></a></p>
+    </li>
+    <li id="fn:34">
+      <p>Raciocínio Cristão. O arquiteto da vida: Quanta informação o corpo humano possui? <em>(página em <a href="https://pt.wikipedia.org/wiki/Lingua%20Portuguesa">português)</a></em>. Página visitada em 19/12/2014. <a href="#fnref:34" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:35">
+      <p><a href="https://blog.jeancarloem.com/History%20(TV%20channel)">History Channel</a>. <a href="https://noticias.seuhistory.com/humanos-estao-ficando-mais-burros-indica-polemico-estudo">Humanos estão ficando mais “burros”, indica polêmico estudo</a> (em <a href="https://pt.wikipedia.org/wiki/Lingua%20portuguesa">português)</a>. Página visitada em 11/02/2014. <a href="#fnref:35" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:36">
+      <p>MEDAWAR, Peter Brian. <a href="#CJC">Conselhos a um jovem cientista</a>. <a href="#fnref:36" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:37">
+      <p><a href="#ref_aurelio_2004">Dicionário Aurélio</a>. Verdade. <em>(Destaques nossos).</em> <a href="#fnref:37" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:38">
+      <p><a href="#fe_ateu">Não tenho fé suficiente para ser ateu</a>, capítulo 1. <a href="#fnref:38" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:39">
+      <p>The Temple of Reason (Deists ). <a href="https://templeofreason.org/cyclopedia/absolute_truth.htm">Absolute truth</a> <em>(página em <a href="https://pt.wikipedia.org/wiki/Lingua%20Inglesa">inglês)</a></em>. Página visitada em 08/02/2014. <a href="#fnref:39" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:40">
+      <p><a href="https://pt.wikipedia.org/wiki/John%20Lennox">LENNOX</a>, John. Análise do livro de Stephen Hawking <em>(<a href="https://pt.wikipedia.org/wiki/Lingua_inglesa">inglês)</a></em>. Página acessada em 01/08/2015. <a href="#fnref:40" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:41">
+      <p><strong>PETLEY</strong>, David. Professor da University of East Anglia. Frase traduzida pronunciada no episódio Tsunami nas Montanhas da série documentária Segundos Fatais da <a href="https://en.wikipedia.org/wiki/National_Geographic_Channel">National Geographic Channel</a>. <a href="#fnref:41" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:42">
+      <p>Um exemplo claro é notadamente percebido na polêmica Evolucionismo vs Criacionismo, que é de maneira assombrosa considerada uma disputa entre Ciência e Religião. Mas na verdade, se todos os religiosos desaparecessem do mundo, ainda assim a polêmica existiria, porque a polêmica não está entre ciência e religião, mas entre cientistas e cientistas. A ciência não é um agente/personalidade autônoma que possa falar por si só, portanto quem define o que é ciência, é a unanimidade, única e exclusivamente através do “método científico”. E neste ponto, há cientistas sérios de ambos os lados, que defendem Evolucionismo ou o Criacionismo cientificamente como a forma mais adequada, lógica e acertada. Evidentemente, esta não é uma polêmica religiosa, mas acadêmica. Entretanto apenas um dos lados, o Evolucionismo, se autointitula científico e factual, quando de fato não o é, e está longe de ser um consenso. Ele ainda discrimina preconceituosamente a teoria oposta, ridicularizando e impedindo-a de ser exposta em meios acadêmicos. Conheça aqui cientistas que racionalmente defendem e apoiam o criacionismo. Veja também o programa “EVIDÊNCIAS: A história da Ciência moderna”, parte 1, parte 2 e parte 3, e também EVIDÊNCIAS – Como a vida começou?. <a href="#fnref:42" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:43">
+      <p>BORGES, Michelson. O fórum cancelado e o preconceito contra criacionistas <em>(<a href="https://pt.wikipedia.org/wiki/Lingua_portuguesa">português)</a></em>. Página acessada em 15/04/2014. <a href="#fnref:43" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:44">
+      <p>BORGES, Michelson. Criacionistas sofrem censura em site científico <em>(<a href="https://pt.wikipedia.org/wiki/Lingua_portuguesa">português)</a></em>. Página acessada em 15/04/2014. <a href="#fnref:44" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+  
+    
+
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/t/#absolutismo" class="page__taxonomy-item p-category" rel="tag">absolutismo</a><span class="sep">, </span>
+    
+      <a href="/t/#ci%C3%AAncia" class="page__taxonomy-item p-category" rel="tag">ciência</a><span class="sep">, </span>
+    
+      <a href="/t/#convergencialismo" class="page__taxonomy-item p-category" rel="tag">convergencialismo</a><span class="sep">, </span>
+    
+      <a href="/t/#fic%C3%A7%C3%A3o" class="page__taxonomy-item p-category" rel="tag">ficção</a><span class="sep">, </span>
+    
+      <a href="/t/#filosofia" class="page__taxonomy-item p-category" rel="tag">filosofia</a><span class="sep">, </span>
+    
+      <a href="/t/#ilus%C3%A3o" class="page__taxonomy-item p-category" rel="tag">ilusão</a><span class="sep">, </span>
+    
+      <a href="/t/#relatividade" class="page__taxonomy-item p-category" rel="tag">relatividade</a><span class="sep">, </span>
+    
+      <a href="/t/#relativismo" class="page__taxonomy-item p-category" rel="tag">relativismo</a><span class="sep">, </span>
+    
+      <a href="/t/#religi%C3%A3o" class="page__taxonomy-item p-category" rel="tag">religião</a><span class="sep">, </span>
+    
+      <a href="/t/#renascentismo" class="page__taxonomy-item p-category" rel="tag">renascentismo</a><span class="sep">, </span>
+    
+      <a href="/t/#universionalismo" class="page__taxonomy-item p-category" rel="tag">universionalismo</a>
+    
+    </span>
+  </p>
+
+
+  
+
+  
+    
+
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> Categorias: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/c/#ci%C3%AAncia" class="page__taxonomy-item p-category" rel="tag">ciência</a><span class="sep">, </span>
+    
+      <a href="/c/#destaque" class="page__taxonomy-item p-category" rel="tag">Destaque</a><span class="sep">, </span>
+    
+      <a href="/c/#divagando" class="page__taxonomy-item p-category" rel="tag">Divagando</a><span class="sep">, </span>
+    
+      <a href="/c/#filosofia" class="page__taxonomy-item p-category" rel="tag">filosofia</a><span class="sep">, </span>
+    
+      <a href="/c/#religi%C3%A3o" class="page__taxonomy-item p-category" rel="tag">religião</a>
+    
+    </span>
+  </p>
+
+
+  
+
+
+      </footer>
+
+      
+<section class="page__share">
+  <h4 class="page__share-title">Compartilhe</h4>
+
+  <a href="https://x.com/intent/tweet?text=Devaneios%20https%3A%2F%2Fwww.jeancarloem.com%2Fp%2Fdevaneios%2F" class="btn btn--x" aria-label="Share on X" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Compartilhe X">
+    <i class="fab fa-fw fa-x-twitter" aria-hidden="true"></i><span> X</span>
+  </a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.jeancarloem.com%2Fp%2Fdevaneios%2F" class="btn btn--facebook" aria-label="Share on Facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Compartilhe Facebook">
+    <i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span>
+  </a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://www.jeancarloem.com/p/devaneios/" class="btn btn--linkedin" aria-label="Share on LinkedIn" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Compartilhe LinkedIn">
+    <i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span>
+  </a>
+
+  <a href="https://bsky.app/intent/compose?text=Devaneios%20https%3A%2F%2Fwww.jeancarloem.com%2Fp%2Fdevaneios%2F" class="btn btn--bluesky" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Compartilhe Bluesky">
+    <i class="fab fa-fw fa-bluesky" aria-hidden="true"></i><span> Bluesky</span>
+  </a>
+</section>
+
+
+      
+
+  <nav class="pagination" aria-label="Post pagination">
+    
+      <a href="#" class="pagination--pager disabled">Anterior</a>
+    
+    
+      <a href="/p/tradicao-vs-biblia-tradicao-ou-biblia/" class="pagination--pager" title="Tradição VS Bíblia – Tradição OU Bíblia">Próxima</a>
+    
+  </nav>
+
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    
+
+<div class="page__related">
+  
+  <h2 class="page__related-title">Talvez você também goste</h2>
+  <div class="grid__wrapper">
+    
+    
+      
+      
+
+
+
+
+
+
+
+
+<div class="grid__item">
+  <article class="archive__item archive__item--has-image" itemscope itemtype="https://schema.org/CreativeWork">
+    <a class="archive__item-link u-url" href="/p/nenhum-nivel-de-alcool-faz-bem-a-saude/" rel="permalink">
+      <header class="archive__item-header">
+        
+          <figure class="archive__item-teaser">
+            <img class="archive__item-image u-photo" src="https://web.archive.org/web/20210207030211im_/https://blog.jeancarloem.com/wp-content/uploads/2021/02/Nenhum-nivel-de-alcool-faz-bem-a-saude.jpg" alt="Nenhum nível de álcool faz bem à saúde" loading="lazy">
+          </figure>
+        
+        
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <div class="jcem-date-flag jcem-date-flag--updated jcem-date-flag--archive">
+    <time datetime="2021-02-06T23:50:42-03:00" title="Publicado em 06/02/2021; atualizado em 15/06/2026" aria-label="Publicado em 06/02/2021; atualizado em 15/06/2026">
+      <span class="jcem-date-flag__year">2021</span>
+      <span class="jcem-date-flag__month">FEV</span>
+      <span class="jcem-date-flag__day">06</span>
+    </time>
+  </div>
+
+
+        <h2 class="archive__item-title no_toc p-name" itemprop="headline">Nenhum nível de álcool faz bem à saúde
+</h2>
+      </header>
+      <div class="archive__item-body">
+        
+
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2021-02-06T23:50:42-03:00">February 6, 2021</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          17 minuto(s) de leitura
+        
+      </span>
+    
+  </p>
+
+
+        <p class="archive__item-excerpt p-summary" itemprop="description">Álcool, independentemente da quantidade, é um “problema colossal de saúde” comprova Ciência pura e legítima.
+</p>
+      </div>
+    </a>
+  </article>
+</div>
+
+      
+      
+    
+      
+      
+
+
+
+
+
+
+
+
+<div class="grid__item">
+  <article class="archive__item archive__item--has-image" itemscope itemtype="https://schema.org/CreativeWork">
+    <a class="archive__item-link u-url" href="/p/salvacao-importa-ser-perfeito/" rel="permalink">
+      <header class="archive__item-header">
+        
+          <figure class="archive__item-teaser">
+            <img class="archive__item-image u-photo" src="https://web.archive.org/web/20201004153207im_/https://blog.jeancarloem.com/wp-content/uploads/2020/08/importa-ser-perfeito.png" alt="Salvação: Importa ser Perfeito?" loading="lazy">
+          </figure>
+        
+        
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <div class="jcem-date-flag jcem-date-flag--updated jcem-date-flag--archive">
+    <time datetime="2020-08-29T14:44:06-03:00" title="Publicado em 29/08/2020; atualizado em 15/06/2026" aria-label="Publicado em 29/08/2020; atualizado em 15/06/2026">
+      <span class="jcem-date-flag__year">2020</span>
+      <span class="jcem-date-flag__month">AGO</span>
+      <span class="jcem-date-flag__day">29</span>
+    </time>
+  </div>
+
+
+        <h2 class="archive__item-title no_toc p-name" itemprop="headline">Salvação: Importa ser Perfeito?
+</h2>
+      </header>
+      <div class="archive__item-body">
+        
+
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2020-08-29T14:44:06-03:00">August 29, 2020</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          51 minuto(s) de leitura
+        
+      </span>
+    
+  </p>
+
+
+        <p class="archive__item-excerpt p-summary" itemprop="description">O assunto de ser perfeito tem levado a igreja à décadas de discussão e é tão tolo e desnecessário que, deve-se admitir, foi inserido na igreja pelo próprio S...</p>
+      </div>
+    </a>
+  </article>
+</div>
+
+      
+      
+    
+      
+      
+
+
+
+
+
+
+
+
+<div class="grid__item">
+  <article class="archive__item archive__item--has-image" itemscope itemtype="https://schema.org/CreativeWork">
+    <a class="archive__item-link u-url" href="/p/como-identificar-falacias/" rel="permalink">
+      <header class="archive__item-header">
+        
+          <figure class="archive__item-teaser">
+            <img class="archive__item-image u-photo" src="https://web.archive.org/web/20201005013131im_/https://blog.jeancarloem.com/wp-content/uploads/2020/08/cover-como-identificar-falacias.png" alt="Como identificar Falácias" loading="lazy">
+          </figure>
+        
+        
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <div class="jcem-date-flag jcem-date-flag--updated jcem-date-flag--archive">
+    <time datetime="2020-08-15T19:14:17-03:00" title="Publicado em 15/08/2020; atualizado em 15/06/2026" aria-label="Publicado em 15/08/2020; atualizado em 15/06/2026">
+      <span class="jcem-date-flag__year">2020</span>
+      <span class="jcem-date-flag__month">AGO</span>
+      <span class="jcem-date-flag__day">15</span>
+    </time>
+  </div>
+
+
+        <h2 class="archive__item-title no_toc p-name" itemprop="headline">Como identificar Falácias
+</h2>
+      </header>
+      <div class="archive__item-body">
+        
+
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2020-08-15T19:14:17-03:00">August 15, 2020</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          6 minuto(s) de leitura
+        
+      </span>
+    
+  </p>
+
+
+        <p class="archive__item-excerpt p-summary" itemprop="description">Falácias são afirmações ditas com tom de cultura e eloquência mas que na realidade são falsas. Como identificá-las? Este artigo apresenta um método matemátic...</p>
+      </div>
+    </a>
+  </article>
+</div>
+
+      
+      
+    
+      
+      
+
+
+
+
+
+
+
+
+<div class="grid__item">
+  <article class="archive__item archive__item--has-image" itemscope itemtype="https://schema.org/CreativeWork">
+    <a class="archive__item-link u-url" href="/p/5-verdades-de-genesis-27/" rel="permalink">
+      <header class="archive__item-header">
+        
+          <figure class="archive__item-teaser">
+            <img class="archive__item-image u-photo" src="https://web.archive.org/web/20201005014559im_/https://blog.jeancarloem.com/wp-content/uploads/2020/07/5-verdades-de-genesis-2-7.png" alt="5 verdades de Gênesis 2:7" loading="lazy">
+          </figure>
+        
+        
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <div class="jcem-date-flag jcem-date-flag--updated jcem-date-flag--archive">
+    <time datetime="2020-07-11T19:24:08-03:00" title="Publicado em 11/07/2020; atualizado em 15/06/2026" aria-label="Publicado em 11/07/2020; atualizado em 15/06/2026">
+      <span class="jcem-date-flag__year">2020</span>
+      <span class="jcem-date-flag__month">JUL</span>
+      <span class="jcem-date-flag__day">11</span>
+    </time>
+  </div>
+
+
+        <h2 class="archive__item-title no_toc p-name" itemprop="headline">5 verdades de Gênesis 2:7
+</h2>
+      </header>
+      <div class="archive__item-body">
+        
+
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2020-07-11T19:24:08-03:00">July 11, 2020</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          15 minuto(s) de leitura
+        
+      </span>
+    
+  </p>
+
+
+        <p class="archive__item-excerpt p-summary" itemprop="description">Extrair 5 verdades de Gênesis 2:7, um texto bíblico repleto de significação e verdade e, em muitos casos, não lido atentamente, levando muitos à má interpret...</p>
+      </div>
+    </a>
+  </article>
+</div>
+
+      
+      
+    
+      
+      
+
+
+
+
+
+
+
+
+<div class="grid__item">
+  <article class="archive__item archive__item--has-image" itemscope itemtype="https://schema.org/CreativeWork">
+    <a class="archive__item-link u-url" href="/p/nove-motivos-para-guardar-o-sabado/" rel="permalink">
+      <header class="archive__item-header">
+        
+          <figure class="archive__item-teaser">
+            <img class="archive__item-image u-photo" src="https://web.archive.org/web/20201004084617im_/https://blog.jeancarloem.com/wp-content/uploads/2020/07/9-motivos-para-guardar-o-sabado.png" alt="Nove motivos para guardar o sábado" loading="lazy">
+          </figure>
+        
+        
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <div class="jcem-date-flag jcem-date-flag--updated jcem-date-flag--archive">
+    <time datetime="2020-07-04T21:38:11-03:00" title="Publicado em 04/07/2020; atualizado em 15/06/2026" aria-label="Publicado em 04/07/2020; atualizado em 15/06/2026">
+      <span class="jcem-date-flag__year">2020</span>
+      <span class="jcem-date-flag__month">JUL</span>
+      <span class="jcem-date-flag__day">04</span>
+    </time>
+  </div>
+
+
+        <h2 class="archive__item-title no_toc p-name" itemprop="headline">Nove motivos para guardar o sábado
+</h2>
+      </header>
+      <div class="archive__item-body">
+        
+
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2020-07-04T21:38:11-03:00">July 4, 2020</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          27 minuto(s) de leitura
+        
+      </span>
+    
+  </p>
+
+
+        <p class="archive__item-excerpt p-summary" itemprop="description">Certamente, você já ouviu dizer sobre a guarda do sábado, seja por judeus, adventistas ou outro grupo cristão qualquer. A pergunta que, provavelmente você já...</p>
+      </div>
+    </a>
+  </article>
+</div>
+
+      
+      
+    
+      
+      
+
+
+
+
+
+
+
+
+<div class="grid__item">
+  <article class="archive__item archive__item--has-image" itemscope itemtype="https://schema.org/CreativeWork">
+    <a class="archive__item-link u-url" href="/p/sola-scriptura/" rel="permalink">
+      <header class="archive__item-header">
+        
+          <figure class="archive__item-teaser">
+            <img class="archive__item-image u-photo" src="https://web.archive.org/web/20201011094944im_/https://blog.jeancarloem.com/wp-content/uploads/2020/05/sola-scriptura-farol.png" alt="Sola Scriptura" loading="lazy">
+          </figure>
+        
+        
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <div class="jcem-date-flag jcem-date-flag--updated jcem-date-flag--archive">
+    <time datetime="2020-05-22T16:53:21-03:00" title="Publicado em 22/05/2020; atualizado em 15/06/2026" aria-label="Publicado em 22/05/2020; atualizado em 15/06/2026">
+      <span class="jcem-date-flag__year">2020</span>
+      <span class="jcem-date-flag__month">MAI</span>
+      <span class="jcem-date-flag__day">22</span>
+    </time>
+  </div>
+
+
+        <h2 class="archive__item-title no_toc p-name" itemprop="headline">Sola Scriptura
+</h2>
+      </header>
+      <div class="archive__item-body">
+        
+
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2020-05-22T16:53:21-03:00">May 22, 2020</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          46 minuto(s) de leitura
+        
+      </span>
+    
+  </p>
+
+
+        <p class="archive__item-excerpt p-summary" itemprop="description">O homem é mau
+Em nenhuma outra época da humanidade foi possível constatar empiricamente e notoriamente o que Deus afirma:
+</p>
+      </div>
+    </a>
+  </article>
+</div>
+
+      
+      
+    
+      
+      
+
+
+
+
+
+
+
+
+<div class="grid__item">
+  <article class="archive__item archive__item--has-image" itemscope itemtype="https://schema.org/CreativeWork">
+    <a class="archive__item-link u-url" href="/p/tradicao-vs-biblia-tradicao-ou-biblia/" rel="permalink">
+      <header class="archive__item-header">
+        
+          <figure class="archive__item-teaser">
+            <img class="archive__item-image u-photo" src="https://web.archive.org/web/20201006232837im_/https://blog.jeancarloem.com/wp-content/uploads/2020/04/COVER.png" alt="Tradição VS Bíblia – Tradição OU Bíblia" loading="lazy">
+          </figure>
+        
+        
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <div class="jcem-date-flag jcem-date-flag--updated jcem-date-flag--archive">
+    <time datetime="2020-04-26T10:36:53-03:00" title="Publicado em 26/04/2020; atualizado em 15/06/2026" aria-label="Publicado em 26/04/2020; atualizado em 15/06/2026">
+      <span class="jcem-date-flag__year">2020</span>
+      <span class="jcem-date-flag__month">ABR</span>
+      <span class="jcem-date-flag__day">26</span>
+    </time>
+  </div>
+
+
+        <h2 class="archive__item-title no_toc p-name" itemprop="headline">Tradição VS Bíblia – Tradição OU Bíblia
+</h2>
+      </header>
+      <div class="archive__item-body">
+        
+
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2020-04-26T10:36:53-03:00">April 26, 2020</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          12 minuto(s) de leitura
+        
+      </span>
+    
+  </p>
+
+
+        <p class="archive__item-excerpt p-summary" itemprop="description">Tradição
+A tradição é o meio pelo qual líderes religiosos, anciãos e a família tradicional passa, de geração em geração, um ensinamento. No final, tradição é...</p>
+      </div>
+    </a>
+  </article>
+</div>
+
+      
+      
+    
+  </div>
+</div>
+
+  
+  
+</div>
+
+        
+
+
+
+      </div>
+
+      
+
+      <div id="footer" class="page__footer">
+        <footer>
+          <!-- start custom footer snippets -->
+<div class="jcem-foot">
+	<p>
+		<b>Importante:</b> Ao acessar este e qualquer domínio e/ou
+		subdomínio de <b>jeancarloem.com</b>, você concorda, de forma
+		<b>irretratável e irrevogável</b>, com os
+		<a
+			href="https://jeancarloem.com/termos-e-condicoes-de-uso"
+			><b>Termos e Políticas de Uso</b></a
+		>, declarando-se ciente de que, caso <b>não</b> os aceite
+		ou concorde, <b><u>NÃO</u></b> deverá usar, acessar, salvar (ou
+		armazenar em quaisquer meios), compartilhar e/ou replicar (mesmo
+		que parcialmente) qualquer site, blog ou informação de
+		<b>jeancarloem.com</b> (e seus subdomínios), devendo ainda
+		<b>abandonar (sair) imediata e impreterivelmente</b> de qualquer
+		domínio ou subdomínio de <b>jeancarloem.com</b>.
+	</p>
+
+	<p>
+		<b>AVISO DE CONTEÚDO SENSÍVEL:</b> Este e qualquer site de
+		<b>jeancarloem.com</b> e seus subdomínios podem conter
+		<b
+			>informações, opiniões pessoais, sugestões, dicas, orientações,
+			propagandas, patrocínios explícitos e implícitos</b
+		>, entre outros conteúdos. Tais materiais são de
+		<b>responsabilidade exclusiva do autor</b> e
+		<b>não</b> implicam em concordância e/ou endosso por parte
+		deste(s) site(s) ou de seu(s) proprietário(s). O conteúdo é
+		fornecido pelo autor e disponibilizado “como está”, sem
+		quaisquer garantias implícitas e/ou explícitas, diretas e/ou
+		indiretas, nos termos da
+		<a
+			href="https://jeancarloem.com/licenca"
+			><b>licença</b></a
+		>. Pode conter ainda teor
+		<b>polêmico, religioso, filosófico ou político</b>, entre outros,
+		que podem ser considerados <b>inapropriados e até ofensivos</b>, a
+		depender da cultura, crença ou localidade. Todavia, tais conteúdos
+		se inserem
+		<b>estritamente no escopo de ideias, conceitos e abstrações</b>,
+		<b
+			><i
+				>NÃO configurando, sob qualquer hipótese, incentivo, promoção
+				ou apologia ao ódio, discriminação, violação de leis,
+				agressão, desrespeito, racismo ou condutas análogas</i
+			></b
+		>. Caso algum texto leve o leitor a interpretar de modo diverso,
+		fica desde já esclarecido que
+		<b>tal nunca foi a intenção</b
+		>, devendo eventual interpretação ser revista à luz deste
+		esclarecimento. O leitor poderá, se desejar, comunicar-se
+		especificando precisamente o
+		<b>trecho, termos ou combinações de palavras</b> que possam ter
+		ocasionado má compreensão, ciente de que, dentro do contexto de
+		ideias,
+		<b
+			>opiniões divergentes podem naturalmente gerar desconforto ou
+			ofensa a valores pessoais</b
+		>
+		— o que é
+		inerente ao exercício do debate e da liberdade de expressão</i
+		>. Tais manifestações são resguardadas pelo
+		<b>direito à livre expressão</b>, garantido pela
+		<a
+			href="http://www.senado.leg.br/atividade/const/con1988/con1988_15.12.2016/art_5_.asp"
+			target="_blank"
+			rel="noopener"
+			><b>Constituição Federal do Brasil</b>, em seu artigo 5º,
+			incisos IV, VI, VIII e IX</a
+		>, que legisla sobre a
+		<b>liberdade de pensamento, religião e comunicação</b>,
+		independentemente de censura ou licença, bem como pela
+		<a
+			href="http://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/L13709.htm"
+			target="_blank"
+			rel="noopener"
+			><b>Lei Geral de Proteção de Dados Pessoais</b>, artigo 2º,
+			inciso III</a
+		>.
+	</p>
+
+	<p class="atencao">
+		<b>ATENÇÃO:</b> É expressamente <b><u>PROIBIDO</u></b> visualizar,
+		acessar, armazenar, usar, compartilhar, distribuir ou permanecer neste site
+		sem antes concordar com <b><u>TODOS</u></b> os
+		<a
+			href="https://jeancarloem.com/termos-e-condicoes-de-uso"
+			><b>Termos e Políticas de Uso</b></a
+		>
+		e AVISO DE CONTEÚDO SENSÍVEL acima.
+	</p>
+</div>
+
+          
+
+
+<div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>Siga:</strong></li>
+    
+
+    
+      
+        
+          <li><a href="https://x.com/jeancarloem" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-twitter-square" aria-hidden="true"></i> Twitter</a></li>
+        
+      
+        
+          <li><a href="https://www.facebook.com/JeanCarloEM/" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-facebook-square" aria-hidden="true"></i> Facebook</a></li>
+        
+      
+        
+          <li><a href="https://github.com/jeanCarloEM" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+        
+      
+        
+      
+        
+          <li><a href="https://www.instagram.com/jeancarlo.em/" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-instagram" aria-hidden="true"></i> Instagram</a></li>
+        
+      
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-square-rss" aria-hidden="true"></i> Feed</a></li>
+    
+  </ul>
+</div>
+
+
+<div class="page__footer-copyright">&copy; 2014 - 2026 <a href="https://www.jeancarloem.com">JeanCarloEM</a>. Desenvolvido com <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/jekyll-themes/minimal-mistakes/" rel="nofollow">Minimal Mistakes</a>.</div>
+        
+        </footer>
+        <p class="copy">
+	Copyright &copy; 2012 - 2026 JeanCarloEM. Todos
+	os direitos reservados.
+	<span
+		>Feito com
+		<a
+			href="https://mmistakes.github.io/minimal-mistakes/"
+			target="_blank"
+		>
+			Minimal Mistakes</a
+		>.
+	</span>
+</p>
+
+<div class="sobpostbar">
+	<ul id="menu-topo-2" class="menu">
+		<li
+			class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1871"
+		>
+			<a href="/sobre/">Sobre</a>
+		</li>
+		<li
+			class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1869"
+		>
+			<a href="https://jeancarloem.com/termos-de-uso">Legal</a>
+		</li>
+		<li
+			class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1875"
+		>
+			<a href="https://jeancarloem.com/avisos-gerais/"
+				>Advertências</a
+			>
+		</li>
+		<li
+			class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1875"
+		>
+			<a href="https://jeancarloem.com/privacidade/">Privacidade</a>
+		</li>
+		<li
+			class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1872"
+		>
+			<a title="Licenca" href="https://jeancarloem.com/licenca/"
+				>Licença</a
+			>
+		</li>
+	</ul>
+</div>
+      
+      </div>
+
+      <a class="jcem-scroll-top" href="#" aria-label="Voltar ao topo" title="Voltar ao topo" aria-hidden="true" tabindex="-1">
+        <i class="fas fa-arrow-up" aria-hidden="true"></i>
+      </a>
+
+      
+
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+    </div>
+  </body>
+</html>
+

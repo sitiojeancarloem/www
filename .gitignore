@@ -7,9 +7,30 @@ src/__generated__
 *.zip
 *.7z
 _data
-# Arquivos de saída do Jekyll
+# Arquivos de saída do Jekyll (para cache em build no github Actions)
 # O GitHub Pages gera a pasta _site automaticamente
-_site/
+!_site
+
+# 2. Ignora tudo o que estiver dentro dela
+_site/*
+
+# 3. Permite que o Git entre nas subpastas para procurar arquivos
+# (para cache em build no github Actions)
+!_site/**/
+
+# 4. Libera apenas os arquivos com as extensões desejadas
+# (para cache em build no github Actions)
+!_site/**/*.html
+!_site/**/*.rb
+!_site/**/*.ps1
+!_site/**/*.sh
+!_site/**/*.js
+!_site/**/*.cts
+!_site/**/*.ts
+!_site/**/*.scss
+!_site/**/*.css
+!_site/**/*.css.map
+
 old-root/
 
 # testes da IA - elimina artefatos da IA
