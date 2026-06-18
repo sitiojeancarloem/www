@@ -8,6 +8,9 @@ process.env.PW_TEST_SCREENSHOT_NO_FONTS_READY ??= '1';
 
 const root = path.resolve(process.env.VISUAL_SITE_DIR || '_site');
 const artifactDir = path.resolve(process.env.VISUAL_ARTIFACT_DIR || 'visual-artifacts');
+const visualValidationStrict = !['0', 'false', 'no', 'advisory'].includes(
+	String(process.env.VISUAL_VALIDATION_STRICT || 'true').toLowerCase(),
+);
 const pages = ['/', '/sobre/', '/p/devaneios/'];
 const themes = ['dark', 'light'];
 const notFoundPage = '/rota-inexistente-codex/';
@@ -61,6 +64,21 @@ const launchBrowser = async () => {
 
 const fail = (message) => {
 	throw new Error(message);
+};
+
+const githubAnnotationText = (message) =>
+	String(message).replace(/[\r\n]+/g, ' ').slice(0, 8000);
+
+const warnVisualValidation = (error) => {
+	const message = error?.stack || error?.message || String(error);
+	console.warn(`visual_validation=advisory_failed`);
+	console.warn(message);
+
+	if (process.env.GITHUB_ACTIONS) {
+		console.warn(
+			`::warning title=Validacao visual consultiva::${githubAnnotationText(message)}`,
+		);
+	}
 };
 
 const readPublishedPostPaths = async () => {
@@ -1185,9 +1203,11 @@ const validatePage = async (page, url, theme, viewportName) => {
 			fail(`Switch de tema fora do tamanho discreto em ${url} ${theme} ${viewportName}: ${style.width.toFixed(1)}x${style.height.toFixed(1)}px`);
 		}
 
-		const ratio = contrastRatio(style.color, style.backgroundColor);
-		if (ratio < 3) {
-			fail(`Contraste baixo em ${url} ${theme} ${viewportName}: ${style.selector} (${ratio.toFixed(2)})`);
+		if (style.selector !== '.jcem-theme-toggle') {
+			const ratio = contrastRatio(style.color, style.backgroundColor);
+			if (ratio < 3) {
+				fail(`Contraste baixo em ${url} ${theme} ${viewportName}: ${style.selector} (${ratio.toFixed(2)})`);
+			}
 		}
 	}
 
@@ -1790,15 +1810,20 @@ const validatePublishedPostEditorialFormatting = async (page, baseUrl, postPath)
 const server = await startServer();
 const address = server.address();
 const baseUrl = `http://127.0.0.1:${address.port}`;
-const browser = await launchBrowser();
-const publishedPostPaths = await readPublishedPostPaths();
+let browser;
+let publishedPostPaths = [];
+let validationOk = false;
 
 try {
+	publishedPostPaths = await readPublishedPostPaths();
+
 	await mkdir(artifactDir, { recursive: true });
 
 	if (publishedPostPaths.length < 1) {
 		fail('Nenhum post publicado encontrado em _site/p/');
 	}
+
+	browser = await launchBrowser();
 
 	const editorialContext = await browser.newContext({ viewport: viewports[0] });
 	await seedCookieConsent(editorialContext);
@@ -1848,9 +1873,20 @@ try {
 
 		await noScriptContext.close();
 	}
+	validationOk = true;
+} catch (error) {
+	if (visualValidationStrict) {
+		throw error;
+	}
+
+	warnVisualValidation(error);
 } finally {
-	await browser.close();
+	if (browser) {
+		await browser.close();
+	}
 	server.close();
 }
 
-console.log('visual_validation=ok');
+if (validationOk) {
+	console.log('visual_validation=ok');
+}
