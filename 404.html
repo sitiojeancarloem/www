@@ -217,6 +217,28 @@
 		</noscript>
 		<style>
 			/* Cores: aliases do tema ativo. */
+			.layout--404 .main_jcem_wrapper {
+				--jcem-404-featured-height: clamp(12rem, 32vh, 24rem);
+				--jcem-404-featured-width: 1080px;
+			}
+
+			.jcem-404-featured {
+				width: 100%;
+				max-width: 100%;
+				margin: 0;
+				overflow: hidden;
+				background: #171c26; /* Cores: fundo lateral da imagem 404. */
+			}
+
+			.jcem-404-featured .jcem-featured-image__img {
+				width: min(100%, var(--jcem-404-featured-width));
+				height: var(--jcem-404-featured-height);
+				max-width: 100%;
+				margin: 0 auto;
+				object-fit: cover;
+				object-position: center;
+			}
+
 			.jcem-404 {
 				display: grid;
 				align-items: center;
@@ -671,6 +693,10 @@
 					</div>
 				</div>
 			</div>
+
+			<figure class="jcem-featured-image jcem-featured-image--wide jcem-404-featured" aria-label="Imagem destacada da página 404">
+				<img class="jcem-featured-image__img" src="/assets/jcem/img/e-o-fim-da-rosca-ccbysanc-jcem.png" alt="Página 404 JeanCarloEM" decoding="async" fetchpriority="high" />
+			</figure>
 
 			<main class="jcem-404">
 				<div class="jcem-404__wrap">

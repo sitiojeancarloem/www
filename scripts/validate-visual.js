@@ -1429,6 +1429,8 @@ const validate404Page = async (page, url, viewportName) => {
 
 	const result = await page.evaluate(() => {
 		const page404 = document.querySelector('.jcem-404');
+		const featured = document.querySelector('.jcem-404-featured');
+		const featuredImage = featured?.querySelector('.jcem-featured-image__img');
 		const terminal = document.querySelector('.jcem-404__terminal');
 		const themeToggle = document.querySelector('.jcem-theme-toggle');
 		const loader = document.querySelector('.carregandoPagina');
@@ -1438,11 +1440,15 @@ const validate404Page = async (page, url, viewportName) => {
 
 			return rect && style
 				? {
+						left: rect.left,
+						right: rect.right,
 						width: rect.width,
 						height: rect.height,
 						display: style.display,
 						visibility: style.visibility,
 						opacity: style.opacity,
+						backgroundColor: style.backgroundColor,
+						objectFit: style.objectFit,
 					}
 				: null;
 		};
@@ -1452,6 +1458,9 @@ const validate404Page = async (page, url, viewportName) => {
 			urlChecked: document.documentElement.dataset.jcem404UrlChecked || '',
 			title: document.title,
 			hasThemeToggle: Boolean(themeToggle),
+			featured: rectFor(featured),
+			featuredImage: rectFor(featuredImage),
+			featuredImageLoaded: Boolean(featuredImage?.complete && featuredImage.naturalWidth > 0),
 			page404: rectFor(page404),
 			terminal: rectFor(terminal),
 			loader: rectFor(loader),
@@ -1470,6 +1479,31 @@ const validate404Page = async (page, url, viewportName) => {
 
 	if (result.hasThemeToggle) {
 		fail(`404 importou switch de tema em ${url} ${viewportName}`);
+	}
+
+	if (
+		!result.featured ||
+		!result.featuredImage ||
+		!result.featuredImageLoaded ||
+		result.featured.height <= 1 ||
+		result.featuredImage.height <= 1 ||
+		result.featured.backgroundColor !== 'rgb(23, 28, 38)' ||
+		result.featuredImage.objectFit !== 'cover'
+	) {
+		fail(`Imagem destacada 404 invalida em ${url} ${viewportName}`);
+	}
+
+	if (
+		Math.abs(
+			(result.featuredImage.left + result.featuredImage.width / 2) -
+				(result.featured.left + result.featured.width / 2),
+		) > 2
+	) {
+		fail(`Imagem destacada 404 descentralizada em ${url} ${viewportName}`);
+	}
+
+	if (result.featured.width > 1082 && result.featuredImage.width > 1082) {
+		fail(`Imagem destacada 404 esticada em viewport larga em ${url} ${viewportName}`);
 	}
 
 	if (!result.page404 || result.page404.width <= 1 || result.page404.height <= 1 || result.page404.visibility === 'hidden') {
