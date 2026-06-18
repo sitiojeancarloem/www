@@ -631,6 +631,7 @@ body > input.radio#jcem-theme-dark:checked ~ .main_jcem_wrapper {
 	overflow: hidden;
 	background: var(--cbgd);
 	line-height: 0;
+	max-height: none !important;
 }
 
 .main_jcem_wrapper .archive__item-teaser img {
@@ -638,6 +639,7 @@ body > input.radio#jcem-theme-dark:checked ~ .main_jcem_wrapper {
 	width: 100%;
 	height: auto !important;
 	max-height: none;
+	margin-bottom: 0;
 	object-fit: fill;
 	object-position: center;
 }
@@ -693,6 +695,13 @@ body > input.radio#jcem-theme-dark:checked ~ .main_jcem_wrapper {
 	.main_jcem_wrapper .entries-grid,
 	.main_jcem_wrapper .grid__wrapper {
 		grid-template-columns: repeat(3, minmax(0, 1fr));
+	}
+}
+
+@media (min-width: 112em) {
+	.main_jcem_wrapper .entries-grid,
+	.main_jcem_wrapper .grid__wrapper {
+		grid-template-columns: repeat(4, minmax(0, 1fr));
 	}
 }
 

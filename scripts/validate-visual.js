@@ -12,6 +12,7 @@ const pages = ['/', '/sobre/', '/p/devaneios/'];
 const themes = ['dark', 'light'];
 const notFoundPage = '/rota-inexistente-codex/';
 const viewports = [
+	{ name: 'wide', width: 1920, height: 1080 },
 	{ name: 'desktop', width: 1366, height: 768 },
 	{ name: 'reduced', width: 900, height: 700 },
 	{ name: 'side', width: 720, height: 768 },
@@ -666,6 +667,9 @@ const validatePage = async (page, url, theme, viewportName) => {
 		const archiveNormalImageStyle = archiveNormalImage
 			? window.getComputedStyle(archiveNormalImage)
 			: null;
+		const archiveNormalFrameStyle = archiveNormalFrame
+			? window.getComputedStyle(archiveNormalFrame)
+			: null;
 		const archiveWideImageStyle = archiveWideImage
 			? window.getComputedStyle(archiveWideImage)
 			: null;
@@ -772,6 +776,9 @@ const validatePage = async (page, url, theme, viewportName) => {
 			},
 			archive: {
 				itemCount: document.querySelectorAll('.entries-grid .archive__item').length,
+				relatedItemCount: document.querySelectorAll(
+					'.page__related .grid__wrapper .archive__item',
+				).length,
 				teaserCount: document.querySelectorAll(
 					'.entries-grid .archive__item-teaser .archive__item-image',
 				).length,
@@ -795,10 +802,17 @@ const validatePage = async (page, url, theme, viewportName) => {
 					: 0,
 				firstImageObjectFit: archiveImageStyle?.objectFit || '',
 				normalImageObjectFit: archiveNormalImageStyle?.objectFit || '',
+				normalFrameMaxHeight: archiveNormalFrameStyle?.maxHeight || '',
+				normalImageMaxHeight: archiveNormalImageStyle?.maxHeight || '',
 				normalImageCoversFrameWidth: Boolean(
 					archiveNormalImageRect &&
 						archiveNormalFrameRect &&
 						Math.abs(archiveNormalImageRect.width - archiveNormalFrameRect.width) <= 2,
+				),
+				normalImageMatchesFrameHeight: Boolean(
+					archiveNormalImageRect &&
+						archiveNormalFrameRect &&
+						Math.abs(archiveNormalImageRect.height - archiveNormalFrameRect.height) <= 2,
 				),
 				firstImageRatio:
 					archiveImageRect && archiveImageRect.height > 0
@@ -905,6 +919,10 @@ const validatePage = async (page, url, theme, viewportName) => {
 		) {
 			fail(`Icone de link do artigo afastado em ${url} ${theme} ${viewportName}`);
 		}
+
+		if (result.archive.relatedItemCount > 0 && result.archive.relatedItemCount < 8) {
+			fail(`Relacionados sem 8 publicacoes em ${url} ${theme} ${viewportName}`);
+		}
 	} else if (url.includes('/sobre/') && result.post.isPost) {
 		fail(`Pagina estatica marcada como post em ${url} ${theme} ${viewportName}`);
 	} else if (new URL(url).pathname === '/') {
@@ -926,21 +944,29 @@ const validatePage = async (page, url, theme, viewportName) => {
 
 		if (
 			result.archive.columnCount < 1 ||
-			result.archive.columnCount > 3 ||
+			result.archive.columnCount > 4 ||
+			(viewportName === 'wide' && result.archive.columnCount !== 4) ||
 			(viewportName === 'desktop' && result.archive.columnCount !== 3) ||
 			(viewportName === 'mobile' && result.archive.columnCount !== 1)
 		) {
-			fail(`Grade de publicacoes fora do limite 1-3 colunas em ${url} ${theme} ${viewportName}`);
+			fail(`Grade de publicacoes fora do limite 1-4 colunas em ${url} ${theme} ${viewportName}`);
 		}
 
 		if (
 			result.archive.normalImageObjectFit === 'cover' ||
 			!result.archive.normalImageCoversFrameWidth ||
+			!result.archive.normalImageMatchesFrameHeight ||
+			result.archive.normalFrameMaxHeight !== 'none' ||
+			result.archive.normalImageMaxHeight !== 'none' ||
 			(result.archive.wideImageCount > 0 &&
 				(result.archive.wideImageObjectFit !== 'cover' ||
 					result.archive.firstWideImageRatio < 2.2))
 		) {
 			fail(`Imagem destacada de card sem crop wide/cover em ${url} ${theme} ${viewportName}`);
+		}
+
+		if (result.archive.itemCount < 8) {
+			fail(`Home sem 8 publicacoes por pagina em ${url} ${theme} ${viewportName}`);
 		}
 	}
 
