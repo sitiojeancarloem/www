@@ -627,25 +627,36 @@ body > input.radio#jcem-theme-dark:checked ~ .main_jcem_wrapper {
 .main_jcem_wrapper .archive__item-teaser {
 	position: relative;
 	margin: 0;
+	padding: 0;
 	border-bottom: 1px solid var(--jcem-panel-border);
 	overflow: hidden;
 	background: var(--cbgd);
 	line-height: 0;
-	max-height: none !important;
+}
+
+.main_jcem_wrapper .archive__item-teaser,
+.main_jcem_wrapper .archive__item--wide img,
+.main_jcem_wrapper .archive__item-teaser img {
+	min-height: 6rem;
+	max-height: 10rem;
 }
 
 .main_jcem_wrapper .archive__item-teaser img {
-	display: block;
-	width: 100%;
+	max-width: 100% !important;
+	width: auto !important;
 	height: auto !important;
-	max-height: none;
 	margin-bottom: 0;
-	object-fit: fill;
 	object-position: center;
 }
 
 .main_jcem_wrapper .archive__item--wide .archive__item-teaser {
 	aspect-ratio: 828 / 315;
+}
+
+.main_jcem_wrapper .archive__item--wide img {
+	max-width: initial !important;
+	width: auto !important;
+	width: 6rem !important;
 }
 
 .main_jcem_wrapper .archive__item--wide .archive__item-teaser img {
@@ -662,7 +673,9 @@ body > input.radio#jcem-theme-dark:checked ~ .main_jcem_wrapper {
 	width: clamp(42px, 4.6vw, 52px);
 }
 
-.main_jcem_wrapper .archive__item:not(.archive__item--has-image) .jcem-date-flag--archive {
+.main_jcem_wrapper
+	.archive__item:not(.archive__item--has-image)
+	.jcem-date-flag--archive {
 	top: -0.6rem;
 }
 
@@ -751,10 +764,25 @@ body > input.radio#jcem-theme-dark:checked ~ .main_jcem_wrapper {
 .main_jcem_wrapper
 	article.jcem-post
 	.page__content
-	:is(blockquote, .jcem-panel, .footnotes, .jcem-references, li, td, th, figcaption)
+	:is(
+		blockquote,
+		.jcem-panel,
+		.footnotes,
+		.jcem-references,
+		li,
+		td,
+		th,
+		figcaption
+	)
 	p,
-.main_jcem_wrapper article.jcem-post .page__content p:has(> img:only-child),
-.main_jcem_wrapper article.jcem-post .page__content p:has(> picture:only-child) {
+.main_jcem_wrapper
+	article.jcem-post
+	.page__content
+	p:has(> img:only-child),
+.main_jcem_wrapper
+	article.jcem-post
+	.page__content
+	p:has(> picture:only-child) {
 	text-indent: 0;
 }
 
@@ -765,7 +793,10 @@ body > input.radio#jcem-theme-dark:checked ~ .main_jcem_wrapper {
 	font-style: normal;
 }
 
-.main_jcem_wrapper article.jcem-post .page__content .jcem-inline-quote {
+.main_jcem_wrapper
+	article.jcem-post
+	.page__content
+	.jcem-inline-quote {
 	font-style: italic;
 }
 
