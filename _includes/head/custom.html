@@ -23,35 +23,6 @@
 <link rel="manifest" href="https://jcem.pro/logo/site.webmanifest" />
 
 <style>
-	/* Loader top bar */
-	body > .loader-bar {
-		display: none;
-		top: 0;
-		left: 0;
-		width: 100%;
-		height: 0.5em;
-		background: linear-gradient(
-			90deg,
-			transparent 0%,
-			orange 30%,
-			orange 70%,
-			transparent 100%
-		);
-		background-size: 200% 100%;
-		animation: loading 1.5s linear infinite;
-		z-index: 9998;
-		box-shadow: 0 0 1em rgba(0, 0, 0, 0.7);
-	}
-
-	@keyframes loading {
-		0% {
-			background-position: 200% 0;
-		}
-		100% {
-			background-position: -200% 0;
-		}
-	}
-
 	@keyframes carregandoPagina {
 		0%,
 		10%,
@@ -102,17 +73,46 @@
 
 	body > .carregandoPagina {
 		position: fixed;
-		top: 50%;
-		left: 50%;
+		inset: 0;
 		z-index: 2147483600;
-		width: 6rem;
-		height: 6rem;
 		pointer-events: none;
-		transform: translate(-50%, -50%) rotate(45deg) translate3d(0, 0, 0);
-		animation: carregandoPagina 1.2s infinite ease-in-out;
 		transition:
 			opacity 0.22s ease,
 			visibility 0.22s ease;
+	}
+
+	body > .carregandoPagina .jcem-load-progress {
+		--jcem-load-progress: 8%;
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 0.5rem;
+		overflow: hidden;
+		background: rgba(17, 17, 17, 0.24);
+		box-shadow: 0 0.18rem 0.55rem rgba(0, 0, 0, 0.22);
+	}
+
+	body > .carregandoPagina .jcem-load-progress > span {
+		position: absolute;
+		top: 0;
+		left: 0;
+		display: block;
+		width: var(--jcem-load-progress);
+		height: 100%;
+		background: linear-gradient(90deg, #2b92db, #f4d400);
+		box-shadow: 0 0 0.65rem rgba(244, 212, 0, 0.32);
+		transition: width 0.18s ease;
+	}
+
+	body > .carregandoPagina .carregandoPagina__mark {
+		position: fixed;
+		top: 50%;
+		left: 50%;
+		width: 6rem;
+		height: 6rem;
+		transform: translate(-50%, -50%) rotate(45deg) translate3d(0, 0, 0);
+		animation: carregandoPagina 1.2s infinite ease-in-out;
 	}
 
 	html:not(.jcem-page-loaded) body > .carregandoPagina,
@@ -125,7 +125,7 @@
 		opacity: 0;
 	}
 
-	body > .carregandoPagina span {
+	body > .carregandoPagina .carregandoPagina__mark span {
 		position: absolute;
 		display: block;
 		width: 2.7rem;
@@ -134,24 +134,24 @@
 		animation: loaderBlock 1.2s infinite ease-in-out both;
 	}
 
-	body > .carregandoPagina span:nth-child(1) {
+	body > .carregandoPagina .carregandoPagina__mark span:nth-child(1) {
 		top: 0;
 		left: 0;
 	}
 
-	body > .carregandoPagina span:nth-child(2) {
+	body > .carregandoPagina .carregandoPagina__mark span:nth-child(2) {
 		top: 0;
 		right: 0;
 		animation: loaderBlockInverse 1.2s infinite ease-in-out both;
 	}
 
-	body > .carregandoPagina span:nth-child(3) {
+	body > .carregandoPagina .carregandoPagina__mark span:nth-child(3) {
 		bottom: 0;
 		left: 0;
 		animation: loaderBlockInverse 1.2s infinite ease-in-out both;
 	}
 
-	body > .carregandoPagina span:nth-child(4) {
+	body > .carregandoPagina .carregandoPagina__mark span:nth-child(4) {
 		right: 0;
 		bottom: 0;
 	}

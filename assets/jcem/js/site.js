@@ -108,6 +108,86 @@ const bindJcemScrollTop = () => {
     window.addEventListener('scroll', requestSync, { passive: true });
     syncVisibility();
 };
+const clampJcemProgress = (value) => Math.max(8, Math.min(100, Math.round(value)));
+const setJcemLoadingProgress = (value) => {
+    const progress = select('.jcem-load-progress');
+    if (!progress) {
+        return;
+    }
+    const percent = clampJcemProgress(value);
+    progress.style.setProperty('--jcem-load-progress', `${percent}%`);
+    progress.setAttribute('aria-valuenow', String(percent));
+};
+const isJcemLoadTargetComplete = (element) => {
+    var _a;
+    if (element instanceof HTMLImageElement) {
+        return element.complete;
+    }
+    if (element instanceof HTMLMediaElement) {
+        return element.readyState >= 2;
+    }
+    if (element instanceof HTMLIFrameElement) {
+        try {
+            return Boolean(((_a = element.contentDocument) === null || _a === void 0 ? void 0 : _a.readyState) === 'complete');
+        }
+        catch (error) {
+            return false;
+        }
+    }
+    return true;
+};
+const bindJcemLoadingProgress = () => {
+    const progress = select('.jcem-load-progress');
+    if (!progress) {
+        return;
+    }
+    const targets = Array.from(document.querySelectorAll('img, iframe, video, audio'));
+    const total = Math.max(1, targets.length + 2);
+    let completed = document.readyState === 'loading' ? 0 : 1;
+    let lastProgress = 8;
+    const update = (base = 0) => {
+        const loadedTargets = targets.filter(isJcemLoadTargetComplete).length;
+        const nextProgress = Math.max(base, 8 + ((completed + loadedTargets) / total) * 82);
+        if (nextProgress > lastProgress) {
+            lastProgress = nextProgress;
+            setJcemLoadingProgress(nextProgress);
+        }
+    };
+    const completeDom = () => {
+        completed = Math.max(completed, 1);
+        update(55);
+    };
+    const completePage = () => {
+        completed = total;
+        setJcemLoadingProgress(100);
+    };
+    const trickle = window.setInterval(() => {
+        if (document.documentElement.classList.contains('jcem-page-loaded')) {
+            window.clearInterval(trickle);
+            return;
+        }
+        update(Math.min(92, lastProgress + 2));
+    }, 450);
+    targets.forEach((target) => {
+        if (isJcemLoadTargetComplete(target)) {
+            return;
+        }
+        target.addEventListener('load', () => update(), { once: true });
+        target.addEventListener('error', () => update(), { once: true });
+    });
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', completeDom, { once: true });
+    }
+    else {
+        completeDom();
+    }
+    if (document.readyState === 'complete') {
+        completePage();
+    }
+    else {
+        window.addEventListener('load', completePage, { once: true });
+    }
+};
 const normalizeJcemText = (text) => text
     .normalize('NFD')
     .replace(/[\u0300-\u036f]/g, '')
@@ -307,7 +387,77 @@ const bindJcemBlockquotePanels = () => {
         table.append(tbody);
         panel.append(table);
         quote.replaceWith(panel);
+        normalizeJcemQuoteReferences(body);
     });
+};
+const jcemCitationContexts = [
+    [/\bB[ií]blia\b/i, 'texto bíblico'],
+    [/\bDescartes\b/i, 'filósofo e matemático francês'],
+    [/\bArist[oó]teles\b/i, 'filósofo grego'],
+    [/\bS[oó]crates\b/i, 'filósofo ateniense'],
+    [/\bCarlos Heitor Cony\b/i, 'escritor e jornalista brasileiro'],
+    [/\bProt[aá]goras\b/i, 'sofista grego'],
+    [/\bDaniel Patrick Moynihan\b/i, 'sociólogo e senador dos EUA'],
+    [/\bFrancis Collins\b/i, 'médico-geneticista'],
+    [/\bPeter Brian Medawar\b/i, 'biólogo e Nobel de Medicina'],
+    [/\bThomas S\. Kuhn\b/i, 'físico e historiador da ciência'],
+    [/\bParm[eê]nides\b/i, 'filósofo pré-socrático'],
+    [/\bDepartment of Health\b/i, 'órgão de saúde do Reino Unido'],
+    [/\bBurton\b.*\bSheron\b|\bSheron\b.*\bBurton\b/i, 'pesquisadores em saúde pública'],
+    [/\bChen\b/i, 'pesquisador citado'],
+    [/\bDicion[aá]rio Aur[eé]lio\b/i, 'obra lexicográfica brasileira'],
+    [/\bEllen G\.?\s*White\b/i, 'escritora adventista'],
+    [/\bEventos Finais\b|\bO Desejado de Todas as Nações\b|\bReavivamento e seus Resultados\b|\bSantificação\b|\bMensagem aos jovens\b|\bCaminho a Cristo\b|\bO ColportorEvangelista\b/i, 'Ellen G. White, escritora adventista'],
+    [/\bTaylor\b/i, 'filósofo citado'],
+    [/\bSteven Robiner\b/i, 'autor citado'],
+];
+const getJcemCitationContext = (text) => { var _a; return ((_a = jcemCitationContexts.find(([pattern]) => pattern.test(text))) === null || _a === void 0 ? void 0 : _a[1]) || ''; };
+const normalizeJcemCitationPrefix = (element) => {
+    const walker = document.createTreeWalker(element, NodeFilter.SHOW_TEXT);
+    let node = walker.nextNode();
+    while (node) {
+        const text = node.textContent || '';
+        const replaced = text.replace(/^(\s*)-\s+/, '$1— ');
+        if (replaced !== text) {
+            node.textContent = replaced;
+            return;
+        }
+        if (text.trim()) {
+            return;
+        }
+        node = walker.nextNode();
+    }
+};
+const addJcemCitationContext = (element) => {
+    if (Array.from(element.children).some((child) => child.classList.contains('jcem-cite-context'))) {
+        return;
+    }
+    const context = getJcemCitationContext(element.textContent || '');
+    if (!context) {
+        return;
+    }
+    const note = document.createElement('span');
+    note.className = 'jcem-cite-context';
+    note.textContent = ` · ${context}`;
+    element.append(note);
+};
+const normalizeJcemQuoteReferences = (scope) => {
+    scope
+        .querySelectorAll('p, cite')
+        .forEach((element) => {
+        const text = (element.textContent || '').trim();
+        if (!/^[-—]\s+/.test(text)) {
+            return;
+        }
+        element.classList.add('jcem-quote-reference');
+        normalizeJcemCitationPrefix(element);
+        addJcemCitationContext(element);
+    });
+};
+const bindJcemQuoteReferences = () => {
+    document
+        .querySelectorAll('.page__content blockquote, .page__content .jcem-panel__body')
+        .forEach(normalizeJcemQuoteReferences);
 };
 const jcemQuotePairs = new Map([
     ['"', '"'],
@@ -448,6 +598,7 @@ const hideNoScript = () => {
         noScript.style.display = 'none';
     }
 };
+bindJcemLoadingProgress();
 if (document.readyState === 'complete') {
     revealJcemPage();
 }
@@ -461,6 +612,7 @@ document.addEventListener('DOMContentLoaded', () => {
     bindJcemScrollTop();
     bindJcemCollapsibleSections();
     bindJcemBlockquotePanels();
+    bindJcemQuoteReferences();
     bindJcemEditorialFormatting();
     bindJcemFootnotes();
     hideNoScript();

@@ -384,6 +384,33 @@ JavaScript não deve ser requisito estrutural da página.
 
 ---
 
+[LOADING_GLOBAL]
+
+`carregandoPagina`:
+
+- deve conter animação central e barra de progresso
+- barra de progresso deve ficar fixa no topo da página
+- largura: lado a lado da viewport
+- altura: `0.5rem`
+- visual limpo e coerente com o tema
+- deve ser exibida e ocultada junto com `carregandoPagina`
+- não deve participar da animação central do loader
+
+Progresso:
+
+- deve rastrear carregamento do DOM e recursos da página quando tecnicamente viável
+- deve degradar de forma segura quando algum recurso não puder ser rastreado
+- deve funcionar em conexões lentas e aparelhos fracos
+- compatibilidade mínima: navegadores 2018+
+- implementação deve permanecer leve, sem dependência externa quando solução local for suficiente
+
+404:
+
+- deve possuir fallback equivalente, local e mínimo
+- não deve importar biblioteca externa apenas para o loader
+
+---
+
 [VALIDAÇÃO_VISUAL]
 
 Verificar:
@@ -944,12 +971,22 @@ Blockquotes e painéis de citação:
 - texto principal dentro do painel futurista usado como citação não deve ser itálico
 - subcitação dentro de citação deve ser itálica quando aparecer entre aspas simples ou duplas
 - não aplicar itálico automático ao bloco inteiro
+- quando houver distinção real entre texto citado e referência, separar a referência em linha própria
+- referência deve iniciar por `—`, não por `-`
+- referência deve possuir fonte menor que o texto principal da citação
+- quando a referência citar autor identificável, acrescentar contexto ultrassintético sobre quem era o autor à época da citação, quando houver base segura
 
 Texto comum do artigo:
 
 - texto comum do artigo não deve ser itálico por padrão
 - citação inline mencionada diretamente no parágrafo, entre aspas simples ou duplas, deve ser itálica
 - itálico semântico ou autoral já existente deve ser preservado quando não conflitar com estas regras
+
+Footnotes:
+
+- marcadores inline de footnotes devem permanecer compactos
+- não deve haver espaçamento horizontal excessivo entre o texto e o marcador
+- `sup` de footnotes deve manter proporção visual compatível com texto corrido
 
 ---
 

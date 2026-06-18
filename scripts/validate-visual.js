@@ -163,13 +163,23 @@ const readLoadingState = async (page) =>
 			);
 		};
 		const loader = document.querySelector('.carregandoPagina');
+		const progress = loader?.querySelector('.jcem-load-progress');
+		const progressFill = progress?.querySelector('span');
 		const wrapper = document.querySelector('.main_jcem_wrapper');
 		const wrapperStyle = wrapper ? window.getComputedStyle(wrapper) : null;
+		const progressRect = progress?.getBoundingClientRect();
+		const progressFillRect = progressFill?.getBoundingClientRect();
 
 		return {
 			pageLoadedClass: document.documentElement.classList.contains('jcem-page-loaded'),
 			urlChecked: document.documentElement.dataset.jcem404UrlChecked || '',
 			loaderVisible: isVisible(loader),
+			progressInsideLoader: Boolean(progress && loader?.contains(progress)),
+			progressWidth: progressRect?.width || 0,
+			progressHeight: progressRect?.height || 0,
+			progressTop: progressRect?.top || 0,
+			progressFillWidth: progressFillRect?.width || 0,
+			progressValue: Number(progress?.getAttribute('aria-valuenow') || 0),
 			wrapperVisible: isVisible(wrapper),
 			wrapperVisibility: wrapperStyle?.visibility || '',
 			bodyOverflow: window.getComputedStyle(document.body).overflow,
@@ -213,6 +223,16 @@ const validateLoadingGate = async (browser, baseUrl, url, viewport) => {
 			fail(`.carregandoPagina invisivel antes de window.load em ${url}`);
 		}
 
+		if (
+			!beforeLoad.progressInsideLoader ||
+			beforeLoad.progressHeight < 7 ||
+			beforeLoad.progressTop !== 0 ||
+			beforeLoad.progressWidth < viewport.width - 2 ||
+			beforeLoad.progressFillWidth <= 0
+		) {
+			fail(`Progressbar do loader invalida antes de window.load em ${url}`);
+		}
+
 		if (beforeLoad.wrapperVisible || beforeLoad.wrapperVisibility !== 'hidden') {
 			fail(`Conteudo visivel antes de window.load em ${url}`);
 		}
@@ -239,6 +259,10 @@ const validateLoadingGate = async (browser, baseUrl, url, viewport) => {
 
 		if (afterLoad.loaderVisible) {
 			fail(`.carregandoPagina visivel depois de window.load em ${url}`);
+		}
+
+		if (afterLoad.progressValue !== 100) {
+			fail(`Progressbar do loader nao finalizou em ${url}`);
 		}
 
 		if (!afterLoad.wrapperVisible || afterLoad.wrapperVisibility === 'hidden') {
@@ -590,9 +614,20 @@ const validatePage = async (page, url, theme, viewportName) => {
 		const panelParagraph = document.querySelector(
 			'article.jcem-post .page__content .jcem-panel__body p',
 		);
+		const quoteReference = document.querySelector(
+			'article.jcem-post .page__content .jcem-quote-reference',
+		);
 		const inlineQuote = document.querySelector(
 			'article.jcem-post .page__content .jcem-inline-quote',
 		);
+		const footnoteMarker = document.querySelector(
+			'article.jcem-post .page__content sup[id^="fnref"]',
+		);
+		const footnoteMarkerRect = footnoteMarker?.getBoundingClientRect();
+		const quoteReferenceStyle = quoteReference
+			? window.getComputedStyle(quoteReference)
+			: null;
+		const panelBodyStyle = panelBody ? window.getComputedStyle(panelBody) : null;
 
 		return {
 			overflowX: document.documentElement.scrollWidth - document.documentElement.clientWidth,
@@ -644,10 +679,36 @@ const validatePage = async (page, url, theme, viewportName) => {
 					normalParagraph: readEditorialStyle(normalPostParagraph),
 					panelBody: readEditorialStyle(panelBody),
 					panelParagraph: readEditorialStyle(panelParagraph),
+					quoteReferenceCount: document.querySelectorAll(
+						'article.jcem-post .page__content .jcem-quote-reference',
+					).length,
+					badQuoteReferenceCount: Array.from(
+						document.querySelectorAll(
+							'article.jcem-post .page__content .jcem-quote-reference',
+						),
+					).filter((reference) => {
+						const text = (reference.textContent || '').trim();
+						return !text.startsWith('—');
+					}).length,
+					quoteReferenceFontSize: Number.parseFloat(
+						quoteReferenceStyle?.fontSize || '0',
+					),
+					panelBodyFontSize: Number.parseFloat(
+						panelBodyStyle?.fontSize || '0',
+					),
+					citationContextCount: document.querySelectorAll(
+						'article.jcem-post .page__content .jcem-cite-context',
+					).length,
 					inlineQuoteCount: document.querySelectorAll(
 						'article.jcem-post .page__content .jcem-inline-quote',
 					).length,
 					inlineQuote: readEditorialStyle(inlineQuote),
+					footnoteMarker: footnoteMarkerRect
+						? {
+								width: footnoteMarkerRect.width,
+								height: footnoteMarkerRect.height,
+							}
+						: null,
 				},
 			},
 			styles: [
@@ -698,10 +759,38 @@ const validatePage = async (page, url, theme, viewportName) => {
 			if (panelParagraphIndent !== 0) {
 				fail(`Painel de citacao com indentacao de paragrafo em ${url} ${theme} ${viewportName}`);
 			}
+
+			if (editorial.quoteReferenceCount < 1) {
+				fail(`Painel de citacao sem referencia normalizada em ${url} ${theme} ${viewportName}`);
+			}
+
+			if (editorial.badQuoteReferenceCount > 0) {
+				fail(`Referencia de painel sem travessao em ${url} ${theme} ${viewportName}`);
+			}
+
+			if (
+				editorial.quoteReferenceFontSize <= 0 ||
+				editorial.panelBodyFontSize <= 0 ||
+				editorial.quoteReferenceFontSize >= editorial.panelBodyFontSize
+			) {
+				fail(`Referencia de painel sem fonte menor em ${url} ${theme} ${viewportName}`);
+			}
+
+			if (editorial.citationContextCount < 1) {
+				fail(`Referencia de painel sem contexto sucinto de autoria em ${url} ${theme} ${viewportName}`);
+			}
 		}
 
 		if (editorial.inlineQuoteCount < 1 || editorial.inlineQuote?.fontStyle !== 'italic') {
 			fail(`Citacao inline sem italico editorial em ${url} ${theme} ${viewportName}`);
+		}
+
+		if (
+			editorial.footnoteMarker &&
+			(editorial.footnoteMarker.width > 64 ||
+				editorial.footnoteMarker.height > 36)
+		) {
+			fail(`Footnote inline distorcida em ${url} ${theme} ${viewportName}`);
 		}
 	} else if (url.includes('/sobre/') && result.post.isPost) {
 		fail(`Pagina estatica marcada como post em ${url} ${theme} ${viewportName}`);
@@ -1281,6 +1370,11 @@ const validatePublishedPostEditorialFormatting = async (page, baseUrl, postPath)
 				'article.jcem-post .page__content .jcem-panel__body',
 			),
 		);
+		const quoteReferences = Array.from(
+			document.querySelectorAll(
+				'article.jcem-post .page__content .jcem-quote-reference',
+			),
+		);
 		const badPanelBodies = panelBodies.filter(
 			(panelBody) => readStyle(panelBody)?.fontStyle !== 'normal',
 		);
@@ -1300,6 +1394,35 @@ const validatePublishedPostEditorialFormatting = async (page, baseUrl, postPath)
 		const badInlineQuotes = inlineQuotes.filter(
 			(quote) => readStyle(quote)?.fontStyle !== 'italic',
 		);
+		const badQuoteReferences = quoteReferences.filter((reference) => {
+			const text = (reference.textContent || '').trim();
+			return !text.startsWith('—');
+		});
+		const badReferenceFontSizes = quoteReferences.filter((reference) => {
+			const panelBody = reference.closest('.jcem-panel__body');
+			const referenceStyle = readStyle(reference);
+			const bodyStyle = panelBody ? readStyle(panelBody) : null;
+
+			if (!panelBody || !referenceStyle || !bodyStyle) {
+				return false;
+			}
+
+			const referenceFontSize = Number.parseFloat(
+				window.getComputedStyle(reference).fontSize || '0',
+			);
+			const bodyFontSize = Number.parseFloat(
+				window.getComputedStyle(panelBody).fontSize || '0',
+			);
+
+			return referenceFontSize <= 0 || bodyFontSize <= 0 || referenceFontSize >= bodyFontSize;
+		});
+		const footnoteMarkers = Array.from(
+			document.querySelectorAll('article.jcem-post .page__content sup[id^="fnref"]'),
+		);
+		const badFootnoteMarkers = footnoteMarkers.filter((marker) => {
+			const rect = marker.getBoundingClientRect();
+			return rect.width > 64 || rect.height > 36;
+		});
 
 		return {
 			isPost: Boolean(document.querySelector('article.page.jcem-post')),
@@ -1311,6 +1434,13 @@ const validatePublishedPostEditorialFormatting = async (page, baseUrl, postPath)
 			badPanelBodyCount: badPanelBodies.length,
 			badPanelParagraphCount: badPanelParagraphs.length,
 			badInlineQuoteCount: badInlineQuotes.length,
+			quoteReferenceCount: quoteReferences.length,
+			badQuoteReferenceCount: badQuoteReferences.length,
+			badReferenceFontSizeCount: badReferenceFontSizes.length,
+			citationContextCount: document.querySelectorAll(
+				'article.jcem-post .page__content .jcem-cite-context',
+			).length,
+			badFootnoteMarkerCount: badFootnoteMarkers.length,
 		};
 	});
 
@@ -1328,6 +1458,22 @@ const validatePublishedPostEditorialFormatting = async (page, baseUrl, postPath)
 
 	if (result.badPanelBodyCount > 0 || result.badPanelParagraphCount > 0) {
 		fail(`Post publicado com painel de citacao fora da regra editorial em ${postPath}`);
+	}
+
+	if (result.quoteReferenceCount > 0 && result.badQuoteReferenceCount > 0) {
+		fail(`Post publicado com referencia de citacao sem travessao em ${postPath}`);
+	}
+
+	if (result.badReferenceFontSizeCount > 0) {
+		fail(`Post publicado com referencia de citacao sem fonte menor em ${postPath}`);
+	}
+
+	if (result.quoteReferenceCount > 0 && result.citationContextCount < 1) {
+		fail(`Post publicado sem contexto sucinto em referencias reconhecidas em ${postPath}`);
+	}
+
+	if (result.badFootnoteMarkerCount > 0) {
+		fail(`Post publicado com footnote inline distorcida em ${postPath}`);
 	}
 
 	if (

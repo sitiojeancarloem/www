@@ -9,10 +9,19 @@
 			(() => {
 				let urlChecked = false;
 				let pageLoaded = document.readyState === 'complete';
+				const setProgress = value => {
+					const progress = document.querySelector('.jcem-load-progress');
+					if (!progress) return;
+					const safeValue = Math.max(0, Math.min(100, Math.round(value)));
+					progress.style.setProperty('--jcem-load-progress', safeValue + '%');
+					progress.setAttribute('aria-valuenow', String(safeValue));
+				};
 				const reveal = () => {
 					if (!urlChecked || !pageLoaded) return;
+					setProgress(100);
 					document.documentElement.classList.add('jcem-page-loaded');
 				};
+				document.addEventListener('DOMContentLoaded', () => setProgress(68), { once: true });
 				window.__jcem404UrlReady = () => {
 					urlChecked = true;
 					document.documentElement.dataset.jcem404UrlChecked = 'true';
@@ -87,7 +96,7 @@
 		<link rel="icon" type="image/png" href="https://jcem.pro/logo/favicon-96x96.png" sizes="96x96" />
 		<link rel="icon" type="image/svg+xml" href="https://jcem.pro/logo/favicon.svg" />
 		<link rel="shortcut icon" href="https://jcem.pro/logo/favicon.ico" />
-		<style>@keyframes carregandoPagina{0%, 10%, 100%{width:5em;height:5em}65%{width:10em;height:10em}}@keyframes loaderBlock{0%, 30%{transform:rotate(0)}55%{background-color:rgba(0,0,70,0.9)}100%{transform:rotate(90deg)}}@keyframes loaderBlockInverse{0%, 20%{transform:rotate(0)}55%{background-color:rgba(0,0,70,0.9)}100%{transform:rotate(-90deg)}}html:not(.jcem-page-loaded) body{overflow:hidden}html:not(.jcem-page-loaded) body > :not(.carregandoPagina){visibility:hidden!important}div.carregandoPagina{position:fixed;top:50%;left:50%;z-index:2147483600;width:6rem;height:6rem;pointer-events:none;transform:translate(-50%, -50%) rotate(45deg) translate3d(0, 0, 0);animation:carregandoPagina 1.2s infinite ease-in-out;transition:opacity .22s ease, visibility .22s ease}html:not(.jcem-page-loaded) body > .carregandoPagina,html:not(.jcem-page-loaded) body > .carregandoPagina *{visibility:visible!important}html.jcem-page-loaded body > .carregandoPagina{visibility:hidden;opacity:0}div.carregandoPagina span{position:absolute;display:block;width:2.7rem;height:2.7rem;background-color:#2b92db;animation:loaderBlock 1.2s infinite ease-in-out both}div.carregandoPagina span:nth-child(1){top:0;left:0}div.carregandoPagina span:nth-child(2){top:0;right:0;animation:loaderBlockInverse 1.2s infinite ease-in-out both}div.carregandoPagina span:nth-child(3){bottom:0;left:0;animation:loaderBlockInverse 1.2s infinite ease-in-out both}div.carregandoPagina span:nth-child(4){bottom:0;right:0}</style>
+		<style>@keyframes carregandoPagina{0%,10%,100%{width:5em;height:5em}65%{width:10em;height:10em}}@keyframes loaderBlock{0%,30%{transform:rotate(0)}55%{background-color:rgba(0,0,70,.9)}100%{transform:rotate(90deg)}}@keyframes loaderBlockInverse{0%,20%{transform:rotate(0)}55%{background-color:rgba(0,0,70,.9)}100%{transform:rotate(-90deg)}}html:not(.jcem-page-loaded) body{overflow:hidden}html:not(.jcem-page-loaded) body > :not(.carregandoPagina){visibility:hidden!important}div.carregandoPagina{position:fixed;inset:0;z-index:2147483600;pointer-events:none;transition:opacity .22s ease,visibility .22s ease}.jcem-load-progress{--jcem-load-progress:8%;position:fixed;top:0;right:0;left:0;width:100%;height:.5rem;overflow:hidden;background:rgba(8,14,23,.2);box-shadow:0 .0625rem .5rem rgba(43,146,219,.22)}.jcem-load-progress span{display:block;width:var(--jcem-load-progress);height:100%;background:linear-gradient(90deg,#2b92db,#7bc8ff);box-shadow:0 0 .75rem rgba(123,200,255,.5);transition:width .18s ease}.carregandoPagina__mark{position:fixed;top:50%;left:50%;width:6rem;height:6rem;transform:translate(-50%,-50%) rotate(45deg) translate3d(0,0,0);animation:carregandoPagina 1.2s infinite ease-in-out}html:not(.jcem-page-loaded) body > .carregandoPagina,html:not(.jcem-page-loaded) body > .carregandoPagina *{visibility:visible!important}html.jcem-page-loaded body > .carregandoPagina{visibility:hidden;opacity:0}.carregandoPagina__mark span{position:absolute;display:block;width:2.7rem;height:2.7rem;background-color:#2b92db;animation:loaderBlock 1.2s infinite ease-in-out both}.carregandoPagina__mark span:nth-child(1){top:0;left:0}.carregandoPagina__mark span:nth-child(2){top:0;right:0;animation:loaderBlockInverse 1.2s infinite ease-in-out both}.carregandoPagina__mark span:nth-child(3){bottom:0;left:0;animation:loaderBlockInverse 1.2s infinite ease-in-out both}.carregandoPagina__mark span:nth-child(4){right:0;bottom:0}</style>
 		<noscript data-jcem-fragment="noscript-style">
 			<style>
 				:root {
@@ -526,7 +535,10 @@
 		</style>
 	</head>
 	<body class="layout--404">
-		<div id="carregandoPagina" class="carregandoPagina" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+		<div id="carregandoPagina" class="carregandoPagina" aria-hidden="true">
+			<div class="jcem-load-progress" role="progressbar" aria-label="Carregamento da página" aria-valuemin="0" aria-valuemax="100" aria-valuenow="8"><span></span></div>
+			<div class="carregandoPagina__mark"><span></span><span></span><span></span><span></span></div>
+		</div>
 		<noscript data-jcem-fragment="noscript-content">
 			<div class="jcem-noscript">
 				<main class="jcem-noscript__panel">

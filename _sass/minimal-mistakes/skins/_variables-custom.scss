@@ -688,6 +688,20 @@ body > input.radio#jcem-theme-dark:checked ~ .main_jcem_wrapper {
 	font-style: italic;
 }
 
+.main_jcem_wrapper .page__content .jcem-quote-reference {
+	display: block;
+	margin: 0.7em 0 0;
+	font-size: 0.72em;
+	font-style: normal;
+	line-height: 1.25;
+	text-align: right;
+	text-indent: 0;
+}
+
+.main_jcem_wrapper .page__content .jcem-cite-context {
+	opacity: 0.78;
+}
+
 .main_jcem_wrapper .archive > .page__title,
 .main_jcem_wrapper .archive > .pagination {
 	grid-column: 1 / -1;
@@ -1036,7 +1050,7 @@ body
 	&,
 	& a {
 		font-size: 0.7em;
-		font-style: italic;
+		font-style: normal;
 		display: block;
 		line-height: 1.15em;
 		margin-bottom: -1em;
@@ -1082,22 +1096,34 @@ body
 
 .main_jcem_wrapper sup[id^='fnref'] {
 	position: relative;
-	top: -0.5em;
+	top: -0.45em;
 	display: inline-flex;
 	align-items: baseline;
+	justify-content: flex-start;
+	width: max-content !important;
+	min-width: 0 !important;
+	max-width: 3em;
 	margin: 0 0.03em;
-	font-size: 75%;
+	padding: 0;
+	font-size: 68%;
+	letter-spacing: 0;
 	line-height: 1;
+	text-align: left;
+	white-space: nowrap;
+	word-spacing: 0;
 	vertical-align: baseline;
 }
 
 .main_jcem_wrapper sup[id^='fnref']::before,
 .main_jcem_wrapper sup[id^='fnref']::after {
 	display: inline;
+	flex: 0 0 auto;
 	font-family: inherit;
 	font-size: 0.9em;
 	line-height: 1;
 	color: var(--link);
+	letter-spacing: 0;
+	word-spacing: 0;
 }
 
 .main_jcem_wrapper sup[id^='fnref']::before {
@@ -1112,16 +1138,21 @@ body
 .main_jcem_wrapper sup[id^='fnref'] a[role='doc-noteref'] {
 	position: relative;
 	display: inline-block;
+	flex: 0 0 auto;
 	margin: 0;
-	padding: 0 0.04em;
+	padding: 0;
 	border: 0;
 	background: transparent;
 	color: var(--link);
 	font-size: 0.9em;
 	font-weight: 800;
 	line-height: 1;
+	letter-spacing: 0;
 	text-decoration: none;
+	text-indent: 0;
 	vertical-align: baseline;
+	white-space: nowrap;
+	word-spacing: 0;
 }
 
 .main_jcem_wrapper sup[id^='fnref'] .footnote::after,
