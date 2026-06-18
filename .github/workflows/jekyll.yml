@@ -43,6 +43,40 @@ jobs:
         with:
           ruby-version: '3.4.7'
 
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+
+      - name: Cache Ruby dependencies
+        uses: actions/cache@v4
+        with:
+          path: vendor/bundle
+          key: ruby-${{ runner.os }}-3.4.7-${{ hashFiles('Gemfile.lock') }}
+          restore-keys: |
+            ruby-${{ runner.os }}-3.4.7-
+
+      - name: Cache Playwright browsers
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/ms-playwright
+          key: playwright-${{ runner.os }}-${{ hashFiles('package-lock.json') }}
+          restore-keys: |
+            playwright-${{ runner.os }}-
+
+      - name: Restore Jekyll render cache
+        uses: actions/cache@v4
+        with:
+          path: |
+            _site
+            .jekyll-cache
+            .jekyll-metadata
+            .sass-cache
+          key: jekyll-render-${{ runner.os }}-${{ github.ref_name }}-${{ github.sha }}
+          restore-keys: |
+            jekyll-render-${{ runner.os }}-${{ github.ref_name }}-
+
       - name: Install Ruby dependencies
         run: |
           gem install bundler -v 4.0.10
@@ -54,6 +88,62 @@ jobs:
 
       - name: Install Playwright browser
         run: npx playwright install chromium --with-deps
+
+      - name: Detect build scope
+        id: build_scope
+        env:
+          BEFORE: ${{ github.event.before }}
+          HEAD: ${{ github.sha }}
+          EVENT_NAME: ${{ github.event_name }}
+        run: |
+          set -euo pipefail
+
+          mode="full"
+          reason="manual_dispatch"
+          zero_sha="0000000000000000000000000000000000000000"
+
+          if [[ "$EVENT_NAME" != "workflow_dispatch" && -n "${BEFORE:-}" && "$BEFORE" != "$zero_sha" ]] && git cat-file -e "${BEFORE}^{commit}" 2>/dev/null; then
+            mapfile -t changed_files < <(git diff --name-only --diff-filter=ACMRT "$BEFORE" "$HEAD")
+            mapfile -t deleted_files < <(git diff --name-only --diff-filter=D "$BEFORE" "$HEAD")
+
+            if (( ${#deleted_files[@]} > 0 )); then
+              reason="deleted_file_requires_full_build"
+            elif (( ${#changed_files[@]} == 0 )); then
+              reason="no_changed_files_detected"
+            else
+              mode="incremental"
+              reason="safe_incremental_paths"
+              structural_pattern='^(_config\.yml|Gemfile|Gemfile\.lock|package(-lock)?\.json|tsconfig.*|404\.html|index\.html|_posts/|_layouts/|_includes/|_sass/|assets/css/|assets/jcem/css/|assets/jcem/js/|scripts/|\.github/workflows/)'
+              safe_incremental_pattern='^(assets/(images|jcem/img)/|CNAME$|robots\.txt$|favicon\.)'
+
+              for file in "${changed_files[@]}"; do
+                if [[ "$file" =~ $structural_pattern ]]; then
+                  mode="full"
+                  reason="structural_change:${file}"
+                  break
+                fi
+
+                if [[ "$file" =~ $safe_incremental_pattern ]]; then
+                  continue
+                fi
+
+                mode="full"
+                reason="unclassified_change:${file}"
+                break
+              done
+            fi
+          else
+            reason="missing_diff_base"
+          fi
+
+          if [[ "$mode" == "incremental" && ! -f .jekyll-metadata ]]; then
+            mode="full"
+            reason="render_cache_missing"
+          fi
+
+          echo "mode=$mode" >> "$GITHUB_OUTPUT"
+          echo "reason=$reason" >> "$GITHUB_OUTPUT"
+          echo "build_mode=$mode reason=$reason"
 
       - name: Detect published posts
         id: posts
@@ -67,7 +157,12 @@ jobs:
       - name: Build Jekyll site
         run: |
           npm run build:ts
-          bundle exec jekyll build --trace --baseurl=
+          if [ "${{ steps.build_scope.outputs.mode }}" = "incremental" ]; then
+            bundle exec jekyll build --incremental --trace --baseurl=
+          else
+            rm -rf _site .jekyll-cache .jekyll-metadata .sass-cache
+            bundle exec jekyll build --trace --baseurl=
+          fi
         env:
           JEKYLL_ENV: production
 
