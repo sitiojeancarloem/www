@@ -218,31 +218,34 @@
 		<style>
 			/* Cores: aliases do tema ativo. */
 			.layout--404 .main_jcem_wrapper {
-				--jcem-404-featured-height: clamp(12rem, 32vh, 24rem);
-				--jcem-404-featured-width: 1080px;
+				--jcem-404-featured-height: clamp(14rem, 40vh, 24rem);
 			}
 
 			.jcem-404-featured {
 				width: 100%;
+				height: var(--jcem-404-featured-height);
 				max-width: 100%;
 				margin: 0;
 				overflow: hidden;
-				background: #171c26; /* Cores: fundo lateral da imagem 404. */
+				background: #0d1621; /* Cores: fundo lateral da imagem 404. */
 			}
 
 			.jcem-404-featured .jcem-featured-image__img {
-				width: min(100%, var(--jcem-404-featured-width));
-				height: var(--jcem-404-featured-height);
-				max-width: 100%;
-				margin: 0 auto;
-				object-fit: cover;
+				position: relative;
+				left: 50%;
+				display: block;
+				width: auto;
+				height: 100%;
+				max-width: none;
+				margin: 0;
+				object-fit: contain;
 				object-position: center;
+				transform: translateX(-50%);
 			}
 
 			.jcem-404 {
 				display: grid;
-				align-items: center;
-				min-height: calc(100dvh - 6.8rem);
+				align-items: start;
 				padding: clamp(16px, 2vw, 28px);
 				background:
 					radial-gradient(circle at 74% 18%, var(--jcem-glitch-a), transparent 16rem),
