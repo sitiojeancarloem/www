@@ -1555,6 +1555,17 @@ const validate404Page = async (page, url, viewportName) => {
 		const terminalActiveLineAfterStyle = terminalActiveLine
 			? window.getComputedStyle(terminalActiveLine, '::after')
 			: null;
+		const measureTextWidth = (element) => {
+			if (!element) return 0;
+
+			const range = document.createRange();
+			range.selectNodeContents(element);
+			const rect = range.getBoundingClientRect();
+			const elementRect = element.getBoundingClientRect();
+			if (typeof range.detach === 'function') range.detach();
+
+			return Math.max(0, rect.right - elementRect.left);
+		};
 		const terminalFinalStyle = terminalFinal
 			? window.getComputedStyle(terminalFinal)
 			: null;
@@ -1608,6 +1619,11 @@ const validate404Page = async (page, url, viewportName) => {
 				document.querySelectorAll('.jcem-404__cursor').length,
 			terminalActiveCursorAnimation:
 				terminalActiveLineAfterStyle?.animationName || '',
+			terminalActiveLineText: terminalActiveLine?.textContent?.trim() || '',
+			terminalActiveTypeWidth: Number.parseFloat(
+				terminalActiveLine?.style.getPropertyValue('--jcem-terminal-type-width') || '0',
+			),
+			terminalActiveTextWidth: measureTextWidth(terminalActiveLine),
 			terminalLineWhiteSpace: terminalLineStyle?.whiteSpace || '',
 			terminalScreenOverflow: terminalScreenStyle?.overflow || '',
 			terminalHiddenSequences: document.querySelectorAll(
@@ -1697,6 +1713,8 @@ const validate404Page = async (page, url, viewportName) => {
 		result.terminalActiveTypingCount !== 1 ||
 		result.terminalEmbeddedCursorCount !== 0 ||
 		result.terminalActiveCursorAnimation !== 'jcem-404-cursor-blink' ||
+		!result.terminalActiveLineText ||
+		result.terminalActiveTypeWidth > result.terminalActiveTextWidth + 6 ||
 		result.terminalLineWhiteSpace !== 'nowrap' ||
 		result.terminalScreenOverflow !== 'hidden' ||
 		result.terminalHiddenSequences !== 1 ||

@@ -414,7 +414,7 @@
 			.main_jcem_wrapper .jcem-404__screen {
 				--jcem-terminal-shift: 0px;
 				position: relative;
-				height: calc((1.18em * 8) + 1.15rem);
+				height: calc((1.18em * 8) + 0.72rem);
 				max-height: none;
 				margin: 0;
 				padding: 0;
@@ -456,7 +456,7 @@
 			.jcem-404__screen-track {
 				display: block;
 				transform: translate3d(0, calc(var(--jcem-terminal-shift) * -1), 0);
-				transition: transform 95ms ease-out;
+				transition: transform 85ms ease-out;
 				will-change: transform;
 			}
 
@@ -882,9 +882,9 @@
 						if (!screen || !track || !firstSequence) return;
 
 						const lineSelector = '.jcem-404__line';
-						const stepMs = 230;
-						const transitionMs = 95;
-						const typeMs = 145;
+						const stepMs = 205;
+						const transitionMs = 85;
+						const typeMs = 120;
 						let offsets = [];
 						let stepIndex = 0;
 						let timer = 0;
@@ -914,6 +914,8 @@
 						const findLastVisibleLine = () => {
 							const screenRect = screen.getBoundingClientRect();
 							return allLines().reduce((current, line) => {
+								if (!(line.textContent || '').trim()) return current;
+
 								const rect = line.getBoundingClientRect();
 								if (rect.top >= screenRect.top + 1 && rect.bottom <= screenRect.bottom - 1) {
 									return line;
@@ -922,11 +924,23 @@
 								return current;
 							}, null);
 						};
+						const measureLineContentWidth = (line) => {
+							const range = document.createRange();
+							range.selectNodeContents(line);
+							const rect = range.getBoundingClientRect();
+							const lineRect = line.getBoundingClientRect();
+							if (typeof range.detach === 'function') range.detach();
+
+							return Math.max(
+								12,
+								Math.min(Math.ceil(rect.right - lineRect.left) + 2, line.clientWidth)
+							);
+						};
 						const typeLine = (line) => {
 							clearTyping();
-							if (!line) return;
+							if (!line || !(line.textContent || '').trim()) return;
 
-							const targetWidth = Math.max(12, Math.ceil(line.scrollWidth));
+							const targetWidth = measureLineContentWidth(line);
 							const startedAt = performance.now();
 							line.classList.add('is-typing');
 							line.style.setProperty('--jcem-terminal-type-width', '0px');
