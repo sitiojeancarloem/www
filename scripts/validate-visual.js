@@ -1527,6 +1527,7 @@ const validate404Page = async (page, url, viewportName) => {
 		const terminal = document.querySelector('.jcem-404__terminal');
 		const themeToggle = document.querySelector('.jcem-theme-toggle');
 		const loader = document.querySelector('.carregandoPagina');
+		const page404Style = page404 ? window.getComputedStyle(page404) : null;
 		const rectFor = (element) => {
 			const rect = element?.getBoundingClientRect();
 			const style = element ? window.getComputedStyle(element) : null;
@@ -1561,6 +1562,9 @@ const validate404Page = async (page, url, viewportName) => {
 					? featuredImage.naturalWidth / featuredImage.naturalHeight
 					: 0,
 			page404: rectFor(page404),
+			page404BackgroundColor: page404Style?.backgroundColor || '',
+			page404BackgroundGradientLayers:
+				(page404Style?.backgroundImage.match(/radial-gradient/g) || []).length,
 			terminal: rectFor(terminal),
 			loader: rectFor(loader),
 			text: document.body.innerText || '',
@@ -1622,6 +1626,13 @@ const validate404Page = async (page, url, viewportName) => {
 
 	if (!result.page404 || result.page404.width <= 1 || result.page404.height <= 1 || result.page404.visibility === 'hidden') {
 		fail(`Conteudo 404 invisivel em ${url} ${viewportName}`);
+	}
+
+	if (
+		result.page404BackgroundColor !== 'rgba(0, 0, 0, 0)' ||
+		result.page404BackgroundGradientLayers > 2
+	) {
+		fail(`Conteudo 404 reiniciando fundo base em ${url} ${viewportName}`);
 	}
 
 	if (!result.terminal || result.terminal.width <= 1 || result.terminal.height <= 1 || result.terminal.visibility === 'hidden') {

@@ -129,7 +129,7 @@ body > input.radio.jcem-theme-radio {
 	max-width: 100%;
 	min-height: 100vh;
 	overflow-x: clip;
-	background-color: var(--bg);
+	background-color: var(--bg-solid);
 	color: var(--tc);
 	color-scheme: light;
 	transition:
@@ -189,6 +189,10 @@ body > input.radio.jcem-theme-radio {
 
 	background: var(--bg) !important;
 	background-color: var(--bg-solid) !important;
+	// FIX-BUG: fundo principal unico evita reinicio visual do gradiente.
+	background-position: center top !important;
+	background-repeat: no-repeat !important;
+	background-size: cover !important;
 }
 
 body > input.radio#jcem-theme-dark:checked ~ .main_jcem_wrapper {
@@ -246,6 +250,10 @@ body > input.radio#jcem-theme-dark:checked ~ .main_jcem_wrapper {
 
 	background: var(--bg) !important;
 	background-color: var(--bg-solid) !important;
+	// FIX-BUG: preserva continuidade do fundo apos troca para tema escuro.
+	background-position: center top !important;
+	background-repeat: no-repeat !important;
+	background-size: cover !important;
 }
 
 @media print {

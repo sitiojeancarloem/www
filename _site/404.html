@@ -247,10 +247,10 @@
 				display: grid;
 				align-items: start;
 				padding: clamp(16px, 2vw, 28px);
+				/* FIX-BUG: o fundo base vem do wrapper para nao reiniciar o gradiente. */
 				background:
 					radial-gradient(circle at 74% 18%, var(--jcem-glitch-a), transparent 16rem),
-					radial-gradient(circle at 20% 24%, rgba(0, 0, 0, 0.16), transparent 18rem),
-					var(--bg);
+					radial-gradient(circle at 20% 24%, rgba(0, 0, 0, 0.16), transparent 18rem);
 				color: var(--tc);
 				font-family: inherit;
 			}
