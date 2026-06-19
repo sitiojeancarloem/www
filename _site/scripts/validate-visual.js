@@ -1537,6 +1537,10 @@ const validate404Page = async (page, url, viewportName) => {
 		const terminalTrackStyle = terminalTrack
 			? window.getComputedStyle(terminalTrack)
 			: null;
+		const terminalLine = document.querySelector('.jcem-404__line');
+		const terminalLineAfterStyle = terminalLine
+			? window.getComputedStyle(terminalLine, '::after')
+			: null;
 		const terminalFinalStyle = terminalFinal
 			? window.getComputedStyle(terminalFinal)
 			: null;
@@ -1580,6 +1584,10 @@ const validate404Page = async (page, url, viewportName) => {
 			terminal: rectFor(terminal),
 			terminalScreen: rectFor(terminalScreen),
 			terminalTrackAnimation: terminalTrackStyle?.animationName || '',
+			terminalTrackAnimationDuration:
+				terminalTrackStyle?.animationDuration || '',
+			terminalLineTypingAnimation:
+				terminalLineAfterStyle?.animationName || '',
 			terminalScreenOverflow: terminalScreenStyle?.overflow || '',
 			terminalHiddenSequences: document.querySelectorAll(
 				'.jcem-404__screen-seq[aria-hidden="true"]',
@@ -1663,6 +1671,8 @@ const validate404Page = async (page, url, viewportName) => {
 		!result.terminalScreen ||
 		result.terminalScreen.height <= 1 ||
 		result.terminalTrackAnimation !== 'jcem-404-terminal-scroll' ||
+		result.terminalTrackAnimationDuration !== '11s' ||
+		result.terminalLineTypingAnimation !== 'jcem-404-type-scan' ||
 		result.terminalScreenOverflow !== 'hidden' ||
 		result.terminalHiddenSequences !== 1 ||
 		Number.parseFloat(result.terminalFinalBorder || '0') < 1
