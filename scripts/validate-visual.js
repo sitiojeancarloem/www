@@ -1525,9 +1525,21 @@ const validate404Page = async (page, url, viewportName) => {
 		const featured = document.querySelector('.jcem-404-featured');
 		const featuredImage = featured?.querySelector('.jcem-featured-image__img');
 		const terminal = document.querySelector('.jcem-404__terminal');
+		const terminalScreen = document.querySelector('.jcem-404__screen');
+		const terminalTrack = document.querySelector('.jcem-404__screen-track');
+		const terminalFinal = document.querySelector('.jcem-404__line--final');
 		const themeToggle = document.querySelector('.jcem-theme-toggle');
 		const loader = document.querySelector('.carregandoPagina');
 		const page404Style = page404 ? window.getComputedStyle(page404) : null;
+		const terminalScreenStyle = terminalScreen
+			? window.getComputedStyle(terminalScreen)
+			: null;
+		const terminalTrackStyle = terminalTrack
+			? window.getComputedStyle(terminalTrack)
+			: null;
+		const terminalFinalStyle = terminalFinal
+			? window.getComputedStyle(terminalFinal)
+			: null;
 		const rectFor = (element) => {
 			const rect = element?.getBoundingClientRect();
 			const style = element ? window.getComputedStyle(element) : null;
@@ -1566,6 +1578,14 @@ const validate404Page = async (page, url, viewportName) => {
 			page404BackgroundGradientLayers:
 				(page404Style?.backgroundImage.match(/radial-gradient/g) || []).length,
 			terminal: rectFor(terminal),
+			terminalScreen: rectFor(terminalScreen),
+			terminalTrackAnimation: terminalTrackStyle?.animationName || '',
+			terminalScreenOverflow: terminalScreenStyle?.overflow || '',
+			terminalHiddenSequences: document.querySelectorAll(
+				'.jcem-404__screen-seq[aria-hidden="true"]',
+			).length,
+			terminalFinalBorder: terminalFinalStyle?.borderLeftWidth || '',
+			terminalFinalColor: terminalFinalStyle?.color || '',
 			loader: rectFor(loader),
 			text: document.body.innerText || '',
 			overflowX: document.documentElement.scrollWidth - document.documentElement.clientWidth,
@@ -1639,11 +1659,33 @@ const validate404Page = async (page, url, viewportName) => {
 		fail(`Terminal 404 invisivel em ${url} ${viewportName}`);
 	}
 
+	if (
+		!result.terminalScreen ||
+		result.terminalScreen.height <= 1 ||
+		result.terminalTrackAnimation !== 'jcem-404-terminal-scroll' ||
+		result.terminalScreenOverflow !== 'hidden' ||
+		result.terminalHiddenSequences !== 1 ||
+		Number.parseFloat(result.terminalFinalBorder || '0') < 1
+	) {
+		fail(`Terminal 404 sem animacao CSS continua em ${url} ${viewportName}`);
+	}
+
 	if (result.loader && result.loader.visibility !== 'hidden' && result.loader.opacity !== '0') {
 		fail(`.carregandoPagina persistiu na 404 depois do load em ${url} ${viewportName}`);
 	}
 
-	if (!result.text.includes('Página não encontrada') || !result.text.includes('HTTP/1.1 404 Not Found')) {
+	if (
+		!result.text.includes('Página não encontrada') ||
+		!result.text.includes('HTTP/1.1 404 Not Found') ||
+		!result.text.includes('REQUEST_SLUG=pagina') ||
+		!result.text.includes('const pagina = env.REQUEST_SLUG;') ||
+		!result.text.includes('mysql --execute') ||
+		!result.text.includes('mysqladmin ping') ||
+		!result.text.includes('mongo --eval') ||
+		!result.text.includes('serverless API localhost offline') ||
+		!result.text.includes('./_posts/pagina.md') ||
+		!result.text.includes('./_site/p/pagina/index.html')
+	) {
 		fail(`Texto essencial da 404 ausente em ${url} ${viewportName}`);
 	}
 

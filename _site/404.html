@@ -412,15 +412,76 @@
 			}
 
 			.main_jcem_wrapper .jcem-404__screen {
+				position: relative;
 				max-height: 10rem;
 				margin: 0;
-				padding: 0.7rem 0.85rem;
-				overflow: auto;
+				padding: 0;
+				overflow: hidden !important;
 				background: var(--jcem-404-terminal-bg) !important;
 				color: var(--jcem-404-terminal-text);
-				font: 0.72rem/1.38 Monaco, Consolas, "Lucida Console", monospace;
+				font: 0.72rem/1.18 Monaco, Consolas, "Lucida Console", monospace;
 				overflow-wrap: anywhere;
-				white-space: pre-wrap;
+				scrollbar-width: none;
+				white-space: normal;
+			}
+
+			.main_jcem_wrapper .jcem-404__screen::-webkit-scrollbar {
+				display: none;
+			}
+
+			.main_jcem_wrapper .jcem-404__screen::before,
+			.main_jcem_wrapper .jcem-404__screen::after {
+				position: absolute;
+				right: 0;
+				left: 0;
+				z-index: 2;
+				display: block;
+				height: 1.2rem;
+				content: "";
+				pointer-events: none;
+			}
+
+			.main_jcem_wrapper .jcem-404__screen::before {
+				top: 0;
+				background: linear-gradient(to bottom, var(--jcem-404-terminal-bg), transparent);
+			}
+
+			.main_jcem_wrapper .jcem-404__screen::after {
+				bottom: 0;
+				background: linear-gradient(to top, var(--jcem-404-terminal-bg), transparent);
+			}
+
+			.jcem-404__screen-track {
+				display: block;
+				animation: jcem-404-terminal-scroll 16s linear infinite;
+				will-change: transform;
+			}
+
+			.jcem-404__screen-seq,
+			.jcem-404__line {
+				display: block;
+			}
+
+			.jcem-404__screen-seq {
+				padding: 0.45rem 0.85rem 0.7rem;
+			}
+
+			.jcem-404__line {
+				margin: 0;
+				line-height: 1.18;
+			}
+
+			.jcem-404__line--final {
+				margin-top: 0.08rem;
+				padding: 0.12rem 0.25rem;
+				border-left: 2px solid var(--jcem-404-terminal-error);
+				background: color-mix(in srgb, var(--jcem-404-terminal-error) 12%, transparent);
+				color: var(--jcem-404-terminal-error);
+				text-shadow: 0 0 0.45rem color-mix(in srgb, var(--jcem-404-terminal-error) 58%, transparent);
+			}
+
+			.jcem-404__cursor {
+				animation: jcem-404-cursor-blink 1s steps(1, end) infinite;
 			}
 
 			.jcem-404__prompt {
@@ -520,6 +581,28 @@
 				}
 			}
 
+			@keyframes jcem-404-terminal-scroll {
+				from {
+					transform: translate3d(0, 0, 0);
+				}
+
+				to {
+					transform: translate3d(0, -50%, 0);
+				}
+			}
+
+			@keyframes jcem-404-cursor-blink {
+				0%,
+				49% {
+					opacity: 1;
+				}
+
+				50%,
+				100% {
+					opacity: 0;
+				}
+			}
+
 			@media (max-width: 48em) {
 				.jcem-404__hero {
 					grid-template-columns: 1fr;
@@ -553,7 +636,9 @@
 			@media (prefers-reduced-motion: reduce) {
 				.jcem-404__code,
 				.jcem-404__code::before,
-				.jcem-404__code::after {
+				.jcem-404__code::after,
+				.jcem-404__screen-track,
+				.jcem-404__cursor {
 					animation: none;
 				}
 			}
@@ -717,14 +802,53 @@
 						<span class="jcem-404__bar-title">~/JeanCarloEM</span>
 						<span class="jcem-404__window-controls"><span>&minus;</span><span>&#9633;</span><span>&times;</span></span>
 					</div>
-					<pre class="jcem-404__screen"><span class="jcem-404__prompt">&gt;</span> <span class="jcem-404__cmd">cd ~/JeanCarloEM</span>
-/home/user/JeanCarloEM
-<span class="jcem-404__prompt">&gt;</span> <span class="jcem-404__cmd">find pagina.md</span>
-No results found
-<span class="jcem-404__prompt">&gt;</span> <span class="jcem-404__cmd">curl https://www.jeancarloem.com/pagina</span>
-HTTP/1.1 <span class="jcem-404__err">404 Not Found</span>
-<span class="jcem-404__prompt">&gt;</span> <span class="jcem-404__cmd">open pagina</span>
-<span class="jcem-404__err">Error: página não encontrada █</span></pre>
+					<pre class="jcem-404__screen" tabindex="0"><code class="jcem-404__screen-track"><span class="jcem-404__screen-seq"><span class="jcem-404__line"><span class="jcem-404__prompt">&gt;</span> <span class="jcem-404__cmd">env | grep REQUEST_SLUG</span></span>
+<span class="jcem-404__line">REQUEST_SLUG=pagina</span>
+<span class="jcem-404__line"><span class="jcem-404__prompt">&gt;</span> <span class="jcem-404__cmd">node ./diagnostico-404.mjs</span></span>
+<span class="jcem-404__line">const env = process.env;</span>
+<span class="jcem-404__line">const pagina = env.REQUEST_SLUG;</span>
+<span class="jcem-404__line">const rota = "/p/" + pagina;</span>
+<span class="jcem-404__line">const arquivoMd = pagina + ".md";</span>
+<span class="jcem-404__line">const arquivoHtml = pagina + ".html";</span>
+<span class="jcem-404__line"><span class="jcem-404__prompt">&gt;</span> <span class="jcem-404__cmd">mysql --execute "SELECT id FROM posts WHERE slug = '${pagina}' LIMIT 1"</span></span>
+<span class="jcem-404__line"><span class="jcem-404__err">MySQL ER_NO_SUCH_TABLE:</span> table blog.posts not found</span>
+<span class="jcem-404__line"><span class="jcem-404__prompt">&gt;</span> <span class="jcem-404__cmd">mysqladmin ping --host=127.0.0.1 --user=reader</span></span>
+<span class="jcem-404__line"><span class="jcem-404__err">MySQL ETIMEDOUT:</span> server did not answer</span>
+<span class="jcem-404__line"><span class="jcem-404__prompt">&gt;</span> <span class="jcem-404__cmd">mongo --eval "db.posts.findOne({ slug: pagina })"</span></span>
+<span class="jcem-404__line"><span class="jcem-404__err">MongoServerSelectionError:</span> no primary available</span>
+<span class="jcem-404__line"><span class="jcem-404__prompt">&gt;</span> <span class="jcem-404__cmd">fetch("http://localhost:8787/.netlify/functions/resolve?slug=" + pagina)</span></span>
+<span class="jcem-404__line"><span class="jcem-404__err">ECONNREFUSED:</span> serverless API localhost offline</span>
+<span class="jcem-404__line"><span class="jcem-404__prompt">&gt;</span> <span class="jcem-404__cmd">fs.access("./_posts/" + arquivoMd)</span></span>
+<span class="jcem-404__line"><span class="jcem-404__err">ENOENT:</span> ./_posts/pagina.md</span>
+<span class="jcem-404__line"><span class="jcem-404__prompt">&gt;</span> <span class="jcem-404__cmd">fs.access("./_site" + rota + "/index." + arquivoHtml.split(".").pop())</span></span>
+<span class="jcem-404__line"><span class="jcem-404__err">ENOENT:</span> ./_site/p/pagina/index.html</span>
+<span class="jcem-404__line">HTTP/1.1 <span class="jcem-404__err">404 Not Found</span></span>
+<span class="jcem-404__line"><span class="jcem-404__prompt">&gt;</span> <span class="jcem-404__cmd">throw new Error("página não encontrada")</span></span>
+<span class="jcem-404__line jcem-404__line--final">Error: página não encontrada <span class="jcem-404__cursor">█</span></span>
+</span><span class="jcem-404__screen-seq" aria-hidden="true"><span class="jcem-404__line"><span class="jcem-404__prompt">&gt;</span> <span class="jcem-404__cmd">env | grep REQUEST_SLUG</span></span>
+<span class="jcem-404__line">REQUEST_SLUG=pagina</span>
+<span class="jcem-404__line"><span class="jcem-404__prompt">&gt;</span> <span class="jcem-404__cmd">node ./diagnostico-404.mjs</span></span>
+<span class="jcem-404__line">const env = process.env;</span>
+<span class="jcem-404__line">const pagina = env.REQUEST_SLUG;</span>
+<span class="jcem-404__line">const rota = "/p/" + pagina;</span>
+<span class="jcem-404__line">const arquivoMd = pagina + ".md";</span>
+<span class="jcem-404__line">const arquivoHtml = pagina + ".html";</span>
+<span class="jcem-404__line"><span class="jcem-404__prompt">&gt;</span> <span class="jcem-404__cmd">mysql --execute "SELECT id FROM posts WHERE slug = '${pagina}' LIMIT 1"</span></span>
+<span class="jcem-404__line"><span class="jcem-404__err">MySQL ER_NO_SUCH_TABLE:</span> table blog.posts not found</span>
+<span class="jcem-404__line"><span class="jcem-404__prompt">&gt;</span> <span class="jcem-404__cmd">mysqladmin ping --host=127.0.0.1 --user=reader</span></span>
+<span class="jcem-404__line"><span class="jcem-404__err">MySQL ETIMEDOUT:</span> server did not answer</span>
+<span class="jcem-404__line"><span class="jcem-404__prompt">&gt;</span> <span class="jcem-404__cmd">mongo --eval "db.posts.findOne({ slug: pagina })"</span></span>
+<span class="jcem-404__line"><span class="jcem-404__err">MongoServerSelectionError:</span> no primary available</span>
+<span class="jcem-404__line"><span class="jcem-404__prompt">&gt;</span> <span class="jcem-404__cmd">fetch("http://localhost:8787/.netlify/functions/resolve?slug=" + pagina)</span></span>
+<span class="jcem-404__line"><span class="jcem-404__err">ECONNREFUSED:</span> serverless API localhost offline</span>
+<span class="jcem-404__line"><span class="jcem-404__prompt">&gt;</span> <span class="jcem-404__cmd">fs.access("./_posts/" + arquivoMd)</span></span>
+<span class="jcem-404__line"><span class="jcem-404__err">ENOENT:</span> ./_posts/pagina.md</span>
+<span class="jcem-404__line"><span class="jcem-404__prompt">&gt;</span> <span class="jcem-404__cmd">fs.access("./_site" + rota + "/index." + arquivoHtml.split(".").pop())</span></span>
+<span class="jcem-404__line"><span class="jcem-404__err">ENOENT:</span> ./_site/p/pagina/index.html</span>
+<span class="jcem-404__line">HTTP/1.1 <span class="jcem-404__err">404 Not Found</span></span>
+<span class="jcem-404__line"><span class="jcem-404__prompt">&gt;</span> <span class="jcem-404__cmd">throw new Error("página não encontrada")</span></span>
+<span class="jcem-404__line jcem-404__line--final">Error: página não encontrada <span class="jcem-404__cursor">█</span></span>
+</span></code></pre>
 				</section>
 
 					<div class="jcem-404__actions">
