@@ -454,6 +454,7 @@
 				white-space: nowrap;
 			}
 
+			.jcem-404__line.is-preparing::before,
 			.jcem-404__line.is-typing::before {
 				position: absolute;
 				top: 0;
@@ -465,6 +466,13 @@
 				content: "";
 				pointer-events: none;
 				z-index: 1;
+			}
+
+			.jcem-404__line.is-preparing::before {
+				transition: none;
+			}
+
+			.jcem-404__line.is-typing::before {
 				transition: left var(--jcem-terminal-type-duration, 105ms) linear;
 			}
 
@@ -488,7 +496,7 @@
 				margin-top: 0.08rem;
 				padding: 0.12rem 0.25rem;
 				border-left: 2px solid var(--jcem-404-terminal-error);
-				background: color-mix(in srgb, var(--jcem-404-terminal-error) 12%, transparent);
+				background: var(--jcem-404-terminal-bg);
 				color: var(--jcem-404-terminal-error);
 				text-shadow: 0 0 0.45rem color-mix(in srgb, var(--jcem-404-terminal-error) 58%, transparent);
 			}
@@ -857,6 +865,7 @@
 
 						const lineSelector = '.jcem-404__line';
 						const pauseMs = 25;
+						const prepareMs = 20;
 						const transitionMs = 75;
 						const typeMs = 105;
 						let steps = [];
@@ -866,13 +875,17 @@
 						let resizeTimer = 0;
 						let lastTypedLine = '';
 						let activeLine = null;
+						let maskedLines = [];
 
 						const clearTyping = () => {
-							if (!activeLine) return;
-
-							activeLine.classList.remove('is-typing');
-							activeLine.style.removeProperty('--jcem-terminal-type-width');
-							activeLine.style.removeProperty('--jcem-terminal-type-duration');
+							const lines = new Set(maskedLines);
+							if (activeLine) lines.add(activeLine);
+							lines.forEach((line) => {
+								line.classList.remove('is-preparing', 'is-typing');
+								line.style.removeProperty('--jcem-terminal-type-width');
+								line.style.removeProperty('--jcem-terminal-type-duration');
+							});
+							maskedLines = [];
 							activeLine = null;
 						};
 						const lineKey = (line) =>
@@ -930,6 +943,9 @@
 									line: target,
 									key,
 									text,
+									maskLines: lines.filter(
+										(line) => (line.textContent || '').trim() === text
+									),
 									width: measureLineContentWidth(target)
 								});
 							});
@@ -941,24 +957,46 @@
 							screen.dataset.jcemTerminalRuntime = 'precomputed';
 							screen.dataset.jcemTerminalStepCount = String(steps.length);
 						};
+						const prepareStep = (step) => {
+							clearTyping();
+							if (!step) return false;
+
+							activeLine = step.line;
+							maskedLines = step.maskLines;
+							maskedLines.forEach((line) => {
+								line.style.setProperty('--jcem-terminal-type-duration', `${typeMs}ms`);
+								line.style.setProperty('--jcem-terminal-type-width', '0px');
+								line.classList.add('is-preparing');
+							});
+							screen.dataset.jcemTerminalPreparedLine = step.key;
+							screen.dataset.jcemTerminalPhase = 'preparing';
+							void track.offsetHeight;
+							return true;
+						};
 						const typeStep = () => {
 							const step = steps[stepIndex];
-							clearTyping();
 							if (!step || step.text === lastTypedLine) {
+								clearTyping();
 								timer = window.setTimeout(advance, pauseMs);
 								return;
 							}
+							if (activeLine !== step.line && !prepareStep(step)) return;
 
 							lastTypedLine = step.text;
-							activeLine = step.line;
 							screen.dataset.jcemTerminalActiveLine = step.key;
 							screen.dataset.jcemTerminalPhase = 'typing';
 							screen.dataset.jcemTerminalTyping = 'css-transition';
 							screen.dataset.jcemTerminalTick = String(
 								Number(screen.dataset.jcemTerminalTick || '0') + 1
 							);
-							activeLine.style.setProperty('--jcem-terminal-type-duration', `${typeMs}ms`);
-							activeLine.style.setProperty('--jcem-terminal-type-width', '0px');
+							maskedLines.forEach((line) => {
+								if (line === activeLine) return;
+								line.classList.remove('is-preparing');
+								line.style.removeProperty('--jcem-terminal-type-width');
+								line.style.removeProperty('--jcem-terminal-type-duration');
+							});
+							maskedLines = [activeLine];
+							activeLine.classList.remove('is-preparing');
 							activeLine.classList.add('is-typing');
 							void activeLine.offsetWidth;
 							activeLine.style.setProperty('--jcem-terminal-type-width', `${step.width}px`);
@@ -968,23 +1006,28 @@
 						function advance() {
 							if (document.hidden || steps.length < 2) return;
 
-							clearTyping();
-							screen.dataset.jcemTerminalPhase = 'scrolling';
-
 							if (stepIndex >= steps.length - 1) {
-								setShift(resetShift + steps[0].shift, true);
+								if (!prepareStep(steps[0])) return;
 								timer = window.setTimeout(() => {
-									stepIndex = 0;
-									setShift(steps[0].shift, false);
-									void track.offsetHeight;
-									typeStep();
-								}, transitionMs + 10);
+									screen.dataset.jcemTerminalPhase = 'scrolling';
+									setShift(resetShift + steps[0].shift, true);
+									timer = window.setTimeout(() => {
+										stepIndex = 0;
+										setShift(steps[0].shift, false);
+										void track.offsetHeight;
+										typeStep();
+									}, transitionMs + 10);
+								}, prepareMs);
 								return;
 							}
 
 							stepIndex += 1;
-							setShift(steps[stepIndex].shift, true);
-							timer = window.setTimeout(typeStep, transitionMs + 10);
+							if (!prepareStep(steps[stepIndex])) return;
+							timer = window.setTimeout(() => {
+								screen.dataset.jcemTerminalPhase = 'scrolling';
+								setShift(steps[stepIndex].shift, true);
+								timer = window.setTimeout(typeStep, transitionMs + 10);
+							}, prepareMs);
 						}
 						const start = () => {
 							window.clearTimeout(timer);
@@ -998,7 +1041,8 @@
 							setShift(steps[0].shift, false);
 							void track.offsetHeight;
 							screen.dataset.jcemTerminalMotion = 'line-step';
-							typeStep();
+							if (!prepareStep(steps[0])) return;
+							timer = window.setTimeout(typeStep, prepareMs);
 						};
 						const handleResize = () => {
 							window.clearTimeout(resizeTimer);

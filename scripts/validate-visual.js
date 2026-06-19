@@ -1678,6 +1678,7 @@ const validate404Page = async (page, url, viewportName) => {
 				'.jcem-404__screen-seq[aria-hidden="true"]',
 			).length,
 			terminalFinalBorder: terminalFinalStyle?.borderLeftWidth || '',
+			terminalFinalBackground: terminalFinalStyle?.backgroundColor || '',
 			terminalFinalColor: terminalFinalStyle?.color || '',
 			loader: rectFor(loader),
 			text: document.body.innerText || '',
@@ -1773,6 +1774,7 @@ const validate404Page = async (page, url, viewportName) => {
 		result.terminalLineWhiteSpace !== 'nowrap' ||
 		result.terminalScreenOverflow !== 'hidden' ||
 		result.terminalHiddenSequences !== 1 ||
+		result.terminalFinalBackground !== result.terminalScreen.backgroundColor ||
 		Number.parseFloat(result.terminalFinalBorder || '0') < 1
 	) {
 		fail(`Terminal 404 sem animacao CSS continua em ${url} ${viewportName}`);
