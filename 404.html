@@ -412,8 +412,10 @@
 			}
 
 			.main_jcem_wrapper .jcem-404__screen {
+				--jcem-terminal-shift: 0px;
 				position: relative;
-				max-height: 10rem;
+				height: calc((1.18em * 8) + 1.15rem);
+				max-height: none;
 				margin: 0;
 				padding: 0;
 				overflow: hidden !important;
@@ -453,8 +455,13 @@
 
 			.jcem-404__screen-track {
 				display: block;
-				animation: jcem-404-terminal-scroll 11s linear infinite;
+				transform: translate3d(0, calc(var(--jcem-terminal-shift) * -1), 0);
+				transition: transform 95ms ease-out;
 				will-change: transform;
+			}
+
+			.jcem-404__screen-track.is-resetting {
+				transition: none;
 			}
 
 			.jcem-404__screen-seq,
@@ -470,34 +477,37 @@
 				position: relative;
 				margin: 0;
 				line-height: 1.18;
+				overflow: hidden;
+				white-space: nowrap;
 			}
 
-			.jcem-404__line::after {
+			.jcem-404__line.is-typing::before {
+				position: absolute;
+				inset: 0 0 0 var(--jcem-terminal-type-width, 0px);
+				display: block;
+				background: var(--jcem-404-terminal-bg);
+				content: "";
+				pointer-events: none;
+				z-index: 1;
+			}
+
+			.jcem-404__line--final.is-typing::before {
+				background: color-mix(in srgb, var(--jcem-404-terminal-error) 12%, var(--jcem-404-terminal-bg));
+			}
+
+			.jcem-404__line.is-typing::after {
 				position: absolute;
 				top: 0.08em;
 				bottom: 0.08em;
-				left: 0;
+				left: var(--jcem-terminal-type-width, 0px);
+				z-index: 2;
 				display: block;
-				width: 0.65em;
-				background: color-mix(in srgb, var(--jcem-404-terminal-command) 72%, transparent);
-				box-shadow: 0 0 0.45rem color-mix(in srgb, var(--jcem-404-terminal-command) 42%, transparent);
+				width: 0.58em;
+				background: var(--jcem-404-terminal-command);
+				box-shadow: 0 0 0.45rem color-mix(in srgb, var(--jcem-404-terminal-command) 48%, transparent);
 				content: "";
-				opacity: 0;
 				pointer-events: none;
-				transform: translateX(0);
-				animation: jcem-404-type-scan 0.82s steps(18, end) infinite;
-			}
-
-			.jcem-404__line:nth-child(4n + 2)::after {
-				animation-delay: -0.2s;
-			}
-
-			.jcem-404__line:nth-child(4n + 3)::after {
-				animation-delay: -0.4s;
-			}
-
-			.jcem-404__line:nth-child(4n + 4)::after {
-				animation-delay: -0.6s;
+				animation: jcem-404-cursor-blink 0.72s steps(1, end) infinite;
 			}
 
 			.jcem-404__line--final {
@@ -507,10 +517,6 @@
 				background: color-mix(in srgb, var(--jcem-404-terminal-error) 12%, transparent);
 				color: var(--jcem-404-terminal-error);
 				text-shadow: 0 0 0.45rem color-mix(in srgb, var(--jcem-404-terminal-error) 58%, transparent);
-			}
-
-			.jcem-404__cursor {
-				animation: jcem-404-cursor-blink 1s steps(1, end) infinite;
 			}
 
 			.jcem-404__prompt {
@@ -610,33 +616,6 @@
 				}
 			}
 
-			@keyframes jcem-404-terminal-scroll {
-				from {
-					transform: translate3d(0, 0, 0);
-				}
-
-				to {
-					transform: translate3d(0, -50%, 0);
-				}
-			}
-
-			@keyframes jcem-404-type-scan {
-				0% {
-					opacity: 0;
-					transform: translateX(0);
-				}
-
-				10%,
-				72% {
-					opacity: 0.82;
-				}
-
-				100% {
-					opacity: 0;
-					transform: translateX(42rem);
-				}
-			}
-
 			@keyframes jcem-404-cursor-blink {
 				0%,
 				49% {
@@ -675,15 +654,14 @@
 				}
 
 				.jcem-404__screen {
-					max-height: 15rem;
+					height: calc((1.18em * 8) + 1.15rem);
 				}
 			}
 
 			@media (prefers-reduced-motion: reduce) {
 				.jcem-404__code,
 				.jcem-404__code::before,
-				.jcem-404__code::after,
-				.jcem-404__cursor {
+				.jcem-404__code::after {
 					animation: none;
 				}
 			}
@@ -869,7 +847,7 @@
 <span class="jcem-404__line"><span class="jcem-404__err">ENOENT:</span> ./_site/p/pagina/index.html</span>
 <span class="jcem-404__line">HTTP/1.1 <span class="jcem-404__err">404 Not Found</span></span>
 <span class="jcem-404__line"><span class="jcem-404__prompt">&gt;</span> <span class="jcem-404__cmd">throw new Error("página não encontrada")</span></span>
-<span class="jcem-404__line jcem-404__line--final">Error: página não encontrada <span class="jcem-404__cursor">█</span></span>
+<span class="jcem-404__line jcem-404__line--final">Error: página não encontrada</span>
 </span><span class="jcem-404__screen-seq" aria-hidden="true"><span class="jcem-404__line"><span class="jcem-404__prompt">&gt;</span> <span class="jcem-404__cmd">env | grep REQUEST_SLUG</span></span>
 <span class="jcem-404__line">REQUEST_SLUG=pagina</span>
 <span class="jcem-404__line"><span class="jcem-404__prompt">&gt;</span> <span class="jcem-404__cmd">node ./diagnostico-404.mjs</span></span>
@@ -892,9 +870,120 @@
 <span class="jcem-404__line"><span class="jcem-404__err">ENOENT:</span> ./_site/p/pagina/index.html</span>
 <span class="jcem-404__line">HTTP/1.1 <span class="jcem-404__err">404 Not Found</span></span>
 <span class="jcem-404__line"><span class="jcem-404__prompt">&gt;</span> <span class="jcem-404__cmd">throw new Error("página não encontrada")</span></span>
-<span class="jcem-404__line jcem-404__line--final">Error: página não encontrada <span class="jcem-404__cursor">█</span></span>
+<span class="jcem-404__line jcem-404__line--final">Error: página não encontrada</span>
 </span></code></pre>
 				</section>
+				<script>
+					(() => {
+						const screen = document.querySelector('.jcem-404__screen');
+						const track = document.querySelector('.jcem-404__screen-track');
+						const firstSequence = document.querySelector('.jcem-404__screen-seq:not([aria-hidden])');
+
+						if (!screen || !track || !firstSequence) return;
+
+						const lineSelector = '.jcem-404__line';
+						const stepMs = 230;
+						const transitionMs = 95;
+						const typeMs = 145;
+						let offsets = [];
+						let stepIndex = 0;
+						let timer = 0;
+						let typingFrame = 0;
+
+						const allLines = () => Array.from(track.querySelectorAll(lineSelector));
+						const clearTyping = () => {
+							if (typingFrame) window.cancelAnimationFrame(typingFrame);
+							allLines().forEach((line) => {
+								line.classList.remove('is-typing');
+								line.style.removeProperty('--jcem-terminal-type-width');
+							});
+						};
+						const setShift = (value, smooth = true) => {
+							track.classList.toggle('is-resetting', !smooth);
+							screen.style.setProperty('--jcem-terminal-shift', `${Math.max(0, value)}px`);
+						};
+						const readOffsets = () => {
+							const firstLines = Array.from(firstSequence.querySelectorAll(lineSelector));
+							const base = firstSequence.offsetTop;
+							offsets = firstLines
+								.map((line) => Math.max(0, line.offsetTop - base))
+								.concat(firstSequence.offsetHeight);
+							stepIndex = Math.min(stepIndex, Math.max(0, offsets.length - 2));
+							track.style.transitionDuration = `${transitionMs}ms`;
+						};
+						const findLastVisibleLine = () => {
+							const screenRect = screen.getBoundingClientRect();
+							return allLines().reduce((current, line) => {
+								const rect = line.getBoundingClientRect();
+								if (rect.top >= screenRect.top + 1 && rect.bottom <= screenRect.bottom - 1) {
+									return line;
+								}
+
+								return current;
+							}, null);
+						};
+						const typeLine = (line) => {
+							clearTyping();
+							if (!line) return;
+
+							const targetWidth = Math.max(12, Math.ceil(line.scrollWidth));
+							const startedAt = performance.now();
+							line.classList.add('is-typing');
+							line.style.setProperty('--jcem-terminal-type-width', '0px');
+
+							const tick = (now) => {
+								const progress = Math.min(1, (now - startedAt) / typeMs);
+								const eased = 1 - Math.pow(1 - progress, 2);
+								line.style.setProperty(
+									'--jcem-terminal-type-width',
+									`${Math.ceil(targetWidth * eased)}px`
+								);
+
+								if (progress < 1 && line.classList.contains('is-typing')) {
+									typingFrame = window.requestAnimationFrame(tick);
+								}
+							};
+
+							typingFrame = window.requestAnimationFrame(tick);
+						};
+						const syncTyping = () => {
+							window.setTimeout(() => {
+								typeLine(findLastVisibleLine());
+							}, transitionMs + 15);
+						};
+						const advance = () => {
+							if (offsets.length < 2) return;
+
+							stepIndex += 1;
+							setShift(offsets[stepIndex], true);
+							syncTyping();
+
+							if (stepIndex >= offsets.length - 1) {
+								window.setTimeout(() => {
+									stepIndex = 0;
+									setShift(0, false);
+									track.offsetHeight;
+									setShift(0, true);
+									typeLine(findLastVisibleLine());
+								}, transitionMs + 20);
+							}
+						};
+						const start = () => {
+							window.clearInterval(timer);
+							clearTyping();
+							readOffsets();
+							setShift(offsets[stepIndex] || 0, false);
+							track.offsetHeight;
+							setShift(offsets[stepIndex] || 0, true);
+							screen.dataset.jcemTerminalMotion = 'line-step';
+							typeLine(findLastVisibleLine());
+							timer = window.setInterval(advance, stepMs);
+						};
+
+						window.addEventListener('resize', start, { passive: true });
+						start();
+					})();
+				</script>
 
 					<div class="jcem-404__actions">
 						<ul class="jcem-404__status" aria-label="Mensagem 404 em idiomas distintos">

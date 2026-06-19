@@ -1519,6 +1519,16 @@ const validate404Page = async (page, url, viewportName) => {
 		const style = window.getComputedStyle(loader);
 		return style.visibility === 'hidden' || style.opacity === '0';
 	});
+	await page
+		.waitForFunction(
+			() =>
+				document.querySelector('.jcem-404__screen')?.dataset
+					.jcemTerminalMotion === 'line-step' &&
+				document.querySelectorAll('.jcem-404__line.is-typing').length === 1,
+			null,
+			{ timeout: 2000 },
+		)
+		.catch(() => {});
 
 	const result = await page.evaluate(() => {
 		const page404 = document.querySelector('.jcem-404');
@@ -1528,6 +1538,7 @@ const validate404Page = async (page, url, viewportName) => {
 		const terminalScreen = document.querySelector('.jcem-404__screen');
 		const terminalTrack = document.querySelector('.jcem-404__screen-track');
 		const terminalFinal = document.querySelector('.jcem-404__line--final');
+		const terminalActiveLine = document.querySelector('.jcem-404__line.is-typing');
 		const themeToggle = document.querySelector('.jcem-theme-toggle');
 		const loader = document.querySelector('.carregandoPagina');
 		const page404Style = page404 ? window.getComputedStyle(page404) : null;
@@ -1538,8 +1549,11 @@ const validate404Page = async (page, url, viewportName) => {
 			? window.getComputedStyle(terminalTrack)
 			: null;
 		const terminalLine = document.querySelector('.jcem-404__line');
-		const terminalLineAfterStyle = terminalLine
-			? window.getComputedStyle(terminalLine, '::after')
+		const terminalLineStyle = terminalLine
+			? window.getComputedStyle(terminalLine)
+			: null;
+		const terminalActiveLineAfterStyle = terminalActiveLine
+			? window.getComputedStyle(terminalActiveLine, '::after')
 			: null;
 		const terminalFinalStyle = terminalFinal
 			? window.getComputedStyle(terminalFinal)
@@ -1583,11 +1597,18 @@ const validate404Page = async (page, url, viewportName) => {
 				(page404Style?.backgroundImage.match(/radial-gradient/g) || []).length,
 			terminal: rectFor(terminal),
 			terminalScreen: rectFor(terminalScreen),
-			terminalTrackAnimation: terminalTrackStyle?.animationName || '',
-			terminalTrackAnimationDuration:
-				terminalTrackStyle?.animationDuration || '',
-			terminalLineTypingAnimation:
-				terminalLineAfterStyle?.animationName || '',
+			terminalMotion: terminalScreen?.dataset.jcemTerminalMotion || '',
+			terminalTrackTransitionProperty:
+				terminalTrackStyle?.transitionProperty || '',
+			terminalTrackTransitionDuration:
+				terminalTrackStyle?.transitionDuration || '',
+			terminalActiveTypingCount:
+				document.querySelectorAll('.jcem-404__line.is-typing').length,
+			terminalEmbeddedCursorCount:
+				document.querySelectorAll('.jcem-404__cursor').length,
+			terminalActiveCursorAnimation:
+				terminalActiveLineAfterStyle?.animationName || '',
+			terminalLineWhiteSpace: terminalLineStyle?.whiteSpace || '',
 			terminalScreenOverflow: terminalScreenStyle?.overflow || '',
 			terminalHiddenSequences: document.querySelectorAll(
 				'.jcem-404__screen-seq[aria-hidden="true"]',
@@ -1670,9 +1691,13 @@ const validate404Page = async (page, url, viewportName) => {
 	if (
 		!result.terminalScreen ||
 		result.terminalScreen.height <= 1 ||
-		result.terminalTrackAnimation !== 'jcem-404-terminal-scroll' ||
-		result.terminalTrackAnimationDuration !== '11s' ||
-		result.terminalLineTypingAnimation !== 'jcem-404-type-scan' ||
+		result.terminalMotion !== 'line-step' ||
+		!result.terminalTrackTransitionProperty.includes('transform') ||
+		Number.parseFloat(result.terminalTrackTransitionDuration || '0') <= 0 ||
+		result.terminalActiveTypingCount !== 1 ||
+		result.terminalEmbeddedCursorCount !== 0 ||
+		result.terminalActiveCursorAnimation !== 'jcem-404-cursor-blink' ||
+		result.terminalLineWhiteSpace !== 'nowrap' ||
 		result.terminalScreenOverflow !== 'hidden' ||
 		result.terminalHiddenSequences !== 1 ||
 		Number.parseFloat(result.terminalFinalBorder || '0') < 1
