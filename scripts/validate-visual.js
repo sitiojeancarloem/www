@@ -1582,6 +1582,9 @@ const validate404Page = async (page, url, viewportName) => {
 		const terminalActiveLineAfterStyle = terminalActiveLine
 			? window.getComputedStyle(terminalActiveLine, '::after')
 			: null;
+		const terminalActiveLineBeforeStyle = terminalActiveLine
+			? window.getComputedStyle(terminalActiveLine, '::before')
+			: null;
 		const measureTextWidth = (element) => {
 			if (!element) return 0;
 
@@ -1636,6 +1639,12 @@ const validate404Page = async (page, url, viewportName) => {
 			terminal: rectFor(terminal),
 			terminalScreen: rectFor(terminalScreen),
 			terminalMotion: terminalScreen?.dataset.jcemTerminalMotion || '',
+			terminalTyping: terminalScreen?.dataset.jcemTerminalTyping || '',
+			terminalRuntime: terminalScreen?.dataset.jcemTerminalRuntime || '',
+			terminalStepCount: Number.parseInt(
+				terminalScreen?.dataset.jcemTerminalStepCount || '0',
+				10,
+			),
 			terminalTrackTransitionProperty:
 				terminalTrackStyle?.transitionProperty || '',
 			terminalTrackTransitionDuration:
@@ -1646,6 +1655,18 @@ const validate404Page = async (page, url, viewportName) => {
 				document.querySelectorAll('.jcem-404__cursor').length,
 			terminalActiveCursorAnimation:
 				terminalActiveLineAfterStyle?.animationName || '',
+			terminalActiveCursorLeft: Number.parseFloat(
+				terminalActiveLineAfterStyle?.left || '0',
+			),
+			terminalActiveCursorTransitionDuration:
+				terminalActiveLineAfterStyle?.transitionDuration || '',
+			terminalActiveMaskLeft: Number.parseFloat(
+				terminalActiveLineBeforeStyle?.left || '0',
+			),
+			terminalActiveMaskBackground:
+				terminalActiveLineBeforeStyle?.backgroundColor || '',
+			terminalActiveMaskTransitionDuration:
+				terminalActiveLineBeforeStyle?.transitionDuration || '',
 			terminalActiveLineText: terminalActiveLine?.textContent?.trim() || '',
 			terminalActiveTypeWidth: Number.parseFloat(
 				terminalActiveLine?.style.getPropertyValue('--jcem-terminal-type-width') || '0',
@@ -1735,11 +1756,18 @@ const validate404Page = async (page, url, viewportName) => {
 		!result.terminalScreen ||
 		result.terminalScreen.height <= 1 ||
 		result.terminalMotion !== 'line-step' ||
+		result.terminalTyping !== 'css-transition' ||
+		result.terminalRuntime !== 'precomputed' ||
+		result.terminalStepCount < 2 ||
 		!result.terminalTrackTransitionProperty.includes('transform') ||
 		Number.parseFloat(result.terminalTrackTransitionDuration || '0') <= 0 ||
 		result.terminalActiveTypingCount !== 1 ||
 		result.terminalEmbeddedCursorCount !== 0 ||
 		result.terminalActiveCursorAnimation !== 'jcem-404-cursor-blink' ||
+		Math.abs(result.terminalActiveCursorLeft - result.terminalActiveMaskLeft) > 1 ||
+		result.terminalActiveCursorTransitionDuration !==
+			result.terminalActiveMaskTransitionDuration ||
+		result.terminalActiveMaskBackground !== result.terminalScreen.backgroundColor ||
 		!result.terminalActiveLineText ||
 		result.terminalActiveTypeWidth > result.terminalActiveTextWidth + 6 ||
 		result.terminalLineWhiteSpace !== 'nowrap' ||

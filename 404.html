@@ -339,7 +339,6 @@
 				--jcem-404-terminal-bg: #171d26;
 				--jcem-404-terminal-head: #131923;
 				--jcem-404-terminal-border: #3a4554;
-				--jcem-404-terminal-grid: rgba(119, 199, 228, 0.12);
 				--jcem-404-terminal-shadow: rgba(0, 0, 0, 0.36);
 				--jcem-404-terminal-text: #c4cbd6;
 				--jcem-404-terminal-muted: #8c96a4;
@@ -351,10 +350,7 @@
 				overflow: hidden;
 				border: 1px solid var(--jcem-404-terminal-border);
 				border-radius: 0.4rem;
-				background:
-					linear-gradient(90deg, var(--jcem-404-terminal-grid) 1px, transparent 1px),
-					var(--jcem-404-terminal-bg);
-				background-size: 2.35rem 2.35rem;
+				background: var(--jcem-404-terminal-bg);
 				box-shadow: 0 0.75rem 1.8rem var(--jcem-404-terminal-shadow);
 			}
 
@@ -431,33 +427,10 @@
 				display: none;
 			}
 
-			.main_jcem_wrapper .jcem-404__screen::before,
-			.main_jcem_wrapper .jcem-404__screen::after {
-				position: absolute;
-				right: 0;
-				left: 0;
-				z-index: 2;
-				display: block;
-				height: 1.2rem;
-				content: "";
-				pointer-events: none;
-			}
-
-			.main_jcem_wrapper .jcem-404__screen::before {
-				top: 0;
-				background: linear-gradient(to bottom, var(--jcem-404-terminal-bg), transparent);
-			}
-
-			.main_jcem_wrapper .jcem-404__screen::after {
-				bottom: 0;
-				background: linear-gradient(to top, var(--jcem-404-terminal-bg), transparent);
-			}
-
 			.jcem-404__screen-track {
 				display: block;
 				transform: translate3d(0, calc(var(--jcem-terminal-shift) * -1), 0);
-				transition: transform 85ms ease-out;
-				will-change: transform;
+				transition: transform 75ms ease-out;
 			}
 
 			.jcem-404__screen-track.is-resetting {
@@ -483,16 +456,16 @@
 
 			.jcem-404__line.is-typing::before {
 				position: absolute;
-				inset: 0 0 0 var(--jcem-terminal-type-width, 0px);
+				top: 0;
+				right: 0;
+				bottom: 0;
+				left: var(--jcem-terminal-type-width, 0px);
 				display: block;
 				background: var(--jcem-404-terminal-bg);
 				content: "";
 				pointer-events: none;
 				z-index: 1;
-			}
-
-			.jcem-404__line--final.is-typing::before {
-				background: color-mix(in srgb, var(--jcem-404-terminal-error) 12%, var(--jcem-404-terminal-bg));
+				transition: left var(--jcem-terminal-type-duration, 105ms) linear;
 			}
 
 			.jcem-404__line.is-typing::after {
@@ -508,6 +481,7 @@
 				content: "";
 				pointer-events: none;
 				animation: jcem-404-cursor-blink 0.72s steps(1, end) infinite;
+				transition: left var(--jcem-terminal-type-duration, 105ms) linear;
 			}
 
 			.jcem-404__line--final {
@@ -885,48 +859,27 @@
 						const pauseMs = 25;
 						const transitionMs = 75;
 						const typeMs = 105;
-						let offsets = [];
+						let steps = [];
+						let resetShift = 0;
 						let stepIndex = 0;
 						let timer = 0;
-						let typingFrame = 0;
+						let resizeTimer = 0;
 						let lastTypedLine = '';
+						let activeLine = null;
 
-						const allLines = () => Array.from(track.querySelectorAll(lineSelector));
 						const clearTyping = () => {
-							if (typingFrame) window.cancelAnimationFrame(typingFrame);
-							typingFrame = 0;
-							allLines().forEach((line) => {
-								line.classList.remove('is-typing');
-								line.style.removeProperty('--jcem-terminal-type-width');
-							});
+							if (!activeLine) return;
+
+							activeLine.classList.remove('is-typing');
+							activeLine.style.removeProperty('--jcem-terminal-type-width');
+							activeLine.style.removeProperty('--jcem-terminal-type-duration');
+							activeLine = null;
 						};
 						const lineKey = (line) =>
 							line ? `${Math.round(line.offsetTop)}:${(line.textContent || '').trim()}` : '';
 						const setShift = (value, smooth = true) => {
 							track.classList.toggle('is-resetting', !smooth);
 							screen.style.setProperty('--jcem-terminal-shift', `${Math.max(0, value)}px`);
-						};
-						const readOffsets = () => {
-							const firstLines = Array.from(firstSequence.querySelectorAll(lineSelector));
-							const base = firstSequence.offsetTop;
-							offsets = firstLines
-								.map((line) => Math.max(0, line.offsetTop - base))
-								.concat(firstSequence.offsetHeight);
-							stepIndex = Math.min(stepIndex, Math.max(0, offsets.length - 2));
-							track.style.transitionDuration = `${transitionMs}ms`;
-						};
-						const findLastVisibleLine = () => {
-							const screenRect = screen.getBoundingClientRect();
-							return allLines().reduce((current, line) => {
-								if (!(line.textContent || '').trim()) return current;
-
-								const rect = line.getBoundingClientRect();
-								if (rect.top >= screenRect.top + 1 && rect.bottom <= screenRect.bottom - 1) {
-									return line;
-								}
-
-								return current;
-							}, null);
 						};
 						const measureLineContentWidth = (line) => {
 							const range = document.createRange();
@@ -940,91 +893,130 @@
 								Math.min(Math.ceil(rect.right - lineRect.left) + 2, line.clientWidth)
 							);
 						};
-						const scheduleNext = (delay = pauseMs) => {
-							window.clearTimeout(timer);
-							timer = window.setTimeout(advance, delay);
-						};
-						const typeLine = (line, onDone) => {
-							clearTyping();
-							if (!line || !(line.textContent || '').trim()) return;
+						const readSteps = () => {
+							const lines = Array.from(track.querySelectorAll(lineSelector));
+							const firstLines = Array.from(firstSequence.querySelectorAll(lineSelector));
+							const base = firstSequence.offsetTop;
+							const offsets = firstLines.map((line) => Math.max(0, line.offsetTop - base));
+							const screenRect = screen.getBoundingClientRect();
+							const metrics = lines.map((line) => {
+								const rect = line.getBoundingClientRect();
+								return {
+									line,
+									top: rect.top - screenRect.top,
+									bottom: rect.bottom - screenRect.top
+								};
+							});
+							const nextSteps = [];
 
-							const targetWidth = measureLineContentWidth(line);
-							const startedAt = performance.now();
-							lastTypedLine = lineKey(line);
-							screen.dataset.jcemTerminalActiveLine = lastTypedLine;
+							offsets.forEach((shift) => {
+								const target = metrics.reduce((current, metric) => {
+									if (!(metric.line.textContent || '').trim()) return current;
+									if (
+										metric.top - shift >= 1 &&
+										metric.bottom - shift <= screen.clientHeight - 1
+									) {
+										return metric.line;
+									}
+
+									return current;
+								}, null);
+								const key = lineKey(target);
+								const text = (target?.textContent || '').trim();
+								if (!target || !key || !text || nextSteps[nextSteps.length - 1]?.text === text) return;
+
+								nextSteps.push({
+									shift,
+									line: target,
+									key,
+									text,
+									width: measureLineContentWidth(target)
+								});
+							});
+
+							steps = nextSteps;
+							resetShift = firstSequence.offsetHeight;
+							stepIndex = Math.min(stepIndex, Math.max(0, steps.length - 1));
+							track.style.transitionDuration = `${transitionMs}ms`;
+							screen.dataset.jcemTerminalRuntime = 'precomputed';
+							screen.dataset.jcemTerminalStepCount = String(steps.length);
+						};
+						const typeStep = () => {
+							const step = steps[stepIndex];
+							clearTyping();
+							if (!step || step.text === lastTypedLine) {
+								timer = window.setTimeout(advance, pauseMs);
+								return;
+							}
+
+							lastTypedLine = step.text;
+							activeLine = step.line;
+							screen.dataset.jcemTerminalActiveLine = step.key;
 							screen.dataset.jcemTerminalPhase = 'typing';
+							screen.dataset.jcemTerminalTyping = 'css-transition';
 							screen.dataset.jcemTerminalTick = String(
 								Number(screen.dataset.jcemTerminalTick || '0') + 1
 							);
-							line.classList.add('is-typing');
-							line.style.setProperty('--jcem-terminal-type-width', '0px');
-
-							const tick = (now) => {
-								const progress = Math.min(1, (now - startedAt) / typeMs);
-								const eased = 1 - Math.pow(1 - progress, 2);
-								line.style.setProperty(
-									'--jcem-terminal-type-width',
-									`${Math.ceil(targetWidth * eased)}px`
-								);
-
-								if (progress < 1 && line.classList.contains('is-typing')) {
-									typingFrame = window.requestAnimationFrame(tick);
-								} else {
-									typingFrame = 0;
-									if (typeof onDone === 'function') {
-										window.setTimeout(onDone, pauseMs);
-									}
-								}
-							};
-
-							typingFrame = window.requestAnimationFrame(tick);
-						};
-						const typeVisibleLine = () => {
-							const line = findLastVisibleLine();
-							const key = lineKey(line);
-
-							if (!line || !key || key === lastTypedLine) {
-								scheduleNext();
-								return;
-							}
-
-							typeLine(line, scheduleNext);
+							activeLine.style.setProperty('--jcem-terminal-type-duration', `${typeMs}ms`);
+							activeLine.style.setProperty('--jcem-terminal-type-width', '0px');
+							activeLine.classList.add('is-typing');
+							void activeLine.offsetWidth;
+							activeLine.style.setProperty('--jcem-terminal-type-width', `${step.width}px`);
+							window.clearTimeout(timer);
+							timer = window.setTimeout(advance, typeMs + pauseMs);
 						};
 						function advance() {
-							if (offsets.length < 2) return;
+							if (document.hidden || steps.length < 2) return;
 
 							clearTyping();
 							screen.dataset.jcemTerminalPhase = 'scrolling';
-							stepIndex += 1;
-							setShift(offsets[stepIndex], true);
 
-							if (stepIndex >= offsets.length - 1) {
-								window.setTimeout(() => {
+							if (stepIndex >= steps.length - 1) {
+								setShift(resetShift + steps[0].shift, true);
+								timer = window.setTimeout(() => {
 									stepIndex = 0;
-									setShift(0, false);
-									track.offsetHeight;
-									lastTypedLine = '';
-									setShift(0, true);
-									typeVisibleLine();
-								}, transitionMs + 20);
+									setShift(steps[0].shift, false);
+									void track.offsetHeight;
+									typeStep();
+								}, transitionMs + 10);
 								return;
 							}
 
-							window.setTimeout(typeVisibleLine, transitionMs + 15);
+							stepIndex += 1;
+							setShift(steps[stepIndex].shift, true);
+							timer = window.setTimeout(typeStep, transitionMs + 10);
 						}
 						const start = () => {
 							window.clearTimeout(timer);
 							clearTyping();
-							readOffsets();
+							stepIndex = 0;
 							lastTypedLine = '';
-							setShift(offsets[stepIndex] || 0, false);
-							track.offsetHeight;
-							setShift(offsets[stepIndex] || 0, true);
+							setShift(0, false);
+							void track.offsetHeight;
+							readSteps();
+							if (!steps.length) return;
+							setShift(steps[0].shift, false);
+							void track.offsetHeight;
 							screen.dataset.jcemTerminalMotion = 'line-step';
-							typeVisibleLine();
+							typeStep();
+						};
+						const handleResize = () => {
+							window.clearTimeout(resizeTimer);
+							resizeTimer = window.setTimeout(start, 150);
+						};
+						const handleVisibility = () => {
+							window.clearTimeout(timer);
+							if (document.hidden) {
+								clearTyping();
+								screen.dataset.jcemTerminalPhase = 'paused';
+								return;
+							}
+
+							start();
 						};
 
-						window.addEventListener('resize', start, { passive: true });
+						window.addEventListener('resize', handleResize, { passive: true });
+						document.addEventListener('visibilitychange', handleVisibility, { passive: true });
 						start();
 					})();
 				</script>
