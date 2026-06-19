@@ -1530,6 +1530,33 @@ const validate404Page = async (page, url, viewportName) => {
 		)
 		.catch(() => {});
 
+	const terminalLineSequence = await page.evaluate(
+		() =>
+			new Promise((resolve) => {
+				const screen = document.querySelector('.jcem-404__screen');
+				const samples = [];
+				let lastTick = '';
+				const startedAt = performance.now();
+				const sample = () => {
+					const tick = screen?.dataset.jcemTerminalTick || '';
+					const line = screen?.dataset.jcemTerminalActiveLine || '';
+					if (tick && tick !== lastTick) {
+						samples.push({ tick, line });
+						lastTick = tick;
+					}
+
+					if (samples.length >= 3 || performance.now() - startedAt > 900) {
+						resolve(samples);
+						return;
+					}
+
+					window.setTimeout(sample, 35);
+				};
+
+				sample();
+			}),
+	);
+
 	const result = await page.evaluate(() => {
 		const page404 = document.querySelector('.jcem-404');
 		const featured = document.querySelector('.jcem-404-featured');
@@ -1721,6 +1748,16 @@ const validate404Page = async (page, url, viewportName) => {
 		Number.parseFloat(result.terminalFinalBorder || '0') < 1
 	) {
 		fail(`Terminal 404 sem animacao CSS continua em ${url} ${viewportName}`);
+	}
+
+	if (
+		terminalLineSequence.length < 3 ||
+		terminalLineSequence.some(
+			(sample, index) =>
+				index > 0 && sample.line && sample.line === terminalLineSequence[index - 1].line,
+		)
+	) {
+		fail(`Terminal 404 repetindo digitacao na mesma linha em ${url} ${viewportName}`);
 	}
 
 	if (result.loader && result.loader.visibility !== 'hidden' && result.loader.opacity !== '0') {

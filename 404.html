@@ -882,22 +882,26 @@
 						if (!screen || !track || !firstSequence) return;
 
 						const lineSelector = '.jcem-404__line';
-						const stepMs = 205;
-						const transitionMs = 85;
-						const typeMs = 120;
+						const pauseMs = 25;
+						const transitionMs = 75;
+						const typeMs = 105;
 						let offsets = [];
 						let stepIndex = 0;
 						let timer = 0;
 						let typingFrame = 0;
+						let lastTypedLine = '';
 
 						const allLines = () => Array.from(track.querySelectorAll(lineSelector));
 						const clearTyping = () => {
 							if (typingFrame) window.cancelAnimationFrame(typingFrame);
+							typingFrame = 0;
 							allLines().forEach((line) => {
 								line.classList.remove('is-typing');
 								line.style.removeProperty('--jcem-terminal-type-width');
 							});
 						};
+						const lineKey = (line) =>
+							line ? `${Math.round(line.offsetTop)}:${(line.textContent || '').trim()}` : '';
 						const setShift = (value, smooth = true) => {
 							track.classList.toggle('is-resetting', !smooth);
 							screen.style.setProperty('--jcem-terminal-shift', `${Math.max(0, value)}px`);
@@ -936,12 +940,22 @@
 								Math.min(Math.ceil(rect.right - lineRect.left) + 2, line.clientWidth)
 							);
 						};
-						const typeLine = (line) => {
+						const scheduleNext = (delay = pauseMs) => {
+							window.clearTimeout(timer);
+							timer = window.setTimeout(advance, delay);
+						};
+						const typeLine = (line, onDone) => {
 							clearTyping();
 							if (!line || !(line.textContent || '').trim()) return;
 
 							const targetWidth = measureLineContentWidth(line);
 							const startedAt = performance.now();
+							lastTypedLine = lineKey(line);
+							screen.dataset.jcemTerminalActiveLine = lastTypedLine;
+							screen.dataset.jcemTerminalPhase = 'typing';
+							screen.dataset.jcemTerminalTick = String(
+								Number(screen.dataset.jcemTerminalTick || '0') + 1
+							);
 							line.classList.add('is-typing');
 							line.style.setProperty('--jcem-terminal-type-width', '0px');
 
@@ -955,43 +969,59 @@
 
 								if (progress < 1 && line.classList.contains('is-typing')) {
 									typingFrame = window.requestAnimationFrame(tick);
+								} else {
+									typingFrame = 0;
+									if (typeof onDone === 'function') {
+										window.setTimeout(onDone, pauseMs);
+									}
 								}
 							};
 
 							typingFrame = window.requestAnimationFrame(tick);
 						};
-						const syncTyping = () => {
-							window.setTimeout(() => {
-								typeLine(findLastVisibleLine());
-							}, transitionMs + 15);
+						const typeVisibleLine = () => {
+							const line = findLastVisibleLine();
+							const key = lineKey(line);
+
+							if (!line || !key || key === lastTypedLine) {
+								scheduleNext();
+								return;
+							}
+
+							typeLine(line, scheduleNext);
 						};
-						const advance = () => {
+						function advance() {
 							if (offsets.length < 2) return;
 
+							clearTyping();
+							screen.dataset.jcemTerminalPhase = 'scrolling';
 							stepIndex += 1;
 							setShift(offsets[stepIndex], true);
-							syncTyping();
 
 							if (stepIndex >= offsets.length - 1) {
 								window.setTimeout(() => {
 									stepIndex = 0;
 									setShift(0, false);
 									track.offsetHeight;
+									lastTypedLine = '';
 									setShift(0, true);
-									typeLine(findLastVisibleLine());
+									typeVisibleLine();
 								}, transitionMs + 20);
+								return;
 							}
-						};
+
+							window.setTimeout(typeVisibleLine, transitionMs + 15);
+						}
 						const start = () => {
-							window.clearInterval(timer);
+							window.clearTimeout(timer);
 							clearTyping();
 							readOffsets();
+							lastTypedLine = '';
 							setShift(offsets[stepIndex] || 0, false);
 							track.offsetHeight;
 							setShift(offsets[stepIndex] || 0, true);
 							screen.dataset.jcemTerminalMotion = 'line-step';
-							typeLine(findLastVisibleLine());
-							timer = window.setInterval(advance, stepMs);
+							typeVisibleLine();
 						};
 
 						window.addEventListener('resize', start, { passive: true });
