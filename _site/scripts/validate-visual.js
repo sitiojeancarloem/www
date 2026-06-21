@@ -184,7 +184,7 @@ const readLoadingState = async (page) =>
 		const loader = document.querySelector('.carregandoPagina');
 		const progress = loader?.querySelector('.jcem-load-progress');
 		const progressFill = progress?.querySelector('span');
-		const wrapper = document.querySelector('.main_jcem_wrapper');
+		const wrapper = document.querySelector('body > .main_jcem_wrapper');
 		const wrapperStyle = wrapper ? window.getComputedStyle(wrapper) : null;
 		const progressRect = progress?.getBoundingClientRect();
 		const progressFillRect = progressFill?.getBoundingClientRect();
@@ -760,6 +760,43 @@ const validatePage = async (page, url, theme, viewportName) => {
 					)
 					?.closest('a.archive__item-link')
 			: null;
+		const archiveItems = Array.from(
+			document.querySelectorAll('.entries-grid .archive__item'),
+		);
+		const archiveCardMetrics = archiveItems.map((item) => {
+			const itemRect = item.getBoundingClientRect();
+			const teaser = item.querySelector('.archive__item-teaser');
+			const title = item.querySelector('.archive__item-title');
+			const body = item.querySelector('.archive__item-body');
+			const excerpt = item.querySelector('.archive__item-excerpt');
+			const flag = item.querySelector('.jcem-date-flag--archive');
+			const year = flag?.querySelector('.jcem-date-flag__year');
+			const teaserRect = teaser?.getBoundingClientRect();
+			const titleRect = title?.getBoundingClientRect();
+			const bodyRect = body?.getBoundingClientRect();
+			const flagRect = flag?.getBoundingClientRect();
+			const yearRect = year?.getBoundingClientRect();
+
+			return {
+				imageTitleGap:
+					teaserRect && titleRect ? Math.abs(titleRect.top - teaserRect.bottom) : 0,
+				titleBodyGap:
+					titleRect && bodyRect ? Math.abs(bodyRect.top - titleRect.bottom) : 0,
+				titleClips:
+					title && titleRect ? title.scrollHeight > titleRect.height + 2 : false,
+				hasExcerpt: Boolean((excerpt?.textContent || '').trim()),
+				flagEscapesCardTop: Boolean(flagRect && flagRect.top < itemRect.top),
+				flagInsideCardBottom: Boolean(flagRect && flagRect.bottom < itemRect.bottom),
+				flagYearVisible: Boolean(
+					year &&
+						(year.textContent || '').trim().length === 4 &&
+						yearRect &&
+						yearRect.width > 1 &&
+						yearRect.height > 1 &&
+						year.getClientRects().length === 1,
+				),
+			};
+		});
 
 		return {
 			overflowX: document.documentElement.scrollWidth - document.documentElement.clientWidth,
@@ -909,6 +946,24 @@ const validatePage = async (page, url, theme, viewportName) => {
 					archiveWideImageRect && archiveWideImageRect.height > 0
 						? archiveWideImageRect.width / archiveWideImageRect.height
 						: 0,
+				maxImageTitleGap: Math.max(
+					0,
+					...archiveCardMetrics.map((metric) => metric.imageTitleGap),
+				),
+				maxTitleBodyGap: Math.max(
+					0,
+					...archiveCardMetrics.map((metric) => metric.titleBodyGap),
+				),
+				clippedTitleCount: archiveCardMetrics.filter((metric) => metric.titleClips)
+					.length,
+				missingExcerptCount: archiveCardMetrics.filter((metric) => !metric.hasExcerpt)
+					.length,
+				badFlagCount: archiveCardMetrics.filter(
+					(metric) =>
+						!metric.flagEscapesCardTop ||
+						!metric.flagInsideCardBottom ||
+						!metric.flagYearVisible,
+				).length,
 			},
 			styles: [
 				readStyle('.masthead'),
@@ -1040,6 +1095,22 @@ const validatePage = async (page, url, theme, viewportName) => {
 			(viewportName === 'mobile' && result.archive.columnCount !== 1)
 		) {
 			fail(`Grade de publicacoes fora do limite 1-4 colunas em ${url} ${theme} ${viewportName}`);
+		}
+
+		if (result.archive.maxImageTitleGap > 3) {
+			fail(`Card de arquivo com espaco entre imagem e titulo em ${url} ${theme} ${viewportName}: ${JSON.stringify(result.archive)}`);
+		}
+
+		if (result.archive.maxTitleBodyGap > 3 || result.archive.clippedTitleCount > 0) {
+			fail(`Titulo de card sem altura natural em ${url} ${theme} ${viewportName}: ${JSON.stringify(result.archive)}`);
+		}
+
+		if (result.archive.badFlagCount > 0) {
+			fail(`Flag de card cortada ou com ano invalido em ${url} ${theme} ${viewportName}: ${JSON.stringify(result.archive)}`);
+		}
+
+		if (result.archive.missingExcerptCount > 0) {
+			fail(`Card de arquivo sem excerto em ${url} ${theme} ${viewportName}: ${JSON.stringify(result.archive)}`);
 		}
 
 		if (
@@ -1472,16 +1543,19 @@ const validateNoScriptPage = async (page, url, viewportName) => {
 			return rect.width > 1 && rect.height > 1 && style.display !== 'none' && style.visibility !== 'hidden';
 		};
 		const shell = document.querySelector('.jcem-noscript-page');
+		const noScript = document.querySelector('body > noscript');
 		const masthead = document.querySelector('.jcem-noscript-masthead');
 		const footer = document.querySelector('.jcem-noscript-footer');
 		const featured = document.querySelector('.jcem-noscript-featured');
 		const featuredImage = featured?.querySelector('.jcem-featured-image__img');
 		const panel = document.querySelector('.jcem-noscript__panel');
-		const wrapper = document.querySelector('.main_jcem_wrapper');
+		const wrapper = document.querySelector('body > .main_jcem_wrapper');
 		const loader = document.querySelector('.carregandoPagina');
 		const themeToggle = document.querySelector('.jcem-theme-toggle');
 		const panelRect = panel?.getBoundingClientRect();
 		const featuredRect = featured?.getBoundingClientRect();
+		const shellStyle = shell ? window.getComputedStyle(shell) : null;
+		const noScriptStyle = noScript ? window.getComputedStyle(noScript) : null;
 		const featuredStyle = featured ? window.getComputedStyle(featured) : null;
 		const featuredImageStyle = featuredImage ? window.getComputedStyle(featuredImage) : null;
 		const wrapperStyle = wrapper ? window.getComputedStyle(wrapper) : null;
@@ -1494,6 +1568,9 @@ const validateNoScriptPage = async (page, url, viewportName) => {
 			hasFeatured: visible(featured),
 			featuredHeight: featuredRect?.height || 0,
 			featuredBg: featuredStyle?.backgroundColor || '',
+			shellBg: shellStyle?.backgroundColor || '',
+			shellBgImage: shellStyle?.backgroundImage || '',
+			noScriptOverflowY: noScriptStyle?.overflowY || '',
 			featuredImageSrc: featuredImage?.getAttribute('src') || '',
 			featuredImageObjectFit: featuredImageStyle?.objectFit || '',
 			hasThemeToggle: visible(themeToggle) || Boolean(shell?.querySelector('.jcem-theme-toggle')),
@@ -1516,12 +1593,20 @@ const validateNoScriptPage = async (page, url, viewportName) => {
 
 	if (
 		!result.hasFeatured ||
-		result.featuredHeight < 90 ||
+		result.featuredHeight < 180 ||
 		!result.featuredImageSrc.includes('sem-motor-nao-vai-jcem-ccbysanc.png') ||
 		result.featuredImageObjectFit !== 'contain' ||
 		result.featuredBg !== 'rgb(16, 15, 16)'
 	) {
 		fail(`Imagem wide noscript invalida em ${url} ${viewportName}: ${JSON.stringify(result)}`);
+	}
+
+	if (
+		result.shellBg === 'rgb(16, 15, 16)' ||
+		result.shellBgImage === 'none' ||
+		result.noScriptOverflowY === 'hidden'
+	) {
+		fail(`Fundo ou rolagem do noscript invalido em ${url} ${viewportName}: ${JSON.stringify(result)}`);
 	}
 
 	if (result.wrapperDisplay !== 'none') {
@@ -1536,7 +1621,7 @@ const validateNoScriptPage = async (page, url, viewportName) => {
 		fail(`Noscript exibiu switcher de tema em ${url} ${viewportName}`);
 	}
 
-	if (!result.bodyText.includes('JavaScript desativado') || !result.bodyText.includes('Enable JavaScript')) {
+	if (!result.bodyText.includes('JavaScript is disabled.') || !result.bodyText.includes('O JavaScript está desativado.')) {
 		fail(`Conteudo noscript incompleto em ${url} ${viewportName}`);
 	}
 

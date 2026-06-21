@@ -244,39 +244,6 @@
 
 <noscript>
 	<style>
-	:root {
-		--jcem-noscript-bg: #100f10;
-		--jcem-noscript-surface: #171717;
-		--jcem-noscript-surface-soft: #222;
-		--jcem-noscript-text: #f3f0e9;
-		--jcem-noscript-muted: #c8d3d8;
-		--jcem-noscript-link: #7bc8ff;
-		--jcem-noscript-accent: #e2c535;
-		--jcem-noscript-border: rgba(226, 197, 53, 0.35);
-	}
-
-	@media (prefers-color-scheme: light) {
-		:root {
-			--jcem-noscript-bg: #f4f0e8;
-			--jcem-noscript-surface: #fff;
-			--jcem-noscript-surface-soft: #e9eef1;
-			--jcem-noscript-text: #222;
-			--jcem-noscript-muted: #466878;
-			--jcem-noscript-link: #176d86;
-			--jcem-noscript-accent: #c8a712;
-			--jcem-noscript-border: rgba(126, 106, 18, 0.38);
-		}
-	}
-
-	html,
-	body {
-		margin: 0;
-		padding: 0;
-		min-height: 100vh;
-		overflow: hidden;
-		background: var(--jcem-noscript-bg);
-	}
-
 	body > .main_jcem_wrapper,
 	body > .loader-bar,
 	body > .carregandoPagina {
@@ -291,219 +258,153 @@
 		display: block;
 		width: 100vw;
 		height: 100vh;
-		overflow: auto;
-		background: var(--jcem-noscript-bg);
+		overflow-x: hidden;
+		overflow-y: auto;
+		background: var(--dark--bg);
+		background-color: var(--dark--bg-solid);
 	}
 
 	body > noscript,
 	body > noscript * {
 		visibility: visible !important;
 		box-sizing: border-box;
-		font-family: "Noto Sans", "Segoe UI", Tahoma, sans-serif;
-		color: var(--jcem-noscript-text);
 	}
 
-	.jcem-noscript-page {
+	body > noscript .jcem-noscript-page {
+		--tblb: var(--dark--tblb);
+		--bg: var(--dark--bg);
+		--bg-solid: var(--dark--bg-solid);
+		--tc: var(--dark--tc);
+		--mtc: var(--dark--mtc);
+		--pri: var(--dark--pri);
+		--bc: var(--dark--bc);
+		--cbg: var(--dark--cbg);
+		--cbgd: var(--dark--cbgd);
+		--fbg: var(--dark--fbg);
+		--ftbg: var(--dark--ftbg);
+		--foc: var(--dark--foc);
+		--act: var(--dark--act);
+		--link: var(--dark--link);
+		--link-h: var(--dark--link-h);
+		--link-v: var(--dark--link-v);
+		--mlink: var(--dark--mlink);
+		--mlink-h: var(--dark--mlink-h);
+		--nav-h: var(--dark--nav-h);
+		--jcem-panel-bg: var(--dark--jcem-panel-bg);
+		--jcem-panel-title-bg: var(--dark--jcem-panel-title-bg);
+		--jcem-panel-border: var(--dark--jcem-panel-border);
+		--jcem-panel-shadow: var(--dark--jcem-panel-shadow);
+		--jcem-panel-accent-hot: var(--dark--jcem-panel-accent-hot);
+		--jcem-rule-color: var(--dark--jcem-rule-color);
+		--jcem-rule-shadow: var(--dark--jcem-rule-shadow);
+		--jcem-masthead-shadow: rgba(0, 0, 0, 0.22);
 		min-height: 100vh;
-		background: var(--jcem-noscript-bg);
+		background: var(--bg);
+		background-color: var(--bg-solid);
+		background-repeat: no-repeat;
+		background-size: cover;
+		color: var(--tc);
 	}
 
-	.jcem-noscript-page a {
-		color: var(--jcem-noscript-link);
-		text-decoration-thickness: 0.08em;
-		text-underline-offset: 0.18em;
+	body > noscript .jcem-theme-toggle,
+	body > noscript .search__toggle,
+	body > noscript .greedy-nav__toggle,
+	body > noscript .hidden-links {
+		display: none !important;
 	}
 
-	.jcem-noscript-masthead {
+	body > noscript .jcem-noscript-masthead {
 		position: sticky;
 		top: 0;
 		z-index: 10;
-		border-bottom: 1px solid var(--jcem-noscript-border);
-		background: color-mix(in srgb, var(--jcem-noscript-surface) 92%, transparent);
-		box-shadow: 0 0.35rem 0.9rem rgba(0, 0, 0, 0.22);
 	}
 
-	.jcem-noscript-masthead .masthead__inner-wrap {
-		max-width: 82rem;
-		margin: 0 auto;
-		padding: 0.45rem 1rem;
-		background: transparent;
-	}
-
-	.jcem-noscript-masthead .greedy-nav {
-		display: flex;
-		align-items: center;
-		gap: 1rem;
-		min-height: 3.2rem;
-		background: transparent;
-	}
-
-	.jcem-noscript-masthead .site-logo img {
-		display: block;
-		width: auto;
-		max-width: 8.5rem;
-		max-height: 3rem;
-		object-fit: contain;
-	}
-
-	.jcem-noscript-masthead .site-title {
-		position: absolute !important;
-		width: 1px;
-		height: 1px;
+	body > noscript .jcem-noscript-featured {
+		width: 100vw;
+		max-width: 100vw;
+		height: clamp(12rem, 32vh, 24rem);
+		margin: 0 0 0 calc(50% - 50vw);
 		overflow: hidden;
-		clip: rect(0 0 0 0);
-		white-space: nowrap;
+		background: #010203;
+		box-shadow: 0 0.15rem 0 var(--jcem-rule-shadow);
 	}
 
-	.jcem-noscript-masthead .visible-links {
-		display: flex;
-		flex-wrap: wrap;
-		gap: 0.35rem 1rem;
-		align-items: center;
-		justify-content: flex-end;
-		margin: 0 0 0 auto;
-		padding: 0;
-		list-style: none;
-	}
-
-	.jcem-noscript-masthead .masthead__menu-item a {
-		display: inline-flex;
-		align-items: center;
-		min-height: 2.25rem;
-		font-weight: 700;
-		text-decoration: none;
-	}
-
-	.jcem-noscript-featured {
-		width: 100%;
-		height: clamp(8.4rem, 22.4vh, 16.8rem);
-		margin: 0;
-		overflow: hidden;
-		background: #100f10;
-	}
-
-	.jcem-noscript-featured .jcem-featured-image__img {
+	body > noscript .jcem-noscript-featured .jcem-featured-image__img {
 		display: block;
 		width: 100%;
 		height: 100%;
 		margin: 0 auto;
 		object-fit: contain;
 		object-position: center;
-		background: #100f10;
+		background: #010203;
 	}
 
-	.jcem-noscript-content {
-		width: min(100% - 2rem, 54rem);
+	body > noscript .jcem-noscript-content {
+		width: min(100% - 2rem, 42rem);
 		margin: 0 auto;
-		padding: clamp(1.4rem, 4vw, 3rem) 0;
+		padding: clamp(1rem, 3vw, 2rem) 0;
 	}
 
-	.jcem-noscript__panel {
-		padding: clamp(1.15rem, 3vw, 2rem);
-		border: 1px solid var(--jcem-noscript-border);
-		border-radius: 0.5rem;
-		background: linear-gradient(180deg, var(--jcem-noscript-surface), var(--jcem-noscript-surface-soft));
-		box-shadow: 0 1rem 2.4rem rgba(0, 0, 0, 0.24);
+	body > noscript .jcem-noscript__panel {
+		padding: clamp(1rem, 2.4vw, 1.55rem);
+		border: 1px solid var(--jcem-panel-border);
+		border-radius: 0.4rem;
+		background: color-mix(
+			in srgb,
+			var(--jcem-panel-bg) 88%,
+			transparent
+		);
+		box-shadow: 0 0 1rem var(--jcem-panel-shadow);
 	}
 
-	.jcem-noscript__eyebrow {
-		margin: 0 0 0.35rem;
-		color: var(--jcem-noscript-accent);
-		font-size: 0.82rem;
-		font-weight: 800;
-		letter-spacing: 0;
-		text-transform: uppercase;
+	body > noscript .jcem-noscript__panel h1 {
+		margin: 0 0 0.85rem;
+		padding-bottom: 0.5rem;
+		border-bottom: 1px solid var(--jcem-rule-color);
+		color: var(--jcem-panel-accent-hot);
+		font-size: clamp(1.25rem, 3.4vw, 1.75rem);
+		line-height: 1.1;
 	}
 
-	.jcem-noscript h1 {
-		margin: 0;
-		color: var(--jcem-noscript-text);
-		font-size: clamp(1.55rem, 5vw, 2.35rem);
-		line-height: 1.05;
+	body > noscript .jcem-noscript__lang {
+		margin-top: 0.75rem;
+		padding-top: 0.75rem;
+		border-top: 1px solid
+			color-mix(in srgb, var(--jcem-panel-border) 62%, transparent);
 	}
 
-	.jcem-noscript__lead {
-		max-width: 45rem;
-		margin: 0.8rem 0 1.2rem;
-		color: var(--jcem-noscript-muted);
-		font-size: clamp(1rem, 2.5vw, 1.18rem);
-		line-height: 1.55;
+	body > noscript .jcem-noscript__lang:first-of-type {
+		border-top: 0;
 	}
 
-	.jcem-noscript__lang {
-		margin-top: 0.85rem;
-		padding-top: 0.85rem;
-		border-top: 1px solid var(--jcem-noscript-border);
-	}
-
-	.jcem-noscript__lang h2 {
+	body > noscript .jcem-noscript__lang h2 {
 		margin: 0 0 0.25rem;
-		color: var(--jcem-noscript-link);
-		font-size: 0.95rem;
+		color: var(--link);
+		font-size: 0.92rem;
+		line-height: 1.2;
 	}
 
-	.jcem-noscript__lang p {
+	body > noscript .jcem-noscript__lang p {
 		margin: 0;
-		color: var(--jcem-noscript-muted);
-		font-size: 0.96rem;
-		line-height: 1.48;
+		color: var(--tc);
+		font-size: 0.92rem;
+		line-height: 1.42;
 	}
 
-	.jcem-noscript__lang strong {
-		color: var(--jcem-noscript-text);
+	body > noscript .jcem-noscript__lang strong {
+		color: var(--tc);
 		font-style: normal;
 	}
 
-	.jcem-noscript-footer {
+	body > noscript .jcem-noscript-footer {
 		margin-top: 0;
-		padding: 0 1rem 1.5rem;
-		border-top: 1px solid var(--jcem-noscript-border);
-		background: var(--jcem-noscript-surface);
 	}
 
-	.jcem-noscript-footer footer,
-	.jcem-noscript-footer .sobpostbar,
-	.jcem-noscript-footer .copy {
-		width: min(100%, 82rem);
-		margin-right: auto;
-		margin-left: auto;
-	}
-
-	.jcem-noscript-footer .jcem-foot {
-		padding-top: 1.25rem;
-		font-size: 0.78rem;
-		line-height: 1.45;
-	}
-
-	.jcem-noscript-footer .copy,
-	.jcem-noscript-footer .sobpostbar {
-		font-size: 0.78rem;
-	}
-
-	.jcem-noscript-footer .sobpostbar ul {
-		display: flex;
-		flex-wrap: wrap;
-		gap: 0.35rem 0.85rem;
-		padding-left: 0;
-		list-style: none;
-	}
-
-	@supports not (background: color-mix(in srgb, #000 50%, transparent)) {
-		.jcem-noscript-masthead {
-			background: var(--jcem-noscript-surface);
-		}
-	}
-
-	@media (max-width: 40em) {
-		.jcem-noscript-masthead .greedy-nav {
-			align-items: flex-start;
-			flex-direction: column;
-			gap: 0.3rem;
-		}
-
-		.jcem-noscript-masthead .visible-links {
-			justify-content: flex-start;
-			margin-left: 0;
+	@supports not (
+		background: color-mix(in srgb, #000 50%, transparent)
+	) {
+		body > noscript .jcem-noscript__panel {
+			background: var(--jcem-panel-bg);
 		}
 	}
 </style>
@@ -521,57 +422,150 @@
 </div>
 
 <noscript>
-<div class="jcem-noscript-page">
-	<header class="masthead jcem-noscript-masthead" data-jcem-static-fragment="masthead">
+<div class="main_jcem_wrapper jcem-noscript-page">
+	<p class="copy">
+	Copyright &copy; 2012 - 2026 JeanCarloEM. Todos
+	os direitos reservados.
+	<span
+		>Feito com
+		<a
+			href="https://mmistakes.github.io/minimal-mistakes/"
+			target="_blank"
+		>
+			Minimal Mistakes</a
+		>.
+	</span>
+</p>
+
+<div class="sobpostbar">
+	<ul id="menu-topo-2" class="menu">
+		<li
+			class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1871"
+		>
+			<a href="/sobre/">Sobre</a>
+		</li>
+		<li
+			class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1869"
+		>
+			<a href="https://jeancarloem.com/termos-de-uso">Legal</a>
+		</li>
+		<li
+			class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1875"
+		>
+			<a href="https://jeancarloem.com/avisos-gerais/"
+				>Advertências</a
+			>
+		</li>
+		<li
+			class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1875"
+		>
+			<a href="https://jeancarloem.com/privacidade/">Privacidade</a>
+		</li>
+		<li
+			class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1872"
+		>
+			<a title="Licenca" href="https://jeancarloem.com/licenca/"
+				>Licença</a
+			>
+		</li>
+	</ul>
+</div>
+
+	<header
+		class="masthead jcem-noscript-masthead"
+		data-jcem-static-fragment="masthead"
+	>
 		<div class="masthead__inner-wrap">
 			<div class="masthead__menu">
 				<nav class="greedy-nav" aria-label="Navegação sem JavaScript">
-					<a class="site-logo" href="/">
-						<img src="https://jcem.pro/logo/logo-animado.gif" alt="JeanCarloEM" />
-					</a>
+					<a class="site-logo" href="/"
+						><img
+							src="https://jcem.pro/logo/logo-animado.gif"
+							alt="JeanCarloEM"
+					/></a>
 					<a class="site-title" href="/">
-						JeanCarloEM
-					</a>
+						JeanCarloEM</a>
 					<ul class="visible-links">
-						<li class="masthead__menu-item"><a href="/">Publicações</a></li>
-						<li class="masthead__menu-item"><a href="/sobre/">Sobre</a></li>
-					</ul>
+						<li class="masthead__menu-item">
+							<a href="/sobre/">Sobre</a>
+						</li><li class="masthead__menu-item">
+							<a
+								href="https://mmistakes.github.io/minimal-mistakes/docs/quick-start-guide/"
+								
+								>Quick-Start Guide</a
+							>
+						</li></ul>
 				</nav>
 			</div>
 		</div>
 	</header>
 
-	<figure class="jcem-featured-image jcem-featured-image--wide jcem-noscript-featured" aria-label="Imagem destacada da página sem JavaScript">
-		<img class="jcem-featured-image__img" src="/assets/jcem/img/sem-motor-nao-vai-jcem-ccbysanc.png" alt="Sem motor, não vai" decoding="async" />
+	<figure
+		class="jcem-featured-image jcem-featured-image--wide jcem-noscript-featured"
+		aria-label="Imagem destacada da página sem JavaScript"
+	>
+		<img
+			class="jcem-featured-image__img"
+			src="/assets/jcem/img/sem-motor-nao-vai-jcem-ccbysanc.png"
+			alt="Sem motor, não vai"
+			decoding="async"
+		/>
 	</figure>
 
-	<main class="jcem-noscript-content">
-		<section class="jcem-noscript__panel" aria-labelledby="jcem-noscript-title">
-			<p class="jcem-noscript__eyebrow">Aviso técnico</p>
-			<h1 id="jcem-noscript-title">JavaScript desativado</h1>
-			<p class="jcem-noscript__lead">
-				Este blog usa JavaScript para confirmar termos, privacidade e preferências de consentimento.
-				Sem esse recurso, a página completa permanece indisponível.
-			</p>
+	<div class="initial-content jcem-noscript-initial">
+		<main class="jcem-noscript-content">
+			<section
+				class="jcem-noscript__panel"
+				aria-labelledby="jcem-noscript-title"
+			>
+				<h1 id="jcem-noscript-title">Problema / Problem / 问题</h1>
 
-			<div class="jcem-noscript__lang">
-				<h2>Português</h2>
-				<p><strong>Ative o JavaScript</strong> no navegador e recarregue a página para acessar o conteúdo completo.</p>
-			</div>
+				<div class="jcem-noscript__lang">
+					<h2>PT-BR</h2>
+					<p>
+						<strong>O JavaScript está desativado.</strong><br />
+						O JavaScript é necessário para gerenciar a adesão aos
+						Termos de Uso, ao Aviso de Privacidade e às preferências
+						de consentimento.
+					</p>
+				</div>
 
-			<div class="jcem-noscript__lang">
-				<h2>English</h2>
-				<p><strong>Enable JavaScript</strong> in the browser and reload the page to access the full content.</p>
-			</div>
+				<div class="jcem-noscript__lang">
+					<h2>EN-US</h2>
+					<p>
+						<strong>JavaScript is disabled.</strong><br />
+						JavaScript is required to manage your agreement with the
+						Terms of Use, Privacy Notice and consent preferences.
+					</p>
+				</div>
 
-			<div class="jcem-noscript__lang">
-				<h2>Español</h2>
-				<p><strong>Active JavaScript</strong> en el navegador y recargue la página para acceder al contenido completo.</p>
-			</div>
-		</section>
-	</main>
+				<div class="jcem-noscript__lang">
+					<h2>ES-ES</h2>
+					<p>
+						<strong>JavaScript está deshabilitado.</strong><br />
+						JavaScript es necesario para gestionar su aceptación de
+						los Términos de Uso, el Aviso de Privacidad y las
+						preferencias de consentimiento.
+					</p>
+				</div>
 
-	<div id="footer" class="page__footer jcem-noscript-footer" data-jcem-static-fragment="footer">
+				<div class="jcem-noscript__lang">
+					<h2>中文（普通话）</h2>
+					<p>
+						<strong>JavaScript 已被禁用。</strong><br />
+						需要启用
+						JavaScript，以管理您对使用条款、隐私声明和同意偏好的确认。
+					</p>
+				</div>
+			</section>
+		</main>
+	</div>
+
+	<div
+		id="footer"
+		class="page__footer jcem-noscript-footer"
+		data-jcem-static-fragment="footer"
+	>
 		<footer>
 			<!-- start custom footer snippets -->
 <div class="jcem-foot">
@@ -666,6 +660,70 @@
 	</p>
 </div>
 
+			<div class="page__footer-follow">
+				<ul class="social-icons">
+					<li><strong>Siga:</strong></li><li>
+						<a
+							href="https://x.com/jeancarloem"
+							rel="nofollow noopener noreferrer"
+							><i
+								class="fab fa-fw fa-twitter-square"
+								aria-hidden="true"
+							></i>
+							Twitter</a
+						>
+					</li><li>
+						<a
+							href="https://www.facebook.com/JeanCarloEM/"
+							rel="nofollow noopener noreferrer"
+							><i
+								class="fab fa-fw fa-facebook-square"
+								aria-hidden="true"
+							></i>
+							Facebook</a
+						>
+					</li><li>
+						<a
+							href="https://github.com/jeanCarloEM"
+							rel="nofollow noopener noreferrer"
+							><i
+								class="fab fa-fw fa-github"
+								aria-hidden="true"
+							></i>
+							GitHub</a
+						>
+					</li><li>
+						<a
+							href="https://www.instagram.com/jeancarlo.em/"
+							rel="nofollow noopener noreferrer"
+							><i
+								class="fab fa-fw fa-instagram"
+								aria-hidden="true"
+							></i>
+							Instagram</a
+						>
+					</li><li>
+						<a href="/feed.xml"
+							><i
+								class="fas fa-fw fa-square-rss"
+								aria-hidden="true"
+							></i>
+							Feed</a
+						>
+					</li>
+				</ul>
+			</div>
+			<div class="page__footer-copyright">
+				&copy; 2014 - 2026
+				<a href="https://www.jeancarloem.com">JeanCarloEM</a>.
+				Desenvolvido com
+				<a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp;
+				<a
+					href="https://mademistakes.com/work/jekyll-themes/minimal-mistakes/"
+					rel="nofollow"
+					>Minimal Mistakes</a
+				>.
+			</div>
 		</footer>
 		<p class="copy">
 	Copyright &copy; 2012 - 2026 JeanCarloEM. Todos
@@ -1619,6 +1677,7 @@ u todas as palavras do SENHOR e…” <a href="#fnref:53" class="reversefootnot
 
 
 
+
 <div class="grid__item">
   <article class="archive__item archive__item--has-image" itemscope itemtype="https://schema.org/CreativeWork">
     <a class="archive__item-link u-url" href="/p/nenhum-nivel-de-alcool-faz-bem-a-saude/" rel="permalink">
@@ -1681,8 +1740,7 @@ u todas as palavras do SENHOR e…” <a href="#fnref:53" class="reversefootnot
   </p>
 
 
-        <p class="archive__item-excerpt p-summary" itemprop="description">Álcool, independentemente da quantidade, é um “problema colossal de saúde” comprova Ciência pura e legítima.
-</p>
+        <p class="archive__item-excerpt p-summary" itemprop="description">Álcool, independentemente da quantidade, é um “problema colossal de saúde” comprova Ciência pura e legítima.</p>
       </div>
     </a>
   </article>
@@ -1693,6 +1751,7 @@ u todas as palavras do SENHOR e…” <a href="#fnref:53" class="reversefootnot
     
       
       
+
 
 
 
@@ -1782,6 +1841,7 @@ u todas as palavras do SENHOR e…” <a href="#fnref:53" class="reversefootnot
 
 
 
+
 <div class="grid__item">
   <article class="archive__item archive__item--has-image" itemscope itemtype="https://schema.org/CreativeWork">
     <a class="archive__item-link u-url" href="/p/como-identificar-falacias/" rel="permalink">
@@ -1855,6 +1915,7 @@ u todas as palavras do SENHOR e…” <a href="#fnref:53" class="reversefootnot
     
       
       
+
 
 
 
@@ -1944,6 +2005,7 @@ u todas as palavras do SENHOR e…” <a href="#fnref:53" class="reversefootnot
 
 
 
+
 <div class="grid__item">
   <article class="archive__item archive__item--has-image" itemscope itemtype="https://schema.org/CreativeWork">
     <a class="archive__item-link u-url" href="/p/nove-motivos-para-guardar-o-sabado/" rel="permalink">
@@ -2025,6 +2087,7 @@ u todas as palavras do SENHOR e…” <a href="#fnref:53" class="reversefootnot
 
 
 
+
 <div class="grid__item">
   <article class="archive__item archive__item--has-image" itemscope itemtype="https://schema.org/CreativeWork">
     <a class="archive__item-link u-url" href="/p/tradicao-vs-biblia-tradicao-ou-biblia/" rel="permalink">
@@ -2087,8 +2150,7 @@ u todas as palavras do SENHOR e…” <a href="#fnref:53" class="reversefootnot
   </p>
 
 
-        <p class="archive__item-excerpt p-summary" itemprop="description">Tradição
-A tradição é o meio pelo qual líderes religiosos, anciãos e a família tradicional passa, de geração em geração, um ensinamento. No final, tradição é...</p>
+        <p class="archive__item-excerpt p-summary" itemprop="description">Tradição A tradição é o meio pelo qual líderes religiosos, anciãos e a família tradicional passa, de geração em geração, um ensinamento. No final, tradição é...</p>
       </div>
     </a>
   </article>
@@ -2099,6 +2161,7 @@ A tradição é o meio pelo qual líderes religiosos, anciãos e a família trad
     
       
       
+
 
 
 
@@ -2169,12 +2232,7 @@ A tradição é o meio pelo qual líderes religiosos, anciãos e a família trad
   </p>
 
 
-        <p class="archive__item-excerpt p-summary" itemprop="description">
-  Penso, logo Existo
-
-  — Descartes
-
-</p>
+        <p class="archive__item-excerpt p-summary" itemprop="description">Penso, logo Existo — Descartes</p>
       </div>
     </a>
   </article>

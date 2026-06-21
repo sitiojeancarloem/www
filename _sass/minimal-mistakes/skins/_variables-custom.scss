@@ -558,12 +558,12 @@ body > input.radio#jcem-theme-dark:checked ~ .main_jcem_wrapper {
 .main_jcem_wrapper .jcem-panel,
 .main_jcem_wrapper .archive__item {
 	position: relative;
-	overflow: hidden;
 	isolation: isolate;
 
 	background-size: 2.25rem 2.25rem;
 }
 .main_jcem_wrapper .archive__item {
+	overflow: visible;
 	border: 1px solid var(--jcem-panel-border);
 	background: var(--jcem-panel-bg);
 	box-shadow: 0 0 1rem var(--jcem-panel-shadow);
@@ -571,7 +571,11 @@ body > input.radio#jcem-theme-dark:checked ~ .main_jcem_wrapper {
 	transition:
 		border-color 0.2s ease,
 		box-shadow 0.2s ease,
-		transform 0.2s ease;
+	transform 0.2s ease;
+}
+
+.main_jcem_wrapper .jcem-panel {
+	overflow: hidden;
 }
 
 .main_jcem_wrapper .archive__item:hover {
@@ -589,7 +593,8 @@ body > input.radio#jcem-theme-dark:checked ~ .main_jcem_wrapper {
 .main_jcem_wrapper .archive__item-link {
 	position: relative;
 	z-index: 1;
-	display: grid;
+	display: flex;
+	flex-direction: column;
 	min-height: 100%;
 	color: inherit;
 	text-decoration: none;
@@ -601,7 +606,7 @@ body > input.radio#jcem-theme-dark:checked ~ .main_jcem_wrapper {
 
 .main_jcem_wrapper .archive__item-header {
 	position: relative;
-	display: grid;
+	display: block;
 }
 
 .main_jcem_wrapper .jcem-panel__title,
@@ -612,6 +617,7 @@ body > input.radio#jcem-theme-dark:checked ~ .main_jcem_wrapper {
 	border: 0;
 	font-weight: 700;
 	line-height: 1.25;
+	min-height: 0;
 }
 
 .main_jcem_wrapper .archive__item--has-image .archive__item-title {
@@ -634,6 +640,8 @@ body > input.radio#jcem-theme-dark:checked ~ .main_jcem_wrapper {
 
 .main_jcem_wrapper .archive__item-teaser {
 	position: relative;
+	z-index: 1;
+	display: block;
 	margin: 0;
 	padding: 0;
 	border-bottom: 1px solid var(--jcem-panel-border);
@@ -650,6 +658,7 @@ body > input.radio#jcem-theme-dark:checked ~ .main_jcem_wrapper {
 }
 
 .main_jcem_wrapper .archive__item-teaser img {
+	display: block;
 	max-width: 100% !important;
 	width: 100% !important;
 	height: auto !important;
@@ -681,9 +690,12 @@ body > input.radio#jcem-theme-dark:checked ~ .main_jcem_wrapper {
 
 .main_jcem_wrapper .archive__item .jcem-date-flag--archive {
 	position: absolute;
-	top: -0.9rem;
+	z-index: 3;
+	top: -0.95rem;
 	left: 0.7rem;
 	width: clamp(42px, 4.6vw, 52px);
+	font-size: clamp(9px, 0.8vw, 12px);
+	pointer-events: none;
 }
 
 .main_jcem_wrapper

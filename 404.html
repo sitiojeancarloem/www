@@ -355,6 +355,73 @@
 						margin-left: 0;
 					}
 				}
+
+				body > noscript {
+					overflow-x: hidden;
+					overflow-y: auto;
+					background: var(--dark--bg);
+					background-color: var(--dark--bg-solid);
+				}
+
+				body > noscript .jcem-noscript-page {
+					--tblb: var(--dark--tblb);
+					--bg: var(--dark--bg);
+					--bg-solid: var(--dark--bg-solid);
+					--tc: var(--dark--tc);
+					--mtc: var(--dark--mtc);
+					--pri: var(--dark--pri);
+					--bc: var(--dark--bc);
+					--cbg: var(--dark--cbg);
+					--cbgd: var(--dark--cbgd);
+					--fbg: var(--dark--fbg);
+					--ftbg: var(--dark--ftbg);
+					--link: var(--dark--link);
+					--link-h: var(--dark--link-h);
+					--mlink: var(--dark--mlink);
+					--nav-h: var(--dark--nav-h);
+					--jcem-panel-bg: var(--dark--jcem-panel-bg);
+					--jcem-panel-title-bg: var(--dark--jcem-panel-title-bg);
+					--jcem-panel-border: var(--dark--jcem-panel-border);
+					--jcem-panel-shadow: var(--dark--jcem-panel-shadow);
+					--jcem-panel-accent-hot: var(--dark--jcem-panel-accent-hot);
+					--jcem-rule-color: var(--dark--jcem-rule-color);
+					--jcem-rule-shadow: var(--dark--jcem-rule-shadow);
+					background: var(--bg);
+					background-color: var(--bg-solid);
+					background-repeat: no-repeat;
+					background-size: cover;
+					color: var(--tc);
+				}
+
+				body > noscript .jcem-noscript-featured {
+					height: clamp(12rem, 32vh, 24rem);
+					border-bottom: 1px solid var(--jcem-rule-color);
+					box-shadow: 0 0.15rem 0 var(--jcem-rule-shadow);
+					background: #100f10;
+				}
+
+				body > noscript .jcem-noscript-content {
+					width: min(100% - 2rem, 42rem);
+					padding: clamp(1rem, 3vw, 2rem) 0;
+				}
+
+				body > noscript .jcem-noscript__panel {
+					padding: clamp(1rem, 2.4vw, 1.55rem);
+					background: color-mix(in srgb, var(--jcem-panel-bg) 88%, transparent);
+				}
+
+				body > noscript .jcem-noscript__panel h1 {
+					margin: 0 0 0.85rem;
+					padding-bottom: 0.5rem;
+					border-bottom: 1px solid var(--jcem-rule-color);
+					color: var(--jcem-panel-accent-hot);
+					font-size: clamp(1.25rem, 3.4vw, 1.75rem);
+				}
+
+				body > noscript .jcem-noscript__lang h2,
+				body > noscript .jcem-noscript__lang p {
+					font-size: 0.92rem;
+				}
 			</style>
 		</noscript>
 		<style>
@@ -797,7 +864,16 @@
 			<div class="carregandoPagina__mark"><span></span><span></span><span></span><span></span></div>
 		</div>
 		<noscript data-jcem-fragment="noscript-content">
-			<div class="jcem-noscript-page">
+			<div class="main_jcem_wrapper jcem-noscript-page">
+				<div class="sobpostbar">
+					<ul id="menu-topo-2-noscript-top" class="menu">
+						<li class="menu-item"><a href="/sobre/">Sobre</a></li>
+						<li class="menu-item"><a href="https://jeancarloem.com/termos-de-uso">Legal</a></li>
+						<li class="menu-item"><a href="https://jeancarloem.com/avisos-gerais/">Advertências</a></li>
+						<li class="menu-item"><a href="https://jeancarloem.com/privacidade/">Privacidade</a></li>
+						<li class="menu-item"><a href="https://jeancarloem.com/licenca/">Licença</a></li>
+					</ul>
+				</div>
 				<header class="masthead jcem-noscript-masthead" data-jcem-static-fragment="masthead">
 					<div class="masthead__inner-wrap">
 						<div class="masthead__menu">
@@ -807,8 +883,8 @@
 								</a>
 								<a class="site-title" href="/">JeanCarloEM</a>
 								<ul class="visible-links">
-									<li class="masthead__menu-item"><a href="/">Publicações</a></li>
 									<li class="masthead__menu-item"><a href="/sobre/">Sobre</a></li>
+									<li class="masthead__menu-item"><a href="https://mmistakes.github.io/minimal-mistakes/docs/quick-start-guide/">Quick-Start Guide</a></li>
 								</ul>
 							</nav>
 						</div>
@@ -819,31 +895,48 @@
 					<img class="jcem-featured-image__img" src="/assets/jcem/img/sem-motor-nao-vai-jcem-ccbysanc.png" alt="Sem motor, não vai" decoding="async" />
 				</figure>
 
-				<main class="jcem-noscript-content">
-					<section class="jcem-noscript__panel" aria-labelledby="jcem-noscript-title">
-						<p class="jcem-noscript__eyebrow">Aviso técnico</p>
-						<h1 id="jcem-noscript-title">JavaScript desativado</h1>
-						<p class="jcem-noscript__lead">
-							Este blog usa JavaScript para confirmar termos, privacidade e preferências de consentimento.
-							Sem esse recurso, a página completa permanece indisponível.
-						</p>
+				<div class="initial-content jcem-noscript-initial">
+					<main class="jcem-noscript-content">
+						<section class="jcem-noscript__panel" aria-labelledby="jcem-noscript-title">
+							<h1 id="jcem-noscript-title">Problem / Problema / 问题</h1>
 
-						<div class="jcem-noscript__lang">
-							<h2>Português</h2>
-							<p><strong>Ative o JavaScript</strong> no navegador e recarregue a página para acessar o conteúdo completo.</p>
-						</div>
+							<div class="jcem-noscript__lang">
+								<h2>English</h2>
+								<p>
+									<strong>JavaScript is disabled.</strong><br />
+									JavaScript is required to manage your agreement with the Terms of Use,
+									Privacy Notice and consent preferences.
+								</p>
+							</div>
 
-						<div class="jcem-noscript__lang">
-							<h2>English</h2>
-							<p><strong>Enable JavaScript</strong> in the browser and reload the page to access the full content.</p>
-						</div>
+							<div class="jcem-noscript__lang">
+								<h2>Português</h2>
+								<p>
+									<strong>O JavaScript está desativado.</strong><br />
+									O JavaScript é necessário para gerenciar a adesão aos Termos de Uso,
+									ao Aviso de Privacidade e às preferências de consentimento.
+								</p>
+							</div>
 
-						<div class="jcem-noscript__lang">
-							<h2>Español</h2>
-							<p><strong>Active JavaScript</strong> en el navegador y recargue la página para acceder al contenido completo.</p>
-						</div>
-					</section>
-				</main>
+							<div class="jcem-noscript__lang">
+								<h2>Español</h2>
+								<p>
+									<strong>JavaScript está deshabilitado.</strong><br />
+									JavaScript es necesario para gestionar su aceptación de los Términos de
+									Uso, el Aviso de Privacidad y las preferencias de consentimiento.
+								</p>
+							</div>
+
+							<div class="jcem-noscript__lang">
+								<h2>中文（普通话）</h2>
+								<p>
+									<strong>JavaScript 已被禁用。</strong><br />
+									需要启用 JavaScript，以管理您对使用条款、隐私声明和同意偏好的确认。
+								</p>
+							</div>
+						</section>
+					</main>
+				</div>
 
 				<div id="footer" class="page__footer jcem-noscript-footer" data-jcem-static-fragment="footer">
 					<footer>
@@ -853,6 +946,17 @@
 								o Aviso de Privacidade e as regras de licenciamento de <b>jeancarloem.com</b>.
 							</p>
 						</div>
+						<div class="page__footer-follow">
+							<ul class="social-icons">
+								<li><strong>Siga:</strong></li>
+								<li><a href="https://x.com/jeancarloem" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-twitter-square" aria-hidden="true"></i> Twitter</a></li>
+								<li><a href="https://www.facebook.com/JeanCarloEM/" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-facebook-square" aria-hidden="true"></i> Facebook</a></li>
+								<li><a href="https://github.com/jeanCarloEM" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+								<li><a href="https://www.instagram.com/jeancarlo.em/" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-instagram" aria-hidden="true"></i> Instagram</a></li>
+								<li><a href="/feed.xml"><i class="fas fa-fw fa-square-rss" aria-hidden="true"></i> Feed</a></li>
+							</ul>
+						</div>
+						<div class="page__footer-copyright">&copy; 2014 - 2026 <a href="https://www.jeancarloem.com">JeanCarloEM</a>. Desenvolvido com <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/jekyll-themes/minimal-mistakes/" rel="nofollow">Minimal Mistakes</a>.</div>
 					</footer>
 					<p class="copy">
 						Copyright &copy; 2012 - 2026 JeanCarloEM. Todos os direitos reservados.
