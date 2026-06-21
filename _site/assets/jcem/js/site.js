@@ -589,8 +589,51 @@ const bindJcemFootnotes = () => {
         link.setAttribute('aria-label', `Nota ${link.textContent || ''}: ${summary}`);
     });
 };
+let jcemNoScriptFragmentsReady = null;
+const prepareJcemNoScriptFragments = () => {
+    if (jcemNoScriptFragmentsReady) {
+        return jcemNoScriptFragmentsReady;
+    }
+    jcemNoScriptFragmentsReady = new Promise((resolve) => {
+        try {
+            const noScript = select('body > noscript');
+            const source = ((noScript === null || noScript === void 0 ? void 0 : noScript.textContent) || (noScript === null || noScript === void 0 ? void 0 : noScript.innerHTML) || '').trim();
+            const template = document.createElement('template');
+            template.innerHTML = source;
+            const masthead = template.content.querySelector('[data-jcem-static-fragment="masthead"]');
+            const footer = template.content.querySelector('[data-jcem-static-fragment="footer"]');
+            let cache = select('#jcem-noscript-fragment-cache');
+            if (!cache) {
+                cache = document.createElement('div');
+                cache.id = 'jcem-noscript-fragment-cache';
+                cache.hidden = true;
+                document.body.append(cache);
+            }
+            while (cache.firstChild) {
+                cache.removeChild(cache.firstChild);
+            }
+            if (masthead) {
+                cache.append(masthead.cloneNode(true));
+            }
+            if (footer) {
+                cache.append(footer.cloneNode(true));
+            }
+            document.documentElement.dataset.jcemNoscriptFragmentsReady =
+                masthead && footer ? 'true' : 'missing';
+        }
+        catch (_error) {
+            document.documentElement.dataset.jcemNoscriptFragmentsReady = 'failed';
+        }
+        finally {
+            resolve();
+        }
+    });
+    return jcemNoScriptFragmentsReady;
+};
 const revealJcemPage = () => {
-    document.documentElement.classList.add('jcem-page-loaded');
+    void prepareJcemNoScriptFragments().finally(() => {
+        document.documentElement.classList.add('jcem-page-loaded');
+    });
 };
 const hideNoScript = () => {
     const noScript = select('body > noscript');

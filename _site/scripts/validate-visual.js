@@ -202,6 +202,7 @@ const readLoadingState = async (page) =>
 			wrapperVisible: isVisible(wrapper),
 			wrapperVisibility: wrapperStyle?.visibility || '',
 			bodyOverflow: window.getComputedStyle(document.body).overflow,
+			noscriptFragmentsReady: document.documentElement.dataset.jcemNoscriptFragmentsReady || '',
 		};
 	});
 
@@ -274,6 +275,10 @@ const validateLoadingGate = async (browser, baseUrl, url, viewport) => {
 
 		if (!afterLoad.pageLoadedClass) {
 			fail(`Classe de pagina carregada ausente depois de window.load em ${url}`);
+		}
+
+		if (url !== notFoundPage && afterLoad.noscriptFragmentsReady !== 'true') {
+			fail(`Loader liberou pagina antes da copia dos fragmentos noscript em ${url}`);
 		}
 
 		if (afterLoad.loaderVisible) {
@@ -1460,28 +1465,63 @@ const validateNoScriptPage = async (page, url, viewportName) => {
 	await page.waitForTimeout(150);
 
 	const result = await page.evaluate(() => {
+		const visible = (element) => {
+			if (!element) return false;
+			const rect = element.getBoundingClientRect();
+			const style = window.getComputedStyle(element);
+			return rect.width > 1 && rect.height > 1 && style.display !== 'none' && style.visibility !== 'hidden';
+		};
+		const shell = document.querySelector('.jcem-noscript-page');
+		const masthead = document.querySelector('.jcem-noscript-masthead');
+		const footer = document.querySelector('.jcem-noscript-footer');
+		const featured = document.querySelector('.jcem-noscript-featured');
+		const featuredImage = featured?.querySelector('.jcem-featured-image__img');
 		const panel = document.querySelector('.jcem-noscript__panel');
 		const wrapper = document.querySelector('.main_jcem_wrapper');
 		const loader = document.querySelector('.carregandoPagina');
+		const themeToggle = document.querySelector('.jcem-theme-toggle');
 		const panelRect = panel?.getBoundingClientRect();
+		const featuredRect = featured?.getBoundingClientRect();
+		const featuredStyle = featured ? window.getComputedStyle(featured) : null;
+		const featuredImageStyle = featuredImage ? window.getComputedStyle(featuredImage) : null;
 		const wrapperStyle = wrapper ? window.getComputedStyle(wrapper) : null;
 		const loaderStyle = loader ? window.getComputedStyle(loader) : null;
 
 		return {
+			hasShell: visible(shell),
+			hasMasthead: visible(masthead),
+			hasFooter: visible(footer),
+			hasFeatured: visible(featured),
+			featuredHeight: featuredRect?.height || 0,
+			featuredBg: featuredStyle?.backgroundColor || '',
+			featuredImageSrc: featuredImage?.getAttribute('src') || '',
+			featuredImageObjectFit: featuredImageStyle?.objectFit || '',
+			hasThemeToggle: visible(themeToggle) || Boolean(shell?.querySelector('.jcem-theme-toggle')),
 			hasPanel: Boolean(panelRect),
 			panelWidth: panelRect?.width || 0,
 			panelHeight: panelRect?.height || 0,
-			panelCenterOffset: panelRect
-				? Math.abs(panelRect.left + panelRect.width / 2 - window.innerWidth / 2)
-				: Number.POSITIVE_INFINITY,
 			wrapperDisplay: wrapperStyle?.display || '',
 			loaderDisplay: loaderStyle?.display || '',
 			bodyText: document.body.innerText || '',
 		};
 	});
 
+	if (!result.hasShell || !result.hasMasthead || !result.hasFooter) {
+		fail(`Shell noscript sem cabecalho ou footer em ${url} ${viewportName}`);
+	}
+
 	if (!result.hasPanel || result.panelWidth <= 1 || result.panelHeight <= 1) {
-		fail(`Painel noscript ausente em ${url} ${viewportName}`);
+		fail(`Conteudo noscript ausente em ${url} ${viewportName}`);
+	}
+
+	if (
+		!result.hasFeatured ||
+		result.featuredHeight < 90 ||
+		!result.featuredImageSrc.includes('sem-motor-nao-vai-jcem-ccbysanc.png') ||
+		result.featuredImageObjectFit !== 'contain' ||
+		result.featuredBg !== 'rgb(16, 15, 16)'
+	) {
+		fail(`Imagem wide noscript invalida em ${url} ${viewportName}: ${JSON.stringify(result)}`);
 	}
 
 	if (result.wrapperDisplay !== 'none') {
@@ -1492,11 +1532,11 @@ const validateNoScriptPage = async (page, url, viewportName) => {
 		fail(`.carregandoPagina visivel sem JavaScript em ${url} ${viewportName}`);
 	}
 
-	if (result.panelCenterOffset > 3) {
-		fail(`Painel noscript descentralizado em ${url} ${viewportName}: ${result.panelCenterOffset}px`);
+	if (result.hasThemeToggle) {
+		fail(`Noscript exibiu switcher de tema em ${url} ${viewportName}`);
 	}
 
-	if (!result.bodyText.includes('JavaScript is disabled.') || !result.bodyText.includes('O JavaScript está desativado.')) {
+	if (!result.bodyText.includes('JavaScript desativado') || !result.bodyText.includes('Enable JavaScript')) {
 		fail(`Conteudo noscript incompleto em ${url} ${viewportName}`);
 	}
 

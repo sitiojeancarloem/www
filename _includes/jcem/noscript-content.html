@@ -1,44 +1,58 @@
-<div class="jcem-noscript">
-	<main class="jcem-noscript__panel">
-		<h1><span>⚠️</span>Problem / Problema / 问题</h1>
-
-		<div class="jcem-noscript__lang">
-			<h2>🇺🇸 English</h2>
-			<p>
-				<span>⚠️</span>
-				<strong>JavaScript is disabled.</strong><br />
-				JavaScript is required to manage your agreement with the Terms of Use,
-				Privacy Notice and consent preferences.
-			</p>
+{% capture logo_path %}{{ site.logo | default: '/assets/jcem/img/logo-animado.gif' }}{% endcapture %}
+<div class="jcem-noscript-page">
+	<header class="masthead jcem-noscript-masthead" data-jcem-static-fragment="masthead">
+		<div class="masthead__inner-wrap">
+			<div class="masthead__menu">
+				<nav class="greedy-nav" aria-label="Navegação sem JavaScript">
+					<a class="site-logo" href="{{ '/' | relative_url }}">
+						<img src="{{ logo_path | relative_url }}" alt="{{ site.masthead_title | default: site.title | escape_once }}" />
+					</a>
+					<a class="site-title" href="{{ '/' | relative_url }}">
+						{{ site.masthead_title | default: site.title | escape_once | strip }}
+					</a>
+					<ul class="visible-links">
+						<li class="masthead__menu-item"><a href="{{ '/' | relative_url }}">Publicações</a></li>
+						<li class="masthead__menu-item"><a href="{{ '/sobre/' | relative_url }}">Sobre</a></li>
+					</ul>
+				</nav>
+			</div>
 		</div>
+	</header>
 
-		<div class="jcem-noscript__lang">
-			<h2>🇧🇷 Português</h2>
-			<p>
-				<span>⚠️</span>
-				<strong>O JavaScript está desativado.</strong><br />
-				O JavaScript é necessário para gerenciar sua adesão aos Termos de Uso,
-				Aviso de Privacidade e preferências de consentimento.
-			</p>
-		</div>
+	<figure class="jcem-featured-image jcem-featured-image--wide jcem-noscript-featured" aria-label="Imagem destacada da página sem JavaScript">
+		<img class="jcem-featured-image__img" src="{{ '/assets/jcem/img/sem-motor-nao-vai-jcem-ccbysanc.png' | relative_url }}" alt="Sem motor, não vai" decoding="async" />
+	</figure>
 
-		<div class="jcem-noscript__lang">
-			<h2>🇪🇸 Español</h2>
-			<p>
-				<span>⚠️</span>
-				<strong>JavaScript está deshabilitado.</strong><br />
-				JavaScript es necesario para gestionar su aceptación de los Términos de
-				Uso, Aviso de Privacidad y preferencias de consentimiento.
+	<main class="jcem-noscript-content">
+		<section class="jcem-noscript__panel" aria-labelledby="jcem-noscript-title">
+			<p class="jcem-noscript__eyebrow">Aviso técnico</p>
+			<h1 id="jcem-noscript-title">JavaScript desativado</h1>
+			<p class="jcem-noscript__lead">
+				Este blog usa JavaScript para confirmar termos, privacidade e preferências de consentimento.
+				Sem esse recurso, a página completa permanece indisponível.
 			</p>
-		</div>
 
-		<div class="jcem-noscript__lang">
-			<h2>🇨🇳 中文（普通话）</h2>
-			<p>
-				<span>⚠️</span>
-				<strong>JavaScript 已被禁用。</strong><br />
-				需要启用 JavaScript 以管理您对使用条款、隐私声明和同意偏好的确认。
-			</p>
-		</div>
+			<div class="jcem-noscript__lang">
+				<h2>Português</h2>
+				<p><strong>Ative o JavaScript</strong> no navegador e recarregue a página para acessar o conteúdo completo.</p>
+			</div>
+
+			<div class="jcem-noscript__lang">
+				<h2>English</h2>
+				<p><strong>Enable JavaScript</strong> in the browser and reload the page to access the full content.</p>
+			</div>
+
+			<div class="jcem-noscript__lang">
+				<h2>Español</h2>
+				<p><strong>Active JavaScript</strong> en el navegador y recargue la página para acceder al contenido completo.</p>
+			</div>
+		</section>
 	</main>
+
+	<div id="footer" class="page__footer jcem-noscript-footer" data-jcem-static-fragment="footer">
+		<footer>
+			{% include footer/custom.html %}
+		</footer>
+		{% include footer/after_footer.html %}
+	</div>
 </div>

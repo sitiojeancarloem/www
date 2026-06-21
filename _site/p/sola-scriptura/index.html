@@ -245,11 +245,27 @@
 <noscript>
 	<style>
 	:root {
-		--jcem-noscript-blue: #c08282;
-		--jcem-noscript-amber: #cc4c1e;
-		--jcem-noscript-bg: #ebebeb;
-		--jcem-noscript-text: #222;
-		--jcem-noscript-radius: 1rem;
+		--jcem-noscript-bg: #100f10;
+		--jcem-noscript-surface: #171717;
+		--jcem-noscript-surface-soft: #222;
+		--jcem-noscript-text: #f3f0e9;
+		--jcem-noscript-muted: #c8d3d8;
+		--jcem-noscript-link: #7bc8ff;
+		--jcem-noscript-accent: #e2c535;
+		--jcem-noscript-border: rgba(226, 197, 53, 0.35);
+	}
+
+	@media (prefers-color-scheme: light) {
+		:root {
+			--jcem-noscript-bg: #f4f0e8;
+			--jcem-noscript-surface: #fff;
+			--jcem-noscript-surface-soft: #e9eef1;
+			--jcem-noscript-text: #222;
+			--jcem-noscript-muted: #466878;
+			--jcem-noscript-link: #176d86;
+			--jcem-noscript-accent: #c8a712;
+			--jcem-noscript-border: rgba(126, 106, 18, 0.38);
+		}
 	}
 
 	html,
@@ -264,7 +280,7 @@
 	body > .main_jcem_wrapper,
 	body > .loader-bar,
 	body > .carregandoPagina {
-		/* PROTECAO: sem JavaScript, somente o painel noscript deve aparecer. */
+		/* PROTECAO: sem JavaScript, somente o shell noscript deve aparecer. */
 		display: none !important;
 	}
 
@@ -272,10 +288,9 @@
 		position: fixed;
 		inset: 0;
 		z-index: 2147483647;
-		display: flex;
+		display: block;
 		width: 100vw;
-		min-height: 100vh;
-		padding: 1rem;
+		height: 100vh;
 		overflow: auto;
 		background: var(--jcem-noscript-bg);
 	}
@@ -284,79 +299,212 @@
 	body > noscript * {
 		visibility: visible !important;
 		box-sizing: border-box;
-		font-family: 'Noto Sans', 'Segoe UI', Tahoma, sans-serif;
+		font-family: "Noto Sans", "Segoe UI", Tahoma, sans-serif;
 		color: var(--jcem-noscript-text);
 	}
 
-	.jcem-noscript {
+	.jcem-noscript-page {
+		min-height: 100vh;
+		background: var(--jcem-noscript-bg);
+	}
+
+	.jcem-noscript-page a {
+		color: var(--jcem-noscript-link);
+		text-decoration-thickness: 0.08em;
+		text-underline-offset: 0.18em;
+	}
+
+	.jcem-noscript-masthead {
+		position: sticky;
+		top: 0;
+		z-index: 10;
+		border-bottom: 1px solid var(--jcem-noscript-border);
+		background: color-mix(in srgb, var(--jcem-noscript-surface) 92%, transparent);
+		box-shadow: 0 0.35rem 0.9rem rgba(0, 0, 0, 0.22);
+	}
+
+	.jcem-noscript-masthead .masthead__inner-wrap {
+		max-width: 82rem;
+		margin: 0 auto;
+		padding: 0.45rem 1rem;
+		background: transparent;
+	}
+
+	.jcem-noscript-masthead .greedy-nav {
 		display: flex;
 		align-items: center;
-		justify-content: center;
+		gap: 1rem;
+		min-height: 3.2rem;
+		background: transparent;
+	}
+
+	.jcem-noscript-masthead .site-logo img {
+		display: block;
+		width: auto;
+		max-width: 8.5rem;
+		max-height: 3rem;
+		object-fit: contain;
+	}
+
+	.jcem-noscript-masthead .site-title {
+		position: absolute !important;
+		width: 1px;
+		height: 1px;
+		overflow: hidden;
+		clip: rect(0 0 0 0);
+		white-space: nowrap;
+	}
+
+	.jcem-noscript-masthead .visible-links {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.35rem 1rem;
+		align-items: center;
+		justify-content: flex-end;
+		margin: 0 0 0 auto;
+		padding: 0;
+		list-style: none;
+	}
+
+	.jcem-noscript-masthead .masthead__menu-item a {
+		display: inline-flex;
+		align-items: center;
+		min-height: 2.25rem;
+		font-weight: 700;
+		text-decoration: none;
+	}
+
+	.jcem-noscript-featured {
 		width: 100%;
-		min-height: calc(100vh - 2rem);
+		height: clamp(8.4rem, 22.4vh, 16.8rem);
+		margin: 0;
+		overflow: hidden;
+		background: #100f10;
+	}
+
+	.jcem-noscript-featured .jcem-featured-image__img {
+		display: block;
+		width: 100%;
+		height: 100%;
+		margin: 0 auto;
+		object-fit: contain;
+		object-position: center;
+		background: #100f10;
+	}
+
+	.jcem-noscript-content {
+		width: min(100% - 2rem, 54rem);
+		margin: 0 auto;
+		padding: clamp(1.4rem, 4vw, 3rem) 0;
 	}
 
 	.jcem-noscript__panel {
-		/* FIX-BUG: centraliza o painel sem depender de largura fixa. */
-		width: min(100%, 28rem);
-		margin: auto;
-		padding: 1.5rem;
-		border: 0.1rem solid var(--jcem-noscript-blue);
-		border-radius: var(--jcem-noscript-radius);
-		background: #fff;
-		box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1);
-		text-align: left;
+		padding: clamp(1.15rem, 3vw, 2rem);
+		border: 1px solid var(--jcem-noscript-border);
+		border-radius: 0.5rem;
+		background: linear-gradient(180deg, var(--jcem-noscript-surface), var(--jcem-noscript-surface-soft));
+		box-shadow: 0 1rem 2.4rem rgba(0, 0, 0, 0.24);
+	}
+
+	.jcem-noscript__eyebrow {
+		margin: 0 0 0.35rem;
+		color: var(--jcem-noscript-accent);
+		font-size: 0.82rem;
+		font-weight: 800;
+		letter-spacing: 0;
+		text-transform: uppercase;
 	}
 
 	.jcem-noscript h1 {
-		display: flex;
-		align-items: center;
-		gap: 0.5rem;
-		margin: -1rem -1rem 1rem;
-		padding: 0.6em 1em;
-		border-radius: var(--jcem-noscript-radius) var(--jcem-noscript-radius) 0 0;
-		background: #845050;
-		color: #fff;
-		font-size: clamp(1.1rem, 5vw, 1.5rem);
-		font-weight: 700;
+		margin: 0;
+		color: var(--jcem-noscript-text);
+		font-size: clamp(1.55rem, 5vw, 2.35rem);
+		line-height: 1.05;
 	}
 
-	.jcem-noscript h1 span {
-		color: inherit;
-		font-size: 1.5rem;
-	}
-
-	.jcem-noscript p {
-		margin: 0.2rem 0;
-		line-height: 1.4;
+	.jcem-noscript__lead {
+		max-width: 45rem;
+		margin: 0.8rem 0 1.2rem;
+		color: var(--jcem-noscript-muted);
+		font-size: clamp(1rem, 2.5vw, 1.18rem);
+		line-height: 1.55;
 	}
 
 	.jcem-noscript__lang {
-		margin-top: 1rem;
-		padding-top: 0.5rem;
-		border-top: 1px solid rgba(0, 0, 0, 0.1);
-		font-size: 0.9rem;
-	}
-
-	.jcem-noscript__lang:first-of-type {
-		border-top: 0;
+		margin-top: 0.85rem;
+		padding-top: 0.85rem;
+		border-top: 1px solid var(--jcem-noscript-border);
 	}
 
 	.jcem-noscript__lang h2 {
-		margin: 0 0 0.2rem;
-		color: var(--jcem-noscript-blue);
-		font-size: 0.9rem;
+		margin: 0 0 0.25rem;
+		color: var(--jcem-noscript-link);
+		font-size: 0.95rem;
 	}
 
-	.jcem-noscript strong {
-		color: var(--jcem-noscript-amber);
-		font-size: 1.05rem;
-		font-style: italic;
+	.jcem-noscript__lang p {
+		margin: 0;
+		color: var(--jcem-noscript-muted);
+		font-size: 0.96rem;
+		line-height: 1.48;
 	}
 
-	.jcem-noscript p span {
-		font-size: 1.3rem;
-		vertical-align: text-bottom;
+	.jcem-noscript__lang strong {
+		color: var(--jcem-noscript-text);
+		font-style: normal;
+	}
+
+	.jcem-noscript-footer {
+		margin-top: 0;
+		padding: 0 1rem 1.5rem;
+		border-top: 1px solid var(--jcem-noscript-border);
+		background: var(--jcem-noscript-surface);
+	}
+
+	.jcem-noscript-footer footer,
+	.jcem-noscript-footer .sobpostbar,
+	.jcem-noscript-footer .copy {
+		width: min(100%, 82rem);
+		margin-right: auto;
+		margin-left: auto;
+	}
+
+	.jcem-noscript-footer .jcem-foot {
+		padding-top: 1.25rem;
+		font-size: 0.78rem;
+		line-height: 1.45;
+	}
+
+	.jcem-noscript-footer .copy,
+	.jcem-noscript-footer .sobpostbar {
+		font-size: 0.78rem;
+	}
+
+	.jcem-noscript-footer .sobpostbar ul {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.35rem 0.85rem;
+		padding-left: 0;
+		list-style: none;
+	}
+
+	@supports not (background: color-mix(in srgb, #000 50%, transparent)) {
+		.jcem-noscript-masthead {
+			background: var(--jcem-noscript-surface);
+		}
+	}
+
+	@media (max-width: 40em) {
+		.jcem-noscript-masthead .greedy-nav {
+			align-items: flex-start;
+			flex-direction: column;
+			gap: 0.3rem;
+		}
+
+		.jcem-noscript-masthead .visible-links {
+			justify-content: flex-start;
+			margin-left: 0;
+		}
 	}
 </style>
 
@@ -373,51 +521,202 @@
 </div>
 
 <noscript>
-	<div class="jcem-noscript">
-	<main class="jcem-noscript__panel">
-		<h1><span>⚠️</span>Problem / Problema / 问题</h1>
-
-		<div class="jcem-noscript__lang">
-			<h2>🇺🇸 English</h2>
-			<p>
-				<span>⚠️</span>
-				<strong>JavaScript is disabled.</strong><br />
-				JavaScript is required to manage your agreement with the Terms of Use,
-				Privacy Notice and consent preferences.
-			</p>
+<div class="jcem-noscript-page">
+	<header class="masthead jcem-noscript-masthead" data-jcem-static-fragment="masthead">
+		<div class="masthead__inner-wrap">
+			<div class="masthead__menu">
+				<nav class="greedy-nav" aria-label="Navegação sem JavaScript">
+					<a class="site-logo" href="/">
+						<img src="https://jcem.pro/logo/logo-animado.gif" alt="JeanCarloEM" />
+					</a>
+					<a class="site-title" href="/">
+						JeanCarloEM
+					</a>
+					<ul class="visible-links">
+						<li class="masthead__menu-item"><a href="/">Publicações</a></li>
+						<li class="masthead__menu-item"><a href="/sobre/">Sobre</a></li>
+					</ul>
+				</nav>
+			</div>
 		</div>
+	</header>
 
-		<div class="jcem-noscript__lang">
-			<h2>🇧🇷 Português</h2>
-			<p>
-				<span>⚠️</span>
-				<strong>O JavaScript está desativado.</strong><br />
-				O JavaScript é necessário para gerenciar sua adesão aos Termos de Uso,
-				Aviso de Privacidade e preferências de consentimento.
-			</p>
-		</div>
+	<figure class="jcem-featured-image jcem-featured-image--wide jcem-noscript-featured" aria-label="Imagem destacada da página sem JavaScript">
+		<img class="jcem-featured-image__img" src="/assets/jcem/img/sem-motor-nao-vai-jcem-ccbysanc.png" alt="Sem motor, não vai" decoding="async" />
+	</figure>
 
-		<div class="jcem-noscript__lang">
-			<h2>🇪🇸 Español</h2>
-			<p>
-				<span>⚠️</span>
-				<strong>JavaScript está deshabilitado.</strong><br />
-				JavaScript es necesario para gestionar su aceptación de los Términos de
-				Uso, Aviso de Privacidad y preferencias de consentimiento.
+	<main class="jcem-noscript-content">
+		<section class="jcem-noscript__panel" aria-labelledby="jcem-noscript-title">
+			<p class="jcem-noscript__eyebrow">Aviso técnico</p>
+			<h1 id="jcem-noscript-title">JavaScript desativado</h1>
+			<p class="jcem-noscript__lead">
+				Este blog usa JavaScript para confirmar termos, privacidade e preferências de consentimento.
+				Sem esse recurso, a página completa permanece indisponível.
 			</p>
-		</div>
 
-		<div class="jcem-noscript__lang">
-			<h2>🇨🇳 中文（普通话）</h2>
-			<p>
-				<span>⚠️</span>
-				<strong>JavaScript 已被禁用。</strong><br />
-				需要启用 JavaScript 以管理您对使用条款、隐私声明和同意偏好的确认。
-			</p>
-		</div>
+			<div class="jcem-noscript__lang">
+				<h2>Português</h2>
+				<p><strong>Ative o JavaScript</strong> no navegador e recarregue a página para acessar o conteúdo completo.</p>
+			</div>
+
+			<div class="jcem-noscript__lang">
+				<h2>English</h2>
+				<p><strong>Enable JavaScript</strong> in the browser and reload the page to access the full content.</p>
+			</div>
+
+			<div class="jcem-noscript__lang">
+				<h2>Español</h2>
+				<p><strong>Active JavaScript</strong> en el navegador y recargue la página para acceder al contenido completo.</p>
+			</div>
+		</section>
 	</main>
+
+	<div id="footer" class="page__footer jcem-noscript-footer" data-jcem-static-fragment="footer">
+		<footer>
+			<!-- start custom footer snippets -->
+<div class="jcem-foot">
+	<p>
+		<b>Importante:</b> Ao acessar este e qualquer domínio e/ou
+		subdomínio de <b>jeancarloem.com</b>, você concorda, de forma
+		<b>irretratável e irrevogável</b>, com os
+		<a
+			href="https://jeancarloem.com/termos-e-condicoes-de-uso"
+			><b>Termos e Políticas de Uso</b></a
+		>, declarando-se ciente de que, caso <b>não</b> os aceite
+		ou concorde, <b><u>NÃO</u></b> deverá usar, acessar, salvar (ou
+		armazenar em quaisquer meios), compartilhar e/ou replicar (mesmo
+		que parcialmente) qualquer site, blog ou informação de
+		<b>jeancarloem.com</b> (e seus subdomínios), devendo ainda
+		<b>abandonar (sair) imediata e impreterivelmente</b> de qualquer
+		domínio ou subdomínio de <b>jeancarloem.com</b>.
+	</p>
+
+	<p>
+		<b>AVISO DE CONTEÚDO SENSÍVEL:</b> Este e qualquer site de
+		<b>jeancarloem.com</b> e seus subdomínios podem conter
+		<b
+			>informações, opiniões pessoais, sugestões, dicas, orientações,
+			propagandas, patrocínios explícitos e implícitos</b
+		>, entre outros conteúdos. Tais materiais são de
+		<b>responsabilidade exclusiva do autor</b> e
+		<b>não</b> implicam em concordância e/ou endosso por parte
+		deste(s) site(s) ou de seu(s) proprietário(s). O conteúdo é
+		fornecido pelo autor e disponibilizado “como está”, sem
+		quaisquer garantias implícitas e/ou explícitas, diretas e/ou
+		indiretas, nos termos da
+		<a
+			href="https://jeancarloem.com/licenca"
+			><b>licença</b></a
+		>. Pode conter ainda teor
+		<b>polêmico, religioso, filosófico ou político</b>, entre outros,
+		que podem ser considerados <b>inapropriados e até ofensivos</b>, a
+		depender da cultura, crença ou localidade. Todavia, tais conteúdos
+		se inserem
+		<b>estritamente no escopo de ideias, conceitos e abstrações</b>,
+		<b
+			><i
+				>NÃO configurando, sob qualquer hipótese, incentivo, promoção
+				ou apologia ao ódio, discriminação, violação de leis,
+				agressão, desrespeito, racismo ou condutas análogas</i
+			></b
+		>. Caso algum texto leve o leitor a interpretar de modo diverso,
+		fica desde já esclarecido que
+		<b>tal nunca foi a intenção</b
+		>, devendo eventual interpretação ser revista à luz deste
+		esclarecimento. O leitor poderá, se desejar, comunicar-se
+		especificando precisamente o
+		<b>trecho, termos ou combinações de palavras</b> que possam ter
+		ocasionado má compreensão, ciente de que, dentro do contexto de
+		ideias,
+		<b
+			>opiniões divergentes podem naturalmente gerar desconforto ou
+			ofensa a valores pessoais</b
+		>
+		— o que é
+		inerente ao exercício do debate e da liberdade de expressão</i
+		>. Tais manifestações são resguardadas pelo
+		<b>direito à livre expressão</b>, garantido pela
+		<a
+			href="http://www.senado.leg.br/atividade/const/con1988/con1988_15.12.2016/art_5_.asp"
+			target="_blank"
+			rel="noopener"
+			><b>Constituição Federal do Brasil</b>, em seu artigo 5º,
+			incisos IV, VI, VIII e IX</a
+		>, que legisla sobre a
+		<b>liberdade de pensamento, religião e comunicação</b>,
+		independentemente de censura ou licença, bem como pela
+		<a
+			href="http://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/L13709.htm"
+			target="_blank"
+			rel="noopener"
+			><b>Lei Geral de Proteção de Dados Pessoais</b>, artigo 2º,
+			inciso III</a
+		>.
+	</p>
+
+	<p class="atencao">
+		<b>ATENÇÃO:</b> É expressamente <b><u>PROIBIDO</u></b> visualizar,
+		acessar, armazenar, usar, compartilhar, distribuir ou permanecer neste site
+		sem antes concordar com <b><u>TODOS</u></b> os
+		<a
+			href="https://jeancarloem.com/termos-e-condicoes-de-uso"
+			><b>Termos e Políticas de Uso</b></a
+		>
+		e AVISO DE CONTEÚDO SENSÍVEL acima.
+	</p>
 </div>
 
+		</footer>
+		<p class="copy">
+	Copyright &copy; 2012 - 2026 JeanCarloEM. Todos
+	os direitos reservados.
+	<span
+		>Feito com
+		<a
+			href="https://mmistakes.github.io/minimal-mistakes/"
+			target="_blank"
+		>
+			Minimal Mistakes</a
+		>.
+	</span>
+</p>
+
+<div class="sobpostbar">
+	<ul id="menu-topo-2" class="menu">
+		<li
+			class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1871"
+		>
+			<a href="/sobre/">Sobre</a>
+		</li>
+		<li
+			class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1869"
+		>
+			<a href="https://jeancarloem.com/termos-de-uso">Legal</a>
+		</li>
+		<li
+			class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1875"
+		>
+			<a href="https://jeancarloem.com/avisos-gerais/"
+				>Advertências</a
+			>
+		</li>
+		<li
+			class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1875"
+		>
+			<a href="https://jeancarloem.com/privacidade/">Privacidade</a>
+		</li>
+		<li
+			class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1872"
+		>
+			<a title="Licenca" href="https://jeancarloem.com/licenca/"
+				>Licença</a
+			>
+		</li>
+	</ul>
+</div>
+
+	</div>
+</div>
 </noscript>
 
 <input

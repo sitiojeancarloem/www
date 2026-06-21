@@ -835,8 +835,64 @@ const bindJcemFootnotes = (): void => {
 		});
 };
 
+let jcemNoScriptFragmentsReady: Promise<void> | null = null;
+
+const prepareJcemNoScriptFragments = (): Promise<void> => {
+	if (jcemNoScriptFragmentsReady) {
+		return jcemNoScriptFragmentsReady;
+	}
+
+	jcemNoScriptFragmentsReady = new Promise((resolve) => {
+		try {
+			const noScript = select<HTMLElement>('body > noscript');
+			const source = (noScript?.textContent || noScript?.innerHTML || '').trim();
+			const template = document.createElement('template');
+			template.innerHTML = source;
+
+			const masthead = template.content.querySelector<HTMLElement>(
+				'[data-jcem-static-fragment="masthead"]',
+			);
+			const footer = template.content.querySelector<HTMLElement>(
+				'[data-jcem-static-fragment="footer"]',
+			);
+			let cache = select<HTMLElement>('#jcem-noscript-fragment-cache');
+
+			if (!cache) {
+				cache = document.createElement('div');
+				cache.id = 'jcem-noscript-fragment-cache';
+				cache.hidden = true;
+				document.body.append(cache);
+			}
+
+			while (cache.firstChild) {
+				cache.removeChild(cache.firstChild);
+			}
+
+			if (masthead) {
+				cache.append(masthead.cloneNode(true));
+			}
+
+			if (footer) {
+				cache.append(footer.cloneNode(true));
+			}
+
+			document.documentElement.dataset.jcemNoscriptFragmentsReady =
+				masthead && footer ? 'true' : 'missing';
+		} catch (_error) {
+			// PROTECAO: falha na copia do fallback nao deve travar a pagina real.
+			document.documentElement.dataset.jcemNoscriptFragmentsReady = 'failed';
+		} finally {
+			resolve();
+		}
+	});
+
+	return jcemNoScriptFragmentsReady;
+};
+
 const revealJcemPage = (): void => {
-	document.documentElement.classList.add('jcem-page-loaded');
+	void prepareJcemNoScriptFragments().finally(() => {
+		document.documentElement.classList.add('jcem-page-loaded');
+	});
 };
 
 const hideNoScript = (): void => {
