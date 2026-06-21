@@ -673,19 +673,32 @@ body > input.radio#jcem-theme-dark:checked ~ .main_jcem_wrapper {
 
 .main_jcem_wrapper .archive__item--wide .archive__item-teaser {
 	aspect-ratio: 828 / 315;
+	min-height: 0;
+	max-height: none;
+	overflow: hidden;
 }
 
 .main_jcem_wrapper .archive__item--wide img {
-	max-width: initial !important;
+	min-height: 0;
+	max-width: none !important;
+	max-height: none !important;
 	width: auto !important;
-	width: 6rem !important;
 }
 
 .main_jcem_wrapper .archive__item--wide .archive__item-teaser img {
-	width: 100%;
-	height: 100%;
-	object-fit: cover;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 50%;
+	min-width: 100%;
+	min-height: 0;
+	width: auto !important;
+	max-width: none !important;
+	max-height: none !important;
+	height: 100% !important;
+	object-fit: contain;
 	object-position: center;
+	transform: translateX(-50%);
 }
 
 .main_jcem_wrapper .archive__item .jcem-date-flag--archive {

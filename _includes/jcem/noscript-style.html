@@ -1,4 +1,12 @@
 <style>
+	html,
+	body {
+		min-height: 100%;
+		overflow-x: hidden;
+		overflow-y: auto;
+		background: var(--dark--bg-solid) !important;
+	}
+
 	body > .main_jcem_wrapper,
 	body > .loader-bar,
 	body > .carregandoPagina {
@@ -7,14 +15,13 @@
 	}
 
 	body > noscript {
-		position: fixed;
-		inset: 0;
+		position: static;
 		z-index: 2147483647;
 		display: block;
-		width: 100vw;
-		height: 100vh;
-		overflow-x: hidden;
-		overflow-y: auto;
+		width: 100%;
+		max-width: 100%;
+		min-height: 100vh;
+		overflow: visible;
 		background: var(--dark--bg);
 		background-color: var(--dark--bg-solid);
 	}
@@ -53,7 +60,10 @@
 		--jcem-rule-color: var(--dark--jcem-rule-color);
 		--jcem-rule-shadow: var(--dark--jcem-rule-shadow);
 		--jcem-masthead-shadow: rgba(0, 0, 0, 0.22);
+		width: 100%;
+		min-width: 0;
 		min-height: 100vh;
+		overflow-x: hidden;
 		background: var(--bg);
 		background-color: var(--bg-solid);
 		background-repeat: no-repeat;
@@ -75,10 +85,10 @@
 	}
 
 	body > noscript .jcem-noscript-featured {
-		width: 100vw;
-		max-width: 100vw;
+		width: 100%;
+		max-width: 100%;
 		height: clamp(12rem, 32vh, 24rem);
-		margin: 0 0 0 calc(50% - 50vw);
+		margin: 0;
 		overflow: hidden;
 		background: #010203;
 		box-shadow: 0 0.15rem 0 var(--jcem-rule-shadow);
@@ -97,33 +107,33 @@
 	body > noscript .jcem-noscript-content {
 		width: min(100% - 2rem, 42rem);
 		margin: 0 auto;
-		padding: clamp(1rem, 3vw, 2rem) 0;
+		padding: clamp(0.85rem, 2.55vw, 1.7rem) 0;
 	}
 
 	body > noscript .jcem-noscript__panel {
-		padding: clamp(1rem, 2.4vw, 1.55rem);
+		padding: clamp(0.85rem, 2vw, 1.32rem);
 		border: 1px solid var(--jcem-panel-border);
 		border-radius: 0.4rem;
 		background: color-mix(
 			in srgb,
-			var(--jcem-panel-bg) 88%,
+			var(--jcem-panel-bg) 38%,
 			transparent
 		);
 		box-shadow: 0 0 1rem var(--jcem-panel-shadow);
 	}
 
 	body > noscript .jcem-noscript__panel h1 {
-		margin: 0 0 0.85rem;
-		padding-bottom: 0.5rem;
+		margin: 0 0 0.72rem;
+		padding-bottom: 0.42rem;
 		border-bottom: 1px solid var(--jcem-rule-color);
 		color: var(--jcem-panel-accent-hot);
-		font-size: clamp(1.25rem, 3.4vw, 1.75rem);
+		font-size: clamp(1.06rem, 2.9vw, 1.49rem);
 		line-height: 1.1;
 	}
 
 	body > noscript .jcem-noscript__lang {
-		margin-top: 0.75rem;
-		padding-top: 0.75rem;
+		margin-top: 0.64rem;
+		padding-top: 0.64rem;
 		border-top: 1px solid
 			color-mix(in srgb, var(--jcem-panel-border) 62%, transparent);
 	}
@@ -133,17 +143,17 @@
 	}
 
 	body > noscript .jcem-noscript__lang h2 {
-		margin: 0 0 0.25rem;
+		margin: 0 0 0.22rem;
 		color: var(--link);
-		font-size: 0.92rem;
+		font-size: 0.78rem;
 		line-height: 1.2;
 	}
 
 	body > noscript .jcem-noscript__lang p {
 		margin: 0;
 		color: var(--tc);
-		font-size: 0.92rem;
-		line-height: 1.42;
+		font-size: 0.78rem;
+		line-height: 1.36;
 	}
 
 	body > noscript .jcem-noscript__lang strong {

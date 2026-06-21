@@ -519,6 +519,33 @@ const validatePage = async (page, url, theme, viewportName) => {
 		}, expectedPanelImage, { timeout: 15000 })
 		.catch(() => {});
 
+	if (new URL(url).pathname === '/') {
+		await page.evaluate(async () => {
+			const max = Math.max(
+				document.body.scrollHeight,
+				document.documentElement.scrollHeight,
+			);
+
+			for (const step of [0.35, 0.7, 1]) {
+				window.scrollTo(0, Math.floor(max * step));
+				await new Promise((resolve) => window.setTimeout(resolve, 80));
+			}
+
+			window.scrollTo(0, 0);
+		});
+		await page.waitForTimeout(180);
+		await page
+			.waitForFunction(
+				() =>
+					Array.from(
+						document.querySelectorAll('.entries-grid .archive__item--wide img'),
+					).every((image) => image.complete && image.naturalWidth > 0),
+				null,
+				{ timeout: 5000 },
+			)
+			.catch(() => {});
+	}
+
 	const result = await page.evaluate((expectedPanelImage) => {
 		const visible = (selector) =>
 			Array.from(document.querySelectorAll(selector)).filter((node) => {
@@ -733,6 +760,7 @@ const validatePage = async (page, url, theme, viewportName) => {
 		const archiveWideImage = document.querySelector(
 			'.entries-grid .archive__item--wide .archive__item-image',
 		);
+		const archiveWideFrame = archiveWideImage?.closest('.archive__item-teaser');
 		const archiveGrid = document.querySelector('.entries-grid');
 		const archiveItemRect = archiveItem?.getBoundingClientRect();
 		const archiveLinkRect = archiveLink?.getBoundingClientRect();
@@ -740,6 +768,7 @@ const validatePage = async (page, url, theme, viewportName) => {
 		const archiveNormalImageRect = archiveNormalImage?.getBoundingClientRect();
 		const archiveNormalFrameRect = archiveNormalFrame?.getBoundingClientRect();
 		const archiveWideImageRect = archiveWideImage?.getBoundingClientRect();
+		const archiveWideFrameRect = archiveWideFrame?.getBoundingClientRect();
 		const archiveImageStyle = archiveImage
 			? window.getComputedStyle(archiveImage)
 			: null;
@@ -751,6 +780,9 @@ const validatePage = async (page, url, theme, viewportName) => {
 			: null;
 		const archiveWideImageStyle = archiveWideImage
 			? window.getComputedStyle(archiveWideImage)
+			: null;
+		const archiveWideFrameStyle = archiveWideFrame
+			? window.getComputedStyle(archiveWideFrame)
 			: null;
 		const archiveCenterTarget = archiveItemRect
 			? document
@@ -794,6 +826,44 @@ const validatePage = async (page, url, theme, viewportName) => {
 						yearRect.width > 1 &&
 						yearRect.height > 1 &&
 						year.getClientRects().length === 1,
+				),
+			};
+		});
+		const archiveWideImageMetrics = Array.from(
+			document.querySelectorAll('.entries-grid .archive__item--wide .archive__item-image'),
+		).map((image) => {
+			const frame = image.closest('.archive__item-teaser');
+			const imageRect = image.getBoundingClientRect();
+			const frameRect = frame?.getBoundingClientRect();
+			const imageStyle = window.getComputedStyle(image);
+			const frameStyle = frame ? window.getComputedStyle(frame) : null;
+			const renderedRatio =
+				imageRect.height > 0 ? imageRect.width / imageRect.height : 0;
+			const naturalRatio =
+				image.naturalHeight > 0 ? image.naturalWidth / image.naturalHeight : 0;
+
+			return {
+				src: image.getAttribute('src') || '',
+				objectFit: imageStyle.objectFit || '',
+				frameOverflowX: frameStyle?.overflowX || '',
+				frameOverflowY: frameStyle?.overflowY || '',
+				renderedRatio,
+				naturalRatio,
+				heightMatchesFrame: Boolean(
+					frameRect && Math.abs(imageRect.height - frameRect.height) <= 2,
+				),
+				coversFrameWidth: Boolean(
+					frameRect && imageRect.width >= frameRect.width - 2,
+				),
+				centeredInFrame: Boolean(
+					frameRect &&
+						Math.abs(
+							(imageRect.left + imageRect.right) / 2 -
+								(frameRect.left + frameRect.right) / 2,
+						) <= 3,
+				),
+				keepsNaturalRatio: Boolean(
+					naturalRatio > 0 && Math.abs(renderedRatio - naturalRatio) <= 0.02,
 				),
 			};
 		});
@@ -942,10 +1012,34 @@ const validatePage = async (page, url, theme, viewportName) => {
 					'.entries-grid .archive__item--wide .archive__item-image',
 				).length,
 				wideImageObjectFit: archiveWideImageStyle?.objectFit || '',
+				wideFrameOverflowX: archiveWideFrameStyle?.overflowX || '',
+				wideFrameOverflowY: archiveWideFrameStyle?.overflowY || '',
+				wideImageNaturalRatio:
+					archiveWideImage && archiveWideImage.naturalHeight > 0
+						? archiveWideImage.naturalWidth / archiveWideImage.naturalHeight
+						: 0,
 				firstWideImageRatio:
 					archiveWideImageRect && archiveWideImageRect.height > 0
 						? archiveWideImageRect.width / archiveWideImageRect.height
 						: 0,
+				wideImageHeightMatchesFrame: Boolean(
+					archiveWideImageRect &&
+						archiveWideFrameRect &&
+						Math.abs(archiveWideImageRect.height - archiveWideFrameRect.height) <= 2,
+				),
+				wideImageCoversFrameWidth: Boolean(
+					archiveWideImageRect &&
+						archiveWideFrameRect &&
+						archiveWideImageRect.width >= archiveWideFrameRect.width - 2,
+				),
+				wideImageCenteredInFrame: Boolean(
+					archiveWideImageRect &&
+						archiveWideFrameRect &&
+						Math.abs(
+							(archiveWideImageRect.left + archiveWideImageRect.right) / 2 -
+								(archiveWideFrameRect.left + archiveWideFrameRect.right) / 2,
+						) <= 3,
+				),
 				maxImageTitleGap: Math.max(
 					0,
 					...archiveCardMetrics.map((metric) => metric.imageTitleGap),
@@ -963,6 +1057,19 @@ const validatePage = async (page, url, theme, viewportName) => {
 						!metric.flagEscapesCardTop ||
 						!metric.flagInsideCardBottom ||
 						!metric.flagYearVisible,
+				).length,
+				badWideImageCount: archiveWideImageMetrics.filter(
+					(metric) =>
+						metric.objectFit !== 'contain' ||
+						metric.frameOverflowX !== 'hidden' ||
+						metric.frameOverflowY !== 'hidden' ||
+						!metric.heightMatchesFrame ||
+						!metric.coversFrameWidth ||
+						!metric.centeredInFrame ||
+						!metric.keepsNaturalRatio,
+				).length,
+				devaneiosWideCount: archiveWideImageMetrics.filter((metric) =>
+					metric.src.includes('/devaneios/'),
 				).length,
 			},
 			styles: [
@@ -1125,10 +1232,22 @@ const validatePage = async (page, url, theme, viewportName) => {
 
 		if (
 			result.archive.wideImageCount > 0 &&
-			(result.archive.wideImageObjectFit !== 'cover' ||
-				result.archive.firstWideImageRatio < 2.2)
+			(result.archive.wideImageObjectFit !== 'contain' ||
+				result.archive.wideFrameOverflowX !== 'hidden' ||
+				result.archive.wideFrameOverflowY !== 'hidden' ||
+				!result.archive.wideImageHeightMatchesFrame ||
+				!result.archive.wideImageCoversFrameWidth ||
+				!result.archive.wideImageCenteredInFrame ||
+				result.archive.firstWideImageRatio < 2.2 ||
+				(result.archive.wideImageNaturalRatio > 0 &&
+					Math.abs(
+						result.archive.firstWideImageRatio -
+							result.archive.wideImageNaturalRatio,
+					) > 0.02) ||
+				result.archive.badWideImageCount > 0 ||
+				result.archive.devaneiosWideCount < 1)
 		) {
-			fail(`Imagem destacada wide de card sem crop/cover em ${url} ${theme} ${viewportName}: ${JSON.stringify(result.archive)}`);
+			fail(`Imagem destacada wide de card sem crop central por altura em ${url} ${theme} ${viewportName}: ${JSON.stringify(result.archive)}`);
 		}
 
 		if (result.archive.itemCount < 8) {
@@ -1554,8 +1673,11 @@ const validateNoScriptPage = async (page, url, viewportName) => {
 		const themeToggle = document.querySelector('.jcem-theme-toggle');
 		const panelRect = panel?.getBoundingClientRect();
 		const featuredRect = featured?.getBoundingClientRect();
+		const noScriptRect = noScript?.getBoundingClientRect();
 		const shellStyle = shell ? window.getComputedStyle(shell) : null;
 		const noScriptStyle = noScript ? window.getComputedStyle(noScript) : null;
+		const bodyStyle = window.getComputedStyle(document.body);
+		const htmlStyle = window.getComputedStyle(document.documentElement);
 		const featuredStyle = featured ? window.getComputedStyle(featured) : null;
 		const featuredImageStyle = featuredImage ? window.getComputedStyle(featuredImage) : null;
 		const wrapperStyle = wrapper ? window.getComputedStyle(wrapper) : null;
@@ -1571,6 +1693,20 @@ const validateNoScriptPage = async (page, url, viewportName) => {
 			shellBg: shellStyle?.backgroundColor || '',
 			shellBgImage: shellStyle?.backgroundImage || '',
 			noScriptOverflowY: noScriptStyle?.overflowY || '',
+			noScriptOverflowX: noScriptStyle?.overflowX || '',
+			noScriptPosition: noScriptStyle?.position || '',
+			bodyOverflowY: bodyStyle.overflowY || '',
+			htmlOverflowY: htmlStyle.overflowY || '',
+			noScriptWidth: noScriptRect?.width || 0,
+			noScriptRightGap: noScriptRect
+				? Math.abs(window.innerWidth - noScriptRect.right)
+				: 0,
+			pageCanScrollY:
+				document.documentElement.scrollHeight >
+				document.documentElement.clientHeight + 2,
+			overflowX:
+				document.documentElement.scrollWidth -
+				document.documentElement.clientWidth,
 			featuredImageSrc: featuredImage?.getAttribute('src') || '',
 			featuredImageObjectFit: featuredImageStyle?.objectFit || '',
 			hasThemeToggle: visible(themeToggle) || Boolean(shell?.querySelector('.jcem-theme-toggle')),
@@ -1596,7 +1732,7 @@ const validateNoScriptPage = async (page, url, viewportName) => {
 		result.featuredHeight < 180 ||
 		!result.featuredImageSrc.includes('sem-motor-nao-vai-jcem-ccbysanc.png') ||
 		result.featuredImageObjectFit !== 'contain' ||
-		result.featuredBg !== 'rgb(16, 15, 16)'
+		result.featuredBg !== 'rgb(1, 2, 3)'
 	) {
 		fail(`Imagem wide noscript invalida em ${url} ${viewportName}: ${JSON.stringify(result)}`);
 	}
@@ -1604,7 +1740,11 @@ const validateNoScriptPage = async (page, url, viewportName) => {
 	if (
 		result.shellBg === 'rgb(16, 15, 16)' ||
 		result.shellBgImage === 'none' ||
-		result.noScriptOverflowY === 'hidden'
+		result.noScriptPosition !== 'static' ||
+		result.bodyOverflowY === 'hidden' ||
+		result.htmlOverflowY === 'hidden' ||
+		result.overflowX > 2 ||
+		result.noScriptRightGap > 2
 	) {
 		fail(`Fundo ou rolagem do noscript invalido em ${url} ${viewportName}: ${JSON.stringify(result)}`);
 	}
@@ -1691,6 +1831,7 @@ const validate404Page = async (page, url, viewportName) => {
 		const terminalTrack = document.querySelector('.jcem-404__screen-track');
 		const terminalFinal = document.querySelector('.jcem-404__line--final');
 		const terminalActiveLine = document.querySelector('.jcem-404__line.is-typing');
+		const terminalNextLine = terminalActiveLine?.nextElementSibling;
 		const themeToggle = document.querySelector('.jcem-theme-toggle');
 		const loader = document.querySelector('.carregandoPagina');
 		const page404Style = page404 ? window.getComputedStyle(page404) : null;
@@ -1709,6 +1850,12 @@ const validate404Page = async (page, url, viewportName) => {
 			: null;
 		const terminalActiveLineBeforeStyle = terminalActiveLine
 			? window.getComputedStyle(terminalActiveLine, '::before')
+			: null;
+		const terminalActiveLineStyle = terminalActiveLine
+			? window.getComputedStyle(terminalActiveLine)
+			: null;
+		const terminalNextLineStyle = terminalNextLine
+			? window.getComputedStyle(terminalNextLine)
 			: null;
 		const measureTextWidth = (element) => {
 			if (!element) return 0;
@@ -1792,6 +1939,10 @@ const validate404Page = async (page, url, viewportName) => {
 				terminalActiveLineBeforeStyle?.backgroundColor || '',
 			terminalActiveMaskTransitionDuration:
 				terminalActiveLineBeforeStyle?.transitionDuration || '',
+			terminalActiveLineBackground:
+				terminalActiveLineStyle?.backgroundColor || '',
+			terminalNextLineVisibility:
+				terminalNextLineStyle?.visibility || '',
 			terminalActiveLineText: terminalActiveLine?.textContent?.trim() || '',
 			terminalActiveTypeWidth: Number.parseFloat(
 				terminalActiveLine?.style.getPropertyValue('--jcem-terminal-type-width') || '0',
@@ -1894,6 +2045,9 @@ const validate404Page = async (page, url, viewportName) => {
 		result.terminalActiveCursorTransitionDuration !==
 			result.terminalActiveMaskTransitionDuration ||
 		result.terminalActiveMaskBackground !== result.terminalScreen.backgroundColor ||
+		result.terminalActiveLineBackground !== result.terminalScreen.backgroundColor ||
+		(result.terminalNextLineVisibility !== '' &&
+			result.terminalNextLineVisibility !== 'hidden') ||
 		!result.terminalActiveLineText ||
 		result.terminalActiveTypeWidth > result.terminalActiveTextWidth + 6 ||
 		result.terminalLineWhiteSpace !== 'nowrap' ||

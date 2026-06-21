@@ -100,7 +100,7 @@
 		<noscript data-jcem-fragment="noscript-style">
 			<style>
 				:root {
-					--jcem-noscript-bg: #100f10;
+					--jcem-noscript-bg: var(--dark--bg-solid, #171717);
 					--jcem-noscript-surface: #171717;
 					--jcem-noscript-surface-soft: #222;
 					--jcem-noscript-text: #f3f0e9;
@@ -128,7 +128,8 @@
 					margin: 0;
 					padding: 0;
 					min-height: 100vh;
-					overflow: hidden;
+					overflow-x: hidden;
+					overflow-y: auto;
 					background: var(--jcem-noscript-bg);
 				}
 
@@ -140,13 +141,13 @@
 				}
 
 				body > noscript {
-					position: fixed;
-					inset: 0;
+					position: static;
 					z-index: 2147483647;
 					display: block;
-					width: 100vw;
-					height: 100vh;
-					overflow: auto;
+					width: 100%;
+					max-width: 100%;
+					min-height: 100vh;
+					overflow: visible;
 					background: var(--jcem-noscript-bg);
 				}
 
@@ -159,7 +160,10 @@
 				}
 
 				.jcem-noscript-page {
+					width: 100%;
+					min-width: 0;
 					min-height: 100vh;
+					overflow-x: hidden;
 					background: var(--jcem-noscript-bg);
 				}
 
@@ -231,10 +235,11 @@
 
 				.jcem-noscript-featured {
 					width: 100%;
+					max-width: 100%;
 					height: clamp(8.4rem, 22.4vh, 16.8rem);
 					margin: 0;
 					overflow: hidden;
-					background: #100f10;
+					background: #010203;
 				}
 
 				.jcem-noscript-featured .jcem-featured-image__img {
@@ -244,7 +249,7 @@
 					margin: 0 auto;
 					object-fit: contain;
 					object-position: center;
-					background: #100f10;
+					background: #010203;
 				}
 
 				.jcem-noscript-content {
@@ -357,8 +362,11 @@
 				}
 
 				body > noscript {
-					overflow-x: hidden;
-					overflow-y: auto;
+					position: static;
+					width: 100%;
+					max-width: 100%;
+					min-height: 100vh;
+					overflow: visible;
 					background: var(--dark--bg);
 					background-color: var(--dark--bg-solid);
 				}
@@ -386,6 +394,9 @@
 					--jcem-panel-accent-hot: var(--dark--jcem-panel-accent-hot);
 					--jcem-rule-color: var(--dark--jcem-rule-color);
 					--jcem-rule-shadow: var(--dark--jcem-rule-shadow);
+					width: 100%;
+					min-width: 0;
+					overflow-x: hidden;
 					background: var(--bg);
 					background-color: var(--bg-solid);
 					background-repeat: no-repeat;
@@ -394,33 +405,45 @@
 				}
 
 				body > noscript .jcem-noscript-featured {
+					width: 100%;
+					max-width: 100%;
+					margin: 0;
 					height: clamp(12rem, 32vh, 24rem);
 					border-bottom: 1px solid var(--jcem-rule-color);
 					box-shadow: 0 0.15rem 0 var(--jcem-rule-shadow);
-					background: #100f10;
+					background: #010203;
 				}
 
 				body > noscript .jcem-noscript-content {
 					width: min(100% - 2rem, 42rem);
-					padding: clamp(1rem, 3vw, 2rem) 0;
+					padding: clamp(0.85rem, 2.55vw, 1.7rem) 0;
 				}
 
 				body > noscript .jcem-noscript__panel {
-					padding: clamp(1rem, 2.4vw, 1.55rem);
+					padding: clamp(0.85rem, 2vw, 1.32rem);
 					background: color-mix(in srgb, var(--jcem-panel-bg) 88%, transparent);
 				}
 
 				body > noscript .jcem-noscript__panel h1 {
-					margin: 0 0 0.85rem;
-					padding-bottom: 0.5rem;
+					margin: 0 0 0.72rem;
+					padding-bottom: 0.42rem;
 					border-bottom: 1px solid var(--jcem-rule-color);
 					color: var(--jcem-panel-accent-hot);
-					font-size: clamp(1.25rem, 3.4vw, 1.75rem);
+					font-size: clamp(1.06rem, 2.9vw, 1.49rem);
+				}
+
+				body > noscript .jcem-noscript__lang {
+					margin-top: 0.64rem;
+					padding-top: 0.64rem;
 				}
 
 				body > noscript .jcem-noscript__lang h2,
 				body > noscript .jcem-noscript__lang p {
-					font-size: 0.92rem;
+					font-size: 0.78rem;
+				}
+
+				body > noscript .jcem-noscript__lang p {
+					line-height: 1.36;
 				}
 			</style>
 		</noscript>
@@ -618,6 +641,7 @@
 
 			.main_jcem_wrapper .jcem-404__screen {
 				--jcem-terminal-shift: 0px;
+				--jcem-terminal-mask-bg: var(--jcem-404-terminal-bg);
 				position: relative;
 				height: calc((1.18em * 8) + 0.72rem);
 				max-height: none;
@@ -663,33 +687,44 @@
 				white-space: nowrap;
 			}
 
+			.jcem-404__line.is-preparing,
+			.jcem-404__line.is-typing {
+				background: var(--jcem-terminal-mask-bg);
+			}
+
+			.jcem-404__line.is-preparing ~ .jcem-404__line,
+			.jcem-404__line.is-typing ~ .jcem-404__line {
+				visibility: hidden;
+			}
+
 			.jcem-404__line.is-preparing::before,
 			.jcem-404__line.is-typing::before {
 				position: absolute;
 				top: 0;
-				right: 0;
+				right: -0.35rem;
 				bottom: 0;
-				left: var(--jcem-terminal-type-width, 0px);
 				display: block;
-				background: var(--jcem-404-terminal-bg);
+				background: var(--jcem-terminal-mask-bg);
 				content: "";
 				pointer-events: none;
 				z-index: 1;
 			}
 
 			.jcem-404__line.is-preparing::before {
+				left: 0;
 				transition: none;
 			}
 
 			.jcem-404__line.is-typing::before {
+				left: var(--jcem-terminal-type-width, 0px);
 				transition: left var(--jcem-terminal-type-duration, 105ms) linear;
 			}
 
+			.jcem-404__line.is-preparing::after,
 			.jcem-404__line.is-typing::after {
 				position: absolute;
 				top: 0.08em;
 				bottom: 0.08em;
-				left: var(--jcem-terminal-type-width, 0px);
 				z-index: 2;
 				display: block;
 				width: 0.58em;
@@ -698,6 +733,15 @@
 				content: "";
 				pointer-events: none;
 				animation: jcem-404-cursor-blink 0.72s steps(1, end) infinite;
+			}
+
+			.jcem-404__line.is-preparing::after {
+				left: 0;
+				transition: none;
+			}
+
+			.jcem-404__line.is-typing::after {
+				left: var(--jcem-terminal-type-width, 0px);
 				transition: left var(--jcem-terminal-type-duration, 105ms) linear;
 			}
 
@@ -1137,9 +1181,12 @@
 
 						if (!screen || !track || !firstSequence) return;
 
+						const screenBg = window.getComputedStyle(screen).backgroundColor;
+						if (screenBg) screen.style.setProperty('--jcem-terminal-mask-bg', screenBg);
+
 						const lineSelector = '.jcem-404__line';
 						const pauseMs = 25;
-						const prepareMs = 20;
+						const prepareMs = 34;
 						const transitionMs = 75;
 						const typeMs = 105;
 						let steps = [];
