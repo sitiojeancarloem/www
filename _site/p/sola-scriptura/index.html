@@ -337,12 +337,15 @@
 		overflow: hidden;
 		background: #010203;
 		box-shadow: 0 0.15rem 0 var(--jcem-rule-shadow);
+		text-align: center;
 	}
 
 	body > noscript .jcem-noscript-featured .jcem-featured-image__img {
-		display: block;
-		width: 100%;
+		display: inline-block;
+		width: auto;
+		max-width: none;
 		height: 100%;
+		min-height: 100%;
 		margin: 0 auto;
 		object-fit: contain;
 		object-position: center;

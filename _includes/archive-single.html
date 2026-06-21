@@ -1,7 +1,7 @@
 {% assign locale = include.locale | default: site.locale %}
 {% assign archive_title = post.title | markdownify | remove: "<p>" | remove: "</p>" %}
 {% assign archive_url = post.link | default: post.url | relative_url %}
-{% assign archive_featured_style = post.archive_image_style | default: post.featured_image.archive_style | default: post.header.archive_image_style | default: post.header.archive_style | default: "" | downcase %}
+{% assign archive_featured_style = post.archive_image_style | default: post.featured_image.archive_style | default: post.header.archive_image_style | default: post.header.archive_style | default: post.featured_image_style | default: "" | downcase %}
 {% if archive_featured_style == "inline" %}
   {% assign archive_featured_style = "content" %}
 {% elsif archive_featured_style == "full" or archive_featured_style == "full-width" or archive_featured_style == "bleed" %}
