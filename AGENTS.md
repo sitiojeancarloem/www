@@ -534,7 +534,7 @@ Exceto:
 - cabeçalho, `sobpostbar`, `noscript` e footer devem espelhar a origem do tema
 - conteúdo, links, logotipo, ordem estrutural e classes visuais desses fragmentos devem corresponder à origem vigente do tema
 - quando possível, hidratar fragmentos a partir da home
-- a saída compilada deve sincronizar o `noscript` da 404 com o `noscript` renderizado da home
+- a saída compilada deve sincronizar conteúdo e estilos `noscript` da 404 com os fragmentos renderizados da home
 - sanitizar fragmentos importados para remover recursos pesados ou indevidos
 - não importar switch de tema claro/escuro
 - não importar Silktide, consent managers ou análogos
@@ -546,6 +546,7 @@ Exceto:
 - publicações recentes não devem ser compiladas diretamente no HTML-fonte da 404
 - a falha do JSON/feed não deve bloquear, ocultar nem invalidar o restante da 404
 - cards assíncronos devem reutilizar a estrutura e o estilo visual dos cards de arquivo do blog
+- título e grade de publicações recentes devem manter folga suficiente para a flag não invadir o texto
 - montagem dos cards deve usar APIs de DOM e `textContent`, sem injetar HTML remoto
 - o carregamento assíncrono não deve depender de cookies ou `localStorage`
 
@@ -566,6 +567,7 @@ Paridade:
 
 - deve espelhar cabeçalho, `sobpostbar`, conteúdo institucional e footer vigentes no blog
 - deve preservar logotipo, textos, links, ordem estrutural e classes visuais da origem
+- footer deve herdar integralmente geometria, espaçamentos, cores e tipografia do footer do tema
 - divergências só são permitidas quando o elemento depender tecnicamente de JavaScript, cookies ou armazenamento local
 - controles de tema, busca, consentimento e menus dependentes de JavaScript não devem ser exibidos
 
@@ -578,11 +580,12 @@ Funcionamento:
 - o conteúdo deve permanecer legível, responsivo e integralmente acessível
 - o loader JavaScript não deve ocultar ou bloquear o fallback
 - a imagem destacada sem JavaScript usa o padrão wide do blog e fundo específico `#010203`
+- a masthead deve manter a mesma altura compacta do tema e o mesmo extravasamento vertical do logotipo
 
 Manutenção:
 
 - a fonte principal permanece em `_includes/jcem/noscript-content.html`
-- o artefato compilado da 404 deve receber automaticamente o mesmo fragmento renderizado da home
+- o artefato compilado da 404 deve receber automaticamente os mesmos fragmentos de conteúdo e estilo renderizados da home
 - validação visual deve comparar home e 404 com JavaScript desativado
 
 Canonical Path Redirect Script:
@@ -988,6 +991,31 @@ O próximo workflow deve ser acionado apenas quando:
 ---
 
 [CONTEÚDO_EDITORIAL]
+
+[LISTAGENS_DE_POSTS]
+
+Home:
+
+- exibir no máximo seis cards por página
+
+Artigos relacionados:
+
+- exibir sob o título `Relacionados`
+- compilar no máximo seis posts relacionados no HTML
+- não repetir o artigo atual
+
+Artigos recentes:
+
+- exibir sob o título `Recentes`
+- carregar os seis posts mais recentes a partir de `/recent-posts.json`
+- iniciar somente após o carregamento completo e a liberação do loader
+- manter somente título e contêiner vazio no HTML compilado do artigo
+- reutilizar estrutura e estilo dos cards de arquivo
+- montar cards com APIs de DOM e `textContent`
+- não depender de cookies nem `localStorage`
+- falha do JSON não deve interferir na leitura do artigo nem nos relacionados
+
+---
 
 [AUTORES_DE_ARTIGO]
 

@@ -180,7 +180,7 @@ href="https://jcem.pro/logo/apple-touch-icon.png"
 		bottom: 0;
 	}
 </style>
-<noscript>
+<noscript data-jcem-fragment="noscript-style">
 <style>
 	html,
 	body {
@@ -270,6 +270,35 @@ href="https://jcem.pro/logo/apple-touch-icon.png"
 		position: sticky;
 		top: 0;
 		z-index: 10;
+		height: auto;
+		overflow: visible;
+	}
+
+	body > noscript .jcem-noscript-masthead .masthead__inner-wrap {
+		min-height: 2.65rem;
+		padding-top: 0.3rem;
+		padding-bottom: 0.3rem;
+		overflow: visible;
+	}
+
+	body > noscript .jcem-noscript-masthead .greedy-nav {
+		min-height: 2.05rem;
+		overflow: visible;
+	}
+
+	body > noscript .jcem-noscript-masthead .site-logo {
+		height: 2.05rem;
+		overflow: visible;
+	}
+
+	body > noscript .jcem-noscript-masthead .site-logo img {
+		position: absolute;
+		top: 50%;
+		left: 0;
+		height: 3.9rem;
+		max-height: none !important;
+		transform: translateY(-37%);
+		margin-top: -0.8rem;
 	}
 
 	body > noscript .jcem-noscript-featured {
@@ -350,10 +379,6 @@ href="https://jcem.pro/logo/apple-touch-icon.png"
 	body > noscript .jcem-noscript__lang strong {
 		color: var(--tc);
 		font-style: normal;
-	}
-
-	body > noscript .jcem-noscript-footer {
-		margin-top: 0;
 	}
 
 	@supports not (
@@ -1270,42 +1295,12 @@ Podemos seguir os passos de Satanás e de Adão e Eva, e nos colocar como deuses
 </a>
 </article>
 </div>
-<div class="grid__item">
-<article class="archive__item archive__item--has-image archive__item--wide" itemscope itemtype="https://schema.org/CreativeWork">
-<a class="archive__item-link u-url" href="/p/devaneios/" rel="permalink">
-<header class="archive__item-header">
-<figure class="archive__item-teaser">
-<img class="archive__item-image u-photo" src="/assets/images/posts/devaneios/devaneios-grande.png" alt="Devaneios" loading="lazy">
-</figure>
-<div class="jcem-date-flag jcem-date-flag--updated jcem-date-flag--archive">
-<time datetime="2014-04-16T00:55:57-03:00" title="Publicado em 16/04/2014; atualizado em 08/10/2020" aria-label="Publicado em 16/04/2014; atualizado em 08/10/2020">
-<span class="jcem-date-flag__year">2014</span>
-<span class="jcem-date-flag__month">ABR</span>
-<span class="jcem-date-flag__day">16</span>
-</time>
-</div>
-<h2 class="archive__item-title no_toc p-name" itemprop="headline">Devaneios
-</h2>
-</header>
-<div class="archive__item-body">
-<p class="page__meta">
-<span class="page__meta-date">
-<i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
-<time datetime="2014-04-16T00:55:57-03:00">April 16, 2014</time>
-</span>
-<span class="page__meta-sep"></span>
-<span class="page__meta-readtime">
-<i class="far fa-fw fa-clock" aria-hidden="true"></i>
-22 minuto(s) de leitura
-</span>
-</p>
-<p class="archive__item-excerpt p-summary" itemprop="description">Penso, logo Existo — Descartes</p>
-</div>
-</a>
-</article>
 </div>
 </div>
-</div>
+<section class="page__related jcem-page-recent" data-jcem-recent-posts hidden aria-labelledby="jcem-page-recent-title">
+<h2 id="jcem-page-recent-title" class="page__related-title">Recentes</h2>
+<div class="grid__wrapper" data-jcem-recent-posts-grid></div>
+</section>
 </div>
 </div>
 <div id="footer" class="page__footer">

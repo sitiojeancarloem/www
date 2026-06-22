@@ -52,7 +52,7 @@ O primeiro autor recebe o painel principal. Autores seguintes usam composição 
 
 Builds de produção executam `_plugins/jcem_html_compactor.rb` depois da escrita do site. O hook remove linhas vazias e margens de linha do HTML final, inclusive do `404.html`, mas preserva byte a byte o conteúdo interno de `script`, `style`, `pre`, `textarea` e `template`.
 
-O mesmo hook sincroniza o bloco noscript compilado da 404 com o fragmento renderizado da home. O teste específico faz parte de `npm run check` e também pode ser executado com `npm run check:html`.
+O mesmo hook sincroniza o conteúdo e os estilos noscript compilados da 404 com os fragmentos renderizados da home. O teste específico faz parte de `npm run check` e também pode ser executado com `npm run check:html`.
 
 ## Blockquotes
 

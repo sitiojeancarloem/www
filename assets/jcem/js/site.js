@@ -590,6 +590,155 @@ const bindJcemFootnotes = () => {
     });
 };
 let jcemNoScriptFragmentsReady = null;
+const jcemRecentMonths = [
+    'JAN',
+    'FEV',
+    'MAR',
+    'ABR',
+    'MAI',
+    'JUN',
+    'JUL',
+    'AGO',
+    'SET',
+    'OUT',
+    'NOV',
+    'DEZ',
+];
+const createJcemElement = (tag, className = '', text = '') => {
+    const node = document.createElement(tag);
+    if (className)
+        node.className = className;
+    if (text)
+        node.textContent = text;
+    return node;
+};
+const jcemSafeHttpUrl = (value) => {
+    try {
+        const url = new URL(String(value || ''), window.location.origin);
+        return /^(https?:)$/.test(url.protocol) ? url.href : '';
+    }
+    catch (_error) {
+        return '';
+    }
+};
+const isJcemRecentPost = (value) => {
+    if (!value || typeof value !== 'object')
+        return false;
+    const post = value;
+    return typeof post.title === 'string' && typeof post.url === 'string';
+};
+const createJcemRecentDateFlag = (post) => {
+    const flag = createJcemElement('div', 'jcem-date-flag jcem-date-flag--archive');
+    const time = createJcemElement('time');
+    const month = Math.max(1, Math.min(12, Number(post.month) || 1));
+    time.dateTime = String(post.date || '');
+    time.setAttribute('aria-label', `Publicado em ${post.day || ''}/${post.month || ''}/${post.year || ''}`);
+    time.append(createJcemElement('span', 'jcem-date-flag__year', String(post.year || '')), createJcemElement('span', 'jcem-date-flag__month', jcemRecentMonths[month - 1]), createJcemElement('span', 'jcem-date-flag__day', String(post.day || '')));
+    flag.append(time);
+    return flag;
+};
+const createJcemRecentCard = (post) => {
+    const href = jcemSafeHttpUrl(post.url);
+    if (!href || !post.title.trim())
+        return null;
+    const image = jcemSafeHttpUrl(post.image);
+    const style = ['wide', 'content'].includes(post.image_style || '')
+        ? post.image_style
+        : '';
+    const item = createJcemElement('div', 'grid__item');
+    const article = createJcemElement('article', `archive__item${image ? ' archive__item--has-image' : ''}${style ? ` archive__item--${style}` : ''}`);
+    const link = createJcemElement('a', 'archive__item-link u-url');
+    const header = createJcemElement('header', 'archive__item-header');
+    article.setAttribute('itemscope', '');
+    article.setAttribute('itemtype', 'https://schema.org/CreativeWork');
+    link.href = href;
+    link.rel = 'permalink';
+    if (image) {
+        const figure = createJcemElement('figure', 'archive__item-teaser');
+        const img = createJcemElement('img', 'archive__item-image u-photo');
+        img.src = image;
+        img.alt = String(post.image_alt || post.title);
+        img.loading = 'lazy';
+        img.decoding = 'async';
+        figure.append(img);
+        header.append(figure);
+    }
+    header.append(createJcemRecentDateFlag(post));
+    const title = createJcemElement('h2', 'archive__item-title no_toc p-name', post.title);
+    title.setAttribute('itemprop', 'headline');
+    header.append(title);
+    const body = createJcemElement('div', 'archive__item-body');
+    const meta = createJcemElement('p', 'page__meta');
+    const date = new Date(post.date || '');
+    const dateText = Number.isNaN(date.getTime())
+        ? ''
+        : new Intl.DateTimeFormat('pt-BR', {
+            day: 'numeric',
+            month: 'long',
+            year: 'numeric',
+        }).format(date);
+    const minutes = Math.max(1, Math.ceil(Number(post.words || 0) / 200));
+    meta.textContent = `${dateText}${dateText ? ' · ' : ''}${minutes} minuto(s) de leitura`;
+    body.append(meta);
+    if (post.excerpt) {
+        const excerpt = createJcemElement('p', 'archive__item-excerpt p-summary', post.excerpt);
+        excerpt.setAttribute('itemprop', 'description');
+        body.append(excerpt);
+    }
+    link.append(header, body);
+    article.append(link);
+    item.append(article);
+    return item;
+};
+const loadJcemRecentPosts = async () => {
+    const section = select('[data-jcem-recent-posts]');
+    const grid = select('[data-jcem-recent-posts-grid]');
+    if (!section || !grid)
+        return;
+    const controller = typeof AbortController === 'function' ? new AbortController() : null;
+    const timeout = controller ? window.setTimeout(() => controller.abort(), 15000) : 0;
+    try {
+        const response = await fetch('/recent-posts.json', {
+            credentials: 'omit',
+            headers: { Accept: 'application/json' },
+            signal: controller === null || controller === void 0 ? void 0 : controller.signal,
+        });
+        if (!response.ok)
+            return;
+        const payload = await response.json();
+        if (!Array.isArray(payload))
+            return;
+        const fragment = document.createDocumentFragment();
+        payload.filter(isJcemRecentPost).slice(0, 6).forEach((post) => {
+            const card = createJcemRecentCard(post);
+            if (card)
+                fragment.append(card);
+        });
+        if (!fragment.childElementCount)
+            return;
+        grid.append(fragment);
+        section.hidden = false;
+    }
+    catch (_error) {
+    }
+    finally {
+        if (timeout)
+            window.clearTimeout(timeout);
+    }
+};
+let jcemRecentPostsScheduled = false;
+const scheduleJcemRecentPosts = () => {
+    if (jcemRecentPostsScheduled || !select('[data-jcem-recent-posts]'))
+        return;
+    jcemRecentPostsScheduled = true;
+    const run = () => {
+        void loadJcemRecentPosts();
+    };
+    if (window.requestIdleCallback)
+        window.requestIdleCallback(run, { timeout: 1800 });
+    else
+        window.setTimeout(run, 80);
+};
 const prepareJcemNoScriptFragments = () => {
     if (jcemNoScriptFragmentsReady) {
         return jcemNoScriptFragmentsReady;
@@ -633,6 +782,7 @@ const prepareJcemNoScriptFragments = () => {
 const revealJcemPage = () => {
     void prepareJcemNoScriptFragments().finally(() => {
         document.documentElement.classList.add('jcem-page-loaded');
+        scheduleJcemRecentPosts();
     });
 };
 const hideNoScript = () => {

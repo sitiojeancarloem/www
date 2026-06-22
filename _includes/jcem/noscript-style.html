@@ -87,6 +87,35 @@
 		position: sticky;
 		top: 0;
 		z-index: 10;
+		height: auto;
+		overflow: visible;
+	}
+
+	body > noscript .jcem-noscript-masthead .masthead__inner-wrap {
+		min-height: 2.65rem;
+		padding-top: 0.3rem;
+		padding-bottom: 0.3rem;
+		overflow: visible;
+	}
+
+	body > noscript .jcem-noscript-masthead .greedy-nav {
+		min-height: 2.05rem;
+		overflow: visible;
+	}
+
+	body > noscript .jcem-noscript-masthead .site-logo {
+		height: 2.05rem;
+		overflow: visible;
+	}
+
+	body > noscript .jcem-noscript-masthead .site-logo img {
+		position: absolute;
+		top: 50%;
+		left: 0;
+		height: 3.9rem;
+		max-height: none !important;
+		transform: translateY(-37%);
+		margin-top: -0.8rem;
 	}
 
 	body > noscript .jcem-noscript-featured {
@@ -167,10 +196,6 @@
 	body > noscript .jcem-noscript__lang strong {
 		color: var(--tc);
 		font-style: normal;
-	}
-
-	body > noscript .jcem-noscript-footer {
-		margin-top: 0;
 	}
 
 	@supports not (

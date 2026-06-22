@@ -9,7 +9,7 @@
       {% if post.id == page.id %}{% continue %}{% endif %}
       {% include archive-single.html locale=locale type="grid" %}
       {% assign related_count = related_count | plus: 1 %}
-      {% if related_count >= 8 %}{% break %}{% endif %}
+      {% if related_count >= 6 %}{% break %}{% endif %}
     {% endfor %}
   </div>
 </div>

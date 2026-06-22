@@ -141,4 +141,8 @@ layout: default
   {% elsif page.id and page.related %}
     {% include page__related.html locale=locale posts=site.posts %}
   {% endif %}
+
+  {% if page.id %}
+    {% include jcem/page-recent.html %}
+  {% endif %}
 </div>

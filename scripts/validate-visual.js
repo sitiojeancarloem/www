@@ -96,6 +96,26 @@ const readPublishedPostPaths = async () => {
 		.sort();
 };
 
+const validateRecentPostPlaceholders = async (postPaths) => {
+	for (const postPath of postPaths) {
+		const html = await readFile(
+			path.join(root, postPath.replace(/^\/+/, ''), 'index.html'),
+			'utf8',
+		);
+		const section = html.match(
+			/<section\b[^>]*data-jcem-recent-posts[^>]*>[\s\S]*?<\/section>/i,
+		)?.[0];
+
+		if (!section || !section.includes('data-jcem-recent-posts-grid')) {
+			fail(`Placeholder de recentes ausente em ${postPath}`);
+		}
+
+		if (section.includes('archive__item')) {
+			fail(`Card recente compilado diretamente em ${postPath}`);
+		}
+	}
+};
+
 const delay = (ms) => new Promise((resolve) => {
 	setTimeout(resolve, ms);
 });
@@ -448,6 +468,17 @@ const validateCompactMenu = async (page, url, theme, viewportName) => {
 const validatePage = async (page, url, theme, viewportName) => {
 	await page.goto(url, { waitUntil: 'domcontentloaded' });
 	await page.waitForLoadState('load', { timeout: 15000 }).catch(() => {});
+	if (url.includes('/p/')) {
+		await page.waitForFunction(
+			() =>
+				document.querySelectorAll(
+					'[data-jcem-recent-posts-grid] > .grid__item',
+				).length === 6 &&
+				!document.querySelector('[data-jcem-recent-posts]')?.hidden,
+			null,
+			{ timeout: 5000 },
+		);
+	}
 
 	await page.evaluate((selectedTheme) => {
 		const input = document.querySelector(
@@ -963,7 +994,10 @@ const validatePage = async (page, url, theme, viewportName) => {
 			archive: {
 				itemCount: document.querySelectorAll('.entries-grid .archive__item').length,
 				relatedItemCount: document.querySelectorAll(
-					'.page__related .grid__wrapper .archive__item',
+					'.page__related:not(.jcem-page-recent) .grid__wrapper .archive__item',
+				).length,
+				recentItemCount: document.querySelectorAll(
+					'[data-jcem-recent-posts-grid] > .grid__item .archive__item',
 				).length,
 				teaserCount: document.querySelectorAll(
 					'.entries-grid .archive__item-teaser .archive__item-image',
@@ -1165,7 +1199,7 @@ const validatePage = async (page, url, theme, viewportName) => {
 		}
 
 		const expectedRelatedItemCount = Math.min(
-			8,
+			6,
 			Math.max(0, publishedPostPaths.length - 1),
 		);
 
@@ -1175,11 +1209,19 @@ const validatePage = async (page, url, theme, viewportName) => {
 		) {
 			fail(`Relacionados abaixo do total esperado em ${url} ${theme} ${viewportName}`);
 		}
+
+		if (result.archive.relatedItemCount > 6) {
+			fail(`Relacionados acima do limite em ${url} ${theme} ${viewportName}`);
+		}
+
+		if (result.archive.recentItemCount !== 6) {
+			fail(`Recentes assincronos invalidos em ${url} ${theme} ${viewportName}`);
+		}
 	} else if (url.includes('/sobre/') && result.post.isPost) {
 		fail(`Pagina estatica marcada como post em ${url} ${theme} ${viewportName}`);
 	} else if (new URL(url).pathname === '/') {
-		if (result.archive.itemCount < 1) {
-			fail(`Home sem cards de arquivo em ${url} ${theme} ${viewportName}`);
+		if (result.archive.itemCount !== Math.min(6, publishedPostPaths.length)) {
+			fail(`Home com quantidade incorreta de cards em ${url} ${theme} ${viewportName}: ${result.archive.itemCount}`);
 		}
 
 		if (result.archive.teaserCount < result.archive.itemCount) {
@@ -1250,8 +1292,8 @@ const validatePage = async (page, url, theme, viewportName) => {
 			fail(`Imagem destacada wide de card sem crop central por altura em ${url} ${theme} ${viewportName}: ${JSON.stringify(result.archive)}`);
 		}
 
-		if (result.archive.itemCount < 8) {
-			fail(`Home sem 8 publicacoes por pagina em ${url} ${theme} ${viewportName}`);
+		if (result.archive.itemCount !== Math.min(6, publishedPostPaths.length)) {
+			fail(`Home sem 6 publicacoes por pagina em ${url} ${theme} ${viewportName}: ${result.archive.itemCount}`);
 		}
 	}
 
@@ -1664,6 +1706,7 @@ const validateNoScriptPage = async (page, url, viewportName) => {
 		const shell = document.querySelector('.jcem-noscript-page');
 		const noScript = document.querySelector('body > noscript');
 		const masthead = document.querySelector('.jcem-noscript-masthead');
+		const mastheadLogo = masthead?.querySelector('.site-logo img');
 		const footer = document.querySelector('.jcem-noscript-footer');
 		const featured = document.querySelector('.jcem-noscript-featured');
 		const featuredImage = featured?.querySelector('.jcem-featured-image__img');
@@ -1674,19 +1717,29 @@ const validateNoScriptPage = async (page, url, viewportName) => {
 		const panelRect = panel?.getBoundingClientRect();
 		const featuredRect = featured?.getBoundingClientRect();
 		const noScriptRect = noScript?.getBoundingClientRect();
+		const mastheadRect = masthead?.getBoundingClientRect();
+		const mastheadLogoRect = mastheadLogo?.getBoundingClientRect();
 		const shellStyle = shell ? window.getComputedStyle(shell) : null;
 		const noScriptStyle = noScript ? window.getComputedStyle(noScript) : null;
 		const bodyStyle = window.getComputedStyle(document.body);
 		const htmlStyle = window.getComputedStyle(document.documentElement);
 		const featuredStyle = featured ? window.getComputedStyle(featured) : null;
 		const featuredImageStyle = featuredImage ? window.getComputedStyle(featuredImage) : null;
+		const footerStyle = footer ? window.getComputedStyle(footer) : null;
 		const wrapperStyle = wrapper ? window.getComputedStyle(wrapper) : null;
 		const loaderStyle = loader ? window.getComputedStyle(loader) : null;
 
 		return {
 			hasShell: visible(shell),
 			hasMasthead: visible(masthead),
+			mastheadHeight: mastheadRect?.height || 0,
+			mastheadLogoHeight: mastheadLogoRect?.height || 0,
+			mastheadLogoBottomOverflow:
+				mastheadRect && mastheadLogoRect
+					? mastheadLogoRect.bottom - mastheadRect.bottom
+					: 0,
 			hasFooter: visible(footer),
+			footerMarginTop: Number.parseFloat(footerStyle?.marginTop || '0'),
 			hasFeatured: visible(featured),
 			featuredHeight: featuredRect?.height || 0,
 			featuredBg: featuredStyle?.backgroundColor || '',
@@ -1721,6 +1774,18 @@ const validateNoScriptPage = async (page, url, viewportName) => {
 
 	if (!result.hasShell || !result.hasMasthead || !result.hasFooter) {
 		fail(`Shell noscript sem cabecalho ou footer em ${url} ${viewportName}`);
+	}
+
+	if (result.footerMarginTop < 32) {
+		fail(`Footer noscript sem espacamento do tema em ${url} ${viewportName}`);
+	}
+
+	if (
+		result.mastheadHeight > 65 ||
+		result.mastheadLogoHeight <= result.mastheadHeight ||
+		result.mastheadLogoBottomOverflow < 2
+	) {
+		fail(`Masthead noscript sem geometria do tema em ${url} ${viewportName}: ${JSON.stringify(result)}`);
 	}
 
 	if (!result.hasPanel || result.panelWidth <= 1 || result.panelHeight <= 1) {
@@ -1845,6 +1910,10 @@ const validate404Page = async (page, url, viewportName) => {
 		const recentCards = Array.from(
 			document.querySelectorAll('.jcem-404__recent-grid > .grid__item'),
 		);
+		const recentTitle = document.querySelector('#jcem-404-recent-title');
+		const recentFlag = recentCards[0]?.querySelector('.jcem-date-flag--archive');
+		const recentTitleRect = recentTitle?.getBoundingClientRect();
+		const recentFlagRect = recentFlag?.getBoundingClientRect();
 		const page404Style = page404 ? window.getComputedStyle(page404) : null;
 		const terminalScreenStyle = terminalScreen
 			? window.getComputedStyle(terminalScreen)
@@ -1911,6 +1980,10 @@ const validate404Page = async (page, url, viewportName) => {
 			hasThemeToggle: Boolean(themeToggle),
 			recentSectionHidden: recentSection?.hidden ?? true,
 			recentCardCount: recentCards.length,
+			recentTitleFlagGap:
+				recentTitleRect && recentFlagRect
+					? recentFlagRect.top - recentTitleRect.bottom
+					: -1,
 			recentCardsValid: recentCards.every((card) => {
 				const article = card.querySelector('.archive__item');
 				const link = card.querySelector('.archive__item-link');
@@ -2005,7 +2078,8 @@ const validate404Page = async (page, url, viewportName) => {
 	if (
 		result.recentSectionHidden ||
 		result.recentCardCount !== 6 ||
-		!result.recentCardsValid
+		!result.recentCardsValid ||
+		result.recentTitleFlagGap < 12
 	) {
 		fail(`Cards recentes da 404 invalidos em ${url} ${viewportName}`);
 	}
@@ -2334,6 +2408,8 @@ try {
 	if (publishedPostPaths.length < 1) {
 		fail('Nenhum post publicado encontrado em _site/p/');
 	}
+
+	await validateRecentPostPlaceholders(publishedPostPaths);
 
 	browser = await launchBrowser();
 

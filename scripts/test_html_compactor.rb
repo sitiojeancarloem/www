@@ -57,9 +57,15 @@ assert_equal(
   'bloco sensivel em linha unica'
 )
 
-home = '<html><head><noscript>head</noscript></head><body><noscript><main>origem</main></noscript></body></html>'
-not_found = '<html><body><noscript data-jcem-fragment="noscript-content"><main>antigo</main></noscript></body></html>'
-synchronized = Jcem::HtmlCompactor.sync_noscript_content(home, not_found)
+home = '<html><head><noscript data-jcem-fragment="noscript-style"><style>origem</style></noscript></head><body><noscript><main>origem</main></noscript></body></html>'
+not_found = '<html><head><noscript data-jcem-fragment="noscript-style"><style>antigo</style></noscript></head><body><noscript data-jcem-fragment="noscript-content"><main>antigo</main></noscript></body></html>'
+synchronized = Jcem::HtmlCompactor.sync_noscript_style(home, not_found)
+synchronized = Jcem::HtmlCompactor.sync_noscript_content(home, synchronized)
+assert_includes(
+  synchronized,
+  '<noscript data-jcem-fragment="noscript-style"><style>origem</style></noscript>',
+  'estilo noscript da 404 sincronizado com a home'
+)
 assert_includes(
   synchronized,
   '<noscript data-jcem-fragment="noscript-content"><main>origem</main></noscript>',
