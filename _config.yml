@@ -317,6 +317,10 @@ compress_html:
   ignore:
     envs: development
 
+jcem_html_compactor:
+  enabled: true
+  environment: production
+
 # Defaults
 defaults:
   # pages

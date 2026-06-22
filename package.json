@@ -7,7 +7,8 @@
 	"scripts": {
 		"check:ts": "tsc --noEmit",
 		"build:ts": "tsc",
-		"check": "npm run check:ts",
+		"check:html": "bundle exec ruby scripts/test_html_compactor.rb",
+		"check": "npm run check:ts && npm run check:html",
 		"playwright:install": "cross-env PLAYWRIGHT_CHROMIUM_DOWNLOAD_HOST=https://cdn.playwright.dev npx playwright install chromium",
 		"playwright:install:esrp": "cross-env PLAYWRIGHT_CHROMIUM_DOWNLOAD_HOST=https://playwright.download.prss.microsoft.com/dbazure/download/playwright npx playwright install chromium",
 		"validate:visual": "node scripts/validate-visual.js",

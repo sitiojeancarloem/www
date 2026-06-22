@@ -108,6 +108,8 @@ layout: default
         {% if page.link %}<div><a href="{{ page.link }}" class="btn btn--primary">{{ site.data.ui-text[locale].ext_link_label | default: "Direct Link" }}</a></div>{% endif %}
       </section>
 
+      {% if page.collection == 'posts' %}{% include jcem/article-authors.html %}{% endif %}
+
       <footer class="page__meta">
         {% if site.data.ui-text[locale].meta_label %}
           <h4 class="page__meta-title">{{ site.data.ui-text[locale].meta_label }}</h4>

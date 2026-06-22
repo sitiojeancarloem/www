@@ -30,6 +30,30 @@ Valores suportados:
 
 Aliases aceitos: `inline` equivale a `content`; `full`, `full-width` e `bleed` equivalem a `wide`.
 
+## Autores de artigos
+
+O bloco de autoria só é renderizado quando o post declara pelo menos uma entrada válida em `article_authors`. A ordem da lista define o autor principal e os coautores:
+
+```yaml
+article_authors:
+  - name: Jean Carlo EM
+    bio: Cientista da Computação e autor do artigo.
+    url: https://www.jeancarloem.com
+    avatar: /assets/jcem/img/jeancarlo-avatar.png
+  - name: Nome do coautor
+    bio: Formação ou contexto profissional relevante.
+```
+
+`name` e `bio` são obrigatórios. `url` e `avatar` são opcionais. Sem avatar, o componente usa `assets/jcem/img/author-placeholder.svg`. Entradas incompletas são ignoradas; sem autor válido, nenhum espaço é reservado ao final do artigo.
+
+O primeiro autor recebe o painel principal. Autores seguintes usam composição compacta; com três ou mais autores, os coautores passam para uma grade responsiva mais densa.
+
+## Compactação HTML
+
+Builds de produção executam `_plugins/jcem_html_compactor.rb` depois da escrita do site. O hook remove linhas vazias e margens de linha do HTML final, inclusive do `404.html`, mas preserva byte a byte o conteúdo interno de `script`, `style`, `pre`, `textarea` e `template`.
+
+O mesmo hook sincroniza o bloco noscript compilado da 404 com o fragmento renderizado da home. O teste específico faz parte de `npm run check` e também pode ser executado com `npm run check:html`.
+
 ## Blockquotes
 
 Por padrão, `blockquote` em posts é convertido para painel futurista.

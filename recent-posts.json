@@ -1,0 +1,46 @@
+---
+layout: null
+permalink: /recent-posts.json
+sitemap: false
+---
+[
+{%- for post in site.posts limit: 6 -%}
+  {%- assign image_path = "" -%}
+  {%- if post.featured_image.path -%}
+    {%- assign image_path = post.featured_image.path -%}
+  {%- elsif post.featured_image.url -%}
+    {%- assign image_path = post.featured_image.url -%}
+  {%- elsif post.featured_image.src -%}
+    {%- assign image_path = post.featured_image.src -%}
+  {%- elsif post.featured_image.image -%}
+    {%- assign image_path = post.featured_image.image -%}
+  {%- elsif post.featured_image -%}
+    {%- assign image_path = post.featured_image -%}
+  {%- elsif post.header.image -%}
+    {%- assign image_path = post.header.image -%}
+  {%- elsif post.header.overlay_image -%}
+    {%- assign image_path = post.header.overlay_image -%}
+  {%- elsif post.header.teaser -%}
+    {%- assign image_path = post.header.teaser -%}
+  {%- endif -%}
+  {%- assign image_style = post.archive_image_style | default: post.featured_image.archive_style | default: post.header.archive_image_style | default: post.header.archive_style | default: "" | downcase -%}
+  {%- if image_style == "inline" -%}
+    {%- assign image_style = "content" -%}
+  {%- elsif image_style == "full" or image_style == "full-width" or image_style == "bleed" -%}
+    {%- assign image_style = "wide" -%}
+  {%- endif -%}
+  {
+    "title": {{ post.title | markdownify | strip_html | strip_newlines | jsonify }},
+    "url": {{ post.url | relative_url | jsonify }},
+    "excerpt": {{ post.excerpt | default: post.content | markdownify | strip_html | normalize_whitespace | truncate: 160 | jsonify }},
+    "date": {{ post.date | date_to_xmlschema | jsonify }},
+    "year": {{ post.date | date: "%Y" | jsonify }},
+    "month": {{ post.date | date: "%m" | jsonify }},
+    "day": {{ post.date | date: "%d" | jsonify }},
+    "words": {{ post.content | number_of_words | jsonify }},
+    "image": {{ image_path | relative_url | jsonify }},
+    "image_alt": {{ post.featured_image.alt | default: post.header.image_description | default: post.title | markdownify | strip_html | strip_newlines | jsonify }},
+    "image_style": {{ image_style | jsonify }}
+  }{% unless forloop.last %},{% endunless %}
+{%- endfor -%}
+]

@@ -811,6 +811,25 @@
 				color: var(--link-h);
 			}
 
+			.jcem-404__recent {
+				margin-top: clamp(1.5rem, 4vw, 2.6rem);
+			}
+
+			.jcem-404__recent[hidden] {
+				display: none;
+			}
+
+			.jcem-404__recent-grid {
+				display: grid;
+				grid-template-columns: repeat(3, minmax(0, 1fr));
+				gap: clamp(1rem, 2.4vw, 1.6rem);
+			}
+
+			.jcem-404__recent-grid > .grid__item {
+				width: auto;
+				margin: 0;
+			}
+
 			@keyframes jcem-404-pulse {
 				0%,
 				88%,
@@ -883,6 +902,10 @@
 				.jcem-404__actions {
 					display: grid;
 				}
+
+				.jcem-404__recent-grid {
+					grid-template-columns: repeat(2, minmax(0, 1fr));
+				}
 			}
 
 			@media (max-width: 30em) {
@@ -892,6 +915,10 @@
 
 				.jcem-404__screen {
 					height: calc((1.18em * 8) + 1.15rem);
+				}
+
+				.jcem-404__recent-grid {
+					grid-template-columns: minmax(0, 1fr);
 				}
 			}
 
@@ -911,6 +938,10 @@
 		</div>
 		<noscript data-jcem-fragment="noscript-content">
 			<div class="main_jcem_wrapper jcem-noscript-page">
+				<p class="copy">
+					Copyright &copy; 2012 - 2026 JeanCarloEM. Todos os direitos reservados.
+					<span>Feito com <a href="https://mmistakes.github.io/minimal-mistakes/" target="_blank">Minimal Mistakes</a>.</span>
+				</p>
 				<div class="sobpostbar">
 					<ul id="menu-topo-2-noscript-top" class="menu">
 						<li class="menu-item"><a href="/sobre/">Sobre</a></li>
@@ -925,7 +956,7 @@
 						<div class="masthead__menu">
 							<nav class="greedy-nav" aria-label="Navegação sem JavaScript">
 								<a class="site-logo" href="/">
-									<img src="/assets/jcem/img/logo-animado.gif" alt="JeanCarloEM" />
+									<img src="https://jcem.pro/logo/logo-animado.gif" alt="JeanCarloEM" />
 								</a>
 								<a class="site-title" href="/">JeanCarloEM</a>
 								<ul class="visible-links">
@@ -944,19 +975,10 @@
 				<div class="initial-content jcem-noscript-initial">
 					<main class="jcem-noscript-content">
 						<section class="jcem-noscript__panel" aria-labelledby="jcem-noscript-title">
-							<h1 id="jcem-noscript-title">Problem / Problema / 问题</h1>
+							<h1 id="jcem-noscript-title">Problema / Problem / 问题</h1>
 
 							<div class="jcem-noscript__lang">
-								<h2>English</h2>
-								<p>
-									<strong>JavaScript is disabled.</strong><br />
-									JavaScript is required to manage your agreement with the Terms of Use,
-									Privacy Notice and consent preferences.
-								</p>
-							</div>
-
-							<div class="jcem-noscript__lang">
-								<h2>Português</h2>
+								<h2>PT-BR</h2>
 								<p>
 									<strong>O JavaScript está desativado.</strong><br />
 									O JavaScript é necessário para gerenciar a adesão aos Termos de Uso,
@@ -965,7 +987,16 @@
 							</div>
 
 							<div class="jcem-noscript__lang">
-								<h2>Español</h2>
+								<h2>EN-US</h2>
+								<p>
+									<strong>JavaScript is disabled.</strong><br />
+									JavaScript is required to manage your agreement with the Terms of Use,
+									Privacy Notice and consent preferences.
+								</p>
+							</div>
+
+							<div class="jcem-noscript__lang">
+								<h2>ES-ES</h2>
 								<p>
 									<strong>JavaScript está deshabilitado.</strong><br />
 									JavaScript es necesario para gestionar su aceptación de los Términos de
@@ -1024,22 +1055,7 @@
 		<input class="radio jcem-theme-radio" type="radio" name="jcem-theme" id="jcem-theme-dark" value="dark" checked />
 		<script>
 			(() => {
-				const themeKey = 'jcem-theme';
-				const defaultTheme = 'dark';
 				const allowedThemes = new Set(['light', 'dark']);
-				const getCookieTheme = () => {
-					const row = document.cookie
-						.split('; ')
-						.find((item) => item.startsWith(`${themeKey}=`));
-					return row ? decodeURIComponent(row.split('=').slice(1).join('=')) : '';
-				};
-				const getStoredTheme = () => {
-					try {
-						return localStorage.getItem(themeKey) || getCookieTheme();
-					} catch (_error) {
-						return getCookieTheme();
-					}
-				};
 				const applyTheme = (theme) => {
 					if (!allowedThemes.has(theme)) return;
 					const radio = document.getElementById(`jcem-theme-${theme}`);
@@ -1047,7 +1063,7 @@
 				};
 				const detectSourceDefaultTheme = async () => {
 					try {
-						const response = await fetch('/?jcem-theme-default=1', { credentials: 'same-origin' });
+						const response = await fetch('/?jcem-theme-default=1', { credentials: 'omit' });
 						if (!response.ok) return '';
 						const doc = new DOMParser().parseFromString(await response.text(), 'text/html');
 						const checked = doc.querySelector('input[name="jcem-theme"][checked]');
@@ -1056,10 +1072,8 @@
 						return '';
 					}
 				};
-				const storedTheme = getStoredTheme();
-				applyTheme(allowedThemes.has(storedTheme) ? storedTheme : defaultTheme);
 				detectSourceDefaultTheme().then((sourceTheme) => {
-					if (!allowedThemes.has(storedTheme) && sourceTheme) applyTheme(sourceTheme);
+					if (sourceTheme) applyTheme(sourceTheme);
 				});
 			})();
 		</script>
@@ -1089,7 +1103,7 @@
 					<div class="masthead__menu">
 						<input class="jcem-nav-state" type="checkbox" id="jcem-nav-state" />
 						<nav id="site-nav" class="greedy-nav">
-							<a class="site-logo" href="/"><img src="/assets/jcem/img/logo-animado.gif" alt="JeanCarloEM" /></a>
+							<a class="site-logo" href="/"><img src="https://jcem.pro/logo/logo-animado.gif" alt="JeanCarloEM" /></a>
 							<a class="site-title" href="/">JeanCarloEM</a>
 							<ul class="visible-links">
 								<li class="masthead__menu-item"><a href="/sobre/">Sobre</a></li>
@@ -1397,6 +1411,10 @@
 						</ul>
 						<a class="jcem-404__home" href="/">Ir para a página inicial <span aria-hidden="true">-&gt;</span></a>
 					</div>
+					<section class="jcem-404__recent" aria-labelledby="jcem-404-recent-title" hidden>
+						<h2 id="jcem-404-recent-title" class="archive__subtitle">Publicações recentes</h2>
+						<div class="entries-grid jcem-404__recent-grid"></div>
+					</section>
 				</div>
 			</main>
 
@@ -1570,6 +1588,121 @@
 						return;
 					}
 					hydrateFragments();
+				})();
+			</script>
+			<script>
+				(() => {
+					const section = document.querySelector('.jcem-404__recent');
+					const grid = section && section.querySelector('.jcem-404__recent-grid');
+					if (!section || !grid) return;
+
+					const months = ['JAN', 'FEV', 'MAR', 'ABR', 'MAI', 'JUN', 'JUL', 'AGO', 'SET', 'OUT', 'NOV', 'DEZ'];
+					const element = (tag, className, text) => {
+						const node = document.createElement(tag);
+						if (className) node.className = className;
+						if (typeof text === 'string') node.textContent = text;
+						return node;
+					};
+					const safeUrl = (value) => {
+						try {
+							const url = new URL(String(value || ''), location.origin);
+							return /^(https?:)$/.test(url.protocol) ? url.href : '';
+						} catch (_error) {
+							return '';
+						}
+					};
+					const createDateFlag = (post) => {
+						const flag = element('div', 'jcem-date-flag jcem-date-flag--archive');
+						const time = element('time');
+						const monthIndex = Math.max(0, Math.min(11, Number(post.month) - 1));
+						time.dateTime = String(post.date || '');
+						time.setAttribute('aria-label', `Publicado em ${post.day}/${post.month}/${post.year}`);
+						time.append(
+							element('span', 'jcem-date-flag__year', String(post.year || '')),
+							element('span', 'jcem-date-flag__month', months[monthIndex]),
+							element('span', 'jcem-date-flag__day', String(post.day || ''))
+						);
+						flag.append(time);
+						return flag;
+					};
+					const createCard = (post) => {
+						const href = safeUrl(post.url);
+						if (!href || !post.title) return null;
+						const image = safeUrl(post.image);
+						const style = ['wide', 'content'].includes(post.image_style) ? post.image_style : '';
+						const item = element('div', 'grid__item');
+						const article = element('article', `archive__item${image ? ' archive__item--has-image' : ''}${style ? ` archive__item--${style}` : ''}`);
+						article.setAttribute('itemscope', '');
+						article.setAttribute('itemtype', 'https://schema.org/CreativeWork');
+						const link = element('a', 'archive__item-link u-url');
+						link.href = href;
+						link.rel = 'permalink';
+						const header = element('header', 'archive__item-header');
+						if (image) {
+							const figure = element('figure', 'archive__item-teaser');
+							const img = element('img', 'archive__item-image u-photo');
+							img.src = image;
+							img.alt = String(post.image_alt || post.title);
+							img.loading = 'lazy';
+							img.decoding = 'async';
+							figure.append(img);
+							header.append(figure);
+						}
+						header.append(createDateFlag(post));
+						const title = element('h2', 'archive__item-title no_toc p-name', String(post.title));
+						title.setAttribute('itemprop', 'headline');
+						header.append(title);
+						const body = element('div', 'archive__item-body');
+						const meta = element('p', 'page__meta');
+						const date = new Date(post.date);
+						const dateText = Number.isNaN(date.getTime()) ? '' : new Intl.DateTimeFormat('pt-BR', { dateStyle: 'long' }).format(date);
+						const minutes = Math.max(1, Math.ceil(Number(post.words || 0) / 200));
+						meta.textContent = `${dateText}${dateText ? ' · ' : ''}${minutes} minuto(s) de leitura`;
+						body.append(meta);
+						if (post.excerpt) {
+							const excerpt = element('p', 'archive__item-excerpt p-summary', String(post.excerpt));
+							excerpt.setAttribute('itemprop', 'description');
+							body.append(excerpt);
+						}
+						link.append(header, body);
+						article.append(link);
+						item.append(article);
+						return item;
+					};
+					const loadRecentPosts = async () => {
+						const controller = typeof AbortController === 'function' ? new AbortController() : null;
+						const timeout = controller ? window.setTimeout(() => controller.abort(), 15000) : 0;
+						try {
+							const response = await fetch('/recent-posts.json', {
+								credentials: 'omit',
+								headers: { Accept: 'application/json' },
+								signal: controller ? controller.signal : undefined
+							});
+							if (!response.ok) return;
+							const payload = await response.json();
+							if (!Array.isArray(payload)) return;
+							const fragment = document.createDocumentFragment();
+							payload.slice(0, 6).forEach((post) => {
+								if (!post || typeof post !== 'object') return;
+								const card = createCard(post);
+								if (card) fragment.append(card);
+							});
+							if (!fragment.childElementCount) return;
+							grid.replaceChildren(fragment);
+							section.hidden = false;
+						} catch (_error) {
+							// PROTECAO: falha do feed nao interfere na pagina 404.
+						} finally {
+							if (timeout) window.clearTimeout(timeout);
+						}
+					};
+					const schedule = () => {
+						const run = () => loadRecentPosts();
+						if ('requestIdleCallback' in window) window.requestIdleCallback(run, { timeout: 1800 });
+						else window.setTimeout(run, 80);
+					};
+					window.addEventListener('load', schedule, { once: true });
+					if (document.readyState === 'complete') schedule();
 				})();
 			</script>
 		</div>

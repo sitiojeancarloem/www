@@ -1,0 +1,30 @@
+{% assign article_authors = page.article_authors | default: empty %}
+{% assign valid_author_count = 0 %}
+{% for author in article_authors %}
+  {% if author.name and author.bio %}
+    {% assign valid_author_count = valid_author_count | plus: 1 %}
+  {% endif %}
+{% endfor %}
+{% if valid_author_count > 0 %}
+<section class="jcem-article-authors{% if valid_author_count > 2 %} jcem-article-authors--compact{% endif %}" aria-labelledby="jcem-article-authors-title">
+  <h2 id="jcem-article-authors-title" class="screen-reader-text">Autoria</h2>
+  {% assign valid_author_index = 0 %}
+  {% for author in article_authors %}
+    {% if author.name and author.bio %}
+      {% assign valid_author_index = valid_author_index | plus: 1 %}
+      <div class="jcem-article-author{% if valid_author_index == 1 %} jcem-article-author--primary{% else %} jcem-article-author--secondary{% endif %}" itemprop="author" itemscope itemtype="https://schema.org/Person">
+        <div class="jcem-article-author__avatar{% unless author.avatar %} jcem-article-author__avatar--fallback{% endunless %}">
+          <img src="{{ author.avatar | default: '/assets/jcem/img/author-placeholder.svg' | relative_url }}" alt="Retrato de {{ author.name | escape_once }}" loading="lazy" decoding="async" itemprop="image">
+        </div>
+        <div class="jcem-article-author__body">
+          <p class="jcem-article-author__heading">
+            <span>{% if valid_author_index == 1 %}Autor{% else %}Coautor{% endif %}</span>
+            {% if author.url %}<a href="{{ author.url }}" rel="author noopener" itemprop="url"><span itemprop="name">{{ author.name }}</span></a>{% else %}<strong itemprop="name">{{ author.name }}</strong>{% endif %}
+          </p>
+          <p class="jcem-article-author__bio" itemprop="description">{{ author.bio }}</p>
+        </div>
+      </div>
+    {% endif %}
+  {% endfor %}
+</section>
+{% endif %}

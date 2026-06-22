@@ -532,7 +532,9 @@ Exceto:
 - não deve duplicar CSS do tema
 - CSS/JS local somente para conteúdo 404, terminal e fallbacks mínimos
 - cabeçalho, `sobpostbar`, `noscript` e footer devem espelhar a origem do tema
+- conteúdo, links, logotipo, ordem estrutural e classes visuais desses fragmentos devem corresponder à origem vigente do tema
 - quando possível, hidratar fragmentos a partir da home
+- a saída compilada deve sincronizar o `noscript` da 404 com o `noscript` renderizado da home
 - sanitizar fragmentos importados para remover recursos pesados ou indevidos
 - não importar switch de tema claro/escuro
 - não importar Silktide, consent managers ou análogos
@@ -540,11 +542,48 @@ Exceto:
 - não expor controle visual de tema na 404
 - tema deve seguir o padrão vigente; terminal permanece escuro
 - terminal deve ser compacto, responsivo e com aparência Windows 11
+- após o carregamento completo e a liberação do loader, carregar de forma assíncrona os seis posts mais recentes a partir de JSON/feed do próprio site
+- publicações recentes não devem ser compiladas diretamente no HTML-fonte da 404
+- a falha do JSON/feed não deve bloquear, ocultar nem invalidar o restante da 404
+- cards assíncronos devem reutilizar a estrutura e o estilo visual dos cards de arquivo do blog
+- montagem dos cards deve usar APIs de DOM e `textContent`, sem injetar HTML remoto
+- o carregamento assíncrono não deve depender de cookies ou `localStorage`
 
 Validação local:
 
 - validar contra o servidor existente antes de iniciar outro
 - não encerrar processo de servidor sem confirmação explícita
+
+---
+
+[NOSCRIPT]
+
+Escopo:
+
+- aplica-se ao fallback sem JavaScript embutido em todas as páginas, inclusive `404.html`
+
+Paridade:
+
+- deve espelhar cabeçalho, `sobpostbar`, conteúdo institucional e footer vigentes no blog
+- deve preservar logotipo, textos, links, ordem estrutural e classes visuais da origem
+- divergências só são permitidas quando o elemento depender tecnicamente de JavaScript, cookies ou armazenamento local
+- controles de tema, busca, consentimento e menus dependentes de JavaScript não devem ser exibidos
+
+Funcionamento:
+
+- deve usar somente HTML e CSS
+- deve permitir rolagem vertical nativa até o footer
+- não deve criar overflow horizontal
+- deve herdar o fundo e os tokens visuais do tema padrão
+- o conteúdo deve permanecer legível, responsivo e integralmente acessível
+- o loader JavaScript não deve ocultar ou bloquear o fallback
+- a imagem destacada sem JavaScript usa o padrão wide do blog e fundo específico `#010203`
+
+Manutenção:
+
+- a fonte principal permanece em `_includes/jcem/noscript-content.html`
+- o artefato compilado da 404 deve receber automaticamente o mesmo fragmento renderizado da home
+- validação visual deve comparar home e 404 com JavaScript desativado
 
 Canonical Path Redirect Script:
 
@@ -949,6 +988,44 @@ O próximo workflow deve ser acionado apenas quando:
 ---
 
 [CONTEÚDO_EDITORIAL]
+
+[AUTORES_DE_ARTIGO]
+
+Metadados opcionais:
+
+- posts podem declarar `article_authors` como lista ordenada
+- cada autor exige `name` e `bio`
+- `url` e `avatar` são opcionais
+- entradas sem `name` ou `bio` não devem ser renderizadas
+- o bloco inteiro não deve existir quando não houver autor válido
+- avatar ausente deve usar ilustração local padrão
+- o primeiro autor recebe destaque principal
+- autores adicionais usam apresentação compacta e responsiva
+- três ou mais autores devem usar composição mais densa para reduzir altura e poluição visual
+- saída deve incluir semântica `Person` compatível com dados estruturados
+- não alterar posts existentes apenas para forçar a exibição do componente
+
+---
+
+[COMPACTAÇÃO_HTML]
+
+Objetivo:
+
+- reduzir o HTML final sem comprometer JavaScript, CSS, Base64, Markdown renderizado ou legibilidade de diffs
+
+Aplicação:
+
+- executar somente no artefato HTML final de produção
+- incluir páginas geradas pelo Jekyll e arquivos HTML estáticos copiados, inclusive `404.html`
+- remover linhas vazias
+- remover espaços e tabs no início e no fim de linhas comuns
+- preservar integralmente o conteúdo interno de `script`, `style`, `pre`, `textarea` e `template`
+- preservar quebras de linha entre linhas não vazias; não transformar o documento inteiro em uma linha
+- não minificar JavaScript, CSS ou conteúdo Base64 como parte desta etapa
+- não adicionar dependência externa quando o hook local cobrir o contrato com menor risco
+- toda alteração do compactador exige teste de regressão com blocos sensíveis
+
+---
 
 [FORMATAÇÃO_DE_POSTS]
 
