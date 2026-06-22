@@ -92,12 +92,8 @@ Com o recurso ativo, `assets/jcem/js/site.js` transforma cada `blockquote` dentr
 Use HTML com classes do projeto para blocos em múltiplas colunas:
 
 ```html
-<div class="c-markdown-columns c-markdown-columns--2">
-
-Conteúdo em Markdown.
-
-Outro parágrafo preservado.
-
+<div class="c-markdown-columns c-markdown-columns--2" markdown="1">
+	Conteúdo em Markdown. Outro parágrafo preservado.
 </div>
 ```
 
@@ -115,10 +111,9 @@ Seções recolhíveis usam `<details>`:
 
 ```html
 <details class="c-collapsible jcem-collapsible">
-<summary>Título</summary>
+	<summary>Título</summary>
 
-Conteúdo em Markdown ou HTML.
-
+	Conteúdo em Markdown ou HTML.
 </details>
 ```
 
@@ -144,20 +139,26 @@ Tabelas Markdown GFM são suportadas pelo Kramdown:
 
 ```markdown
 | Coluna A | Coluna B |
-| --- | --- |
-| Valor A | Valor B |
+| -------- | -------- |
+| Valor A  | Valor B  |
 ```
 
 Quando a tabela estiver dentro de blockquote ou em trecho sensível ao parser, usar HTML semântico evita exibição literal:
 
 ```html
 <table>
-<thead>
-<tr><th>Coluna A</th><th>Coluna B</th></tr>
-</thead>
-<tbody>
-<tr><td>Valor A</td><td>Valor B</td></tr>
-</tbody>
+	<thead>
+		<tr>
+			<th>Coluna A</th>
+			<th>Coluna B</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>Valor A</td>
+			<td>Valor B</td>
+		</tr>
+	</tbody>
 </table>
 ```
 
