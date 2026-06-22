@@ -12,7 +12,7 @@ var store = [{
         "teaser": null
       },{
         "title": "Sola Scriptura",
-        "excerpt":"O homem é mau Em nenhuma outra época da humanidade foi possível constatar empiricamente e notoriamente o que Deus afirma: Não há homem justo sobre a terra, que faça o bem sem jamais pecar. — Bíblia. Ave Maria. Eclesiastes 7:201 como está escrito: Não há justo, nem um sequer, —...","categories": ["Divagando","religião"],
+        "excerpt":"A bíblia – a palavra de Deus vivo, “é viva, e eficaz, e mais cortante do que qualquer espada de dois gumes, e penetra até ao ponto de dividir alma e espírito, juntas e medulas, e é apta para discernir os pensamentos e propósitos do coração.”[1] Ao longo de toda...","categories": ["Divagando","religião"],
         "tags": ["bíblia","referêncial cristão","sola scriptura","tradição","verdade absolute"],
         "url": "/p/sola-scriptura/",
         "teaser": null

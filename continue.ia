@@ -1,5 +1,4 @@
 Estado operacional:
-- Demanda em andamento em 2026-06-21: paridade do shell/noscript da 404, seis posts recentes via JSON assíncrono, compactação HTML conservadora e autoria opcional por post. Implementação concluída parcialmente; pendem build final, validação visual e revisão de paridade dos fragmentos.
 - se a porta estiver ocupada, possível que `dev-live` já ativo pelo desenvolvedor
 - AGENTS.md relido em 2026-06-13; ajustes aplicados em tema/validador visual.
 - Validações concluídas: npm run check, npm run build:prod, npm run validate:visual.

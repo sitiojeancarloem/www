@@ -1784,6 +1784,13 @@ const validate404Page = async (page, url, viewportName) => {
 		const style = window.getComputedStyle(loader);
 		return style.visibility === 'hidden' || style.opacity === '0';
 	});
+	await page.waitForFunction(
+		() =>
+			document.querySelectorAll('.jcem-404__recent-grid > .grid__item').length === 6 &&
+			!document.querySelector('.jcem-404__recent')?.hidden,
+		null,
+		{ timeout: 5000 },
+	);
 	await page
 		.waitForFunction(
 			() =>
@@ -1834,6 +1841,10 @@ const validate404Page = async (page, url, viewportName) => {
 		const terminalNextLine = terminalActiveLine?.nextElementSibling;
 		const themeToggle = document.querySelector('.jcem-theme-toggle');
 		const loader = document.querySelector('.carregandoPagina');
+		const recentSection = document.querySelector('.jcem-404__recent');
+		const recentCards = Array.from(
+			document.querySelectorAll('.jcem-404__recent-grid > .grid__item'),
+		);
 		const page404Style = page404 ? window.getComputedStyle(page404) : null;
 		const terminalScreenStyle = terminalScreen
 			? window.getComputedStyle(terminalScreen)
@@ -1898,6 +1909,20 @@ const validate404Page = async (page, url, viewportName) => {
 			urlChecked: document.documentElement.dataset.jcem404UrlChecked || '',
 			title: document.title,
 			hasThemeToggle: Boolean(themeToggle),
+			recentSectionHidden: recentSection?.hidden ?? true,
+			recentCardCount: recentCards.length,
+			recentCardsValid: recentCards.every((card) => {
+				const article = card.querySelector('.archive__item');
+				const link = card.querySelector('.archive__item-link');
+				const title = card.querySelector('.archive__item-title');
+				const flag = card.querySelector('.jcem-date-flag--archive time');
+				return Boolean(
+					article &&
+					link?.href &&
+					title?.textContent?.trim() &&
+					flag?.getAttribute('datetime'),
+				);
+			}),
 			featured: rectFor(featured),
 			featuredImage: rectFor(featuredImage),
 			featuredImageLoaded: Boolean(featuredImage?.complete && featuredImage.naturalWidth > 0),
@@ -1975,6 +2000,14 @@ const validate404Page = async (page, url, viewportName) => {
 
 	if (result.hasThemeToggle) {
 		fail(`404 importou switch de tema em ${url} ${viewportName}`);
+	}
+
+	if (
+		result.recentSectionHidden ||
+		result.recentCardCount !== 6 ||
+		!result.recentCardsValid
+	) {
+		fail(`Cards recentes da 404 invalidos em ${url} ${viewportName}`);
 	}
 
 	if (
