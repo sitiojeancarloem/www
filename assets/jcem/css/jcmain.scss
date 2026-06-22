@@ -927,3 +927,9 @@ footer ul.social-icons li i {
 		bottom: calc(4.25rem + env(safe-area-inset-bottom));
 	}
 }
+
+@media (max-width: 360px) {
+	.main_jcem_wrapper .greedy-nav .site-logo {
+		width: 6.625rem;
+	}
+}

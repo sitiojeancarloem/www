@@ -994,6 +994,12 @@ O próximo workflow deve ser acionado apenas quando:
 
 [LISTAGENS_DE_POSTS]
 
+Responsividade:
+
+- grades, colunas e cards devem respeitar integralmente a largura disponível
+- títulos, excertos e metadados não devem impor largura mínima nem causar overflow horizontal
+- validar no mínimo em viewport móvel de `320px`
+
 Home:
 
 - exibir no máximo seis cards por página

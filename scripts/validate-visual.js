@@ -20,6 +20,7 @@ const viewports = [
 	{ name: 'reduced', width: 900, height: 700 },
 	{ name: 'side', width: 720, height: 768 },
 	{ name: 'mobile', width: 390, height: 844 },
+	{ name: 'compact', width: 320, height: 720 },
 ];
 
 const contentTypes = new Map([
@@ -714,8 +715,9 @@ const validatePage = async (page, url, theme, viewportName) => {
 					tableRect &&
 					leftRect &&
 					rightRect &&
-					leftRect.width < Math.min(190, tableRect.width * 0.38) &&
-					rightRect.width < Math.min(120, tableRect.width * 0.3) &&
+					leftRect.width < 190 &&
+					rightRect.width < 120 &&
+					leftRect.width + rightRect.width < tableRect.width &&
 					Math.abs(leftRect.left - tableRect.left) <= 2 &&
 					Math.abs(rightRect.right - tableRect.right) <= 2,
 			);
@@ -895,6 +897,29 @@ const validatePage = async (page, url, theme, viewportName) => {
 				),
 				keepsNaturalRatio: Boolean(
 					naturalRatio > 0 && Math.abs(renderedRatio - naturalRatio) <= 0.02,
+				),
+			};
+		});
+		const responsiveCardMetrics = Array.from(
+			document.querySelectorAll('.archive__item'),
+		).map((item) => {
+			const itemRect = item.getBoundingClientRect();
+			const column = item.closest('.grid__item, .list__item');
+			const columnRect = column?.getBoundingClientRect();
+			const textNodes = Array.from(
+				item.querySelectorAll(
+					'.archive__item-title, .archive__item-excerpt, .page__meta',
+				),
+			);
+
+			return {
+				outsideColumn: Boolean(
+					columnRect &&
+					(itemRect.left < columnRect.left - 1 ||
+						itemRect.right > columnRect.right + 1),
+				),
+				textOverflow: textNodes.some(
+					(node) => node.scrollWidth > node.clientWidth + 1,
 				),
 			};
 		});
@@ -1105,6 +1130,9 @@ const validatePage = async (page, url, theme, viewportName) => {
 				devaneiosWideCount: archiveWideImageMetrics.filter((metric) =>
 					metric.src.includes('/devaneios/'),
 				).length,
+				badResponsiveCardCount: responsiveCardMetrics.filter(
+					(metric) => metric.outsideColumn || metric.textOverflow,
+				).length,
 			},
 			styles: [
 				readStyle('.masthead'),
@@ -1118,6 +1146,10 @@ const validatePage = async (page, url, theme, viewportName) => {
 
 	if (result.overflowX > 2) {
 		fail(`Overflow horizontal em ${url} ${theme} ${viewportName}: ${result.overflowX}px`);
+	}
+
+	if (result.archive.badResponsiveCardCount > 0) {
+		fail(`Card fora da largura disponivel em ${url} ${theme} ${viewportName}`);
 	}
 
 	if (result.sidebars > 0) {
@@ -1996,6 +2028,10 @@ const validate404Page = async (page, url, viewportName) => {
 					flag?.getAttribute('datetime'),
 				);
 			}),
+			recentCardsWithinViewport: recentCards.every((card) => {
+				const rect = card.getBoundingClientRect();
+				return rect.left >= -1 && rect.right <= document.documentElement.clientWidth + 1;
+			}),
 			featured: rectFor(featured),
 			featuredImage: rectFor(featuredImage),
 			featuredImageLoaded: Boolean(featuredImage?.complete && featuredImage.naturalWidth > 0),
@@ -2079,6 +2115,7 @@ const validate404Page = async (page, url, viewportName) => {
 		result.recentSectionHidden ||
 		result.recentCardCount !== 6 ||
 		!result.recentCardsValid ||
+		!result.recentCardsWithinViewport ||
 		result.recentTitleFlagGap < 12
 	) {
 		fail(`Cards recentes da 404 invalidos em ${url} ${viewportName}`);

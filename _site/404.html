@@ -335,6 +335,7 @@
 
 			.jcem-404 {
 				display: grid;
+				grid-template-columns: minmax(0, 1fr);
 				align-items: start;
 				padding: clamp(16px, 2vw, 28px);
 				/* FIX-BUG: o fundo base vem do wrapper para nao reiniciar o gradiente. */
@@ -356,6 +357,8 @@
 
 			.jcem-404__wrap {
 				width: min(100%, 48rem);
+				min-width: 0;
+				max-width: 100%;
 				margin: 0 auto;
 			}
 
@@ -740,7 +743,7 @@
 
 			@media (max-width: 48em) {
 				.jcem-404__hero {
-					grid-template-columns: 1fr;
+					grid-template-columns: minmax(0, 1fr);
 					gap: 0.9rem;
 					padding-top: clamp(1.5rem, 7vw, 2.4rem);
 				}
