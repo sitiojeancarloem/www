@@ -133,6 +133,11 @@
 					background: var(--jcem-noscript-bg);
 				}
 
+				html:not(.jcem-page-loaded) body {
+					overflow-x: hidden !important;
+					overflow-y: auto !important;
+				}
+
 				body > .main_jcem_wrapper,
 				body > .loader-bar,
 				body > .carregandoPagina {
@@ -662,6 +667,7 @@
 
 			.jcem-404__screen-track {
 				display: block;
+				background-color: var(--jcem-terminal-mask-bg) !important;
 				transform: translate3d(0, calc(var(--jcem-terminal-shift) * -1), 0);
 				transition: transform 75ms ease-out;
 			}
@@ -677,6 +683,7 @@
 
 			.jcem-404__screen-seq {
 				padding: 0.45rem 0.85rem 0.7rem;
+				background-color: var(--jcem-terminal-mask-bg) !important;
 			}
 
 			.jcem-404__line {
@@ -685,11 +692,6 @@
 				line-height: 1.18;
 				overflow: hidden;
 				white-space: nowrap;
-			}
-
-			.jcem-404__line.is-preparing,
-			.jcem-404__line.is-typing {
-				background: var(--jcem-terminal-mask-bg);
 			}
 
 			.jcem-404__line.is-preparing ~ .jcem-404__line,

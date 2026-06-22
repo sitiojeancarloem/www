@@ -6,6 +6,7 @@ last_modified_at: '2020-10-08T00:40:55-03:00'
 description: 'O que é real? Seria tudo uma ilusão, um delírio da mente? Existe uma verdade absoluta ou é relativo? Qual é a verdade? É possível encontrá-la?'
 source: 'https://web.archive.org/web/20230209191918/https://blog.jeancarloem.com/devaneios/'
 featured_image_style: wide
+archive_image_style: wide
 header:
   image: '/assets/images/posts/devaneios/devaneios-grande.png'
   image_description: 'Devaneios'

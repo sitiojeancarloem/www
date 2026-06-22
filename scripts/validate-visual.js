@@ -1851,8 +1851,9 @@ const validate404Page = async (page, url, viewportName) => {
 		const terminalActiveLineBeforeStyle = terminalActiveLine
 			? window.getComputedStyle(terminalActiveLine, '::before')
 			: null;
-		const terminalActiveLineStyle = terminalActiveLine
-			? window.getComputedStyle(terminalActiveLine)
+		const terminalSequence = terminalActiveLine?.closest('.jcem-404__screen-seq');
+		const terminalSequenceStyle = terminalSequence
+			? window.getComputedStyle(terminalSequence)
 			: null;
 		const terminalNextLineStyle = terminalNextLine
 			? window.getComputedStyle(terminalNextLine)
@@ -1939,8 +1940,10 @@ const validate404Page = async (page, url, viewportName) => {
 				terminalActiveLineBeforeStyle?.backgroundColor || '',
 			terminalActiveMaskTransitionDuration:
 				terminalActiveLineBeforeStyle?.transitionDuration || '',
-			terminalActiveLineBackground:
-				terminalActiveLineStyle?.backgroundColor || '',
+			terminalTrackBackground:
+				terminalTrackStyle?.backgroundColor || '',
+			terminalSequenceBackground:
+				terminalSequenceStyle?.backgroundColor || '',
 			terminalNextLineVisibility:
 				terminalNextLineStyle?.visibility || '',
 			terminalActiveLineText: terminalActiveLine?.textContent?.trim() || '',
@@ -2045,7 +2048,8 @@ const validate404Page = async (page, url, viewportName) => {
 		result.terminalActiveCursorTransitionDuration !==
 			result.terminalActiveMaskTransitionDuration ||
 		result.terminalActiveMaskBackground !== result.terminalScreen.backgroundColor ||
-		result.terminalActiveLineBackground !== result.terminalScreen.backgroundColor ||
+		result.terminalTrackBackground !== result.terminalScreen.backgroundColor ||
+		result.terminalSequenceBackground !== result.terminalScreen.backgroundColor ||
 		(result.terminalNextLineVisibility !== '' &&
 			result.terminalNextLineVisibility !== 'hidden') ||
 		!result.terminalActiveLineText ||
@@ -2056,7 +2060,30 @@ const validate404Page = async (page, url, viewportName) => {
 		result.terminalFinalBackground !== result.terminalScreen.backgroundColor ||
 		Number.parseFloat(result.terminalFinalBorder || '0') < 1
 	) {
-		fail(`Terminal 404 sem animacao CSS continua em ${url} ${viewportName}`);
+		fail(`Terminal 404 sem animacao CSS continua em ${url} ${viewportName}: ${JSON.stringify({
+			terminalMotion: result.terminalMotion,
+			terminalTyping: result.terminalTyping,
+			terminalRuntime: result.terminalRuntime,
+			terminalStepCount: result.terminalStepCount,
+			terminalActiveTypingCount: result.terminalActiveTypingCount,
+			terminalActiveCursorAnimation: result.terminalActiveCursorAnimation,
+			terminalActiveCursorLeft: result.terminalActiveCursorLeft,
+			terminalActiveMaskLeft: result.terminalActiveMaskLeft,
+			terminalActiveCursorTransitionDuration: result.terminalActiveCursorTransitionDuration,
+			terminalActiveMaskTransitionDuration: result.terminalActiveMaskTransitionDuration,
+			terminalActiveMaskBackground: result.terminalActiveMaskBackground,
+			terminalTrackBackground: result.terminalTrackBackground,
+			terminalSequenceBackground: result.terminalSequenceBackground,
+			terminalScreenBackground: result.terminalScreen?.backgroundColor,
+			terminalNextLineVisibility: result.terminalNextLineVisibility,
+			terminalActiveLineText: result.terminalActiveLineText,
+			terminalActiveTypeWidth: result.terminalActiveTypeWidth,
+			terminalActiveTextWidth: result.terminalActiveTextWidth,
+			terminalLineWhiteSpace: result.terminalLineWhiteSpace,
+			terminalScreenOverflow: result.terminalScreenOverflow,
+			terminalHiddenSequences: result.terminalHiddenSequences,
+			terminalFinalBackground: result.terminalFinalBackground,
+		})}`);
 	}
 
 	if (
