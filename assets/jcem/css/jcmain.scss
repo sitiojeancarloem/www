@@ -279,10 +279,20 @@ aside {
 	li {
 		text-align: justify;
 	}
+
+	p {
+		margin-top: 0.35em;
+		margin-bottom: 0;
+	}
 }
 
 .main_jcem_wrapper {
-	--jcem-masthead-shadow: rgba(0, 0, 0, 0.22); // uso: sombra da masthead fixa.
+	--jcem-masthead-shadow: rgba(
+		0,
+		0,
+		0,
+		0.22
+	); // uso: sombra da masthead fixa.
 	--jcem-date-flag-bg: #405160; // uso: flag de publicação.
 	--jcem-date-flag-fold: #303d49; // uso: dobra da flag de publicação.
 	--jcem-date-flag-back: #c6633c; // uso: camada posterior da flag.
