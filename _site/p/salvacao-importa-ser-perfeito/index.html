@@ -304,7 +304,7 @@ href="https://jcem.pro/logo/apple-touch-icon.png"
 	body > noscript .jcem-noscript-featured {
 		width: 100%;
 		max-width: 100%;
-		height: clamp(12rem, 32vh, 24rem);
+		height: clamp(14rem, 32vh, 24rem);
 		margin: 0;
 		overflow: hidden;
 		background: #010203;
@@ -533,95 +533,219 @@ class="page__footer jcem-noscript-footer"
 data-jcem-static-fragment="footer"
 >
 <footer>
-<!-- start custom footer snippets -->
+<!--
+RFC-JCEM-FOOTER-001
+1. Objetivo
+Este RFC define padrões normativos de redação, estrutura e semântica para avisos legais, termos de uso e rodapés informativos associados ao ecossistema jeancarloem.com, independentemente do meio de disponibilização (digital, físico, impresso ou futuro).
+2. Escopo
+Aplica-se a todos os conteúdos, páginas, subdomínios, documentos, cópias, espelhamentos, reproduções e quaisquer formas de distribuição ou armazenamento de conteúdo associado a jeancarloem.com.
+3. Definições normativas
+3.1 "Conteúdos"
+Designa, de forma conjunta, quaisquer informações, textos, opiniões, análises, estudos, documentos, mídias, publicações e demais elementos intelectuais associados a jeancarloem.com.
+3.2 "Meios de Disponibilização"
+Designa, de forma conjunta, quaisquer meios, suportes, tecnologias, plataformas ou formas de acesso, armazenamento, reprodução, transmissão, distribuição ou compartilhamento, presentes ou futuros, incluindo mas não se limitando a: sites, blogs, subdomínios, páginas, aplicativos, redes sociais, e-mails, arquivos digitais, documentos eletrônicos, reproduções impressas, espelhamentos e cópias.
+4.1 Neutralidade de meio (regra estrutural obrigatória)
+É vedado vincular o conteúdo a meios específicos de distribuição, acesso ou publicação.
+4.2 Proibição de ancoragem em canais específicos
+É expressamente proibido restringir, exemplificar ou condicionar o escopo do conteúdo a meios específicos como, mas não limitado a:
+- site
+- blog
+- aplicativo
+- rede social
+- página web
+- plataforma digital
+Esses termos NÃO devem ser utilizados como definição estrutural do ecossistema, devendo ser substituídos por:
+- "Meios de Disponibilização"
+- ou expressões equivalentes de neutralidade tecnológica
+4.3 Generalização obrigatória de escopo
+Sempre que possível, substituir listas descritivas extensas por termos definidos:
+- "Conteúdos"
+- "Meios de Disponibilização"
+4.4 Não exclusão de meios futuros
+Os termos devem abranger expressamente tecnologias, formatos e suportes ainda não existentes ou não previstos.
+4.5 Estrutura de reforço semântico
+Deve-se priorizar linguagem cumulativa, com ampliação de cobertura jurídica sem perda de legibilidade.
+5. Estrutura obrigatória do rodapé
+Todo rodapé normativo deve conter quatro blocos semânticos:
+5.1 IMPORTANTE
+Declaração de aceitação irretratável dos termos de uso e vedação de uso em caso de não concordância.
+5.2 AVISO DE CONTEÚDO SENSÍVEL E PÚBLICO-ALVO
+Descrição dos Conteúdos, definição dos Meios de Disponibilização, delimitação de público-alvo (adultos, estudantes, pesquisadores, profissionais), e exclusão explícita de direcionamento ao público infantil.
+5.3 LIBERDADE DE EXPRESSÃO, LIMITES E INTERPRETAÇÃO DO CONTEÚDO
+Delimitação do caráter opinativo, filosófico, acadêmico e crítico dos Conteúdos, cláusula de não apologia a ilícitos, e regras de interpretação pelo usuário.
+É um complemento ao aviso de conteúdo sensível, com foco na delimitação dos limites e interpretação do conteúdo, e na sensibilidade dos temas.
+5.4 ATENÇÃO
+Um reforço ultra sucinto do que é proibido, com ênfase na necessidade de concordância com TODOS os termos e o aviso de conteúdo sensível.
+6. Regras de formatação HTML obrigatórias
+6.1 Estrutura base
+Todo rodapé deve estar encapsulado em:
 <div class="jcem-foot">
+6.2 Preservação de identidade visual
+Deve-se manter:
+- uso de <b> para ênfase estrutural
+- uso de <i> para restrições absolutas ou negações fortes
+- uso de <u> para negação enfática (ex.: NÃO)
+- links oficiais mantidos inalterados
+6.3 Consistência de blocos
+Cada seção deve ser representada por um único bloco <p>, salvo necessidade de quebra por legibilidade.
+7. Regras de consistência semântica
+7.1 Centralização de definições
+"Conteúdos" e "Meios de Disponibilização" devem ser definidos uma única vez e reutilizados no restante do texto.
+7.2 Proibição de redundância estrutural
+É vedada a repetição integral de listas descritivas já definidas por termos normativos.
+7.3 Independência de meio
+Toda referência deve ser neutra quanto ao formato de consumo (online, offline, impresso ou derivado).
+8. Finalidade jurídica e interpretativa
+Este RFC possui natureza normativa interna de padronização de linguagem e estrutura de avisos legais, visando:
+- reduzir redundância textual;
+- aumentar coerência semântica;
+- ampliar cobertura de meios de disponibilização;
+- reforçar caráter ostensivo de ciência do usuário;
+- preservar liberdade de expressão e delimitação de responsabilidade de conteúdo.
+9. Princípio de Parágrafo Único, Otimização Estrutural e Natureza Defensiva
+9.1 Princípio do Parágrafo Único (efeito de bloco)
+Todo rodapé normativo produzido sob este RFC deve privilegiar, sempre que tecnicamente possível, a consolidação de cada seção em um único parágrafo contínuo, com o objetivo de produzir efeito visual de “bloco único de ciência”, reduzindo fragmentação textual e reforçando a percepção de integralidade do aviso.
+9.2 Natureza não-articulada do rodapé
+Embora organizado em seções lógicas, o rodapé não deve ser tratado como um “artigo jurídico formal” com múltiplos parágrafos discursivos, mas sim como um bloco compacto de advertência ostensiva, com leitura contínua e imediata.
+9.3 Permissão de reestruturação otimizada
+A estrutura deste RFC e de qualquer rodapé derivado poderá ser reorganizada, condensada ou otimizada, inclusive com redução de itens ou fusão de dispositivos, desde que sejam simultaneamente garantidos:
+(a) preservação integral de todos os detalhes, nuances e abrangência normativa;
+(b) inexistência de qualquer perda de escopo, cobertura ou proteção;
+(c) ausência de lacunas, omissões ou ambiguidades interpretáveis de má-fé;
+(d) eliminação de redundâncias desnecessárias sem supressão de conteúdo relevante;
+(e) inexistência de potenciais brechas interpretativas que possam ser exploradas de forma adversa ao objetivo do sistema.
+9.4 Princípio de máxima defensividade ostensiva
+O objetivo deste RFC não é a produção de um instrumento jurídico principal ou exaustivo, mas sim a criação de um rodapé de caráter secundário, porém altamente visível, explícito e incontestável, atuando como mecanismo de ciência inequívoca do usuário quanto à natureza, limites e escopo dos Conteúdos e dos Meios de Disponibilização.
+9.5 Equilíbrio entre concisão e robustez
+Toda otimização deve preservar o equilíbrio entre:
+- máxima concisão estrutural possível; e
+- máxima robustez defensiva semântica,
+evitando tanto excesso redundante quanto simplificação que reduza a eficácia do aviso.
+-->
+<div class="jcem-foot">
+<!-- AI-PROCESSED: conteúdo legal do rodapé reestruturado semanticamente. -->
 <p>
-<b>Importante:</b> Ao acessar este e qualquer domínio e/ou
-subdomínio de <b>jeancarloem.com</b>, você concorda, de forma
-<b>irretratável e irrevogável</b>, com os
-<a
-href="https://jeancarloem.com/termos-e-condicoes-de-uso"
+<b>IMPORTANTE:</b> O acesso, consulta, leitura, permanência,
+armazenamento, reprodução, transmissão, compartilhamento,
+distribuição, arquivamento, impressão, replicação ou qualquer uso,
+total ou parcial, de informações, textos, opiniões, análises,
+estudos, documentos, mídias, publicações e demais elementos
+intelectuais associados direta ou indiretamente a
+<b>jeancarloem.com</b> (em conjunto, os <b>Conteúdos</b>), por
+quaisquer meios, suportes, tecnologias, ambientes, formatos ou
+formas de acesso, armazenamento, reprodução, transmissão,
+distribuição ou compartilhamento, presentes ou futuros (em
+conjunto, os <b>Meios de Disponibilização</b>), implica ciência e
+concordância integral, prévia, inequívoca, irrevogável e
+irretratável com os
+<a href="https://jeancarloem.com/termos-e-condicoes-de-uso"
 ><b>Termos e Políticas de Uso</b></a
->, declarando-se ciente de que, caso <b>não</b> os aceite
-ou concorde, <b><u>NÃO</u></b> deverá usar, acessar, salvar (ou
-armazenar em quaisquer meios), compartilhar e/ou replicar (mesmo
-que parcialmente) qualquer site, blog ou informação de
-<b>jeancarloem.com</b> (e seus subdomínios), devendo ainda
-<b>abandonar (sair) imediata e impreterivelmente</b> de qualquer
-domínio ou subdomínio de <b>jeancarloem.com</b>.
+>. Quem não concordar integralmente com tais termos
+<b><u>NÃO</u></b> deverá acessar, permanecer, consumir, utilizar ou
+praticar qualquer ato sobre os Conteúdos e deverá cessar
+imediatamente qualquer interação com eles, independentemente do
+Meio de Disponibilização.
 </p>
 <p>
-<b>AVISO DE CONTEÚDO SENSÍVEL:</b> Este e qualquer site de
-<b>jeancarloem.com</b> e seus subdomínios podem conter
+<b>AVISO DE CONTEÚDO SENSÍVEL E PÚBLICO-ALVO:</b> Os
+<b>Conteúdos</b> podem conter, sem limitação,
 <b
 >informações, opiniões pessoais, sugestões, dicas, orientações,
-propagandas, patrocínios explícitos e implícitos</b
->, entre outros conteúdos. Tais materiais são de
-<b>responsabilidade exclusiva do autor</b> e
-<b>não</b> implicam em concordância e/ou endosso por parte
-deste(s) site(s) ou de seu(s) proprietário(s). O conteúdo é
-fornecido pelo autor e disponibilizado “como está”, sem
-quaisquer garantias implícitas e/ou explícitas, diretas e/ou
-indiretas, nos termos da
-<a
-href="https://jeancarloem.com/licenca"
-><b>licença</b></a
->. Pode conter ainda teor
-<b>polêmico, religioso, filosófico ou político</b>, entre outros,
-que podem ser considerados <b>inapropriados e até ofensivos</b>, a
-depender da cultura, crença ou localidade. Todavia, tais conteúdos
-se inserem
-<b>estritamente no escopo de ideias, conceitos e abstrações</b>,
+análises, referências, publicidade, propaganda, patrocínio,
+menções comerciais explícitas ou implícitas e materiais de
+natureza filosófica, técnica, acadêmica, jurídica, histórica,
+teológica, científica, cultural, social, política, moral,
+religiosa ou correlata</b
+>. São disponibilizados <b>como estão</b>, sem garantia expressa,
+implícita, direta, indireta, técnica, profissional, comercial,
+editorial, factual ou de adequação a finalidade específica, nos
+termos da
+<a href="https://jeancarloem.com/licenca"><b>licença</b></a
+>, não substituem aconselhamento profissional qualificado e são de
+<b>responsabilidade exclusiva de seus respectivos autores</b>,
+sem implicar concordância, validação, certificação, recomendação,
+representação, vínculo, responsabilidade solidária ou endosso de
+terceiros, titulares, operadores, mantenedores, anunciantes,
+patrocinadores ou quaisquer pessoas físicas ou jurídicas
+relacionadas ou não a <b>jeancarloem.com</b>. Os Conteúdos são
+destinados a <b>adultos, estudantes, pesquisadores, profissionais
+e demais interessados com discernimento compatível com a matéria
+consultada</b> e <b><i>não são concebidos, dirigidos, estruturados
+ou apresentados para atrair, entreter, engajar, orientar ou
+atender especificamente crianças ou público infantil</i></b>.
+Eventual acesso por menor de idade ocorre sob responsabilidade
+exclusiva dos pais, responsáveis legais ou de quem detenha dever
+de guarda, orientação e supervisão, conforme a legislação
+aplicável.
+</p>
+<p>
+<b
+>LIBERDADE DE EXPRESSÃO, LIMITES E INTERPRETAÇÃO DO CONTEÚDO:</b
+>
+Os <b>Conteúdos</b> podem conter teor
+<b
+>polêmico, controverso, crítico, religioso, filosófico,
+político, jurídico, científico, histórico, cultural, moral,
+social, ideológico, sensível, ofensivo ou incompatível</b
+>
+com determinadas crenças, convicções, valores pessoais, culturas,
+faixas etárias, localidades ou interpretações. Tais Conteúdos
+devem ser lidos no contexto integral em que foram apresentados e
+consistem estritamente em
+<b
+>ideias, opiniões, análises, estudos, críticas, reflexões,
+hipóteses, interpretações, conceitos, abstrações e exercícios
+de livre expressão intelectual</b
+>,
 <b
 ><i
->NÃO configurando, sob qualquer hipótese, incentivo, promoção
-ou apologia ao ódio, discriminação, violação de leis,
-agressão, desrespeito, racismo ou condutas análogas</i
+>NÃO configurando, em nenhuma hipótese, instrução operacional,
+recomendação prática, convocação, autorização, incentivo,
+promoção ou apologia a ódio, discriminação, perseguição,
+violência, agressão, violação de direitos, violação de leis,
+racismo, intolerância ou qualquer conduta ilícita, abusiva ou
+análoga</i
 ></b
->. Caso algum texto leve o leitor a interpretar de modo diverso,
-fica desde já esclarecido que
-<b>tal nunca foi a intenção</b
->, devendo eventual interpretação ser revista à luz deste
-esclarecimento. O leitor poderá, se desejar, comunicar-se
-especificando precisamente o
-<b>trecho, termos ou combinações de palavras</b> que possam ter
-ocasionado má compreensão, ciente de que, dentro do contexto de
-ideias,
-<b
->opiniões divergentes podem naturalmente gerar desconforto ou
-ofensa a valores pessoais</b
->
-— o que é
-inerente ao exercício do debate e da liberdade de expressão</i
->. Tais manifestações são resguardadas pelo
-<b>direito à livre expressão</b>, garantido pela
+>. Qualquer interpretação isolada, descontextualizada, ampliativa,
+restritiva, adversarial ou incompatível com este aviso, com os
+Termos e Políticas de Uso e com a íntegra do respectivo Conteúdo é
+expressamente rejeitada. Ao prosseguir, o usuário assume
+responsabilidade integral pela continuidade do acesso, pelo
+sentido atribuído ao material consultado e por eventual
+desconforto, discordância ou ofensa decorrente do livre
+intercâmbio de ideias em sociedade plural. Eventual ambiguidade
+deve ser comunicada com indicação precisa do trecho, termo ou
+combinação de palavras, sem prejuízo do
+<b>direito à livre expressão</b> assegurado pela
 <a
 href="http://www.senado.leg.br/atividade/const/con1988/con1988_15.12.2016/art_5_.asp"
 target="_blank"
 rel="noopener"
-><b>Constituição Federal do Brasil</b>, em seu artigo 5º,
-incisos IV, VI, VIII e IX</a
->, que legisla sobre a
-<b>liberdade de pensamento, religião e comunicação</b>,
-independentemente de censura ou licença, bem como pela
+>
+<b>Constituição Federal do Brasil</b>, artigo 5º, incisos IV,
+VI, VIII e IX </a
+>, e pela
 <a
 href="http://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/L13709.htm"
 target="_blank"
 rel="noopener"
-><b>Lei Geral de Proteção de Dados Pessoais</b>, artigo 2º,
-inciso III</a
+>
+<b>Lei Geral de Proteção de Dados Pessoais</b>, artigo 2º,
+inciso III </a
 >.
 </p>
 <p class="atencao">
-<b>ATENÇÃO:</b> É expressamente <b><u>PROIBIDO</u></b> visualizar,
-acessar, armazenar, usar, compartilhar, distribuir ou permanecer neste site
-sem antes concordar com <b><u>TODOS</u></b> os
-<a
-href="https://jeancarloem.com/termos-e-condicoes-de-uso"
+<b>ATENÇÃO:</b> É expressamente <b><u>PROIBIDO</u></b> acessar,
+permanecer, consultar, visualizar, salvar, armazenar, reproduzir,
+compartilhar, transmitir, distribuir, arquivar, imprimir, replicar
+ou utilizar, total ou parcialmente, quaisquer <b>Conteúdos</b> sem
+concordância integral com <b><u>TODOS</u></b> os
+<a href="https://jeancarloem.com/termos-e-condicoes-de-uso"
 ><b>Termos e Políticas de Uso</b></a
 >
-e AVISO DE CONTEÚDO SENSÍVEL acima.
+e com este <b>AVISO DE CONTEÚDO SENSÍVEL</b>.
 </p>
+<!-- end custom footer snippets -->
 </div>
 <div class="page__footer-follow">
 <ul class="social-icons">
@@ -1649,95 +1773,219 @@ Diante deste texto, é impossível compreender a persistente polêmica deste ass
 </div>
 <div id="footer" class="page__footer">
 <footer>
-<!-- start custom footer snippets -->
+<!--
+RFC-JCEM-FOOTER-001
+1. Objetivo
+Este RFC define padrões normativos de redação, estrutura e semântica para avisos legais, termos de uso e rodapés informativos associados ao ecossistema jeancarloem.com, independentemente do meio de disponibilização (digital, físico, impresso ou futuro).
+2. Escopo
+Aplica-se a todos os conteúdos, páginas, subdomínios, documentos, cópias, espelhamentos, reproduções e quaisquer formas de distribuição ou armazenamento de conteúdo associado a jeancarloem.com.
+3. Definições normativas
+3.1 "Conteúdos"
+Designa, de forma conjunta, quaisquer informações, textos, opiniões, análises, estudos, documentos, mídias, publicações e demais elementos intelectuais associados a jeancarloem.com.
+3.2 "Meios de Disponibilização"
+Designa, de forma conjunta, quaisquer meios, suportes, tecnologias, plataformas ou formas de acesso, armazenamento, reprodução, transmissão, distribuição ou compartilhamento, presentes ou futuros, incluindo mas não se limitando a: sites, blogs, subdomínios, páginas, aplicativos, redes sociais, e-mails, arquivos digitais, documentos eletrônicos, reproduções impressas, espelhamentos e cópias.
+4.1 Neutralidade de meio (regra estrutural obrigatória)
+É vedado vincular o conteúdo a meios específicos de distribuição, acesso ou publicação.
+4.2 Proibição de ancoragem em canais específicos
+É expressamente proibido restringir, exemplificar ou condicionar o escopo do conteúdo a meios específicos como, mas não limitado a:
+- site
+- blog
+- aplicativo
+- rede social
+- página web
+- plataforma digital
+Esses termos NÃO devem ser utilizados como definição estrutural do ecossistema, devendo ser substituídos por:
+- "Meios de Disponibilização"
+- ou expressões equivalentes de neutralidade tecnológica
+4.3 Generalização obrigatória de escopo
+Sempre que possível, substituir listas descritivas extensas por termos definidos:
+- "Conteúdos"
+- "Meios de Disponibilização"
+4.4 Não exclusão de meios futuros
+Os termos devem abranger expressamente tecnologias, formatos e suportes ainda não existentes ou não previstos.
+4.5 Estrutura de reforço semântico
+Deve-se priorizar linguagem cumulativa, com ampliação de cobertura jurídica sem perda de legibilidade.
+5. Estrutura obrigatória do rodapé
+Todo rodapé normativo deve conter quatro blocos semânticos:
+5.1 IMPORTANTE
+Declaração de aceitação irretratável dos termos de uso e vedação de uso em caso de não concordância.
+5.2 AVISO DE CONTEÚDO SENSÍVEL E PÚBLICO-ALVO
+Descrição dos Conteúdos, definição dos Meios de Disponibilização, delimitação de público-alvo (adultos, estudantes, pesquisadores, profissionais), e exclusão explícita de direcionamento ao público infantil.
+5.3 LIBERDADE DE EXPRESSÃO, LIMITES E INTERPRETAÇÃO DO CONTEÚDO
+Delimitação do caráter opinativo, filosófico, acadêmico e crítico dos Conteúdos, cláusula de não apologia a ilícitos, e regras de interpretação pelo usuário.
+É um complemento ao aviso de conteúdo sensível, com foco na delimitação dos limites e interpretação do conteúdo, e na sensibilidade dos temas.
+5.4 ATENÇÃO
+Um reforço ultra sucinto do que é proibido, com ênfase na necessidade de concordância com TODOS os termos e o aviso de conteúdo sensível.
+6. Regras de formatação HTML obrigatórias
+6.1 Estrutura base
+Todo rodapé deve estar encapsulado em:
 <div class="jcem-foot">
+6.2 Preservação de identidade visual
+Deve-se manter:
+- uso de <b> para ênfase estrutural
+- uso de <i> para restrições absolutas ou negações fortes
+- uso de <u> para negação enfática (ex.: NÃO)
+- links oficiais mantidos inalterados
+6.3 Consistência de blocos
+Cada seção deve ser representada por um único bloco <p>, salvo necessidade de quebra por legibilidade.
+7. Regras de consistência semântica
+7.1 Centralização de definições
+"Conteúdos" e "Meios de Disponibilização" devem ser definidos uma única vez e reutilizados no restante do texto.
+7.2 Proibição de redundância estrutural
+É vedada a repetição integral de listas descritivas já definidas por termos normativos.
+7.3 Independência de meio
+Toda referência deve ser neutra quanto ao formato de consumo (online, offline, impresso ou derivado).
+8. Finalidade jurídica e interpretativa
+Este RFC possui natureza normativa interna de padronização de linguagem e estrutura de avisos legais, visando:
+- reduzir redundância textual;
+- aumentar coerência semântica;
+- ampliar cobertura de meios de disponibilização;
+- reforçar caráter ostensivo de ciência do usuário;
+- preservar liberdade de expressão e delimitação de responsabilidade de conteúdo.
+9. Princípio de Parágrafo Único, Otimização Estrutural e Natureza Defensiva
+9.1 Princípio do Parágrafo Único (efeito de bloco)
+Todo rodapé normativo produzido sob este RFC deve privilegiar, sempre que tecnicamente possível, a consolidação de cada seção em um único parágrafo contínuo, com o objetivo de produzir efeito visual de “bloco único de ciência”, reduzindo fragmentação textual e reforçando a percepção de integralidade do aviso.
+9.2 Natureza não-articulada do rodapé
+Embora organizado em seções lógicas, o rodapé não deve ser tratado como um “artigo jurídico formal” com múltiplos parágrafos discursivos, mas sim como um bloco compacto de advertência ostensiva, com leitura contínua e imediata.
+9.3 Permissão de reestruturação otimizada
+A estrutura deste RFC e de qualquer rodapé derivado poderá ser reorganizada, condensada ou otimizada, inclusive com redução de itens ou fusão de dispositivos, desde que sejam simultaneamente garantidos:
+(a) preservação integral de todos os detalhes, nuances e abrangência normativa;
+(b) inexistência de qualquer perda de escopo, cobertura ou proteção;
+(c) ausência de lacunas, omissões ou ambiguidades interpretáveis de má-fé;
+(d) eliminação de redundâncias desnecessárias sem supressão de conteúdo relevante;
+(e) inexistência de potenciais brechas interpretativas que possam ser exploradas de forma adversa ao objetivo do sistema.
+9.4 Princípio de máxima defensividade ostensiva
+O objetivo deste RFC não é a produção de um instrumento jurídico principal ou exaustivo, mas sim a criação de um rodapé de caráter secundário, porém altamente visível, explícito e incontestável, atuando como mecanismo de ciência inequívoca do usuário quanto à natureza, limites e escopo dos Conteúdos e dos Meios de Disponibilização.
+9.5 Equilíbrio entre concisão e robustez
+Toda otimização deve preservar o equilíbrio entre:
+- máxima concisão estrutural possível; e
+- máxima robustez defensiva semântica,
+evitando tanto excesso redundante quanto simplificação que reduza a eficácia do aviso.
+-->
+<div class="jcem-foot">
+<!-- AI-PROCESSED: conteúdo legal do rodapé reestruturado semanticamente. -->
 <p>
-<b>Importante:</b> Ao acessar este e qualquer domínio e/ou
-subdomínio de <b>jeancarloem.com</b>, você concorda, de forma
-<b>irretratável e irrevogável</b>, com os
-<a
-href="https://jeancarloem.com/termos-e-condicoes-de-uso"
+<b>IMPORTANTE:</b> O acesso, consulta, leitura, permanência,
+armazenamento, reprodução, transmissão, compartilhamento,
+distribuição, arquivamento, impressão, replicação ou qualquer uso,
+total ou parcial, de informações, textos, opiniões, análises,
+estudos, documentos, mídias, publicações e demais elementos
+intelectuais associados direta ou indiretamente a
+<b>jeancarloem.com</b> (em conjunto, os <b>Conteúdos</b>), por
+quaisquer meios, suportes, tecnologias, ambientes, formatos ou
+formas de acesso, armazenamento, reprodução, transmissão,
+distribuição ou compartilhamento, presentes ou futuros (em
+conjunto, os <b>Meios de Disponibilização</b>), implica ciência e
+concordância integral, prévia, inequívoca, irrevogável e
+irretratável com os
+<a href="https://jeancarloem.com/termos-e-condicoes-de-uso"
 ><b>Termos e Políticas de Uso</b></a
->, declarando-se ciente de que, caso <b>não</b> os aceite
-ou concorde, <b><u>NÃO</u></b> deverá usar, acessar, salvar (ou
-armazenar em quaisquer meios), compartilhar e/ou replicar (mesmo
-que parcialmente) qualquer site, blog ou informação de
-<b>jeancarloem.com</b> (e seus subdomínios), devendo ainda
-<b>abandonar (sair) imediata e impreterivelmente</b> de qualquer
-domínio ou subdomínio de <b>jeancarloem.com</b>.
+>. Quem não concordar integralmente com tais termos
+<b><u>NÃO</u></b> deverá acessar, permanecer, consumir, utilizar ou
+praticar qualquer ato sobre os Conteúdos e deverá cessar
+imediatamente qualquer interação com eles, independentemente do
+Meio de Disponibilização.
 </p>
 <p>
-<b>AVISO DE CONTEÚDO SENSÍVEL:</b> Este e qualquer site de
-<b>jeancarloem.com</b> e seus subdomínios podem conter
+<b>AVISO DE CONTEÚDO SENSÍVEL E PÚBLICO-ALVO:</b> Os
+<b>Conteúdos</b> podem conter, sem limitação,
 <b
 >informações, opiniões pessoais, sugestões, dicas, orientações,
-propagandas, patrocínios explícitos e implícitos</b
->, entre outros conteúdos. Tais materiais são de
-<b>responsabilidade exclusiva do autor</b> e
-<b>não</b> implicam em concordância e/ou endosso por parte
-deste(s) site(s) ou de seu(s) proprietário(s). O conteúdo é
-fornecido pelo autor e disponibilizado “como está”, sem
-quaisquer garantias implícitas e/ou explícitas, diretas e/ou
-indiretas, nos termos da
-<a
-href="https://jeancarloem.com/licenca"
-><b>licença</b></a
->. Pode conter ainda teor
-<b>polêmico, religioso, filosófico ou político</b>, entre outros,
-que podem ser considerados <b>inapropriados e até ofensivos</b>, a
-depender da cultura, crença ou localidade. Todavia, tais conteúdos
-se inserem
-<b>estritamente no escopo de ideias, conceitos e abstrações</b>,
+análises, referências, publicidade, propaganda, patrocínio,
+menções comerciais explícitas ou implícitas e materiais de
+natureza filosófica, técnica, acadêmica, jurídica, histórica,
+teológica, científica, cultural, social, política, moral,
+religiosa ou correlata</b
+>. São disponibilizados <b>como estão</b>, sem garantia expressa,
+implícita, direta, indireta, técnica, profissional, comercial,
+editorial, factual ou de adequação a finalidade específica, nos
+termos da
+<a href="https://jeancarloem.com/licenca"><b>licença</b></a
+>, não substituem aconselhamento profissional qualificado e são de
+<b>responsabilidade exclusiva de seus respectivos autores</b>,
+sem implicar concordância, validação, certificação, recomendação,
+representação, vínculo, responsabilidade solidária ou endosso de
+terceiros, titulares, operadores, mantenedores, anunciantes,
+patrocinadores ou quaisquer pessoas físicas ou jurídicas
+relacionadas ou não a <b>jeancarloem.com</b>. Os Conteúdos são
+destinados a <b>adultos, estudantes, pesquisadores, profissionais
+e demais interessados com discernimento compatível com a matéria
+consultada</b> e <b><i>não são concebidos, dirigidos, estruturados
+ou apresentados para atrair, entreter, engajar, orientar ou
+atender especificamente crianças ou público infantil</i></b>.
+Eventual acesso por menor de idade ocorre sob responsabilidade
+exclusiva dos pais, responsáveis legais ou de quem detenha dever
+de guarda, orientação e supervisão, conforme a legislação
+aplicável.
+</p>
+<p>
+<b
+>LIBERDADE DE EXPRESSÃO, LIMITES E INTERPRETAÇÃO DO CONTEÚDO:</b
+>
+Os <b>Conteúdos</b> podem conter teor
+<b
+>polêmico, controverso, crítico, religioso, filosófico,
+político, jurídico, científico, histórico, cultural, moral,
+social, ideológico, sensível, ofensivo ou incompatível</b
+>
+com determinadas crenças, convicções, valores pessoais, culturas,
+faixas etárias, localidades ou interpretações. Tais Conteúdos
+devem ser lidos no contexto integral em que foram apresentados e
+consistem estritamente em
+<b
+>ideias, opiniões, análises, estudos, críticas, reflexões,
+hipóteses, interpretações, conceitos, abstrações e exercícios
+de livre expressão intelectual</b
+>,
 <b
 ><i
->NÃO configurando, sob qualquer hipótese, incentivo, promoção
-ou apologia ao ódio, discriminação, violação de leis,
-agressão, desrespeito, racismo ou condutas análogas</i
+>NÃO configurando, em nenhuma hipótese, instrução operacional,
+recomendação prática, convocação, autorização, incentivo,
+promoção ou apologia a ódio, discriminação, perseguição,
+violência, agressão, violação de direitos, violação de leis,
+racismo, intolerância ou qualquer conduta ilícita, abusiva ou
+análoga</i
 ></b
->. Caso algum texto leve o leitor a interpretar de modo diverso,
-fica desde já esclarecido que
-<b>tal nunca foi a intenção</b
->, devendo eventual interpretação ser revista à luz deste
-esclarecimento. O leitor poderá, se desejar, comunicar-se
-especificando precisamente o
-<b>trecho, termos ou combinações de palavras</b> que possam ter
-ocasionado má compreensão, ciente de que, dentro do contexto de
-ideias,
-<b
->opiniões divergentes podem naturalmente gerar desconforto ou
-ofensa a valores pessoais</b
->
-— o que é
-inerente ao exercício do debate e da liberdade de expressão</i
->. Tais manifestações são resguardadas pelo
-<b>direito à livre expressão</b>, garantido pela
+>. Qualquer interpretação isolada, descontextualizada, ampliativa,
+restritiva, adversarial ou incompatível com este aviso, com os
+Termos e Políticas de Uso e com a íntegra do respectivo Conteúdo é
+expressamente rejeitada. Ao prosseguir, o usuário assume
+responsabilidade integral pela continuidade do acesso, pelo
+sentido atribuído ao material consultado e por eventual
+desconforto, discordância ou ofensa decorrente do livre
+intercâmbio de ideias em sociedade plural. Eventual ambiguidade
+deve ser comunicada com indicação precisa do trecho, termo ou
+combinação de palavras, sem prejuízo do
+<b>direito à livre expressão</b> assegurado pela
 <a
 href="http://www.senado.leg.br/atividade/const/con1988/con1988_15.12.2016/art_5_.asp"
 target="_blank"
 rel="noopener"
-><b>Constituição Federal do Brasil</b>, em seu artigo 5º,
-incisos IV, VI, VIII e IX</a
->, que legisla sobre a
-<b>liberdade de pensamento, religião e comunicação</b>,
-independentemente de censura ou licença, bem como pela
+>
+<b>Constituição Federal do Brasil</b>, artigo 5º, incisos IV,
+VI, VIII e IX </a
+>, e pela
 <a
 href="http://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/L13709.htm"
 target="_blank"
 rel="noopener"
-><b>Lei Geral de Proteção de Dados Pessoais</b>, artigo 2º,
-inciso III</a
+>
+<b>Lei Geral de Proteção de Dados Pessoais</b>, artigo 2º,
+inciso III </a
 >.
 </p>
 <p class="atencao">
-<b>ATENÇÃO:</b> É expressamente <b><u>PROIBIDO</u></b> visualizar,
-acessar, armazenar, usar, compartilhar, distribuir ou permanecer neste site
-sem antes concordar com <b><u>TODOS</u></b> os
-<a
-href="https://jeancarloem.com/termos-e-condicoes-de-uso"
+<b>ATENÇÃO:</b> É expressamente <b><u>PROIBIDO</u></b> acessar,
+permanecer, consultar, visualizar, salvar, armazenar, reproduzir,
+compartilhar, transmitir, distribuir, arquivar, imprimir, replicar
+ou utilizar, total ou parcialmente, quaisquer <b>Conteúdos</b> sem
+concordância integral com <b><u>TODOS</u></b> os
+<a href="https://jeancarloem.com/termos-e-condicoes-de-uso"
 ><b>Termos e Políticas de Uso</b></a
 >
-e AVISO DE CONTEÚDO SENSÍVEL acima.
+e com este <b>AVISO DE CONTEÚDO SENSÍVEL</b>.
 </p>
+<!-- end custom footer snippets -->
 </div>
 <div class="page__footer-follow">
 <ul class="social-icons">

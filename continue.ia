@@ -1,4 +1,5 @@
 Estado operacional:
+- Footer legal em 2026-06-25: `_includes/footer/custom.html` e cópias estáticas do `404.html` reestruturadas conforme RFC-JCEM-FOOTER-001, com marcação `AI-PROCESSED`; `npm run build:prod`, checagem visual direcionada home/404 320px/900px JS on/off e `npm run check` passaram; `npm run validate:visual` excedeu 240s sem erro emitido.
 - Servidores locais ativos em 2026-06-22: PIDs 10688 e 18368 em `127.0.0.1:4000`; não encerrar sem confirmação explícita.
 - se a porta estiver ocupada, possível que `dev-live` já ativo pelo desenvolvedor
 - AGENTS.md relido em 2026-06-13; ajustes aplicados em tema/validador visual.
