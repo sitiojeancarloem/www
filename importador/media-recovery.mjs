@@ -217,6 +217,7 @@ function createProgressLogger(total, state) {
 	let processed = 0;
 	let successThisRun = 0;
 	let retryLaterThisRun = 0;
+	let retryLaterNewThisRun = 0;
 	let retryLaterResolvedThisRun = 0;
 	const initialCompleted = Object.keys(state.completed || {}).length;
 	const initialRetryLater = Object.keys(state.failed || {}).length;
@@ -231,7 +232,7 @@ function createProgressLogger(total, state) {
 			processed,
 			remaining,
 			successTotal: initialCompleted + successThisRun,
-			retryLaterTotal: Math.max(initialRetryLater + retryLaterThisRun - retryLaterResolvedThisRun, 0),
+			retryLaterTotal: Math.max(initialRetryLater + retryLaterNewThisRun - retryLaterResolvedThisRun, 0),
 			successThisRun,
 			retryLaterThisRun
 		};
@@ -257,9 +258,10 @@ function createProgressLogger(total, state) {
 			if (wasRetryLater) retryLaterResolvedThisRun += 1;
 			console.log(`[media] ok arquivo=${compactPathForLog(result.output)} provider=${result.provider} bytes=${result.bytes || "local"} | ${suffix()}`);
 		},
-		retryLater(item) {
+		retryLater(item, wasRetryLater = false) {
 			processed += 1;
 			retryLaterThisRun += 1;
+			if (!wasRetryLater) retryLaterNewThisRun += 1;
 			console.log(`[media] retry-depois arquivo=${compactPathForLog(new URL(item.url).pathname)} motivo=provedores-esgotados | ${suffix()}`);
 		},
 		summary() {
@@ -316,8 +318,9 @@ async function recoverOne(item, config, state, options, logger) {
 		}
 	}
 
+	const wasRetryLater = Boolean(state.failed?.[item.id]);
 	state.failed[item.id] = { url: item.url, lastTriedAt: new Date().toISOString() };
-	logger.retryLater(item);
+	logger.retryLater(item, wasRetryLater);
 	return null;
 }
 
