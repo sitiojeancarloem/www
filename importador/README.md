@@ -30,7 +30,7 @@ npm run import:media
 
 Os downloads ficam em `_drafts/_midias-recuperadas/` e cada tentativa é registrada em `importador/state/media-attempts.jsonl`, diretório ignorado pelo Git. Antes de montar a fila, o importador reconcilia o checklist de estado com os arquivos já existentes no destino local; se o arquivo calculado já existe, o item é marcado como concluído e não entra na fila de download.
 
-O terminal exibe uma linha por arquivo iniciado, uma linha por sucesso ou falha final, e uma linha adicional somente quando houver retentativa imediata. Cada linha informa arquivo, provedor, sucesso acumulado, pendências de retentativa posterior, faltantes, tempo decorrido e ETA calculado pelo tempo médio já gasto.
+O terminal exibe blocos curtos iniciados por `[M] ev=...`, com campos `chave=valor` em linhas separadas para evitar estouro horizontal e facilitar leitura humana ou por automação. Quando o terminal suporta ANSI, eventos usam cores: início em ciano, sucesso em verde, retentativas em amarelo, falha para retentativa posterior em vermelho e resumo em magenta.
 
 O timeout não encerra a execução por duração total. Ele limita cada requisição/provedor para detectar travamento, ciclo de servidor ou retentativa que não responde; depois disso o item segue a política de retry e, se os provedores forem esgotados, fica marcado para retentativa posterior.
 

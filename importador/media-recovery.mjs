@@ -12,6 +12,15 @@ const DEFAULT_PROVIDERS = "importador/providers.json";
 const DEFAULT_CONCURRENCY = 3;
 const DEFAULT_RETRIES = 3;
 const DEFAULT_TIMEOUT_MS = 45000;
+const LOG_MARKER = "[M]";
+const ANSI = {
+	reset: "\x1b[0m",
+	cyan: "\x1b[36m",
+	green: "\x1b[32m",
+	yellow: "\x1b[33m",
+	red: "\x1b[31m",
+	magenta: "\x1b[35m"
+};
 
 function parseArgs(argv) {
 	const args = {
@@ -200,6 +209,37 @@ function compactPathForLog(filePath) {
 	return `${parts.slice(0, 2).join("/")}/.../${parts.slice(-2).join("/")}`;
 }
 
+function compactUrlForLog(value) {
+	try {
+		const parsed = new URL(value);
+		return `${parsed.hostname}/${compactPathForLog(parsed.pathname)}`;
+	} catch {
+		return compactPathForLog(value);
+	}
+}
+
+function useColor() {
+	if (process.env.NO_COLOR) return false;
+	if (process.env.FORCE_COLOR && process.env.FORCE_COLOR !== "0") return true;
+	return Boolean(process.stdout.isTTY);
+}
+
+function paint(value, color) {
+	if (!useColor() || !color || !ANSI[color]) return value;
+	return `${ANSI[color]}${value}${ANSI.reset}`;
+}
+
+function logValue(value) {
+	if (typeof value === "number" || typeof value === "boolean") return String(value);
+	return JSON.stringify(String(value ?? "").replace(/\s+/g, " ").trim());
+}
+
+function logBlock(event, color, fields) {
+	const lines = [`${LOG_MARKER} ${paint(`ev=${event}`, color)}`];
+	for (const [key, value] of fields) lines.push(`  ${key}=${logValue(value)}`);
+	console.log(lines.join("\n"));
+}
+
 function formatDuration(ms) {
 	if (!Number.isFinite(ms) || ms <= 0) return "0s";
 	const totalSeconds = Math.round(ms / 1000);
@@ -246,31 +286,62 @@ function createProgressLogger(total, state) {
 	return {
 		start(item, outputPath) {
 			started += 1;
-			console.log(`[media] ${started}/${total} trabalhando ${compactPathForLog(path.relative(ROOT, outputPath))} origem=${item.url} | ${suffix()}`);
+			logBlock("start", "cyan", [
+				["item", `${started}/${total}`],
+				["file", compactPathForLog(path.relative(ROOT, outputPath))],
+				["url", compactUrlForLog(item.url)],
+				["stats", suffix()]
+			]);
 		},
 		retryNow(item, provider, attempt, retries, error) {
 			const reason = error instanceof Error ? error.message : String(error);
-			console.log(`[media] retry-agora ${attempt}/${retries} provider=${provider.id} arquivo=${compactPathForLog(new URL(item.url).pathname)} motivo=${reason.slice(0, 160)}`);
+			logBlock("retry_now", "yellow", [
+				["try", `${attempt}/${retries}`],
+				["provider", provider.id],
+				["file", compactPathForLog(new URL(item.url).pathname)],
+				["reason", reason.slice(0, 160)]
+			]);
 		},
 		retryRound(item, attempt, retries, providers, error) {
-			const reason = error ? ` motivo=${String(error).slice(0, 140)}` : "";
-			console.log(`[media] retry-agora rodada=${attempt}/${retries} providers=${providers.map((provider) => provider.id).join(",")} arquivo=${compactPathForLog(new URL(item.url).pathname)}${reason}`);
+			logBlock("retry_round", "yellow", [
+				["round", `${attempt}/${retries}`],
+				["providers", providers.map((provider) => provider.id).join(",")],
+				["file", compactPathForLog(new URL(item.url).pathname)],
+				["reason", error ? String(error).slice(0, 140) : ""]
+			]);
 		},
 		success(item, result, wasRetryLater = false) {
 			processed += 1;
 			successThisRun += 1;
 			if (wasRetryLater) retryLaterResolvedThisRun += 1;
-			console.log(`[media] ok arquivo=${compactPathForLog(result.output)} provider=${result.provider} bytes=${result.bytes || "local"} | ${suffix()}`);
+			logBlock("ok", "green", [
+				["file", compactPathForLog(result.output)],
+				["provider", result.provider],
+				["bytes", result.bytes || "local"],
+				["stats", suffix()]
+			]);
 		},
 		retryLater(item, wasRetryLater = false) {
 			processed += 1;
 			retryLaterThisRun += 1;
 			if (!wasRetryLater) retryLaterNewThisRun += 1;
-			console.log(`[media] retry-depois arquivo=${compactPathForLog(new URL(item.url).pathname)} motivo=provedores-esgotados | ${suffix()}`);
+			logBlock("retry_later", "red", [
+				["file", compactPathForLog(new URL(item.url).pathname)],
+				["reason", "provedores-esgotados"],
+				["stats", suffix()]
+			]);
 		},
 		summary() {
 			const data = snapshot();
-			console.log(`[media] resumo processados=${data.processed}/${total} ok-run=${data.successThisRun} retry-depois-run=${data.retryLaterThisRun} retry-resolvidos-run=${retryLaterResolvedThisRun} ok-total=${data.successTotal} retry-depois-total=${data.retryLaterTotal} tempo=${data.elapsed}`);
+			logBlock("summary", "magenta", [
+				["processed", `${data.processed}/${total}`],
+				["ok_run", data.successThisRun],
+				["retry_later_run", data.retryLaterThisRun],
+				["retry_resolved_run", retryLaterResolvedThisRun],
+				["ok_total", data.successTotal],
+				["retry_later_total", data.retryLaterTotal],
+				["elapsed", data.elapsed]
+			]);
 		}
 	};
 }
@@ -412,7 +483,7 @@ async function main() {
 	const allItems = parseWxrMedia(xmlPath);
 	const reconciled = reconcileExistingFiles(allItems, config, state);
 	if (options.run && reconciled > 0) {
-		console.log(`[media] checklist-local reconciliados=${reconciled}`);
+		logBlock("checklist", "green", [["local_reconciled", reconciled]]);
 		saveState(config.stateFile, state);
 	}
 	const pending = allItems.filter((item) => !state.completed[item.id]);
