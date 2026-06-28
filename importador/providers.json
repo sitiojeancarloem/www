@@ -1,0 +1,33 @@
+{
+	"mediaOutputDir": "_drafts/_midias-recuperadas",
+	"attemptLog": "importador/state/media-attempts.jsonl",
+	"stateFile": "importador/state/media-state.json",
+	"providers": [
+		{
+			"id": "old-root-local",
+			"type": "local-wp-uploads",
+			"enabled": true,
+			"root": "old-root"
+		},
+		{
+			"id": "internet-archive-cdx",
+			"type": "cdx",
+			"enabled": true,
+			"endpoint": "https://web.archive.org/cdx?url={url}&output=json&fl=timestamp,original,statuscode,mimetype,digest&filter=statuscode:200&collapse=digest&limit=10",
+			"snapshot": "https://web.archive.org/web/{timestamp}if_/{original}"
+		},
+		{
+			"id": "internet-archive-direct-20230809",
+			"type": "direct",
+			"enabled": true,
+			"url": "https://web.archive.org/web/20230809000000if_/{url}"
+		},
+		{
+			"id": "arquivo-pt-cdx",
+			"type": "cdx",
+			"enabled": true,
+			"endpoint": "https://arquivo.pt/wayback/cdx?url={url}&output=json&fl=timestamp,original,statuscode,mimetype,digest&filter=statuscode:200&collapse=digest&limit=10",
+			"snapshot": "https://arquivo.pt/wayback/{timestamp}id_/{original}"
+		}
+	]
+}

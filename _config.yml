@@ -183,6 +183,7 @@ exclude:
   - assets/js/_main.js
   - assets/js/vendor
   - /assets/jcem/ts
+  - /importador
   - Capfile
   - CHANGELOG
   - config
