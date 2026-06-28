@@ -26,7 +26,7 @@ npm run import:media:plan
 npm run import:media
 ```
 
-`import:media:plan` monta a fila sem baixar. `import:media` usa os provedores de `importador/providers.json`, concorrência controlada, retry, log JSONL e retomada por estado. A ordem atual tenta cópia local de `old-root`, Internet Archive CDX, Internet Archive direto e Arquivo.pt CDX.
+`import:media:plan` monta a fila sem baixar. `import:media` usa os provedores de `importador/providers.json`, concorrência controlada, retry, log JSONL e retomada por estado. A primeira rodada tenta cópia local de `old-root` antes da rede. As rodadas remotas são distribuídas entre Internet Archive CDX, Internet Archive direto e Arquivo.pt CDX, com rotação por mídia para evitar concentração em um único provedor.
 
 Os downloads ficam em `_drafts/_midias-recuperadas/` e cada tentativa é registrada em `importador/state/media-attempts.jsonl`, diretório ignorado pelo Git. Antes de montar a fila, o importador reconcilia o checklist de estado com os arquivos já existentes no destino local; se o arquivo calculado já existe, o item é marcado como concluído e não entra na fila de download.
 

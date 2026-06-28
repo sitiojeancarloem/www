@@ -252,6 +252,10 @@ function createProgressLogger(total, state) {
 			const reason = error instanceof Error ? error.message : String(error);
 			console.log(`[media] retry-agora ${attempt}/${retries} provider=${provider.id} arquivo=${compactPathForLog(new URL(item.url).pathname)} motivo=${reason.slice(0, 160)}`);
 		},
+		retryRound(item, attempt, retries, providers, error) {
+			const reason = error ? ` motivo=${String(error).slice(0, 140)}` : "";
+			console.log(`[media] retry-agora rodada=${attempt}/${retries} providers=${providers.map((provider) => provider.id).join(",")} arquivo=${compactPathForLog(new URL(item.url).pathname)}${reason}`);
+		},
 		success(item, result, wasRetryLater = false) {
 			processed += 1;
 			successThisRun += 1;
@@ -271,18 +275,18 @@ function createProgressLogger(total, state) {
 	};
 }
 
-async function withRetry(fn, retries, onRetry) {
-	let lastError;
-	for (let attempt = 1; attempt <= retries; attempt += 1) {
-		try {
-			return await fn(attempt);
-		} catch (error) {
-			lastError = error;
-			if (attempt < retries && onRetry) onRetry(error, attempt + 1);
-			await new Promise((resolve) => setTimeout(resolve, 500 * attempt));
-		}
-	}
-	throw lastError;
+function rotateList(items, start) {
+	if (items.length === 0) return [];
+	const offset = ((start % items.length) + items.length) % items.length;
+	return [...items.slice(offset), ...items.slice(0, offset)];
+}
+
+function providerOrderForRound(item, providers, roundIndex) {
+	const local = providers.filter((provider) => provider.type === "local-wp-uploads");
+	const remote = providers.filter((provider) => provider.type !== "local-wp-uploads");
+	const seed = Number.parseInt(item.id.slice(0, 8), 16) || 0;
+	const rotatedRemote = rotateList(remote, seed + roundIndex);
+	return roundIndex === 0 ? [...local, ...rotatedRemote] : rotatedRemote;
 }
 
 async function recoverOne(item, config, state, options, logger) {
@@ -296,25 +300,32 @@ async function recoverOne(item, config, state, options, logger) {
 		return state.completed[item.id];
 	}
 
-	for (const provider of config.providers.filter((entry) => entry.enabled !== false)) {
-		try {
-			const result = await withRetry(
-				() => recoverFromProvider(item, provider, outputPath, options),
-				options.retries,
-				(error, nextAttempt) => logger.retryNow(item, provider, nextAttempt, options.retries, error)
-			);
-			if (!result) {
-				appendAttempt(config.attemptLog, { id: item.id, url: item.url, provider: provider.id, status: "miss" });
-				continue;
+	const enabledProviders = config.providers.filter((entry) => entry.enabled !== false);
+	let lastError = "";
+	for (let roundIndex = 0; roundIndex < options.retries; roundIndex += 1) {
+		const providers = providerOrderForRound(item, enabledProviders, roundIndex);
+		for (const provider of providers) {
+			try {
+				const result = await recoverFromProvider(item, provider, outputPath, options);
+				if (!result) {
+					appendAttempt(config.attemptLog, { id: item.id, url: item.url, provider: provider.id, round: roundIndex + 1, status: "miss" });
+					continue;
+				}
+				const wasRetryLater = Boolean(state.failed?.[item.id]);
+				state.completed[item.id] = result;
+				if (state.failed) delete state.failed[item.id];
+				appendAttempt(config.attemptLog, { id: item.id, url: item.url, provider: provider.id, round: roundIndex + 1, status: "ok", output: result.output });
+				logger.success(item, result, wasRetryLater);
+				return result;
+			} catch (error) {
+				lastError = error instanceof Error ? error.message : String(error);
+				appendAttempt(config.attemptLog, { id: item.id, url: item.url, provider: provider.id, round: roundIndex + 1, status: "error", error: lastError });
 			}
-			const wasRetryLater = Boolean(state.failed?.[item.id]);
-			state.completed[item.id] = result;
-			if (state.failed) delete state.failed[item.id];
-			appendAttempt(config.attemptLog, { id: item.id, url: item.url, provider: provider.id, status: "ok", output: result.output });
-			logger.success(item, result, wasRetryLater);
-			return result;
-		} catch (error) {
-			appendAttempt(config.attemptLog, { id: item.id, url: item.url, provider: provider.id, status: "error", error: error instanceof Error ? error.message : String(error) });
+		}
+		if (roundIndex + 1 < options.retries) {
+			const nextProviders = providerOrderForRound(item, enabledProviders, roundIndex + 1);
+			logger.retryRound(item, roundIndex + 2, options.retries, nextProviders, lastError);
+			await new Promise((resolve) => setTimeout(resolve, 500 * (roundIndex + 1)));
 		}
 	}
 
