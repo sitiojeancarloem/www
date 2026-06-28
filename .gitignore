@@ -11,6 +11,18 @@ _data
 # O GitHub Pages gera a pasta _site automaticamente
 !_site
 
+# 1. Aplique as suas regras de bloqueio global
+www.*/
+*.com/
+*.org/
+*.br/
+
+# 2. Abra a exceção para a pasta específica do seu domínio
+!*jeancarloem.com/
+
+# 3. Abra a exceção para TUDO o que estiver dentro dessa pasta (Regra crucial)
+!*jeancarloem.com/**
+
 # 2. Ignora tudo o que estiver dentro dela
 _site/*
 
