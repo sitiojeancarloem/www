@@ -12,7 +12,6 @@ const DEFAULT_PROVIDERS = "importador/providers.json";
 const DEFAULT_CONCURRENCY = 3;
 const DEFAULT_RETRIES = 3;
 const DEFAULT_TIMEOUT_MS = 45000;
-const DEFAULT_MAX_SECONDS = 540;
 
 function parseArgs(argv) {
 	const args = {
@@ -23,7 +22,7 @@ function parseArgs(argv) {
 		limit: 0,
 		concurrency: DEFAULT_CONCURRENCY,
 		retries: DEFAULT_RETRIES,
-		maxSeconds: DEFAULT_MAX_SECONDS
+		requestTimeoutMs: DEFAULT_TIMEOUT_MS
 	};
 	for (const arg of argv) {
 		if (arg === "--plan") {
@@ -37,7 +36,8 @@ function parseArgs(argv) {
 		else if (arg.startsWith("--limit=")) args.limit = Number.parseInt(arg.slice("--limit=".length), 10) || 0;
 		else if (arg.startsWith("--concurrency=")) args.concurrency = Math.max(1, Number.parseInt(arg.slice("--concurrency=".length), 10) || DEFAULT_CONCURRENCY);
 		else if (arg.startsWith("--retries=")) args.retries = Math.max(1, Number.parseInt(arg.slice("--retries=".length), 10) || DEFAULT_RETRIES);
-		else if (arg.startsWith("--max-seconds=")) args.maxSeconds = Math.max(0, Number.parseInt(arg.slice("--max-seconds=".length), 10) || 0);
+		else if (arg.startsWith("--request-timeout-ms=")) args.requestTimeoutMs = Math.max(1000, Number.parseInt(arg.slice("--request-timeout-ms=".length), 10) || DEFAULT_TIMEOUT_MS);
+		else if (arg.startsWith("--max-seconds=")) args.requestTimeoutMs = Math.max(1000, (Number.parseInt(arg.slice("--max-seconds=".length), 10) || Math.ceil(DEFAULT_TIMEOUT_MS / 1000)) * 1000);
 		else throw new Error(`Argumento desconhecido: ${arg}`);
 	}
 	return args;
@@ -151,6 +151,24 @@ function saveState(stateFile, state) {
 	fs.writeFileSync(target, `${JSON.stringify(state, null, "\t")}\n`, "utf8");
 }
 
+function reconcileExistingFiles(items, config, state) {
+	let reconciled = 0;
+	for (const item of items) {
+		if (state.completed?.[item.id]) continue;
+		const outputPath = outputPathFor(item.url, config.mediaOutputDir);
+		if (!fs.existsSync(outputPath)) continue;
+		state.completed[item.id] = {
+			url: item.url,
+			output: path.relative(ROOT, outputPath).replace(/\\/g, "/"),
+			provider: "existing-local-file",
+			bytes: fs.statSync(outputPath).size
+		};
+		if (state.failed) delete state.failed[item.id];
+		reconciled += 1;
+	}
+	return reconciled;
+}
+
 function appendAttempt(attemptLog, entry) {
 	const target = resolveRepo(attemptLog);
 	ensureParent(target);
@@ -159,7 +177,8 @@ function appendAttempt(attemptLog, entry) {
 
 async function fetchWithTimeout(url, options = {}) {
 	const controller = new AbortController();
-	const timeout = setTimeout(() => controller.abort(), options.timeoutMs || DEFAULT_TIMEOUT_MS);
+	const timeoutMs = options.requestTimeoutMs || DEFAULT_TIMEOUT_MS;
+	const timeout = setTimeout(() => controller.abort(), timeoutMs);
 	try {
 		const response = await fetch(url, {
 			redirect: "follow",
@@ -174,35 +193,123 @@ async function fetchWithTimeout(url, options = {}) {
 	}
 }
 
-async function withRetry(fn, retries) {
+function compactPathForLog(filePath) {
+	const normalized = String(filePath || "").replace(/\\/g, "/");
+	const parts = normalized.split("/").filter(Boolean);
+	if (parts.length <= 4) return normalized || "(sem arquivo)";
+	return `${parts.slice(0, 2).join("/")}/.../${parts.slice(-2).join("/")}`;
+}
+
+function formatDuration(ms) {
+	if (!Number.isFinite(ms) || ms <= 0) return "0s";
+	const totalSeconds = Math.round(ms / 1000);
+	const hours = Math.floor(totalSeconds / 3600);
+	const minutes = Math.floor((totalSeconds % 3600) / 60);
+	const seconds = totalSeconds % 60;
+	if (hours > 0) return `${hours}h${String(minutes).padStart(2, "0")}m`;
+	if (minutes > 0) return `${minutes}m${String(seconds).padStart(2, "0")}s`;
+	return `${seconds}s`;
+}
+
+function createProgressLogger(total, state) {
+	const startedAt = Date.now();
+	let started = 0;
+	let processed = 0;
+	let successThisRun = 0;
+	let retryLaterThisRun = 0;
+	let retryLaterResolvedThisRun = 0;
+	const initialCompleted = Object.keys(state.completed || {}).length;
+	const initialRetryLater = Object.keys(state.failed || {}).length;
+
+	function snapshot() {
+		const elapsedMs = Date.now() - startedAt;
+		const remaining = Math.max(total - processed, 0);
+		const avgMs = processed > 0 ? elapsedMs / processed : 0;
+		return {
+			elapsed: formatDuration(elapsedMs),
+			eta: processed > 0 ? formatDuration(avgMs * remaining) : "calculando",
+			processed,
+			remaining,
+			successTotal: initialCompleted + successThisRun,
+			retryLaterTotal: Math.max(initialRetryLater + retryLaterThisRun - retryLaterResolvedThisRun, 0),
+			successThisRun,
+			retryLaterThisRun
+		};
+	}
+
+	function suffix() {
+		const data = snapshot();
+		return `faltam=${data.remaining} ok=${data.successTotal} retry-depois=${data.retryLaterTotal} tempo=${data.elapsed} eta=${data.eta}`;
+	}
+
+	return {
+		start(item, outputPath) {
+			started += 1;
+			console.log(`[media] ${started}/${total} trabalhando ${compactPathForLog(path.relative(ROOT, outputPath))} origem=${item.url} | ${suffix()}`);
+		},
+		retryNow(item, provider, attempt, retries, error) {
+			const reason = error instanceof Error ? error.message : String(error);
+			console.log(`[media] retry-agora ${attempt}/${retries} provider=${provider.id} arquivo=${compactPathForLog(new URL(item.url).pathname)} motivo=${reason.slice(0, 160)}`);
+		},
+		success(item, result, wasRetryLater = false) {
+			processed += 1;
+			successThisRun += 1;
+			if (wasRetryLater) retryLaterResolvedThisRun += 1;
+			console.log(`[media] ok arquivo=${compactPathForLog(result.output)} provider=${result.provider} bytes=${result.bytes || "local"} | ${suffix()}`);
+		},
+		retryLater(item) {
+			processed += 1;
+			retryLaterThisRun += 1;
+			console.log(`[media] retry-depois arquivo=${compactPathForLog(new URL(item.url).pathname)} motivo=provedores-esgotados | ${suffix()}`);
+		},
+		summary() {
+			const data = snapshot();
+			console.log(`[media] resumo processados=${data.processed}/${total} ok-run=${data.successThisRun} retry-depois-run=${data.retryLaterThisRun} retry-resolvidos-run=${retryLaterResolvedThisRun} ok-total=${data.successTotal} retry-depois-total=${data.retryLaterTotal} tempo=${data.elapsed}`);
+		}
+	};
+}
+
+async function withRetry(fn, retries, onRetry) {
 	let lastError;
 	for (let attempt = 1; attempt <= retries; attempt += 1) {
 		try {
 			return await fn(attempt);
 		} catch (error) {
 			lastError = error;
+			if (attempt < retries && onRetry) onRetry(error, attempt + 1);
 			await new Promise((resolve) => setTimeout(resolve, 500 * attempt));
 		}
 	}
 	throw lastError;
 }
 
-async function recoverOne(item, config, state, options) {
+async function recoverOne(item, config, state, options, logger) {
 	const outputPath = outputPathFor(item.url, config.mediaOutputDir);
+	logger.start(item, outputPath);
 	if (fs.existsSync(outputPath)) {
+		const wasRetryLater = Boolean(state.failed?.[item.id]);
 		state.completed[item.id] = { url: item.url, output: path.relative(ROOT, outputPath).replace(/\\/g, "/"), provider: "existing-local-file" };
+		if (state.failed) delete state.failed[item.id];
+		logger.success(item, state.completed[item.id], wasRetryLater);
 		return state.completed[item.id];
 	}
 
 	for (const provider of config.providers.filter((entry) => entry.enabled !== false)) {
 		try {
-			const result = await withRetry(() => recoverFromProvider(item, provider, outputPath), options.retries);
+			const result = await withRetry(
+				() => recoverFromProvider(item, provider, outputPath, options),
+				options.retries,
+				(error, nextAttempt) => logger.retryNow(item, provider, nextAttempt, options.retries, error)
+			);
 			if (!result) {
 				appendAttempt(config.attemptLog, { id: item.id, url: item.url, provider: provider.id, status: "miss" });
 				continue;
 			}
+			const wasRetryLater = Boolean(state.failed?.[item.id]);
 			state.completed[item.id] = result;
+			if (state.failed) delete state.failed[item.id];
 			appendAttempt(config.attemptLog, { id: item.id, url: item.url, provider: provider.id, status: "ok", output: result.output });
+			logger.success(item, result, wasRetryLater);
 			return result;
 		} catch (error) {
 			appendAttempt(config.attemptLog, { id: item.id, url: item.url, provider: provider.id, status: "error", error: error instanceof Error ? error.message : String(error) });
@@ -210,15 +317,16 @@ async function recoverOne(item, config, state, options) {
 	}
 
 	state.failed[item.id] = { url: item.url, lastTriedAt: new Date().toISOString() };
+	logger.retryLater(item);
 	return null;
 }
 
-async function recoverFromProvider(item, provider, outputPath) {
+async function recoverFromProvider(item, provider, outputPath, options) {
 	if (provider.type === "local-wp-uploads") return recoverLocal(item, provider, outputPath);
-	if (provider.type === "direct") return recoverDirect(item, provider.url.replace("{url}", encodeURIComponent(item.url)), provider, outputPath);
+	if (provider.type === "direct") return recoverDirect(item, provider.url.replace("{url}", encodeURIComponent(item.url)), provider, outputPath, options);
 	if (provider.type === "cdx") {
 		const endpoint = provider.endpoint.replace("{url}", encodeURIComponent(item.url));
-		const response = await fetchWithTimeout(endpoint);
+		const response = await fetchWithTimeout(endpoint, options);
 		if (!response.ok) throw new Error(`CDX HTTP ${response.status}`);
 		const data = await response.json();
 		const rows = Array.isArray(data) ? data.slice(1) : [];
@@ -226,7 +334,7 @@ async function recoverFromProvider(item, provider, outputPath) {
 			const [timestamp, original] = row;
 			if (!timestamp || !original) continue;
 			const snapshot = provider.snapshot.replace("{timestamp}", timestamp).replace("{original}", original);
-			const result = await recoverDirect(item, snapshot, provider, outputPath);
+			const result = await recoverDirect(item, snapshot, provider, outputPath, options);
 			if (result) return result;
 		}
 		return null;
@@ -252,8 +360,8 @@ function recoverLocal(item, provider, outputPath) {
 	};
 }
 
-async function recoverDirect(item, url, provider, outputPath) {
-	const response = await fetchWithTimeout(url);
+async function recoverDirect(item, url, provider, outputPath, options) {
+	const response = await fetchWithTimeout(url, options);
 	if (!response.ok) return null;
 	const buffer = Buffer.from(await response.arrayBuffer());
 	if (buffer.length === 0) return null;
@@ -269,10 +377,10 @@ async function recoverDirect(item, url, provider, outputPath) {
 	};
 }
 
-async function runPool(items, worker, concurrency, deadlineMs) {
+async function runPool(items, worker, concurrency) {
 	let index = 0;
 	const workers = Array.from({ length: concurrency }, async () => {
-		while (index < items.length && (!deadlineMs || Date.now() < deadlineMs)) {
+		while (index < items.length) {
 			const current = items[index];
 			index += 1;
 			await worker(current);
@@ -288,14 +396,20 @@ async function main() {
 	const config = readJson(options.providers);
 	const state = loadState(config.stateFile);
 	const allItems = parseWxrMedia(xmlPath);
+	const reconciled = reconcileExistingFiles(allItems, config, state);
+	if (options.run && reconciled > 0) {
+		console.log(`[media] checklist-local reconciliados=${reconciled}`);
+		saveState(config.stateFile, state);
+	}
 	const pending = allItems.filter((item) => !state.completed[item.id]);
 	const selected = options.limit > 0 ? pending.slice(0, options.limit) : pending;
-	const deadlineMs = options.maxSeconds > 0 ? Date.now() + options.maxSeconds * 1000 : 0;
+	const logger = createProgressLogger(selected.length, state);
 
 	if (options.plan) {
 		console.log(JSON.stringify({
 			mode: "plan",
 			totalMedia: allItems.length,
+			localExistingReconciled: reconciled,
 			pending: pending.length,
 			selected: selected.length,
 			providers: config.providers.filter((provider) => provider.enabled !== false).map((provider) => provider.id)
@@ -304,18 +418,11 @@ async function main() {
 	}
 
 	await runPool(selected, async (item) => {
-		await recoverOne(item, config, state, options);
+		await recoverOne(item, config, state, options, logger);
 		saveState(config.stateFile, state);
-	}, options.concurrency, deadlineMs);
+	}, options.concurrency);
 	saveState(config.stateFile, state);
-	console.log(JSON.stringify({
-		mode: "run",
-		totalMedia: allItems.length,
-		selected: selected.length,
-		completed: Object.keys(state.completed).length,
-		failed: Object.keys(state.failed).length,
-		deadlineReached: Boolean(deadlineMs && Date.now() >= deadlineMs)
-	}, null, "\t"));
+	logger.summary();
 }
 
 try {

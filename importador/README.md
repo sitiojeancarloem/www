@@ -28,12 +28,16 @@ npm run import:media
 
 `import:media:plan` monta a fila sem baixar. `import:media` usa os provedores de `importador/providers.json`, concorrência controlada, retry, log JSONL e retomada por estado. A ordem atual tenta cópia local de `old-root`, Internet Archive CDX, Internet Archive direto e Arquivo.pt CDX.
 
-Os downloads ficam em `_drafts/_midias-recuperadas/` e cada tentativa é registrada em `importador/state/media-attempts.jsonl`, diretório ignorado pelo Git.
+Os downloads ficam em `_drafts/_midias-recuperadas/` e cada tentativa é registrada em `importador/state/media-attempts.jsonl`, diretório ignorado pelo Git. Antes de montar a fila, o importador reconcilia o checklist de estado com os arquivos já existentes no destino local; se o arquivo calculado já existe, o item é marcado como concluído e não entra na fila de download.
+
+O terminal exibe uma linha por arquivo iniciado, uma linha por sucesso ou falha final, e uma linha adicional somente quando houver retentativa imediata. Cada linha informa arquivo, provedor, sucesso acumulado, pendências de retentativa posterior, faltantes, tempo decorrido e ETA calculado pelo tempo médio já gasto.
+
+O timeout não encerra a execução por duração total. Ele limita cada requisição/provedor para detectar travamento, ciclo de servidor ou retentativa que não responde; depois disso o item segue a política de retry e, se os provedores forem esgotados, fica marcado para retentativa posterior.
 
 Em rede instável, execute lotes menores:
 
 ```bash
-npm run import:media -- --limit=10 --concurrency=1 --max-seconds=300
+npm run import:media -- --limit=10 --concurrency=1 --request-timeout-ms=45000
 ```
 
 ## Validação
