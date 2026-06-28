@@ -12,6 +12,92 @@ lang: 'pt-BR'
 
 ---
 
+## Resumo de conceitos
+
+1. **A Escritura deve ser interpretada pela própria Escritura**, pois a revelação bíblica possui unidade interna: homens escreveram, mas falaram da parte de Deus, movidos pelo Espírito Santo.
+
+2. **Deus é onisciente, imutável, verdadeiro e eterno**; portanto, Seu plano de salvação não pode ser entendido como improviso, correção posterior ou tentativa frustrada.
+
+3. **O evangelho é eterno**, não porque sua manifestação histórica tenha ocorrido desde sempre, mas porque seu propósito procede do conselho eterno de Deus e foi revelado progressivamente na história.
+
+4. **O santuário era o evangelho antes da manifestação histórica do evangelho**, isto é, o plano da redenção dramatizado em símbolos, ritos, sacerdócio, sangue, sacrifício e calendário profético.
+
+5. **A lei cerimonial não deve ser reduzida a procedimentos rituais**, pois ela revela uma estrutura jurídico-redentiva mais profunda: pecado, culpa, substituição, sangue, expiação, mediação, sacerdócio, intercessão, juízo e purificação.
+
+6. **Há distinção entre procedimento, norma e conceito**: os procedimentos são os ritos externos; as normas organizam o processo redentivo; os conceitos revelam princípios permanentes ligados ao caráter e ao governo de Deus.
+
+7. **Os ritos levíticos cessaram como prática obrigatória**, porque Cristo, o antítipo, assumiu a realidade para a qual eles apontavam. Contudo, os **princípios** revelados por esses ritos não cessaram.
+
+8. **Cumprir não significa abolir**, mas levar ao objetivo, à **plenitude** e à realidade pretendida por Deus. Cristo não destruiu a lei cerimonial; Ele realizou em Si mesmo aquilo que ela anunciava.
+
+9. **A sombra não era falsa nem inválida**. A sombra era uma representação **verdadeira**, embora **incompleta**, de uma **realidade maior**. Quando Cristo chega, a sombra deixa de ser o centro, **mas seu significado é confirmado**.
+
+10. **A lei moral revela a ordem universal do governo divino**, definindo justiça, pecado, santidade e amor.
+
+11. **A lei cerimonial revela o processo pelo qual Deus trata a violação dessa ordem moral**, preservando simultaneamente justiça e misericórdia.
+
+12. **A Bíblia nem sempre usa categorias jurídicas modernas**, mas isso NÃO significa **ausência** de distinções internas. A Torá contém leis morais, civis, penais, sanitárias, sacerdotais e cerimoniais, ainda que frequentemente agrupadas sob o termo geral “lei”.
+
+13. **Quando o Novo Testamento fala da lei**, o contexto deve determinar se o assunto é a lei moral, a Torá como conjunto, o sistema de aliança, os ritos cerimoniais, o uso legalista da lei ou outra dimensão específica.
+
+14. **Textos que dizem que a lei foi _“até”_ determinado ponto devem ser lidos como referência à <u>finalidade</u>, função profética ou transição histórica**, NÃO como anulação da vontade divina.
+
+15. **A nova aliança não apresenta Deus escrevendo outra lei**, mas a Sua lei em outro lugar: não apenas em tábuas de pedra, mas no coração.
+
+16. **Cristo não encerrou o processo da salvação na cruz como se nada mais houvesse a fazer**. A cruz é central e suficiente como sacrifício, mas o Novo Testamento também apresenta Cristo como Sacerdote, Mediador, Intercessor e Sumo Sacerdote no santuário celestial.
+
+17. **Hebreus não elimina a linguagem cerimonial; ao contrário, depende dela**. A epístola fala de sangue, santuário, sacerdote, aliança, intercessão, véu, purificação e acesso a Deus.
+
+18. **O ministério celestial de Cristo só é compreensível à luz da estrutura revelada pela lei cerimonial**, pois é ela que fornece a linguagem bíblica do sacerdócio, da mediação, da expiação e da purificação.
+
+19. **A Páscoa aponta para a morte de Cristo**, o verdadeiro Cordeiro de Deus.
+
+20. **A Festa dos Pães Asmos aponta primariamente para o repouso de Cristo na morte**, após consumar Sua obra sacrificial; secundariamente, aplica-se à vida cristã sem o fermento do pecado.
+
+21. **A Festa das Primícias aponta para a ressurreição de Cristo**, chamado por Paulo de “as primícias dos que dormem”.
+
+22. **As Primícias ocorrem no 16º dia do primeiro mês**, na leitura em que o “sábado” de Levítico 23:11 é o descanso solene do primeiro dia dos Pães Asmos.
+
+23. **A Festa das Primícias não possuía descanso solene próprio**, fato textual relevante e teologicamente curioso, especialmente diante de debates sobre a ressurreição e a substituição do sábado pelo domingo.
+
+24. **A ausência de descanso solene nas Primícias não prova isoladamente uma doutrina**, mas é forte evidência incontaminada e coerência: a festa tipológica da ressurreição não recebeu, na Torá, status de novo repouso sagrado - e Deus, Onisciente, não faz nada sem motivos.
+
+25. **Pentecostes aponta para o derramamento do Espírito Santo** e para a inauguração da missão pública da igreja como colheita espiritual.
+
+26. **A Festa das Trombetas aponta para convocação, advertência e preparação para o juízo**, especialmente dentro da leitura adventista do calendário profético.
+
+27. **O Dia da Expiação aponta para a purificação do santuário e para o juízo**, encontrando seu antítipo no ministério sumo-sacerdotal de Cristo no santuário celestial.
+
+28. **A Festa dos Tabernáculos aponta para a colheita final, a reunião dos remidos e a habitação de Deus com Seu povo**.
+
+29. **O Oitavo Dia de Assembleia aponta para a consumação final**, para além da peregrinação, quando o plano da redenção alcança seu estado definitivo.
+
+30. **Segundo a Torá, descontado o sábado semanal, havia sete descansos solenes anuais**: dois nos Pães Asmos, um no Pentecostes, um nas Trombetas, um no Dia da Expiação, um no primeiro dia dos Tabernáculos e um no Oitavo Dia.
+
+31. **Páscoa e Primícias são solenidades distintas, mas não são descansos solenes**. Isso deve ser preservado na análise, pois o texto bíblico diferencia as cerimônias mesmo quando elas ocorrem em sequência.
+
+32. **Tabernáculos e o Oitavo Dia também devem ser distinguidos**, pois, embora consecutivos, possuem prescrições próprias e apontam para aspectos diferentes da consumação.
+
+33. **A lei cerimonial permanece vigente em sua essência normativa**, não como repetição dos ritos levíticos, mas como revelação permanente da estrutura do evangelho eterno.
+
+34. **Negar a permanência da realidade revelada pela lei cerimonial compromete a compreensão da cruz**, pois o sacrifício de Cristo é inteligível justamente dentro da lógica bíblica de sangue, substituição e expiação.
+
+35. **Negar essa realidade também compromete o ministério atual de Cristo**, pois Seu sacerdócio, Sua intercessão e Sua obra no santuário celestial pertencem à mesma estrutura revelada pela lei cerimonial.
+
+36. **A linguagem “a lei cerimonial acabou” deve ser evitada ou cuidadosamente qualificada**, pois pode sugerir que a expiação, a mediação, o sacerdócio e a intercessão também teriam perdido validade.
+
+37. **A formulação mais precisa é afirmar que cessou a administração terrestre, típica e levítica**, mas permanece a realidade celestial, normativa e redentiva realizada em Cristo.
+
+38. **A cruz não revoga o santuário; ela revela seu centro**. O santuário não desaparece como verdade teológica; ele passa da representação terrena para a realidade celestial.
+
+39. **Cristo é simultaneamente o Cordeiro, o Sacrifício, o Sacerdote, o Mediador, o Intercessor e o Juiz**, reunindo em Si mesmo todos os elementos que a lei cerimonial antes apresentava em símbolos separados.
+
+40. **A esperança da salvação depende dessa continuidade**, pois temos um Sumo Sacerdote que pode compadecer-se das nossas fraquezas, interceder por nós e aplicar os méritos de Seu sacrifício.
+
+41. **Portanto, tratar a lei cerimonial como algo esquecido, apagado ou irrelevante é empobrecer a própria arquitetura bíblica da salvação**. Os procedimentos humanos passaram; a realidade divina que eles revelavam permanece em Cristo.
+
+42. **A conclusão final é que Deus não mudou, não errou, não improvisou e não voltou atrás**. Ele revelou antes, em sombras, aquilo que realizou historicamente em Cristo e continua administrando por meio do ministério celestial do verdadeiro Sumo Sacerdote.
+
 ## Sumário
 
 1. [Premissa hermenêutica: a Escritura interpreta a Escritura](#1-premissa-hermenêutica-a-escritura-interpreta-a-escritura)
