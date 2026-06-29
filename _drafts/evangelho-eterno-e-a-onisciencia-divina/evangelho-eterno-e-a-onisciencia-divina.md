@@ -1,12 +1,12 @@
 ---
-title: 'Evangelho eterno e a continuidade'
+title: 'Evangelho Eterno e a Onisciência Divina'
 description: 'Uma integração dos argumentos sobre o evangelho eterno, a unidade das alianças, a lei cerimonial, o santuário, as festas bíblicas e o ministério de Cristo.'
 lang: 'pt-BR'
 published: true
 wp_status: draft
 wp_post_type: post
-wp_slug: evangelho-eterno-e-a-continuidade
-permalink: /p/evangelho-eterno-e-a-continuidade/
+wp_slug: evangelho-eterno-e-a-onisciencia-divina
+permalink: /p/evangelho-eterno-e-a-onisciencia-divina/
 author: jeancarlo
 categories:
   - Divagando
