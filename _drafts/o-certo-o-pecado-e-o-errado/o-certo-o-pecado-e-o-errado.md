@@ -1,3 +1,5 @@
+<!-- AI-PROCESSED: seção "O divórcio" revisada semanticamente para restaurar voz autoral e densificar distinções bíblicas. -->
+
 ```markdown
 # Capítulo 2 — O certo, o pecado e o errado
 
@@ -87,17 +89,37 @@ E se alguém disser: “então convém ao cristão?”, a resposta é evidente: 
 
 Além disso, o Novo Testamento estabelece para liderança cristã o padrão de “marido de uma só mulher”, reforçando que a igreja, caminhando para a restauração, não deve canonizar concessões antigas como se fossem a forma madura do Reino.[^72] O cristão não pergunta apenas “posso?”; pergunta também “convém?”, “edifica?”, “testemunha?”, “reflete o princípio?”, “aproxima do Éden ou apenas administra a queda?”.[^73]
 
+Esse ponto é importante para o próximo exemplo, porque poligamia e divórcio se tocam no argumento de Mateus 19. Alguns leem a reação dos discípulos como se ela provasse que Jesus proibiu qualquer novo casamento depois de qualquer divórcio, sem distinção de causa. Mas essa leitura depende de uma premissa escondida: a ideia de que, para obter outra mulher, o homem primeiro precisaria repudiar a esposa atual. Essa premissa **não se sustenta** dentro da própria Torá, porque a mesma Torá que regula o divórcio também conhece e regula situações poligínicas, sem tratá-las em todos os casos como adultério automático.[^poligamia-divorcio]
+
+Logo, se o homem daquele contexto quisesse simplesmente acrescentar outra mulher à sua casa, o divórcio não era, em si, a única via social imaginável. Isso muda a leitura da fala dos discípulos. O espanto deles, portanto, não se explica pela perda abstrata de acesso a outra mulher. **Explica-se pela gravidade da restrição** imposta por Jesus ao **repúdio fácil**. Jesus não estava apenas dizendo: "não troque de mulher como quem troca de roupa". ELE estava levando o casamento de volta ao princípio, retirando do homem o falso poder de **descartar a esposa** e ainda sair **moralmente limpo**. Diante disso, a conclusão dos discípulos faz sentido: se a condição do homem com sua mulher é assim, se a aliança pesa tanto, se o repúdio não pode ser usado como válvula de escape para a dureza do coração, então "não convém casar".[^poligamia-divorcio]
+
+A resposta de Jesus também confirma o ponto. ELE não responde abrindo uma brecha para o repúdio, nem transforma a poligamia em ideal, nem reduz o casamento a contrato de conveniência. ELE fala de continência, de eunucos, de quem recebe essa palavra.[^poligamia-divorcio] Ou seja, eleva o assunto. O problema **não era a falta de uma técnica jurídica para conseguir outra mulher**; o problema **era a santidade do vínculo**. Por isso, usar a reação dos discípulos para afirmar que toda separação, independentemente da causa, impede novo casamento, ignora justamente o **contexto** que torna a reação deles compreensível.
+
 ## O divórcio: concessão explícita, não ideal
 
-O divórcio torna o conceito ainda mais claro, porque Jesus explicou o princípio diretamente. Moisés permitiu carta de divórcio por causa da dureza do coração, mas desde o princípio não foi assim.[^74]
+Outro exemplo claro, e mais imediato para o leitor moderno, é o divórcio. E aqui não há necessidade de grande malabarismo teológico, porque Jesus tratou o ponto de modo direto, quase cirúrgico: Moisés permitiu carta de divórcio por causa da dureza do coração; mas desde o princípio não foi assim.[^74] Perceba a força disso. Jesus não disse: "desde o princípio era assim, mas agora mudou". Também não disse: "Moisés errou". Ele disse que houve permissão por causa da dureza humana. Logo, há princípio, há queda e há concessão.
 
-A Torá regula o divórcio em Deuteronômio, tratando da carta de repúdio e de limites para novo casamento após outro vínculo.[^75] Jesus, porém, não permite que a concessão seja confundida com o ideal. Ele volta à criação: Deus fez homem e mulher; os dois se tornam uma só carne; o que Deus ajuntou não separe o homem.[^76]
+A Torá regula o divórcio em Deuteronômio, tratando da carta de repúdio e impondo limites ao retorno posterior, depois de formado outro vínculo.[^75] Isso por si só já impede a leitura rasa. Se Deus regula, a situação existe dentro do mundo real. Se Deus limita, então não é terra sem lei. Se Deus limita, também não é ideal. A concessão não nasce no Éden; nasce fora dele. O Éden é outro: homem e mulher, uma só carne, união feita por Deus, não descartada pela vontade volúvel do homem.[^76]
 
-Aqui a distinção é inevitável. O divórcio não é “certo”, porque rompe aquilo que Deus uniu e não pertence ao desenho original do casamento.[^77] Mas, em certas circunstâncias, também não é tratado como pecado imputado, pois a própria Escritura reconhece situações de concessão: porneia, abandono por parte do descrente, e a dissolução natural do vínculo pela morte.[^78]
+Portanto, o divórcio não é "certo". Não é o alvo. Não é o belo. Não é a fotografia do jardim. Ele rompe aquilo que Deus ajuntou, e por isso não deve ser apresentado como virtude, liberdade superior, amadurecimento emocional ou qualquer outro nome bonito que a cultura use para suavizar uma ruptura.[^77] Mas daí não se segue que todo divórcio seja, em todo caso, pecado imputado à parte que se divorcia. A Bíblia **não** fala desse modo **simplista**. Ela **distingue**.
 
-Isso não transforma o divórcio em virtude. Malaquias denuncia a infidelidade conjugal; Jesus restringe a banalização do repúdio; Paulo orienta reconciliação sempre que possível.[^79] O divórcio é uma cicatriz, não uma medalha. É remédio amargo em certos casos, não alimento diário. É permissão em cenário quebrado, não celebração do plano original.[^80]
+Primeiro, há a imoralidade sexual. E aqui a pergunta precisa ser respondida sem rodeio: adultério legitima separação? Biblicamente, sim, no sentido de legitimar a separação ou o divórcio da parte inocente; não, no sentido de transformar separação em obrigação, vingança ou ideal.[^78] A evidência está exatamente na exceção colocada por Jesus. Se repudiar o cônjuge e casar com outro, sem essa causa, produz adultério, então a presença dessa causa muda o enquadramento moral da parte inocente. Do contrário, a exceção dita por Jesus não teria função alguma. Seria palavra vazia. E **Jesus não desperdiça palavra**.
 
-Portanto, também aqui a categoria se sustenta: o divórcio pode não ser pecado quando ocorre dentro das condições bíblicas permitidas; mas não é certo no sentido edênico, porque o certo é a fidelidade da aliança.[^81] Logo, ele pertence ao campo do “errado” como concessão: permitido por causa da dureza, regulado por causa do pecado, tolerado por causa da realidade caída, mas jamais apresentado como o alvo pleno de Deus para o casamento.[^82]
+O ponto é simples: quando Jesus diz "exceto" ou "salvo" por causa de _porneia_ (imoralidade sexual), ELE reconhece que a aliança foi ferida em seu núcleo.[^78] Adultério não é uma crise comum do casamento; é **violação** direta da "**uma só carne**". Não é apenas tristeza, incompatibilidade, cansaço, frieza ou decepção. É introduzir terceiro onde Deus havia unido dois. Portanto, a parte traída não é obrigada a chamar a ruptura de normalidade, nem a carregar culpa moral por reconhecer que o pacto foi quebrado por quem adulterou.
+
+Mas isso ainda precisa ser dito com todo cuidado: **adultério legitima a separação**; mas **NÃO canoniza a separação**. Autoriza a parte inocente a não permanecer juridicamente **presa** à destruição causada pelo outro; não ordena que todo adultério termine em divórcio. Perdão existe. Reconciliação existe. Restauração existe. Oséias recebeu de Deus uma vida simbólica marcada por infidelidade e restauração, e isso prova que Deus conhece o caminho do perdão mesmo em cenário de traição.[^78] Contudo, o mesmo Deus que chama ao perdão não chama a parte ferida de adúltera quando ela usa a exceção que Cristo reconheceu. Adultério é pecado de quem adulterou; não é pecado **automático** nem **prisão** da parte **inocente** que, dentro da exceção bíblica, lida com os **escombros** da infidelidade.
+
+Também há o outro lado. Se um homem apenas se cansou da esposa, se quer trocar de vida, se deseja legitimar uma paixão, se inventa espiritualidade para encobrir cobiça, então a nova união não apaga a primeira aliança; ela expõe a transgressão.[^78] Nesse caso, chamar de divórcio não muda a essência moral do ato. É adultério com papel, adultério com discurso, adultério com aparência de legalidade. O problema não está no cartório; está na ruptura ilegítima da aliança diante de Deus.
+
+Segundo, Paulo trata do abandono por parte do descrente. Se o descrente quer apartar-se, aparta-se; em tais casos, o irmão ou a irmã não fica sujeito à servidão.[^78] Veja o cuidado do texto. Paulo não transforma abandono em ideal. Não celebra a ruptura. Não aconselha o crente a procurar saída. Pelo contrário, orienta permanência e reconciliação quando possível.[^79] Mas, se o outro rompe, abandona, destrói a convivência e recusa a paz, a Escritura não acorrenta a parte abandonada como se fidelidade significasse escravidão ao pecado alheio.
+
+Terceiro, há a morte. Parece óbvio, mas o óbvio precisa ser dito porque aqui a lógica importa. A morte dissolve o vínculo matrimonial, e o novo casamento, nesse caso, não é adultério.[^78] Por quê? Porque a aliança matrimonial pertence a esta vida. Morto o cônjuge, cessou o vínculo. A pessoa não está traindo uma aliança vigente; está livre para casar, desde que no Senhor.[^81]
+
+Assim ficam as distinções. Se há repúdio banal, egoísta, sem causa bíblica, seguido de nova união, há adultério.[^78] Se há imoralidade sexual grave, há exceção reconhecida por Jesus.[^78] Se há abandono do descrente, há concessão reconhecida por Paulo.[^78] Se há morte, há dissolução natural do vínculo.[^81] E, mesmo nesses casos, a concessão não vira troféu. Não é medalha. É cicatriz. É remédio amargo, não alimento diário. É permissão em cenário quebrado, não celebração do plano original.[^80]
+
+Também é preciso dizer o outro lado, porque o homem sempre tenta usar a exceção para fabricar regra. Incompatibilidade de temperamento, desejo de "recomeçar", paixão por outra pessoa, cansaço emocional, conveniência financeira, orgulho ferido, pressão familiar ou simples frieza espiritual não aparecem na Bíblia como autorização para quebrar a aliança e chamar a quebra de justiça. Separação temporária pode ocorrer em situações graves para preservar vida, integridade, ordem e paz; contudo, transformar toda crise em autorização para novo casamento é justamente o tipo de abuso que Jesus enfrentou ao dizer: desde o princípio não foi assim.[^79]
+
+Portanto, também aqui a categoria se sustenta. O divórcio pode não ser pecado quando ocorre dentro das condições bíblicas permitidas; mas nunca será "certo" no sentido edênico, porque o certo é a fidelidade da aliança.[^81] Ele pertence ao campo do "errado" como concessão: permitido por causa da dureza, regulado por causa do pecado, tolerado por causa da realidade caída, mas jamais apresentado como alvo pleno de Deus para o casamento.[^82] Deus o permite em circunstâncias delimitadas; não porque mudou o ideal, não porque se arrependeu do Éden, não porque passou a aprovar a ruptura, mas porque o mundo caído cria situações em que a concessão impede que o pecado de um destrua juridicamente o outro.
 
 ## O perigo dos dois abismos
 
@@ -121,7 +143,7 @@ A Escritura é assim: firme sem ser simplista; santa sem ser ingênua; misericor
 
 Por isso, a conclusão é esta: Deus não mudou. O ideal permanece. O pecado continua sendo pecado. A concessão continua sendo concessão. E Cristo permanece como centro de tudo, porque somente nEle o homem é levado de volta não à mera permissão, não à mera sobrevivência no mundo caído, mas ao princípio, à restauração, à veste limpa, à aliança escrita no coração e à vida plena diante de Deus.[^96]
 
-## Conformisto
+## Conformismo
 
 Há de observar um ponto importante que em sua carta ao Rmanos 12:2, Deus usa Paulo para revelar uma verdade simples, mas estarrecedora: "E não vos conformeis com este século, mas transformai-vos pela renovação da vossa mente, para que experimenteis qual seja a boa, agradável e perfeita vontade de Deus." E se não ficou claro, este texto convo o clristão a não se assemelhar, a não se amoldar nem se conformar com o presente sécuclo, o que pode ser lido como se conformar com o estado atual de coisas. A ideia é nítida, o estado atual de coisas, de um mundo pecaminoso, e de um mundo em que a concessÃo temporária de Deus, para fazer algo "errado" **não** deve levar o ser humano ao estado de conformismo, pelo contrário, ele deve **transmar-se** (e aqui o sujeito da frase é o proprio ser humano, e não DEUS), é o **próprio** indivídu que deve transformar-se, e explica, como "_**pela renovação da vossa mente**_", e proessegue o motivo "_**para que experimenteis** qual se a boa, agradavel e perfeita vontade de DEus_".
 
@@ -281,21 +303,23 @@ Aquele que O seguem, o seguem porque desejam ser servoos seus, convidados para a
 
 [^73]: 1Co 6:12; 1Co 10:23-24,31.
 
-[^74]: Mt 19:7-8; Mc 10:2-9.
+[^poligamia-divorcio]: Mt 19:3-12; Mc 10:2-12; Êx 21:10; Dt 21:15-17; Dt 24:1-4; 2Sm 12:8. A Torá regula tanto o repúdio quanto certas situações de pluralidade conjugal; por isso, a reação dos discípulos em Mt 19:10 não depende da ideia de que novo casamento só seria socialmente possível mediante divórcio prévio da primeira esposa.
 
-[^75]: Dt 24:1-4.
+[^74]: Mt 19:3-9; Mc 10:2-9.
+
+[^75]: Dt 24:1-4. O texto regula a carta de repúdio e impede que o primeiro marido retome a mulher depois de ela ter pertencido a outro vínculo.
 
 [^76]: Gn 2:24; Mt 19:4-6.
 
-[^77]: Ml 2:14-16; Mt 19:6.
+[^77]: Ml 2:14-16; Mt 19:6; Mc 10:9.
 
-[^78]: Mt 5:31-32; Mt 19:9; 1Co 7:10-15; Rm 7:2-3; 1Co 7:39.
+[^78]: Mt 5:31-32; Mt 19:9; Mc 10:11-12; Lc 16:18; 1Co 7:10-15; Rm 7:2-3; 1Co 7:39; Os 1:2; Os 3:1-3. Mateus 5:32 e 19:9 fazem a distinção central: o repúdio sem a causa de imoralidade sexual torna a nova união adultério; a exceção existe justamente para não imputar à parte inocente a culpa da ruptura causada pela infidelidade.
 
-[^79]: Ml 2:14-16; Mt 5:31-32; Mt 19:3-9; 1Co 7:10-11.
+[^79]: Ml 2:14-16; Mt 5:31-32; Mt 19:3-9; 1Co 7:10-16.
 
-[^80]: Mt 19:8; 1Co 7:10-15.
+[^80]: Mt 19:8; Dt 24:1-4; 1Co 7:10-15.
 
-[^81]: Gn 2:24; Mt 19:6; 1Co 7:15.
+[^81]: Gn 2:24; Mt 19:6; Rm 7:2-3; 1Co 7:15,39.
 
 [^82]: Mt 19:8; Dt 24:1-4.
 
