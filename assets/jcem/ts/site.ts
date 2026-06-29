@@ -1029,6 +1029,123 @@ const bindJcemFootnotes = (): void => {
 		});
 };
 
+type JcemMathAction = 'wide' | 'fullscreen';
+
+const jcemMathControlLabels: Record<JcemMathAction, string> = {
+	wide: 'Ampliar fórmula na largura da janela',
+	fullscreen: 'Abrir fórmula em tela cheia',
+};
+
+const createJcemMathControl = (
+	action: JcemMathAction,
+	icon: string,
+): HTMLButtonElement => {
+	const button = document.createElement('button');
+	const symbol = document.createElement('i');
+
+	button.type = 'button';
+	button.className = `jcem-math__control jcem-math__control--${action}`;
+	button.dataset.jcemMathAction = action;
+	button.setAttribute('aria-label', jcemMathControlLabels[action]);
+	button.title = jcemMathControlLabels[action];
+	symbol.className = `fas ${icon}`;
+	symbol.setAttribute('aria-hidden', 'true');
+	button.append(symbol);
+
+	return button;
+};
+
+const closeJcemMathFallbackFullscreen = (): void => {
+	document
+		.querySelectorAll<HTMLElement>('.jcem-math.is-fullscreen-fallback')
+		.forEach((math) => {
+			math.classList.remove('is-fullscreen-fallback');
+		});
+
+	document.documentElement.classList.remove('jcem-math-modal-open');
+};
+
+const toggleJcemMathFullscreen = async (math: HTMLElement): Promise<void> => {
+	closeJcemMathFallbackFullscreen();
+
+	if (document.fullscreenElement === math) {
+		await document.exitFullscreen();
+		return;
+	}
+
+	if (math.requestFullscreen) {
+		try {
+			await math.requestFullscreen();
+			return;
+		} catch (_error) {
+			// PROTECAO: navegadores sem permissao usam fallback local.
+		}
+	}
+
+	math.classList.add('is-fullscreen-fallback');
+	document.documentElement.classList.add('jcem-math-modal-open');
+};
+
+const syncJcemMathFullscreenState = (): void => {
+	document
+		.querySelectorAll<HTMLElement>('.jcem-math')
+		.forEach((math) => {
+			math.classList.toggle('is-native-fullscreen', document.fullscreenElement === math);
+		});
+};
+
+const bindJcemMathControls = (): void => {
+	const formulas = Array.from(
+		document.querySelectorAll<HTMLElement>(
+			'.jcem-math--display[data-jcem-math-display="true"]',
+		),
+	);
+
+	if (!formulas.length) {
+		return;
+	}
+
+	formulas.forEach((math) => {
+		if (math.querySelector(':scope > .jcem-math__tools')) {
+			return;
+		}
+
+		const tools = document.createElement('div');
+		tools.className = 'jcem-math__tools';
+		tools.append(
+			createJcemMathControl('wide', 'fa-arrows-alt-h'),
+			createJcemMathControl('fullscreen', 'fa-expand'),
+		);
+		math.append(tools);
+	});
+
+	document.addEventListener('click', (event) => {
+		const button = (event.target as Element | null)?.closest<HTMLButtonElement>(
+			'.jcem-math__control',
+		);
+		const math = button?.closest<HTMLElement>('.jcem-math');
+		const action = button?.dataset.jcemMathAction as JcemMathAction | undefined;
+
+		if (!button || !math || !action) {
+			return;
+		}
+
+		if (action === 'wide') {
+			math.classList.toggle('is-wide');
+			return;
+		}
+
+		void toggleJcemMathFullscreen(math);
+	});
+
+	document.addEventListener('keydown', (event) => {
+		if (event.key === 'Escape') {
+			closeJcemMathFallbackFullscreen();
+		}
+	});
+	document.addEventListener('fullscreenchange', syncJcemMathFullscreenState);
+};
+
 let jcemNoScriptFragmentsReady: Promise<void> | null = null;
 
 type JcemRecentPost = {
@@ -1318,6 +1435,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	bindJcemQuoteReferences();
 	bindJcemEditorialFormatting();
 	bindJcemFootnotes();
+	bindJcemMathControls();
 	hideNoScript();
 });
 

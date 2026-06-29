@@ -292,6 +292,31 @@ const openJcemCollapsibleForHash = (hash) => {
         details.open = true;
     }
 };
+const jcemPrintCollapsibleSelector = 'details.jcem-collapsible--references, details.c-collapsible--references, details.jcem-collapsible--bibliography, details.c-collapsible--bibliography';
+const openJcemPrintCollapsibles = () => {
+    document
+        .querySelectorAll(jcemPrintCollapsibleSelector)
+        .forEach((details) => {
+        details.open = true;
+    });
+    document.documentElement.dataset.jcemPrintSectionsOpen = 'true';
+};
+const bindJcemPrintCollapsibles = () => {
+    var _a, _b;
+    window.addEventListener('beforeprint', openJcemPrintCollapsibles);
+    const printQuery = (_a = window.matchMedia) === null || _a === void 0 ? void 0 : _a.call(window, 'print');
+    const handlePrintQuery = (event) => {
+        if (event.matches) {
+            openJcemPrintCollapsibles();
+        }
+    };
+    if (printQuery === null || printQuery === void 0 ? void 0 : printQuery.addEventListener) {
+        printQuery.addEventListener('change', handlePrintQuery);
+    }
+    else {
+        (_b = printQuery === null || printQuery === void 0 ? void 0 : printQuery.addListener) === null || _b === void 0 ? void 0 : _b.call(printQuery, handlePrintQuery);
+    }
+};
 const bindJcemCollapsibleSections = () => {
     const content = select('.page__content');
     if (!content) {
@@ -310,6 +335,7 @@ const bindJcemCollapsibleSections = () => {
     window.addEventListener('hashchange', () => {
         openJcemCollapsibleForHash(window.location.hash);
     });
+    bindJcemPrintCollapsibles();
 };
 const bindJcemBlockquotePanels = () => {
     const article = select('article.page.jcem-blockquote-panels');
@@ -562,24 +588,145 @@ const bindJcemEditorialFormatting = () => {
     textNodes.forEach(wrapJcemInlineQuotesInText);
 };
 const footnoteSummaryMaxLength = 260;
+const jcemFootnoteRefSelector = "sup[id^='fnref'] a.footnote[href^='#fn:'], sup[id^='fnref'] a[role='doc-noteref'][href^='#fn:']";
+const jcemFootnoteBacklinkSelector = '.reversefootnote, [role="doc-backlink"], .jcem-footnote-backref';
 const summarizeFootnote = (text) => {
     const normalized = text.replace(/\s+/g, ' ').trim();
     return normalized.length > footnoteSummaryMaxLength
         ? `${normalized.slice(0, footnoteSummaryMaxLength - 3).trim()}...`
         : normalized;
 };
-const bindJcemFootnotes = () => {
+const getJcemFootnoteId = (link) => {
+    try {
+        return decodeURIComponent(link.hash.slice(1));
+    }
+    catch (_error) {
+        return link.hash.slice(1);
+    }
+};
+const jcemFootnoteAlpha = (index) => {
+    let value = index + 1;
+    let label = '';
+    while (value > 0) {
+        value -= 1;
+        label = String.fromCharCode(97 + (value % 26)) + label;
+        value = Math.floor(value / 26);
+    }
+    return label;
+};
+const collectJcemFootnoteRefs = () => {
+    const groups = new Map();
     document
-        .querySelectorAll("sup[id^='fnref'] a.footnote[href^='#fn:'], sup[id^='fnref'] a[role='doc-noteref'][href^='#fn:']")
+        .querySelectorAll(jcemFootnoteRefSelector)
         .forEach((link) => {
-        const id = decodeURIComponent(link.hash.slice(1));
+        const id = getJcemFootnoteId(link);
+        if (!id) {
+            return;
+        }
+        const refs = groups.get(id) || [];
+        refs.push(link);
+        groups.set(id, refs);
+    });
+    return groups;
+};
+const removeJcemFootnoteBacklinks = (note) => {
+    note.querySelectorAll(jcemFootnoteBacklinkSelector).forEach((backlink) => {
+        var _a, _b;
+        const previous = backlink.previousSibling;
+        const next = backlink.nextSibling;
+        if (previous instanceof Text &&
+            !((_a = previous.textContent) === null || _a === void 0 ? void 0 : _a.replace(/\u00a0/g, ' ').trim())) {
+            previous.remove();
+        }
+        backlink.remove();
+        if (next instanceof Text &&
+            !((_b = next.textContent) === null || _b === void 0 ? void 0 : _b.replace(/\u00a0/g, ' ').trim())) {
+            next.remove();
+        }
+    });
+};
+const buildJcemFootnoteBackrefs = (refs) => {
+    const backrefs = document.createElement('span');
+    backrefs.className = 'jcem-footnote-backrefs';
+    backrefs.setAttribute('aria-label', 'Ocorrências desta nota');
+    refs.forEach((ref, index) => {
+        const source = ref.closest('sup[id^="fnref"]');
+        if (!(source === null || source === void 0 ? void 0 : source.id)) {
+            return;
+        }
+        const label = jcemFootnoteAlpha(index);
+        const link = document.createElement('a');
+        link.className = 'jcem-footnote-backref';
+        link.href = `#${source.id}`;
+        link.setAttribute('role', 'doc-backlink');
+        link.setAttribute('aria-label', `Voltar à ocorrência ${label}`);
+        link.textContent = label;
+        backrefs.append(link);
+    });
+    return backrefs;
+};
+const removeJcemLegacyFootnoteLabels = (target, refs) => {
+    if (refs.length < 2) {
+        return;
+    }
+    const expected = refs.map((_ref, index) => jcemFootnoteAlpha(index)).join(' ');
+    const walker = document.createTreeWalker(target, NodeFilter.SHOW_TEXT);
+    const firstText = walker.nextNode();
+    if (!firstText) {
+        return;
+    }
+    const pattern = new RegExp(`^(\\s*)${expected.replace(/\s+/g, '\\s+')}(\\s+)`);
+    const text = firstText.textContent || '';
+    const normalized = text.replace(pattern, '$1');
+    if (normalized !== text) {
+        firstText.textContent = normalized;
+    }
+};
+const normalizeJcemFootnoteBackrefs = () => {
+    const groups = collectJcemFootnoteRefs();
+    const orderedIds = Array.from(groups.keys());
+    const footnotes = select('.page__content .footnotes');
+    const list = footnotes === null || footnotes === void 0 ? void 0 : footnotes.querySelector('ol');
+    if (list) {
+        orderedIds.forEach((id, index) => {
+            var _a;
+            const note = document.getElementById(id);
+            if (note instanceof HTMLLIElement && note.parentElement === list) {
+                list.append(note);
+            }
+            (_a = groups.get(id)) === null || _a === void 0 ? void 0 : _a.forEach((link) => {
+                link.textContent = String(index + 1);
+            });
+        });
+    }
+    groups.forEach((refs, id) => {
+        const note = document.getElementById(id);
+        if (!note) {
+            return;
+        }
+        removeJcemFootnoteBacklinks(note);
+        const target = note.querySelector('p') || note;
+        removeJcemLegacyFootnoteLabels(target, refs);
+        const backrefs = buildJcemFootnoteBackrefs(refs);
+        if (backrefs.childElementCount) {
+            target.insertBefore(backrefs, target.firstChild);
+        }
+    });
+    return groups;
+};
+const bindJcemFootnotes = () => {
+    normalizeJcemFootnoteBackrefs();
+    document
+        .querySelectorAll(jcemFootnoteRefSelector)
+        .forEach((link) => {
+        const id = getJcemFootnoteId(link);
         const note = document.getElementById(id);
         if (!note) {
             return;
         }
         const summaryNode = note.cloneNode(true);
         summaryNode
-            .querySelectorAll('.reversefootnote, [role="doc-backlink"]')
+            .querySelectorAll(jcemFootnoteBacklinkSelector)
             .forEach((backlink) => backlink.remove());
         const summary = summarizeFootnote(summaryNode.textContent || '');
         if (!summary) {
@@ -588,6 +735,90 @@ const bindJcemFootnotes = () => {
         link.dataset.footnote = summary;
         link.setAttribute('aria-label', `Nota ${link.textContent || ''}: ${summary}`);
     });
+};
+const jcemMathControlLabels = {
+    wide: 'Ampliar fórmula na largura da janela',
+    fullscreen: 'Abrir fórmula em tela cheia',
+};
+const createJcemMathControl = (action, icon) => {
+    const button = document.createElement('button');
+    const symbol = document.createElement('i');
+    button.type = 'button';
+    button.className = `jcem-math__control jcem-math__control--${action}`;
+    button.dataset.jcemMathAction = action;
+    button.setAttribute('aria-label', jcemMathControlLabels[action]);
+    button.title = jcemMathControlLabels[action];
+    symbol.className = `fas ${icon}`;
+    symbol.setAttribute('aria-hidden', 'true');
+    button.append(symbol);
+    return button;
+};
+const closeJcemMathFallbackFullscreen = () => {
+    document
+        .querySelectorAll('.jcem-math.is-fullscreen-fallback')
+        .forEach((math) => {
+        math.classList.remove('is-fullscreen-fallback');
+    });
+    document.documentElement.classList.remove('jcem-math-modal-open');
+};
+const toggleJcemMathFullscreen = async (math) => {
+    closeJcemMathFallbackFullscreen();
+    if (document.fullscreenElement === math) {
+        await document.exitFullscreen();
+        return;
+    }
+    if (math.requestFullscreen) {
+        try {
+            await math.requestFullscreen();
+            return;
+        }
+        catch (_error) {
+        }
+    }
+    math.classList.add('is-fullscreen-fallback');
+    document.documentElement.classList.add('jcem-math-modal-open');
+};
+const syncJcemMathFullscreenState = () => {
+    document
+        .querySelectorAll('.jcem-math')
+        .forEach((math) => {
+        math.classList.toggle('is-native-fullscreen', document.fullscreenElement === math);
+    });
+};
+const bindJcemMathControls = () => {
+    const formulas = Array.from(document.querySelectorAll('.jcem-math--display[data-jcem-math-display="true"]'));
+    if (!formulas.length) {
+        return;
+    }
+    formulas.forEach((math) => {
+        if (math.querySelector(':scope > .jcem-math__tools')) {
+            return;
+        }
+        const tools = document.createElement('div');
+        tools.className = 'jcem-math__tools';
+        tools.append(createJcemMathControl('wide', 'fa-arrows-alt-h'), createJcemMathControl('fullscreen', 'fa-expand'));
+        math.append(tools);
+    });
+    document.addEventListener('click', (event) => {
+        var _a;
+        const button = (_a = event.target) === null || _a === void 0 ? void 0 : _a.closest('.jcem-math__control');
+        const math = button === null || button === void 0 ? void 0 : button.closest('.jcem-math');
+        const action = button === null || button === void 0 ? void 0 : button.dataset.jcemMathAction;
+        if (!button || !math || !action) {
+            return;
+        }
+        if (action === 'wide') {
+            math.classList.toggle('is-wide');
+            return;
+        }
+        void toggleJcemMathFullscreen(math);
+    });
+    document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape') {
+            closeJcemMathFallbackFullscreen();
+        }
+    });
+    document.addEventListener('fullscreenchange', syncJcemMathFullscreenState);
 };
 let jcemNoScriptFragmentsReady = null;
 const jcemRecentMonths = [
@@ -808,6 +1039,7 @@ document.addEventListener('DOMContentLoaded', () => {
     bindJcemQuoteReferences();
     bindJcemEditorialFormatting();
     bindJcemFootnotes();
+    bindJcemMathControls();
     hideNoScript();
 });
 export {};

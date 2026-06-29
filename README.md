@@ -11,6 +11,33 @@ npm run build:prod
 
 No Ruby 4, os scripts npm usam `scripts/jekyll_local.rb` e `scripts/jekyll_compat.rb` para carregar dependências internas do Jekyll/Liquid que não são resolvidas por autoload nesse ambiente.
 
+## Equações LaTeX
+
+<!-- AI-PROCESSED -->
+Equações são detectadas automaticamente durante o build. Não é necessário declarar `math: true` ou qualquer outro metadado no front matter.
+
+Formatos suportados:
+
+```markdown
+Texto inline com \(a^2 + b^2 = c^2\).
+
+\[a^2 + b^2 = c^2\]
+
+$$
+E = mc^2
+$$
+
+\begin{equation}
+qLinhas = r^p
+\end{equation}
+```
+
+Shortcodes legados `[latex]...[/latex]` e o marcador `[latexpage]` também são tratados pelo build para compatibilidade com conteúdo importado.
+
+O build usa KaTeX em server-side rendering por `_plugins/jcem_math.rb` e `scripts/render_math.mjs`. O HTML da fórmula fica pronto no artefato final; o navegador não executa KaTeX nem MathJax. O CSS público do KaTeX e suas fontes são carregados por CDN versionado somente em páginas nas quais o plugin detecta fórmulas. O CSS local `assets/jcem/css/math.css` contém apenas os controles e ajustes próprios do projeto.
+
+Fórmulas em bloco recebem controles visuais com Font Awesome para ampliar a largura e abrir em tela cheia quando o navegador oferece suporte. Sem JavaScript, a fórmula permanece renderizada e rolável horizontalmente.
+
 ## Imagem destacada
 
 Posts podem declarar imagem destacada no front matter:
