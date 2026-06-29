@@ -795,6 +795,10 @@ const bindJcemEditorialFormatting = (): void => {
 };
 
 const footnoteSummaryMaxLength = 260;
+const jcemFootnoteRefSelector =
+	"sup[id^='fnref'] a.footnote[href^='#fn:'], sup[id^='fnref'] a[role='doc-noteref'][href^='#fn:']";
+const jcemFootnoteBacklinkSelector =
+	'.reversefootnote, [role="doc-backlink"], .jcem-footnote-backref';
 
 const summarizeFootnote = (text: string): string => {
 	const normalized = text.replace(/\s+/g, ' ').trim();
@@ -804,13 +808,170 @@ const summarizeFootnote = (text: string): string => {
 		: normalized;
 };
 
-const bindJcemFootnotes = (): void => {
+const getJcemFootnoteId = (link: HTMLAnchorElement): string => {
+	try {
+		return decodeURIComponent(link.hash.slice(1));
+	} catch (_error) {
+		return link.hash.slice(1);
+	}
+};
+
+const jcemFootnoteAlpha = (index: number): string => {
+	let value = index + 1;
+	let label = '';
+
+	while (value > 0) {
+		value -= 1;
+		label = String.fromCharCode(97 + (value % 26)) + label;
+		value = Math.floor(value / 26);
+	}
+
+	return label;
+};
+
+const collectJcemFootnoteRefs = (): Map<string, HTMLAnchorElement[]> => {
+	const groups = new Map<string, HTMLAnchorElement[]>();
+
 	document
-		.querySelectorAll<HTMLAnchorElement>(
-			"sup[id^='fnref'] a.footnote[href^='#fn:'], sup[id^='fnref'] a[role='doc-noteref'][href^='#fn:']",
-		)
+		.querySelectorAll<HTMLAnchorElement>(jcemFootnoteRefSelector)
 		.forEach((link) => {
-			const id = decodeURIComponent(link.hash.slice(1));
+			const id = getJcemFootnoteId(link);
+
+			if (!id) {
+				return;
+			}
+
+			const refs = groups.get(id) || [];
+			refs.push(link);
+			groups.set(id, refs);
+		});
+
+	return groups;
+};
+
+const removeJcemFootnoteBacklinks = (note: HTMLElement): void => {
+	note.querySelectorAll(jcemFootnoteBacklinkSelector).forEach((backlink) => {
+		const previous = backlink.previousSibling;
+		const next = backlink.nextSibling;
+
+		if (
+			previous instanceof Text &&
+			!previous.textContent?.replace(/\u00a0/g, ' ').trim()
+		) {
+			previous.remove();
+		}
+
+		backlink.remove();
+
+		if (
+			next instanceof Text &&
+			!next.textContent?.replace(/\u00a0/g, ' ').trim()
+		) {
+			next.remove();
+		}
+	});
+};
+
+const buildJcemFootnoteBackrefs = (
+	refs: HTMLAnchorElement[],
+): HTMLSpanElement => {
+	const backrefs = document.createElement('span');
+	backrefs.className = 'jcem-footnote-backrefs';
+	backrefs.setAttribute('aria-label', 'Ocorrências desta nota');
+
+	refs.forEach((ref, index) => {
+		const source = ref.closest<HTMLElement>('sup[id^="fnref"]');
+
+		if (!source?.id) {
+			return;
+		}
+
+		const label = jcemFootnoteAlpha(index);
+		const link = document.createElement('a');
+		link.className = 'jcem-footnote-backref';
+		link.href = `#${source.id}`;
+		link.setAttribute('role', 'doc-backlink');
+		link.setAttribute('aria-label', `Voltar à ocorrência ${label}`);
+		link.textContent = label;
+		backrefs.append(link);
+	});
+
+	return backrefs;
+};
+
+const removeJcemLegacyFootnoteLabels = (
+	target: HTMLElement,
+	refs: HTMLAnchorElement[],
+): void => {
+	if (refs.length < 2) {
+		return;
+	}
+
+	const expected = refs.map((_ref, index) => jcemFootnoteAlpha(index)).join(' ');
+	const walker = document.createTreeWalker(target, NodeFilter.SHOW_TEXT);
+	const firstText = walker.nextNode() as Text | null;
+
+	if (!firstText) {
+		return;
+	}
+
+	const pattern = new RegExp(`^(\\s*)${expected.replace(/\s+/g, '\\s+')}(\\s+)`);
+	const text = firstText.textContent || '';
+	const normalized = text.replace(pattern, '$1');
+
+	if (normalized !== text) {
+		firstText.textContent = normalized;
+	}
+};
+
+// FIX-BUG: footnotes reutilizadas usam ocorrencias alfabeticas, sem setas duplicadas.
+const normalizeJcemFootnoteBackrefs = (): Map<string, HTMLAnchorElement[]> => {
+	const groups = collectJcemFootnoteRefs();
+	const orderedIds = Array.from(groups.keys());
+	const footnotes = select<HTMLElement>('.page__content .footnotes');
+	const list = footnotes?.querySelector<HTMLOListElement>('ol');
+
+	if (list) {
+		orderedIds.forEach((id, index) => {
+			const note = document.getElementById(id);
+
+			if (note instanceof HTMLLIElement && note.parentElement === list) {
+				list.append(note);
+			}
+
+			groups.get(id)?.forEach((link) => {
+				link.textContent = String(index + 1);
+			});
+		});
+	}
+
+	groups.forEach((refs, id) => {
+		const note = document.getElementById(id);
+
+		if (!note) {
+			return;
+		}
+
+		removeJcemFootnoteBacklinks(note);
+		const target = note.querySelector<HTMLElement>('p') || note;
+		removeJcemLegacyFootnoteLabels(target, refs);
+		const backrefs = buildJcemFootnoteBackrefs(refs);
+
+		if (backrefs.childElementCount) {
+			target.insertBefore(backrefs, target.firstChild);
+		}
+	});
+
+	return groups;
+};
+
+const bindJcemFootnotes = (): void => {
+	normalizeJcemFootnoteBackrefs();
+
+	document
+		.querySelectorAll<HTMLAnchorElement>(jcemFootnoteRefSelector)
+		.forEach((link) => {
+			const id = getJcemFootnoteId(link);
 			const note = document.getElementById(id);
 
 			if (!note) {
@@ -820,7 +981,7 @@ const bindJcemFootnotes = (): void => {
 			const summaryNode = note.cloneNode(true) as HTMLElement;
 
 			summaryNode
-				.querySelectorAll('.reversefootnote, [role="doc-backlink"]')
+				.querySelectorAll(jcemFootnoteBacklinkSelector)
 				.forEach((backlink) => backlink.remove());
 
 			const summary = summarizeFootnote(summaryNode.textContent || '');

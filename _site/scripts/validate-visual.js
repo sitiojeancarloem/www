@@ -1641,6 +1641,27 @@ const validatePrintTheme = async (page, url, viewportName) => {
 					style.visibility !== 'hidden'
 				);
 			});
+		const printDetails = (selector) => {
+			const details = document.querySelector(selector);
+			const visibleContent = details
+				? Array.from(details.children).some((child) => {
+					if (child.tagName === 'SUMMARY') return false;
+
+					const style = window.getComputedStyle(child);
+					const rect = child.getBoundingClientRect();
+					return (
+						style.display !== 'none' &&
+						style.visibility !== 'hidden' &&
+						rect.height > 0
+					);
+				})
+				: false;
+
+			return {
+				exists: Boolean(details),
+				visibleContent,
+			};
+		};
 
 		return {
 			darkChecked: Boolean(document.querySelector('#jcem-theme-dark')?.checked),
@@ -1663,6 +1684,8 @@ const validatePrintTheme = async (page, url, viewportName) => {
 			linkAfterContent: firstContentLinkAfterStyle?.content || '',
 			columnCount: markdownColumnsStyle?.columnCount || '',
 			markdownColumnStates,
+			referencesPrint: printDetails('details.jcem-collapsible--references'),
+			bibliographyPrint: printDetails('details.jcem-collapsible--bibliography'),
 			hiddenChrome: !visible(
 				'.masthead, .page__hero, .jcem-featured-image, .jcem-featured-image__img, .page__footer, .sobpostbar, .page__share, .jcem-theme-toggle, .jcem-scroll-top, #silktide-wrapper, #silktide-cookie-icon',
 			),
@@ -1710,6 +1733,20 @@ const validatePrintTheme = async (page, url, viewportName) => {
 		fail(
 			`Impressao manteve colunas no conteudo em ${url}: ${JSON.stringify(result.markdownColumnStates)}`,
 		);
+	}
+
+	if (
+		result.referencesPrint.exists &&
+		!result.referencesPrint.visibleContent
+	) {
+		fail(`Impressao mantem Referencias recolhidas em ${url}`);
+	}
+
+	if (
+		result.bibliographyPrint.exists &&
+		!result.bibliographyPrint.visibleContent
+	) {
+		fail(`Impressao mantem Bibliografia recolhida em ${url}`);
 	}
 
 	if (
@@ -2369,6 +2406,58 @@ const validatePublishedPostEditorialFormatting = async (page, baseUrl, postPath)
 			const linkRect = marker.querySelector('a')?.getBoundingClientRect();
 			return rect.width > Math.max(28, (linkRect?.width || 0) + 16) || rect.height > 18;
 		});
+		const footnoteNotes = Array.from(
+			document.querySelectorAll('article.jcem-post .page__content .footnotes li[id^="fn:"]'),
+		);
+		const alpha = (index) => {
+			let value = index + 1;
+			let label = '';
+
+			while (value > 0) {
+				value -= 1;
+				label = String.fromCharCode(97 + (value % 26)) + label;
+				value = Math.floor(value / 26);
+			}
+
+			return label;
+		};
+		const firstMeaningfulText = (note) => {
+			const target = note.querySelector('p') || note;
+			const walker = document.createTreeWalker(target, NodeFilter.SHOW_TEXT);
+			let node = walker.nextNode();
+
+			while (node) {
+				if (node.parentElement?.closest('.jcem-footnote-backrefs')) {
+					node = walker.nextNode();
+					continue;
+				}
+
+				const text = (node.textContent || '').replace(/\u00a0/g, ' ').trim();
+				if (text) return text;
+				node = walker.nextNode();
+			}
+
+			return '';
+		};
+		const badFootnoteBackrefNotes = footnoteNotes.filter((note) => {
+			const backrefs = Array.from(note.querySelectorAll('.jcem-footnote-backref'));
+			if (!backrefs.length || note.querySelector('.reversefootnote')) return true;
+
+			const expected = backrefs.map((_link, index) => alpha(index));
+			const labels = backrefs.map((link) => link.textContent || '');
+			const hrefs = backrefs.map((link) => link.getAttribute('href') || '');
+			const noteId = note.id.replace(/^fn:/, '');
+			const hasBadLabels = expected.some((label, index) => labels[index] !== label);
+			const hasBadHref = hrefs.some(
+				(href, index) =>
+					href !== `#fnref:${noteId}${index === 0 ? '' : `:${index}`}`,
+			);
+			const legacyPrefix = backrefs.length > 1
+				? new RegExp(`^${expected.join('\\s+')}\\b`).test(firstMeaningfulText(note))
+				: false;
+
+			return hasBadLabels || hasBadHref || legacyPrefix;
+		});
 
 		return {
 			isPost: Boolean(document.querySelector('article.page.jcem-post')),
@@ -2387,6 +2476,8 @@ const validatePublishedPostEditorialFormatting = async (page, baseUrl, postPath)
 				'article.jcem-post .page__content .jcem-cite-context',
 			).length,
 			badFootnoteMarkerCount: badFootnoteMarkers.length,
+			footnoteNoteCount: footnoteNotes.length,
+			badFootnoteBackrefNoteCount: badFootnoteBackrefNotes.length,
 		};
 	});
 
@@ -2420,6 +2511,10 @@ const validatePublishedPostEditorialFormatting = async (page, baseUrl, postPath)
 
 	if (result.badFootnoteMarkerCount > 0) {
 		fail(`Post publicado com footnote inline distorcida em ${postPath}`);
+	}
+
+	if (result.footnoteNoteCount > 0 && result.badFootnoteBackrefNoteCount > 0) {
+		fail(`Post publicado com backlinks de footnote fora do padrao em ${postPath}`);
 	}
 
 	if (

@@ -1400,6 +1400,26 @@ body
 	color: var(--jcem-panel-accent-hot);
 }
 
+.main_jcem_wrapper .jcem-footnote-backrefs {
+	display: inline-flex;
+	gap: 0.22rem;
+	margin-right: 0.45rem;
+	vertical-align: baseline;
+}
+
+.main_jcem_wrapper .jcem-footnote-backref {
+	margin-left: 0;
+	color: var(--jcem-panel-accent-hot);
+	font-size: 0.74em;
+	font-weight: 700;
+	line-height: 1;
+	text-decoration: none;
+}
+
+.main_jcem_wrapper .jcem-footnote-backref::after {
+	display: none !important;
+}
+
 .main_jcem_wrapper .page__footer-follow .social-icons i,
 .main_jcem_wrapper .page__footer-follow .social-icons .svg-inline--fa,
 .main_jcem_wrapper .author__urls.social-icons i,
@@ -1631,6 +1651,20 @@ body
 		column-count: 1 !important;
 		column-width: auto !important;
 		columns: auto 1 !important;
+	}
+
+	.main_jcem_wrapper .c-collapsible--references:not([open]) > :not(summary),
+	.main_jcem_wrapper .jcem-collapsible--references:not([open]) > :not(summary),
+	.main_jcem_wrapper .c-collapsible--bibliography:not([open]) > :not(summary),
+	.main_jcem_wrapper .jcem-collapsible--bibliography:not([open]) > :not(summary) {
+		display: block !important;
+	}
+
+	.main_jcem_wrapper .c-collapsible--references > summary::before,
+	.main_jcem_wrapper .jcem-collapsible--references > summary::before,
+	.main_jcem_wrapper .c-collapsible--bibliography > summary::before,
+	.main_jcem_wrapper .jcem-collapsible--bibliography > summary::before {
+		transform: rotate(90deg);
 	}
 }
 

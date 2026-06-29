@@ -123,13 +123,17 @@ O ícone de expandir/recolher é aplicado por CSS com Font Awesome.
 
 Títulos `## Bibliografia` e `## Referências` são recolhidos automaticamente no carregamento da página.
 
-Notas de rodapé usam o formato Kramdown:
+<!-- AI-PROCESSED -->
+Notas de rodapé usam preferencialmente identificadores alfanuméricos Kramdown:
 
 ```markdown
-Texto referenciado.[^1]
+Texto referenciado.[^fonteA]
+Outro trecho com a mesma fonte.[^fonteA]
 
-[^1]: Referência completa.
+[^fonteA]: Referência completa.
 ```
+
+A numeração exibida é automática e segue a ordem da primeira ocorrência no documento; o identificador não define o número. Para referência descartável, use `[^*]` com definição `[^*]:`; o build converte cada ocorrência para um identificador único antes do Kramdown.
 
 Quando `page.references` existir no front matter, o include `_includes/jcem/components/references.html` renderiza a seção em `<details>` automaticamente.
 
