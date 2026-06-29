@@ -1659,6 +1659,7 @@ const validatePrintTheme = async (page, url, viewportName) => {
 
 			return {
 				exists: Boolean(details),
+				open: Boolean(details?.open),
 				visibleContent,
 			};
 		};
@@ -1737,14 +1738,14 @@ const validatePrintTheme = async (page, url, viewportName) => {
 
 	if (
 		result.referencesPrint.exists &&
-		!result.referencesPrint.visibleContent
+		(!result.referencesPrint.open || !result.referencesPrint.visibleContent)
 	) {
 		fail(`Impressao mantem Referencias recolhidas em ${url}`);
 	}
 
 	if (
 		result.bibliographyPrint.exists &&
-		!result.bibliographyPrint.visibleContent
+		(!result.bibliographyPrint.open || !result.bibliographyPrint.visibleContent)
 	) {
 		fail(`Impressao mantem Bibliografia recolhida em ${url}`);
 	}

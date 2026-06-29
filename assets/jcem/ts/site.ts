@@ -433,6 +433,37 @@ const openJcemCollapsibleForHash = (hash: string): void => {
 	}
 };
 
+const jcemPrintCollapsibleSelector =
+	'details.jcem-collapsible--references, details.c-collapsible--references, details.jcem-collapsible--bibliography, details.c-collapsible--bibliography';
+
+const openJcemPrintCollapsibles = (): void => {
+	document
+		.querySelectorAll<HTMLDetailsElement>(jcemPrintCollapsibleSelector)
+		.forEach((details) => {
+			// FIX-BUG: impressão exige seções semanticamente expandidas.
+			details.open = true;
+		});
+
+	document.documentElement.dataset.jcemPrintSectionsOpen = 'true';
+};
+
+const bindJcemPrintCollapsibles = (): void => {
+	window.addEventListener('beforeprint', openJcemPrintCollapsibles);
+
+	const printQuery = window.matchMedia?.('print');
+	const handlePrintQuery = (event: MediaQueryListEvent | MediaQueryList): void => {
+		if (event.matches) {
+			openJcemPrintCollapsibles();
+		}
+	};
+
+	if (printQuery?.addEventListener) {
+		printQuery.addEventListener('change', handlePrintQuery);
+	} else {
+		printQuery?.addListener?.(handlePrintQuery);
+	}
+};
+
 const bindJcemCollapsibleSections = (): void => {
 	const content = select<HTMLElement>('.page__content');
 
@@ -457,6 +488,8 @@ const bindJcemCollapsibleSections = (): void => {
 	window.addEventListener('hashchange', () => {
 		openJcemCollapsibleForHash(window.location.hash);
 	});
+
+	bindJcemPrintCollapsibles();
 };
 
 const bindJcemBlockquotePanels = (): void => {

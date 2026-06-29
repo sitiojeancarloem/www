@@ -124,6 +124,8 @@ O ícone de expandir/recolher é aplicado por CSS com Font Awesome.
 Títulos `## Bibliografia` e `## Referências` são recolhidos automaticamente no carregamento da página.
 
 <!-- AI-PROCESSED -->
+Na impressão, essas seções são abertas automaticamente.
+
 Notas de rodapé usam preferencialmente identificadores alfanuméricos Kramdown:
 
 ```markdown

@@ -16,15 +16,15 @@ Escopo: notas de rodapé, referências e bibliografia renderizadas por Jekyll/Kr
 - A lista final de definições deve aparecer em ordem numérica crescente, sem alterar as chamadas existentes no texto.
 - Referências reutilizadas devem usar o padrão visual da Wikipédia: identificadores alfabéticos `a`, `b`, `c`, ... apontando para cada ocorrência da chamada no documento.
 - O modelo de múltiplas setas de retorno não deve ser exibido ao leitor.
-- Em impressão, as seções `Referências` e `Bibliografia` devem permanecer expandidas.
+- Em impressão, as seções `Referências` e `Bibliografia` devem permanecer semanticamente expandidas com atributo `open` ativo.
 
 ## Implementação
 
 - Kramdown permanece como biblioteca Markdown principal porque já suporta identificadores nomeados, numeração por primeira ocorrência e reordenação da lista final.
 - Não há fork local em `./vendor/custom/` para Kramdown nesta etapa.
 - `_plugins/jcem_footnotes.rb` executa somente a preparação local de `[^*]` antes do Kramdown.
-- `assets/jcem/ts/site.ts` normaliza a ordem final e substitui backlinks de notas reutilizadas por links alfabéticos.
-- `_sass/minimal-mistakes/skins/_variables-custom.scss` define a apresentação dos backlinks alfabéticos e a expansão em impressão.
+- `assets/jcem/ts/site.ts` normaliza a ordem final, substitui backlinks de notas reutilizadas por links alfabéticos e força `open` em `Referências` e `Bibliografia` antes da impressão.
+- `_sass/minimal-mistakes/skins/_variables-custom.scss` define a apresentação dos backlinks alfabéticos e mantém fallback visual de expansão em impressão.
 
 ## Validação
 
