@@ -62,3 +62,40 @@ Escopo: scripts, estilos, fontes, bibliotecas externas, assets de terceiros e re
 - `npm run check` deve permanecer sem regressões após alterações de dependências ou carregamento condicional.
 - Build Jekyll deve confirmar que páginas sem o recurso não recebem o asset externo.
 - Alterações que mudem carregamento visível ou interativo devem ser validadas em artefato renderizado.
+
+<!-- AI-PROCESSED -->
+# RCF-JCEM-CARREGAMENTO-PROGRESSIVO-001
+
+Status: vigente.
+
+Escopo: carregamento inicial, loader global, recursos pesados, skeleton loading e indicadores de progresso do blog.
+
+## Regras Normativas
+
+- Apenas recursos essenciais podem bloquear a primeira renderização visível da página.
+- Recursos essenciais são HTML, CSS, JavaScript próprio necessário à inicialização e dependências leves do JavaScript, como JSON, XML ou formatos equivalentes.
+- Imagens, `background-image`, vídeos, áudios, iframes, fontes opcionais e demais assets pesados não devem bloquear a liberação inicial da página.
+- Recursos pesados devem carregar de forma assíncrona, progressiva e tolerante a falhas.
+- Todo componente elegível que dependa de asset potencialmente lento deve exibir automaticamente skeleton loading em CSS puro até que o asset esteja carregado ou falhe.
+- Componentes elegíveis incluem banners, imagens destacadas, cards, thumbnails, galerias, backgrounds visuais e componentes opt-in com `data-jcem-skeleton`.
+- Skeleton loading deve preservar o espaço do componente no fluxo sempre que a geometria do componente for conhecida por CSS ou marcação.
+- A substituição do skeleton pelo conteúdo definitivo deve usar transição suave, sem flickering perceptível.
+- A implementação não deve introduzir mudança visual deliberada na identidade do componente carregado.
+- Indicadores de carregamento e progresso devem possuir contraste suficiente durante toda a exibição, inclusive em tema claro, tema escuro, telas de baixo brilho e conexões lentas.
+- Estas regras constituem o comportamento padrão para componentes atuais e futuros, salvo justificativa técnica explícita registrada no ponto de implementação.
+
+## Implementação
+
+- `_includes/head/custom.html` define o loader inicial e a barra superior com contraste próprio, independente do tema ativo.
+- `assets/jcem/ts/site.ts` libera a página após `DOMContentLoaded` e preparação leve dos fragmentos essenciais, sem aguardar `window.load`.
+- `assets/jcem/ts/site.ts` monitora imagens e backgrounds elegíveis, aplicando estados `loading`, `loaded` e `error` em `.jcem-skeleton`.
+- `_includes/archive-single.html` e `_includes/jcem/post-featured-image.html` marcam cards e imagens destacadas com skeleton server-side.
+- `_sass/minimal-mistakes/skins/_variables-custom.scss` define tokens e animação de skeleton em CSS puro.
+- `404.html` mantém implementação local equivalente para loader, imagem destacada e cards recentes.
+
+## Validação
+
+- A validação visual deve simular asset pesado pendente e confirmar que `.jcem-page-loaded` é aplicado antes de `document.readyState === "complete"`.
+- A validação visual deve confirmar que o conteúdo permanece oculto antes dos recursos essenciais e visível após a liberação essencial.
+- A validação visual deve confirmar presença, geometria, pseudo-elemento e estado final dos skeletons em componentes elegíveis.
+- A validação visual deve confirmar geometria e contraste mínimo operacional da barra superior de progresso.

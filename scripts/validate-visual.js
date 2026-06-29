@@ -209,6 +209,8 @@ const readLoadingState = async (page) =>
 		const wrapperStyle = wrapper ? window.getComputedStyle(wrapper) : null;
 		const progressRect = progress?.getBoundingClientRect();
 		const progressFillRect = progressFill?.getBoundingClientRect();
+		const progressStyle = progress ? window.getComputedStyle(progress) : null;
+		const progressFillStyle = progressFill ? window.getComputedStyle(progressFill) : null;
 
 		return {
 			pageLoadedClass: document.documentElement.classList.contains('jcem-page-loaded'),
@@ -219,27 +221,38 @@ const readLoadingState = async (page) =>
 			progressHeight: progressRect?.height || 0,
 			progressTop: progressRect?.top || 0,
 			progressFillWidth: progressFillRect?.width || 0,
+			progressBackground: progressStyle?.backgroundColor || '',
+			progressBoxShadow: progressStyle?.boxShadow || '',
+			progressFillBackground: progressFillStyle?.backgroundImage || '',
+			progressFillBoxShadow: progressFillStyle?.boxShadow || '',
 			progressValue: Number(progress?.getAttribute('aria-valuenow') || 0),
 			wrapperVisible: isVisible(wrapper),
 			wrapperVisibility: wrapperStyle?.visibility || '',
 			bodyOverflow: window.getComputedStyle(document.body).overflow,
 			noscriptFragmentsReady: document.documentElement.dataset.jcemNoscriptFragmentsReady || '',
+			readyState: document.readyState,
 		};
 	});
 
 const validateLoadingGate = async (browser, baseUrl, url, viewport) => {
 	const context = await browser.newContext({ viewport });
 	await seedCookieConsent(context);
-	let releaseRoutes = () => {};
-	const routeGate = new Promise((resolve) => {
-		releaseRoutes = resolve;
+	let releaseScripts = () => {};
+	let releaseImages = () => {};
+	let heavyAssetRequested = false;
+	const scriptGate = new Promise((resolve) => {
+		releaseScripts = resolve;
+	});
+	const imageGate = new Promise((resolve) => {
+		releaseImages = resolve;
 	});
 	await context.route('**/assets/jcem/js/site.js', async (route) => {
-		await routeGate;
+		await scriptGate;
 		await route.continue();
 	});
-	await context.route('**/*logo-animado.gif', async (route) => {
-		await routeGate;
+	await context.route(/.*\.(png|jpe?g|gif|webp|svg|ico)(\?.*)?$/i, async (route) => {
+		heavyAssetRequested = true;
+		await imageGate;
 		await route.fulfill({
 			status: 200,
 			contentType: 'image/gif',
@@ -248,6 +261,7 @@ const validateLoadingGate = async (browser, baseUrl, url, viewport) => {
 	});
 
 	const page = await context.newPage();
+	const usesExternalSiteScript = url !== notFoundPage;
 
 	try {
 		await page.goto(`${baseUrl}${url}`, { waitUntil: 'commit' });
@@ -256,34 +270,71 @@ const validateLoadingGate = async (browser, baseUrl, url, viewport) => {
 
 		const beforeLoad = await readLoadingState(page);
 
-		if (beforeLoad.pageLoadedClass) {
-			fail(`Classe de pagina carregada aplicada antes de window.load em ${url}`);
+		if (usesExternalSiteScript && beforeLoad.pageLoadedClass) {
+			fail(`Classe de pagina carregada aplicada antes do JavaScript essencial em ${url}`);
 		}
 
-		if (!beforeLoad.loaderVisible) {
-			fail(`.carregandoPagina invisivel antes de window.load em ${url}`);
+		if (usesExternalSiteScript && !beforeLoad.loaderVisible) {
+			fail(`.carregandoPagina invisivel antes dos recursos essenciais em ${url}`);
 		}
 
 		if (
-			!beforeLoad.progressInsideLoader ||
-			beforeLoad.progressHeight < 7 ||
-			beforeLoad.progressTop !== 0 ||
-			beforeLoad.progressWidth < viewport.width - 2 ||
-			beforeLoad.progressFillWidth <= 0
+			usesExternalSiteScript &&
+			(!beforeLoad.progressInsideLoader ||
+				beforeLoad.progressHeight < 7 ||
+				beforeLoad.progressTop !== 0 ||
+				beforeLoad.progressWidth < viewport.width - 2 ||
+				beforeLoad.progressFillWidth <= 0 ||
+				beforeLoad.progressBackground === 'rgba(0, 0, 0, 0)' ||
+				beforeLoad.progressFillBackground === 'none' ||
+				beforeLoad.progressBoxShadow === 'none' ||
+				beforeLoad.progressFillBoxShadow === 'none')
 		) {
-			fail(`Progressbar do loader invalida antes de window.load em ${url}`);
+			fail(`Progressbar do loader invalida antes dos recursos essenciais em ${url}`);
 		}
 
 		if (beforeLoad.wrapperVisible || beforeLoad.wrapperVisibility !== 'hidden') {
-			fail(`Conteudo visivel antes de window.load em ${url}`);
+			if (usesExternalSiteScript) {
+				fail(`Conteudo visivel antes dos recursos essenciais em ${url}`);
+			}
 		}
 
 		if (url === notFoundPage && beforeLoad.urlChecked !== 'true') {
 			fail(`404 sem conclusao do gate de URL antes do load em ${url}`);
 		}
 
-		releaseRoutes();
-		await page.waitForLoadState('load', { timeout: 15000 });
+		releaseScripts();
+		await page.waitForFunction(() => document.documentElement.classList.contains('jcem-page-loaded'));
+		await page.waitForFunction(() => {
+			const loader = document.querySelector('.carregandoPagina');
+			if (!loader) return false;
+			const style = window.getComputedStyle(loader);
+			return style.visibility === 'hidden' || style.opacity === '0';
+		});
+		const afterEssential = await readLoadingState(page);
+
+		if (!afterEssential.pageLoadedClass) {
+			fail(`Classe de pagina carregada ausente apos recursos essenciais em ${url}`);
+		}
+
+		if (!afterEssential.wrapperVisible || afterEssential.wrapperVisibility === 'hidden') {
+			fail(`Conteudo oculto apos recursos essenciais em ${url}`);
+		}
+
+		if (afterEssential.loaderVisible) {
+			fail(`.carregandoPagina visivel apos recursos essenciais em ${url}`);
+		}
+
+		if (afterEssential.progressValue !== 100) {
+			fail(`Progressbar do loader nao finalizou apos recursos essenciais em ${url}`);
+		}
+
+		if (heavyAssetRequested && afterEssential.readyState === 'complete') {
+			fail(`Loader aguardou asset pesado antes de liberar pagina em ${url}`);
+		}
+
+		releaseImages();
+		await page.waitForLoadState('load', { timeout: 15000 }).catch(() => {});
 		await page.waitForFunction(() => document.documentElement.classList.contains('jcem-page-loaded'));
 		await page.waitForFunction(() => {
 			const loader = document.querySelector('.carregandoPagina');
@@ -923,6 +974,26 @@ const validatePage = async (page, url, theme, viewportName) => {
 				),
 			};
 		});
+		const skeletonMetrics = Array.from(
+			document.querySelectorAll('.jcem-skeleton'),
+		).map((element) => {
+			const rect = element.getBoundingClientRect();
+			const before = window.getComputedStyle(element, '::before');
+			const image = element.querySelector('img');
+
+			return {
+				state: element.getAttribute('data-jcem-skeleton-state') || '',
+				width: rect.width,
+				height: rect.height,
+				beforeContent: before.content,
+				beforeAnimation: before.animationName,
+				beforeOpacity: Number.parseFloat(before.opacity || '0'),
+				hasAsset: Boolean(image),
+				assetLoaded: image
+					? Boolean(image.complete && image.naturalWidth > 0)
+					: true,
+			};
+		});
 
 		return {
 			overflowX: document.documentElement.scrollWidth - document.documentElement.clientWidth,
@@ -1133,6 +1204,22 @@ const validatePage = async (page, url, theme, viewportName) => {
 				badResponsiveCardCount: responsiveCardMetrics.filter(
 					(metric) => metric.outsideColumn || metric.textOverflow,
 				).length,
+				eligibleSkeletonTargetCount: document.querySelectorAll(
+					'.archive__item-teaser, .jcem-featured-image, .page__hero, .page__hero--overlay, [data-jcem-skeleton]',
+				).length,
+				skeletonCount: skeletonMetrics.length,
+				badSkeletonCount: skeletonMetrics.filter(
+					(metric) =>
+						!['loading', 'loaded', 'error'].includes(metric.state) ||
+						metric.width <= 1 ||
+						metric.height <= 1 ||
+						metric.beforeContent === 'none' ||
+						(metric.state === 'loaded' && metric.beforeOpacity > 0.05) ||
+						(metric.state === 'loading' && metric.beforeAnimation === 'none'),
+				).length,
+				loadedSkeletonCount: skeletonMetrics.filter(
+					(metric) => metric.state === 'loaded' && metric.assetLoaded,
+				).length,
 			},
 			styles: [
 				readStyle('.masthead'),
@@ -1150,6 +1237,17 @@ const validatePage = async (page, url, theme, viewportName) => {
 
 	if (result.archive.badResponsiveCardCount > 0) {
 		fail(`Card fora da largura disponivel em ${url} ${theme} ${viewportName}`);
+	}
+
+	if (
+		result.archive.eligibleSkeletonTargetCount > 0 &&
+		(result.archive.skeletonCount < 1 || result.archive.loadedSkeletonCount < 1)
+	) {
+		fail(`Skeleton loading ausente em ${url} ${theme} ${viewportName}`);
+	}
+
+	if (result.archive.badSkeletonCount > 0) {
+		fail(`Skeleton loading invalido em ${url} ${theme} ${viewportName}`);
 	}
 
 	if (result.sidebars > 0) {
@@ -2071,6 +2169,15 @@ const validate404Page = async (page, url, viewportName) => {
 				return rect.left >= -1 && rect.right <= document.documentElement.clientWidth + 1;
 			}),
 			featured: rectFor(featured),
+			featuredSkeletonState: featured?.getAttribute('data-jcem-skeleton-state') || '',
+			featuredSkeletonBefore: featured
+				? {
+						content: window.getComputedStyle(featured, '::before').content,
+						opacity: Number.parseFloat(
+							window.getComputedStyle(featured, '::before').opacity || '0',
+						),
+					}
+				: null,
 			featuredImage: rectFor(featuredImage),
 			featuredImageLoaded: Boolean(featuredImage?.complete && featuredImage.naturalWidth > 0),
 			featuredImageNaturalRatio:
@@ -2170,6 +2277,15 @@ const validate404Page = async (page, url, viewportName) => {
 		Math.abs(result.featuredImage.height - result.featured.height) > 2
 	) {
 		fail(`Imagem destacada 404 invalida em ${url} ${viewportName}`);
+	}
+
+	if (
+		result.featuredSkeletonState !== 'loaded' ||
+		!result.featuredSkeletonBefore ||
+		result.featuredSkeletonBefore.content === 'none' ||
+		result.featuredSkeletonBefore.opacity > 0.05
+	) {
+		fail(`Skeleton da imagem destacada 404 invalido em ${url} ${viewportName}`);
 	}
 
 	if (

@@ -7,6 +7,7 @@ src/__generated__
 *.zip
 *.7z
 _data
+tmp/
 # Arquivos de saída do Jekyll (para cache em build no github Actions)
 # O GitHub Pages gera a pasta _site automaticamente
 !_site

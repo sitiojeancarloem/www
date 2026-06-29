@@ -118,75 +118,147 @@ const setJcemLoadingProgress = (value) => {
     progress.style.setProperty('--jcem-load-progress', `${percent}%`);
     progress.setAttribute('aria-valuenow', String(percent));
 };
-const isJcemLoadTargetComplete = (element) => {
-    var _a;
-    if (element instanceof HTMLImageElement) {
-        return element.complete;
-    }
-    if (element instanceof HTMLMediaElement) {
-        return element.readyState >= 2;
-    }
-    if (element instanceof HTMLIFrameElement) {
-        try {
-            return Boolean(((_a = element.contentDocument) === null || _a === void 0 ? void 0 : _a.readyState) === 'complete');
-        }
-        catch (error) {
-            return false;
-        }
-    }
-    return true;
-};
 const bindJcemLoadingProgress = () => {
     const progress = select('.jcem-load-progress');
     if (!progress) {
         return;
     }
-    const targets = Array.from(document.querySelectorAll('img, iframe, video, audio'));
-    const total = Math.max(1, targets.length + 2);
-    let completed = document.readyState === 'loading' ? 0 : 1;
     let lastProgress = 8;
-    const update = (base = 0) => {
-        const loadedTargets = targets.filter(isJcemLoadTargetComplete).length;
-        const nextProgress = Math.max(base, 8 + ((completed + loadedTargets) / total) * 82);
-        if (nextProgress > lastProgress) {
-            lastProgress = nextProgress;
-            setJcemLoadingProgress(nextProgress);
-        }
+    const advance = (value) => {
+        if (value <= lastProgress)
+            return;
+        lastProgress = value;
+        setJcemLoadingProgress(value);
     };
     const completeDom = () => {
-        completed = Math.max(completed, 1);
-        update(55);
-    };
-    const completePage = () => {
-        completed = total;
-        setJcemLoadingProgress(100);
+        advance(82);
     };
     const trickle = window.setInterval(() => {
         if (document.documentElement.classList.contains('jcem-page-loaded')) {
             window.clearInterval(trickle);
             return;
         }
-        update(Math.min(92, lastProgress + 2));
+        advance(Math.min(92, lastProgress + 3));
     }, 450);
-    targets.forEach((target) => {
-        if (isJcemLoadTargetComplete(target)) {
-            return;
-        }
-        target.addEventListener('load', () => update(), { once: true });
-        target.addEventListener('error', () => update(), { once: true });
-    });
+    advance(28);
     if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', completeDom, { once: true });
     }
     else {
         completeDom();
     }
-    if (document.readyState === 'complete') {
-        completePage();
+};
+const jcemSkeletonMediaSelector = 'img, video, iframe, .jcem-featured-image, .archive__item-teaser, .page__hero, .page__hero--overlay, [data-jcem-skeleton]';
+const findJcemSkeletonContainer = (element) => {
+    if (element instanceof HTMLElement && element.matches('[data-jcem-skeleton]')) {
+        return element;
     }
-    else {
-        window.addEventListener('load', completePage, { once: true });
+    if (element instanceof HTMLImageElement) {
+        return element.closest('.jcem-featured-image, .archive__item-teaser, .page__hero, .page__hero--overlay, [data-jcem-skeleton]');
     }
+    return element instanceof HTMLElement ? element : null;
+};
+const setJcemSkeletonState = (container, state) => {
+    container.classList.add('jcem-skeleton');
+    container.dataset.jcemSkeletonState = state;
+};
+const bindJcemImageSkeleton = (image) => {
+    if (image.dataset.jcemSkeletonBound === 'true')
+        return;
+    image.dataset.jcemSkeletonBound = 'true';
+    image.classList.add('jcem-skeleton-asset');
+    if (!image.hasAttribute('decoding'))
+        image.decoding = 'async';
+    if (!image.hasAttribute('loading'))
+        image.loading = 'lazy';
+    const container = findJcemSkeletonContainer(image);
+    if (!container)
+        return;
+    const sync = () => {
+        if (image.complete) {
+            setJcemSkeletonState(container, image.naturalWidth > 0 ? 'loaded' : 'error');
+            return;
+        }
+        setJcemSkeletonState(container, 'loading');
+    };
+    sync();
+    image.addEventListener('load', sync, { once: true });
+    image.addEventListener('error', () => setJcemSkeletonState(container, 'error'), {
+        once: true,
+    });
+};
+const extractJcemBackgroundUrls = (element) => {
+    const background = window.getComputedStyle(element).backgroundImage || '';
+    const urls = [];
+    const pattern = /url\((['"]?)(.*?)\1\)/g;
+    let match = pattern.exec(background);
+    while (match) {
+        if (match[2])
+            urls.push(match[2]);
+        match = pattern.exec(background);
+    }
+    return urls;
+};
+const bindJcemBackgroundSkeleton = (element) => {
+    if (element.dataset.jcemSkeletonBackgroundBound === 'true')
+        return;
+    element.dataset.jcemSkeletonBackgroundBound = 'true';
+    const urls = extractJcemBackgroundUrls(element);
+    if (!urls.length)
+        return;
+    let pending = urls.length;
+    let failed = false;
+    setJcemSkeletonState(element, 'loading');
+    const finish = (error = false) => {
+        failed = failed || error;
+        pending -= 1;
+        if (pending <= 0)
+            setJcemSkeletonState(element, failed ? 'error' : 'loaded');
+    };
+    urls.forEach((url) => {
+        const image = new Image();
+        image.addEventListener('load', () => finish(), { once: true });
+        image.addEventListener('error', () => finish(true), { once: true });
+        image.src = url;
+    });
+};
+const bindJcemSkeletonElement = (element) => {
+    if (element instanceof HTMLImageElement) {
+        bindJcemImageSkeleton(element);
+        return;
+    }
+    const container = findJcemSkeletonContainer(element);
+    if (!container)
+        return;
+    const image = container.querySelector('img');
+    if (image) {
+        bindJcemImageSkeleton(image);
+        return;
+    }
+    bindJcemBackgroundSkeleton(container);
+};
+const bindJcemSkeletonAssets = () => {
+    document
+        .querySelectorAll(jcemSkeletonMediaSelector)
+        .forEach(bindJcemSkeletonElement);
+    const observer = new MutationObserver((mutations) => {
+        mutations.forEach((mutation) => {
+            mutation.addedNodes.forEach((node) => {
+                var _a;
+                if (!(node instanceof Element))
+                    return;
+                if (node.matches(jcemSkeletonMediaSelector)) {
+                    bindJcemSkeletonElement(node);
+                }
+                (_a = node
+                    .querySelectorAll) === null || _a === void 0 ? void 0 : _a.call(node, jcemSkeletonMediaSelector).forEach(bindJcemSkeletonElement);
+            });
+        });
+    });
+    observer.observe(document.documentElement, {
+        childList: true,
+        subtree: true,
+    });
 };
 const normalizeJcemText = (text) => text
     .normalize('NFD')
@@ -886,7 +958,8 @@ const createJcemRecentCard = (post) => {
     link.rel = 'permalink';
     if (image) {
         const figure = createJcemElement('figure', 'archive__item-teaser');
-        const img = createJcemElement('img', 'archive__item-image u-photo');
+        const img = createJcemElement('img', 'archive__item-image u-photo jcem-skeleton-asset');
+        setJcemSkeletonState(figure, 'loading');
         img.src = image;
         img.alt = String(post.image_alt || post.title);
         img.loading = 'lazy';
@@ -1010,11 +1083,23 @@ const prepareJcemNoScriptFragments = () => {
     });
     return jcemNoScriptFragmentsReady;
 };
+let jcemPageRevealStarted = false;
 const revealJcemPage = () => {
+    if (jcemPageRevealStarted)
+        return;
+    jcemPageRevealStarted = true;
     void prepareJcemNoScriptFragments().finally(() => {
+        setJcemLoadingProgress(100);
         document.documentElement.classList.add('jcem-page-loaded');
         scheduleJcemRecentPosts();
     });
+};
+const scheduleJcemInitialReveal = () => {
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', revealJcemPage, { once: true });
+        return;
+    }
+    revealJcemPage();
 };
 const hideNoScript = () => {
     const noScript = select('body > noscript');
@@ -1023,12 +1108,8 @@ const hideNoScript = () => {
     }
 };
 bindJcemLoadingProgress();
-if (document.readyState === 'complete') {
-    revealJcemPage();
-}
-else {
-    window.addEventListener('load', revealJcemPage, { once: true });
-}
+bindJcemSkeletonAssets();
+scheduleJcemInitialReveal();
 document.addEventListener('DOMContentLoaded', () => {
     bindJcemTheme();
     bindJcemNav();

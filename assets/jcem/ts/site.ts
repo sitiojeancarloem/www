@@ -175,26 +175,6 @@ const setJcemLoadingProgress = (value: number): void => {
 	progress.setAttribute('aria-valuenow', String(percent));
 };
 
-const isJcemLoadTargetComplete = (element: Element): boolean => {
-	if (element instanceof HTMLImageElement) {
-		return element.complete;
-	}
-
-	if (element instanceof HTMLMediaElement) {
-		return element.readyState >= 2;
-	}
-
-	if (element instanceof HTMLIFrameElement) {
-		try {
-			return Boolean(element.contentDocument?.readyState === 'complete');
-		} catch (error) {
-			return false;
-		}
-	}
-
-	return true;
-};
-
 const bindJcemLoadingProgress = (): void => {
 	const progress = select<HTMLElement>('.jcem-load-progress');
 
@@ -202,32 +182,15 @@ const bindJcemLoadingProgress = (): void => {
 		return;
 	}
 
-	const targets = Array.from(
-		document.querySelectorAll<Element>('img, iframe, video, audio'),
-	);
-	const total = Math.max(1, targets.length + 2);
-	let completed = document.readyState === 'loading' ? 0 : 1;
 	let lastProgress = 8;
 
-	const update = (base = 0): void => {
-		const loadedTargets = targets.filter(isJcemLoadTargetComplete).length;
-		const nextProgress = Math.max(
-			base,
-			8 + ((completed + loadedTargets) / total) * 82,
-		);
-
-		if (nextProgress > lastProgress) {
-			lastProgress = nextProgress;
-			setJcemLoadingProgress(nextProgress);
-		}
+	const advance = (value: number): void => {
+		if (value <= lastProgress) return;
+		lastProgress = value;
+		setJcemLoadingProgress(value);
 	};
 	const completeDom = (): void => {
-		completed = Math.max(completed, 1);
-		update(55);
-	};
-	const completePage = (): void => {
-		completed = total;
-		setJcemLoadingProgress(100);
+		advance(82);
 	};
 	const trickle = window.setInterval(() => {
 		if (document.documentElement.classList.contains('jcem-page-loaded')) {
@@ -235,29 +198,151 @@ const bindJcemLoadingProgress = (): void => {
 			return;
 		}
 
-		update(Math.min(92, lastProgress + 2));
+		advance(Math.min(92, lastProgress + 3));
 	}, 450);
 
-	targets.forEach((target) => {
-		if (isJcemLoadTargetComplete(target)) {
-			return;
-		}
-
-		target.addEventListener('load', () => update(), { once: true });
-		target.addEventListener('error', () => update(), { once: true });
-	});
+	advance(28);
 
 	if (document.readyState === 'loading') {
 		document.addEventListener('DOMContentLoaded', completeDom, { once: true });
 	} else {
 		completeDom();
 	}
+};
 
-	if (document.readyState === 'complete') {
-		completePage();
-	} else {
-		window.addEventListener('load', completePage, { once: true });
+type JcemSkeletonState = 'loading' | 'loaded' | 'error';
+
+const jcemSkeletonMediaSelector =
+	'img, video, iframe, .jcem-featured-image, .archive__item-teaser, .page__hero, .page__hero--overlay, [data-jcem-skeleton]';
+
+const findJcemSkeletonContainer = (element: Element): HTMLElement | null => {
+	if (element instanceof HTMLElement && element.matches('[data-jcem-skeleton]')) {
+		return element;
 	}
+
+	if (element instanceof HTMLImageElement) {
+		return element.closest<HTMLElement>(
+			'.jcem-featured-image, .archive__item-teaser, .page__hero, .page__hero--overlay, [data-jcem-skeleton]',
+		);
+	}
+
+	return element instanceof HTMLElement ? element : null;
+};
+
+const setJcemSkeletonState = (
+	container: HTMLElement,
+	state: JcemSkeletonState,
+): void => {
+	container.classList.add('jcem-skeleton');
+	container.dataset.jcemSkeletonState = state;
+};
+
+const bindJcemImageSkeleton = (image: HTMLImageElement): void => {
+	if (image.dataset.jcemSkeletonBound === 'true') return;
+	image.dataset.jcemSkeletonBound = 'true';
+	image.classList.add('jcem-skeleton-asset');
+	if (!image.hasAttribute('decoding')) image.decoding = 'async';
+	if (!image.hasAttribute('loading')) image.loading = 'lazy';
+
+	const container = findJcemSkeletonContainer(image);
+	if (!container) return;
+
+	const sync = (): void => {
+		if (image.complete) {
+			setJcemSkeletonState(container, image.naturalWidth > 0 ? 'loaded' : 'error');
+			return;
+		}
+
+		setJcemSkeletonState(container, 'loading');
+	};
+
+	sync();
+	image.addEventListener('load', sync, { once: true });
+	image.addEventListener('error', () => setJcemSkeletonState(container, 'error'), {
+		once: true,
+	});
+};
+
+const extractJcemBackgroundUrls = (element: HTMLElement): string[] => {
+	const background = window.getComputedStyle(element).backgroundImage || '';
+	const urls: string[] = [];
+	const pattern = /url\((['"]?)(.*?)\1\)/g;
+	let match = pattern.exec(background);
+
+	while (match) {
+		if (match[2]) urls.push(match[2]);
+		match = pattern.exec(background);
+	}
+
+	return urls;
+};
+
+const bindJcemBackgroundSkeleton = (element: HTMLElement): void => {
+	if (element.dataset.jcemSkeletonBackgroundBound === 'true') return;
+	element.dataset.jcemSkeletonBackgroundBound = 'true';
+
+	const urls = extractJcemBackgroundUrls(element);
+	if (!urls.length) return;
+
+	let pending = urls.length;
+	let failed = false;
+	setJcemSkeletonState(element, 'loading');
+
+	const finish = (error = false): void => {
+		failed = failed || error;
+		pending -= 1;
+		if (pending <= 0) setJcemSkeletonState(element, failed ? 'error' : 'loaded');
+	};
+
+	urls.forEach((url) => {
+		const image = new Image();
+		image.addEventListener('load', () => finish(), { once: true });
+		image.addEventListener('error', () => finish(true), { once: true });
+		image.src = url;
+	});
+};
+
+const bindJcemSkeletonElement = (element: Element): void => {
+	if (element instanceof HTMLImageElement) {
+		bindJcemImageSkeleton(element);
+		return;
+	}
+
+	const container = findJcemSkeletonContainer(element);
+	if (!container) return;
+
+	const image = container.querySelector<HTMLImageElement>('img');
+	if (image) {
+		bindJcemImageSkeleton(image);
+		return;
+	}
+
+	bindJcemBackgroundSkeleton(container);
+};
+
+const bindJcemSkeletonAssets = (): void => {
+	document
+		.querySelectorAll<Element>(jcemSkeletonMediaSelector)
+		.forEach(bindJcemSkeletonElement);
+
+	const observer = new MutationObserver((mutations) => {
+		mutations.forEach((mutation) => {
+			mutation.addedNodes.forEach((node) => {
+				if (!(node instanceof Element)) return;
+				if (node.matches(jcemSkeletonMediaSelector)) {
+					bindJcemSkeletonElement(node);
+				}
+				node
+					.querySelectorAll?.(jcemSkeletonMediaSelector)
+					.forEach(bindJcemSkeletonElement);
+			});
+		});
+	});
+
+	observer.observe(document.documentElement, {
+		childList: true,
+		subtree: true,
+	});
 };
 
 const normalizeJcemText = (text: string): string =>
@@ -1249,8 +1334,9 @@ const createJcemRecentCard = (post: JcemRecentPost): HTMLElement | null => {
 
 	if (image) {
 		const figure = createJcemElement('figure', 'archive__item-teaser');
-		const img = createJcemElement('img', 'archive__item-image u-photo');
+		const img = createJcemElement('img', 'archive__item-image u-photo jcem-skeleton-asset');
 
+		setJcemSkeletonState(figure, 'loading');
 		img.src = image;
 		img.alt = String(post.image_alt || post.title);
 		img.loading = 'lazy';
@@ -1400,11 +1486,27 @@ const prepareJcemNoScriptFragments = (): Promise<void> => {
 	return jcemNoScriptFragmentsReady;
 };
 
+let jcemPageRevealStarted = false;
+
 const revealJcemPage = (): void => {
+	if (jcemPageRevealStarted) return;
+	jcemPageRevealStarted = true;
+
 	void prepareJcemNoScriptFragments().finally(() => {
+		// FIX-BUG: recursos pesados nao bloqueiam a primeira renderizacao.
+		setJcemLoadingProgress(100);
 		document.documentElement.classList.add('jcem-page-loaded');
 		scheduleJcemRecentPosts();
 	});
+};
+
+const scheduleJcemInitialReveal = (): void => {
+	if (document.readyState === 'loading') {
+		document.addEventListener('DOMContentLoaded', revealJcemPage, { once: true });
+		return;
+	}
+
+	revealJcemPage();
 };
 
 const hideNoScript = (): void => {
@@ -1418,12 +1520,8 @@ const hideNoScript = (): void => {
 };
 
 bindJcemLoadingProgress();
-
-if (document.readyState === 'complete') {
-	revealJcemPage();
-} else {
-	window.addEventListener('load', revealJcemPage, { once: true });
-}
+bindJcemSkeletonAssets();
+scheduleJcemInitialReveal();
 
 document.addEventListener('DOMContentLoaded', () => {
 	bindJcemTheme();

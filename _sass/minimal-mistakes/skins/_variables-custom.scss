@@ -51,6 +51,11 @@
 	--dark--jcem-readtime-color: rgba(239, 239, 239, 0.84);
 	--dark--jcem-glitch-a: rgba(68, 195, 222, 0.28);
 	--dark--jcem-glitch-b: rgba(255, 67, 111, 0.18);
+	--dark--jcem-skeleton-base: #26313a;
+	--dark--jcem-skeleton-sheen: rgba(123, 200, 255, 0.28);
+	--dark--jcem-load-track: rgba(244, 212, 0, 0.22);
+	--dark--jcem-load-fill-a: #f4d400;
+	--dark--jcem-load-fill-b: #7bc8ff;
 	--dark--primary-color: var(--dark--pri);
 	--dark--background-color: var(--dark--bg);
 	--dark--text-color: var(--dark--tc);
@@ -107,6 +112,11 @@
 	--clean--jcem-readtime-color: #425157;
 	--clean--jcem-glitch-a: rgba(176, 139, 0, 0.28);
 	--clean--jcem-glitch-b: rgba(47, 125, 149, 0.24);
+	--clean--jcem-skeleton-base: #d6dee2;
+	--clean--jcem-skeleton-sheen: rgba(255, 255, 255, 0.72);
+	--clean--jcem-load-track: rgba(47, 89, 99, 0.24);
+	--clean--jcem-load-fill-a: #102f3a;
+	--clean--jcem-load-fill-b: #b28700;
 	--clean--primary-color: var(--clean--pri);
 	--clean--background-color: var(--clean--bg);
 	--clean--text-color: var(--clean--tc);
@@ -183,6 +193,11 @@ body > input.radio.jcem-theme-radio {
 	--jcem-readtime-color: var(--clean--jcem-readtime-color);
 	--jcem-glitch-a: var(--clean--jcem-glitch-a);
 	--jcem-glitch-b: var(--clean--jcem-glitch-b);
+	--jcem-skeleton-base: var(--clean--jcem-skeleton-base);
+	--jcem-skeleton-sheen: var(--clean--jcem-skeleton-sheen);
+	--jcem-load-track: var(--clean--jcem-load-track);
+	--jcem-load-fill-a: var(--clean--jcem-load-fill-a);
+	--jcem-load-fill-b: var(--clean--jcem-load-fill-b);
 	--primary-color: var(--clean--primary-color);
 	--background-color: var(--clean--background-color);
 	--text-color: var(--clean--text-color);
@@ -244,6 +259,11 @@ body > input.radio#jcem-theme-dark:checked ~ .main_jcem_wrapper {
 	--jcem-readtime-color: var(--dark--jcem-readtime-color);
 	--jcem-glitch-a: var(--dark--jcem-glitch-a);
 	--jcem-glitch-b: var(--dark--jcem-glitch-b);
+	--jcem-skeleton-base: var(--dark--jcem-skeleton-base);
+	--jcem-skeleton-sheen: var(--dark--jcem-skeleton-sheen);
+	--jcem-load-track: var(--dark--jcem-load-track);
+	--jcem-load-fill-a: var(--dark--jcem-load-fill-a);
+	--jcem-load-fill-b: var(--dark--jcem-load-fill-b);
 	--primary-color: var(--dark--primary-color);
 	--background-color: var(--dark--background-color);
 	--text-color: var(--dark--text-color);
@@ -542,6 +562,71 @@ body > input.radio#jcem-theme-dark:checked ~ .main_jcem_wrapper {
 	tr:nth-child(odd)
 	> th {
 	background-color: var(--cbg);
+}
+
+@keyframes jcemSkeletonShimmer {
+	0% {
+		transform: translateX(-100%);
+	}
+	100% {
+		transform: translateX(100%);
+	}
+}
+
+.main_jcem_wrapper .jcem-skeleton {
+	position: relative;
+	overflow: hidden;
+}
+
+.main_jcem_wrapper .jcem-skeleton::before {
+	content: '';
+	position: absolute;
+	inset: 0;
+	z-index: 1;
+	background:
+		linear-gradient(
+			90deg,
+			transparent 0%,
+			var(--jcem-skeleton-sheen) 46%,
+			transparent 100%
+		),
+		var(--jcem-skeleton-base);
+	opacity: 1;
+	pointer-events: none;
+	transform: translateX(-100%);
+	animation: jcemSkeletonShimmer 1.15s ease-in-out infinite;
+	transition: opacity 0.24s ease;
+}
+
+.main_jcem_wrapper .jcem-skeleton > * {
+	position: relative;
+	z-index: 2;
+}
+
+.main_jcem_wrapper
+	.jcem-skeleton[data-jcem-skeleton-state='loading']
+	.jcem-skeleton-asset {
+	opacity: 0;
+}
+
+.main_jcem_wrapper
+	.jcem-skeleton[data-jcem-skeleton-state='loaded']
+	.jcem-skeleton-asset {
+	opacity: 1;
+}
+
+.main_jcem_wrapper .jcem-skeleton[data-jcem-skeleton-state='loaded']::before {
+	opacity: 0;
+	animation: none;
+}
+
+.main_jcem_wrapper .jcem-skeleton[data-jcem-skeleton-state='error']::before {
+	opacity: 0.28;
+	animation: none;
+}
+
+.main_jcem_wrapper .jcem-skeleton-asset {
+	transition: opacity 0.24s ease;
 }
 
 .main_jcem_wrapper .notice,

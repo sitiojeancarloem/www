@@ -57,6 +57,13 @@ Valores suportados:
 
 Aliases aceitos: `inline` equivale a `content`; `full`, `full-width` e `bleed` equivalem a `wide`.
 
+## Carregamento inicial
+
+<!-- AI-PROCESSED -->
+O loader inicial bloqueia apenas recursos essenciais: HTML, CSS, JavaScript de inicialização e dependências leves. Imagens, backgrounds, mídias e fontes opcionais continuam carregando de forma progressiva depois que a página é liberada.
+
+Componentes elegíveis com assets potencialmente lentos usam skeleton loading em CSS puro. Cards, thumbnails e imagens destacadas já recebem a marcação automaticamente; componentes futuros podem optar pelo mesmo comportamento com `data-jcem-skeleton`.
+
 ## Autores de artigos
 
 O bloco de autoria só é renderizado quando o post declara pelo menos uma entrada válida em `article_authors`. A ordem da lista define o autor principal e os coautores:

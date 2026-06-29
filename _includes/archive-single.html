@@ -35,8 +35,8 @@
     <a class="archive__item-link u-url" href="{{ archive_url }}"{% unless post.link %} rel="permalink"{% endunless %}>
       <header class="archive__item-header">
         {% if archive_image_path != "" %}
-          <figure class="archive__item-teaser">
-            <img class="archive__item-image u-photo" src="{{ archive_image_path | relative_url }}" alt="{{ archive_image_alt }}" loading="lazy">
+          <figure class="archive__item-teaser jcem-skeleton" data-jcem-skeleton-state="loading">
+            <img class="archive__item-image u-photo jcem-skeleton-asset" src="{{ archive_image_path | relative_url }}" alt="{{ archive_image_alt }}" loading="lazy" decoding="async">
           </figure>
         {% endif %}
         {% include jcem/post-date-flag.html post=post placement="archive" %}
