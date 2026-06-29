@@ -336,6 +336,34 @@ O evangelho eterno é a única mensagem de salvação imerecida e gratuita em Cr
 
 No fim, a pergunta não é se existe uma cruz antes da cruz. Existe. A pergunta é se há disposição para enxergá-la onde DEUS a desenhou: no Éden, na promessa, no altar, no sangue, no santuário, nas festas, nos profetas, na encarnação, no Calvário, no santuário celestial e no evangelho eterno que ainda deve ser proclamado a todo povo, tribo, língua e nação.
 
+## Princípios conclusivos
+
+Do exposto, alguns princípios se impõem.
+
+1. **A revelação divina deve ser lida como unidade**, pois a Escritura não apresenta Deus como autor de contradições, improvisos ou soluções provisórias.
+
+2. **O evangelho é eterno**. Ele não começa no Novo Testamento; é prometido desde o princípio, dramatizado no santuário e manifestado plenamente em Cristo.
+
+3. **Toda lei bíblica deve ser compreendida segundo sua origem, finalidade e destinatário**. Leis civis e penais dadas a Israel pertenciam ao contexto de uma nação teocrática específica; não são transplantadas diretamente como código político universal. Contudo, seus princípios de justiça, santidade e ordem permanecem instrutivos, pois procedem do mesmo Deus.
+
+4. **A lei cerimonial não se reduz aos ritos que a expressavam**. Os ritos eram procedimentos; a realidade revelada neles era normativa: sacrifício, sangue, expiação, sacerdócio, mediação, intercessão, juízo e purificação.
+
+5. **Os procedimentos levíticos cessaram como sombra**, mas os princípios redentivos que eles revelavam permanecem, agora exercidos por Cristo em sua realidade plena.
+
+6. **Cumprimento não é anulação**. Cristo não invalidou aquilo que a lei cerimonial anunciava; Ele realizou em Si mesmo aquilo que ela prefigurava.
+
+7. **A lei cerimonial permanece vigente em sua realidade antitípica**, não nos sacrifícios de animais, mas no sacrifício do verdadeiro Cordeiro; não no sacerdócio levítico, mas no sacerdócio celestial de Cristo; não na sombra terrestre, mas na realidade que ela anunciava. Declarar essa lei não vigente em sua essência é atingir a própria lógica do Calvário, pois é nela que Deus revelou a necessidade de sangue, expiação, mediação, sacerdócio e intercessão.
+
+8. **A cruz não encerra o ministério redentivo como se nada mais houvesse**, mas confirma o sacrifício perfeito e fundamenta o ministério sacerdotal, intercessório e judicial de Cristo no santuário celestial.
+
+9. **Hebreus, Paulo e Apocalipse só permanecem plenamente coerentes quando a linguagem cerimonial é preservada em sua realidade antitípica**, e não descartada como simples resíduo do passado.
+
+10. **Portanto, a lei cerimonial não deve ser tratada como apagada, anulada ou irrelevante**, mas como revelação tipológica do processo eterno da salvação: sua administração terrestre passou, mas sua realidade permanece viva em Cristo.
+
+11. **A Bíblia é um todo indivisível porque o evangelho é um só: o evangelho eterno**. As alianças podem aparecer na história sob renovações, sinais e administrações distintas, mas não revelam deuses diferentes, leis contraditórias ou evangelhos concorrentes. Em sua essência, a aliança é una, pois procede do mesmo Deus, expressa o mesmo caráter e conduz ao mesmo Cristo. Como no casamento, a restauração da aliança não exige a troca da lei que a rege, mas a renovação do vínculo sob a mesma fidelidade. Assim, a lei divina não é substituída por outra vontade; é escrita em outro lugar: não apenas em pedra, mas no coração.
+
+Assim, não defendemos a continuidade dos ritos levíticos, nem a transposição direta das leis civis e penais de Israel para todos os povos. Defendemos algo mais preciso: cada lei deve ser discernida segundo sua natureza, seu destinatário e sua finalidade. O cordeiro terreno cessou porque o Cordeiro verdadeiro veio; o sacerdócio levítico cedeu porque o Sumo Sacerdote eterno assumiu Seu ministério; a sombra deixou de ser o centro porque o corpo se manifestou. Mas a expiação, a mediação, a intercessão, o juízo e a esperança da salvação não cessaram. Permanecem em Cristo, por Cristo e para Cristo, pois nEle se encontra o verdadeiro cumprimento daquilo que Deus revelou desde o princípio.
+
 # Referências
 
 [^1]: Ap 14:6; cf. uso de _aiōnios_ no Novo Testamento e de _olam_ no Antigo Testamento em contextos de duração prolongada ou eternidade.
