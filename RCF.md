@@ -79,6 +79,7 @@ Escopo: carregamento inicial, loader global, recursos pesados, skeleton loading 
 - Todo componente elegível que dependa de asset potencialmente lento deve exibir automaticamente skeleton loading em CSS puro até que o asset esteja carregado ou falhe.
 - Componentes elegíveis incluem banners, imagens destacadas, cards, thumbnails, galerias, backgrounds visuais e componentes opt-in com `data-jcem-skeleton`.
 - Skeleton loading deve preservar o espaço do componente no fluxo sempre que a geometria do componente for conhecida por CSS ou marcação.
+- A base visual do skeleton deve permanecer visível durante todo o ciclo de animação; somente o brilho de varredura pode se deslocar.
 - Metadados de assets constituem camada opcional de otimização; o tema jamais deve depender deles para funcionar corretamente.
 - Quando disponíveis, metadados de assets devem ser usados para otimizar desempenho percebido, responsividade, reserva antecipada de espaço, estruturação automática de componentes e precisão do skeleton loading.
 - A geração de metadados de assets deve ocorrer automaticamente durante o build.
