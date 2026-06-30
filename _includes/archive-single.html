@@ -28,6 +28,7 @@
   {% assign archive_image_path = site.teaser %}
 {% endif %}
 {% assign archive_image_alt = post.featured_image.alt | default: post.header.image_description | default: post.title | markdownify | strip_html | strip_newlines | escape_once %}
+{% assign archive_image_meta = archive_image_path | jcem_asset_metadata %}
 {% assign archive_excerpt = post.excerpt | default: post.content %}
 
 <div class="{{ include.type | default: 'list' }}__item">
@@ -35,8 +36,8 @@
     <a class="archive__item-link u-url" href="{{ archive_url }}"{% unless post.link %} rel="permalink"{% endunless %}>
       <header class="archive__item-header">
         {% if archive_image_path != "" %}
-          <figure class="archive__item-teaser jcem-skeleton" data-jcem-skeleton-state="loading">
-            <img class="archive__item-image u-photo jcem-skeleton-asset" src="{{ archive_image_path | relative_url }}" alt="{{ archive_image_alt }}" loading="lazy" decoding="async">
+          <figure class="archive__item-teaser jcem-skeleton" data-jcem-skeleton-state="loading"{% if archive_image_meta.aspect_ratio_css %} data-jcem-asset-aspect-ratio="{{ archive_image_meta.aspect_ratio_css }}" style="--jcem-asset-aspect-ratio: {{ archive_image_meta.aspect_ratio_css }}"{% endif %}>
+            <img class="archive__item-image u-photo jcem-skeleton-asset" src="{{ archive_image_path | relative_url }}" alt="{{ archive_image_alt }}" loading="lazy" decoding="async"{% if archive_image_meta.width and archive_image_meta.height %} width="{{ archive_image_meta.width }}" height="{{ archive_image_meta.height }}"{% endif %}>
           </figure>
         {% endif %}
         {% include jcem/post-date-flag.html post=post placement="archive" %}

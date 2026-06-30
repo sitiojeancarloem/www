@@ -578,6 +578,10 @@ body > input.radio#jcem-theme-dark:checked ~ .main_jcem_wrapper {
 	overflow: hidden;
 }
 
+.main_jcem_wrapper .jcem-skeleton[data-jcem-asset-aspect-ratio] {
+	aspect-ratio: var(--jcem-asset-aspect-ratio);
+}
+
 .main_jcem_wrapper .jcem-skeleton::before {
 	content: '';
 	position: absolute;

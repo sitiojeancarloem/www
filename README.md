@@ -78,6 +78,13 @@ O loader inicial bloqueia apenas recursos essenciais: HTML, CSS, JavaScript de i
 
 Componentes elegíveis com assets potencialmente lentos usam skeleton loading em CSS puro. Cards, thumbnails e imagens destacadas já recebem a marcação automaticamente; componentes futuros podem optar pelo mesmo comportamento com `data-jcem-skeleton`.
 
+### Metadados de assets
+
+<!-- AI-PROCESSED -->
+Durante o build, `_plugins/jcem_asset_metadata.rb` gera metadados opcionais para imagens públicas e publica o índice consolidado em `assets/jcem/asset-metadata.json`. O cache incremental fica em `.jekyll-cache/jcem-asset-metadata.json`.
+
+Quando disponíveis, esses dados são usados para emitir `width`, `height` e proporção em imagens destacadas, cards e posts recentes. Sem o índice, a página continua funcional; o skeleton apenas usa a reserva genérica definida por CSS.
+
 ## Autores de artigos
 
 O bloco de autoria só é renderizado quando o post declara pelo menos uma entrada válida em `article_authors`. A ordem da lista define o autor principal e os coautores:

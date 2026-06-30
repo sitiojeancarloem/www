@@ -29,6 +29,7 @@ sitemap: false
   {%- elsif image_style == "full" or image_style == "full-width" or image_style == "bleed" -%}
     {%- assign image_style = "wide" -%}
   {%- endif -%}
+  {%- assign image_meta = image_path | jcem_asset_metadata -%}
   {
     "title": {{ post.title | markdownify | strip_html | strip_newlines | jsonify }},
     "url": {{ post.url | relative_url | jsonify }},
@@ -40,7 +41,10 @@ sitemap: false
     "words": {{ post.content | number_of_words | jsonify }},
     "image": {{ image_path | relative_url | jsonify }},
     "image_alt": {{ post.featured_image.alt | default: post.header.image_description | default: post.title | markdownify | strip_html | strip_newlines | jsonify }},
-    "image_style": {{ image_style | jsonify }}
+    "image_style": {{ image_style | jsonify }},
+    "image_width": {{ image_meta.width | default: nil | jsonify }},
+    "image_height": {{ image_meta.height | default: nil | jsonify }},
+    "image_aspect_ratio": {{ image_meta.aspect_ratio_css | default: nil | jsonify }}
   }{% unless forloop.last %},{% endunless %}
 {%- endfor -%}
 ]

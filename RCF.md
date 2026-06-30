@@ -79,6 +79,12 @@ Escopo: carregamento inicial, loader global, recursos pesados, skeleton loading 
 - Todo componente elegível que dependa de asset potencialmente lento deve exibir automaticamente skeleton loading em CSS puro até que o asset esteja carregado ou falhe.
 - Componentes elegíveis incluem banners, imagens destacadas, cards, thumbnails, galerias, backgrounds visuais e componentes opt-in com `data-jcem-skeleton`.
 - Skeleton loading deve preservar o espaço do componente no fluxo sempre que a geometria do componente for conhecida por CSS ou marcação.
+- Metadados de assets constituem camada opcional de otimização; o tema jamais deve depender deles para funcionar corretamente.
+- Quando disponíveis, metadados de assets devem ser usados para otimizar desempenho percebido, responsividade, reserva antecipada de espaço, estruturação automática de componentes e precisão do skeleton loading.
+- A geração de metadados de assets deve ocorrer automaticamente durante o build.
+- A geração deve ser incremental sempre que tecnicamente viável, evitando reprocessamento de assets não alterados.
+- O índice consolidado de metadados deve ser cacheável, possuir baixa latência e minimizar requisições HTTP.
+- Metadados incorporados diretamente ao arquivo original, como EXIF ou mecanismo equivalente, só devem ser gravados quando houver suporte seguro, preservação integral dos metadados existentes e ausência de impacto relevante no build.
 - A substituição do skeleton pelo conteúdo definitivo deve usar transição suave, sem flickering perceptível.
 - A implementação não deve introduzir mudança visual deliberada na identidade do componente carregado.
 - Indicadores de carregamento e progresso devem possuir contraste suficiente durante toda a exibição, inclusive em tema claro, tema escuro, telas de baixo brilho e conexões lentas.
@@ -90,8 +96,11 @@ Escopo: carregamento inicial, loader global, recursos pesados, skeleton loading 
 - `assets/jcem/ts/site.ts` libera a página após `DOMContentLoaded` e preparação leve dos fragmentos essenciais, sem aguardar `window.load`.
 - `assets/jcem/ts/site.ts` monitora imagens e backgrounds elegíveis, aplicando estados `loading`, `loaded` e `error` em `.jcem-skeleton`.
 - `_includes/archive-single.html` e `_includes/jcem/post-featured-image.html` marcam cards e imagens destacadas com skeleton server-side.
+- `_plugins/jcem_asset_metadata.rb` gera metadados opcionais de imagens, mantém cache incremental em `.jekyll-cache/jcem-asset-metadata.json` e publica índice consolidado em `assets/jcem/asset-metadata.json`.
+- `_includes/archive-single.html`, `_includes/jcem/post-featured-image.html` e `recent-posts.json` usam metadados disponíveis para emitir `width`, `height` e proporção sem criar dependência funcional.
 - `_sass/minimal-mistakes/skins/_variables-custom.scss` define tokens e animação de skeleton em CSS puro.
 - `404.html` mantém implementação local equivalente para loader, imagem destacada e cards recentes.
+- A implementação atual não grava EXIF nos arquivos originais porque a camada sidecar atende ao contrato com menor risco, sem nova dependência e sem mutação de assets autorais.
 
 ## Validação
 
@@ -99,6 +108,8 @@ Escopo: carregamento inicial, loader global, recursos pesados, skeleton loading 
 - A validação visual deve confirmar que o conteúdo permanece oculto antes dos recursos essenciais e visível após a liberação essencial.
 - A validação visual deve confirmar presença, geometria, pseudo-elemento e estado final dos skeletons em componentes elegíveis.
 - A validação visual deve confirmar geometria e contraste mínimo operacional da barra superior de progresso.
+- `npm run check` deve validar o extrator de metadados em imagens reais do repositório.
+- Build Jekyll deve confirmar a geração de `assets/jcem/asset-metadata.json` e o uso opcional dos metadados no HTML renderizado.
 
 <!-- AI-PROCESSED -->
 # RCF-JCEM-PUBLICACAO-001

@@ -1783,11 +1783,19 @@
 						if (image) {
 							const figure = element('figure', 'archive__item-teaser jcem-skeleton');
 							figure.dataset.jcemSkeletonState = 'loading';
+							if (post.image_aspect_ratio) {
+								figure.dataset.jcemAssetAspectRatio = String(post.image_aspect_ratio);
+								figure.style.setProperty('--jcem-asset-aspect-ratio', String(post.image_aspect_ratio));
+							}
 							const img = element('img', 'archive__item-image u-photo jcem-skeleton-asset');
 							img.src = image;
 							img.alt = String(post.image_alt || post.title);
 							img.loading = 'lazy';
 							img.decoding = 'async';
+							if (post.image_width && post.image_height) {
+								img.width = Number(post.image_width);
+								img.height = Number(post.image_height);
+							}
 							figure.append(img);
 							if (window.__jcemBindSkeletonImage) window.__jcemBindSkeletonImage(img);
 							header.append(figure);

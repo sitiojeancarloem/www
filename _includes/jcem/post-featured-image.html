@@ -19,11 +19,12 @@
 {% if image_path != "" %}
   {% assign image_alt = page.featured_image.alt | default: page.header.image_description | default: page.title | markdownify | strip_html | strip_newlines | escape_once %}
   {% assign image_caption = page.featured_image.caption | default: page.header.caption %}
-  <figure class="jcem-featured-image jcem-featured-image--{{ featured_style }} jcem-skeleton" data-jcem-skeleton-state="loading">
+  {% assign image_meta = image_path | jcem_asset_metadata %}
+  <figure class="jcem-featured-image jcem-featured-image--{{ featured_style }} jcem-skeleton" data-jcem-skeleton-state="loading"{% if image_meta.aspect_ratio_css %} data-jcem-asset-aspect-ratio="{{ image_meta.aspect_ratio_css }}" style="--jcem-asset-aspect-ratio: {{ image_meta.aspect_ratio_css }}"{% endif %}>
     {% if featured_style == "content" %}
       {% include jcem/post-date-flag.html placement="image" %}
     {% endif %}
-    <img class="jcem-featured-image__img u-photo jcem-skeleton-asset" src="{{ image_path | relative_url }}" alt="{{ image_alt }}" loading="lazy" decoding="async">
+    <img class="jcem-featured-image__img u-photo jcem-skeleton-asset" src="{{ image_path | relative_url }}" alt="{{ image_alt }}" loading="lazy" decoding="async"{% if image_meta.width and image_meta.height %} width="{{ image_meta.width }}" height="{{ image_meta.height }}"{% endif %}>
     {% if image_caption %}
       <figcaption class="jcem-featured-image__caption">{{ image_caption | markdownify | remove: "<p>" | remove: "</p>" }}</figcaption>
     {% endif %}

@@ -960,10 +960,18 @@ const createJcemRecentCard = (post) => {
         const figure = createJcemElement('figure', 'archive__item-teaser');
         const img = createJcemElement('img', 'archive__item-image u-photo jcem-skeleton-asset');
         setJcemSkeletonState(figure, 'loading');
+        if (post.image_aspect_ratio) {
+            figure.dataset.jcemAssetAspectRatio = post.image_aspect_ratio;
+            figure.style.setProperty('--jcem-asset-aspect-ratio', post.image_aspect_ratio);
+        }
         img.src = image;
         img.alt = String(post.image_alt || post.title);
         img.loading = 'lazy';
         img.decoding = 'async';
+        if (post.image_width && post.image_height) {
+            img.width = post.image_width;
+            img.height = post.image_height;
+        }
         figure.append(img);
         header.append(figure);
     }
