@@ -142,6 +142,9 @@ Escopo: publicação do site Jekyll no GitHub Pages, comandos locais, workflows 
 - `scripts/publish.rb` cria uma cópia temporária da origem, gera um commit novo para `gh-pages`, substitui o branch remoto com `--force-with-lease` e remove referência local de publicação quando existir com segurança.
 - `scripts/publish.ps1` e `scripts/publish.sh` são apenas wrappers do comando NPM.
 - `.github/workflows/jekyll.yml` aceita push em `gh-pages`, `workflow_dispatch` e push em `main` com `publicar`.
+- Push em `gh-pages` deve apenas reencaminhar a publicação para uma execução `workflow_dispatch` em `main`, porque o ambiente `github-pages` pode restringir deploys por branch.
+- Push em `main` sem `publicar` deve atualizar o cache coeso de `_site` no escopo de `main`, sem upload de artefato Pages e sem deploy.
+- O commit automático que remove `publicar` em `main` deve acionar o mesmo caminho de atualização de cache, sem marcador `[skip ci]`.
 - Publicações iniciadas por `workflow_dispatch` ou `publicar` criam `gh-pages` e continuam build/deploy no mesmo workflow, sem depender de novo evento de push.
 - `scripts/jekyll_build_scope.rb` decide entre build completo e incremental por diff Git quando disponível, ou por estado de fonte cacheado quando o branch temporário foi recriado.
 - `scripts/jekyll_build_manifest.rb` grava manifesto de `_site`, estado de build e estado de fonte para preservar coesão entre cache, commit e artefato publicado.

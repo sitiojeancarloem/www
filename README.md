@@ -23,7 +23,11 @@ npm run publish -- <commit>
 
 Sem commit explícito, a execução local publica a árvore de trabalho atual. Com commit explícito, publica exatamente aquele commit.
 
-Pela interface Web do GitHub, crie o arquivo raiz `publicar` contendo apenas o hash do commit. O workflow valida o hash, gera `gh-pages`, publica o site, valida os posts publicados, remove `gh-pages` e apaga `publicar` por commit automático.
+Pela interface Web do GitHub, crie o arquivo raiz `publicar` contendo apenas o hash do commit. O workflow valida o hash, gera `gh-pages`, publica o site, valida os posts publicados, remove `gh-pages` e apaga `publicar` por commit automático. O commit de remoção atualiza o cache de `main`, sem novo deploy.
+
+Push comum em `main`, sem `publicar`, não publica o site; apenas atualiza o cache coeso de `_site` usado pelas próximas execuções.
+
+Quando `gh-pages` receber push direto, o workflow reencaminha a publicação para uma execução em `main`, mantendo compatibilidade com regras do ambiente `github-pages` que restringem branches de deploy.
 
 ## Equações LaTeX
 
