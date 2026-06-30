@@ -11,6 +11,20 @@ npm run build:prod
 
 No Ruby 4, os scripts npm usam `scripts/jekyll_local.rb` e `scripts/jekyll_compat.rb` para carregar dependências internas do Jekyll/Liquid que não são resolvidas por autoload nesse ambiente.
 
+## Publicação
+
+<!-- AI-PROCESSED -->
+`main` é branch de desenvolvimento. Publicação ocorre pelo branch temporário `gh-pages`, gerado automaticamente:
+
+```bash
+npm run publish
+npm run publish -- <commit>
+```
+
+Sem commit explícito, a execução local publica a árvore de trabalho atual. Com commit explícito, publica exatamente aquele commit.
+
+Pela interface Web do GitHub, crie o arquivo raiz `publicar` contendo apenas o hash do commit. O workflow valida o hash, gera `gh-pages`, publica o site, valida os posts publicados, remove `gh-pages` e apaga `publicar` por commit automático.
+
 ## Equações LaTeX
 
 <!-- AI-PROCESSED -->

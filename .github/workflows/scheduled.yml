@@ -2,6 +2,7 @@ name: scheduled
 
 env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+  PUBLISH_BRANCH: gh-pages
 
 on:
   schedule:
@@ -34,6 +35,8 @@ jobs:
     steps:
       - name: Checkout código
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Resolve scheduled date
         id: date
@@ -69,6 +72,19 @@ jobs:
       - name: Stop when no posts are scheduled
         if: steps.posts.outputs.has_posts != 'true'
         run: echo "Nenhuma publicação agendada para $SCHEDULED_DATE."
+
+      - name: Create scheduled publication branch
+        if: steps.posts.outputs.has_posts == 'true'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: ruby scripts/publish.rb --branch "$PUBLISH_BRANCH"
+
+      - name: Checkout scheduled publication branch
+        if: steps.posts.outputs.has_posts == 'true'
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ env.PUBLISH_BRANCH }}
+          fetch-depth: 0
 
       - name: Install Ruby dependencies
         if: steps.posts.outputs.has_posts == 'true'
@@ -141,6 +157,17 @@ jobs:
           jq -r '.[].url' published-posts.json | while IFS= read -r url; do
             curl --fail --silent --show-error --location --retry 6 --retry-delay 10 "$url" > /dev/null
           done
+
+      - name: Delete scheduled publication branch
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PUBLISH_BRANCH: gh-pages
+        run: |
+          set -euo pipefail
+          git init cleanup
+          cd cleanup
+          git remote add origin "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+          git push origin --delete "$PUBLISH_BRANCH" || true
 
       - name: Checkout source
         uses: actions/checkout@v4

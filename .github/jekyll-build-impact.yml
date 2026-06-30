@@ -7,12 +7,15 @@ description: >
 cohesion:
   manifest: _site/.jcem-build-manifest.json
   state: .jekyll-cache/jcem-build-state.json
+  source_state: .jekyll-cache/jcem-source-state.json
   rule: >
     Nunca mesclar _site do checkout com _site do cache. Um _site local so e
     confiavel quando o manifesto versionado aponta para o commit atual e todos
     os arquivos listados existem com o hash esperado. Caso contrario, o _site
-    confiavel e o restaurado de cache do commit anterior; se ele nao existir,
-    executar build completo.
+    confiavel e o restaurado de cache do commit anterior. Quando o branch de
+    publicacao temporario for recriado sem base Git anterior, o estado de fonte
+    cacheado define se o cache restaurado ainda e reutilizavel; se ele nao
+    existir, executar build completo.
 
 impact:
   full_build:

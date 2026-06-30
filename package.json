@@ -17,6 +17,7 @@
 		"import:wxr": "node importador/reconstruct-wxr.mjs --write",
 		"import:media:plan": "node importador/media-recovery.mjs --plan",
 		"import:media": "node importador/media-recovery.mjs --run",
+		"publish": "ruby scripts/publish.rb",
 		"playwright:install": "cross-env PLAYWRIGHT_CHROMIUM_DOWNLOAD_HOST=https://cdn.playwright.dev npx playwright install chromium",
 		"playwright:install:esrp": "cross-env PLAYWRIGHT_CHROMIUM_DOWNLOAD_HOST=https://playwright.download.prss.microsoft.com/dbazure/download/playwright npx playwright install chromium",
 		"validate:visual": "node scripts/validate-visual.js",

@@ -3,13 +3,21 @@ name: Customizado Jekyll
 env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
   CI_TOTAL_TIMEOUT_SECONDS: 600
+  PUBLISH_BRANCH: gh-pages
+  CONTROL_FILE: publicar
 
 on:
   push:
     branches:
-      - main # O branch main contem o codigo-fonte do site.
+      - main
+      - gh-pages
 
-  workflow_dispatch: # Permite execução manual (Actions > Run workflow)
+  workflow_dispatch:
+    inputs:
+      commit:
+        description: 'Commit opcional a publicar'
+        required: false
+        type: string
 
 permissions:
   contents: write
@@ -21,9 +29,79 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  jekyll:
-    if: github.ref == 'refs/heads/main' # Segurança extra
+  prepare:
     runs-on: ubuntu-latest
+    outputs:
+      should_publish: ${{ steps.context.outputs.should_publish }}
+      branch: ${{ steps.context.outputs.branch }}
+      checkout_ref: ${{ steps.context.outputs.checkout_ref }}
+      before: ${{ steps.context.outputs.before }}
+      head: ${{ steps.context.outputs.head }}
+      source_sha: ${{ steps.context.outputs.source_sha }}
+      source_label: ${{ steps.context.outputs.source_label }}
+      changed_posts_file: ${{ steps.context.outputs.changed_posts_file }}
+      cleanup_control_file: ${{ steps.context.outputs.cleanup_control_file }}
+
+    steps:
+      - name: Checkout codigo
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Resolve publication context
+        id: context
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          emit_direct_context() {
+            echo "should_publish=true" >> "$GITHUB_OUTPUT"
+            echo "branch=$PUBLISH_BRANCH" >> "$GITHUB_OUTPUT"
+            echo "checkout_ref=$PUBLISH_BRANCH" >> "$GITHUB_OUTPUT"
+            echo "before=${{ github.event.before }}" >> "$GITHUB_OUTPUT"
+            echo "head=${{ github.sha }}" >> "$GITHUB_OUTPUT"
+            echo "source_sha=" >> "$GITHUB_OUTPUT"
+            echo "source_label=published-branch" >> "$GITHUB_OUTPUT"
+            echo "changed_posts_file=.jcem-published-posts.txt" >> "$GITHUB_OUTPUT"
+            echo "cleanup_control_file=false" >> "$GITHUB_OUTPUT"
+          }
+
+          if [ "${{ github.event_name }}" = "push" ] && [ "${{ github.ref }}" = "refs/heads/$PUBLISH_BRANCH" ]; then
+            emit_direct_context
+            exit 0
+          fi
+
+          if [ "${{ github.event_name }}" = "push" ] && [ "${{ github.ref }}" = "refs/heads/main" ] && [ ! -f "$CONTROL_FILE" ]; then
+            echo "should_publish=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          git fetch --all --prune
+
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            source_commit="${{ inputs.commit }}"
+            if [ -z "$source_commit" ]; then
+              source_commit="${{ github.sha }}"
+            fi
+            cleanup_control_file=false
+          else
+            source_commit="$(tr -d '\r' < "$CONTROL_FILE" | sed -n '/[^[:space:]]/ {s/^[[:space:]]*//;s/[[:space:]]*$//;p;q;}')"
+            if [ -z "$source_commit" ]; then
+              echo "::error::Arquivo $CONTROL_FILE sem hash de commit."
+              exit 1
+            fi
+            cleanup_control_file=true
+          fi
+
+          ruby scripts/publish.rb --commit "$source_commit" --branch "$PUBLISH_BRANCH"
+          echo "cleanup_control_file=$cleanup_control_file" >> "$GITHUB_OUTPUT"
+
+  jekyll:
+    if: needs.prepare.outputs.should_publish == 'true'
+    runs-on: ubuntu-latest
+    needs: prepare
     timeout-minutes: 10
     outputs:
       has_posts: ${{ steps.posts.outputs.has_posts }}
@@ -31,9 +109,10 @@ jobs:
       posts_json: ${{ steps.posts.outputs.posts_json }}
 
     steps:
-      - name: Checkout código
+      - name: Checkout codigo
         uses: actions/checkout@v4
         with:
+          ref: ${{ needs.prepare.outputs.checkout_ref }}
           fetch-depth: 0
 
       - name: Configure GitHub Pages
@@ -82,27 +161,19 @@ jobs:
         continue-on-error: true
         run: ruby scripts/ci_timed_step.rb "Install Playwright browser" 180 -- npx playwright install chromium --with-deps
 
-      - name: Detect build scope
-        id: build_scope
-        env:
-          BEFORE: ${{ github.event.before }}
-          HEAD: ${{ github.sha }}
-          EVENT_NAME: ${{ github.event_name }}
-        run: ruby scripts/ci_timed_step.rb "Detect build scope" 30 -- ruby scripts/jekyll_build_scope.rb detect
-
       - name: Check committed _site cohesion
         id: committed_site
         env:
-          HEAD: ${{ github.sha }}
+          HEAD: ${{ needs.prepare.outputs.head }}
         run: ruby scripts/ci_timed_step.rb "Check committed _site cohesion" 30 -- ruby scripts/jekyll_build_scope.rb local
 
       - name: Remove non-cohesive checkout render
-        if: steps.build_scope.outputs.mode == 'incremental' && steps.committed_site.outputs.trusted != 'true'
+        if: steps.committed_site.outputs.trusted != 'true'
         run: ruby scripts/ci_timed_step.rb "Remove non-cohesive checkout render" 30 -- rm -rf _site .jekyll-cache .jekyll-metadata .sass-cache
 
       - name: Restore Jekyll render cache
         id: render_cache
-        if: steps.build_scope.outputs.mode == 'incremental' && steps.committed_site.outputs.trusted != 'true'
+        if: steps.committed_site.outputs.trusted != 'true'
         uses: actions/cache@v4
         with:
           path: |
@@ -110,27 +181,41 @@ jobs:
             .jekyll-cache
             .jekyll-metadata
             .sass-cache
-          key: jekyll-render-${{ runner.os }}-${{ github.ref_name }}-${{ github.sha }}
+          key: jekyll-render-${{ runner.os }}-${{ env.PUBLISH_BRANCH }}-${{ needs.prepare.outputs.head }}
           restore-keys: |
-            jekyll-render-${{ runner.os }}-${{ github.ref_name }}-
+            jekyll-render-${{ runner.os }}-${{ env.PUBLISH_BRANCH }}-
+
+      - name: Detect build scope
+        id: build_scope
+        env:
+          BEFORE: ${{ needs.prepare.outputs.before }}
+          HEAD: ${{ needs.prepare.outputs.head }}
+        run: ruby scripts/ci_timed_step.rb "Detect build scope" 30 -- ruby scripts/jekyll_build_scope.rb detect
 
       - name: Resolve _site cohesion
         id: cohesion
         env:
           TENTATIVE_MODE: ${{ steps.build_scope.outputs.mode }}
           TENTATIVE_REASON: ${{ steps.build_scope.outputs.reason }}
-          BEFORE: ${{ github.event.before }}
-          HEAD: ${{ github.sha }}
+          BEFORE: ${{ needs.prepare.outputs.before }}
+          HEAD: ${{ needs.prepare.outputs.head }}
         run: ruby scripts/ci_timed_step.rb "Resolve _site cohesion" 30 -- ruby scripts/jekyll_build_scope.rb resolve
 
       - name: Detect published posts
         id: posts
         run: |
-          ruby scripts/ci_timed_step.rb "Detect published posts" 45 -- ruby scripts/collect_published_posts.rb \
-              --diff-base "${{ github.event.before }}" \
-              --diff-head "${{ github.sha }}" \
-              --site-url "${{ steps.pages.outputs.base_url }}" \
-              --out published-posts.json
+          if [ -f "${{ needs.prepare.outputs.changed_posts_file }}" ]; then
+            ruby scripts/ci_timed_step.rb "Detect published posts" 45 -- ruby scripts/collect_published_posts.rb \
+                --files-file "${{ needs.prepare.outputs.changed_posts_file }}" \
+                --site-url "${{ steps.pages.outputs.base_url }}" \
+                --out published-posts.json
+          else
+            ruby scripts/ci_timed_step.rb "Detect published posts" 45 -- ruby scripts/collect_published_posts.rb \
+                --diff-base "${{ needs.prepare.outputs.before }}" \
+                --diff-head "${{ needs.prepare.outputs.head }}" \
+                --site-url "${{ steps.pages.outputs.base_url }}" \
+                --out published-posts.json
+          fi
 
       - name: Build Jekyll site
         if: steps.cohesion.outputs.mode != 'trusted_site'
@@ -150,7 +235,7 @@ jobs:
       - name: Write _site cohesion manifest
         if: steps.cohesion.outputs.mode != 'trusted_site'
         env:
-          SOURCE_SHA: ${{ github.sha }}
+          SOURCE_SHA: ${{ needs.prepare.outputs.head }}
           BUILD_MODE: ${{ steps.cohesion.outputs.mode }}
           BUILD_REASON: ${{ steps.cohesion.outputs.reason }}
         run: ruby scripts/ci_timed_step.rb "Write _site cohesion manifest" 45 -- ruby scripts/jekyll_build_manifest.rb write
@@ -178,9 +263,11 @@ jobs:
           if-no-files-found: ignore
 
   deploy:
-    if: github.ref == 'refs/heads/main'
+    if: needs.prepare.outputs.should_publish == 'true'
     runs-on: ubuntu-latest
-    needs: jekyll
+    needs:
+      - prepare
+      - jekyll
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
@@ -217,3 +304,41 @@ jobs:
                 posts
               }
             });
+
+  cleanup:
+    if: needs.deploy.result == 'success'
+    runs-on: ubuntu-latest
+    needs:
+      - prepare
+      - deploy
+    steps:
+      - name: Delete publication branch
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          git init cleanup
+          cd cleanup
+          git remote add origin "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+          git push origin --delete "$PUBLISH_BRANCH" || true
+
+      - name: Checkout main for control cleanup
+        if: needs.prepare.outputs.cleanup_control_file == 'true'
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Remove publication control file
+        if: needs.prepare.outputs.cleanup_control_file == 'true'
+        run: |
+          set -euo pipefail
+          if [ ! -f "$CONTROL_FILE" ]; then
+            exit 0
+          fi
+          rm -f "$CONTROL_FILE"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add "$CONTROL_FILE"
+          git commit -m "Remove pedido de publicacao [skip ci]"
+          git push

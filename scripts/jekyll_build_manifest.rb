@@ -11,6 +11,8 @@ ROOT = File.expand_path("..", __dir__)
 SITE_DIR = File.join(ROOT, "_site")
 MANIFEST_PATH = File.join(SITE_DIR, ".jcem-build-manifest.json")
 STATE_PATH = File.join(ROOT, ".jekyll-cache", "jcem-build-state.json")
+SOURCE_STATE_PATH = File.join(ROOT, ".jekyll-cache", "jcem-source-state.json")
+IGNORED_SOURCE_STATE_FILES = [".jcem-publication.json", ".jcem-published-posts.txt"].freeze
 
 def git_head
   stdout, _stderr, status = Open3.capture3("git", "rev-parse", "HEAD", chdir: ROOT)
@@ -28,6 +30,20 @@ end
 
 def file_digest(relative_path)
   Digest::SHA256.file(File.join(SITE_DIR, relative_path)).hexdigest
+end
+
+def source_files
+  stdout, stderr, status = Open3.capture3("git", "ls-files", "-z", chdir: ROOT)
+  raise "git ls-files failed: #{stderr}" unless status.success?
+
+  stdout
+    .split("\0")
+    .reject { |path| path.empty? || IGNORED_SOURCE_STATE_FILES.include?(path) }
+    .sort
+end
+
+def source_file_digest(relative_path)
+  Digest::SHA256.file(File.join(ROOT, relative_path)).hexdigest
 end
 
 def write_manifest
@@ -66,9 +82,21 @@ def write_manifest
       }
     )
   )
+  File.write(
+    SOURCE_STATE_PATH,
+    JSON.pretty_generate(
+      {
+        "version" => 1,
+        "source_sha" => source_sha,
+        "created_at" => manifest["created_at"],
+        "files" => source_files.to_h { |path| [path, source_file_digest(path)] }
+      }
+    )
+  )
 
   puts "manifest=#{MANIFEST_PATH}"
   puts "state=#{STATE_PATH}"
+  puts "source_state=#{SOURCE_STATE_PATH}"
   puts "complete=#{complete}"
 end
 
