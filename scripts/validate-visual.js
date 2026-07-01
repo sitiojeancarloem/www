@@ -994,6 +994,22 @@ const validatePage = async (page, url, theme, viewportName) => {
 					: true,
 			};
 		});
+		const footerRegion =
+			Array.from(
+				document.querySelectorAll('.page__footer .jcem-footer-region'),
+			).find((region) => visible(region)) ||
+			document.querySelector('.page__footer .jcem-footer-region');
+		const footerRegionRect = footerRegion?.getBoundingClientRect();
+		const footerRegionStyle = footerRegion
+			? window.getComputedStyle(footerRegion)
+			: null;
+		const footerRegionOverflowX = footerRegionRect
+			? Math.max(
+					0,
+					footerRegionRect.right - window.innerWidth,
+					0 - footerRegionRect.left,
+				)
+			: 0;
 
 		return {
 			overflowX: document.documentElement.scrollWidth - document.documentElement.clientWidth,
@@ -1022,6 +1038,33 @@ const validatePage = async (page, url, theme, viewportName) => {
 				logoImg: rectInfo('.site-logo img'),
 				theme: rectInfo('.jcem-theme-toggle'),
 				navToggle: rectInfo('.jcem-nav-toggle'),
+			},
+			footer: {
+				hasRegion: Boolean(footerRegion),
+				display: footerRegionStyle?.display || '',
+				gridColumns: footerRegionStyle?.gridTemplateColumns || '',
+				overflowX: footerRegionOverflowX,
+				logoCount: document.querySelectorAll(
+					'.page__footer .jcem-footer-region__logo img',
+				).length,
+				socialCount: document.querySelectorAll(
+					'.page__footer .jcem-footer-region__social .social-icons a',
+				).length,
+				actionLinkCount: document.querySelectorAll(
+					'.page__footer .jcem-footer-region__links a',
+				).length,
+				categoryCount: document.querySelectorAll(
+					'.page__footer #jcem-footer-categories ~ ul a, .page__footer [id^="jcem-footer-categories-"] ~ ul a',
+				).length,
+				tagCount: document.querySelectorAll(
+					'.page__footer #jcem-footer-tags ~ ul a, .page__footer [id^="jcem-footer-tags-"] ~ ul a',
+				).length,
+				oldFooterFollowCount: document.querySelectorAll(
+					'.page__footer > footer > .page__footer-follow:not(.jcem-footer-region__social)',
+				).length,
+				copyrightCount: document.querySelectorAll(
+					'.page__footer > footer > .page__footer-copyright',
+				).length,
 			},
 			post: {
 				article: boxInfo('article.page'),
@@ -1233,6 +1276,25 @@ const validatePage = async (page, url, theme, viewportName) => {
 
 	if (result.overflowX > 2) {
 		fail(`Overflow horizontal em ${url} ${theme} ${viewportName}: ${result.overflowX}px`);
+	}
+
+	if (
+		!result.footer.hasRegion ||
+		result.footer.logoCount < 1 ||
+		result.footer.socialCount < 5 ||
+		result.footer.actionLinkCount < 4 ||
+		result.footer.categoryCount < 1 ||
+		result.footer.tagCount < 1
+	) {
+		fail(`Regiao complementar do footer incompleta em ${url} ${theme} ${viewportName}: ${JSON.stringify(result.footer)}`);
+	}
+
+	if (result.footer.oldFooterFollowCount > 0 || result.footer.copyrightCount > 0) {
+		fail(`Footer antigo duplicado em ${url} ${theme} ${viewportName}: ${JSON.stringify(result.footer)}`);
+	}
+
+	if (result.footer.overflowX > 2) {
+		fail(`Regiao complementar do footer com overflow em ${url} ${theme} ${viewportName}: ${JSON.stringify(result.footer)}`);
 	}
 
 	if (result.archive.badResponsiveCardCount > 0) {
@@ -1894,6 +1956,7 @@ const validateNoScriptPage = async (page, url, viewportName) => {
 		const featuredStyle = featured ? window.getComputedStyle(featured) : null;
 		const featuredImageStyle = featuredImage ? window.getComputedStyle(featuredImage) : null;
 		const footerStyle = footer ? window.getComputedStyle(footer) : null;
+		const footerRegion = footer?.querySelector('.jcem-footer-region');
 		const wrapperStyle = wrapper ? window.getComputedStyle(wrapper) : null;
 		const loaderStyle = loader ? window.getComputedStyle(loader) : null;
 
@@ -1908,6 +1971,23 @@ const validateNoScriptPage = async (page, url, viewportName) => {
 					: 0,
 			hasFooter: visible(footer),
 			footerMarginTop: Number.parseFloat(footerStyle?.marginTop || '0'),
+			footerRegion: {
+				visible: visible(footerRegion),
+				logoCount:
+					footer?.querySelectorAll('.jcem-footer-region__logo img').length ||
+					0,
+				socialCount:
+					footer?.querySelectorAll(
+						'.jcem-footer-region__social .social-icons a',
+					).length || 0,
+				categoryCount:
+					footer?.querySelectorAll('.jcem-footer-region__taxonomy a').length ||
+					0,
+				oldFooterFollowCount:
+					footer?.querySelectorAll(
+						':scope > footer > .page__footer-follow:not(.jcem-footer-region__social)',
+					).length || 0,
+			},
 			hasFeatured: visible(featured),
 			featuredHeight: featuredRect?.height || 0,
 			featuredBg: featuredStyle?.backgroundColor || '',
@@ -1946,6 +2026,16 @@ const validateNoScriptPage = async (page, url, viewportName) => {
 
 	if (result.footerMarginTop < 32) {
 		fail(`Footer noscript sem espacamento do tema em ${url} ${viewportName}`);
+	}
+
+	if (
+		!result.footerRegion.visible ||
+		result.footerRegion.logoCount < 1 ||
+		result.footerRegion.socialCount < 5 ||
+		result.footerRegion.categoryCount < 2 ||
+		result.footerRegion.oldFooterFollowCount > 0
+	) {
+		fail(`Footer noscript sem regiao complementar equivalente em ${url} ${viewportName}: ${JSON.stringify(result.footerRegion)}`);
 	}
 
 	if (

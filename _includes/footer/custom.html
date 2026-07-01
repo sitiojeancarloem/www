@@ -117,6 +117,10 @@ Toda otimização deve preservar o equilíbrio entre:
 evitando tanto excesso redundante quanto simplificação que reduza a eficácia do aviso.
 -->
 
+{% assign jcem_footer_region_position = site.jcem.footer_region_position | default: 'after_legal' %}
+{% if jcem_footer_region_position == 'before_legal' %}
+	{% include footer/jcem-region.html %}
+{% endif %}
 <div class="jcem-foot">
 	<!-- AI-PROCESSED: conteúdo legal do rodapé reestruturado semanticamente. -->
 	<p>
@@ -246,3 +250,6 @@ evitando tanto excesso redundante quanto simplificação que reduza a eficácia 
 
 	<!-- end custom footer snippets -->
 </div>
+{% unless jcem_footer_region_position == 'before_legal' %}
+	{% include footer/jcem-region.html %}
+{% endunless %}

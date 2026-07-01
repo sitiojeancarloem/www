@@ -124,45 +124,6 @@
 	>
 		<footer>
 			{% include footer/custom.html %}
-			<div class="page__footer-follow">
-				<ul class="social-icons">
-					<li><strong>Siga:</strong></li>
-					{%- for link in site.footer.links -%} {%- if link.url -%}
-					<li>
-						<a
-							href="{{ link.url }}"
-							rel="nofollow noopener noreferrer"
-							><i
-								class="{{ link.icon | default: 'fas fa-fw fa-link' }}"
-								aria-hidden="true"
-							></i>
-							{{ link.label }}</a
-						>
-					</li>
-					{%- endif -%} {%- endfor -%}
-					<li>
-						<a href="{{ '/feed.xml' | relative_url }}"
-							><i
-								class="fas fa-fw fa-square-rss"
-								aria-hidden="true"
-							></i>
-							Feed</a
-						>
-					</li>
-				</ul>
-			</div>
-			<div class="page__footer-copyright">
-				&copy; {{ site.footer.since | default: '2014' }} - {{ "now" |
-				date: "%Y" }}
-				<a href="{{ site.url | default: '/' }}">JeanCarloEM</a>.
-				Desenvolvido com
-				<a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp;
-				<a
-					href="https://mademistakes.com/work/jekyll-themes/minimal-mistakes/"
-					rel="nofollow"
-					>Minimal Mistakes</a
-				>.
-			</div>
 		</footer>
 		{% include footer/after_footer.html %}
 	</div>

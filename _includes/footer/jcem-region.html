@@ -1,0 +1,77 @@
+{% assign locale = include.locale | default: site.locale %}
+{% assign footer_categories = site.categories | sort %}
+{% assign footer_tags = site.tags | sort %}
+{% assign footer_logo = site.logo | default: '/assets/jcem/img/logo-animado.gif' %}
+{% unless site.atom_feed.hide %}
+	{% assign footer_show_atom = true %}
+{% endunless %}
+<section class="jcem-footer-region" aria-label="Navegação complementar do rodapé">
+	<div class="jcem-footer-region__brand">
+		<a class="jcem-footer-region__logo" href="{{ '/' | relative_url }}" aria-label="{{ site.title | default: 'JeanCarloEM' | escape_once }}">
+			<img src="{{ footer_logo | relative_url }}" alt="{{ site.title | default: 'JeanCarloEM' | escape_once }}" />
+		</a>
+		{% if site.footer.links or footer_show_atom %}
+			<div class="page__footer-follow jcem-footer-region__social">
+				<ul class="social-icons">
+					{% if site.data.ui-text[locale].follow_label %}
+						<li><strong>{{ site.data.ui-text[locale].follow_label }}</strong></li>
+					{% endif %}
+					{% for link in site.footer.links %}
+						{% if link.label and link.url %}
+							<li>
+								<a href="{{ link.url }}" rel="nofollow noopener noreferrer{% if link.rel %} {{ link.rel }}{% endif %}">
+									<i class="{{ link.icon | default: 'fas fa-link' }}" aria-hidden="true"></i>
+									<span>{{ link.label | escape_once | strip }}</span>
+								</a>
+							</li>
+						{% endif %}
+					{% endfor %}
+					{% if footer_show_atom %}
+						<li>
+							<a href="{% if site.atom_feed.path %}{{ site.atom_feed.path }}{% else %}{{ '/feed.xml' | relative_url }}{% endif %}">
+								<i class="fas fa-fw fa-square-rss" aria-hidden="true"></i>
+								<span>{{ site.data.ui-text[locale].feed_label | default: 'Feed' }}</span>
+							</a>
+						</li>
+					{% endif %}
+				</ul>
+			</div>
+		{% endif %}
+		<nav class="jcem-footer-region__links" aria-label="Links do rodapé">
+			<a href="{{ '/sobre/' | relative_url }}">Sobre</a>
+			<a href="{% if site.atom_feed.path %}{{ site.atom_feed.path }}{% else %}{{ '/feed.xml' | relative_url }}{% endif %}">Feed RSS</a>
+			<a href="{{ '/recent-posts.json' | relative_url }}">Feed JSON</a>
+			<a href="{{ '/' | relative_url }}">Todos os Artigos</a>
+		</nav>
+	</div>
+
+	<nav class="jcem-footer-region__taxonomies" aria-label="Taxonomias do rodapé">
+		{% if footer_categories != empty %}
+			<section class="jcem-footer-region__taxonomy" aria-labelledby="jcem-footer-categories">
+				<h2 id="jcem-footer-categories">Categorias</h2>
+				<ul>
+					{% for item in footer_categories limit: 9 %}
+						{% assign item_name = item[0] %}
+						<li>
+							<a href="{{ site.category_archive.path | default: '/c/' | relative_url }}#{{ item_name | slugify }}">{{ item_name }}</a>
+						</li>
+					{% endfor %}
+				</ul>
+			</section>
+		{% endif %}
+
+		{% if footer_tags != empty %}
+			<section class="jcem-footer-region__taxonomy" aria-labelledby="jcem-footer-tags">
+				<h2 id="jcem-footer-tags">Assuntos</h2>
+				<ul>
+					{% for item in footer_tags limit: 15 %}
+						{% assign item_name = item[0] %}
+						<li>
+							<a href="{{ site.tag_archive.path | default: '/t/' | relative_url }}#{{ item_name | slugify }}">{{ item_name }}</a>
+						</li>
+					{% endfor %}
+				</ul>
+			</section>
+		{% endif %}
+	</nav>
+</section>
