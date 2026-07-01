@@ -1,0 +1,24 @@
+{% assign groups = include.groups | default: empty %}
+{% if groups != empty %}
+	<nav class="jcem-mapa__nav" aria-labelledby="jcem-mapa-nav-title">
+		<h2 id="jcem-mapa-nav-title">Pontos principais</h2>
+		<div class="jcem-mapa__nav-grid">
+			{% for group in groups %}
+				<section class="jcem-mapa__nav-group" aria-labelledby="jcem-mapa-nav-{{ forloop.index }}">
+					<h3 id="jcem-mapa-nav-{{ forloop.index }}">{{ group.title }}</h3>
+					<ul>
+						{% for link in group.links %}
+							<li>
+								{% if link.url contains '://' %}
+									<a href="{{ link.url }}">{{ link.title }}</a>
+								{% else %}
+									<a href="{{ link.url | relative_url }}">{{ link.title }}</a>
+								{% endif %}
+							</li>
+						{% endfor %}
+					</ul>
+				</section>
+			{% endfor %}
+		</div>
+	</nav>
+{% endif %}

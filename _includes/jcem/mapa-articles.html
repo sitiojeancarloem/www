@@ -1,0 +1,25 @@
+{% assign posts = include.posts | default: empty %}
+{% if posts != empty %}
+	<section class="jcem-mapa__articles" aria-labelledby="jcem-mapa-articles-title">
+		<div class="jcem-mapa__section-heading">
+			<h2 id="jcem-mapa-articles-title">Artigos</h2>
+			<p>{{ include.total }} artigos publicados{% if include.page_count > 1 %}; página {{ include.page }} de {{ include.page_count }}{% endif %}.</p>
+		</div>
+		<ol class="jcem-mapa__article-list">
+			{% for post in posts %}
+				{% assign global_index = include.offset | default: 0 | plus: forloop.index0 %}
+				{% assign rhythm = global_index | modulo: 7 %}
+				{% assign article_title = post.title | markdownify | strip_html | strip_newlines %}
+				{% assign article_excerpt = post.excerpt | default: post.content | markdownify | strip_html | normalize_whitespace | truncate: 220 %}
+				<li class="jcem-mapa__article-item{% if rhythm == 0 %} jcem-mapa__article-item--wide{% endif %}">
+					<article class="jcem-mapa__article" itemscope itemtype="https://schema.org/BlogPosting">
+						<h3 itemprop="headline">
+							<a href="{{ post.url | relative_url }}" itemprop="url">{{ article_title }}</a>
+						</h3>
+						<p itemprop="description">{{ article_excerpt }}</p>
+					</article>
+				</li>
+			{% endfor %}
+		</ol>
+	</section>
+{% endif %}

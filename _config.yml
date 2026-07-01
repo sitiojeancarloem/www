@@ -39,6 +39,10 @@ copyright: # "copyright" name, defaults to site.title
 copyright_url: # "copyright" URL, defaults to site.url
 jcem:
   blockquote_panels: true
+  footer_region_position: after_legal
+  mapa:
+    path: /mapa/
+    posts_per_page: 50
 comments:
   provider: false (default)#, "disqus", "discourse", "facebook", "staticman", "staticman_v2", "utterances", "giscus", "custom"
   disqus:

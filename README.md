@@ -107,6 +107,22 @@ article_authors:
 
 O primeiro autor recebe o painel principal. Autores seguintes usam composição compacta; com três ou mais autores, os coautores passam para uma grade responsiva mais densa.
 
+## Mapa HTML do site
+
+<!-- AI-PROCESSED -->
+`/mapa/` é a versão HTML indexável do sitemap do blog. A página é gerada automaticamente por `_plugins/jcem_site_map.rb`, usa o layout `_layouts/mapa.html` e lista navegação principal, taxonomias e artigos publicados sem imagens.
+
+Configuração global:
+
+```yaml
+jcem:
+  mapa:
+    path: /mapa/
+    posts_per_page: 50
+```
+
+Cada item de artigo exibe somente título, excerto e link. A paginação usa `posts_per_page` e cria rotas como `/mapa/2/` quando o volume de posts excede o limite configurado.
+
 ## Compactação HTML
 
 Builds de produção executam `_plugins/jcem_html_compactor.rb` depois da escrita do site. O hook remove linhas vazias e margens de linha do HTML final, inclusive do `404.html`, mas preserva byte a byte o conteúdo interno de `script`, `style`, `pre`, `textarea` e `template`.

@@ -1,0 +1,28 @@
+{% assign mapa = include.mapa %}
+{% if mapa.page_count > 1 %}
+	<nav class="jcem-mapa__pagination" aria-label="Paginação do mapa do site">
+		{% if mapa.prev_url %}
+			<a rel="prev" href="{{ mapa.prev_url | relative_url }}">Anterior</a>
+		{% else %}
+			<span aria-disabled="true">Anterior</span>
+		{% endif %}
+		<ol>
+			{% for index in (1..mapa.page_count) %}
+				<li>
+					{% if index == mapa.page %}
+						<span aria-current="page">{{ index }}</span>
+					{% elsif index == 1 %}
+						<a href="{{ mapa.path | relative_url }}">{{ index }}</a>
+					{% else %}
+						<a href="{{ mapa.path | append: index | append: '/' | relative_url }}">{{ index }}</a>
+					{% endif %}
+				</li>
+			{% endfor %}
+		</ol>
+		{% if mapa.next_url %}
+			<a rel="next" href="{{ mapa.next_url | relative_url }}">Próxima</a>
+		{% else %}
+			<span aria-disabled="true">Próxima</span>
+		{% endif %}
+	</nav>
+{% endif %}

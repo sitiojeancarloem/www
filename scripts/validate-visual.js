@@ -11,7 +11,7 @@ const artifactDir = path.resolve(process.env.VISUAL_ARTIFACT_DIR || 'visual-arti
 const visualValidationStrict = !['0', 'false', 'no', 'advisory'].includes(
 	String(process.env.VISUAL_VALIDATION_STRICT || 'true').toLowerCase(),
 );
-const pages = ['/', '/sobre/', '/p/devaneios/'];
+const pages = ['/', '/sobre/', '/p/devaneios/', '/mapa/'];
 const themes = ['dark', 'light'];
 const notFoundPage = '/rota-inexistente-codex/';
 const viewports = [
@@ -630,8 +630,12 @@ const validatePage = async (page, url, theme, viewportName) => {
 	}
 
 	const result = await page.evaluate((expectedPanelImage) => {
-		const visible = (selector) =>
-			Array.from(document.querySelectorAll(selector)).filter((node) => {
+		const visible = (selectorOrNode) =>
+			Array.from(
+				selectorOrNode instanceof Element
+					? [selectorOrNode]
+					: document.querySelectorAll(selectorOrNode),
+			).filter((node) => {
 				const rect = node.getBoundingClientRect();
 				const style = window.getComputedStyle(node);
 				return rect.width > 1 && rect.height > 1 && style.display !== 'none' && style.visibility !== 'hidden';
@@ -1010,6 +1014,18 @@ const validatePage = async (page, url, theme, viewportName) => {
 					0 - footerRegionRect.left,
 				)
 			: 0;
+		const siteMap = document.querySelector('.jcem-mapa');
+		const siteMapArticleList = siteMap?.querySelector('.jcem-mapa__article-list');
+		const siteMapArticleListStyle = siteMapArticleList
+			? window.getComputedStyle(siteMapArticleList)
+			: null;
+		const siteMapArticleItems = Array.from(
+			siteMap?.querySelectorAll('.jcem-mapa__article-item') || [],
+		);
+		const siteMapArticleOverflowCount = siteMapArticleItems.filter((item) => {
+			const rect = item.getBoundingClientRect();
+			return rect.left < -1 || rect.right > window.innerWidth + 1;
+		}).length;
 
 		return {
 			overflowX: document.documentElement.scrollWidth - document.documentElement.clientWidth,
@@ -1053,6 +1069,11 @@ const validatePage = async (page, url, theme, viewportName) => {
 				actionLinkCount: document.querySelectorAll(
 					'.page__footer .jcem-footer-region__links a',
 				).length,
+				mapLinkHref:
+					Array.from(
+						document.querySelectorAll('.page__footer .jcem-footer-region__links a'),
+					).find((link) => (link.textContent || '').trim() === 'Todos os Artigos')
+						?.getAttribute('href') || '',
 				categoryCount: document.querySelectorAll(
 					'.page__footer #jcem-footer-categories ~ ul a, .page__footer [id^="jcem-footer-categories-"] ~ ul a',
 				).length,
@@ -1264,11 +1285,27 @@ const validatePage = async (page, url, theme, viewportName) => {
 					(metric) => metric.state === 'loaded' && metric.assetLoaded,
 				).length,
 			},
+			siteMap: {
+				visible: Boolean(siteMap),
+				articleCount: siteMapArticleItems.length,
+				titleCount: siteMap?.querySelectorAll('.jcem-mapa__article h3 a').length || 0,
+				excerptCount: siteMap?.querySelectorAll('.jcem-mapa__article p').length || 0,
+				linkCount: siteMap?.querySelectorAll('.jcem-mapa__article h3 a[href]').length || 0,
+				mediaCount: siteMap?.querySelectorAll('img, picture, svg, video, canvas').length || 0,
+				taxonomyLinkCount: siteMap?.querySelectorAll('.jcem-mapa__taxonomy a[href]').length || 0,
+				navLinkCount: siteMap?.querySelectorAll('.jcem-mapa__nav a[href]').length || 0,
+				paginationVisible: Boolean(siteMap?.querySelector('.jcem-mapa__pagination')),
+				articleColumnCount: siteMapArticleListStyle
+					? siteMapArticleListStyle.gridTemplateColumns.split(' ').filter(Boolean).length
+					: 0,
+				articleOverflowCount: siteMapArticleOverflowCount,
+			},
 			styles: [
 				readStyle('.masthead'),
 				readStyle('.jcem-theme-toggle'),
 				readStyle('.initial-content'),
 				readStyle('.jcem-panel, .archive__item, .jcem-sobre'),
+				readStyle('.jcem-mapa'),
 				readStyle('.page__share .btn'),
 			].filter(Boolean),
 		};
@@ -1295,6 +1332,10 @@ const validatePage = async (page, url, theme, viewportName) => {
 
 	if (result.footer.overflowX > 2) {
 		fail(`Regiao complementar do footer com overflow em ${url} ${theme} ${viewportName}: ${JSON.stringify(result.footer)}`);
+	}
+
+	if (!result.footer.mapLinkHref.endsWith('/mapa/')) {
+		fail(`Link Todos os Artigos fora do mapa em ${url} ${theme} ${viewportName}: ${JSON.stringify(result.footer)}`);
 	}
 
 	if (result.archive.badResponsiveCardCount > 0) {
@@ -1411,6 +1452,44 @@ const validatePage = async (page, url, theme, viewportName) => {
 		}
 	} else if (url.includes('/sobre/') && result.post.isPost) {
 		fail(`Pagina estatica marcada como post em ${url} ${theme} ${viewportName}`);
+	} else if (new URL(url).pathname.startsWith('/mapa/')) {
+		const expectedMapCount = Math.min(50, publishedPostPaths.length);
+		const expectedColumns =
+			viewportName === 'wide' || viewportName === 'desktop'
+				? 3
+				: viewportName === 'reduced'
+					? 2
+					: 1;
+
+		if (!result.siteMap.visible) {
+			fail(`Mapa HTML ausente em ${url} ${theme} ${viewportName}`);
+		}
+
+		if (
+			result.siteMap.articleCount !== expectedMapCount ||
+			result.siteMap.titleCount !== result.siteMap.articleCount ||
+			result.siteMap.excerptCount !== result.siteMap.articleCount ||
+			result.siteMap.linkCount !== result.siteMap.articleCount
+		) {
+			fail(`Mapa HTML com artigos incompletos em ${url} ${theme} ${viewportName}: ${JSON.stringify(result.siteMap)}`);
+		}
+
+		if (result.siteMap.mediaCount > 0) {
+			fail(`Mapa HTML usando midia visual em ${url} ${theme} ${viewportName}: ${JSON.stringify(result.siteMap)}`);
+		}
+
+		if (result.siteMap.taxonomyLinkCount < 2 || result.siteMap.navLinkCount < 5) {
+			fail(`Mapa HTML sem taxonomias ou navegacao principal em ${url} ${theme} ${viewportName}: ${JSON.stringify(result.siteMap)}`);
+		}
+
+		if (
+			result.siteMap.articleColumnCount !== expectedColumns ||
+			result.siteMap.articleColumnCount < 1 ||
+			result.siteMap.articleColumnCount > 3 ||
+			result.siteMap.articleOverflowCount > 0
+		) {
+			fail(`Mapa HTML fora da regra responsiva em ${url} ${theme} ${viewportName}: ${JSON.stringify(result.siteMap)}`);
+		}
 	} else if (new URL(url).pathname === '/') {
 		if (result.archive.itemCount !== Math.min(6, publishedPostPaths.length)) {
 			fail(`Home com quantidade incorreta de cards em ${url} ${theme} ${viewportName}: ${result.archive.itemCount}`);
@@ -1980,6 +2059,11 @@ const validateNoScriptPage = async (page, url, viewportName) => {
 					footer?.querySelectorAll(
 						'.jcem-footer-region__social .social-icons a',
 					).length || 0,
+				mapLinkHref:
+					Array.from(
+						footer?.querySelectorAll('.jcem-footer-region__links a') || [],
+					).find((link) => (link.textContent || '').trim() === 'Todos os Artigos')
+						?.getAttribute('href') || '',
 				categoryCount:
 					footer?.querySelectorAll('.jcem-footer-region__taxonomy a').length ||
 					0,
@@ -2036,6 +2120,10 @@ const validateNoScriptPage = async (page, url, viewportName) => {
 		result.footerRegion.oldFooterFollowCount > 0
 	) {
 		fail(`Footer noscript sem regiao complementar equivalente em ${url} ${viewportName}: ${JSON.stringify(result.footerRegion)}`);
+	}
+
+	if (!result.footerRegion.mapLinkHref.endsWith('/mapa/')) {
+		fail(`Footer noscript com Todos os Artigos fora do mapa em ${url} ${viewportName}: ${JSON.stringify(result.footerRegion)}`);
 	}
 
 	if (

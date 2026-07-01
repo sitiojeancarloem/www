@@ -1,0 +1,17 @@
+---
+layout: default
+---
+{%- assign mapa = page.jcem_mapa -%}
+<main id="main" class="jcem-mapa" role="main" itemscope itemtype="https://schema.org/CollectionPage">
+	<header class="jcem-mapa__header">
+		<!-- AI-PROCESSED: texto estrutural do mapa HTML indexável. -->
+		<p class="jcem-mapa__eyebrow">Sitemap HTML</p>
+		<h1 id="page-title" class="page__title" itemprop="name">{{ mapa.title | default: page.title }}</h1>
+		<p class="jcem-mapa__intro" itemprop="description">{{ mapa.description | default: page.description }}</p>
+	</header>
+
+	{% include jcem/mapa-navigation.html groups=mapa.navigation_groups %}
+	{% include jcem/mapa-taxonomies.html taxonomies=mapa.taxonomies %}
+	{% include jcem/mapa-articles.html posts=mapa.posts offset=mapa.offset total=mapa.post_total page=mapa.page page_count=mapa.page_count %}
+	{% include jcem/mapa-pagination.html mapa=mapa %}
+</main>

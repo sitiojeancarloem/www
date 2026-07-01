@@ -1,0 +1,19 @@
+{% assign taxonomies = include.taxonomies | default: empty %}
+{% if taxonomies != empty %}
+	<section class="jcem-mapa__taxonomies" aria-labelledby="jcem-mapa-taxonomies-title">
+		<h2 id="jcem-mapa-taxonomies-title">Taxonomias</h2>
+		{% for taxonomy in taxonomies %}
+			<section class="jcem-mapa__taxonomy" aria-labelledby="jcem-mapa-taxonomy-{{ forloop.index }}">
+				<h3 id="jcem-mapa-taxonomy-{{ forloop.index }}">{{ taxonomy.title }}</h3>
+				<ul>
+					{% for item in taxonomy.items %}
+						<li>
+							<a href="{{ item.url | relative_url }}">{{ item.title }}</a>
+							<span>{{ item.count }}</span>
+						</li>
+					{% endfor %}
+				</ul>
+			</section>
+		{% endfor %}
+	</section>
+{% endif %}
