@@ -11,7 +11,7 @@ const artifactDir = path.resolve(process.env.VISUAL_ARTIFACT_DIR || 'visual-arti
 const visualValidationStrict = !['0', 'false', 'no', 'advisory'].includes(
 	String(process.env.VISUAL_VALIDATION_STRICT || 'true').toLowerCase(),
 );
-const pages = ['/', '/sobre/', '/p/devaneios/'];
+const pages = ['/', '/sobre/', '/p/devaneios/', '/mapa/'];
 const themes = ['dark', 'light'];
 const notFoundPage = '/rota-inexistente-codex/';
 const viewports = [
@@ -209,6 +209,8 @@ const readLoadingState = async (page) =>
 		const wrapperStyle = wrapper ? window.getComputedStyle(wrapper) : null;
 		const progressRect = progress?.getBoundingClientRect();
 		const progressFillRect = progressFill?.getBoundingClientRect();
+		const progressStyle = progress ? window.getComputedStyle(progress) : null;
+		const progressFillStyle = progressFill ? window.getComputedStyle(progressFill) : null;
 
 		return {
 			pageLoadedClass: document.documentElement.classList.contains('jcem-page-loaded'),
@@ -219,27 +221,38 @@ const readLoadingState = async (page) =>
 			progressHeight: progressRect?.height || 0,
 			progressTop: progressRect?.top || 0,
 			progressFillWidth: progressFillRect?.width || 0,
+			progressBackground: progressStyle?.backgroundColor || '',
+			progressBoxShadow: progressStyle?.boxShadow || '',
+			progressFillBackground: progressFillStyle?.backgroundImage || '',
+			progressFillBoxShadow: progressFillStyle?.boxShadow || '',
 			progressValue: Number(progress?.getAttribute('aria-valuenow') || 0),
 			wrapperVisible: isVisible(wrapper),
 			wrapperVisibility: wrapperStyle?.visibility || '',
 			bodyOverflow: window.getComputedStyle(document.body).overflow,
 			noscriptFragmentsReady: document.documentElement.dataset.jcemNoscriptFragmentsReady || '',
+			readyState: document.readyState,
 		};
 	});
 
 const validateLoadingGate = async (browser, baseUrl, url, viewport) => {
 	const context = await browser.newContext({ viewport });
 	await seedCookieConsent(context);
-	let releaseRoutes = () => {};
-	const routeGate = new Promise((resolve) => {
-		releaseRoutes = resolve;
+	let releaseScripts = () => {};
+	let releaseImages = () => {};
+	let heavyAssetRequested = false;
+	const scriptGate = new Promise((resolve) => {
+		releaseScripts = resolve;
+	});
+	const imageGate = new Promise((resolve) => {
+		releaseImages = resolve;
 	});
 	await context.route('**/assets/jcem/js/site.js', async (route) => {
-		await routeGate;
+		await scriptGate;
 		await route.continue();
 	});
-	await context.route('**/*logo-animado.gif', async (route) => {
-		await routeGate;
+	await context.route(/.*\.(png|jpe?g|gif|webp|svg|ico)(\?.*)?$/i, async (route) => {
+		heavyAssetRequested = true;
+		await imageGate;
 		await route.fulfill({
 			status: 200,
 			contentType: 'image/gif',
@@ -248,6 +261,7 @@ const validateLoadingGate = async (browser, baseUrl, url, viewport) => {
 	});
 
 	const page = await context.newPage();
+	const usesExternalSiteScript = url !== notFoundPage;
 
 	try {
 		await page.goto(`${baseUrl}${url}`, { waitUntil: 'commit' });
@@ -256,34 +270,71 @@ const validateLoadingGate = async (browser, baseUrl, url, viewport) => {
 
 		const beforeLoad = await readLoadingState(page);
 
-		if (beforeLoad.pageLoadedClass) {
-			fail(`Classe de pagina carregada aplicada antes de window.load em ${url}`);
+		if (usesExternalSiteScript && beforeLoad.pageLoadedClass) {
+			fail(`Classe de pagina carregada aplicada antes do JavaScript essencial em ${url}`);
 		}
 
-		if (!beforeLoad.loaderVisible) {
-			fail(`.carregandoPagina invisivel antes de window.load em ${url}`);
+		if (usesExternalSiteScript && !beforeLoad.loaderVisible) {
+			fail(`.carregandoPagina invisivel antes dos recursos essenciais em ${url}`);
 		}
 
 		if (
-			!beforeLoad.progressInsideLoader ||
-			beforeLoad.progressHeight < 7 ||
-			beforeLoad.progressTop !== 0 ||
-			beforeLoad.progressWidth < viewport.width - 2 ||
-			beforeLoad.progressFillWidth <= 0
+			usesExternalSiteScript &&
+			(!beforeLoad.progressInsideLoader ||
+				beforeLoad.progressHeight < 7 ||
+				beforeLoad.progressTop !== 0 ||
+				beforeLoad.progressWidth < viewport.width - 2 ||
+				beforeLoad.progressFillWidth <= 0 ||
+				beforeLoad.progressBackground === 'rgba(0, 0, 0, 0)' ||
+				beforeLoad.progressFillBackground === 'none' ||
+				beforeLoad.progressBoxShadow === 'none' ||
+				beforeLoad.progressFillBoxShadow === 'none')
 		) {
-			fail(`Progressbar do loader invalida antes de window.load em ${url}`);
+			fail(`Progressbar do loader invalida antes dos recursos essenciais em ${url}`);
 		}
 
 		if (beforeLoad.wrapperVisible || beforeLoad.wrapperVisibility !== 'hidden') {
-			fail(`Conteudo visivel antes de window.load em ${url}`);
+			if (usesExternalSiteScript) {
+				fail(`Conteudo visivel antes dos recursos essenciais em ${url}`);
+			}
 		}
 
 		if (url === notFoundPage && beforeLoad.urlChecked !== 'true') {
 			fail(`404 sem conclusao do gate de URL antes do load em ${url}`);
 		}
 
-		releaseRoutes();
-		await page.waitForLoadState('load', { timeout: 15000 });
+		releaseScripts();
+		await page.waitForFunction(() => document.documentElement.classList.contains('jcem-page-loaded'));
+		await page.waitForFunction(() => {
+			const loader = document.querySelector('.carregandoPagina');
+			if (!loader) return false;
+			const style = window.getComputedStyle(loader);
+			return style.visibility === 'hidden' || style.opacity === '0';
+		});
+		const afterEssential = await readLoadingState(page);
+
+		if (!afterEssential.pageLoadedClass) {
+			fail(`Classe de pagina carregada ausente apos recursos essenciais em ${url}`);
+		}
+
+		if (!afterEssential.wrapperVisible || afterEssential.wrapperVisibility === 'hidden') {
+			fail(`Conteudo oculto apos recursos essenciais em ${url}`);
+		}
+
+		if (afterEssential.loaderVisible) {
+			fail(`.carregandoPagina visivel apos recursos essenciais em ${url}`);
+		}
+
+		if (afterEssential.progressValue !== 100) {
+			fail(`Progressbar do loader nao finalizou apos recursos essenciais em ${url}`);
+		}
+
+		if (heavyAssetRequested && afterEssential.readyState === 'complete') {
+			fail(`Loader aguardou asset pesado antes de liberar pagina em ${url}`);
+		}
+
+		releaseImages();
+		await page.waitForLoadState('load', { timeout: 15000 }).catch(() => {});
 		await page.waitForFunction(() => document.documentElement.classList.contains('jcem-page-loaded'));
 		await page.waitForFunction(() => {
 			const loader = document.querySelector('.carregandoPagina');
@@ -579,8 +630,12 @@ const validatePage = async (page, url, theme, viewportName) => {
 	}
 
 	const result = await page.evaluate((expectedPanelImage) => {
-		const visible = (selector) =>
-			Array.from(document.querySelectorAll(selector)).filter((node) => {
+		const visible = (selectorOrNode) =>
+			Array.from(
+				selectorOrNode instanceof Element
+					? [selectorOrNode]
+					: document.querySelectorAll(selectorOrNode),
+			).filter((node) => {
 				const rect = node.getBoundingClientRect();
 				const style = window.getComputedStyle(node);
 				return rect.width > 1 && rect.height > 1 && style.display !== 'none' && style.visibility !== 'hidden';
@@ -923,6 +978,54 @@ const validatePage = async (page, url, theme, viewportName) => {
 				),
 			};
 		});
+		const skeletonMetrics = Array.from(
+			document.querySelectorAll('.jcem-skeleton'),
+		).map((element) => {
+			const rect = element.getBoundingClientRect();
+			const before = window.getComputedStyle(element, '::before');
+			const image = element.querySelector('img');
+
+			return {
+				state: element.getAttribute('data-jcem-skeleton-state') || '',
+				width: rect.width,
+				height: rect.height,
+				beforeContent: before.content,
+				beforeAnimation: before.animationName,
+				beforeOpacity: Number.parseFloat(before.opacity || '0'),
+				hasAsset: Boolean(image),
+				assetLoaded: image
+					? Boolean(image.complete && image.naturalWidth > 0)
+					: true,
+			};
+		});
+		const footerRegion =
+			Array.from(
+				document.querySelectorAll('.page__footer .jcem-footer-region'),
+			).find((region) => visible(region)) ||
+			document.querySelector('.page__footer .jcem-footer-region');
+		const footerRegionRect = footerRegion?.getBoundingClientRect();
+		const footerRegionStyle = footerRegion
+			? window.getComputedStyle(footerRegion)
+			: null;
+		const footerRegionOverflowX = footerRegionRect
+			? Math.max(
+					0,
+					footerRegionRect.right - window.innerWidth,
+					0 - footerRegionRect.left,
+				)
+			: 0;
+		const siteMap = document.querySelector('.jcem-mapa');
+		const siteMapArticleList = siteMap?.querySelector('.jcem-mapa__article-list');
+		const siteMapArticleListStyle = siteMapArticleList
+			? window.getComputedStyle(siteMapArticleList)
+			: null;
+		const siteMapArticleItems = Array.from(
+			siteMap?.querySelectorAll('.jcem-mapa__article-item') || [],
+		);
+		const siteMapArticleOverflowCount = siteMapArticleItems.filter((item) => {
+			const rect = item.getBoundingClientRect();
+			return rect.left < -1 || rect.right > window.innerWidth + 1;
+		}).length;
 
 		return {
 			overflowX: document.documentElement.scrollWidth - document.documentElement.clientWidth,
@@ -951,6 +1054,38 @@ const validatePage = async (page, url, theme, viewportName) => {
 				logoImg: rectInfo('.site-logo img'),
 				theme: rectInfo('.jcem-theme-toggle'),
 				navToggle: rectInfo('.jcem-nav-toggle'),
+			},
+			footer: {
+				hasRegion: Boolean(footerRegion),
+				display: footerRegionStyle?.display || '',
+				gridColumns: footerRegionStyle?.gridTemplateColumns || '',
+				overflowX: footerRegionOverflowX,
+				logoCount: document.querySelectorAll(
+					'.page__footer .jcem-footer-region__logo img',
+				).length,
+				socialCount: document.querySelectorAll(
+					'.page__footer .jcem-footer-region__social .social-icons a',
+				).length,
+				actionLinkCount: document.querySelectorAll(
+					'.page__footer .jcem-footer-region__links a',
+				).length,
+				mapLinkHref:
+					Array.from(
+						document.querySelectorAll('.page__footer .jcem-footer-region__links a'),
+					).find((link) => (link.textContent || '').trim() === 'Todos os Artigos')
+						?.getAttribute('href') || '',
+				categoryCount: document.querySelectorAll(
+					'.page__footer #jcem-footer-categories ~ ul a, .page__footer [id^="jcem-footer-categories-"] ~ ul a',
+				).length,
+				tagCount: document.querySelectorAll(
+					'.page__footer #jcem-footer-tags ~ ul a, .page__footer [id^="jcem-footer-tags-"] ~ ul a',
+				).length,
+				oldFooterFollowCount: document.querySelectorAll(
+					'.page__footer > footer > .page__footer-follow:not(.jcem-footer-region__social)',
+				).length,
+				copyrightCount: document.querySelectorAll(
+					'.page__footer > footer > .page__footer-copyright',
+				).length,
 			},
 			post: {
 				article: boxInfo('article.page'),
@@ -1133,12 +1268,58 @@ const validatePage = async (page, url, theme, viewportName) => {
 				badResponsiveCardCount: responsiveCardMetrics.filter(
 					(metric) => metric.outsideColumn || metric.textOverflow,
 				).length,
+				eligibleSkeletonTargetCount: document.querySelectorAll(
+					'.archive__item-teaser, .jcem-featured-image, .page__hero, .page__hero--overlay, [data-jcem-skeleton]',
+				).length,
+				skeletonCount: skeletonMetrics.length,
+				badSkeletonCount: skeletonMetrics.filter(
+					(metric) =>
+						!['loading', 'loaded', 'error'].includes(metric.state) ||
+						metric.width <= 1 ||
+						metric.height <= 1 ||
+						metric.beforeContent === 'none' ||
+						(metric.state === 'loaded' && metric.beforeOpacity > 0.05) ||
+						(metric.state === 'loading' &&
+							(metric.beforeAnimation === 'none' ||
+								metric.beforeOpacity < 0.85)),
+				).length,
+				loadedSkeletonCount: skeletonMetrics.filter(
+					(metric) => metric.state === 'loaded' && metric.assetLoaded,
+				).length,
+				animatedSkeletonCount: skeletonMetrics.filter(
+					(metric) =>
+						metric.state === 'loading' &&
+						metric.beforeAnimation !== 'none' &&
+						metric.beforeOpacity >= 0.85,
+				).length,
+				errorSkeletonCount: skeletonMetrics.filter(
+					(metric) =>
+						metric.state === 'error' &&
+						metric.beforeContent !== 'none' &&
+						metric.beforeOpacity > 0.1,
+				).length,
+			},
+			siteMap: {
+				visible: Boolean(siteMap),
+				articleCount: siteMapArticleItems.length,
+				titleCount: siteMap?.querySelectorAll('.jcem-mapa__article h3 a').length || 0,
+				excerptCount: siteMap?.querySelectorAll('.jcem-mapa__article p').length || 0,
+				linkCount: siteMap?.querySelectorAll('.jcem-mapa__article h3 a[href]').length || 0,
+				mediaCount: siteMap?.querySelectorAll('img, picture, svg, video, canvas').length || 0,
+				taxonomyLinkCount: siteMap?.querySelectorAll('.jcem-mapa__taxonomy a[href]').length || 0,
+				navLinkCount: siteMap?.querySelectorAll('.jcem-mapa__nav a[href]').length || 0,
+				paginationVisible: Boolean(siteMap?.querySelector('.jcem-mapa__pagination')),
+				articleColumnCount: siteMapArticleListStyle
+					? siteMapArticleListStyle.gridTemplateColumns.split(' ').filter(Boolean).length
+					: 0,
+				articleOverflowCount: siteMapArticleOverflowCount,
 			},
 			styles: [
 				readStyle('.masthead'),
 				readStyle('.jcem-theme-toggle'),
 				readStyle('.initial-content'),
 				readStyle('.jcem-panel, .archive__item, .jcem-sobre'),
+				readStyle('.jcem-mapa'),
 				readStyle('.page__share .btn'),
 			].filter(Boolean),
 		};
@@ -1148,8 +1329,51 @@ const validatePage = async (page, url, theme, viewportName) => {
 		fail(`Overflow horizontal em ${url} ${theme} ${viewportName}: ${result.overflowX}px`);
 	}
 
+	if (
+		!result.footer.hasRegion ||
+		result.footer.logoCount < 1 ||
+		result.footer.socialCount < 5 ||
+		result.footer.actionLinkCount < 4 ||
+		result.footer.categoryCount < 1 ||
+		result.footer.tagCount < 1
+	) {
+		fail(`Regiao complementar do footer incompleta em ${url} ${theme} ${viewportName}: ${JSON.stringify(result.footer)}`);
+	}
+
+	if (result.footer.oldFooterFollowCount > 0 || result.footer.copyrightCount > 0) {
+		fail(`Footer antigo duplicado em ${url} ${theme} ${viewportName}: ${JSON.stringify(result.footer)}`);
+	}
+
+	if (result.footer.overflowX > 2) {
+		fail(`Regiao complementar do footer com overflow em ${url} ${theme} ${viewportName}: ${JSON.stringify(result.footer)}`);
+	}
+
+	if (!result.footer.mapLinkHref.endsWith('/mapa/')) {
+		fail(`Link Todos os Artigos fora do mapa em ${url} ${theme} ${viewportName}: ${JSON.stringify(result.footer)}`);
+	}
+
 	if (result.archive.badResponsiveCardCount > 0) {
 		fail(`Card fora da largura disponivel em ${url} ${theme} ${viewportName}`);
+	}
+
+	if (
+		result.archive.eligibleSkeletonTargetCount > 0 &&
+		result.archive.skeletonCount < 1
+	) {
+		fail(`Skeleton loading ausente em ${url} ${theme} ${viewportName}`);
+	}
+
+	if (
+		result.archive.skeletonCount > 0 &&
+		result.archive.loadedSkeletonCount < 1 &&
+		result.archive.animatedSkeletonCount < 1 &&
+		result.archive.errorSkeletonCount < 1
+	) {
+		fail(`Skeleton loading sem estado carregado ou animado em ${url} ${theme} ${viewportName}`);
+	}
+
+	if (result.archive.badSkeletonCount > 0) {
+		fail(`Skeleton loading invalido em ${url} ${theme} ${viewportName}`);
 	}
 
 	if (result.sidebars > 0) {
@@ -1251,6 +1475,44 @@ const validatePage = async (page, url, theme, viewportName) => {
 		}
 	} else if (url.includes('/sobre/') && result.post.isPost) {
 		fail(`Pagina estatica marcada como post em ${url} ${theme} ${viewportName}`);
+	} else if (new URL(url).pathname.startsWith('/mapa/')) {
+		const expectedMapCount = Math.min(50, publishedPostPaths.length);
+		const expectedColumns =
+			viewportName === 'wide' || viewportName === 'desktop'
+				? 3
+				: viewportName === 'reduced'
+					? 2
+					: 1;
+
+		if (!result.siteMap.visible) {
+			fail(`Mapa HTML ausente em ${url} ${theme} ${viewportName}`);
+		}
+
+		if (
+			result.siteMap.articleCount !== expectedMapCount ||
+			result.siteMap.titleCount !== result.siteMap.articleCount ||
+			result.siteMap.excerptCount !== result.siteMap.articleCount ||
+			result.siteMap.linkCount !== result.siteMap.articleCount
+		) {
+			fail(`Mapa HTML com artigos incompletos em ${url} ${theme} ${viewportName}: ${JSON.stringify(result.siteMap)}`);
+		}
+
+		if (result.siteMap.mediaCount > 0) {
+			fail(`Mapa HTML usando midia visual em ${url} ${theme} ${viewportName}: ${JSON.stringify(result.siteMap)}`);
+		}
+
+		if (result.siteMap.taxonomyLinkCount < 2 || result.siteMap.navLinkCount < 5) {
+			fail(`Mapa HTML sem taxonomias ou navegacao principal em ${url} ${theme} ${viewportName}: ${JSON.stringify(result.siteMap)}`);
+		}
+
+		if (
+			result.siteMap.articleColumnCount !== expectedColumns ||
+			result.siteMap.articleColumnCount < 1 ||
+			result.siteMap.articleColumnCount > 3 ||
+			result.siteMap.articleOverflowCount > 0
+		) {
+			fail(`Mapa HTML fora da regra responsiva em ${url} ${theme} ${viewportName}: ${JSON.stringify(result.siteMap)}`);
+		}
 	} else if (new URL(url).pathname === '/') {
 		if (result.archive.itemCount !== Math.min(6, publishedPostPaths.length)) {
 			fail(`Home com quantidade incorreta de cards em ${url} ${theme} ${viewportName}: ${result.archive.itemCount}`);
@@ -1659,6 +1921,7 @@ const validatePrintTheme = async (page, url, viewportName) => {
 
 			return {
 				exists: Boolean(details),
+				open: Boolean(details?.open),
 				visibleContent,
 			};
 		};
@@ -1737,14 +2000,14 @@ const validatePrintTheme = async (page, url, viewportName) => {
 
 	if (
 		result.referencesPrint.exists &&
-		!result.referencesPrint.visibleContent
+		(!result.referencesPrint.open || !result.referencesPrint.visibleContent)
 	) {
 		fail(`Impressao mantem Referencias recolhidas em ${url}`);
 	}
 
 	if (
 		result.bibliographyPrint.exists &&
-		!result.bibliographyPrint.visibleContent
+		(!result.bibliographyPrint.open || !result.bibliographyPrint.visibleContent)
 	) {
 		fail(`Impressao mantem Bibliografia recolhida em ${url}`);
 	}
@@ -1795,6 +2058,7 @@ const validateNoScriptPage = async (page, url, viewportName) => {
 		const featuredStyle = featured ? window.getComputedStyle(featured) : null;
 		const featuredImageStyle = featuredImage ? window.getComputedStyle(featuredImage) : null;
 		const footerStyle = footer ? window.getComputedStyle(footer) : null;
+		const footerRegion = footer?.querySelector('.jcem-footer-region');
 		const wrapperStyle = wrapper ? window.getComputedStyle(wrapper) : null;
 		const loaderStyle = loader ? window.getComputedStyle(loader) : null;
 
@@ -1809,6 +2073,28 @@ const validateNoScriptPage = async (page, url, viewportName) => {
 					: 0,
 			hasFooter: visible(footer),
 			footerMarginTop: Number.parseFloat(footerStyle?.marginTop || '0'),
+			footerRegion: {
+				visible: visible(footerRegion),
+				logoCount:
+					footer?.querySelectorAll('.jcem-footer-region__logo img').length ||
+					0,
+				socialCount:
+					footer?.querySelectorAll(
+						'.jcem-footer-region__social .social-icons a',
+					).length || 0,
+				mapLinkHref:
+					Array.from(
+						footer?.querySelectorAll('.jcem-footer-region__links a') || [],
+					).find((link) => (link.textContent || '').trim() === 'Todos os Artigos')
+						?.getAttribute('href') || '',
+				categoryCount:
+					footer?.querySelectorAll('.jcem-footer-region__taxonomy a').length ||
+					0,
+				oldFooterFollowCount:
+					footer?.querySelectorAll(
+						':scope > footer > .page__footer-follow:not(.jcem-footer-region__social)',
+					).length || 0,
+			},
 			hasFeatured: visible(featured),
 			featuredHeight: featuredRect?.height || 0,
 			featuredBg: featuredStyle?.backgroundColor || '',
@@ -1847,6 +2133,20 @@ const validateNoScriptPage = async (page, url, viewportName) => {
 
 	if (result.footerMarginTop < 32) {
 		fail(`Footer noscript sem espacamento do tema em ${url} ${viewportName}`);
+	}
+
+	if (
+		!result.footerRegion.visible ||
+		result.footerRegion.logoCount < 1 ||
+		result.footerRegion.socialCount < 5 ||
+		result.footerRegion.categoryCount < 2 ||
+		result.footerRegion.oldFooterFollowCount > 0
+	) {
+		fail(`Footer noscript sem regiao complementar equivalente em ${url} ${viewportName}: ${JSON.stringify(result.footerRegion)}`);
+	}
+
+	if (!result.footerRegion.mapLinkHref.endsWith('/mapa/')) {
+		fail(`Footer noscript com Todos os Artigos fora do mapa em ${url} ${viewportName}: ${JSON.stringify(result.footerRegion)}`);
 	}
 
 	if (
@@ -2070,6 +2370,15 @@ const validate404Page = async (page, url, viewportName) => {
 				return rect.left >= -1 && rect.right <= document.documentElement.clientWidth + 1;
 			}),
 			featured: rectFor(featured),
+			featuredSkeletonState: featured?.getAttribute('data-jcem-skeleton-state') || '',
+			featuredSkeletonBefore: featured
+				? {
+						content: window.getComputedStyle(featured, '::before').content,
+						opacity: Number.parseFloat(
+							window.getComputedStyle(featured, '::before').opacity || '0',
+						),
+					}
+				: null,
 			featuredImage: rectFor(featuredImage),
 			featuredImageLoaded: Boolean(featuredImage?.complete && featuredImage.naturalWidth > 0),
 			featuredImageNaturalRatio:
@@ -2169,6 +2478,15 @@ const validate404Page = async (page, url, viewportName) => {
 		Math.abs(result.featuredImage.height - result.featured.height) > 2
 	) {
 		fail(`Imagem destacada 404 invalida em ${url} ${viewportName}`);
+	}
+
+	if (
+		result.featuredSkeletonState !== 'loaded' ||
+		!result.featuredSkeletonBefore ||
+		result.featuredSkeletonBefore.content === 'none' ||
+		result.featuredSkeletonBefore.opacity > 0.05
+	) {
+		fail(`Skeleton da imagem destacada 404 invalido em ${url} ${viewportName}`);
 	}
 
 	if (

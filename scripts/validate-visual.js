@@ -1279,10 +1279,24 @@ const validatePage = async (page, url, theme, viewportName) => {
 						metric.height <= 1 ||
 						metric.beforeContent === 'none' ||
 						(metric.state === 'loaded' && metric.beforeOpacity > 0.05) ||
-						(metric.state === 'loading' && metric.beforeAnimation === 'none'),
+						(metric.state === 'loading' &&
+							(metric.beforeAnimation === 'none' ||
+								metric.beforeOpacity < 0.85)),
 				).length,
 				loadedSkeletonCount: skeletonMetrics.filter(
 					(metric) => metric.state === 'loaded' && metric.assetLoaded,
+				).length,
+				animatedSkeletonCount: skeletonMetrics.filter(
+					(metric) =>
+						metric.state === 'loading' &&
+						metric.beforeAnimation !== 'none' &&
+						metric.beforeOpacity >= 0.85,
+				).length,
+				errorSkeletonCount: skeletonMetrics.filter(
+					(metric) =>
+						metric.state === 'error' &&
+						metric.beforeContent !== 'none' &&
+						metric.beforeOpacity > 0.1,
 				).length,
 			},
 			siteMap: {
@@ -1344,9 +1358,18 @@ const validatePage = async (page, url, theme, viewportName) => {
 
 	if (
 		result.archive.eligibleSkeletonTargetCount > 0 &&
-		(result.archive.skeletonCount < 1 || result.archive.loadedSkeletonCount < 1)
+		result.archive.skeletonCount < 1
 	) {
 		fail(`Skeleton loading ausente em ${url} ${theme} ${viewportName}`);
+	}
+
+	if (
+		result.archive.skeletonCount > 0 &&
+		result.archive.loadedSkeletonCount < 1 &&
+		result.archive.animatedSkeletonCount < 1 &&
+		result.archive.errorSkeletonCount < 1
+	) {
+		fail(`Skeleton loading sem estado carregado ou animado em ${url} ${theme} ${viewportName}`);
 	}
 
 	if (result.archive.badSkeletonCount > 0) {

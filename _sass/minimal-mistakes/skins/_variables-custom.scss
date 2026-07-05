@@ -51,8 +51,8 @@
 	--dark--jcem-readtime-color: rgba(239, 239, 239, 0.84);
 	--dark--jcem-glitch-a: rgba(68, 195, 222, 0.28);
 	--dark--jcem-glitch-b: rgba(255, 67, 111, 0.18);
-	--dark--jcem-skeleton-base: #26313a;
-	--dark--jcem-skeleton-sheen: rgba(123, 200, 255, 0.28);
+	--dark--jcem-skeleton-base: #22313d;
+	--dark--jcem-skeleton-sheen: rgba(146, 224, 255, 0.72);
 	--dark--jcem-load-track: rgba(244, 212, 0, 0.22);
 	--dark--jcem-load-fill-a: #f4d400;
 	--dark--jcem-load-fill-b: #7bc8ff;
@@ -112,8 +112,8 @@
 	--clean--jcem-readtime-color: #425157;
 	--clean--jcem-glitch-a: rgba(176, 139, 0, 0.28);
 	--clean--jcem-glitch-b: rgba(47, 125, 149, 0.24);
-	--clean--jcem-skeleton-base: #d6dee2;
-	--clean--jcem-skeleton-sheen: rgba(255, 255, 255, 0.72);
+	--clean--jcem-skeleton-base: #d0dbe0;
+	--clean--jcem-skeleton-sheen: rgba(255, 255, 255, 0.95);
 	--clean--jcem-load-track: rgba(47, 89, 99, 0.24);
 	--clean--jcem-load-fill-a: #102f3a;
 	--clean--jcem-load-fill-b: #b28700;
@@ -590,23 +590,27 @@ body > input.radio#jcem-theme-dark:checked ~ .main_jcem_wrapper {
 	// FIX-BUG: base do skeleton permanece visivel durante todo o ciclo.
 	background-color: var(--jcem-skeleton-base);
 	background-image:
-		linear-gradient(
-			90deg,
+		repeating-linear-gradient(
+			100deg,
 			transparent 0%,
-			var(--jcem-skeleton-sheen) 50%,
-			transparent 100%
+			transparent 17%,
+			color-mix(in srgb, var(--jcem-skeleton-sheen) 32%, transparent) 22%,
+			var(--jcem-skeleton-sheen) 25%,
+			color-mix(in srgb, var(--jcem-skeleton-sheen) 32%, transparent) 28%,
+			transparent 34%,
+			transparent 52%
 		);
 	background-position: 180% 0;
-	background-size: 220% 100%;
+	background-size: 240% 100%;
 	opacity: 1;
 	pointer-events: none;
-	animation: jcemSkeletonShimmer 1.15s ease-in-out infinite;
-	transition: opacity 0.24s ease;
+	animation: jcemSkeletonShimmer 0.95s linear infinite;
+	transition: opacity 0.32s ease;
 }
 
 .main_jcem_wrapper .jcem-skeleton > * {
 	position: relative;
-	z-index: 2;
+	z-index: 3;
 }
 
 .main_jcem_wrapper
@@ -623,7 +627,7 @@ body > input.radio#jcem-theme-dark:checked ~ .main_jcem_wrapper {
 
 .main_jcem_wrapper .jcem-skeleton[data-jcem-skeleton-state='loaded']::before {
 	opacity: 0;
-	animation: none;
+	animation: jcemSkeletonShimmer 0.95s linear infinite;
 }
 
 .main_jcem_wrapper .jcem-skeleton[data-jcem-skeleton-state='error']::before {

@@ -149,6 +149,7 @@ const bindJcemLoadingProgress = () => {
     }
 };
 const jcemSkeletonMediaSelector = 'img, video, iframe, .jcem-featured-image, .archive__item-teaser, .page__hero, .page__hero--overlay, [data-jcem-skeleton]';
+const jcemSkeletonMinVisibleMs = 520;
 const findJcemSkeletonContainer = (element) => {
     if (element instanceof HTMLElement && element.matches('[data-jcem-skeleton]')) {
         return element;
@@ -161,6 +162,19 @@ const findJcemSkeletonContainer = (element) => {
 const setJcemSkeletonState = (container, state) => {
     container.classList.add('jcem-skeleton');
     container.dataset.jcemSkeletonState = state;
+    if (state === 'loading') {
+        container.dataset.jcemSkeletonStartedAt = String(performance.now());
+        return;
+    }
+    delete container.dataset.jcemSkeletonStartedAt;
+};
+const resolveJcemSkeletonState = (container, state) => {
+    const startedAt = Number(container.dataset.jcemSkeletonStartedAt || 0);
+    const elapsed = startedAt > 0 ? performance.now() - startedAt : Infinity;
+    const delay = startedAt > 0 && elapsed < jcemSkeletonMinVisibleMs
+        ? jcemSkeletonMinVisibleMs - elapsed
+        : 0;
+    window.setTimeout(() => setJcemSkeletonState(container, state), delay);
 };
 const bindJcemImageSkeleton = (image) => {
     if (image.dataset.jcemSkeletonBound === 'true')
@@ -176,16 +190,14 @@ const bindJcemImageSkeleton = (image) => {
         return;
     const sync = () => {
         if (image.complete) {
-            setJcemSkeletonState(container, image.naturalWidth > 0 ? 'loaded' : 'error');
+            resolveJcemSkeletonState(container, image.naturalWidth > 0 ? 'loaded' : 'error');
             return;
         }
         setJcemSkeletonState(container, 'loading');
     };
     sync();
     image.addEventListener('load', sync, { once: true });
-    image.addEventListener('error', () => setJcemSkeletonState(container, 'error'), {
-        once: true,
-    });
+    image.addEventListener('error', () => resolveJcemSkeletonState(container, 'error'), { once: true });
 };
 const extractJcemBackgroundUrls = (element) => {
     const background = window.getComputedStyle(element).backgroundImage || '';
@@ -212,8 +224,9 @@ const bindJcemBackgroundSkeleton = (element) => {
     const finish = (error = false) => {
         failed = failed || error;
         pending -= 1;
-        if (pending <= 0)
-            setJcemSkeletonState(element, failed ? 'error' : 'loaded');
+        if (pending <= 0) {
+            resolveJcemSkeletonState(element, failed ? 'error' : 'loaded');
+        }
     };
     urls.forEach((url) => {
         const image = new Image();

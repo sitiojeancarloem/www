@@ -1,0 +1,138 @@
+.jcem-math {
+	--jcem-math-bg: var(--fbg); /* uso: fundo do bloco matematico. */
+	--jcem-math-border: var(--bc); /* uso: borda do bloco matematico. */
+	--jcem-math-control-bg: var(--bg); /* uso: botoes de ampliacao. */
+	--jcem-math-control-fg: var(--tc); /* uso: icones dos botoes. */
+	--jcem-math-accent: var(--link); /* uso: foco e hover dos controles. */
+}
+
+.jcem-math--inline {
+	display: inline;
+	overflow-wrap: normal;
+}
+
+.jcem-math--display {
+	position: relative;
+	display: block;
+	box-sizing: border-box;
+	max-width: 100%;
+	margin: 1.25rem 0;
+	padding: 0.85rem 2.75rem 0.85rem 0.85rem;
+	border: 1px solid var(--jcem-math-border);
+	background: var(--jcem-math-bg);
+	color: var(--tc);
+	transition:
+		margin 0.18s ease,
+		width 0.18s ease,
+		box-shadow 0.18s ease;
+}
+
+.jcem-math__viewport {
+	overflow-x: auto;
+	overflow-y: hidden;
+	max-width: 100%;
+	padding-bottom: 0.15rem;
+}
+
+.jcem-math__viewport > .katex-display {
+	margin: 0;
+}
+
+.jcem-math__tools {
+	position: absolute;
+	top: 0.35rem;
+	right: 0.35rem;
+	z-index: 2;
+	display: flex;
+	flex-direction: column;
+	gap: 0.25rem;
+}
+
+.jcem-math__control {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 2rem;
+	height: 2rem;
+	padding: 0;
+	border: 1px solid var(--jcem-math-border);
+	border-radius: 0.25rem;
+	background: var(--jcem-math-control-bg);
+	color: var(--jcem-math-control-fg);
+	cursor: pointer;
+}
+
+.jcem-math__control:hover,
+.jcem-math__control:focus-visible {
+	border-color: var(--jcem-math-accent);
+	color: var(--jcem-math-accent);
+	outline: none;
+}
+
+.jcem-math__control i::before {
+	display: inline-block;
+}
+
+.jcem-math.is-wide {
+	left: 50%;
+	width: min(100vw - 2rem, 72rem);
+	max-width: calc(100vw - 2rem);
+	transform: translateX(-50%);
+	box-shadow: 0 0.65rem 1.25rem rgba(0, 0, 0, 0.22);
+}
+
+.jcem-math:fullscreen,
+.jcem-math.is-fullscreen-fallback {
+	position: fixed;
+	inset: 0;
+	z-index: 2147483500;
+	display: flex;
+	align-items: center;
+	width: 100vw;
+	max-width: 100vw;
+	height: 100vh;
+	margin: 0;
+	padding: 4rem 1rem 1rem;
+	border: 0;
+	background: var(--jcem-math-bg);
+	transform: none;
+}
+
+.jcem-math:fullscreen .jcem-math__viewport,
+.jcem-math.is-fullscreen-fallback .jcem-math__viewport {
+	width: 100%;
+	max-height: calc(100vh - 5rem);
+	overflow: auto;
+	font-size: clamp(1.15rem, 3vw, 2rem);
+}
+
+:root.jcem-math-modal-open body {
+	overflow: hidden;
+}
+
+@media (max-width: 600px) {
+	.jcem-math--display {
+		padding: 0.75rem 2.45rem 0.75rem 0.65rem;
+	}
+
+	.jcem-math__control {
+		width: 2.15rem;
+		height: 2.15rem;
+	}
+}
+
+@media print {
+	.jcem-math--display {
+		padding: 0.5rem 0;
+		border: 0;
+		background: transparent;
+	}
+
+	.jcem-math__tools {
+		display: none !important;
+	}
+
+	.jcem-math__viewport {
+		overflow: visible;
+	}
+}

@@ -85,7 +85,7 @@ href="https://jcem.pro/logo/apple-touch-icon.png"
 	}
 
 	html:not(.jcem-page-loaded) body {
-		/* PROTECAO: a pagina real so aparece depois de window.load. */
+		/* PROTECAO: a pagina real so aparece apos recursos essenciais. */
 		overflow: hidden;
 	}
 
@@ -111,8 +111,10 @@ href="https://jcem.pro/logo/apple-touch-icon.png"
 		width: 100%;
 		height: 0.5rem;
 		overflow: hidden;
-		background: rgba(17, 17, 17, 0.24);
-		box-shadow: 0 0.18rem 0.55rem rgba(0, 0, 0, 0.22);
+		background: rgba(4, 10, 18, 0.88);
+		box-shadow:
+			0 0.08rem 0 #f4d400,
+			0 0.22rem 0.75rem rgba(0, 0, 0, 0.5);
 	}
 
 	body > .carregandoPagina .jcem-load-progress > span {
@@ -122,8 +124,10 @@ href="https://jcem.pro/logo/apple-touch-icon.png"
 		display: block;
 		width: var(--jcem-load-progress);
 		height: 100%;
-		background: linear-gradient(90deg, #2b92db, #f4d400);
-		box-shadow: 0 0 0.65rem rgba(244, 212, 0, 0.32);
+		background: linear-gradient(90deg, #f4d400 0%, #7bc8ff 52%, #ffffff 100%);
+		box-shadow:
+			0 0 0.8rem rgba(123, 200, 255, 0.72),
+			0 0 0.18rem rgba(255, 255, 255, 0.9);
 		transition: width 0.18s ease;
 	}
 
@@ -437,7 +441,7 @@ class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1875"
 <li
 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1872"
 >
-<a title="Licenca" href="https://jeancarloem.com/licenca/"
+<a title="Licença" href="https://jeancarloem.com/licenca/"
 >Licença</a
 >
 </li>
@@ -745,70 +749,126 @@ e com este <b>AVISO DE CONTEÚDO SENSÍVEL</b>.
 </p>
 <!-- end custom footer snippets -->
 </div>
-<div class="page__footer-follow">
+<section class="jcem-footer-region" aria-label="Navegação complementar do rodapé">
+<div class="jcem-footer-region__brand">
+<a class="jcem-footer-region__logo" href="/" aria-label="JeanCarloEM">
+<img src="https://jcem.pro/logo/logo-animado.gif" alt="JeanCarloEM" />
+</a>
+<div class="page__footer-follow jcem-footer-region__social">
 <ul class="social-icons">
-<li><strong>Siga:</strong></li><li>
-<a
-href="https://x.com/jeancarloem"
-rel="nofollow noopener noreferrer"
-><i
-class="fab fa-fw fa-twitter-square"
-aria-hidden="true"
-></i>
-Twitter</a
->
-</li><li>
-<a
-href="https://www.facebook.com/JeanCarloEM/"
-rel="nofollow noopener noreferrer"
-><i
-class="fab fa-fw fa-facebook-square"
-aria-hidden="true"
-></i>
-Facebook</a
->
-</li><li>
-<a
-href="https://github.com/jeanCarloEM"
-rel="nofollow noopener noreferrer"
-><i
-class="fab fa-fw fa-github"
-aria-hidden="true"
-></i>
-GitHub</a
->
-</li><li>
-<a
-href="https://www.instagram.com/jeancarlo.em/"
-rel="nofollow noopener noreferrer"
-><i
-class="fab fa-fw fa-instagram"
-aria-hidden="true"
-></i>
-Instagram</a
->
-</li><li>
-<a href="/feed.xml"
-><i
-class="fas fa-fw fa-square-rss"
-aria-hidden="true"
-></i>
-Feed</a
->
+<li><strong>Siga:</strong></li>
+<li>
+<a href="https://x.com/jeancarloem" rel="nofollow noopener noreferrer">
+<i class="fab fa-fw fa-twitter-square" aria-hidden="true"></i>
+<span>Twitter</span>
+</a>
+</li>
+<li>
+<a href="https://www.facebook.com/JeanCarloEM/" rel="nofollow noopener noreferrer">
+<i class="fab fa-fw fa-facebook-square" aria-hidden="true"></i>
+<span>Facebook</span>
+</a>
+</li>
+<li>
+<a href="https://github.com/jeanCarloEM" rel="nofollow noopener noreferrer">
+<i class="fab fa-fw fa-github" aria-hidden="true"></i>
+<span>GitHub</span>
+</a>
+</li>
+<li>
+<a href="https://www.instagram.com/jeancarlo.em/" rel="nofollow noopener noreferrer">
+<i class="fab fa-fw fa-instagram" aria-hidden="true"></i>
+<span>Instagram</span>
+</a>
+</li>
+<li>
+<a href="/feed.xml">
+<i class="fas fa-fw fa-square-rss" aria-hidden="true"></i>
+<span>Feed</span>
+</a>
 </li>
 </ul>
 </div>
-<div class="page__footer-copyright">
-&copy; 2014 - 2026
-<a href="https://www.jeancarloem.com">JeanCarloEM</a>.
-Desenvolvido com
-<a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp;
-<a
-href="https://mademistakes.com/work/jekyll-themes/minimal-mistakes/"
-rel="nofollow"
->Minimal Mistakes</a
->.
+<nav class="jcem-footer-region__links" aria-label="Links do rodapé">
+<a href="/sobre/">Sobre</a>
+<a href="/feed.xml">Feed RSS</a>
+<a href="/recent-posts.json">Feed JSON</a>
+<a href="/mapa/">Todos os Artigos</a>
+</nav>
 </div>
+<nav class="jcem-footer-region__taxonomies" aria-label="Taxonomias do rodapé">
+<section class="jcem-footer-region__taxonomy" aria-labelledby="jcem-footer-categories">
+<h2 id="jcem-footer-categories">Categorias</h2>
+<ul>
+<li>
+<a href="/c/#destaque">Destaque</a>
+</li>
+<li>
+<a href="/c/#divagando">Divagando</a>
+</li>
+<li>
+<a href="/c/#ciência">ciência</a>
+</li>
+<li>
+<a href="/c/#filosofia">filosofia</a>
+</li>
+<li>
+<a href="/c/#religião">religião</a>
+</li>
+</ul>
+</section>
+<section class="jcem-footer-region__taxonomy" aria-labelledby="jcem-footer-tags">
+<h2 id="jcem-footer-tags">Assuntos</h2>
+<ul>
+<li>
+<a href="/t/#a-bíblia-está-certa">A bíblia está certa</a>
+</li>
+<li>
+<a href="/t/#deus-está-certo">Deus está certo</a>
+</li>
+<li>
+<a href="/t/#espírito-santo">Espírito Santo</a>
+</li>
+<li>
+<a href="/t/#absolutismo">absolutismo</a>
+</li>
+<li>
+<a href="/t/#alma">alma</a>
+</li>
+<li>
+<a href="/t/#bíblia">bíblia</a>
+</li>
+<li>
+<a href="/t/#ciência">ciência</a>
+</li>
+<li>
+<a href="/t/#convergencialismo">convergencialismo</a>
+</li>
+<li>
+<a href="/t/#criação">criação</a>
+</li>
+<li>
+<a href="/t/#dez-mandamentos">dez mandamentos</a>
+</li>
+<li>
+<a href="/t/#ensinamento">ensinamento</a>
+</li>
+<li>
+<a href="/t/#esforço-humano">esforço humano</a>
+</li>
+<li>
+<a href="/t/#espiritismo">espiritismo</a>
+</li>
+<li>
+<a href="/t/#espiritualismo">espiritualismo</a>
+</li>
+<li>
+<a href="/t/#espírito">espírito</a>
+</li>
+</ul>
+</section>
+</nav>
+</section>
 </footer>
 <p class="copy">
 Copyright &copy; 2012 - 2026 JeanCarloEM. Todos
@@ -850,7 +910,7 @@ class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1875"
 <li
 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1872"
 >
-<a title="Licenca" href="https://jeancarloem.com/licenca/"
+<a title="Licença" href="https://jeancarloem.com/licenca/"
 >Licença</a
 >
 </li>
@@ -915,7 +975,7 @@ class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1875"
 <li
 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1872"
 >
-<a title="Licenca" href="https://jeancarloem.com/licenca/"
+<a title="Licença" href="https://jeancarloem.com/licenca/"
 >Licença</a
 >
 </li>
@@ -1518,17 +1578,126 @@ e com este <b>AVISO DE CONTEÚDO SENSÍVEL</b>.
 </p>
 <!-- end custom footer snippets -->
 </div>
-<div class="page__footer-follow">
+<section class="jcem-footer-region" aria-label="Navegação complementar do rodapé">
+<div class="jcem-footer-region__brand">
+<a class="jcem-footer-region__logo" href="/" aria-label="JeanCarloEM">
+<img src="https://jcem.pro/logo/logo-animado.gif" alt="JeanCarloEM" />
+</a>
+<div class="page__footer-follow jcem-footer-region__social">
 <ul class="social-icons">
 <li><strong>Siga:</strong></li>
-<li><a href="https://x.com/jeancarloem" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-twitter-square" aria-hidden="true"></i> Twitter</a></li>
-<li><a href="https://www.facebook.com/JeanCarloEM/" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-facebook-square" aria-hidden="true"></i> Facebook</a></li>
-<li><a href="https://github.com/jeanCarloEM" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
-<li><a href="https://www.instagram.com/jeancarlo.em/" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-instagram" aria-hidden="true"></i> Instagram</a></li>
-<li><a href="/feed.xml"><i class="fas fa-fw fa-square-rss" aria-hidden="true"></i> Feed</a></li>
+<li>
+<a href="https://x.com/jeancarloem" rel="nofollow noopener noreferrer">
+<i class="fab fa-fw fa-twitter-square" aria-hidden="true"></i>
+<span>Twitter</span>
+</a>
+</li>
+<li>
+<a href="https://www.facebook.com/JeanCarloEM/" rel="nofollow noopener noreferrer">
+<i class="fab fa-fw fa-facebook-square" aria-hidden="true"></i>
+<span>Facebook</span>
+</a>
+</li>
+<li>
+<a href="https://github.com/jeanCarloEM" rel="nofollow noopener noreferrer">
+<i class="fab fa-fw fa-github" aria-hidden="true"></i>
+<span>GitHub</span>
+</a>
+</li>
+<li>
+<a href="https://www.instagram.com/jeancarlo.em/" rel="nofollow noopener noreferrer">
+<i class="fab fa-fw fa-instagram" aria-hidden="true"></i>
+<span>Instagram</span>
+</a>
+</li>
+<li>
+<a href="/feed.xml">
+<i class="fas fa-fw fa-square-rss" aria-hidden="true"></i>
+<span>Feed</span>
+</a>
+</li>
 </ul>
 </div>
-<div class="page__footer-copyright">&copy; 2014 - 2026 <a href="https://www.jeancarloem.com">JeanCarloEM</a>. Desenvolvido com <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/jekyll-themes/minimal-mistakes/" rel="nofollow">Minimal Mistakes</a>.</div>
+<nav class="jcem-footer-region__links" aria-label="Links do rodapé">
+<a href="/sobre/">Sobre</a>
+<a href="/feed.xml">Feed RSS</a>
+<a href="/recent-posts.json">Feed JSON</a>
+<a href="/mapa/">Todos os Artigos</a>
+</nav>
+</div>
+<nav class="jcem-footer-region__taxonomies" aria-label="Taxonomias do rodapé">
+<section class="jcem-footer-region__taxonomy" aria-labelledby="jcem-footer-categories">
+<h2 id="jcem-footer-categories">Categorias</h2>
+<ul>
+<li>
+<a href="/c/#destaque">Destaque</a>
+</li>
+<li>
+<a href="/c/#divagando">Divagando</a>
+</li>
+<li>
+<a href="/c/#ciência">ciência</a>
+</li>
+<li>
+<a href="/c/#filosofia">filosofia</a>
+</li>
+<li>
+<a href="/c/#religião">religião</a>
+</li>
+</ul>
+</section>
+<section class="jcem-footer-region__taxonomy" aria-labelledby="jcem-footer-tags">
+<h2 id="jcem-footer-tags">Assuntos</h2>
+<ul>
+<li>
+<a href="/t/#a-bíblia-está-certa">A bíblia está certa</a>
+</li>
+<li>
+<a href="/t/#deus-está-certo">Deus está certo</a>
+</li>
+<li>
+<a href="/t/#espírito-santo">Espírito Santo</a>
+</li>
+<li>
+<a href="/t/#absolutismo">absolutismo</a>
+</li>
+<li>
+<a href="/t/#alma">alma</a>
+</li>
+<li>
+<a href="/t/#bíblia">bíblia</a>
+</li>
+<li>
+<a href="/t/#ciência">ciência</a>
+</li>
+<li>
+<a href="/t/#convergencialismo">convergencialismo</a>
+</li>
+<li>
+<a href="/t/#criação">criação</a>
+</li>
+<li>
+<a href="/t/#dez-mandamentos">dez mandamentos</a>
+</li>
+<li>
+<a href="/t/#ensinamento">ensinamento</a>
+</li>
+<li>
+<a href="/t/#esforço-humano">esforço humano</a>
+</li>
+<li>
+<a href="/t/#espiritismo">espiritismo</a>
+</li>
+<li>
+<a href="/t/#espiritualismo">espiritualismo</a>
+</li>
+<li>
+<a href="/t/#espírito">espírito</a>
+</li>
+</ul>
+</section>
+</nav>
+</section>
 </footer>
 <p class="copy">
 Copyright &copy; 2012 - 2026 JeanCarloEM. Todos
@@ -1570,7 +1739,7 @@ class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1875"
 <li
 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1872"
 >
-<a title="Licenca" href="https://jeancarloem.com/licenca/"
+<a title="Licença" href="https://jeancarloem.com/licenca/"
 >Licença</a
 >
 </li>
