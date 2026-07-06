@@ -1,0 +1,13 @@
+main:
+  - title: 'Início'
+    url: /
+  - title: 'Sobre'
+    url: /Sobre/
+  - title: 'Mapa do Site'
+    url: /mapa
+  - title: 'Feds RSS'
+    url: /feed.xml
+  - title: 'Feed JSON'
+    url: /recent-posts.json
+  - title: 'GitHub'
+    url: https://github.com/jeancarloem
