@@ -85,6 +85,9 @@ Escopo: carregamento inicial, loader global, recursos pesados, skeleton loading 
 - Quando o recurso estava pendente, o skeleton deve permanecer visível por janela mínima perceptível antes da transição para o conteúdo final.
 - Metadados de assets constituem camada opcional de otimização; o tema jamais deve depender deles para funcionar corretamente.
 - Quando disponíveis, metadados de assets devem ser usados para otimizar desempenho percebido, responsividade, reserva antecipada de espaço, estruturação automática de componentes e precisão do skeleton loading.
+- Imagens externas elegíveis devem possuir metadados declarativos em `_data/jcem_asset_metadata.yml` ou fonte equivalente consumida no build; cards e imagens destacadas não podem depender do carregamento da imagem para definir a altura final.
+- A primeira renderização de cards com imagem deve emitir `width`, `height` e/ou `aspect-ratio` suficientes para impedir expansão, contração ou reposicionamento após o carregamento do asset.
+- O skeleton de imagens deve combinar padrão/textura fixa com brilho de varredura esquerda-para-direita em camada própria, com contraste ajustado por tema.
 - A geração de metadados de assets deve ocorrer automaticamente durante o build.
 - A geração deve ser incremental sempre que tecnicamente viável, evitando reprocessamento de assets não alterados.
 - O índice consolidado de metadados deve ser cacheável, possuir baixa latência e minimizar requisições HTTP.

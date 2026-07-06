@@ -87,7 +87,7 @@ Componentes elegíveis com assets potencialmente lentos usam skeleton loading em
 <!-- AI-PROCESSED -->
 Durante o build, `_plugins/jcem_asset_metadata.rb` gera metadados opcionais para imagens públicas e publica o índice consolidado em `assets/jcem/asset-metadata.json`. O cache incremental fica em `.jekyll-cache/jcem-asset-metadata.json`.
 
-Quando disponíveis, esses dados são usados para emitir `width`, `height` e proporção em imagens destacadas, cards e posts recentes. Sem o índice, a página continua funcional; o skeleton apenas usa a reserva genérica definida por CSS.
+Quando disponíveis, esses dados são usados para emitir `width`, `height` e proporção em imagens destacadas, cards e posts recentes. Imagens externas sem arquivo local devem declarar metadados em `_data/jcem_asset_metadata.yml`, preservando a reserva exata de espaço desde o HTML inicial. Sem o índice, a página continua funcional; o skeleton apenas usa a reserva genérica definida por CSS.
 
 ## Autores de artigos
 

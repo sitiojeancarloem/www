@@ -570,10 +570,10 @@ body > input.radio#jcem-theme-dark:checked ~ .main_jcem_wrapper {
 
 @keyframes jcemSkeletonShimmer {
 	0% {
-		background-position: 180% 0;
+		transform: translate3d(-130%, 0, 0);
 	}
 	100% {
-		background-position: -80% 0;
+		transform: translate3d(230%, 0, 0);
 	}
 }
 
@@ -631,25 +631,26 @@ body > input.radio#jcem-theme-dark:checked ~ .main_jcem_wrapper {
 .main_jcem_wrapper .jcem-skeleton::after {
 	content: '';
 	position: absolute;
-	inset: 0 -45%;
+	inset: 0 auto 0 0;
 	z-index: 2;
+	width: 58%;
 	// FIX-BUG: brilho fica em camada propria para permanecer visivel sobre o teaser.
 	background-image:
 		linear-gradient(
 			100deg,
 			transparent 0%,
-			transparent 38%,
-			var(--jcem-skeleton-sheen) 48%,
-			var(--jcem-skeleton-sheen) 52%,
-			transparent 62%,
+			transparent 28%,
+			var(--jcem-skeleton-sheen) 50%,
+			transparent 72%,
 			transparent 100%
 		);
-	background-position: 180% 0;
-	background-size: 220% 100%;
-	opacity: 0.92;
+	background-position: 0 0;
+	background-size: 100% 100%;
+	opacity: 0.86;
 	pointer-events: none;
-	animation: jcemSkeletonShimmer 0.82s linear infinite;
+	animation: jcemSkeletonShimmer 1.05s linear infinite;
 	transition: opacity 0.32s ease;
+	will-change: transform;
 }
 
 .main_jcem_wrapper .jcem-skeleton > * {

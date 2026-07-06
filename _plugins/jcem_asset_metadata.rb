@@ -177,11 +177,32 @@ module Jcem
       end
     end
 
+    def media_type_for_path(path)
+      extension = extension_for_path(path)
+      MEDIA_TYPES.fetch(extension, "application/octet-stream")
+    end
+
+    def extension_for_path(path)
+      parsed_path =
+        begin
+          uri = URI.parse(path.to_s)
+          uri.path.to_s
+        rescue StandardError
+          path.to_s
+        end
+      File.extname(parsed_path).downcase
+    end
+
     def orientation(width, height)
       return nil unless width && height
       return "square" if (width.to_f - height.to_f).abs < 0.001
 
       width.to_f > height.to_f ? "landscape" : "portrait"
+    end
+
+    def dimension_value(value)
+      number = value.to_f.round(3)
+      number % 1 == 0 ? number.to_i : number
     end
 
     def build_metadata(path, public_path)
@@ -206,6 +227,55 @@ module Jcem
       end
 
       metadata
+    end
+
+    def build_declared_metadata(path, values)
+      width = values["width"] || values[:width]
+      height = values["height"] || values[:height]
+      width = width.to_f
+      height = height.to_f
+      return nil unless path.to_s.strip != "" && width.positive? && height.positive?
+
+      extension = extension_for_path(path)
+      metadata = {
+        "path" => path.to_s,
+        "media_type" => values["media_type"] || values[:media_type] || media_type_for_path(path),
+        "extension" => extension.delete_prefix("."),
+        "width" => dimension_value(width),
+        "height" => dimension_value(height),
+        "aspect_ratio" => (width / height).round(6),
+        "aspect_ratio_css" => "#{dimension_value(width)} / #{dimension_value(height)}",
+        "orientation" => orientation(width, height)
+      }
+      byte_size = values["byte_size"] || values[:byte_size]
+      metadata["byte_size"] = byte_size if byte_size
+      metadata
+    end
+
+    def declared_asset_pair(key, value)
+      if value.is_a?(Hash)
+        path = value["path"] || value[:path] || value["url"] || value[:url] || key
+        [path, value]
+      else
+        [key, {}]
+      end
+    end
+
+    def build_declared_assets(data)
+      entries = data.is_a?(Hash) ? data.fetch("assets", data) : {}
+      return {} unless entries.is_a?(Hash)
+
+      assets = {}
+      entries.each do |key, value|
+        path, values = declared_asset_pair(key, value)
+        metadata = build_declared_metadata(path, values)
+        next unless metadata
+
+        asset_lookup_keys(path).each do |candidate|
+          assets[candidate] = metadata
+        end
+      end
+      assets
     end
 
     def load_cache(site)
@@ -237,7 +307,7 @@ module Jcem
     def build(site)
       cache = load_cache(site)
       next_cache = {}
-      assets = {}
+      assets = build_declared_assets(site.data["jcem_asset_metadata"])
 
       site.static_files.select { |file| relevant?(file) }.each do |file|
         public = public_path(file)
@@ -271,25 +341,70 @@ module Jcem
       value = input.to_s.strip
       return {} if value.empty?
 
-      candidates = [value]
-      begin
-        uri = URI.parse(value)
-        candidates << uri.path if uri&.path
-      rescue StandardError
-        nil
-      end
-
-      candidates.map { |candidate| normalize_path(candidate) }.each do |candidate|
+      asset_lookup_keys(value).each do |candidate|
         return assets[candidate] if assets.key?(candidate)
       end
 
       {}
     end
 
+    def clean_absolute_url(value)
+      uri = URI.parse(value.to_s)
+      return nil unless uri.is_a?(URI::HTTP) && uri.host
+
+      uri.query = nil
+      uri.fragment = nil
+      uri.to_s
+    rescue StandardError
+      nil
+    end
+
+    def wayback_original_url(value)
+      source =
+        begin
+          URI.parse(value.to_s).path.to_s
+        rescue StandardError
+          value.to_s
+        end
+      match = source.match(%r{\A/web/[0-9][0-9a-z_]*/(http[s]?://.+)\z}i)
+      return nil unless match
+
+      URI.decode_www_form_component(match[1])
+    rescue StandardError
+      match[1]
+    end
+
+    def asset_lookup_keys(value)
+      raw = value.to_s.strip
+      return [] if raw.empty?
+
+      keys = []
+      absolute = clean_absolute_url(raw)
+      if absolute
+        keys << absolute
+        uri = URI.parse(absolute)
+        keys << uri.path if uri.path
+      else
+        keys << raw
+      end
+
+      original = wayback_original_url(absolute || raw)
+      if original
+        keys << original
+        original_uri = URI.parse(original)
+        keys << original_uri.path if original_uri.path
+      end
+
+      keys.filter_map do |key|
+        cleaned = clean_absolute_url(key)
+        cleaned || normalize_path(key)
+      end.uniq
+    end
+
     def normalize_path(value)
       path = value.to_s.split("?").first.to_s
       path = path.start_with?("/") ? path : "/#{path}"
-      path.squeeze("/")
+      path.gsub(%r{(?<!:)//+}, "/")
     end
   end
 end
