@@ -1,71 +1,143 @@
-{% capture logo_path %}{{ include.logo | default: site.logo }}{% endcapture %}
-{% assign jcem_masthead_reduced = include.reduced | default: false %}
-{% assign jcem_masthead_nav_label = include.nav_label | default: '' %}
-{% assign jcem_masthead_class = include.class | default: '' %}
-{% assign jcem_masthead_static_fragment = include.static_fragment | default: false %}
+{% capture logo_path %}{{ include.logo | default: site.logo }}{%
+endcapture %} {% assign jcem_masthead_reduced = include.reduced |
+default: false %} {% assign jcem_masthead_nav_label =
+include.nav_label | default: '' %} {% assign jcem_masthead_class =
+include.class | default: '' %} {% assign jcem_masthead_static_fragment
+= include.static_fragment | default: false %}
 
-<div class="masthead{% if jcem_masthead_class != empty %} {{ jcem_masthead_class }}{% endif %}"{% if jcem_masthead_static_fragment %} data-jcem-static-fragment="masthead"{% endif %}>
-  <div class="masthead__inner-wrap">
-    <div class="masthead__menu">
-      {% unless jcem_masthead_reduced %}
-      <input class="jcem-nav-state" type="checkbox" id="jcem-nav-state" />
-      {% endunless %}
-      <nav id="site-nav" class="greedy-nav"{% if jcem_masthead_nav_label %} aria-label="{{ jcem_masthead_nav_label }}"{% endif %}>
-        {% unless logo_path == empty %}
-          <a class="site-logo" href="{{ '/' | relative_url }}"><img src="{{ logo_path | relative_url }}" alt="{{ site.masthead_title | default: site.title }}"></a>
-        {% endunless %}
-        <a class="site-title" href="{{ '/' | relative_url }}">
-          {{ site.masthead_title | default: site.title | escape_once | strip }}
-          {% if site.subtitle %}<span class="site-subtitle">{{ site.subtitle | escape_once | strip }}</span>{% endif %}
-        </a>
-        <ul class="visible-links">
-            <li class="masthead__menu-item">
-              <a href="{{ '/sobre/' | relative_url }}">Sobre</a>
-            </li>
-          {%- assign main_navigation = site.data.navigation.main | default: empty -%}
-          {%- if main_navigation != empty -%}
-          {%- for link in main_navigation -%}
-            <li class="masthead__menu-item">
-              <a
-                href="{{ link.url | relative_url }}"
-                {% if link.description %} title="{{ link.description }}"{% endif %}
-                {% if link.target %} target="{{ link.target }}"{% endif %}
-              >{{ link.title }}</a>
-            </li>
-          {%- endfor -%}
-          {%- endif -%}
-        </ul>
-        {% unless jcem_masthead_reduced %}
-        <div class="jcem-theme-toggle" role="group" aria-label="Alternar tema">
-          <label class="jcem-theme-toggle__option jcem-theme-toggle__option--light" for="jcem-theme-light" title="Tema claro">
-            <span class="visually-hidden">Tema claro</span>
-            <i class="fas fa-sun" aria-hidden="true"></i>
-          </label>
-          <label class="jcem-theme-toggle__option jcem-theme-toggle__option--dark" for="jcem-theme-dark" title="Tema escuro">
-            <span class="visually-hidden">Tema escuro</span>
-            <i class="fas fa-moon" aria-hidden="true"></i>
-          </label>
-        </div>
-        {% if site.search == true %}
-        <button class="search__toggle" type="button">
-          <span class="visually-hidden">{{ site.data.ui-text[site.locale].search_label | default: "Toggle search" }}</span>
-          <i class="fas fa-search"></i>
-        </button>
-        {% endif %}
-        <label class="jcem-nav-toggle" for="jcem-nav-state" aria-label="Alternar menu">
-          <span class="visually-hidden">{{ site.data.ui-text[site.locale].menu_label | default: "Toggle menu" }}</span>
-          <span class="navicon"></span>
-        </label>
-        <button class="greedy-nav__toggle hidden" type="button">
-          <span class="visually-hidden">{{ site.data.ui-text[site.locale].menu_label | default: "Toggle menu" }}</span>
-          <div class="navicon"></div>
-        </button>
-        <ul class="hidden-links hidden"></ul>
-        {% endunless %}
-      </nav>
-      {% unless jcem_masthead_reduced %}
-      <label class="jcem-nav-backdrop" for="jcem-nav-state" aria-hidden="true"></label>
-      {% endunless %}
-    </div>
-  </div>
+<div
+	class="masthead{% if jcem_masthead_class != empty %} {{ jcem_masthead_class }}{% endif %}"
+	{%
+	if
+	jcem_masthead_static_fragment
+	%}
+	data-jcem-static-fragment="masthead"
+	{%
+	endif
+	%}
+>
+	<div class="masthead__inner-wrap">
+		<div class="masthead__menu">
+			{% unless jcem_masthead_reduced %}
+			<input
+				class="jcem-nav-state"
+				type="checkbox"
+				id="jcem-nav-state"
+			/>
+			{% endunless %}
+			<nav
+				id="site-nav"
+				class="greedy-nav"
+				{%
+				if
+				jcem_masthead_nav_label
+				%}
+				aria-label="{{ jcem_masthead_nav_label }}"
+				{%
+				endif
+				%}
+			>
+				{% unless logo_path == empty %}
+				<a class="site-logo" href="{{ '/' | relative_url }}"
+					><img
+						src="{{ logo_path | relative_url }}"
+						alt="{{ site.masthead_title | default: site.title }}"
+				/></a>
+				{% endunless %}
+				<a class="site-title" href="{{ '/' | relative_url }}">
+					{{ site.masthead_title | default: site.title | escape_once |
+					strip }} {% if site.subtitle %}<span class="site-subtitle"
+						>{{ site.subtitle | escape_once | strip }}</span
+					>{% endif %}
+				</a>
+				<ul class="visible-links">
+					{%- assign main_navigation = site.data.navigation.main |
+					default: empty -%} {%- if main_navigation != empty -%} {%-
+					for link in main_navigation -%}
+					<li class="masthead__menu-item">
+						<a
+							href="{{ link.url | relative_url }}"
+							{%
+							if
+							link.description
+							%}
+							title="{{ link.description }}"
+							{%
+							endif
+							%}
+							{%
+							if
+							link.target
+							%}
+							target="{{ link.target }}"
+							{%
+							endif
+							%}
+							>{{ link.title }}</a
+						>
+					</li>
+					{%- endfor -%} {%- endif -%}
+				</ul>
+				{% unless jcem_masthead_reduced %}
+				<div
+					class="jcem-theme-toggle"
+					role="group"
+					aria-label="Alternar tema"
+				>
+					<label
+						class="jcem-theme-toggle__option jcem-theme-toggle__option--light"
+						for="jcem-theme-light"
+						title="Tema claro"
+					>
+						<span class="visually-hidden">Tema claro</span>
+						<i class="fas fa-sun" aria-hidden="true"></i>
+					</label>
+					<label
+						class="jcem-theme-toggle__option jcem-theme-toggle__option--dark"
+						for="jcem-theme-dark"
+						title="Tema escuro"
+					>
+						<span class="visually-hidden">Tema escuro</span>
+						<i class="fas fa-moon" aria-hidden="true"></i>
+					</label>
+				</div>
+				{% if site.search == true %}
+				<button class="search__toggle" type="button">
+					<span class="visually-hidden"
+						>{{ site.data.ui-text[site.locale].search_label | default:
+						"Toggle search" }}</span
+					>
+					<i class="fas fa-search"></i>
+				</button>
+				{% endif %}
+				<label
+					class="jcem-nav-toggle"
+					for="jcem-nav-state"
+					aria-label="Alternar menu"
+				>
+					<span class="visually-hidden"
+						>{{ site.data.ui-text[site.locale].menu_label | default:
+						"Toggle menu" }}</span
+					>
+					<span class="navicon"></span>
+				</label>
+				<button class="greedy-nav__toggle hidden" type="button">
+					<span class="visually-hidden"
+						>{{ site.data.ui-text[site.locale].menu_label | default:
+						"Toggle menu" }}</span
+					>
+					<div class="navicon"></div>
+				</button>
+				<ul class="hidden-links hidden"></ul>
+				{% endunless %}
+			</nav>
+			{% unless jcem_masthead_reduced %}
+			<label
+				class="jcem-nav-backdrop"
+				for="jcem-nav-state"
+				aria-hidden="true"
+			></label>
+			{% endunless %}
+		</div>
+	</div>
 </div>
