@@ -57,20 +57,19 @@ assert_equal(
   'bloco sensivel em linha unica'
 )
 
-home = '<html><head><noscript data-jcem-fragment="noscript-style"><style>origem</style></noscript></head><body><noscript><main>origem</main></noscript></body></html>'
-not_found = '<html><head><noscript data-jcem-fragment="noscript-style"><style>antigo</style></noscript></head><body><noscript data-jcem-fragment="noscript-content"><main>antigo</main></noscript></body></html>'
-synchronized = Jcem::HtmlCompactor.sync_noscript_style(home, not_found)
-synchronized = Jcem::HtmlCompactor.sync_noscript_content(home, synchronized)
-assert_includes(
-  synchronized,
-  '<noscript data-jcem-fragment="noscript-style"><style>origem</style></noscript>',
-  'estilo noscript da 404 sincronizado com a home'
-)
-assert_includes(
-  synchronized,
-  '<noscript data-jcem-fragment="noscript-content"><main>origem</main></noscript>',
-  'noscript da 404 sincronizado com a home'
-)
-refute_includes(synchronized, '<main>antigo</main>', 'fallback noscript antigo removido')
+root = File.expand_path('..', __dir__)
+not_found_source = File.join(root, '404.html')
+not_found_template = File.join(root, '404.main.html')
+raise '404.html nao deve existir como fonte editavel' if File.exist?(not_found_source)
+raise '404.main.html ausente' unless File.file?(not_found_template)
+
+template = File.read(not_found_template)
+assert_includes(template, 'permalink: /404.html', '404 transpilado para /404.html')
+assert_includes(template, '{% include masthead.html reduced=true %}', '404 usa masthead compartilhado')
+assert_includes(template, '{% include jcem/footer-shell.html %}', '404 usa footer compartilhado')
+assert_includes(template, '{% include jcem/noscript-content.html %}', '404 usa noscript compartilhado')
+assert_includes(template, '{% include jcem/noscript-style.html %}', '404 usa estilo noscript compartilhado')
+refute_includes(template, 'hydrateFragments', '404 nao hidrata componentes compartilhados em runtime')
+refute_includes(template, 'jcem-fragments=1', '404 nao busca fragmentos compartilhados da home')
 
 puts 'html_compactor=ok'

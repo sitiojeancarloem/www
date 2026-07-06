@@ -1004,6 +1004,24 @@ const validatePage = async (page, url, theme, viewportName) => {
 					: true,
 			};
 		});
+		const reservedImageMetrics = Array.from(
+			document.querySelectorAll(
+				'.archive__item-teaser img, .jcem-featured-image img',
+			),
+		).map((image) => {
+			const frame = image.closest(
+				'.archive__item-teaser, .jcem-featured-image',
+			);
+			return {
+				hasDimensions: Boolean(
+					image.getAttribute('width') && image.getAttribute('height'),
+				),
+				hasAspectRatio: Boolean(
+					frame?.getAttribute('data-jcem-asset-aspect-ratio') ||
+						frame?.style.getPropertyValue('--jcem-asset-aspect-ratio'),
+				),
+			};
+		});
 		const footerRegion =
 			Array.from(
 				document.querySelectorAll('.page__footer .jcem-footer-region'),
@@ -1277,6 +1295,9 @@ const validatePage = async (page, url, theme, viewportName) => {
 				eligibleSkeletonTargetCount: document.querySelectorAll(
 					'.archive__item-teaser, .jcem-featured-image, .page__hero, .page__hero--overlay, [data-jcem-skeleton]',
 				).length,
+				missingReservedImageMetadataCount: reservedImageMetrics.filter(
+					(metric) => !metric.hasDimensions && !metric.hasAspectRatio,
+				).length,
 				skeletonCount: skeletonMetrics.length,
 				badSkeletonCount: skeletonMetrics.filter(
 					(metric) =>
@@ -1374,6 +1395,10 @@ const validatePage = async (page, url, theme, viewportName) => {
 		result.archive.skeletonCount < 1
 	) {
 		fail(`Skeleton loading ausente em ${url} ${theme} ${viewportName}`);
+	}
+
+	if (result.archive.missingReservedImageMetadataCount > 0) {
+		fail(`Imagem de card sem reserva de geometria em ${url} ${theme} ${viewportName}`);
 	}
 
 	if (

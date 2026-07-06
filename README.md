@@ -125,9 +125,9 @@ Cada item de artigo exibe somente título, excerto e link. A paginação usa `po
 
 ## Compactação HTML
 
-Builds de produção executam `_plugins/jcem_html_compactor.rb` depois da escrita do site. O hook remove linhas vazias e margens de linha do HTML final, inclusive do `404.html`, mas preserva byte a byte o conteúdo interno de `script`, `style`, `pre`, `textarea` e `template`.
+Builds de produção executam `_plugins/jcem_html_compactor.rb` depois da escrita do site. O hook remove linhas vazias e margens de linha do HTML final, inclusive do `404.html` gerado, mas preserva byte a byte o conteúdo interno de `script`, `style`, `pre`, `textarea` e `template`.
 
-O mesmo hook sincroniza o conteúdo e os estilos noscript compilados da 404 com os fragmentos renderizados da home. O teste específico faz parte de `npm run check` e também pode ser executado com `npm run check:html`.
+`404.html` não é fonte editável. A página 404 é mantida em `404.main.html`, que usa `permalink: /404.html` e compõe masthead, `noscript`, subpostbar e footer por includes compartilhadas. `npm run check:html` falha se `404.html` voltar a existir como fonte editável ou se `404.main.html` deixar de usar as fontes compartilhadas.
 
 ## Blockquotes
 

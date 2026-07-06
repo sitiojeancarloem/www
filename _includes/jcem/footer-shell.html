@@ -1,0 +1,6 @@
+<div id="footer" class="page__footer{% if include.class %} {{ include.class }}{% endif %}"{% if include.static_fragment %} data-jcem-static-fragment="footer"{% endif %}>
+  <footer>
+    {% include footer/custom.html %}
+  </footer>
+  {% include footer/after_footer.html %}
+</div>

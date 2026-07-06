@@ -7,41 +7,6 @@ module Jcem
 
     module_function
 
-    def sync_noscript_content(home, not_found)
-      source = home.match(%r{<body\b[^>]*>.*?(<noscript\b[^>]*>.*?</noscript>)}im)
-      return not_found unless source
-
-      fragment = source[1].sub(/\A<noscript\b[^>]*>/i, '<noscript data-jcem-fragment="noscript-content">')
-      not_found.sub(
-        %r{<noscript\b[^>]*data-jcem-fragment=["']noscript-content["'][^>]*>.*?</noscript>}im,
-        fragment
-      )
-    end
-
-    def sync_noscript_style(home, not_found)
-      source = home.match(
-        %r{<noscript\b[^>]*data-jcem-fragment=["']noscript-style["'][^>]*>.*?</noscript>}im
-      )
-      return not_found unless source
-
-      not_found.sub(
-        %r{<noscript\b[^>]*data-jcem-fragment=["']noscript-style["'][^>]*>.*?</noscript>}im,
-        source[0]
-      )
-    end
-
-    def sync_404_noscript(site)
-      home_path = File.join(site.dest, 'index.html')
-      not_found_path = File.join(site.dest, '404.html')
-      return unless File.file?(home_path) && File.file?(not_found_path)
-
-      original = File.binread(not_found_path).force_encoding(Encoding::UTF_8)
-      home = File.binread(home_path).force_encoding(Encoding::UTF_8)
-      synchronized = sync_noscript_style(home, original)
-      synchronized = sync_noscript_content(home, synchronized)
-      File.binwrite(not_found_path, synchronized) unless synchronized == original
-    end
-
     def compact(content)
       raw_tag = nil
       output = []
@@ -73,7 +38,6 @@ module Jcem
     end
 
     def compact_site(site)
-      sync_404_noscript(site)
       return unless enabled?(site)
 
       Dir.glob(File.join(site.dest, '**', '*.html')).sort.each do |path|

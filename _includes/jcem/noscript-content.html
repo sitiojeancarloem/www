@@ -2,59 +2,7 @@
 '/assets/jcem/img/logo-animado.gif' }}{% endcapture %}
 <div class="main_jcem_wrapper jcem-noscript-page">
 	{% include footer/after_footer.html %}
-	<header
-		class="masthead jcem-noscript-masthead"
-		data-jcem-static-fragment="masthead"
-	>
-		<div class="masthead__inner-wrap">
-			<div class="masthead__menu">
-				<nav class="greedy-nav" aria-label="Navegação sem JavaScript">
-					<a class="site-logo" href="{{ '/' | relative_url }}"
-						><img
-							src="{{ logo_path | relative_url }}"
-							alt="{{ site.masthead_title | default: site.title | escape_once }}"
-					/></a>
-					<a class="site-title" href="{{ '/' | relative_url }}">
-						{{ site.masthead_title | default: site.title | escape_once
-						| strip }} {%- if site.subtitle -%}<span
-							class="site-subtitle"
-							>{{ site.subtitle | escape_once | strip }}</span
-						>{%- endif -%}
-					</a>
-					<ul class="visible-links">
-						<li class="masthead__menu-item">
-							<a href="{{ '/sobre/' | relative_url }}">Sobre</a>
-						</li>
-						{%- assign main_navigation = site.data.navigation.main |
-						default: empty -%} {%- if main_navigation != empty -%} {%-
-						for link in main_navigation -%}
-						<li class="masthead__menu-item">
-							<a
-								href="{{ link.url | relative_url }}"
-								{%
-								if
-								link.description
-								%}
-								title="{{ link.description }}"
-								{%
-								endif
-								%}{%
-								if
-								link.target
-								%}
-								target="{{ link.target }}"
-								{%
-								endif
-								%}
-								>{{ link.title }}</a
-							>
-						</li>
-						{%- endfor -%} {%- endif -%}
-					</ul>
-				</nav>
-			</div>
-		</div>
-	</header>
+	{% include masthead.html logo=logo_path reduced=true class='jcem-noscript-masthead' nav_label='Navegação sem JavaScript' static_fragment=true %}
 
 	<figure
 		class="jcem-featured-image jcem-featured-image--wide jcem-noscript-featured"
@@ -117,14 +65,5 @@
 		</main>
 	</div>
 
-	<div
-		id="footer"
-		class="page__footer jcem-noscript-footer"
-		data-jcem-static-fragment="footer"
-	>
-		<footer>
-			{% include footer/custom.html %}
-		</footer>
-		{% include footer/after_footer.html %}
-	</div>
+	{% include jcem/footer-shell.html class='jcem-noscript-footer' static_fragment=true %}
 </div>

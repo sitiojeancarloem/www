@@ -1,4 +1,36 @@
 <!-- AI-PROCESSED -->
+# RCF-JCEM-COMPONENTES-COMPARTILHADOS-001
+
+Status: vigente.
+
+Escopo: cabeçalho, masthead, `noscript`, rodapé, subpostbar, menus compartilhados, avisos institucionais e páginas especiais do tema.
+
+## Regras Normativas
+
+- Componentes estruturais compartilhados devem possuir uma única fonte editável.
+- Cópias manuais de cabeçalho, masthead, `noscript`, rodapé, subpostbar, menus compartilhados e avisos institucionais são proibidas.
+- Variações por contexto devem ser implementadas por composição Liquid, includes parametrizadas, slots, placeholders ou mecanismo equivalente de build.
+- Diferenças de páginas especiais, como `404` e `noscript`, podem omitir recursos não aplicáveis, mas não podem duplicar estrutura, conteúdo comum ou identidade visual.
+- `404.html` é artefato gerado e não deve existir como fonte editável no repositório.
+- A fonte editável da página 404 é `404.main.html`, transpilada pelo Jekyll para `/404.html` por `permalink`.
+- Alteração em componente compartilhado deve refletir automaticamente em páginas normais, `noscript` e 404 durante o build.
+- Hidratação client-side de fragmentos compartilhados só é permitida como comportamento funcional realmente necessário, nunca como substituto para composição em tempo de build.
+
+## Implementação
+
+- `_includes/masthead.html` é a fonte da masthead em modo completo e reduzido.
+- `_includes/jcem/footer-shell.html` encapsula o rodapé com `_includes/footer/custom.html` e `_includes/footer/after_footer.html`.
+- `_includes/jcem/noscript-content.html` e `_includes/jcem/noscript-style.html` são as fontes do fallback sem JavaScript.
+- `404.main.html` usa includes compartilhadas para masthead, `noscript`, subpostbar e footer, mantendo apenas conteúdo e scripts próprios da 404.
+- `_plugins/jcem_html_compactor.rb` compacta o HTML final sem sincronizar ou substituir componentes compartilhados após o build.
+
+## Validação
+
+- `npm run check:html` deve falhar se `404.html` voltar a existir como fonte editável.
+- `npm run check:html` deve confirmar que `404.main.html` gera `/404.html` e referencia masthead, `noscript` e footer por includes.
+- Build Jekyll deve gerar `_site/404.html` e não deve gerar `_site/404.main.html`.
+
+<!-- AI-PROCESSED -->
 # RCF-JCEM-FOOTNOTES-001
 
 Status: vigente.
@@ -106,7 +138,7 @@ Escopo: carregamento inicial, loader global, recursos pesados, skeleton loading 
 - `_plugins/jcem_asset_metadata.rb` gera metadados opcionais de imagens, mantém cache incremental em `.jekyll-cache/jcem-asset-metadata.json` e publica índice consolidado em `assets/jcem/asset-metadata.json`.
 - `_includes/archive-single.html`, `_includes/jcem/post-featured-image.html` e `recent-posts.json` usam metadados disponíveis para emitir `width`, `height` e proporção sem criar dependência funcional.
 - `_sass/minimal-mistakes/skins/_variables-custom.scss` define tokens e animação de skeleton em CSS puro.
-- `404.html` mantém implementação local equivalente para loader, imagem destacada e cards recentes.
+- `404.main.html` mantém implementação local equivalente para loader, imagem destacada e cards recentes, gerando `/404.html` em tempo de build.
 - A implementação atual não grava EXIF nos arquivos originais porque a camada sidecar atende ao contrato com menor risco, sem nova dependência e sem mutação de assets autorais.
 
 ## Validação
