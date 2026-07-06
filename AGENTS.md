@@ -717,8 +717,8 @@ Adicionar:
 COMMIT_SUGERIDO:
 
 Texto PT-BR.
-Curto (máximo 256 chars).
-Descritivo.
+Curto mas suficientemente detalhado (máximo 512 chars).
+Descritivo distinguindo fix e melhorias/aprimoramentos.
 
 Indicar explicitamente se ainda há mais estapas ou pendencias a serem feitas, e quais.
 

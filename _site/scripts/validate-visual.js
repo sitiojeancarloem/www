@@ -982,16 +982,22 @@ const validatePage = async (page, url, theme, viewportName) => {
 			document.querySelectorAll('.jcem-skeleton'),
 		).map((element) => {
 			const rect = element.getBoundingClientRect();
+			const style = window.getComputedStyle(element);
 			const before = window.getComputedStyle(element, '::before');
+			const after = window.getComputedStyle(element, '::after');
 			const image = element.querySelector('img');
 
 			return {
 				state: element.getAttribute('data-jcem-skeleton-state') || '',
 				width: rect.width,
 				height: rect.height,
+				animation: style.animationName,
+				backgroundImage: style.backgroundImage,
 				beforeContent: before.content,
-				beforeAnimation: before.animationName,
 				beforeOpacity: Number.parseFloat(before.opacity || '0'),
+				afterContent: after.content,
+				afterAnimation: after.animationName,
+				afterOpacity: Number.parseFloat(after.opacity || '0'),
 				hasAsset: Boolean(image),
 				assetLoaded: image
 					? Boolean(image.complete && image.naturalWidth > 0)
@@ -1280,8 +1286,12 @@ const validatePage = async (page, url, theme, viewportName) => {
 						metric.beforeContent === 'none' ||
 						(metric.state === 'loaded' && metric.beforeOpacity > 0.05) ||
 						(metric.state === 'loading' &&
-							(metric.beforeAnimation === 'none' ||
-								metric.beforeOpacity < 0.85)),
+							(metric.animation === 'none' ||
+								!metric.backgroundImage.includes('repeating-linear-gradient') ||
+								metric.afterContent === 'none' ||
+								metric.afterAnimation === 'none' ||
+								metric.beforeOpacity < 0.85 ||
+								metric.afterOpacity < 0.65)),
 				).length,
 				loadedSkeletonCount: skeletonMetrics.filter(
 					(metric) => metric.state === 'loaded' && metric.assetLoaded,
@@ -1289,8 +1299,11 @@ const validatePage = async (page, url, theme, viewportName) => {
 				animatedSkeletonCount: skeletonMetrics.filter(
 					(metric) =>
 						metric.state === 'loading' &&
-						metric.beforeAnimation !== 'none' &&
-						metric.beforeOpacity >= 0.85,
+						metric.animation !== 'none' &&
+						metric.backgroundImage.includes('repeating-linear-gradient') &&
+						metric.afterAnimation !== 'none' &&
+						metric.beforeOpacity >= 0.85 &&
+						metric.afterOpacity >= 0.65,
 				).length,
 				errorSkeletonCount: skeletonMetrics.filter(
 					(metric) =>

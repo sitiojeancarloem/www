@@ -53,6 +53,7 @@
 	--dark--jcem-glitch-b: rgba(255, 67, 111, 0.18);
 	--dark--jcem-skeleton-base: #22313d;
 	--dark--jcem-skeleton-sheen: rgba(146, 224, 255, 0.72);
+	--dark--jcem-skeleton-grid: rgba(146, 224, 255, 0.16);
 	--dark--jcem-load-track: rgba(244, 212, 0, 0.22);
 	--dark--jcem-load-fill-a: #f4d400;
 	--dark--jcem-load-fill-b: #7bc8ff;
@@ -114,6 +115,7 @@
 	--clean--jcem-glitch-b: rgba(47, 125, 149, 0.24);
 	--clean--jcem-skeleton-base: #d0dbe0;
 	--clean--jcem-skeleton-sheen: rgba(255, 255, 255, 0.95);
+	--clean--jcem-skeleton-grid: rgba(47, 125, 149, 0.2);
 	--clean--jcem-load-track: rgba(47, 89, 99, 0.24);
 	--clean--jcem-load-fill-a: #102f3a;
 	--clean--jcem-load-fill-b: #b28700;
@@ -195,6 +197,7 @@ body > input.radio.jcem-theme-radio {
 	--jcem-glitch-b: var(--clean--jcem-glitch-b);
 	--jcem-skeleton-base: var(--clean--jcem-skeleton-base);
 	--jcem-skeleton-sheen: var(--clean--jcem-skeleton-sheen);
+	--jcem-skeleton-grid: var(--clean--jcem-skeleton-grid);
 	--jcem-load-track: var(--clean--jcem-load-track);
 	--jcem-load-fill-a: var(--clean--jcem-load-fill-a);
 	--jcem-load-fill-b: var(--clean--jcem-load-fill-b);
@@ -261,6 +264,7 @@ body > input.radio#jcem-theme-dark:checked ~ .main_jcem_wrapper {
 	--jcem-glitch-b: var(--dark--jcem-glitch-b);
 	--jcem-skeleton-base: var(--dark--jcem-skeleton-base);
 	--jcem-skeleton-sheen: var(--dark--jcem-skeleton-sheen);
+	--jcem-skeleton-grid: var(--dark--jcem-skeleton-grid);
 	--jcem-load-track: var(--dark--jcem-load-track);
 	--jcem-load-fill-a: var(--dark--jcem-load-fill-a);
 	--jcem-load-fill-b: var(--dark--jcem-load-fill-b);
@@ -569,7 +573,20 @@ body > input.radio#jcem-theme-dark:checked ~ .main_jcem_wrapper {
 		background-position: 180% 0;
 	}
 	100% {
-		background-position: -180% 0;
+		background-position: -80% 0;
+	}
+}
+
+@keyframes jcemSkeletonTexture {
+	0% {
+		background-position:
+			0 0,
+			0 0;
+	}
+	100% {
+		background-position:
+			3.5rem 0,
+			2.35rem 0;
 	}
 }
 
@@ -582,6 +599,17 @@ body > input.radio#jcem-theme-dark:checked ~ .main_jcem_wrapper {
 	aspect-ratio: var(--jcem-asset-aspect-ratio);
 }
 
+.main_jcem_wrapper .jcem-skeleton[data-jcem-skeleton-state='loading'] {
+	background-color: var(--jcem-skeleton-base);
+	background-image:
+		linear-gradient(135deg, transparent 0 44%, var(--jcem-skeleton-grid) 45% 55%, transparent 56% 100%),
+		repeating-linear-gradient(90deg, transparent 0 2.15rem, var(--jcem-skeleton-grid) 2.15rem 2.35rem);
+	background-size:
+		3.5rem 3.5rem,
+		2.35rem 100%;
+	animation: jcemSkeletonTexture 1.4s linear infinite;
+}
+
 .main_jcem_wrapper .jcem-skeleton::before {
 	content: '';
 	position: absolute;
@@ -590,27 +618,43 @@ body > input.radio#jcem-theme-dark:checked ~ .main_jcem_wrapper {
 	// FIX-BUG: base do skeleton permanece visivel durante todo o ciclo.
 	background-color: var(--jcem-skeleton-base);
 	background-image:
-		repeating-linear-gradient(
-			100deg,
-			transparent 0%,
-			transparent 17%,
-			color-mix(in srgb, var(--jcem-skeleton-sheen) 32%, transparent) 22%,
-			var(--jcem-skeleton-sheen) 25%,
-			color-mix(in srgb, var(--jcem-skeleton-sheen) 32%, transparent) 28%,
-			transparent 34%,
-			transparent 52%
-		);
-	background-position: 180% 0;
-	background-size: 240% 100%;
+		linear-gradient(135deg, transparent 0 48%, var(--jcem-skeleton-grid) 49% 51%, transparent 52% 100%),
+		repeating-linear-gradient(90deg, transparent 0 2.25rem, var(--jcem-skeleton-grid) 2.25rem 2.35rem);
+	background-size:
+		3.5rem 3.5rem,
+		2.35rem 100%;
 	opacity: 1;
 	pointer-events: none;
-	animation: jcemSkeletonShimmer 0.95s linear infinite;
+	transition: opacity 0.32s ease;
+}
+
+.main_jcem_wrapper .jcem-skeleton::after {
+	content: '';
+	position: absolute;
+	inset: 0 -45%;
+	z-index: 2;
+	// FIX-BUG: brilho fica em camada propria para permanecer visivel sobre o teaser.
+	background-image:
+		linear-gradient(
+			100deg,
+			transparent 0%,
+			transparent 38%,
+			var(--jcem-skeleton-sheen) 48%,
+			var(--jcem-skeleton-sheen) 52%,
+			transparent 62%,
+			transparent 100%
+		);
+	background-position: 180% 0;
+	background-size: 220% 100%;
+	opacity: 0.92;
+	pointer-events: none;
+	animation: jcemSkeletonShimmer 0.82s linear infinite;
 	transition: opacity 0.32s ease;
 }
 
 .main_jcem_wrapper .jcem-skeleton > * {
 	position: relative;
-	z-index: 3;
+	z-index: 4;
 }
 
 .main_jcem_wrapper
@@ -627,11 +671,20 @@ body > input.radio#jcem-theme-dark:checked ~ .main_jcem_wrapper {
 
 .main_jcem_wrapper .jcem-skeleton[data-jcem-skeleton-state='loaded']::before {
 	opacity: 0;
-	animation: jcemSkeletonShimmer 0.95s linear infinite;
+}
+
+.main_jcem_wrapper .jcem-skeleton[data-jcem-skeleton-state='loaded'] {
+	background-image: none;
+	animation: none;
 }
 
 .main_jcem_wrapper .jcem-skeleton[data-jcem-skeleton-state='error']::before {
 	opacity: 0.28;
+}
+
+.main_jcem_wrapper .jcem-skeleton[data-jcem-skeleton-state='loaded']::after,
+.main_jcem_wrapper .jcem-skeleton[data-jcem-skeleton-state='error']::after {
+	opacity: 0;
 	animation: none;
 }
 
