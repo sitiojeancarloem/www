@@ -9,7 +9,12 @@ src/__generated__
 tmp/
 # Arquivos de saída do Jekyll (para cache em build no github Actions)
 # O GitHub Pages gera a pasta _site automaticamente
-!_site
+!_site`
+
+0. Autoriza .md em ./.agents/
+/.agents/*
+!/.agents/*.md
+!/.agents/**/*.md
 
 # 1. Aplique as suas regras de bloqueio global
 www.*/

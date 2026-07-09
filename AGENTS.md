@@ -10,6 +10,8 @@ Este arquivo normatiza o comportamento operacional da IA/Codex sem alterar instr
 - **Extensão local:** `agents.local.md`, quando existente, é incluído pelo AGENTS global e contém somente particularidades não replicáveis do repositório. Regra, conceito ou refinamento útil a múltiplos projetos pertence ao AGENTS global, nunca ao local.
 - **Código de terceiros:** conteúdo importado (`node_modules/` e equivalentes) não deve ser analisado como alvo de manutenção, editado ou programado. Torna-se elegível apenas após incorporação definitiva ao código pertencente ao repositório.
 
+**NOTA:** Os arquivos `AGENTS.md`, `agents.local.md`, `continue.ia` e `continue.dev` e demais normativis de IA/processamento podem existir tanto no diretório raiz do repositório quanto em `./.agents/`, sendo `./.agents/` o local preferencial para organização, isolamento e manutenção das configurações específicas de agentes e fluxos auxiliares.
+
 ## 1. Domínios normativos e precedência
 
 ### 1.1 Separação de matéria
@@ -35,7 +37,7 @@ Esta seção é a autoridade global para edição de RCFs, AGENTS, `agents.local
 
 ### 2.1 Regra de ouro
 
-Maximizar informação por caractere: eliminar redundância, introduções longas, floreios, preenchimento e explicações óbvias; preservar integralmente regras, restrições, exceções, prioridades, precedências, condicionantes, dependências, precisão, profundidade, contexto, rastreabilidade, nuances interpretativas, exemplos, analogias, contraexemplos e referências úteis. **Concisão reduz forma, nunca substância.** Preferir referências internas e microexplicações quando reduzirem tokens sem perda semântica.
+Maximizar a informação por caractere por meio de normas coesas, baixo acoplamento, mínima redundância, máxima reutilização e microtextos reutilizáveis (referênciáveis) de alta densidade informacional, eliminando redundâncias, introduções extensas, floreios, preenchimentos e explicações óbvias, mas preservando integralmente regras, restrições, exceções, prioridades, precedências, condicionantes, dependências, precisão, profundidade, contexto, rastreabilidade, nuances interpretativas, exemplos, analogias, contraexemplos e referências úteis; concisão deve reduzir apenas a forma, nunca a substância, priorizando referências internas e microexplicações sempre que reduzirem tokens sem perda semântica.
 
 ### 2.2 Perfis obrigatórios
 
@@ -416,42 +418,45 @@ Usar HTML, não tabela Markdown, para permitir `rowspan`/`colspan`:
 
 O detalhamento da memória operacional não pode ser reproduzido nesse arquivo.
 
+## 16. Saída final
+
+Toda entrega deve incluir:
+
+```text
+COMMIT_SUGERIDO: <texto PT-BR, objetivo, suficientemente detalhado, máximo 512 caracteres; separar fix, melhoria/aprimoramento e ajuste quando aplicável>
+PENDENCIAS: <informar explicitamente etapas, tarefas ou pendências restantes; usar “nenhuma” quando concluído>
+```
+
 ## 17. Cenários
 
-Cenário é especialização normativa reutilizável aplicável somente ao tipo de projeto, repositório, entrega ou contexto correspondente. A lista é aberta, cumulativa e não exaustiva; novos cenários podem ser adicionados sem alterar a governança global, desde que preservem portabilidade, não dupliquem normas existentes e declarem escopo, contratos, exceções e validações.
+Cenário é especialização normativa reutilizável aplicável somente ao tipo de projeto, repositório, entrega ou contexto correspondente. A lista é aberta, cumulativa e não exaustiva. Novos cenários devem ser adicionados por arquivo especializado e registrados no índice (§17.3), sem ampliar estruturalmente o `AGENTS.md` nem duplicar sua governança global.
 
-O AGENTS permanece agnóstico ao projeto. É proibido incorporar URL concreta, URI local, caminho específico, módulo exclusivo, página própria, workflow particular, valor visual arbitrário, limite editorial local, nome de artefato contextual ou decisão arquitetural exclusiva de um repositório.
+Esta seção contém apenas regras comuns a todos os cenários, sua arquitetura de carregamento e o índice vigente. Toda regra específica deve residir no arquivo do cenário correspondente.
 
-Tecnologias, bibliotecas, plataformas, formatos e ferramentas amplamente difundidos podem aparecer como exemplos, alternativas ou preferências técnicas. Não são obrigatórios, não sobrepõem o RCF e devem ser substituídos quando solução comprovadamente superior atender melhor desempenho, arquitetura, segurança, manutenção, acessibilidade, privacidade ou compatibilidade.
+Valores arbitrários relativos a projeto, produto ou cenário — números, portas, comandos, ferramentas, bibliotecas, URLs, URIs, paths, diretórios, arquivos, formatos, horários, limites, ícones ou plataformas — somente podem ser normatizados no cenário que os justifique ou no RCF. Esta restrição não alcança nomenclaturas, paths, proporções, cache, arquivos ou convenções que normatizem exclusivamente o funcionamento da própria IA e estejam definidos nas demais seções do `AGENTS.md`.
 
-Excepcionalmente, cada cenário pode estabelecer convenções operacionais reutilizáveis — comandos, grupos de comandos, nomenclatura, parâmetros, portas padrão, capacidades e contratos públicos — quando isso favorecer uniformidade entre projetos da mesma categoria. Essas convenções:
-
-1. devem ser independentes de repositório;
-2. aplicam-se somente ao cenário;
-3. subordinam-se ao RCF;
-4. não impedem equivalência técnica ou solução superior;
-5. não autorizam paths, URLs, módulos ou valores exclusivos de projeto.
+Regra de cenário somente pode migrar ao núcleo global quando sua aplicabilidade independente estiver comprovada em múltiplos cenários e sua redação não carregar particularidade tecnológica, local ou de negócio.
 
 ### 17.1 Diretrizes gerais dos cenários
 
 #### 17.1.1 Finalidade, alcance e extensibilidade
 
-Aplicar as diretrizes do cenário quando técnica e semanticamente pertinentes, sem substituir, contrariar ou enfraquecer normas superiores, RCF, requisitos específicos, plataforma, ambiente ou contrato de distribuição.
+Aplicar estas diretrizes a todo cenário técnica e semanticamente pertinente, sem substituir, contrariar ou enfraquecer disposições superiores, RCFs, requisitos específicos, plataforma, ambiente ou contrato de distribuição.
 
-Cenários podem coexistir e aplicam-se cumulativamente. Regra específica restringe ou especializa regra geral somente quando:
+Cenários podem coexistir e devem ser aplicados cumulativamente. Regra específica restringe ou especializa regra geral somente quando:
 
-1. estiver em seu escopo declarado;
+1. estiver dentro do escopo declarado;
 2. for tecnicamente justificada;
 3. não contradizer norma superior;
-4. preservar o objetivo original sempre que possível.
+4. preservar, tanto quanto possível, o objetivo original.
 
 Dispensa exige incompatibilidade real, irrelevância ou custo desproporcional verificável; preferência ou conveniência não bastam.
 
-Novo cenário deve declarar: finalidade, aplicabilidade, limites, relação cumulativa, dependências, contratos públicos, artefatos conceituais afetados, regras, exceções, precedência local, segurança, privacidade, acessibilidade, desempenho, compatibilidade, validações e conclusão. Particularidade não replicável pertence ao RCF ou extensão local.
+Novo cenário deve declarar, no mínimo: finalidade, aplicabilidade, limites, relação com cenários cumulativos, dependências, contratos públicos, artefatos afetados, regras, exceções, precedência local, segurança, privacidade, acessibilidade, desempenho, compatibilidade, validações e critérios de conclusão. Regra replicável entre cenários permanece nesta seção; particularidade de cenário reside em seu arquivo; particularidade de um único projeto pertence ao RCF ou `agents.local.md`, conforme §1.
 
 #### 17.1.2 Precedência e contradições
 
-Aplicar §1.2. No mesmo nível, regra específica prevalece sobre geral somente em seu escopo. Contradição material deve ser registrada:
+Aplicar integralmente §1.2. Dentro do mesmo nível normativo, regra específica prevalece sobre geral somente no próprio escopo. Contradição material não pode ser ocultada; registrar:
 
 ```text
 CONTRADIÇÃO DETECTADA: <origem> vs <regra> — Aplicando a regra de maior precedência.
@@ -461,17 +466,19 @@ CONTRADIÇÃO DETECTADA: <origem> vs <regra> — Aplicando a regra de maior prec
 
 Toda decisão de cenário deve, conforme aplicável:
 
-1. preservar conformidade;
-2. maximizar reutilização e generalização sem apagar requisitos reais;
-3. reduzir interfaces, comandos e fluxos distintos;
-4. eliminar duplicidade funcional;
-5. privilegiar composição;
-6. reduzir decisões recorrentes e processamento humano, automático e por IA;
-7. reduzir tokens e contexto;
-8. permitir evolução tecnológica sem quebra desnecessária de interface;
-9. preservar acessibilidade, segurança, privacidade, desempenho e manutenção.
+1. preservar conformidade normativa;
+2. maximizar reutilização;
+3. maximizar generalização sem apagar requisitos reais;
+4. reduzir comandos, fluxos e interfaces distintos;
+5. eliminar duplicidade funcional;
+6. privilegiar composição;
+7. reduzir decisões recorrentes;
+8. reduzir processamento humano, automático e por IA;
+9. reduzir tokens e contexto;
+10. permitir evolução tecnológica sem quebra desnecessária de interface;
+11. preservar acessibilidade, segurança, privacidade, desempenho e manutenibilidade.
 
-Simplificação não pode remover capacidade obrigatória, ocultar erro, reduzir rastreabilidade ou concentrar responsabilidades incompatíveis.
+Simplificação não pode remover capacidade obrigatória, ocultar erro, reduzir rastreabilidade nem concentrar responsabilidades incompatíveis.
 
 #### 17.1.4 Ordem de generalização
 
@@ -480,52 +487,26 @@ Antes de criar interface, comando, componente, biblioteca, workflow ou convenç�
 1. reutilizar solução universal existente;
 2. reutilizar solução do grupo funcional;
 3. compor soluções existentes;
-4. especializar por configuração ou parâmetro;
-5. criar nova solução somente quando as anteriores forem insuficientes.
+4. especializar por parâmetro ou configuração;
+5. criar solução somente quando as anteriores não satisfizerem o requisito.
 
-É vedado refletir tecnologia interna em nova interface quando a semântica pública permanecer igual. Exemplos inadequados, havendo equivalentes universais:
-
-```text
-vite-dev
-react-build
-jekyll-build
-publish-react
-```
+É vedado criar variação apenas para refletir implementação interna quando a semântica pública permanecer igual.
 
 #### 17.1.5 Interface pública estável
 
 Toda interface exposta a pessoas, automações, CI/CD ou IA é API pública: nomenclatura semântica, previsível e estável; implementação interna variável; incompatibilidade somente por necessidade técnica real, com justificativa, documentação e transição compatível quando viável.
 
-```text
-Hoje:   build → ferramenta A
-Amanhã: build → ferramenta B
-```
-
-A intenção pública permanece; o mecanismo é interno.
+A intenção pública deve permanecer estável; o mecanismo interno pode evoluir.
 
 #### 17.1.6 Composição e não duplicação
 
-Fluxos compostos reutilizam operações existentes:
+Fluxos compostos devem reutilizar operações existentes, sem copiar lógica. Podem coordenar, parametrizar e tratar falhas; nunca manter implementações divergentes.
 
-```text
-release → clean → check → build → publish
-```
+#### 17.1.7 Escolha tecnológica e proporcionalidade
 
-Podem coordenar, parametrizar e tratar falhas; não podem copiar lógica nem manter implementações divergentes.
+Não adotar tecnologia por preferência, popularidade ou mera possibilidade. Avaliar requisito, arquitetura, hospedagem/publicação, desenvolvimento local, CI/CD, custo operacional/cognitivo, manutenção, segurança, privacidade, acessibilidade, peso ao cliente, degradação segura e alternativa local/nativa.
 
-#### 17.1.7 Escolha tecnológica, preferências e proporcionalidade
-
-Não adotar tecnologia por preferência, popularidade ou mera possibilidade. Avaliar requisito, arquitetura, hospedagem, publicação, desenvolvimento local, CI/CD, custo operacional/cognitivo, manutenção, segurança, privacidade, acessibilidade, peso ao cliente, degradação segura e alternativa nativa/local.
-
-Preferir a solução mais simples que cumpra integralmente o contrato. Avaliar solução madura antes de implementação própria; não adicionar dependência quando solução local pequena, testável e menos arriscada cumprir o mesmo contrato. Não duplicar bibliotecas equivalentes.
-
-Cenário pode indicar biblioteca, pacote ou ferramenta preferencial para padronização, qualidade ou desempenho, desde que:
-
-- seja amplamente reutilizável;
-- permaneça preferência, não obrigação absoluta;
-- não sobreponha RCF;
-- não dispense análise técnica;
-- seja substituída quando alternativa comprovadamente superior atender melhor o contexto.
+Preferir a solução mais simples que cumpra integralmente o contrato. Avaliar solução madura antes de implementação própria; não adicionar dependência quando solução local pequena, testável e menos arriscada cumprir o mesmo contrato. Não duplicar bibliotecas equivalentes; reutilizar a padrão salvo incompatibilidade comprovada.
 
 #### 17.1.8 Processos existentes e validação local
 
@@ -533,307 +514,70 @@ Antes de iniciar servidor, watcher ou processo, verificar instância adequada em
 
 #### 17.1.9 Correções textuais incidentais
 
-Ao alterar texto no escopo autorizado, corrigir erros ortográficos, gramaticais e tipográficos apenas na região modificada, sem reescrita extrínseca, alteração semântica não solicitada ou perda de terminologia/voz. Informar arquivos corrigidos, natureza da correção e eventual reorganização ou mudança semântica.
+Ao alterar texto no escopo autorizado, corrigir erros ortográficos, gramaticais e tipográficos apenas na região modificada, sem reescrita extrínseca, alteração semântica não solicitada ou perda de terminologia/voz. Informar, ao final, arquivos corrigidos, natureza da correção e eventual reorganização ou mudança semântica.
 
-### 17.2 Cenário Específicos
+### 17.2 Organização dos cenários
 
-### 17.3 Web Page Like com gerador estático ou hospedagem de páginas
+#### 17.2.1 Arquivos especializados
 
-#### 17.3.1 Aplicabilidade
+Cada cenário deve residir em arquivo Markdown independente, referenciado por nome no índice (§17.3) e resolvido relativamente ao diretório do `AGENTS.md` global, salvo convenção explícita superior da própria governança da IA.
 
-Complementa §17.2 quando houver gerador estático, templates ou hospedagem de páginas. Jekyll e GitHub Pages são exemplos, não requisitos.
+Arquivos de cenário são extensões normativas diretas do `AGENTS.md`, não RCFs nem extensões locais. Devem permanecer genéricos para a categoria que regulam, reutilizáveis entre repositórios e livres de particularidades exclusivas de projeto. Regras locais continuam pertencendo ao RCF ou `agents.local.md`.
 
-Aplicar somente quando compatível com a plataforma; não contrariar diretrizes gerais, cenário Web ou restrições de hospedagem.
+Um arquivo pode conter o cenário-base e especializações cumulativas do mesmo domínio quando isso reduzir fragmentação sem criar acoplamento indevido. Cenários independentes devem usar arquivos distintos.
 
-#### 17.3.2 Toolchain e compatibilidade
+#### 17.2.2 Estrutura mínima
 
-Antes de introduzir ou alterar bundler, framework ou runtime, validar:
+Cada arquivo deve conter:
 
-- compatibilidade com gerador, tema e hospedagem;
-- custo operacional;
-- impacto no build remoto;
-- links, base paths e assets;
-- configuração adicional;
-- benefício frente à solução nativa.
+- identificação inequívoca do cenário;
+- relação normativa com `AGENTS.md` §17;
+- definição, escopo, aplicabilidade e limites;
+- dependências e especializações cumulativas;
+- contratos, padrões, regras, exceções e prioridades;
+- critérios de segurança, privacidade, acessibilidade, desempenho e compatibilidade pertinentes;
+- validações e critérios de conclusão;
+- referências internas estáveis.
 
-Em projeto predominantemente estático, preferir templates nativos, estilos compiláveis, código cliente estático e ausência de bundler quando suficiente. Bundler pode ser preferido quando demonstrar vantagem arquitetural e redução de complexidade total.
+Não repetir regras dos §§17.1–17.2; referenciá-las. Regra comum identificada em múltiplos arquivos deve ser centralizada em §17.1 somente quando atender ao critério de generalização desta seção.
 
-#### 17.3.3 Dependências do gerador
+#### 17.2.3 Carregamento e aplicação
 
-Manter dependências em manifestos e locks próprios do ecossistema. Ambientes local e remoto devem usar versões compatíveis. Respeitar plugins, versões e limitações suportadas. Plugin incompatível exige pipeline alternativo controlado ou não deve ser adotado.
+Antes de implementar:
 
-#### 17.3.4 Página de erro em hospedagem estática
+1. classificar o projeto, entrega e solicitação;
+2. identificar no índice todos os cenários potencialmente aplicáveis;
+3. carregar integralmente cada arquivo indicado e suas dependências;
+4. aplicar cumulativamente `AGENTS.md`, cenários e RCFs conforme §1.2;
+5. registrar na memória operacional os cenários efetivamente aplicados e eventual dispensa justificada.
 
-Quando a plataforma exigir artefato de erro em localização convencional:
+Leitura parcial somente é permitida quando o arquivo integral já estiver validamente em cache e não tiver sido alterado. Arquivo ausente, ilegível, divergente do índice ou com dependência irresolvida constitui falha de integridade normativa; não substituir seu conteúdo por inferência silenciosa.
 
-- produzir o artefato no local exigido pela plataforma;
-- usar formato estático puro quando necessário;
-- herdar estilos por configuração resolvida;
-- evitar cópia integral de recursos globais;
-- usar recursos locais mínimos;
-- permitir fonte parcial quando isso reduzir risco;
-- refletir fragmentos compartilhados;
-- não depender de recurso que a rota de erro possa não carregar.
+#### 17.2.4 Evolução e manutenção
 
-Conteúdo dinâmico auxiliar, quando permitido, deve iniciar após o conteúdo essencial, usar criação segura de DOM, não bloquear a página e falhar controladamente.
+Adicionar cenário exige somente:
 
-#### 17.3.5 Sincronização de fallback
+1. criar seu arquivo especializado;
+2. registrar uma entrada no índice;
+3. declarar dependências e relação cumulativa;
+4. validar ausência de duplicidade, contradição e particularidade local.
 
-Quando houver fragmento compartilhado para fallback sem script, sua fonte deve ser componente, include, partial ou equivalente claramente definido. Artefatos gerados devem receber automaticamente o mesmo conteúdo e estilo quando possível. Não depender de cópia manual recorrente.
+Não criar nova estrutura no `AGENTS.md` para cada cenário. Alterar §§17.1–17.2 somente quando surgir regra comprovadamente comum ou necessidade arquitetural transversal.
 
-### 17.4 Sites e blogs com conteúdo editorial
+Ao mover regra entre núcleo e cenário, preservar integralmente conteúdo, força normativa, exceções, exemplos, prioridades, dependências e referências; atualizar todos os vínculos na mesma alteração.
 
-#### 17.4.1 Aplicabilidade
+Sempre que uma nova regra ou norma possuir potencial de reutilização além do cenário atual, priorize sua incorporação a uma seção geral (preferencialmente `$17` ou, quando cabível, ao escopo global), em vez de mantê-la vinculada a um cenário específico.
 
-Complementa os cenários anteriores para projetos que publiquem artigos, posts, sermões, ensaios, notícias ou conteúdo editorial equivalente. Não se aplica a páginas sem relação editorial.
+Ao identificar regras ou normas já existentes em cenários específicos com aplicabilidade potencialmente multicenário ou de escopo amplo, avalie continuamente sua extração para `$17` ou para a documentação global, conforme a abrangência.
 
-#### 17.4.2 Conteúdo agendado
+### 17.3 Cenários disponíveis
 
-Pode existir área separada para conteúdo concluído aguardando publicação. Nome e localização pertencem ao RCF.
+Leia e analise os subarquivos apenas se, e quando, for aplicável ao projeto/repositório atual.
 
-Distinguir inequivocamente:
+| Cenário                                                     | Arquivo/seção                                             | Dependências                       | Aplicabilidade resumida                                                                     |
+| ----------------------------------------------------------- | --------------------------------------------------------- | ---------------------------------- | ------------------------------------------------------------------------------------------- |
+| Web Page Like                                               | [`./agents/webPageLike.md` §1](./agents/webPageLike.md#1) | —                                  | Entrega principal consumida por navegador ou engine web.                                    |
+| Web Page Like com gerador estático ou hospedagem de páginas | [`./agents/webPageLike.md` §2](./agents/webPageLike.md#2) | Web Page Like                      | Gerador estático, templates ou hospedagem de páginas.                                       |
+| Sites e blogs com conteúdo editorial                        | [`./agents/webPageLike.md` §3](./agents/webPageLike.md#3) | Web Page Like; §2 quando aplicável | Publicação de artigos, posts, sermões, ensaios, notícias ou conteúdo editorial equivalente. |
 
-- rascunho;
-- conteúdo aprovado/agendado;
-- conteúdo publicado.
-
-Conteúdo agendado:
-
-- não aparece no build público padrão;
-- não é acessível antes da data;
-- retorna indisponibilidade apropriada;
-- permanece isolado até publicação;
-- possui data futura verificável em metadado ou convenção.
-
-A data determina elegibilidade e migração.
-
-#### 17.4.3 Publicação agendada
-
-Quando houver agendamento, manter automação com cadência suficiente para cumprir a data sem exposição antecipada. Horário, frequência e zona pertencem ao RCF.
-
-O fluxo deve:
-
-1. verificar conteúdo agendado;
-2. identificar elegíveis ainda não publicados;
-3. preparar;
-4. compilar;
-5. atualizar saída pública;
-6. publicar;
-7. validar disponibilidade;
-8. registrar estado final.
-
-Usar permissões mínimas e proteção adequada. Ferramentas de CI/CD concretas são alternativas, não obrigações.
-
-#### 17.4.4 Publicação e distribuição
-
-Distribuição externa somente inicia após compilação, publicação e validação de disponibilidade. Falha anterior bloqueia as etapas dependentes sem estado parcial silencioso. Workflow dependente exige estado final conhecido e dados necessários.
-
-#### 17.4.5 Distribuição social
-
-Quando adotada, executar somente para nova publicação elegível. Cada plataforma configurada deve possuir tratamento próprio.
-
-Prioridade:
-
-1. solução aberta madura e compatível;
-2. método oficial;
-3. integração previamente configurada;
-4. fallback controlado.
-
-Publicar, conforme disponibilidade: título, resumo, imagem, marcadores temáticos e link canônico.
-
-Cada integração deve possuir configuração, segredos isolados, erro específico, idempotência, tentativas limitadas, recuperação, fallback e registro final.
-
-Proibidos: travamento indefinido, repetição ilimitada, encerramento sem registro, duplicação e wrapper desnecessário.
-
-Plataformas concretas pertencem ao RCF.
-
-#### 17.4.6 Listagens editoriais
-
-Grades, colunas e cards devem respeitar a largura disponível. Títulos, excertos e metadados não podem impor largura indevida nem overflow e devem ser validados na menor viewport suportada.
-
-Quantidades máximas por página, relacionados e recentes pertencem ao RCF; devem ser limitadas, parametrizáveis e proporcionais ao layout.
-
-Relacionados:
-
-- usar título localizado;
-- não repetir o conteúdo atual;
-- respeitar limite configurado.
-
-Recentes:
-
-- usar título localizado;
-- carregar quantidade configurada por fonte interna;
-- iniciar após conteúdo essencial;
-- reutilizar componentes existentes;
-- criar DOM com segurança;
-- não depender de armazenamento para conteúdo essencial;
-- falhar sem prejudicar leitura.
-
-#### 17.4.7 Autores
-
-Conteúdo pode declarar lista ordenada de autores por metadados. Cada autor válido deve possuir identificação e biografia; link e imagem são opcionais.
-
-Não renderizar entrada incompleta nem bloco sem autor válido. Na ausência de imagem, usar fallback local ou apresentação sem imagem.
-
-A composição deve:
-
-- distinguir autoria principal quando editorialmente aplicável;
-- apresentar autores adicionais responsivamente;
-- aumentar densidade quando a quantidade exigir;
-- usar semântica de pessoa compatível;
-- não exigir migração artificial de conteúdo antigo.
-
-Nomes de campos, schema e layout pertencem ao RCF.
-
-#### 17.4.8 Formatação de artigos
-
-Aplica-se ao corpo editorial, não à navegação, cabeçalho, rodapé, metadados, embeds ou componentes externos.
-
-Quando houver indentação de primeira linha:
-
-- usar token editorial definido;
-- aplicar por estilos, nunca espaços manuais;
-- excluir títulos, listas, tabelas, imagens, legendas, notas, blockquotes e painéis equivalentes.
-
-Em citações:
-
-- não tornar todo o bloco itálico por padrão;
-- permitir itálico semântico em subcitação;
-- separar referência visualmente;
-- usar sinal tipográfico adequado;
-- manter referência menos proeminente;
-- contextualizar autor somente com base segura.
-
-No texto comum, não aplicar itálico automático; preservar uso semântico/autoral. Marcadores de nota devem permanecer compactos e proporcionais.
-
-Valores concretos de indentação, escala e espaçamento pertencem ao design editorial.
-
-#### 17.4.9 Preservação autoral
-
-Em revisão, reorganização, melhoria, ajuste semântico ou reescrita, preservar:
-
-- estilo;
-- vocabulário;
-- ritmo;
-- argumentação;
-- estrutura de raciocínio;
-- pontuação;
-- pausas intencionais;
-- características literárias;
-- recursos retóricos.
-
-Proibido padronizar artificialmente a voz, homogeneizar autores, substituir identidade por formulação genérica ou corrigir peculiaridade intencional como erro.
-
-Considerar parágrafo, seção, obra e contexto editorial. Prioridade:
-
-1. identidade;
-2. intenção;
-3. correção de problemas reais;
-4. clareza;
-5. organização sem descaracterização.
-
-#### 17.4.10 Rastreabilidade por IA
-
-Conforme §2.3, trecho editorial ou de FT `Negócio` transformado semanticamente por IA deve receber marcação persistente.
-
-A marcação deve:
-
-- permanecer na fonte;
-- sobreviver a rebuilds;
-- ser invisível ao leitor;
-- não alterar renderização;
-- ser legível por automação;
-- identificar a menor região processada.
-
-Aplica-se a reescrita, reorganização, expansão, resumo, simplificação, ajuste semântico, adaptação de estilo e geração parcial/integral. Dispensa correções exclusivamente ortográficas, gramaticais, tipográficas, de links ou metadados.
-
-Formato concreto pertence ao RCF ou fluxo editorial; comentário invisível ou metadado estruturado são alternativas.
-
-#### 17.4.11 Referência de estilo
-
-Ao inferir estilo, priorizar:
-
-1. conteúdo original não processado;
-2. rascunhos originais;
-3. publicações originais;
-4. conteúdo apenas corrigido mecanicamente;
-5. conteúdo processado por IA.
-
-Observar vocabulário, argumentação, estilo literário/técnico, pontuação, transições, ritmo e ênfase. Conteúdo assistido serve somente como contexto complementar.
-
-#### 17.4.12 Rigor e verificabilidade
-
-Exceto reflexão pessoal, testemunho, opinião, narrativa literária ou poesia explicitamente classificados, conteúdo deve buscar rigor documental.
-
-Referenciar, quando houver fonte adequada:
-
-- fatos;
-- história;
-- estatísticas;
-- estudos;
-- argumentos técnicos;
-- citações;
-- traduções não triviais;
-- afirmações controversas.
-
-Fontes devem ser válidas, verificáveis, confiáveis, rastreáveis e proporcionais. Referência não substitui avaliação crítica.
-
-#### 17.4.13 Citações imediatas
-
-Conteúdo técnico, acadêmico ou homilético deve, quando aplicável, seguir:
-
-```text
-Afirmação → referência correspondente
-```
-
-Inserir referência próxima da alegação. Evitar concentração exclusiva ao final, afirmação relevante sem fonte disponível, referência distante para alegações heterogêneas e fonte que não sustente o texto.
-
-Sistemas conhecidos de referência podem inspirar a UX, sem impor plataforma ou dependência específica.
-
-#### 17.4.14 Notas de rodapé
-
-Oferecer suporte por mecanismo nativo ou amplamente adotado, compatível com gerador e hospedagem.
-
-Evitar implementação manual repetitiva, pipeline incompatível, identificadores instáveis e navegação sem retorno.
-
-Cada chamada deve apontar à nota, permitir retorno, ser acessível por teclado e previsível em dispositivos suportados. Resumo em foco/hover é opcional.
-
-#### 17.4.15 Bibliografia e referências
-
-Conteúdo com fontes deve suportar Referências e, quando aplicável, Bibliografia. Gerar a partir de notas e metadados quando isso reduzir duplicação.
-
-Adotar padrão definido pelo RCF, instituição, publicação ou contexto regional; padrões como ABNT são exemplos, não fallback universal obrigatório.
-
-Ferramentas devem ser compatíveis, maduras, mantidas, acessíveis e capazes de degradar sem invalidar o conteúdo.
-
-#### 17.4.16 Privacidade e armazenamento
-
-Conteúdo essencial, páginas de erro, listagens e fallbacks não podem depender de cookies ou armazenamento persistente. Consentimento, analytics e integrações somente são carregados quando exigidos e compatíveis com a política de privacidade. Em fallback e erro, recursos dependentes devem ser omitidos, desativados ou silenciados.
-
-#### 17.4.17 Critérios de conclusão
-
-Alteração editorial somente conclui quando, conforme aplicável:
-
-- conteúdo estiver compilado ou publicado corretamente;
-- links e referências forem válidos;
-- listagens não causarem overflow;
-- fallback sem script estiver legível;
-- página de erro permanecer útil após falha auxiliar;
-- automações produzirem estado final conhecido;
-- marcações de IA estiverem nas regiões semanticamente processadas;
-- correções textuais estiverem relatadas;
-- normas superiores, cenários e RCF estiverem validados.
-
-````
-
-```markdown
-## 18. Saída final
-
-Toda entrega deve incluir:
-
-```text
-COMMIT_SUGERIDO: <mensagem PT-BR concisa, objetiva e compatível com o limite da plataforma/RCF; distinguir correção, melhoria e ajuste quando aplicável>
-PENDENCIAS: <etapas, tarefas ou pendências restantes; usar “nenhuma” quando concluído>
-````
-
-A saída não pode declarar ação não comprovada. Limites concretos de tamanho, formato adicional ou convenção de commit pertencem ao RCF, plataforma ou cenário aplicável.
+Novos cenários devem ser acrescentados apenas a esta tabela, preservando a arquitetura definida em §17.2.

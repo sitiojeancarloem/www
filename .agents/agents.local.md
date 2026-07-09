@@ -315,7 +315,7 @@ Priorizar:
 - componentes .tsx
 - estilos .scss
 
-Antes de adotar Vite:
+Antes de adotar Vite/análogo (a não ser que requisito, solicitado ou necessário):
 
 Validar:
 
@@ -357,10 +357,13 @@ Exceto:
 
 - regra de negócio
 - referência explícita
+- cumprimento de normas definidas anteriormente
 
 ---
 
 [404]
+
+se Nromatizado ou solicitado e for aplicável ao projeto/repositório:
 
 `404.html`:
 
@@ -368,21 +371,24 @@ Exceto:
 - deve herdar `/assets/css/main.css`
 - não deve duplicar CSS do tema
 - CSS/JS local somente para conteúdo 404, terminal e fallbacks mínimos
-- cabeçalho, `sobpostbar`, `noscript` e footer devem espelhar a origem do tema
+- cabeçalho, `noscript` e footer devem espelhar a origem do tema
 - conteúdo, links, logotipo, ordem estrutural e classes visuais desses fragmentos devem corresponder à origem vigente do tema
 - quando possível, hidratar fragmentos a partir da home
 - a saída compilada deve sincronizar conteúdo e estilos `noscript` da 404 com os fragmentos renderizados da home
 - sanitizar fragmentos importados para remover recursos pesados ou indevidos
 - não importar switch de tema claro/escuro
-- não importar Silktide, consent managers ou análogos
+- não importar Silktide, consent managers ou análogos e nem depender de
+  cookier/localstorage para não violar privacidade -
+  - nenhuma biblioteca que dependa deve ser usada, ou se usada, tal recuso deve ser
+    explicitamente desativado ou silenciado
 - não importar recurso dependente de cookie ou `localStorage`
 - não expor controle visual de tema na 404
-- tema deve seguir o padrão vigente; terminal permanece escuro
+- tema deve seguir o padrão vigente; terminal permanece escuro (ou o padrão definido pelo RCF)
 - terminal deve ser compacto, responsivo e com aparência Windows 11
-- após o carregamento completo e a liberação do loader, carregar de forma assíncrona os seis posts mais recentes a partir de JSON/feed do próprio site
-- publicações recentes não devem ser compiladas diretamente no HTML-fonte da 404
-- a falha do JSON/feed não deve bloquear, ocultar nem invalidar o restante da 404
-- cards assíncronos devem reutilizar a estrutura e o estilo visual dos cards de arquivo do blog
+- Se for um blog/(site de posts): após o carregamento completo e a liberação do loader, carregar de forma assíncrona os seis posts mais recentes a partir de JSON/feed do próprio site
+- Se for um blog/(site de posts):publicações recentes não devem ser compiladas diretamente no HTML-fonte da 404
+- Se for um blog/(site de posts):a falha do JSON/feed não deve bloquear, ocultar nem invalidar o restante da 404
+- Se for um blog/(site de posts):cards assíncronos devem reutilizar a estrutura e o estilo visual dos cards de arquivo do blog
 - título e grade de publicações recentes devem manter folga suficiente para a flag não invadir o texto
 - montagem dos cards deve usar APIs de DOM e `textContent`, sem injetar HTML remoto
 - o carregamento assíncrono não deve depender de cookies ou `localStorage`
@@ -402,11 +408,11 @@ Escopo:
 
 Paridade:
 
-- deve espelhar cabeçalho, `sobpostbar`, conteúdo institucional e footer vigentes no blog
+- deve espelhar cabeçalho, conteúdo institucional e footer vigentes no site/blog ou equivalente.
 - deve preservar logotipo, textos, links, ordem estrutural e classes visuais da origem
 - footer deve herdar integralmente geometria, espaçamentos, cores e tipografia do footer do tema
 - divergências só são permitidas quando o elemento depender tecnicamente de JavaScript, cookies ou armazenamento local
-- controles de tema, busca, consentimento e menus dependentes de JavaScript não devem ser exibidos
+- controles de tema, busca, consentimento e menus dependentes de JavaScript não devem ser exibidos, exceto se, RCF exigir
 
 Funcionamento:
 
@@ -630,6 +636,8 @@ A implementação deve priorizar:
 
 [SCHEDULED]
 
+- Para site/blogs que possuem artigos, publicações e posts.
+
 Criar:
 
 ./\_scheduled/
@@ -664,6 +672,8 @@ A data determina:
 ---
 
 [WORKFLOW_SCHEDULED]
+
+- Para site/blogs que possuem artigos, publicações e posts.
 
 Criar workflow específico `scheduled`.
 
@@ -700,6 +710,8 @@ Nenhum conteúdo agendado pode ser exposto antes da data configurada.
 
 [WORKFLOW_PUBLICAÇÃO]
 
+- Para site/blogs que possuem artigos, publicações e posts.
+
 Toda publicação efetiva de post deve acionar workflow de distribuição externa.
 
 Aplica-se:
@@ -724,6 +736,8 @@ Não iniciar distribuição externa.
 ---
 
 [REDES_SOCIAIS]
+
+- Para site/blogs que possuem artigos, publicações e posts.
 
 Executado apenas se houver publicação de novas publicações (posts).
 Plataformas obrigatórias:
@@ -817,6 +831,8 @@ O próximo workflow deve ser acionado apenas quando:
 
 [LISTAGENS_DE_POSTS]
 
+- Para site/blogs que possuem artigos, publicações e posts.
+
 Responsividade:
 
 - grades, colunas e cards devem respeitar integralmente a largura disponível
@@ -847,6 +863,8 @@ Artigos recentes:
 ---
 
 [AUTORES_DE_ARTIGO]
+
+- Para site/blogs que possuem artigos, publicações e posts.
 
 Metadados opcionais:
 
@@ -885,6 +903,8 @@ Aplicação:
 ---
 
 [FORMATAÇÃO_DE_POSTS]
+
+- Para site/blogs que possuem artigos, publicações e posts.
 
 Aplica-se:
 
@@ -926,6 +946,8 @@ Footnotes:
 
 [CORREÇÕES_TEXTUAIS]
 
+- Para site/blogs que possuem artigos, publicações e posts.
+
 Ao alterar arquivos textuais autorizados para edição:
 
 - corrigir erros ortográficos identificados
@@ -947,6 +969,8 @@ Informar explicitamente ao final da atividade:
 ---
 
 [PRESERVAÇÃO_AUTORAL]
+
+- Para site/blogs que possuem artigos, publicações e posts.
 
 Quando solicitado:
 
@@ -1114,9 +1138,11 @@ Consultar continue.ia.
 
 [RASTREABILIDADE_DE_IA]
 
+- Para site/blogs que possuem artigos, publicações e posts.
+
 Objetivo:
 
-Evitar que conteúdo processado por IA seja utilizado como fonte primária para identificação do estilo original do autor.
+Evitar que conteúdo processado por IA seja utilizado como fonte primária para identificação do estilo linguistico original do autor.
 
 Todo trecho modificado semanticamente por IA deve receber marcação persistente.
 
@@ -1169,7 +1195,9 @@ Permitir que futuras análises diferenciem:
 
 [REFERÊNCIA_DE_ESTILO]
 
-Ao utilizar textos do repositório como amostra de estilo:
+- Para site/blogs que possuem artigos, publicações e posts.
+
+Ao utilizar textos do repositório como amostra de estilo editorial/linguistico:
 
 - ignorar trechos marcados como processados por IA
 
@@ -1210,7 +1238,7 @@ Preferência:
 Utilizar comentários invisíveis compatíveis com:
 
 - Markdown
-- Jekyll
+- Jekyll ou equivalente
 - GitHub Pages
 
 Exemplo conceitual:
@@ -1235,6 +1263,8 @@ Evitar:
 ---
 
 [RIGOR_ACADÊMICO]
+
+- Para site/blogs que possuem artigos, publicações e posts.
 
 Exceto quando explicitamente classificado como:
 
@@ -1297,6 +1327,8 @@ Evitar:
 
 [FOOTNOTES]
 
+- Para site/blogs que possuem artigos, publicações e posts.
+
 O projeto deve possuir suporte para notas de rodapé.
 
 Preferência:
@@ -1319,6 +1351,8 @@ Utilizar mecanismo nativo ou amplamente adotado antes de criar implementação p
 ---
 
 [FOOTNOTES_BIBLIOGRAFIA_E_REFERÊNCIAS]
+
+- Para site/blogs que possuem artigos, publicações e posts.
 
 Artigos com referências devem possuir suporte para:
 
