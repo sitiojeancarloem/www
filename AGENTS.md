@@ -415,3 +415,425 @@ Usar HTML, não tabela Markdown, para permitir `rowspan`/`colspan`:
 - dentro da tabela, somente nome da etapa, nome da tarefa e ícone de status.
 
 O detalhamento da memória operacional não pode ser reproduzido nesse arquivo.
+
+## 17. Cenários
+
+Cenário é especialização normativa reutilizável aplicável somente ao tipo de projeto, repositório, entrega ou contexto correspondente. A lista é aberta, cumulativa e não exaustiva; novos cenários podem ser adicionados sem alterar a governança global, desde que preservem portabilidade, não dupliquem normas existentes e declarem escopo, contratos, exceções e validações.
+
+O AGENTS permanece agnóstico ao projeto. É proibido incorporar URL concreta, URI local, caminho específico, módulo exclusivo, página própria, workflow particular, valor visual arbitrário, limite editorial local, nome de artefato contextual ou decisão arquitetural exclusiva de um repositório.
+
+Tecnologias, bibliotecas, plataformas, formatos e ferramentas amplamente difundidos podem aparecer como exemplos, alternativas ou preferências técnicas. Não são obrigatórios, não sobrepõem o RCF e devem ser substituídos quando solução comprovadamente superior atender melhor desempenho, arquitetura, segurança, manutenção, acessibilidade, privacidade ou compatibilidade.
+
+Excepcionalmente, cada cenário pode estabelecer convenções operacionais reutilizáveis — comandos, grupos de comandos, nomenclatura, parâmetros, portas padrão, capacidades e contratos públicos — quando isso favorecer uniformidade entre projetos da mesma categoria. Essas convenções:
+
+1. devem ser independentes de repositório;
+2. aplicam-se somente ao cenário;
+3. subordinam-se ao RCF;
+4. não impedem equivalência técnica ou solução superior;
+5. não autorizam paths, URLs, módulos ou valores exclusivos de projeto.
+
+### 17.1 Diretrizes gerais dos cenários
+
+#### 17.1.1 Finalidade, alcance e extensibilidade
+
+Aplicar as diretrizes do cenário quando técnica e semanticamente pertinentes, sem substituir, contrariar ou enfraquecer normas superiores, RCF, requisitos específicos, plataforma, ambiente ou contrato de distribuição.
+
+Cenários podem coexistir e aplicam-se cumulativamente. Regra específica restringe ou especializa regra geral somente quando:
+
+1. estiver em seu escopo declarado;
+2. for tecnicamente justificada;
+3. não contradizer norma superior;
+4. preservar o objetivo original sempre que possível.
+
+Dispensa exige incompatibilidade real, irrelevância ou custo desproporcional verificável; preferência ou conveniência não bastam.
+
+Novo cenário deve declarar: finalidade, aplicabilidade, limites, relação cumulativa, dependências, contratos públicos, artefatos conceituais afetados, regras, exceções, precedência local, segurança, privacidade, acessibilidade, desempenho, compatibilidade, validações e conclusão. Particularidade não replicável pertence ao RCF ou extensão local.
+
+#### 17.1.2 Precedência e contradições
+
+Aplicar §1.2. No mesmo nível, regra específica prevalece sobre geral somente em seu escopo. Contradição material deve ser registrada:
+
+```text
+CONTRADIÇÃO DETECTADA: <origem> vs <regra> — Aplicando a regra de maior precedência.
+```
+
+#### 17.1.3 Objetivos normativos
+
+Toda decisão de cenário deve, conforme aplicável:
+
+1. preservar conformidade;
+2. maximizar reutilização e generalização sem apagar requisitos reais;
+3. reduzir interfaces, comandos e fluxos distintos;
+4. eliminar duplicidade funcional;
+5. privilegiar composição;
+6. reduzir decisões recorrentes e processamento humano, automático e por IA;
+7. reduzir tokens e contexto;
+8. permitir evolução tecnológica sem quebra desnecessária de interface;
+9. preservar acessibilidade, segurança, privacidade, desempenho e manutenção.
+
+Simplificação não pode remover capacidade obrigatória, ocultar erro, reduzir rastreabilidade ou concentrar responsabilidades incompatíveis.
+
+#### 17.1.4 Ordem de generalização
+
+Antes de criar interface, comando, componente, biblioteca, workflow ou convenção:
+
+1. reutilizar solução universal existente;
+2. reutilizar solução do grupo funcional;
+3. compor soluções existentes;
+4. especializar por configuração ou parâmetro;
+5. criar nova solução somente quando as anteriores forem insuficientes.
+
+É vedado refletir tecnologia interna em nova interface quando a semântica pública permanecer igual. Exemplos inadequados, havendo equivalentes universais:
+
+```text
+vite-dev
+react-build
+jekyll-build
+publish-react
+```
+
+#### 17.1.5 Interface pública estável
+
+Toda interface exposta a pessoas, automações, CI/CD ou IA é API pública: nomenclatura semântica, previsível e estável; implementação interna variável; incompatibilidade somente por necessidade técnica real, com justificativa, documentação e transição compatível quando viável.
+
+```text
+Hoje:   build → ferramenta A
+Amanhã: build → ferramenta B
+```
+
+A intenção pública permanece; o mecanismo é interno.
+
+#### 17.1.6 Composição e não duplicação
+
+Fluxos compostos reutilizam operações existentes:
+
+```text
+release → clean → check → build → publish
+```
+
+Podem coordenar, parametrizar e tratar falhas; não podem copiar lógica nem manter implementações divergentes.
+
+#### 17.1.7 Escolha tecnológica, preferências e proporcionalidade
+
+Não adotar tecnologia por preferência, popularidade ou mera possibilidade. Avaliar requisito, arquitetura, hospedagem, publicação, desenvolvimento local, CI/CD, custo operacional/cognitivo, manutenção, segurança, privacidade, acessibilidade, peso ao cliente, degradação segura e alternativa nativa/local.
+
+Preferir a solução mais simples que cumpra integralmente o contrato. Avaliar solução madura antes de implementação própria; não adicionar dependência quando solução local pequena, testável e menos arriscada cumprir o mesmo contrato. Não duplicar bibliotecas equivalentes.
+
+Cenário pode indicar biblioteca, pacote ou ferramenta preferencial para padronização, qualidade ou desempenho, desde que:
+
+- seja amplamente reutilizável;
+- permaneça preferência, não obrigação absoluta;
+- não sobreponha RCF;
+- não dispense análise técnica;
+- seja substituída quando alternativa comprovadamente superior atender melhor o contexto.
+
+#### 17.1.8 Processos existentes e validação local
+
+Antes de iniciar servidor, watcher ou processo, verificar instância adequada em execução. Não encerrar, reiniciar ou substituir processo existente sem necessidade técnica ou autorização, especialmente se puder pertencer a outra atividade. Preferir ambiente ativo e registrar limitações frente à produção.
+
+#### 17.1.9 Correções textuais incidentais
+
+Ao alterar texto no escopo autorizado, corrigir erros ortográficos, gramaticais e tipográficos apenas na região modificada, sem reescrita extrínseca, alteração semântica não solicitada ou perda de terminologia/voz. Informar arquivos corrigidos, natureza da correção e eventual reorganização ou mudança semântica.
+
+### 17.2 Cenário Específicos
+
+### 17.3 Web Page Like com gerador estático ou hospedagem de páginas
+
+#### 17.3.1 Aplicabilidade
+
+Complementa §17.2 quando houver gerador estático, templates ou hospedagem de páginas. Jekyll e GitHub Pages são exemplos, não requisitos.
+
+Aplicar somente quando compatível com a plataforma; não contrariar diretrizes gerais, cenário Web ou restrições de hospedagem.
+
+#### 17.3.2 Toolchain e compatibilidade
+
+Antes de introduzir ou alterar bundler, framework ou runtime, validar:
+
+- compatibilidade com gerador, tema e hospedagem;
+- custo operacional;
+- impacto no build remoto;
+- links, base paths e assets;
+- configuração adicional;
+- benefício frente à solução nativa.
+
+Em projeto predominantemente estático, preferir templates nativos, estilos compiláveis, código cliente estático e ausência de bundler quando suficiente. Bundler pode ser preferido quando demonstrar vantagem arquitetural e redução de complexidade total.
+
+#### 17.3.3 Dependências do gerador
+
+Manter dependências em manifestos e locks próprios do ecossistema. Ambientes local e remoto devem usar versões compatíveis. Respeitar plugins, versões e limitações suportadas. Plugin incompatível exige pipeline alternativo controlado ou não deve ser adotado.
+
+#### 17.3.4 Página de erro em hospedagem estática
+
+Quando a plataforma exigir artefato de erro em localização convencional:
+
+- produzir o artefato no local exigido pela plataforma;
+- usar formato estático puro quando necessário;
+- herdar estilos por configuração resolvida;
+- evitar cópia integral de recursos globais;
+- usar recursos locais mínimos;
+- permitir fonte parcial quando isso reduzir risco;
+- refletir fragmentos compartilhados;
+- não depender de recurso que a rota de erro possa não carregar.
+
+Conteúdo dinâmico auxiliar, quando permitido, deve iniciar após o conteúdo essencial, usar criação segura de DOM, não bloquear a página e falhar controladamente.
+
+#### 17.3.5 Sincronização de fallback
+
+Quando houver fragmento compartilhado para fallback sem script, sua fonte deve ser componente, include, partial ou equivalente claramente definido. Artefatos gerados devem receber automaticamente o mesmo conteúdo e estilo quando possível. Não depender de cópia manual recorrente.
+
+### 17.4 Sites e blogs com conteúdo editorial
+
+#### 17.4.1 Aplicabilidade
+
+Complementa os cenários anteriores para projetos que publiquem artigos, posts, sermões, ensaios, notícias ou conteúdo editorial equivalente. Não se aplica a páginas sem relação editorial.
+
+#### 17.4.2 Conteúdo agendado
+
+Pode existir área separada para conteúdo concluído aguardando publicação. Nome e localização pertencem ao RCF.
+
+Distinguir inequivocamente:
+
+- rascunho;
+- conteúdo aprovado/agendado;
+- conteúdo publicado.
+
+Conteúdo agendado:
+
+- não aparece no build público padrão;
+- não é acessível antes da data;
+- retorna indisponibilidade apropriada;
+- permanece isolado até publicação;
+- possui data futura verificável em metadado ou convenção.
+
+A data determina elegibilidade e migração.
+
+#### 17.4.3 Publicação agendada
+
+Quando houver agendamento, manter automação com cadência suficiente para cumprir a data sem exposição antecipada. Horário, frequência e zona pertencem ao RCF.
+
+O fluxo deve:
+
+1. verificar conteúdo agendado;
+2. identificar elegíveis ainda não publicados;
+3. preparar;
+4. compilar;
+5. atualizar saída pública;
+6. publicar;
+7. validar disponibilidade;
+8. registrar estado final.
+
+Usar permissões mínimas e proteção adequada. Ferramentas de CI/CD concretas são alternativas, não obrigações.
+
+#### 17.4.4 Publicação e distribuição
+
+Distribuição externa somente inicia após compilação, publicação e validação de disponibilidade. Falha anterior bloqueia as etapas dependentes sem estado parcial silencioso. Workflow dependente exige estado final conhecido e dados necessários.
+
+#### 17.4.5 Distribuição social
+
+Quando adotada, executar somente para nova publicação elegível. Cada plataforma configurada deve possuir tratamento próprio.
+
+Prioridade:
+
+1. solução aberta madura e compatível;
+2. método oficial;
+3. integração previamente configurada;
+4. fallback controlado.
+
+Publicar, conforme disponibilidade: título, resumo, imagem, marcadores temáticos e link canônico.
+
+Cada integração deve possuir configuração, segredos isolados, erro específico, idempotência, tentativas limitadas, recuperação, fallback e registro final.
+
+Proibidos: travamento indefinido, repetição ilimitada, encerramento sem registro, duplicação e wrapper desnecessário.
+
+Plataformas concretas pertencem ao RCF.
+
+#### 17.4.6 Listagens editoriais
+
+Grades, colunas e cards devem respeitar a largura disponível. Títulos, excertos e metadados não podem impor largura indevida nem overflow e devem ser validados na menor viewport suportada.
+
+Quantidades máximas por página, relacionados e recentes pertencem ao RCF; devem ser limitadas, parametrizáveis e proporcionais ao layout.
+
+Relacionados:
+
+- usar título localizado;
+- não repetir o conteúdo atual;
+- respeitar limite configurado.
+
+Recentes:
+
+- usar título localizado;
+- carregar quantidade configurada por fonte interna;
+- iniciar após conteúdo essencial;
+- reutilizar componentes existentes;
+- criar DOM com segurança;
+- não depender de armazenamento para conteúdo essencial;
+- falhar sem prejudicar leitura.
+
+#### 17.4.7 Autores
+
+Conteúdo pode declarar lista ordenada de autores por metadados. Cada autor válido deve possuir identificação e biografia; link e imagem são opcionais.
+
+Não renderizar entrada incompleta nem bloco sem autor válido. Na ausência de imagem, usar fallback local ou apresentação sem imagem.
+
+A composição deve:
+
+- distinguir autoria principal quando editorialmente aplicável;
+- apresentar autores adicionais responsivamente;
+- aumentar densidade quando a quantidade exigir;
+- usar semântica de pessoa compatível;
+- não exigir migração artificial de conteúdo antigo.
+
+Nomes de campos, schema e layout pertencem ao RCF.
+
+#### 17.4.8 Formatação de artigos
+
+Aplica-se ao corpo editorial, não à navegação, cabeçalho, rodapé, metadados, embeds ou componentes externos.
+
+Quando houver indentação de primeira linha:
+
+- usar token editorial definido;
+- aplicar por estilos, nunca espaços manuais;
+- excluir títulos, listas, tabelas, imagens, legendas, notas, blockquotes e painéis equivalentes.
+
+Em citações:
+
+- não tornar todo o bloco itálico por padrão;
+- permitir itálico semântico em subcitação;
+- separar referência visualmente;
+- usar sinal tipográfico adequado;
+- manter referência menos proeminente;
+- contextualizar autor somente com base segura.
+
+No texto comum, não aplicar itálico automático; preservar uso semântico/autoral. Marcadores de nota devem permanecer compactos e proporcionais.
+
+Valores concretos de indentação, escala e espaçamento pertencem ao design editorial.
+
+#### 17.4.9 Preservação autoral
+
+Em revisão, reorganização, melhoria, ajuste semântico ou reescrita, preservar:
+
+- estilo;
+- vocabulário;
+- ritmo;
+- argumentação;
+- estrutura de raciocínio;
+- pontuação;
+- pausas intencionais;
+- características literárias;
+- recursos retóricos.
+
+Proibido padronizar artificialmente a voz, homogeneizar autores, substituir identidade por formulação genérica ou corrigir peculiaridade intencional como erro.
+
+Considerar parágrafo, seção, obra e contexto editorial. Prioridade:
+
+1. identidade;
+2. intenção;
+3. correção de problemas reais;
+4. clareza;
+5. organização sem descaracterização.
+
+#### 17.4.10 Rastreabilidade por IA
+
+Conforme §2.3, trecho editorial ou de FT `Negócio` transformado semanticamente por IA deve receber marcação persistente.
+
+A marcação deve:
+
+- permanecer na fonte;
+- sobreviver a rebuilds;
+- ser invisível ao leitor;
+- não alterar renderização;
+- ser legível por automação;
+- identificar a menor região processada.
+
+Aplica-se a reescrita, reorganização, expansão, resumo, simplificação, ajuste semântico, adaptação de estilo e geração parcial/integral. Dispensa correções exclusivamente ortográficas, gramaticais, tipográficas, de links ou metadados.
+
+Formato concreto pertence ao RCF ou fluxo editorial; comentário invisível ou metadado estruturado são alternativas.
+
+#### 17.4.11 Referência de estilo
+
+Ao inferir estilo, priorizar:
+
+1. conteúdo original não processado;
+2. rascunhos originais;
+3. publicações originais;
+4. conteúdo apenas corrigido mecanicamente;
+5. conteúdo processado por IA.
+
+Observar vocabulário, argumentação, estilo literário/técnico, pontuação, transições, ritmo e ênfase. Conteúdo assistido serve somente como contexto complementar.
+
+#### 17.4.12 Rigor e verificabilidade
+
+Exceto reflexão pessoal, testemunho, opinião, narrativa literária ou poesia explicitamente classificados, conteúdo deve buscar rigor documental.
+
+Referenciar, quando houver fonte adequada:
+
+- fatos;
+- história;
+- estatísticas;
+- estudos;
+- argumentos técnicos;
+- citações;
+- traduções não triviais;
+- afirmações controversas.
+
+Fontes devem ser válidas, verificáveis, confiáveis, rastreáveis e proporcionais. Referência não substitui avaliação crítica.
+
+#### 17.4.13 Citações imediatas
+
+Conteúdo técnico, acadêmico ou homilético deve, quando aplicável, seguir:
+
+```text
+Afirmação → referência correspondente
+```
+
+Inserir referência próxima da alegação. Evitar concentração exclusiva ao final, afirmação relevante sem fonte disponível, referência distante para alegações heterogêneas e fonte que não sustente o texto.
+
+Sistemas conhecidos de referência podem inspirar a UX, sem impor plataforma ou dependência específica.
+
+#### 17.4.14 Notas de rodapé
+
+Oferecer suporte por mecanismo nativo ou amplamente adotado, compatível com gerador e hospedagem.
+
+Evitar implementação manual repetitiva, pipeline incompatível, identificadores instáveis e navegação sem retorno.
+
+Cada chamada deve apontar à nota, permitir retorno, ser acessível por teclado e previsível em dispositivos suportados. Resumo em foco/hover é opcional.
+
+#### 17.4.15 Bibliografia e referências
+
+Conteúdo com fontes deve suportar Referências e, quando aplicável, Bibliografia. Gerar a partir de notas e metadados quando isso reduzir duplicação.
+
+Adotar padrão definido pelo RCF, instituição, publicação ou contexto regional; padrões como ABNT são exemplos, não fallback universal obrigatório.
+
+Ferramentas devem ser compatíveis, maduras, mantidas, acessíveis e capazes de degradar sem invalidar o conteúdo.
+
+#### 17.4.16 Privacidade e armazenamento
+
+Conteúdo essencial, páginas de erro, listagens e fallbacks não podem depender de cookies ou armazenamento persistente. Consentimento, analytics e integrações somente são carregados quando exigidos e compatíveis com a política de privacidade. Em fallback e erro, recursos dependentes devem ser omitidos, desativados ou silenciados.
+
+#### 17.4.17 Critérios de conclusão
+
+Alteração editorial somente conclui quando, conforme aplicável:
+
+- conteúdo estiver compilado ou publicado corretamente;
+- links e referências forem válidos;
+- listagens não causarem overflow;
+- fallback sem script estiver legível;
+- página de erro permanecer útil após falha auxiliar;
+- automações produzirem estado final conhecido;
+- marcações de IA estiverem nas regiões semanticamente processadas;
+- correções textuais estiverem relatadas;
+- normas superiores, cenários e RCF estiverem validados.
+
+````
+
+```markdown
+## 18. Saída final
+
+Toda entrega deve incluir:
+
+```text
+COMMIT_SUGERIDO: <mensagem PT-BR concisa, objetiva e compatível com o limite da plataforma/RCF; distinguir correção, melhoria e ajuste quando aplicável>
+PENDENCIAS: <etapas, tarefas ou pendências restantes; usar “nenhuma” quando concluído>
+````
+
+A saída não pode declarar ação não comprovada. Limites concretos de tamanho, formato adicional ou convenção de commit pertencem ao RCF, plataforma ou cenário aplicável.
