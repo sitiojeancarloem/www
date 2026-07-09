@@ -1,5 +1,5 @@
 node_modules
-.*/
+/.*/
 !.vscode
 src/__generated__
 *.psd
@@ -11,16 +11,16 @@ tmp/
 # O GitHub Pages gera a pasta _site automaticamente
 !_site`
 
-0. Autoriza .md em ./.agents/
-!/.agents/*
-!/.agents/*.md
-!/.agents/**/*.md
-
 # 1. Aplique as suas regras de bloqueio global
 www.*/
 *.com/
 *.org/
 *.br/
+
+0. Autoriza .md em ./.agents/
+/.agents/*
+!/.agents/*.md
+!/.agents/**/*.md
 
 # 2. Abra a exceção para a pasta específica do seu domínio
 !*jeancarloem.com/
