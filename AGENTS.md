@@ -2,15 +2,40 @@
 
 ## 0. Finalidade, autoridade e portabilidade
 
-Este arquivo normatiza o comportamento operacional da IA/Codex sem alterar instruções intrínsecas da plataforma, atuais ou futuras. Deve ser copiável entre repositórios sem adaptação.
+**0.1 — Finalidade** Este arquivo normatiza o comportamento operacional da IA/Codex, sem alterar instruções intrínsecas da plataforma, atuais ou futuras, e deve ser reutilizável entre repositórios sem adaptação.
 
-- **Desacoplamento:** proibidos URLs, paths físicos, nomes próprios ou regras exclusivas do repositório.
-- **Referências universais:** permitidos conceitos não arbitrários do ecossistema, como `.gitignore`, `AGENTS.md`, `agents.local.md`, `continue.ia`, `continue.dev`, RCF, build, cache, branch, commit e CI/CD, sem localização concreta.
-- **Especialidade:** este arquivo governa método de trabalho, raciocínio operacional, cache, FT, codificação, distribuição, transpilação, build e validação; não substitui RCF nem define negócio.
-- **Extensão local:** `agents.local.md`, quando existente, é incluído pelo AGENTS global e contém somente particularidades não replicáveis do repositório. Regra, conceito ou refinamento útil a múltiplos projetos pertence ao AGENTS global, nunca ao local.
-- **Código de terceiros:** conteúdo importado (`node_modules/` e equivalentes) não deve ser analisado como alvo de manutenção, editado ou programado. Torna-se elegível apenas após incorporação definitiva ao código pertencente ao repositório.
+**0.2 — Portabilidade** São proibidos URLs, nomes próprios, paths físicos exclusivos e regras particulares de repositório. São permitidos paths relativos e conceitos universais do ecossistema — como `.gitignore`, `AGENTS.md`, `agents.local.md`, `continue.ia`, `continue.dev`, RCF, `src`, `dist`, build, cache, branch, commit e CI/CD — desde que independentes de localização ou estrutura exclusiva.
 
-**NOTA:** Os arquivos `AGENTS.md`, `agents.local.md`, `continue.ia` e `continue.dev` e demais normativis de IA/processamento podem existir tanto no diretório raiz do repositório quanto em `./.agents/`, sendo `./.agents/` o local preferencial para organização, isolamento e manutenção das configurações específicas de agentes e fluxos auxiliares.
+**0.3 — Especialidade** Este arquivo governa método de trabalho, raciocínio operacional, cache, FT, codificação, distribuição, transpilação, build e validação. Não substitui o RCF nem define negócio.
+
+**0.4 — Compartimentação normativa** Por analogia à compartimentação militar, cada documento exerce autoridade somente no domínio correspondente à sua missão:
+
+- **RCF e cenários:** definem **o que o projeto deve fazer**;
+- **`AGENTS.md` e auxiliares:** definem **como a IA deve processar o projeto**.
+
+Os domínios cooperam, mas não se incorporam, substituem ou sobrepõem; a autoridade de um termina onde começa a competência do outro.
+
+**0.5 — Autoridade da IA** No domínio definido em [0.4], o `AGENTS.md` pode e deve ser explícito, determinístico e vinculante sobre nomenclatura, paths relativos, cache, proporções humano/máquina, `agents.local.md`, `continue.ia`, `continue.dev`, artefatos intermediários, codificação, distribuição, transpilação, build, validação e mecanismos equivalentes. Essas normas regulam processamento por IA, não negócio.
+
+**0.6 — Limite de autoridade** O `AGENTS.md` não pode criar, limitar, reinterpretar ou alterar comportamento funcional, cálculo, permissão, critério comercial ou regra pertencente ao RCF e aos cenários. Pode referenciá-los e definir somente o método técnico empregado para implementá-los, verificá-los ou documentá-los.
+
+**0.7 — Fronteiras exemplificadas**
+
+- O RCF define **o cálculo do imposto**; o `AGENTS.md`, **como implementá-lo, validá-lo e documentá-lo**.
+- O RCF exige **um relatório**; o `AGENTS.md`, **seus artefatos, nomenclatura, cache e fluxo de produção**.
+- O RCF define **proporções do negócio**; o `AGENTS.md`, **proporções entre processamento automatizado e intervenção humana**.
+- O RCF define **o resultado funcional**; o `AGENTS.md`, **o método operacional para produzi-lo e validá-lo**.
+
+**0.8 — Extensão local** `agents.local.md`, quando existente, é incluído pelo AGENTS global e contém somente particularidades não replicáveis do repositório. Regra, conceito ou refinamento reutilizável pertence ao AGENTS global.
+
+**0.9 — Código de terceiros** Conteúdo importado, como `node_modules/` e equivalentes, não é alvo de análise de manutenção, edição ou programação. Torna-se elegível somente após incorporação definitiva ao código pertencente ao repositório.
+
+**0.10 — Localização normativa** `AGENTS.md`, `agents.local.md`, `continue.ia`, `continue.dev` e normativos equivalentes podem residir na raiz ou em `./.agents/`, local preferencial para organização, isolamento e manutenção. Essa estrutura pertence ao domínio de IA definido em [0.4] e pode ser integralmente normatizada conforme [0.5].
+
+**0.11 — Regressão de compartimentação** Constitui regressão arquitetural — e deve ser considerada não aplicada — qualquer alteração que remova, enfraqueça, transfira ou converta:
+
+1. regra de processamento por IA em regra do projeto; ou
+2. regra de negócio em norma do `AGENTS.md`.
 
 ## 1. Domínios normativos e precedência
 
