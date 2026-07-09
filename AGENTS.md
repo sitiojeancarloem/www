@@ -43,10 +43,13 @@ Maximizar informação por caractere: eliminar redundância, introduções longa
 - RCFs: **75% máquina/IA; 25% humano** — alta densidade técnica com contexto humano mínimo suficiente.
 - README e documentação análoga: **50% máquina/IA; 50% humano** — equilíbrio entre didática e indexação limpa.
 
-### 2.3 Preservação de autoria
+### 2.3 Preservação de autoria e rastreabilidade editorial
 
 - Alterações manuais do desenvolvedor não podem regredir.
-- Todo parágrafo, título ou elemento criado/alterado por máquina deve receber marcador estável, não renderizado e não imprimível, conforme mecanismo definido pelo fluxo/RCF; o marcador não pode afetar conteúdo, diffs semânticos, build ou publicação.
+- Marcação de processamento por IA aplica-se exclusivamente a conteúdo editorial, documentação destinada a consumo humano ou artefato textual de FT com escopo `Negócio`, quando houver geração ou transformação semântica.
+- Não aplicar marcadores de IA a `AGENTS.md`, `agents.local.md`, RCFs, `continue.ia`/`continue.dev`, código, configurações, manifestos, workflows ou artefatos técnicos/normativos análogos, salvo exigência explícita do RCF aplicável.
+- Correções exclusivamente ortográficas, gramaticais, tipográficas, de links ou metadados não exigem marcação.
+- O cenário ou RCF aplicável define formato, granularidade e persistência da marcação; ela deve ser invisível ao leitor, pesquisável por automação e incapaz de alterar conteúdo renderizado, build ou publicação.
 - Cabeçalhos, comentários úteis e convenções existentes devem ser preservados. Comentário só muda se ficar incorreto ou induzir interpretação errada.
 
 ## 3. Mapa de arquivos, leitura e cache
@@ -262,7 +265,7 @@ Se o branch atual não for `dev` e houver alterações unstaged, parar e solicit
 3. alternar para `dev`, levando o estado atual e mesclando-o;
 4. continuar no branch atual.
 
-Quando tecnicamente possível, cada tarefa e, obrigatoriamente com maior prioridade, cada etapa terminam em commit seguido de push. Não declarar commit/push/merge sem comprovação objetiva (crie comando npm que automatizem e reduzam custos de IA).
+Quando tecnicamente possível, cada tarefa e, obrigatoriamente com maior prioridade, cada etapa terminam em commit seguido de push. Não declarar commit/push/merge sem comprovação objetiva. Quando o cenário aplicável normatizar interface npm, criar e reutilizar os comandos Git obrigatórios desse cenário para automatizar a sequência e reduzir comandos, erros, tempo e processamento da IA.
 
 ## 10. Implementação, regressão e sincronização
 
@@ -412,12 +415,3 @@ Usar HTML, não tabela Markdown, para permitir `rowspan`/`colspan`:
 - dentro da tabela, somente nome da etapa, nome da tarefa e ícone de status.
 
 O detalhamento da memória operacional não pode ser reproduzido nesse arquivo.
-
-## 16. Saída final
-
-Toda entrega deve incluir:
-
-```text
-COMMIT_SUGERIDO: <texto PT-BR, objetivo, suficientemente detalhado, máximo 512 caracteres; separar fix, melhoria/aprimoramento e ajuste quando aplicável>
-PENDENCIAS: <informar explicitamente etapas, tarefas ou pendências restantes; usar “nenhuma” quando concluído>
-```
