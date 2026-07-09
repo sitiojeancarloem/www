@@ -1,1540 +1,425 @@
-# DIRETRIZ_MÁXIMA: PROJETO
+````markdown
+# AGENTS.md — Governança Operacional Global
 
-# PRIORIDADE
+## 0. Finalidade, autoridade e portabilidade
 
-Estas regras são mandatórias.
-Em caso de conflito, aplicar:
+Este arquivo normatiza o comportamento operacional da IA/Codex sem alterar instruções intrínsecas da plataforma, atuais ou futuras. Deve ser copiável entre repositórios sem adaptação.
 
-1. Este arquivo (.clinerules)
-2. Documentação/cabeçalho original do arquivo
-3. Instrução contextual atual
+- **Desacoplamento:** proibidos URLs, paths físicos, nomes próprios ou regras exclusivas do repositório.
+- **Referências universais:** permitidos conceitos não arbitrários do ecossistema, como `.gitignore`, `AGENTS.md`, `agents.local.md`, `continue.ia`, `continue.dev`, RCF, build, cache, branch, commit e CI/CD, sem localização concreta.
+- **Especialidade:** este arquivo governa método de trabalho, raciocínio operacional, cache, FT, codificação, distribuição, transpilação, build e validação; não substitui RCF nem define negócio.
+- **Extensão local:** `agents.local.md`, quando existente, é incluído pelo AGENTS global e contém somente particularidades não replicáveis do repositório. Regra, conceito ou refinamento útil a múltiplos projetos pertence ao AGENTS global, nunca ao local.
+- **Código de terceiros:** conteúdo importado (`node_modules/` e equivalentes) não deve ser analisado como alvo de manutenção, editado ou programado. Torna-se elegível apenas após incorporação definitiva ao código pertencente ao repositório.
 
-Conflito:
+## 1. Domínios normativos e precedência
 
-"CONTRADIÇÃO DETECTADA: [origem] vs [regra] - Aplicando prioridade máxima."
+### 1.1 Separação de matéria
 
-[AMBIENTE]
+- **AGENTS:** soberano sobre sua governança intrínseca e seus subordinados operacionais diretos; RCF não pode reescrevê-los, convertê-los em regra local nem particularizá-los.
+- **RCF:** soberano no escopo do projeto: arquitetura, comportamento, negócio, contratos, requisitos e arquivos especializados correlatos. Pode ser modularizado em vários `.md` para indexação seletiva e menor reprocessamento.
+- **Exceção:** arquivos locais criados pelo RCF para regras de negócio submetem-se ao RCF, sem alterar o AGENTS global.
+- **Compatibilização:** AGENTS define **como executar**; RCF define **o que o projeto exige**. Aplicar ambos. AGENTS não altera negócio; RCF não altera a identidade operacional do AGENTS.
 
-STACK:
+### 1.2 Ordem aplicável
 
-- Jekyll
-- GitHub Pages
-- Tema Minimal Mistakes
-- GitHub Actions
-- Gem
-- Sass
-- Node
+Após instruções superiores da plataforma, resolver conflitos conforme a matéria:
 
-Compatibilidade obrigatória:
+1. **Governança operacional:** `AGENTS.md` → RCF global → RCF específicos → `README.md` → `continue.ia`/`continue.dev` → demais documentos formais.
+2. **Projeto, arquitetura e negócio:** RCF global → RCF específicos → `README.md` → `continue.ia`/`continue.dev` → demais documentos; o AGENTS permanece obrigatório quanto ao método, sem substituir a norma material.
+3. **Regra local não replicável:** `agents.local.md`, limitada pelo AGENTS global e pelos RCFs aplicáveis.
 
-- Build remoto
-- Build local Windows
-- Build local Linux
+Conflitos transversais devem ser resolvidos sem alterar o comportamento do projeto nem o conteúdo intrínseco do AGENTS. Persistindo ambiguidade, aplicar §12.5.
 
----
+## 2. Edição normativa e densidade textual
 
-[ESCOPO]
+Esta seção é a autoridade global para edição de RCFs, AGENTS, `agents.local.md`, `continue.ia`/`continue.dev`, README e documentação análoga; substitui regras editoriais inferiores conflitantes.
 
-Permitido:
+### 2.1 Regra de ouro
 
-- CSS/Sass
-- JavaScript customizado
-- layouts
-- includes
-- extensões
+Maximizar informação por caractere: eliminar redundância, introduções longas, floreios, preenchimento e explicações óbvias; preservar integralmente regras, restrições, exceções, prioridades, precedências, condicionantes, dependências, precisão, profundidade, contexto, rastreabilidade, nuances interpretativas, exemplos, analogias, contraexemplos e referências úteis. **Concisão reduz forma, nunca substância.** Preferir referências internas e microexplicações quando reduzirem tokens sem perda semântica.
+
+### 2.2 Perfis obrigatórios
+
+- `AGENTS.md`, `agents.local.md`, `continue.ia`/`continue.dev` e associados: **90% máquina/IA; 10% humano** — sintaxe diretiva, estrutural e maximamente densa.
+- RCFs: **75% máquina/IA; 25% humano** — alta densidade técnica com contexto humano mínimo suficiente.
+- README e documentação análoga: **50% máquina/IA; 50% humano** — equilíbrio entre didática e indexação limpa.
+
+### 2.3 Preservação de autoria
+
+- Alterações manuais do desenvolvedor não podem regredir.
+- Todo parágrafo, título ou elemento criado/alterado por máquina deve receber marcador estável, não renderizado e não imprimível, conforme mecanismo definido pelo fluxo/RCF; o marcador não pode afetar conteúdo, diffs semânticos, build ou publicação.
+- Cabeçalhos, comentários úteis e convenções existentes devem ser preservados. Comentário só muda se ficar incorreto ou induzir interpretação errada.
+
+## 3. Mapa de arquivos, leitura e cache
+
+Manter em contexto um mapa estrutural ultra-sucinto dos **arquivos úteis**: somente fontes, normas, configurações e artefatos necessários ao desenvolvimento e à retomada.
+
+- Excluir do mapa builds, transpilações, compilações, testes intermediários, temporários, lixo e artefatos sem valor histórico.
+- Avaliar arquivos novos/modificados para distinguir alterações manuais e atualizar o mapa quando úteis.
+- Ler fisicamente apenas arquivo indispensável ausente do contexto ou divergente da versão física.
+- Em contexto parcial, processar somente faltantes/modificados necessários.
+- Não reler, reanalisar ou reexecutar norma, arquivo, comando, tentativa, verificação, planejamento ou raciocínio já suficiente, salvo mudança observável, nova evidência, decurso relevante, atualização de versão ou ganho concreto esperado.
+- Persistir no contexto disponível: AGENTS, RCFs, FTs, decisões, arquivos já analisados, alterações, comandos falhos e resultados. `continue.ia`/`continue.dev` é a memória durável; o cache da IA é complementar, nunca substituto.
+- Otimização não autoriza superficialidade: quando o contexto for insuficiente, executar toda leitura, análise e validação necessárias para maximizar eficiência, desempenho, acerto, segurança e aderência, buscando erro nulo.
+
+## 4. Modelo de execução orientado por estado
+
+Ciclo obrigatório:
+
+`Solicitação → intenção → FT → planejamento/atualização → execução incremental → atualização contínua do continue → validação → commit → push → próxima etapa`
+
+Antes de implementar:
+
+1. identificar intenção, contexto e objetivos;
+2. localizar a FT correspondente no `continue.ia`/`continue.dev`;
+3. classificá-la como continuação, ampliação, dependência ou nova FT;
+4. identificar etapa e tarefa atuais;
+5. atualizar o planejamento quando necessário;
+6. executar exatamente do estado registrado.
+
+Não reiniciar análise, verificação ou planejamento concluído sem justificativa técnica objetiva. Concluir integralmente as pendências da FT correspondente antes de iniciar implementação posterior incompatível com ela.
+
+## 5. Frentes de Trabalho (FT)
+
+Toda solicitação pertence a exatamente uma FT; várias FTs podem coexistir.
+
+### 5.1 Estrutura mínima
+
+Cada FT deve conter:
+
+- `id` permanente e imutável (`FT-001`, `FT-002`...);
+- nome descritivo, evolutivo quando representar melhor o objetivo;
+- objetivo sucinto, evolutivo quando representar melhor o contexto;
+- prioridade e status;
+- escopo `Técnico` ou `Negócio`;
+- início, última atualização e conclusão em timestamp;
+- planejamento integral de etapas e tarefas;
+- estado de interrupção/retomada, quando aplicável.
+
+Uma FT contém uma ou mais etapas; cada etapa, uma ou mais tarefas. Só conclui quando todas as etapas planejadas estiverem concluídas.
+
+### 5.2 Escopo universal
+
+1. **Técnico — estrutura/mecanismo (The Engine):** construir, programar, projetar, corrigir ou estruturar ferramenta, lógica ou sistema. Objetivo: fazer a engrenagem funcionar. Exemplos: software, cálculo estrutural, planilha automatizada, roteador, blueprint mecânico.
+2. **Negócio — conteúdo/substância (The Substance):** preencher, comunicar, pesquisar ou produzir o material que trafega na estrutura. Objetivo: gerar informação/mensagem final. Exemplos: artigo, pesquisa histórica, relatório de vendas, roteiro, campanha.
+
+### 5.3 Segregação
+
+Quando reduzir contexto e processamento, cada FT pode residir em subarquivo próprio, dentro de subdiretório claramente nomeado na raiz. Esses arquivos devem permanecer versionados; se padrões do `.gitignore` os alcançarem, usar exceção explícita (`!`) para impedir exclusão acidental.
+
+## 6. Planejamento, etapas e tarefas
+
+### 6.1 Planejamento
+
+Criar o planejamento inicial antes da implementação. Cada etapa deve registrar nome, posição `X/N`, objetivo sucinto e dependências técnicas existentes. Exemplo ilustrativo:
+
+```text
+FT-003 — Centralização das Configurações
+1/8 Levantamento
+2/8 Estrutura JSON
+3/8 Migração das Validações
+4/8 Atualização da UI
+5/8 Ajustes do Build
+6/8 Testes
+7/8 Documentação
+8/8 Validação Final
+```
+
+O planejamento é dinâmico e pode ser expandido, reduzido, reorganizado, renumerado, dividido ou consolidado; toda mudança deve ser imediatamente refletida no `continue.ia`/`continue.dev`. Manter sempre a lista prevista de etapas e tarefas. Itens concluídos não podem ser eliminados enquanto a FT estiver ativa.
+
+Após a conclusão:
+
+- resumir o registro integral com compressão médio-agressiva, sem omissão material;
+- manter o histórico por **exatamente 15 dias**;
+- remover integralmente FTs concluídas há mais de 15 dias.
+
+### 6.2 Etapas
+
+Toda implementação relevante deve ser dividida em etapas pequenas, independentes, verificáveis e ajustadas ao contexto.
+
+Cada etapa:
+
+- pertence obrigatoriamente a uma FT;
+- possui nome e posição `X/N`;
+- discrimina todas as tarefas previstas;
+- termina em estado funcional: sistema executável e consistente, ainda que não implemente toda a FT ou todo o RCF.
+
+### 6.3 Tarefas
+
+Tarefa é a granularidade mínima de execução e retomada. Cada tarefa:
+
+- pertence a uma etapa de uma FT;
+- possui nome e posição `X/N`;
+- deve ser prevista e discriminada;
+- preferencialmente deixa estado funcional, sem obrigatoriedade equivalente à etapa.
+
+### 6.4 Conclusão incremental
+
+Ao concluir tarefa ou etapa:
+
+1. validar consistência e impacto;
+2. atualizar imediatamente o `continue.ia`/`continue.dev`;
+3. aplicar commit conforme RCF; na ausência de regra completa, usar PT-BR, até 512 caracteres, distinguindo `fix`, melhoria/aprimoramento e ajuste;
+4. executar commit e push imediatamente, quando tecnicamente possível;
+5. só então iniciar o próximo item.
+
+Regras adicionais:
+
+- Não acumular várias etapas antes do commit.
+- Commit de etapa deve representar estado funcional.
+- Tarefa pequena/sutil — inclusive múltiplos ajustes mínimos de texto/posição — pode dispensar validação, commit e push próprios e ser consolidada na conclusão da etapa, quando isso reduzir custo sem afetar rastreabilidade.
+- Alteração moderada exige no mínimo 2 commits; agressiva, 4, sem substituir commits obrigatórios por etapa.
+
+## 7. `continue.ia` / `continue.dev`: memória operacional oficial
+
+No repositório deve existir **exatamente um** arquivo canônico: `continue.ia` ou `continue.dev`; referências legadas a `continua.ia` designam o mesmo conceito e devem convergir ao nome canônico adotado. O arquivo complementa, sem eliminar, a memória contextual da IA.
+
+### 7.1 Formato
+
+Deve ser rastreável, indexável, legível por humanos/máquinas/IAs e segregável em conjuntos/subconjuntos. Aceitos: sintaxe própria, YAML, JSON ou formato equivalente. Evitar XML por ineficiência, salvo justificativa técnica. Compatibilidade com IDEs que leiam Continue/continue.dev é desejável, não obrigatória. Aplicar o perfil editorial 90/10.
+
+### 7.2 Objetivos
+
+- retomada praticamente exata após interrupção;
+- mínimo reprocessamento e repetição;
+- preservação de decisões, verificações e falhas;
+- redução de processamento sem perda de qualidade.
+
+### 7.3 Registro mínimo por FT
+
+Registrar separadamente:
+
+- id, nome, escopo, objetivo, prioridade e status;
+- timestamps de início, última atualização e conclusão;
+- etapa atual `X/N` e nome;
+- lista integral de etapas;
+- tarefas planejadas, atual/em execução e concluídas;
+- progresso parcial e próximo ponto executável;
+- linha de raciocínio adotada em forma objetiva e retomável;
+- decisões arquiteturais;
+- verificações concluídas;
+- comandos relevantes;
+- pendências, limitações e dependências;
+- hipóteses descartadas;
+- causas objetivas de falhas;
+- decisões antirretrabalho.
+
+Nunca registrar somente `3/12`. Registrar, no mínimo:
+
+```text
+FT-00X — <nome>
+Etapa X/N — <nome>
+Tarefa Y/M — <nome>
+```
+
+### 7.4 Atualização contínua
+
+Atualizar durante toda a execução, não apenas ao concluir etapa/tarefa, incluindo:
+
+- conclusão de tarefa ou etapa;
+- evolução do planejamento;
+- decisão relevante;
+- hipótese descartada;
+- verificação que elimina possibilidades;
+- falha, causa e solução;
+- qualquer dado que permita retomada sem reprocessamento.
+
+### 7.5 Aprendizado de ambiente
+
+Manter base concisa e dinâmica de problemas, tentativas, soluções e ajustes:
+
+- `MACHINE_ID`: vincular cada registro à máquina/sistema. Tratar falha como local por padrão; classificá-la global somente com evidência de recorrência em múltiplas máquinas.
+- `DATA_REF`: última atualização obrigatória em `YYYYMMDDHHMM`, permitindo expurgo de registros obsoletos.
+- `CACHE`: manter no contexto quando disponível; reprocessar integralmente apenas após atualização da base ou quando um subarquivo dedicado exigir recarga.
+- Bloquear repetição de ação historicamente falha/insuficiente. Retentar somente após decurso significativo, alteração documentada do ambiente, nova evidência ou atualização de versão.
+
+## 8. Interrupção e retomada
+
+Ao detectar iminente esgotamento de tempo, créditos, contexto ou trava de custo computacional:
+
+1. interromper controladamente;
+2. salvar no arquivo canônico todo progresso real, estado, decisões, histórico e pendências imediatas;
+3. anexar ao id da tarefa atual a flag `[INTERROMPIDO_POR_LIMITACAO_DE_RECURSOS]` e resumo ultra-sucinto do próximo passo.
+
+Na interação subsequente, antes de implementar:
+
+1. procurar a flag;
+2. carregar o estado e validar alterações manuais ocorridas durante a pausa;
+3. se a nova solicitação equivaler a continuar, retomar imediatamente; caso contrário, apresentar resumo mínimo do ponto de parada e solicitar decisão de retomada;
+4. remover a flag somente após retomada bem-sucedida.
+
+Sem flag, localizar FT, etapa e tarefa correspondentes e continuar exatamente do registro. Nova FT deve ser registrada com objetivo, planejamento, etapas e tarefas previstas antes da execução. Mudança significativa de escopo exige reorganização e registro objetivos.
+
+## 9. Branches, commits, push e merge
+
+- Todo desenvolvimento ocorre no branch `dev`.
+- Ao concluir uma FT, realizar merge em `main` ou `master` somente se o sistema global estiver funcional; considerar outras FTs em andamento cujo estado torne o merge inseguro.
+- Antes de alterar, verificar branch e working tree.
+
+Se o branch atual não for `dev` e houver alterações unstaged, parar e solicitar escolha explícita, ignorando qualquer opção da IDE que dispense a pergunta:
+
+1. alternar para `dev`, preservando seu conteúdo original;
+2. criar/atualizar `dev` a partir do último commit de `main`/`master`;
+3. alternar para `dev`, levando o estado atual e mesclando-o;
+4. continuar no branch atual.
+
+Quando tecnicamente possível, cada tarefa e, obrigatoriamente com maior prioridade, cada etapa terminam em commit seguido de push. Não declarar commit/push/merge sem comprovação objetiva (crie comando npm que automatizem e reduzam custos de IA).
+
+## 10. Implementação, regressão e sincronização
+
+Nenhuma implementação pode regredir:
+
+- arquitetura, negócio, UX ou API pública;
+- build, cache, desempenho ou compatibilidade;
+- CI/CD, GitHub Actions, GitHub Pages, publicação, workflows e pipelines;
+- bundles offline;
+- `_site`, `dist/` ou diretório equivalente de produto final.
+
+Objetivo permanente: melhorar e evoluir. Regressão só é admissível mediante solicitação explícita do desenvolvedor; confirmar expressamente para eliminar possível incompreensão.
+
+Sempre que arquitetura, regras, comportamento, build, fluxo, UX, UI, operadores, notações, recursos ou documentação mudarem, sincronizar automaticamente, conforme aplicabilidade:
+
+- `AGENTS.md` e `agents.local.md`;
+- README;
+- RCFs pertinentes;
+- `continue.ia`/`continue.dev`;
+- implementação e UI afetadas.
+
+## 11. Build, runtime e produto final
+
+### 11.1 Restrições gerais
 
 Proibido:
 
-- Alterar Core Jekyll
-- Alterar Core Minimal Mistakes
-- Alterar `_posts` e `_drafts`
-- Arquivos fora do escopo
+- alterar negócio sem autorização normativa;
+- introduzir regressão;
+- duplicar código;
+- adicionar dependência desnecessária;
+- aumentar complexidade sem benefício técnico;
+- realizar refatoração ampla, reorganização gratuita ou mudança comportamental não solicitada.
 
-Exceção:
-Somente ordem explícita.
+Manter, quando aplicável e conforme RCF: ES2020+ ou versão definida, GitHub Pages, GitHub Actions, bundles offline, workflows, pipelines e diretório final (`_site`, `dist/` ou equivalente).
 
----
+Priorizar: menor build, instalação, download, consumo, latência e tempo de carregamento; maior autonomia do produto final; evolução contínua do RCF sem perda de princípios.
 
-[ANÁLISE]
+### 11.2 Segregação runtime/build
 
-Idioma:
-PT-BR
+O diretório final deve ser autônomo e conter somente artefatos/assets finais, scripts necessários e dependências indispensáveis ao runtime. Nada usado exclusivamente em desenvolvimento, build, transpilação, bundling, minificação, otimização, geração de assets, documentação, lint, testes ou automação pode integrá-lo nem ser instalado nele.
 
-Antes de alterar:
+Sempre que tecnicamente possível, incorporar ao artefato final os recursos resolvidos na compilação, eliminando dependência de runtime e materializando somente partes usadas. Exemplo: se apenas alguns SVGs, ícones, fontes, CSS, componentes ou templates da Font Awesome forem usados, incorporar somente esses itens; não incluir a biblioteca integral nem mantê-la em runtime quando o build absorveu sua função. Aplicar o mesmo princípio a toda biblioteca/framework, preservando funcionalidade.
 
-- Detectar falhas
-- Prevenir regressões
-- Validar impacto
-- Entregar solução final
+### 11.3 CDN
 
-Não entregar hipótese sem validação.
-Ser rigoroso
-ser minucioso
-Codificar de forma blindada, tratando potenciais bugs e falhas
-Usar sempre melhores práticas
+O RCF decide sobre CDN. Em silêncio ou incongruência:
 
----
+- produto deliberadamente online: CDN é padrão quando a URL compartilhada puder aproveitar cache do navegador;
+- preferir incorporação local parcial/customizada quando reduzir tamanho, latência ou banda;
+- bundle offline: manter todos os recursos necessários localmente e evitar rede por definição;
+- bundle não é necessariamente offline; o RCF deve explicitar a finalidade quando a decisão não for inequívoca.
 
-[ALTERAÇÃO]
+## 12. Padrões de implementação
 
-Objetivo:
+### 12.1 Análise
 
-Git Diff mínimo.
+- Idioma obrigatório: PT-BR.
+- Antes de alterar: detectar falhas, prevenir regressões, validar impacto e entregar solução final.
+- Não apresentar hipótese como conclusão sem validação.
+- Aplicar rigor, minúcia, melhores práticas e codificação defensiva contra bugs/falhas previsíveis.
 
-Preservar:
+### 12.2 Alteração
 
-- Estrutura existente
-- Fluxo atual
-- Comentários existentes
-- Compatibilidade
+Objetivo: diff mínimo.
 
-Proibido:
+Preservar estrutura, fluxo, comentários úteis, contratos, convenções e compatibilidade. Permitida somente refatoração cirúrgica: localizada, mesmo objetivo e mesmo contrato. Documentar motivo, objetivo, impacto e validação. Após estabilização, manter apenas comentários necessários.
 
-- Refatoração ampla
-- Reorganização sem necessidade
-- Alteração comportamental não solicitada
+### 12.3 Bugs e proteções
 
-Permitido:
+Código aparentemente redundante pode conter correção não documentada. Na dúvida, preservar e marcar:
 
-Refatoração cirúrgica:
-
-- Alteração localizada
-- Mesmo objetivo
-- Mesmo contrato
-
-Alterações extensas:
-
-Executar progressivamente:
-
-- Moderada: mínimo 2 commits
-- Agressiva: mínimo 4 commits
-
-Documentar:
-
-- motivo
-- objetivo
-- impacto
-- validação
-
-Após estabilização:
-Manter somente comentários necessários.
-
----
-
-[BUGS]
-
-Não remover código apenas por aparência de redundância.
-Código existente pode conter correções não documentadas.
-
-Dúvida:
-Preservar.
-
-Adicionar:
-
+```text
 // PRESERVADO: potencial correção de bug não documentada
+```
 
-Correções/prevenções:
+Correção/prevenção nova deve usar, em uma linha salvo necessidade estrita:
 
-Adicionar:
+```text
+// FIX-BUG: <descrição mínima>
+// PROTECAO: <descrição mínima>
+```
 
-// FIX-BUG: [descrição mínima]
+Não remover sem análise: `catch` vazio, tratamento de erro ou validação existente.
 
-ou
+### 12.4 Estilo
 
-// PROTECAO: [descrição mínima]
+- Proibidos pronomes autorreferenciais/interlocutórios: “eu”, “você”, “nós”.
+- Evitar “talvez”, “pode ser”, “provavelmente” e adjetivos subjetivos.
+- Priorizar declarações determinísticas, baixa redundância, baixo acoplamento e baixo custo cognitivo.
 
-Não remover sem análise:
+### 12.5 Ambiguidade
 
-- catches vazios
-- tratamentos de erro
-- validações existentes
+Aplicar a interpretação mais restritiva, de menor alteração e maior preservação. Em conflito interno, prevalece a regra que menos altera comportamento. Se insolúvel, registrar exatamente:
 
----
+```text
+AMBIGUIDADE INSOLUVEL: <ponto>. Preservando original.
+```
 
-[ESTILO]
+## 13. Validação
 
-Proibido:
+Comprovar objetivamente, conforme finalidade e RCF:
 
-- eu
-- você
-- nós
+- ausência de regressões;
+- produto final autônomo;
+- presença exclusiva de dependências de runtime no diretório final;
+- ausência de dependências de desenvolvimento no produto final;
+- preservação de comportamento após incorporação de recursos no build;
+- independência dos bundles;
+- funcionamento de GitHub Pages, Actions, publicação, workflows e pipelines;
+- reprodutibilidade do build;
+- redução do tamanho final sempre que tecnicamente possível;
+- funcionamento dos critérios específicos previstos pelo RCF, inclusive exemplos como links de ajuda, painel retrátil sem JavaScript, validações centralizadas e hierarquia `Global → Sessão → Execução`, quando existentes.
 
-Evitar:
+## 14. Documentação e RCF
 
-- talvez
-- pode ser
-- provavelmente
+Os RCFs pertinentes devem normatizar, quando aplicável:
 
-Evitar:
+- segregação runtime/build;
+- proibição de dependência de desenvolvimento no produto final, salvo justificativa técnica explícita;
+- centralização das regras de validação em arquivo único;
+- hierarquia de configuração `Global → Sessão → Execução`;
+- gestão de implementações por FT no arquivo canônico;
+- atualização contínua da memória operacional, inclusive ao concluir tarefas;
+- sincronização entre implementação, UI, documentação, AGENTS e RCF quando arquitetura, operadores, notações, recursos ou fluxos mudarem.
 
-- adjetivos subjetivos
+## 15. “Implementações em andamento”
 
-Priorizar:
+Manter na raiz um `.md` gerado automaticamente do `continue.ia`/`continue.dev` por script NPM, nunca editado manualmente, e linkado diretamente no README. Finalidade exclusiva: resumo visual ultra-sucinto das FTs em andamento; por padrão, omitir FTs de escopo `Negócio`, salvo regra diversa do RCF.
 
-- declarações determinísticas
-- baixa redundância
-- baixo acoplamento
-- baixo custo cognitivo
+### 15.1 Conteúdo
 
----
+- texto introdutório curto antes da listagem;
+- subtítulo próprio por FT;
+- objetivo resumido;
+- escopo, quando o RCF determinar sua exibição;
+- nenhuma informação alheia ao progresso.
 
-[PRESERVAÇÃO]
+### 15.2 Tabela
 
-Manter:
+Usar HTML, não tabela Markdown, para permitir `rowspan`/`colspan`:
 
-- Cabeçalho original
-- Comentários úteis
-- Convenções existentes
+- uma linha por etapa, com nome;
+- tarefas vinculadas, individualizadas por nome;
+- status de etapa e tarefa limitado a `pendente`, `em andamento` ou `concluído`;
+- ícone/emoji com cor correspondente e mapeamento único definido pelo gerador;
+- dentro da tabela, somente nome da etapa, nome da tarefa e ícone de status.
 
-Alterar comentário somente quando:
+O detalhamento da memória operacional não pode ser reproduzido nesse arquivo.
 
-- ficar incorreto após mudança
-- causar interpretação errada
+## 16. Saída final
 
-Comentários novos:
+Toda entrega deve incluir:
 
-Somente necessários.
-
-Máximo:
-1 linha - salvo estritamente necessários.
-
----
-
-[AMBIGUIDADE]
-
-Aplicar interpretação:
-
-- mais restritiva
-- menor alteração
-- maior preservação
-
-Conflito interno:
-
-Prevalece a regra que altera menos comportamento.
-
-Caso insolúvel:
-
-"AMBIGUIDADE INSOLUVEL: [ponto]. Preservando original."
-
----
-
-[MINIMAL_MISTAKES]
-
-[DARK_LIGHT]
-
-Implementar:
-
-- Pure CSS/Sass como implementação principal
-- Custom Properties
-- Switch visual compacto
-
-Switch:
-
-Requisitos:
-
-- dimensões discretas
-- menor destaque visual que a versão padrão do tema
-- compatível com desktop e mobile
-- ícone de sol para modo claro
-- ícone de lua para modo escuro
-- transição visual suave
-- contraste validado
-
-Ícones:
-
-Utilizar padrão Font Awesome do projeto.
-
-Definir Font Awesome como biblioteca padrão de ícones do tema.
-
-Não duplicar bibliotecas equivalentes.
-
-Requisitos:
-
-- Todos componentes visíveis nos dois modos
-- Contraste validado
-- Persistência via JavaScript
-- Preferência salva
-- Default: Dark
-
----
-
-[HEADER]
-
-Site title:
-
-Ocultar visualmente `site-title` exibido ao lado do logotipo.
-
-Preservar:
-
-- logotipo
-- estrutura do header
-- funcionamento original do tema
-
-Não remover HTML se apenas CSS resolver.
-
-[MENU]
-
-Prioridade:
-
-CSS/Sass puro.
-
-Estado:
-
-Nunca depender exclusivamente de JavaScript.
-
-Implementação principal:
-
-- Sass
-- seletores estruturais
-- estados CSS nativos
-
-JavaScript:
-
-Permitido como camada redundante:
-
-- leve
-- confiável
-- sem criar dependência funcional
-
-Nunca usar JavaScript como requisito único para:
-
-- abrir
-- fechar
-- expandir
-- recolher
-
-Conteúdo colapsável:
-
-Quando necessário:
-
-- criar ícone clicável
-- expandir/recolher via CSS
-
-Se exibível integralmente:
-
-- não criar menu desnecessário
-
-Requisitos:
-
-- somente um menu aberto quando aplicável
-- layer externo cobrindo toda a janela
-- conteúdo da página abaixo do menu visualmente ofuscado
-- menu e seu conteúdo permanecem sem obstrução
-- fechamento por clique no layer externo
-- fechamento pelo clique em um dos itens quando aplicável
-- blur do conteúdo da página via backdrop-filter
-  JavaScript:
-  Em geral é recurso opcional para:
-  - criação
-  - montagem
-  - posicionamento
-  - monitorar estado
-
-  Nunca essencial/obrigatório.
-
-Itens:
-
-Suportar:
-
-[ícone | label]
-
-Alinhamento uniforme obrigatório e independente da existência de ícone.
-
----
-
-[LAYOUT]
-
-Sidebar:
-
-O blog não deve exibir sidebar/aside.
-
-Aplicar por configuração ou extensão do tema,
-sem alterar core.
-
-[SCROLL_TOP]
-
-Implementar botão de retorno ao topo.
-
-Requisitos:
-
-- canto inferior direito
-- exibido somente quando a página estiver rolada
-- oculto quando estiver no topo
-- não obstruir conteúdo
-- compatível com desktop e mobile
-- tamanho adequado para toque e clique
-
-Comportamento:
-
-- retorno suave ao topo
-- animação fluida
-- transição visual discreta
-
-Implementação:
-
-Prioridade:
-
-- CSS/Sass
-
-Quando insuficiente:
-
-- TypeScript
-
-JavaScript não deve ser requisito estrutural da página.
-
----
-
-[LOADING_GLOBAL]
-
-`carregandoPagina`:
-
-- deve conter animação central e barra de progresso
-- barra de progresso deve ficar fixa no topo da página
-- largura: lado a lado da viewport
-- altura: `0.5rem`
-- visual limpo e coerente com o tema
-- deve ser exibida e ocultada junto com `carregandoPagina`
-- não deve participar da animação central do loader
-
-Progresso:
-
-- deve rastrear carregamento do DOM e recursos da página quando tecnicamente viável
-- deve degradar de forma segura quando algum recurso não puder ser rastreado
-- deve funcionar em conexões lentas e aparelhos fracos
-- compatibilidade mínima: navegadores 2018+
-- implementação deve permanecer leve, sem dependência externa quando solução local for suficiente
-
-404:
-
-- deve possuir fallback equivalente, local e mínimo
-- não deve importar biblioteca externa apenas para o loader
-
----
-
-[VALIDAÇÃO_VISUAL]
-
-Verificar:
-
-Modo claro:
-
-- textos
-- bordas
-- ícones
-- componentes
-
-Modo escuro:
-
-- textos
-- bordas
-- ícones
-- componentes
-
-Cores:
-
-Adicionar comentários curtos de uso ao código.
-
----
-
-[DEPENDÊNCIAS]
-
-Ajustar quando necessário:
-
-- package.json
-- Gemfile
-
-Respeitar:
-
-GitHub Pages.
-
-[DEPENDÊNCIAS_FRONTEND]
-
-JavaScript novo:
-
-Priorizar:
-
-- TypeScript
-
-Evitar:
-
-- JavaScript puro quando TypeScript for compatível com o contexto
-
-Requisitos:
-
-- ambiente preparado para TypeScript
-- toolchain compatível
-- package.json compatível
-- tipagem estrita quando aplicável
-
-Objetivo:
-
-- reduzir erros em tempo de execução
-- aumentar rastreabilidade
-- aumentar manutenibilidade
-
-[COMPONENTIZAÇÃO]
-
-Priorizar:
-
-- componentes .tsx
-- estilos .scss
-
-Antes de adotar Vite:
-
-Validar:
-
-- compatibilidade com Jekyll
-- compatibilidade com GitHub Pages
-- compatibilidade com Minimal Mistakes
-- custo operacional
-- impacto no build
-
-Se validado e vantajoso:
-
-- padronizar Vite como solução oficial
-
-Se não validado ou gerar complexidade desnecessária:
-
-- utilizar alternativa mais simples
-- manter compatibilidade integral
-
-Decisão adotada:
-
-- Vite não adotado nesta etapa
-- TypeScript via `tsc`
-- saída JavaScript estática compatível com Jekyll/GitHub Pages
-- componentes do tema permanecem em Liquid/HTML e SCSS
-
-Após nova validação definitiva:
-
-Atualizar esta diretriz para refletir a decisão adotada pelo projeto.
-
----
-
-[ARQUIVOS]
-
-Ignorar:
-
-`.gitignore`
-
-Exceto:
-
-- regra de negócio
-- referência explícita
-
----
-
-[404]
-
-`404.html`:
-
-- deve ficar no root, sem front matter, editável manualmente
-- deve herdar `/assets/css/main.css`
-- não deve duplicar CSS do tema
-- CSS/JS local somente para conteúdo 404, terminal e fallbacks mínimos
-- cabeçalho, `sobpostbar`, `noscript` e footer devem espelhar a origem do tema
-- conteúdo, links, logotipo, ordem estrutural e classes visuais desses fragmentos devem corresponder à origem vigente do tema
-- quando possível, hidratar fragmentos a partir da home
-- a saída compilada deve sincronizar conteúdo e estilos `noscript` da 404 com os fragmentos renderizados da home
-- sanitizar fragmentos importados para remover recursos pesados ou indevidos
-- não importar switch de tema claro/escuro
-- não importar Silktide, consent managers ou análogos
-- não importar recurso dependente de cookie ou `localStorage`
-- não expor controle visual de tema na 404
-- tema deve seguir o padrão vigente; terminal permanece escuro
-- terminal deve ser compacto, responsivo e com aparência Windows 11
-- após o carregamento completo e a liberação do loader, carregar de forma assíncrona os seis posts mais recentes a partir de JSON/feed do próprio site
-- publicações recentes não devem ser compiladas diretamente no HTML-fonte da 404
-- a falha do JSON/feed não deve bloquear, ocultar nem invalidar o restante da 404
-- cards assíncronos devem reutilizar a estrutura e o estilo visual dos cards de arquivo do blog
-- título e grade de publicações recentes devem manter folga suficiente para a flag não invadir o texto
-- montagem dos cards deve usar APIs de DOM e `textContent`, sem injetar HTML remoto
-- o carregamento assíncrono não deve depender de cookies ou `localStorage`
-
-Validação local:
-
-- validar contra o servidor existente antes de iniciar outro
-- não encerrar processo de servidor sem confirmação explícita
-
----
-
-[NOSCRIPT]
-
-Escopo:
-
-- aplica-se ao fallback sem JavaScript embutido em todas as páginas, inclusive `404.html`
-
-Paridade:
-
-- deve espelhar cabeçalho, `sobpostbar`, conteúdo institucional e footer vigentes no blog
-- deve preservar logotipo, textos, links, ordem estrutural e classes visuais da origem
-- footer deve herdar integralmente geometria, espaçamentos, cores e tipografia do footer do tema
-- divergências só são permitidas quando o elemento depender tecnicamente de JavaScript, cookies ou armazenamento local
-- controles de tema, busca, consentimento e menus dependentes de JavaScript não devem ser exibidos
-
-Funcionamento:
-
-- deve usar somente HTML e CSS
-- deve permitir rolagem vertical nativa até o footer
-- não deve criar overflow horizontal
-- deve herdar o fundo e os tokens visuais do tema padrão
-- o conteúdo deve permanecer legível, responsivo e integralmente acessível
-- o loader JavaScript não deve ocultar ou bloquear o fallback
-- a imagem destacada sem JavaScript usa o padrão wide do blog e fundo específico `#010203`
-- a masthead deve manter a mesma altura compacta do tema e o mesmo extravasamento vertical do logotipo
-
-Manutenção:
-
-- a fonte principal permanece em `_includes/jcem/noscript-content.html`
-- o artefato compilado da 404 deve receber automaticamente os mesmos fragmentos de conteúdo e estilo renderizados da home
-- validação visual deve comparar home e 404 com JavaScript desativado
-
-Canonical Path Redirect Script:
-
-- Objetivo
-  - Normalizar URLs recebidas para diretórios canônicos.
-  - Redirecionar somente quando o diretório resultante corresponder ao mapa configurado.
-
-- Configuração
-  - O mapa possui formato:
-
-    [
-    [fromPathName, toPathName],
-    ...
-    ]
-
-  - `fromPathName`
-    - Sempre representa diretório.
-    - Nunca contém arquivo.
-    - Nunca contém extensão.
-
-  - `toPathName`
-    - Sempre representa diretório canônico.
-    - Nunca contém arquivo terminal.
-
-- Execução
-  - Executa antes do DOM.
-  - Não depende de eventos de carregamento.
-  - Captura `location.pathname` imediatamente.
-  - Processa comparação de forma assíncrona.
-  - Bloqueia somente durante redirect confirmado.
-
-- Normalização do pathname recebido
-  - O pathname deve ser convertido para diretório canônico.
-
-  - Aplicar:
-    - decode URI quando possível.
-    - normalização Unicode quando disponível.
-    - lowercase.
-    - remoção de espaços inconsistentes.
-    - redução de barras duplicadas.
-    - remoção de barra final.
-
-  - Arquivo terminal sempre deve ser removido:
-    - index
-    - default
-    - home
-    - main
-
-  - Extensões aceitas para remoção:
-    - html
-    - htm
-    - php
-    - asp
-    - aspx
-    - jsp
-    - cgi
-
-- Exemplos
-  - Entrada:
-
-    /produto/index.html?x=1
-
-    Resultado:
-
-    /produto/?x=1
-
-  - Entrada:
-
-    /Produto/
-
-    Resultado:
-
-    /produto
-
-  - Entrada:
-
-    /produto/default.php?a=b
-
-    Resultado:
-
-    /produto/?a=b
-
-- Comparação
-  - Comparar:
-
-    # canonical(pathname recebido)
-
-    canonical(fromPathName)
-
-  - A comparação ignora:
-    - caixa.
-    - arquivo terminal.
-    - extensão.
-    - barra final.
-    - espaços inválidos.
-
-- Redirect
-  - Em caso de match:
-    - Substituir somente pathname.
-    - Preservar:
-      - protocolo.
-      - domínio.
-      - porta.
-      - query string.
-      - hash.
-
-  - Usar substituição de histórico.
-
-- Sem match
-  - Nenhuma alteração.
-
-- Garantias
-  - Sem dependências.
-  - Sem erro não tratado.
-  - Sem bloqueio de renderização.
-  - Compatível ES2020+.
-  - Evitar conflito e evento circular com botão de voltar do navegador.
-
-- Resultado
-  - Toda rota equivalente converge para uma única representação sem arquivo terminal.
-
----
-
-[FINAL]
-
-Adicionar:
-
-COMMIT_SUGERIDO:
-
-Texto PT-BR.
-Curto mas suficientemente detalhado (máximo 512 chars).
-Descritivo distinguindo fix e melhorias/aprimoramentos.
-
-Indicar explicitamente se ainda há mais estapas ou pendencias a serem feitas, e quais.
-
----
-
-[URLS]
-
-Posts:
-
-URL padrão:
-
-/p/titulo
-
-Requisitos:
-
-- URLs curtas
-- sem segmento indicando blog
-- sem redundância de caminho
-- compatível com mecanismos de busca
-
-O prefixo:
-
-p
-
-é reservado para posts.
-
-Taxonomias:
-
-Quando suportado pelo Jekyll/tema:
-
-Utilizar:
-
-/{root}/{nome}
-
-Onde:
-
-root = primeira letra do tipo
-
-Exemplos:
-
-categoria:
-
-/c/categorianome
-
-tag:
-
-/t/tagname
-
-Demais tipos:
-
-Seguir o mesmo padrão:
-
-/{primeira_letra_do_tipo}/{nome}
-
-Exceções:
-
-- rotas já existentes
-- rotas reservadas
-- post (`p`)
-
-Objetivo:
-
-- URLs menores
-- melhor indexação
-- separação semântica por tipo
-- evitar exposição da estrutura interna do blog
-
-Paginação:
-
-Quando suportado pelo Jekyll/tema:
-
-Priorizar URLs curtas.
-
-Evitar:
-
-- segmentos contendo "blog"
-- estruturas longas
-- caminhos desnecessários
-
-A implementação deve priorizar:
-
-- compatibilidade com busca
-- estabilidade de URL
-- previsibilidade
-- baixa complexidade
-
-[SCHEDULED]
-
-Criar:
-
-./\_scheduled/
-
-Finalidade:
-
-Armazenar posts finalizados que aguardam publicação futura.
-
-Diferença:
-
-- `_drafts`: conteúdo em desenvolvimento
-- `_scheduled`: conteúdo aprovado, pronto para publicação futura
-
-Regras:
-
-Posts em `_scheduled`:
-
-- Não devem aparecer no build público padrão
-- Não devem ser acessíveis por URL direta
-- Devem retornar 404 antes da data prevista
-- Devem permanecer isolados até a publicação efetiva
-
-Formato:
-
-O post deve ser precedido pela data futura de publicação.
-
-A data determina:
-
-- elegibilidade de publicação
-- momento de migração para conteúdo público
-
----
-
-[WORKFLOW_SCHEDULED]
-
-Criar workflow específico `scheduled`.
-
-Execução:
-
-Diariamente:
-00:01
-
-Responsabilidade:
-
-Verificar:
-
-`./_scheduled/`
-
-Identificar:
-
-Arquivos ou diretórios cuja data de publicação seja igual à data atual.
-
-Quando encontrado:
-
-Executar:
-
-- roda diretamente a partir do github Actions
-- preparação do post
-- compilação específica
-- atualização do artefato
-- publicação no GitHub Pages
-
-Regra:
-
-Nenhum conteúdo agendado pode ser exposto antes da data configurada.
-
----
-
-[WORKFLOW_PUBLICAÇÃO]
-
-Toda publicação efetiva de post deve acionar workflow de distribuição externa.
-
-Aplica-se:
-
-- publicação imediata
-- publicação proveniente de `_scheduled`
-
-Pré-condição obrigatória:
-
-Executar somente após:
-
-- compilação concluída
-- publicação concluída
-- validação de disponibilidade do post
-
-Falha anterior:
-
-Não iniciar distribuição externa.
-
----
-
----
-
-[REDES_SOCIAIS]
-
-Executado apenas se houver publicação de novas publicações (posts).
-Plataformas obrigatórias:
-
-- Facebook
-- Instagram
-- X (antigo Twitter)
-
-Implementação:
-
-Antes de criar integração própria:
-
-Pesquisar e avaliar ferramentas, bibliotecas e automações open source existentes
-que implementem o fluxo necessário.
-
-Preferência:
-
-Utilizar soluções maduras já existentes quando:
-
-- cobrirem o requisito funcional
-- possuírem manutenção ativa
-- forem compatíveis com o ambiente
-- permitirem automação via workflow
-
-Evitar:
-
-- reinventar integração já existente
-- duplicar bibliotecas
-- criar wrappers desnecessários
-
-Cada rede social deve possuir workflow próprio.
-
-Objetivo:
-
-Publicar automaticamente informações relacionadas ao post:
-
-- título
-- resumo curto
-- imagem destacada quando existir
-- hashtags
-- link
-
-Cada workflow deve possuir tratamento específico para sua plataforma.
-
-Requisitos:
-
-- configuração própria
-- tratamento de erros específico
-- persistência de estado
-- recuperação automática
-- múltiplas tentativas
-- fallback quando aplicável
-
-Estratégia:
-
-Priorizar:
-
-1. solução open source existente validada
-2. método oficial da plataforma
-3. alternativas configuradas
-4. fallback disponível
-
-Falha:
-
-Somente ocorrer após esgotar possibilidades previstas.
-
-Não permitido:
-
-- encerramento abrupto
-- travamento indefinido
-- interrupção externa sem tratamento
-
-Cada workflow deve:
-
-- finalizar por sucesso
-- finalizar por esgotamento controlado
-- registrar estado final
-
-Encadeamento:
-
-Workflows dependentes devem executar somente após conclusão do anterior.
-
-O próximo workflow deve ser acionado apenas quando:
-
-- estado final conhecido
-- execução anterior concluída
-
----
-
-[CONTEÚDO_EDITORIAL]
-
-[LISTAGENS_DE_POSTS]
-
-Responsividade:
-
-- grades, colunas e cards devem respeitar integralmente a largura disponível
-- títulos, excertos e metadados não devem impor largura mínima nem causar overflow horizontal
-- validar no mínimo em viewport móvel de `320px`
-
-Home:
-
-- exibir no máximo seis cards por página
-
-Artigos relacionados:
-
-- exibir sob o título `Relacionados`
-- compilar no máximo seis posts relacionados no HTML
-- não repetir o artigo atual
-
-Artigos recentes:
-
-- exibir sob o título `Recentes`
-- carregar os seis posts mais recentes a partir de `/recent-posts.json`
-- iniciar somente após o carregamento completo e a liberação do loader
-- manter somente título e contêiner vazio no HTML compilado do artigo
-- reutilizar estrutura e estilo dos cards de arquivo
-- montar cards com APIs de DOM e `textContent`
-- não depender de cookies nem `localStorage`
-- falha do JSON não deve interferir na leitura do artigo nem nos relacionados
-
----
-
-[AUTORES_DE_ARTIGO]
-
-Metadados opcionais:
-
-- posts podem declarar `article_authors` como lista ordenada
-- cada autor exige `name` e `bio`
-- `url` e `avatar` são opcionais
-- entradas sem `name` ou `bio` não devem ser renderizadas
-- o bloco inteiro não deve existir quando não houver autor válido
-- avatar ausente deve usar ilustração local padrão
-- o primeiro autor recebe destaque principal
-- autores adicionais usam apresentação compacta e responsiva
-- três ou mais autores devem usar composição mais densa para reduzir altura e poluição visual
-- saída deve incluir semântica `Person` compatível com dados estruturados
-- não alterar posts existentes apenas para forçar a exibição do componente
-
----
-
-[COMPACTAÇÃO_HTML]
-
-Objetivo:
-
-- reduzir o HTML final sem comprometer JavaScript, CSS, Base64, Markdown renderizado ou legibilidade de diffs
-
-Aplicação:
-
-- executar somente no artefato HTML final de produção
-- incluir páginas geradas pelo Jekyll e arquivos HTML estáticos copiados, inclusive `404.html`
-- remover linhas vazias
-- remover espaços e tabs no início e no fim de linhas comuns
-- preservar integralmente o conteúdo interno de `script`, `style`, `pre`, `textarea` e `template`
-- preservar quebras de linha entre linhas não vazias; não transformar o documento inteiro em uma linha
-- não minificar JavaScript, CSS ou conteúdo Base64 como parte desta etapa
-- não adicionar dependência externa quando o hook local cobrir o contrato com menor risco
-- toda alteração do compactador exige teste de regressão com blocos sensíveis
-
----
-
-[FORMATAÇÃO_DE_POSTS]
-
-Aplica-se:
-
-- exclusivamente ao conteúdo textual dos posts
-- não se aplica a navegação, cabeçalho, footer, metadados, embeds ou componentes externos ao artigo
-
-Parágrafos:
-
-- cada parágrafo comum do post deve iniciar a primeira linha com indentação visual
-- indentação padrão: `4em`
-- aplicar preferencialmente por CSS/Sass no conteúdo renderizado do artigo
-- não inserir espaços manuais no Markdown para simular indentação
-- não aplicar indentação em títulos, listas, tabelas, imagens, legendas, footnotes, blockquotes ou painéis de citação
-
-Blockquotes e painéis de citação:
-
-- texto principal dentro de `blockquote` não deve ser itálico
-- texto principal dentro do painel futurista usado como citação não deve ser itálico
-- subcitação dentro de citação deve ser itálica quando aparecer entre aspas simples ou duplas
-- não aplicar itálico automático ao bloco inteiro
-- quando houver distinção real entre texto citado e referência, separar a referência em linha própria
-- referência deve iniciar por `—`, não por `-`
-- referência deve possuir fonte menor que o texto principal da citação
-- quando a referência citar autor identificável, acrescentar contexto ultrassintético sobre quem era o autor à época da citação, quando houver base segura
-
-Texto comum do artigo:
-
-- texto comum do artigo não deve ser itálico por padrão
-- citação inline mencionada diretamente no parágrafo, entre aspas simples ou duplas, deve ser itálica
-- itálico semântico ou autoral já existente deve ser preservado quando não conflitar com estas regras
-
-Footnotes:
-
-- marcadores inline de footnotes devem permanecer compactos
-- não deve haver espaçamento horizontal excessivo entre o texto e o marcador
-- `sup` de footnotes deve manter proporção visual compatível com texto corrido
-
----
-
-[CORREÇÕES_TEXTUAIS]
-
-Ao alterar arquivos textuais autorizados para edição:
-
-- corrigir erros ortográficos identificados
-- corrigir erros gramaticais identificados
-- corrigir erros de digitação identificados
-
-Restrições:
-
-- somente em arquivos efetivamente modificados
-- somente dentro do escopo autorizado
-
-Obrigatório:
-
-Informar explicitamente ao final da atividade:
-
-- quais arquivos receberam correções textuais
-- se ocorreram correções exclusivamente ortográficas/gramaticais
-
----
-
-[PRESERVAÇÃO_AUTORAL]
-
-Quando solicitado:
-
-- revisão
-- reorganização
-- melhoria textual
-- ajuste semântico
-- reescrita
-
-Preservar obrigatoriamente:
-
-- estilo do autor
-- vocabulário do autor
-- ritmo do texto
-- forma de argumentação
-- estrutura de raciocínio
-- estilo de pontuação
-- pausas intencionais
-- características literárias
-- características retóricas
-
-Objetivo:
-
-Melhorar o texto sem descaracterizar a autoria.
-
-Proibido:
-
-- padronizar artificialmente o estilo
-- transformar todos os textos no mesmo padrão de escrita
-- substituir a voz autoral pela voz da IA
-
-Antes de sugerir alterações:
-
-Analisar:
-
-- parágrafo
-- seção
-- artigo completo
-- contexto geral
-
-Prioridade:
-
-1. preservar identidade autoral
-2. preservar intenção autoral
-3. corrigir problemas reais
-4. melhorar clareza
-
----
-
-[CONTINUE_IA]
-
-No root do repositório deve existir:
-
-continue.ia
-
-Se não existir:
-
-Criar automaticamente.
-
-Este arquivo deve ser lido antes de qualquer operação.
-
-Finalidade:
-
-Manter estado operacional entre execuções, chats ou solicitações diferentes.
-
-O arquivo funciona como:
-
-- checklist técnico
-- memória operacional do projeto
-- controle de pendências
-- rastreamento de etapas
-
-Requisitos:
-
-Formato:
-
-- texto simples
-- legível por humanos
-- otimizado para interpretação por IA
-- baixa redundância
-- alta densidade informacional
-
-Registrar:
-
-Registrar:
-
-- tarefas recebidas ainda relevantes
-- tarefas em andamento
-- tarefas pendentes
-- etapas iniciadas
-- etapas aguardando continuidade
-- processos que exigem múltiplos commits
-- validações necessárias
-- problemas de ambiente encontrados
-- tentativas realizadas
-- soluções aplicadas
-
-Tarefas concluídas:
-
-Manter somente quando:
-
-- fazem parte de uma tarefa maior ainda em andamento
-- são necessárias para continuidade do processo
-- possuem impacto em decisões futuras
-
-Remover quando:
-
-- a demanda principal for concluída
-- não houver dependência futura
-- o registro não auxiliar continuidade
-
-Objetivo:
-
-Evitar crescimento indefinido do arquivo.
-
-Problemas de ambiente:
-
-Registrar:
-
-- problema identificado
-- causa provável ou confirmada
-- tentativas executadas
-- resultado
-- próximo passo recomendado
-
-Objetivo:
-
-Evitar repetição de comandos conhecidos como falhos.
-
-Problemas registrados não representam bloqueio:
-
-A IA deve tentar resolver automaticamente quando possível.
-
-Caso não seja possível:
-
-- registrar impedimento
-- evitar repetir tentativas sem alteração de estratégia
-
-Organização:
-
-Agrupar informações por contexto.
-
-Cada demanda deve possuir categoria própria.
-
-Categorias devem ser criadas, ajustadas ou mescladas conforme necessário para reduzir duplicidade e melhorar rastreabilidade.
-
-Quando novos pedidos forem recebidos:
-
-- identificar contexto
-- associar ao grupo existente quando compatível
-- criar novo grupo quando necessário
-- reorganizar categorias quando a estrutura atual deixar de ser eficiente
-
-Atualização:
-
-Após cada alteração relevante:
-
-Atualizar continue.ia.
-
-Antes de iniciar nova alteração:
-
-Consultar continue.ia.
-
----
-
-[RASTREABILIDADE_DE_IA]
-
-Objetivo:
-
-Evitar que conteúdo processado por IA seja utilizado como fonte primária para identificação do estilo original do autor.
-
-Todo trecho modificado semanticamente por IA deve receber marcação persistente.
-
-Requisitos:
-
-A marcação deve:
-
-- permanecer no arquivo fonte
-- sobreviver a rebuilds
-- não ser exibida visualmente ao leitor
-- não alterar o conteúdo renderizado
-- ser legível por ferramentas automatizadas
-- permitir identificação futura do trecho processado
-
-Aplicação:
-
-Obrigatória quando houver:
-
-- reescrita
-- reorganização textual
-- expansão textual
-- resumo
-- simplificação
-- ajuste semântico
-- adaptação de estilo
-- geração parcial
-- geração integral
-
-Não obrigatória para:
-
-- correção ortográfica
-- correção gramatical
-- correção tipográfica
-- correção de links
-- correção de metadados
-
-Quando apenas parte de um texto for modificada por IA:
-
-- marcar a menor região possível
-- evitar marcar o documento inteiro sem necessidade
-
-Objetivo da marcação:
-
-Permitir que futuras análises diferenciem:
-
-- conteúdo originalmente produzido pelo autor
-- conteúdo alterado por IA
-
----
-
-[REFERÊNCIA_DE_ESTILO]
-
-Ao utilizar textos do repositório como amostra de estilo:
-
-- ignorar trechos marcados como processados por IA
-
-Prioridade:
-
-1. conteúdo original sem marcação de IA
-2. `_drafts` sem marcação de IA
-3. artigos publicados sem marcação de IA
-4. conteúdo revisado apenas ortográfica ou gramaticalmente
-5. conteúdo processado por IA
-
-Objetivo:
-
-Identificar:
-
-- vocabulário recorrente
-- estrutura recorrente
-- estilo argumentativo
-- estilo literário
-- estilo técnico
-- padrões de pontuação
-- padrões de transição
-
-Presumir:
-
-Conteúdo originalmente produzido pelo autor possui prioridade sobre conteúdo potencialmente assistido por IA.
-
-Trechos marcados por IA não devem ser considerados fonte primária de estilo autoral.
-
-Podem ser utilizados apenas como contexto complementar.
-
----
-
-[FORMATO_DA_MARCAÇÃO]
-
-Preferência:
-
-Utilizar comentários invisíveis compatíveis com:
-
-- Markdown
-- Jekyll
-- GitHub Pages
-
-Exemplo conceitual:
-
-<!-- AI-PROCESSED -->
-
-Ou formato equivalente definido pelo projeto.
-
-A marcação deve ser:
-
-- estável
-- simples
-- pesquisável
-- facilmente identificável por automação
-
-Evitar:
-
-- formatos proprietários
-- formatos dependentes de serviços externos
-- formatos que alterem a renderização pública
-
----
-
-[RIGOR_ACADÊMICO]
-
-Exceto quando explicitamente classificado como:
-
-- reflexão pessoal
-- testemunho
-- opinião
-- narrativa literária
-- poesia
-
-Todo artigo deve buscar rigor documental e verificabilidade.
-
-Objetivo:
-
-Associar argumentos a fontes:
-
-- válidas
-- verificáveis
-- confiáveis
-- rastreáveis
-
-Sempre que possível:
-
-Adicionar referências para:
-
-- afirmações factuais
-- dados históricos
-- estatísticas
-- estudos
-- argumentos técnicos
-- citações
-
----
-
-[CITAÇÕES_E_REFERÊNCIAS]
-
-Artigos técnicos e artigos em formato de sermão devem seguir o princípio:
-
-Afirmação → Referência imediata.
-
-Preferência:
-
-Inserir a referência imediatamente após o trecho referenciado.
-
-Utilizar mecanismos compatíveis com:
-
-- Jekyll
-- Markdown
-- Footnotes
-
-Preferência visual:
-
-Comportamento semelhante ao utilizado pela Wikipédia.
-
-Evitar:
-
-- referências concentradas apenas ao final do artigo
-- afirmações relevantes sem fonte quando existir fonte verificável
-
----
-
-[FOOTNOTES]
-
-O projeto deve possuir suporte para notas de rodapé.
-
-Preferência:
-
-Utilizar mecanismo compatível com:
-
-- Jekyll
-- GitHub Pages
-- Markdown
-
-Evitar:
-
-- implementação manual repetitiva
-- soluções incompatíveis com GitHub Pages
-
-Prioridade:
-
-Utilizar mecanismo nativo ou amplamente adotado antes de criar implementação própria.
-
----
-
-[FOOTNOTES_BIBLIOGRAFIA_E_REFERÊNCIAS]
-
-Artigos com referências devem possuir suporte para:
-
-- Referências
-- Bibliografia
-
-Sempre que possível:
-
-Gerados automaticamente a partir dos footnotes e metadados utilizados no artigo.
-
-Bibliografia:
-
-- formato ABNT
-
-Referências:
-
-- devem apontar para os itens da bibliografia
-
-Footnotes:
-
-- identificadores discretos e de baixa interferência visual
-- posicionados imediatamente após a ocorrência referenciada
-- cada ocorrência deve apontar para sua referência correspondente
-- cada referência deve permitir retorno ao ponto exato da citação
-- ao passar o cursor, exibir resumo curto ou trecho da referência quando suportado pela tecnologia utilizada
-- comportamento preferencialmente semelhante ao adotado pela Wikipédia
-
-Prioridade:
-
-Utilizar bibliotecas, plugins ou ferramentas compatíveis com:
-
-- Jekyll
-- GitHub Pages
-- GitHub Actions
-
-Preferencialmente:
-
-- consolidadas
-- amplamente utilizadas
-- ativamente mantidas
-
----
+```text
+COMMIT_SUGERIDO: <texto PT-BR, objetivo, suficientemente detalhado, máximo 512 caracteres; separar fix, melhoria/aprimoramento e ajuste quando aplicável>
+PENDENCIAS: <informar explicitamente etapas, tarefas ou pendências restantes; usar “nenhuma” quando concluído>
+```
+````
