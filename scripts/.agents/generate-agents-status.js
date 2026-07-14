@@ -78,11 +78,11 @@ function parseWorkFronts(content) {
       continue;
     }
 
-    const task = line.match(/^\s+(\d+)\/(\d+)\s+(.+?)\s+\[([^\]]+)\]$/u);
+    const task = line.match(/^-\s+(.+?)\s+\[([^\]]+)\]$/u);
     if (task && currentStage) {
       currentStage.tasks.push({
-        name: task[3].trim(),
-        status: normalizeStatus(task[4]),
+        name: task[1].trim(),
+        status: normalizeStatus(task[2]),
       });
     }
   }
