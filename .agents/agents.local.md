@@ -44,3 +44,7 @@ Subordinada a `AGENTS.md`, microconceitos e RCF. Precedência: `AGENTS.md` → R
 - Mudança semântica editorial por IA recebe `<!-- AI-PROCESSED -->` na menor região; não para correção ortográfica/gramatical/tipográfica/link/metadado. Amostra de estilo: original não marcado → draft não marcado → publicado não marcado → correção mecânica → IA.
 - Exceto reflexão, testemunho, opinião, narrativa ou poesia identificada, buscar fonte válida/rastreável para fatos, dados, estudos, técnica e citações. Texto técnico/sermão segue `Afirmação → referência imediata`; evitar fonte distante e alegação relevante sem fonte disponível.
 - Footnotes e bibliografia usam mecanismo Jekyll/GitHub Pages/Markdown consolidado, sem implementação manual repetitiva; referências apontam à bibliografia ABNT quando aplicável, marcador discreto, ida/retorno exato, tooltip quando suportado e padrão visual Wikipédia.
+
+## Atualização normativa
+
+- Adaptadores locais declarados: `scripts/.agents/repo-tools.js` e `scripts/.agents/generate-agents-status.js`. Eles preservam o dispatcher filtrado e a projeção de estado do blog; `agents:update` não os sobrescreve nem remove. Mudança genérica nesses paths exige reconciliação explícita em FT.
