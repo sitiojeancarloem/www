@@ -36,6 +36,10 @@ const LEGACY_MANAGED_FILES = new Set([
   "scripts/.agents/update-agents.js",
   "scripts/lib/archive.js",
 ]);
+const LOCAL_ADAPTER_FILES = new Set([
+  "scripts/.agents/generate-agents-status.js",
+  "scripts/.agents/repo-tools.js",
+]);
 
 class UsageError extends Error {}
 
@@ -261,7 +265,7 @@ function collectRemoteGovernanceFiles(remoteRoot) {
   for (const folder of [path.join("scripts", ".agents"), path.join("scripts", "lib")]) {
     for (const filePath of listFiles(path.join(distributionRoot, folder))) {
       const relativePath = path.relative(distributionRoot, filePath);
-      if (MANAGED_EXTENSIONS.has(path.extname(filePath).toLocaleLowerCase("en-US"))) {
+      if (!isLocalAdapterPath(relativePath) && MANAGED_EXTENSIONS.has(path.extname(filePath).toLocaleLowerCase("en-US"))) {
         addRemoteFile(files, distributionRoot, relativePath);
       }
     }
@@ -351,7 +355,9 @@ function listPreviouslyManagedFiles(lock) {
     return [];
   }
 
-  return lock.managedFiles.map((entry) => safeRelativePath(entry.path || entry.relativePath || entry));
+  return lock.managedFiles
+    .map((entry) => safeRelativePath(entry.path || entry.relativePath || entry))
+    .filter((entry) => !isLocalAdapterPath(entry));
 }
 
 function assertManagedFilesClean(rootDir, force, plan) {
@@ -421,7 +427,7 @@ function mergePackageManifest(localContent, remoteContent) {
 
   merged.scripts = { ...localScripts };
   for (const [name, command] of Object.entries(remoteScripts)) {
-    if (isManagedScriptName(name, policy)) {
+    if (isManagedScriptName(name, policy) && !isLocalAdapterCommand(localScripts[name])) {
       merged.scripts[name] = command;
     }
   }
@@ -737,6 +743,15 @@ function isLocalExtensionPath(value) {
   return relative.startsWith(".agents/hooks/") || relative.startsWith(".agents/local/");
 }
 
+function isLocalAdapterPath(value) {
+  return LOCAL_ADAPTER_FILES.has(toPosixPath(value).replace(/^\.\//u, ""));
+}
+
+function isLocalAdapterCommand(value) {
+  const command = toPosixPath(value);
+  return [...LOCAL_ADAPTER_FILES].some((filePath) => command.includes(filePath));
+}
+
 module.exports = {
   buildUpdatePlan,
   collectRemoteGovernanceFiles,
@@ -745,6 +760,8 @@ module.exports = {
   githubCliJsonResponse,
   hashTextContent,
   isRecognizedLegacyGovernanceFile,
+  isLocalAdapterCommand,
+  isLocalAdapterPath,
   isLocalExtensionPath,
   help,
   main,
