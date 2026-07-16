@@ -1,0 +1,70 @@
+
+> blog@1.0.0 check
+> npm run check:ts && npm run check:html && npm run check:footnotes && npm run check:math && npm run check:assets && npm run check:authors
+
+
+> blog@1.0.0 check:ts
+> tsc --noEmit
+
+
+> blog@1.0.0 check:html
+> bundle exec ruby scripts/test_html_compactor.rb
+
+html_compactor=ok
+
+> blog@1.0.0 check:footnotes
+> bundle exec ruby scripts/test_footnotes.rb
+
+footnotes=ok
+
+> blog@1.0.0 check:math
+> bundle exec ruby scripts/test_math.rb
+
+math_test=ok
+
+> blog@1.0.0 check:assets
+> bundle exec ruby scripts/test_asset_metadata.rb
+
+asset_metadata=ok
+
+> blog@1.0.0 check:authors
+> bundle exec ruby scripts/test_article_authors.rb
+
+Configuration file: D:/trampo/jeancarloem.com.blog/_config.yml
+article_authors=ok
+
+npm notice
+npm notice New major version of npm available! 10.9.4 -> 12.0.1
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.0.1
+npm notice To update run: npm install -g npm@12.0.1
+npm notice
+npm notice
+npm notice New major version of npm available! 10.9.4 -> 12.0.1
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.0.1
+npm notice To update run: npm install -g npm@12.0.1
+npm notice
+npm notice
+npm notice New major version of npm available! 10.9.4 -> 12.0.1
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.0.1
+npm notice To update run: npm install -g npm@12.0.1
+npm notice
+npm notice
+npm notice New major version of npm available! 10.9.4 -> 12.0.1
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.0.1
+npm notice To update run: npm install -g npm@12.0.1
+npm notice
+npm notice
+npm notice New major version of npm available! 10.9.4 -> 12.0.1
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.0.1
+npm notice To update run: npm install -g npm@12.0.1
+npm notice
+npm notice
+npm notice New major version of npm available! 10.9.4 -> 12.0.1
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.0.1
+npm notice To update run: npm install -g npm@12.0.1
+npm notice
+npm notice
+npm notice New major version of npm available! 10.9.4 -> 12.0.1
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.0.1
+npm notice To update run: npm install -g npm@12.0.1
+npm notice
