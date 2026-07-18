@@ -47,3 +47,15 @@ criterios=Cada comando possui contrato/metaarquivo, path seguro, ajuda, parâmet
 inventario=Compatíveis: `to-ia`, `archive`; parcialmente compatíveis: atualizador e gerador de handoff; incompatíveis: dispatcher com `src/dist/index/release` e quatro scripts de release. Arquitetura aplicada: dispatcher local filtrado, comandos seguros disponíveis, mutações e release n/a, metaarquivo fechado e tarefas parseáveis. Os quatro scripts de release incompatíveis foram removidos; `agent:release:publish` passou a delegar ao dispatcher. Os adaptadores locais declarados são excluídos da atualização remota e seus scripts npm são preservados durante a mesclagem de manifesto.
 verificacoes=FT-011: `node --check`; `agent:lint` (8 scripts); `agent:status`; `agents:update -- --help`; release n/a com código 3; `agent:handoff`; `agent:build` Jekyll em `tmp/agent-build` com `index.html`; `agent:verify` (TS, HTML, footnotes, math, assets e authors) concluído. Correção Windows: `bundle.bat` e `npm.cmd` são executados pelo `cmd.exe` explícito. Atualizador: classificação positiva/negativa de adaptador e preservação de comando local verificadas.
 retomada=Concluída: `dev` foi convergida por fast-forward em `main`; `_site` permaneceu fora da FT por alteração preexistente. Push remoto exige autorização explícita.
+
+FT-012|nome=Restabelecimento emergencial do agents:update|objetivo=Eliminar colisão local com o core upstream e concluir a atualização normativa ponta a ponta|escopo=Técnico|prioridade=emergencial|status=concluído|inicio=20260718|atualizacao=20260718|conclusao=20260718
+dependencias=Concessão humana excepcional para edição cirúrgica de governança e utilitários; FT-011 concluída; branch `dev` limpa.
+riscos=Preservar adaptadores locais declarados, determinismo normativo, extensões locais e transação de atualização; não ampliar a intervenção além do bloqueio e falhas imediatamente encadeadas.
+1/4 Mapeamento da falha [concluído]
+- `--check` identificou release `v0.0.17`; modo padrão bloqueava antes do updater; colisão exata em `.agents/core/concepts/microconceitos.md` por ausência do lock legado [concluído]
+2/4 Correção cirúrgica [concluído]
+- Removida exigência local indevida de `--check|--dry-run`; origem corrigida para `jcempro/agents.md`; staging força somente paths do manifesto e retoma transação aplicada antes de falha no commit [concluído]
+3/4 Atualização ponta a ponta [concluído]
+- Override único reconstruiu `.agents/agents-update.lock.json`; atualização `v0.0.17` commitada em `a387798e5e` e enviada a `origin/dev`; `npm run agents:update` sem argumentos concluiu com código 0 [concluído]
+4/4 Validação e memória [concluído]
+- Sintaxe dos dois adaptadores e do updater gerenciado validada; lock referencia `jcempro/agents.md`; worktree contém somente patch local e memória da FT [concluído]

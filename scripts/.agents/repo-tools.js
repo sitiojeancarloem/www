@@ -178,9 +178,6 @@ function deps() {
 }
 
 function update(args) {
-  if (!args.includes("--help") && !args.includes("--check") && !args.includes("--dry-run")) {
-    return result(4, "", "PARAMETRO_NORMATIVO_AUSENTE:--check-ou---dry-run");
-  }
   return run(process.execPath, [path.join(ROOT_DIR, "scripts", ".agents", "update-agents.js"), ...args], { timeout: 120000 });
 }
 

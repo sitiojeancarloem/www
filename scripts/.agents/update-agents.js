@@ -15,7 +15,7 @@ const path = require("path");
 const { extractZip } = require("../lib/archive");
 
 const ROOT_DIR = path.resolve(__dirname, "..", "..");
-const SOURCE_OWNER = "JeanCarloEM";
+const SOURCE_OWNER = "jcempro";
 const SOURCE_REPO = "agents.md";
 const SOURCE_API = `https://api.github.com/repos/${SOURCE_OWNER}/${SOURCE_REPO}`;
 const LOCK_FILE = path.join(".agents", "agents-update.lock.json");
@@ -521,7 +521,8 @@ function commitAndPushNormativeUpdate(rootDir, plan) {
 
   const upstream = resolveUpstream(rootDir);
   assertNoPendingLocalCommits(rootDir, upstream);
-  runGit(rootDir, ["add", "--", ...paths]);
+  // FIX-BUG: o manifesto validado é autoridade para incluir gerenciados ignorados no bootstrap.
+  runGit(rootDir, ["add", "--force", "--", ...paths]);
 
   const staged = runGit(rootDir, ["diff", "--cached", "--name-only"]).stdout
     .trim()
@@ -550,7 +551,7 @@ function commitAndPushNormativeUpdate(rootDir, plan) {
 
 function listChangedNormativePaths(plan) {
   return plan.changes
-    .filter((change) => change.action !== "unchanged")
+    // FIX-BUG: permite retomar transação aplicada que falhou antes do commit.
     .map((change) => toPosixPath(change.relativePath));
 }
 
