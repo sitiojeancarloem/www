@@ -44,3 +44,10 @@ Os que mais têm a dizer contra os testemunhos são em geral os que não os lera
 Se eles desmerecem a lei de Deus, se não dão atenção a Sua vontade tal como é revelada nos testemunhos de Seu Espírito, são enganadores. Eles são controlados por impulso e impressões, que acreditam serem do Espírito Santo, e consideram mais dignos de confiança que a Palavra Inspirada. Pretendem que todo pensamento e sentimento é uma impressão do Espírito; e quando se raciocina com eles segundo as Escrituras, declaram que possuem alguma coisa mais digna de confiança. Ao passo, porém, que pensam ser guiados pelo Espírito de Deus, estão na verdade seguindo uma imaginação trabalhada por Satanás. — The Bible Echo, Setembro de 1886. ME2 98.3
 
 ---
+
+> A mais forte tentação não é desculpa para o pecado. Por maior que seja a pressão exercida sobre a mente, a transgressão é nosso próprio ato. Não está no poder da Terra ou do inferno compelir alguém a pecar. A vontade tem de consentir, o coração tem de ceder, do contrário a paixão não poderá dominar a razão, nem a iniqüidade triunfar sobre a justiça.
+>  — The Signs of the Times, 15 de Abril de 1913.
+> Cuidado de Deus, PG. 336 ou 724 18 de Dezembro
+
+> A inatividade é registrada nos livros do Céu como oposição à obra de Cristo, pois ela produz a mesma espécie de fruto que a franca hostilidade
+> Conselhos sobre saúde, p. 35/48
