@@ -1,6 +1,6 @@
 # RCF — Revelação, Inspiração, Cânon, Autoridade e Hermenêutica Profética Adventista
 
-**Versão:** 1.0  
+**Versão:** 1.1  
 **Escopo:** síntese lógico-normativa da compreensão adventista geral sobre Bíblia, profecia e escritos de Ellen G. White.  
 **Status:** sistematização acadêmica fundamentada; NÃO substitui Crenças Fundamentais, declarações votadas ou exegese oficial.  
 **Modalidade:** **DEVE**, **NÃO DEVE**, **PODE** e **RECOMENDA-SE** são normativos neste documento.
@@ -11,7 +11,7 @@
 2. O plano redentor precede a história humana; a cruz NÃO foi contingência desconhecida por Deus (1Pe 1:19-20; cf. Ap 13:8).
 3. Deus revela progressivamente o que conhece integralmente; progresso revelacional É ampliação da compreensão humana, NÃO evolução, correção ou arrependimento intelectual divino (Hb 1:1-3; Jo 16:12-13).
 4. Deus PODE alterar atos históricos anunciados quando a própria mensagem estabelece condição humana; isso NÃO altera Seu caráter nem torna falsa a profecia condicional (Jr 18:7-10; Jn 3; Ez 18).
-5. Amós 3:7 fundamenta a revelação profética do conselho divino antes de atos decisivos de juízo e redenção; NÃO autoriza presumir previsão pública de cada microato providencial.
+5. Amós 3:7 fundamenta a revelação profética prévia de atos divinos com impacto significativamente amplo, decisivo de juízo e redenção; NÃO autoriza presumir previsão pública de cada microato providencial.
 
 ## 2. Definições
 
@@ -25,6 +25,8 @@
 - **INFALIBILIDADE:** confiabilidade da revelação para comunicar a vontade de Deus e veracidade do que o texto efetivamente afirma.
 - **INERRÂNCIA_VERBAL_ABSOLUTA:** tese de que cada vocábulo e detalhe dos autógrafos foi divinamente determinado e é tecnicamente impecável em todo domínio; NÃO constitui formulação fundamental adventista obrigatória.
 - **CÂNON:** 66 livros reconhecidos como Escritura e norma escrita universal da fé cristã adventista.
+- **DEUTEROCANÔNICOS/APÓCRIFOS_DO_AT:** escritos judaicos antigos incluídos como cânon por católicos e, em extensão variável, ortodoxos; recebidos por adventistas e a maioria protestante como literatura extracanônica. Os termos são confessionais e suas listas NÃO são perfeitamente idênticas.
+- **SEFARIM_ḤITZONIM:** “livros externos” na terminologia rabínica; categoria extracanônica que NÃO implica, por si, falsidade integral, inutilidade histórica ou identidade exata com toda lista cristã de apócrifos.
 - **NORMA_CANÔNICA:** padrão final pelo qual doutrina, experiência, interpretação e alegação profética são julgadas.
 - **AUTORIDADE_PROFÉTICA:** obrigação derivada de Deus presente em mensagem profética genuína, canônica ou não.
 - **SUBALTERNIDADE:** precedência epistemológica, canônica, hermenêutica e funcional da revelação previamente reconhecida sobre alegação posterior; NÃO inferioridade de Deus, verdade ou inspiração.
@@ -51,9 +53,9 @@
    - **AUTOMATISMO:** profeta como máquina, estenógrafo ou instrumento sem vontade;
    - **DEÍSMO_TEXTUAL:** Deus entrega ideia vaga e abandona a redação ao acaso;
    - **REDUCIONISMO:** somente conceitos abstratos são inspirados e as palavras são descartáveis.
-2. O Espírito comunica pensamentos, ideias, visões, juízos e informações; o autor os expressa em palavras próprias, sob direção divina e segundo personalidade, memória, capacidade, cultura e contexto.
+2. O Espírito comunica pensamentos, ideias, visões, juízos e informações; o autor os expressa em palavras próprias, sob direção divina e segundo personalidade, memória, capacidade intelectual, cultura e contexto.
 3. “Inspiração de pensamento” NÃO significa escrita descompromissada. O Espírito permanece atuante na recepção, compreensão, seleção, ênfase, composição e transmissão.
-4. **INDUÇÃO_NÃO_COERCITIVA** PODE denominar essa atuação somente se significar: Deus orientou o escritor para expressão adequada sem ditar nem causalmente escolher cada vocábulo.
+4. **INDUÇÃO NÃO COERCITIVA** PODE denominar essa atuação somente se significar: Deus orientou o escritor para expressão adequada sem ditar nem causalmente escolher cada vocábulo.
 5. O texto inspirado possui **intencionalidade tripla**:
    - **divina:** cumpre o propósito revelacional de Deus;
    - **autoral:** comunica o que o escritor pretendeu afirmar;
@@ -61,7 +63,7 @@
 6. Cada palavra do texto criticamente estabelecido DEVE ser tratada como potencialmente intencional e exegeticamente relevante; NÃO DEVE ser presumida individualmente ditada, inevitável ou portadora de código teológico autônomo.
 7. A presença, ausência, ordem ou escolha de uma palavra somente DEVE sustentar conclusão quando confirmada por crítica textual, gramática, semântica histórica, contexto, gênero, uso autoral e totalidade bíblica.
 8. Meio e mensagem são inseparáveis: a mensagem NÃO existe para o intérprete fora da forma linguística pela qual foi transmitida.
-9. O alto custo material da escrita e cópia antigas reforça a presunção histórica de deliberação; NÃO prova que toda partícula possua significado doutrinário independente. Repetições, fórmulas orais e redundâncias PODEM ser intencionais, mnemônicas ou estilísticas.
+9. O alto custo material da escrita e cópia antigas REFORÇA a presunção histórica de deliberação; NÃO prova que toda partícula possua significado doutrinário independente. Repetições, fórmulas orais e redundâncias PODEM ser intencionais, mnemônicas ou estilísticas.
 
 ## 5. Humano, falibilidade e confiabilidade
 
@@ -70,7 +72,7 @@
 3. Relatos paralelos PODEM divergir em detalhe, ordem, resumo ou ênfase sem contradição material. Se a conciliação responsável falhar, o juízo DEVE ser suspenso; harmonização artificial e proclamação precipitada de erro são igualmente vedadas.
 4. Discrepâncias menores PODEM decorrer de autor, editor, copista, manuscrito, transmissão ou tradução; a causa NÃO DEVE ser atribuída sem evidência.
 5. A Bíblia registra falas, práticas e instituições pecaminosas sem necessariamente endossá-las. Registro inspirado NÃO equivale automaticamente a prescrição normativa.
-6. Premissa cultural, analogia antiga ou linguagem fenomenológica DEVE ser distinguida da afirmação teológica pretendida. “Preconceito do profeta” NÃO PODE funcionar como rótulo genérico para descartar norma textual.
+6. Premissa cultural, analogia antiga ou linguagem fenomenológica DEVE ser distinguida da afirmação teológica pretendida. “Preconceito do profeta” NÃO PODE funcionar como rótulo genérico para descartar norma textual ou preconceito ao texto.
 7. A Igreja afirma a Bíblia como revelação suprema, autorizada e infalível e como registro confiável dos atos de Deus; a resolução de 2022 a declara “reliable in what it affirms”. Logo, limitação do veículo NÃO autoriza falibilidade do núcleo afirmativo deliberado.
 8. A infalibilidade DEVE abranger doutrina, salvação, moral e os atos históricos que o texto pretende afirmar; NÃO DEVE ser reduzida a sentimento religioso desvinculado da história. A metodologia oficial adventista trata os atos sobrenaturais narrados e Gênesis 1–11 como história factual.
 9. Nenhuma formulação DEVE exigir precisão científica, cronológica, estatística ou historiográfica moderna onde o gênero e a intenção antigos não a reivindicam.
@@ -92,13 +94,42 @@
 6. Igual inspiração interna ao cânon NÃO implica igual gênero, extensão, função ou assunto. Após reconhecimento canônico, Paulo, Isaías, Gênesis e Evangelhos integram a mesma norma; nenhum permanece “luz menor” normativa dentro do cânon.
 7. Historicamente, todo profeta hoje canônico esteve sob exame da revelação já reconhecida. Antes do reconhecimento, sua alegação era posterior e testável; após o reconhecimento, seu escrito passou a integrar o padrão para alegações futuras.
 8. O preâmbulo das Crenças Fundamentais admite revisão da compreensão ou linguagem denominacional; isso reconhece falibilidade interpretativa da Igreja, NÃO mutabilidade da Escritura.
-9. Nota histórica: o judaísmo normativo reconhece o **Tanakh** — Torá, Profetas e Escritos; não somente a Torá. A restrição canônica ao Pentateuco caracteriza especialmente a tradição samaritana.
+9. “Cristãos” NÃO DEVE ser tratado como bloco canônico uniforme: católicos romanos reconhecem 46 livros no Antigo Testamento; tradições ortodoxas mantêm cânones maiores e variáveis; adventistas e a maioria protestante reconhecem 39, materialmente correspondentes aos 24 do Tanakh (igual aos Judeus e o próprio Jesus [judeu por nascença e prática]). Anglicanos e luteranos históricos PODEM imprimir ou ler apócrifos sem lhes conferir igual autoridade doutrinária. Pironeiros adventistas liam e recomendavam leitura de alguns deuterocanicos/apócrifos como leitura útil com valor histórico e contextual. “Deuterocanônico” designa recepção católica; “apócrifo”, recepção protestante; nenhum termo é descrição neutra universal.
+10. O judaísmo rabínico tradicional reconhece o **Tanakh** de 24 livros: **Torá**, **Nevi’im** e **Ketuvim**. Bava Batra 14b–15a enumera e ordena Profetas e Escritos; Josefo atesta 22 livros tidos como divinos e nega autoridade equivalente às histórias posteriores a Artaxerxes por ausência de sucessão profética exata. Contagens 22/24 resultam de agrupamentos distintos; equivalência título a título NÃO DEVE ser presumida sem demonstração.
+11. O Tanakh É canônico, mas internamente hierarquizado: a Torá É fundacional, normativa e liturgicamente singular; o **Sefer Torá** é retirado da arca e lido no ciclo público, enquanto a **Haftará** lê os Profetas depois da Torá e, na tradição haláchica, com honra inferior. Isso NÃO torna Nevi’im ou Ketuvim extracanônicos. Os Doze Profetas formam uma unidade na contagem judaica. Restrição formal ao Pentateuco caracteriza especialmente o cânon samaritano, NÃO o judaísmo rabínico.
+12. Deuterocanônicos/apócrifos PODEM ser judaicos, antigos, originalmente hebraicos, aramaicos ou gregos, historicamente relevantes, edificantes e preservados na tradição grega; tais propriedades NÃO provam inspiração canônica. O judaísmo rabínico os exclui dos 24 livros e igualmente rejeita como canônicas as adições gregas a Ester e Daniel. Sanhedrin 100b testemunha categoria de “livros externos”, mas também utiliza Ben Sira; logo, **extracanônico ≠ integralmente falso ou historicamente inútil**, e eventual restrição rabínica de leitura NÃO equivale a inexistência de uso ou valor.
+13. A não recepção adventista/protestante DEVE apoiar-se em argumento cumulativo, NÃO em prova isolada:
+
+- **continuidade canônica:** adoção do corpus hebraico recebido como Lei–Profetas–Escritos (cf. Lc 24:44), sem depender de suposto decreto tardio;
+- **testemunho judaico:** Josefo e a tradição rabínica distinguem livros profético-canônicos de literatura posterior;
+- **recepção cristã não uniforme:** Atanásio distingue cânon de livros indicados para leitura; Jerônimo segue o cânon hebraico e exclui expressamente Sabedoria, Sirácida, Judite, Tobias e Macabeus; outros Pais e concílios os aceitaram, portanto unanimidade patrística É falsa;
+- **decisão confessional:** Artigo VI anglicano permite leitura para vida e costumes, não para fundar doutrina; Westminster os exclui; o adventismo recebe exclusivamente 66 livros;
+- **coerência doutrinária:** leituras sobre expiação ou oração pelos mortos (2Mc 12:43–46), eficácia expiatória da esmola (Tb 12:9) e estado consciente pós-morte (Sb 3:1–4) colidem, na exegese adventista/protestante, com doutrinas estabelecidas pelo cânon recebido; conflito doutrinário É corroborativo sob norma prévia, NÃO prova circular autossuficiente;
+- **autolocalização histórica:** 1Mc 4:46; 9:27; 14:41 reconhece ausência ou expectativa de profeta, corroborando período pós-profético; NÃO demonstra isoladamente que o próprio livro careça de inspiração.
+
+14. São argumentos inválidos ou insuficientes, isoladamente:
+
+- “não foram escritos em hebraico”: há testemunhos hebraicos/aramaicos de alguns;
+- “não são citados no Novo Testamento”: nem todo livro canônico é citado, e escritos extracanônicos são aludidos;
+- “estão na Septuaginta, logo são canônicos”: **Septuaginta** designa tradição textual/corpus fluido; códices extensos preservados são cristãos e divergem em conteúdo;
+- “foram excluídos pelo Concílio de Jâmnia”: NÃO há evidência sólida de concílio que tenha encerrado formalmente o cânon;
+- “Trento os inventou” ou “a Reforma removeu livros unanimemente canônicos”: ambas as fórmulas apagam séculos de recepção cristã divergente;
+- alegar erro histórico, moral ou doutrinário sem crítica textual, gênero, contexto e comparação canônica.
+
+15. Para este RCF:
+
+- somente os 66 livros constituem norma adventista;
+- apócrifos PODEM informar história, língua, cultura, período intertestamentário e recepção, mas NÃO fundar doutrina, validar profeta ou corrigir o cânon;
+- verdade parcial, valor devocional ou presença em uma Bíblia impressa NÃO produz canonicidade;
+- não canonicidade NÃO implica falsidade total; onde houver conflito material, prevalece a norma canônica.
+
+16. Católicos e ortodoxos NÃO DEVEM ser descritos como quem “aceita apócrifos apesar da ausência de cânon”: o catolicismo os reconhece como Escritura por sua concepção de Tradição apostólica e cânon eclesial; “deuterocanônico” indica disputa/recepção histórica posterior, NÃO autoridade inferior. A divergência real é de **critério canônico**: cânon hebraico e sola Scriptura, no polo adventista/protestante; Escritura recebida na Tradição e discernida pela Igreja, no polo católico/ortodoxo.
 
 ## 7. Revelação progressiva e coerência
 
 1. Revelação autêntica posterior DEVE somar-se organicamente à anterior; NÃO PODE transformar verdade divina anterior em falsidade.
-2. “Somar” PODE significar ampliar, explicitar, aplicar, particularizar, universalizar, cumprir tipo, encerrar função cerimonial, delimitar aplicação histórica ou corrigir interpretação humana anterior.
-3. Cumprimento NÃO é contradição: o Novo Testamento PODE alterar a aplicação histórico-redentiva de instituição anterior sem declarar falso seu propósito original.
+2. “Somar” PODE significar ampliar, explicitar, aplicar, particularizar, universalizar, cumprir tipo, encerrar função cerimonial, delimitar aplicação histórica ou corrigir interpretação humana anterior. Pense num grande mapa mundi, que tente desenhar até mesmo estradas das pequenas aldeias e vilas, iluminado com apenas uma pequena vela; cada vela nova que se acende, por menor que seja, não altera o mapa, apenas melhora a visibilidade do mesmo mapa.
+3. Cumprimento NÃO é contradição: o Novo Testamento PODE explicar e dar a aplicação histórico-redentiva de instituição anterior sem declarar falso seu propósito original. É como um casamento novo com seu ex, o casamento como cerimônia/festividade, pode até ser nova, mas o pacto não muda, é sempe o mesmo, sempre é uma renovação. Do ponto de vista estritamente do "Evangelho Eterno", não há multiplas alianças, há apenas multiplas renovações dos mesmos votos. Pense na lei de trânsito que determina para no semáfaro vermelho; uma vez cumprido não significa inutilizar, contradizer, abolir, ou simplemente, que agora, se pode ultrapassar todos os semáfaros vermelhos.
 4. Deus não muda; a capacidade humana de receber, organizar e compreender revelação muda. A unidade pertence à verdade divina; a progressividade, à comunicação histórica.
 5. Uma alegação posterior NÃO PODE autenticar-se circularmente, revogar o critério que a testa ou proclamar “outro evangelho” (Gl 1:8-9).
 
@@ -207,16 +238,16 @@
 
 ## 14. Base bíblica nuclear
 
-| Tema | Textos |
-|---|---|
-| Inspiração e autoria | 2Tm 3:16-17; 2Pe 1:20-21; Hb 1:1-3; 1Ts 2:13 |
-| Autoridade e teste | Is 8:20; Sl 119:105; Pv 30:5-6; Jo 17:17; Hb 4:12 |
-| Validação profética | Dt 13:1-4; 18:20-22; Mt 7:15-20; 1Co 14:29; 1Ts 5:20-21; 1Jo 4:1-3; Gl 1:8-9 |
-| Imutabilidade e verdade | Nm 23:19; Ml 3:6; Is 46:9-10; Hb 6:18; Tg 1:17; Ap 1:8; 22:13 |
-| Plano redentor | 1Pe 1:19-20; Ef 1:4-10; cf. Ap 13:8 |
-| Revelação progressiva | Hb 1:1-3; Jo 16:12-13; Mt 5:17-48 |
-| Profecia e remanescente | Am 3:7; Jl 2:28-29; At 2:14-21; Ap 12:17; 19:10 |
-| Condicionalidade | Jr 18:7-10; Ez 18; Jn 3 |
+| Tema                    | Textos                                                                       |
+| ----------------------- | ---------------------------------------------------------------------------- |
+| Inspiração e autoria    | 2Tm 3:16-17; 2Pe 1:20-21; Hb 1:1-3; 1Ts 2:13                                 |
+| Autoridade e teste      | Is 8:20; Sl 119:105; Pv 30:5-6; Jo 17:17; Hb 4:12                            |
+| Validação profética     | Dt 13:1-4; 18:20-22; Mt 7:15-20; 1Co 14:29; 1Ts 5:20-21; 1Jo 4:1-3; Gl 1:8-9 |
+| Imutabilidade e verdade | Nm 23:19; Ml 3:6; Is 46:9-10; Hb 6:18; Tg 1:17; Ap 1:8; 22:13                |
+| Plano redentor          | 1Pe 1:19-20; Ef 1:4-10; cf. Ap 13:8                                          |
+| Revelação progressiva   | Hb 1:1-3; Jo 16:12-13; Mt 5:17-48                                            |
+| Profecia e remanescente | Am 3:7; Jl 2:28-29; At 2:14-21; Ap 12:17; 19:10                              |
+| Condicionalidade        | Jr 18:7-10; Ez 18; Jn 3                                                      |
 
 ## 15. Referências institucionais
 
@@ -233,3 +264,16 @@
 11. **Biblical Research Institute.** [Ellen G. White and Sola Scriptura](https://adventistbiblicalresearch.org/articles/ellen-g-white-and-sola-scriptura/).
 12. **Biblical Research Institute.** [Is the Bible Trustworthy and Reliable?](https://adventistbiblicalresearch.org/articles/is-the-bible-trustworthy-and-reliable/).
 
+13. **Biblical Research Institute.** [What About the Apocrypha?](https://adventistbiblicalresearch.org/articles/what-about-the-apocrypha).
+14. **Talmude Babilônico.** [Bava Batra 14b–15a](https://www.sefaria.org/Bava_Batra.14b-15a) — ordem de Profetas e Escritos.
+15. **Talmude Babilônico.** [Sanhedrin 100b](https://www.sefaria.org/Sanhedrin.100b) — _sefarim ḥitzonim_ e Ben Sira.
+16. **Flávio Josefo.** [Contra Apião 1.8](https://penelope.uchicago.edu/josephus/apion-1.html) — 22 livros e distinção de autoridade pós-Artaxerxes.
+17. **Chabad.** [The Torah Reading](https://www.chabad.org/library/article_cdo/aid/365942/jewish/The-Torah-Reading.htm) e [Shulchan Aruch, cap. 284](https://www.chabad.org/library/article_cdo/aid/3447073/jewish/Shulchan-Aruch-Chapter-284-Laws-Pertaining-to-Haftarah-and-Its-Blessings.htm) — singularidade litúrgica da Torá e Haftará.
+18. **Jewish Virtual Library.** [The Tanakh](https://www.jewishvirtuallibrary.org/the-tanakh) — 24 livros, três divisões e exclusão das adições gregas.
+19. **Atanásio de Alexandria.** [Carta Festal 39](https://www.newadvent.org/fathers/2806039.htm), 367 — distinção entre cânon e livros para leitura.
+20. **Jerônimo.** [Prologus Galeatus](https://www.ccel.org/ccel/schaff/npnf206.vii.iii.iv.html), c. 391 — preferência pelo cânon hebraico e exclusão dos livros adicionais.
+21. **Church of England.** [Thirty-Nine Articles, art. VI](https://www.churchofengland.org/prayer-and-worship/worship-texts-and-resources/book-common-prayer/articles-religion) — leitura sem fundamento doutrinário.
+22. **Westminster Assembly.** [Westminster Confession of Faith 1.2–3](https://opc.org/wcf.html) — cânon protestante e exclusão dos apócrifos.
+23. **Igreja Católica.** [Catecismo, §120 — O Cânon das Escrituras](https://www.vatican.va/content/catechism/en/part_one/section_one/chapter_two/article_3/iv_the_canon_of_scripture.html) — cânon católico de 46 livros no AT.
+24. **Pontifícia Comissão Bíblica.** [The Jewish People and Their Sacred Scriptures in the Christian Bible](https://www.vatican.va/roman_curia/congregations/cfaith/pcb_documents/rc_con_cfaith_doc_20020212_popolo-ebraico_en.html), §18/nota 30 — 24 livros judaicos, 7 deuterocanônicos e hesitação histórica.
+25. **Salvesen, Alison G.** [Deuterocanonical and Apocryphal Books](https://ora.ox.ac.uk/objects/uuid:c0b7f299-a235-4af7-8540-5f9a64e0d29f), _The Oxford Handbook of the Septuagint_, 2021 — línguas, transmissão e recepção variável.
