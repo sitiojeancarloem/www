@@ -87,6 +87,7 @@ riscos=Preservar adaptadores locais declarados, determinismo normativo, extensõ
 FT-014|nome=Normalização editorial e namespace de bate-papo|objetivo=Aplicar às sínteses de bate-papo o contrato temático, anonimizado e automatizado, com URL pública literal `bate-papo:` e representação física compatível|escopo=Negócio editorial e Técnico de roteamento|prioridade=alta|status=em andamento|inicio=20260808.1800.00|atualizacao=20260808.1830.00
 dependencias=Pedido humano explícito; RCF-JCEM-BATE-PAPOS-001; cenários WEB-BROWSER, WEB-STATIC, WEB-EDITORIAL e Publicação de Conteúdo; FT-013 concluída.
 riscos=Preservar ideias e divergências sem reiterar disclaimer ou declarar estado coletivo; anonimizar participantes sem perder atribuição funcional; manter URL literal com dois-pontos sem criar path fonte incompatível com Windows; preservar build Linux/GitHub Pages e desenvolvimento local.
+adendo_editorial=Citações e referências preexistentes são imutáveis no conteúdo; atribuições discretas devem preservar autoria intelectual, origem e contexto sem converter a síntese em artigo autoral do redator. A menção processual contida em referência preservada é exceção documental estrita à vedação geral.
 1/5 Norma e contrato central [concluído]
 - Atualizar RCF, configuração e mecanismo determinístico de namespace, disclaimer e validação [concluído]
 2/5 Revisão editorial [concluído]

@@ -746,9 +746,9 @@ Nenhuma referência identificada na revisão foi excluída desta síntese. As lo
 
 [^egw13]: WHITE, Ellen G. _A Verdade Sobre os Anjos_ 287.1–287.2 — vagas dos anjos caídos.
 
-[^egw14]: WHITE, Ellen G. _A Fé Pela Qual Eu Vivo_ — obra identificada, mas sem data ou página preservada com segurança nas fontes disponíveis.
+[^egw14]: WHITE, Ellen G. _A Fé Pela Qual Eu Vivo_ — obra identificada, mas sem data ou página preservada com segurança na transcrição.
 
-[^egw15]: WHITE, Ellen G. _Vidas que Falam_ (1971) — obra identificada, mas sem data da meditação preservada com segurança nas fontes disponíveis.
+[^egw15]: WHITE, Ellen G. _Vidas que Falam_ (1971) — obra identificada, mas sem data da meditação preservada com segurança na transcrição.
 
 [^bib01]: Bíblia, Isaías 8:20.
 
@@ -794,4 +794,4 @@ Nenhuma referência identificada na revisão foi excluída desta síntese. As lo
 
 [^out01]: _Consultoria Doutrinária_. Casa Publicadora Brasileira, 1ª ed., 1979, “Interpretação Profética” / “Silêncio no Céu”, p. 90 conforme a edição utilizada.
 
-[^out02]: _Comentário Bíblico Adventista do Sétimo Dia / The Seventh-day Adventist Bible Commentary_ — volumes e páginas mencionados durante a pesquisa bibliográfica; os trechos exatos não ficaram suficientemente definidos nas fontes disponíveis.
+[^out02]: _Comentário Bíblico Adventista do Sétimo Dia / The Seventh-day Adventist Bible Commentary_ — volumes e páginas mencionados durante a pesquisa bibliográfica; os trechos exatos não ficaram suficientemente definidos na transcrição.
