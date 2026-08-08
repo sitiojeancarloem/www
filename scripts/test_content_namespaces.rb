@@ -21,6 +21,20 @@ config = {
   }
 }
 
+repository_config = File.read(File.expand_path("../_config.yml", __dir__))
+assert(
+  repository_config.include?("Esta é uma síntese fiel de um bate-papo"),
+  "disclaimer perdeu a declaração de fidelidade"
+)
+assert(
+  repository_config.include?("produzido e processado de forma automatizada"),
+  "disclaimer perdeu a advertência de automação"
+)
+assert(
+  repository_config.include?("formulações coletivas não significam unanimidade"),
+  "disclaimer perdeu a ressalva sobre formulações coletivas"
+)
+
 site = Struct.new(:config).new(config)
 document = Struct.new(:relative_path, :data, :site, :content) do
   attr_accessor :url

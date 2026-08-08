@@ -4,12 +4,12 @@ content_namespace: bate-papo
 ---
 
 <!-- AI-PROCESSED:START -->
-> **Nota editorial:** Esta síntese foi produzida e processada de forma automatizada, inclusive com uso de inteligência artificial, e pode conter erros, imprecisões ou interpretações inadequadas.
+> **Nota editorial:** Esta é uma síntese fiel de um bate-papo, editada apenas para tornar a leitura mais clara e agradável. O material foi produzido e processado de forma automatizada, inclusive com uso de inteligência artificial, e pode conter erros, imprecisões ou interpretações inadequadas. Nem tudo o que foi dito foi necessariamente aceito por todos: formulações coletivas não significam unanimidade, aprovação integral ou ausência de objeções; cada participante pode ter ponderado, discordado, preferido não se manifestar ou silenciado por razões distintas.
 <!-- AI-PROCESSED:END -->
 
 ## 1. Princípio de controle: revelação, experiência e autoridade do que está escrito
 
-A conversa se inicia com relatos sobre sonhos, alegações de revelação e experiências pessoais. Desse intercâmbio emerge um princípio hermenêutico que reaparece em praticamente toda a discussão: **experiências pessoais, sonhos, impressões, fenômenos sobrenaturais e mesmo conclusões aparentemente lógicas não possuem autoridade própria; precisam ser submetidos à revelação já estabelecida**.
+Antes da leitura formal, a conversa registra relatos sobre sonhos, alegações de revelação e experiências pessoais. Desse intercâmbio emerge um princípio hermenêutico que reaparece em praticamente toda a discussão: **experiências pessoais, sonhos, impressões, fenômenos sobrenaturais e mesmo conclusões aparentemente lógicas não possuem autoridade própria; precisam ser submetidos à revelação já estabelecida**.
 
 ### Mensagens Escolhidas, v. 2, p. 98
 
@@ -25,7 +25,7 @@ A leitura é imediatamente relacionada a:
 >
 > — Isaías 8:20.[^bib01]
 
-O Instrutor principal formula uma regra simples: uma experiência pode ser intensa, aparentemente sobrenatural, emocionalmente convincente e até conter elementos verdadeiros; isso não a autentica. O teste não é a intensidade do fenômeno, mas sua conformidade com a revelação. A experiência pessoal não deve interpretar ou corrigir a Escritura; **é a Escritura que julga a experiência**.
+O comentário central do Instrutor principal converge para uma regra simples: uma experiência pode ser intensa, aparentemente sobrenatural, emocionalmente convincente e até conter elementos verdadeiros; isso não a autentica. O teste não é a intensidade do fenômeno, mas sua conformidade com a revelação. A experiência pessoal não deve interpretar ou corrigir a Escritura; **é a Escritura que julga a experiência**.
 
 Isso também explica a preocupação demonstrada posteriormente em separar três categorias:
 
@@ -200,7 +200,7 @@ Também foi lembrado:
 A passagem apareceu na conversa, mas não é a base matemática direta do cálculo da meia hora profética; foi evocada durante a discussão sobre tempo e eternidade.
 
 <!-- AI-PROCESSED:START -->
-Um participante argumentou que “meia hora de silêncio” poderia abranger todo o período em que o Céu estivesse vazio, incluindo ida e retorno, e por isso levantou a divisão do período entre descida e subida. Também ponderou que a aproximação visível da nuvem — pequena a princípio e depois crescente — não parecia compatível com uma descida reduzida a segundos. O Instrutor principal respondeu que os sete dias são explicitamente atribuídos à ascensão dos remidos e defendeu uma descida muito rápida, com base na comparação com o relâmpago e na leitura de _Consultoria Doutrinária_. A tensão entre a duração da manifestação visível e a atribuição textual dos sete dias permaneceu como eixo das ponderações apresentadas.
+Um participante argumentou que “meia hora de silêncio” poderia abranger todo o período em que o Céu estivesse vazio, incluindo ida e retorno, e por isso levantou a divisão do período entre descida e subida. Também ponderou que a aproximação visível da nuvem — pequena a princípio e depois crescente — não parecia compatível com uma descida reduzida a segundos. O Instrutor principal respondeu que os sete dias são explicitamente atribuídos à ascensão dos remidos e defendeu uma descida muito rápida, com base na comparação com o relâmpago e na leitura de _Consultoria Doutrinária_. Outros participantes oscilaram entre as duas leituras, mantendo a tensão entre a duração da manifestação visível e a atribuição textual dos sete dias como eixo das ponderações apresentadas.
 <!-- AI-PROCESSED:END -->
 
 ### Isaías 58 — [^bib02]
@@ -252,7 +252,7 @@ O Instrutor principal usou a obra para discutir Cristo, Lúcifer e o conheciment
 O comentário do Instrutor principal extrai daí um princípio mais amplo: **criaturas finitas recebem conhecimento progressivamente**. Mesmo no Céu, conhecimento adquirido não equivale a onisciência.
 
 <!-- AI-PROCESSED:START -->
-As afirmações específicas feitas nessa passagem — inclusive sobre classes angelicais, Miguel, o conhecimento dos anjos acerca da divindade de Cristo e a revelação progressiva da Trindade — pertencem à exposição do Instrutor principal. A síntese conserva o princípio discutido e distingue essa elaboração da verificação textual detalhada de cada proposição.
+As afirmações específicas feitas nessa passagem — inclusive sobre classes angelicais, Miguel, o conhecimento dos anjos acerca da divindade de Cristo e a revelação progressiva da Trindade — pertencem à exposição do Instrutor principal. Durante o bate-papo, não foi apresentada verificação textual detalhada dessas proposições; a síntese conserva o princípio discutido sem converter a elaboração em afirmação documental.
 <!-- AI-PROCESSED:END -->
 
 <!-- AI-PROCESSED:START -->
@@ -352,7 +352,7 @@ A resposta divina a um pedido por caráter pode vir não pela remoção da dific
 
 A leitura suscitou a pergunta: **como alguém que fosse o último convertido poderia possuir estrelas, se não tivesse oportunidade posterior de converter outra pessoa?**
 
-A resposta procurada não foi inventada; a conversa apresenta a busca por textos capazes de responder. Nenhum trecho lido trata diretamente do caso hipotético do “último convertido”. O Instrutor principal apresentou os textos seguintes como a resposta que, segundo ele, mais se aproxima da questão.
+A resposta procurada não foi inventada; a conversa registra a busca por textos capazes de responder. Ainda assim, nenhum trecho lido trata diretamente do caso hipotético do “último convertido”. O Instrutor principal apresentou os textos seguintes como a resposta que, segundo ele, mais se aproxima da questão.
 
 ### Serviço Cristão
 
@@ -477,7 +477,7 @@ A partir daí surgiram questões sobre família e relações humanas na eternida
 A referência bíblica temática é a declaração de Cristo de que, na ressurreição, não se casa nem se dá em casamento.
 
 <!-- AI-PROCESSED:START -->
-A partir das linhas de raciocínio apresentadas, a síntese distingue:
+A síntese distingue, a partir das falas registradas:
 <!-- AI-PROCESSED:END -->
 
 - reconhecimento da identidade e da história;
@@ -560,7 +560,7 @@ O final do encontro dedica atenção especial à utilidade bibliográfica do com
 
 O ponto principal levantado pelo Instrutor principal é que determinadas seções do comentário — especialmente materiais suplementares — reúnem textos de Ellen White e referências a manuscritos que podem não aparecer com facilidade nas compilações mais difundidas.
 
-Foram mencionados, entre outros:
+Foram mencionados oralmente, entre outros:
 
 - v. 7;
 - p. 948;
