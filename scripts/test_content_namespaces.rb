@@ -32,9 +32,9 @@ end.new(
 )
 
 Jcem::ContentNamespaces.apply!(document)
-Jcem::ContentNamespaces.validate!(document)
+Jcem::ContentNamespaces.validate!(document, { "layout" => "single" })
 
-assert(document.data["permalink"] == "/p/bate-papo:tema/", "URL lógica não preservou dois-pontos")
+assert(document.data["jcem_namespace_url"] == "/p/bate-papo:tema/", "URL lógica não preservou dois-pontos")
 assert(
   Jcem::ContentNamespaces.physical_path_for(
     "C:/site/p/bate-papo:tema/index.html",

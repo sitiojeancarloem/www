@@ -45,13 +45,14 @@ module Jcem
       route_prefix = definition.fetch("route_prefix", "/p/").sub(%r!/*\z!, "/")
 
       document.data["content_namespace"] = key
-      document.data["permalink"] = "#{route_prefix}#{logical_segment}/"
+      document.data.delete("permalink")
+      document.data["jcem_namespace_url"] = "#{route_prefix}#{logical_segment}/"
       document.data["jcem_namespace_logical_segment"] = logical_segment
       document.data["jcem_namespace_physical_segment"] = physical_segment
       document.instance_variable_set(:@url, nil)
     end
 
-    def validate!(document)
+    def validate!(document, *_payload)
       resolved = resolve(document)
       return unless resolved
 
@@ -59,7 +60,7 @@ module Jcem
       title_prefix = definition.fetch("title_prefix")
       disclaimer = definition.fetch("disclaimer")
       title = document.data["title"].to_s
-      content = document.content.to_s
+      content = document.content.to_s.gsub("**", "")
 
       unless title.start_with?(title_prefix)
         raise Jekyll::Errors::FatalException,
@@ -88,9 +89,16 @@ module Jcem
         Jcem::ContentNamespaces.physical_path_for(logical_path, site.config)
       end
     end
+
+    module DocumentUrl
+      def url
+        data["jcem_namespace_url"] || super
+      end
+    end
   end
 end
 
+Jekyll::Document.prepend(Jcem::ContentNamespaces::DocumentUrl)
 Jekyll::Document.prepend(Jcem::ContentNamespaces::DocumentDestination)
 Jekyll::Hooks.register :documents, :post_init, &Jcem::ContentNamespaces.method(:apply!)
 Jekyll::Hooks.register :documents, :pre_render, &Jcem::ContentNamespaces.method(:validate!)

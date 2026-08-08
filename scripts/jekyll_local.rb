@@ -13,12 +13,12 @@ if Gem.win_platform?
   module Jcem
     module NamespaceServlet
       def do_GET(request, response)
-        original_path = request.path
+        original_path = request.path_info
         physical_path = ContentNamespaces.physical_path_for(original_path, @jekyll_opts)
-        request.instance_variable_set(:@path, physical_path) if physical_path != original_path
+        request.path_info = physical_path if physical_path != original_path
         super
       ensure
-        request.instance_variable_set(:@path, original_path) if original_path
+        request.path_info = original_path if original_path
       end
     end
   end
