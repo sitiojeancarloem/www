@@ -18,22 +18,22 @@ A implementação DEVE:
 1. A implementação DEVE ser concebida, estruturada, testada e importada como biblioteca isolada, não como conjunto de estilos ou scripts intrinsecamente pertencentes ao site hospedeiro.
 2. Sua localização inicial dentro do repositório do site NÃO DEVE criar acoplamento arquitetural, semântico, estrutural ou operacional com ele.
 3. A biblioteca DEVE ser:
+   - agnóstica de site, tema, CMS, framework e gerador estático;
+   - desacoplada da árvore de componentes, rotas, layouts e convenções internas do hospedeiro;
+   - integrável a qualquer projeto Web baseado em Node.js;
+   - plenamente integrável a Jekyll, inclusive por Ruby, Liquid, plugins, hooks e scripts de build;
+   - adaptável a geradores estáticos e plataformas equivalentes;
+   - potencialmente extraível, versionável, publicável e distribuível sem reescrita substancial.
 
-   * agnóstica de site, tema, CMS, framework e gerador estático;
-   * desacoplada da árvore de componentes, rotas, layouts e convenções internas do hospedeiro;
-   * integrável a qualquer projeto Web baseado em Node.js;
-   * plenamente integrável a Jekyll, inclusive por Ruby, Liquid, plugins, hooks e scripts de build;
-   * adaptável a geradores estáticos e plataformas equivalentes;
-   * potencialmente extraível, versionável, publicável e distribuível sem reescrita substancial.
 4. A biblioteca NÃO DEVE importar diretamente arquivos privados, componentes, aliases, variáveis globais, helpers, templates ou estado do site inicial.
 5. O site hospedeiro DEVE integrar a biblioteca por API, configuração, atributos, classes, adaptadores, plugins ou pontos de extensão documentados.
 6. A biblioteca DEVE possuir fronteiras explícitas entre:
+   - núcleo genérico;
+   - adaptadores de integração;
+   - plugins de plataforma;
+   - configuração do consumidor;
+   - sobreposições locais.
 
-   * núcleo genérico;
-   * adaptadores de integração;
-   * plugins de plataforma;
-   * configuração do consumidor;
-   * sobreposições locais.
 7. Código específico do primeiro site somente PODE existir em adaptador, plugin ou camada externa ao núcleo.
 8. A remoção do adaptador ou plugin inicial NÃO DEVE comprometer o funcionamento genérico da biblioteca.
 9. A agnosticidade NÃO DEVE ser interpretada como proibição ao uso de recursos nativos da plataforma hospedeira; tais recursos PODEM ser empregados em integrações externas quando necessários para garantir compatibilidade integral.
@@ -45,22 +45,22 @@ A implementação DEVE:
 3. A preferência por CSS/Sass e TypeScript NÃO DEVE impedir o uso de Ruby ou de mecanismos nativos do Jekyll quando estes forem a solução tecnicamente correta.
 4. Recursos específicos do Jekyll DEVEM permanecer em pacote, plugin ou adaptador próprio, separado do núcleo agnóstico.
 5. O núcleo NÃO DEVE depender de:
+   - runtime Ruby;
+   - Jekyll;
+   - Liquid;
+   - convenções de `_layouts`, `_includes`, `_plugins`, `_sass`, coleções ou front matter;
+   - qualquer API exclusiva da integração inicial.
 
-   * runtime Ruby;
-   * Jekyll;
-   * Liquid;
-   * convenções de `_layouts`, `_includes`, `_plugins`, `_sass`, coleções ou front matter;
-   * qualquer API exclusiva da integração inicial.
 6. O adaptador Jekyll PODE:
+   - mapear front matter para o contrato genérico de metadados;
+   - injetar marcações semânticas de impressão;
+   - gerar referências, notas, datas e URL canônica;
+   - classificar conteúdo editorial e institucional;
+   - produzir CSS ou dados de configuração;
+   - executar validações durante o build;
+   - preparar conteúdo que não possa ser transformado de modo confiável no navegador;
+   - emitir diagnósticos e impedir builds inválidos quando exigido pela configuração.
 
-   * mapear front matter para o contrato genérico de metadados;
-   * injetar marcações semânticas de impressão;
-   * gerar referências, notas, datas e URL canônica;
-   * classificar conteúdo editorial e institucional;
-   * produzir CSS ou dados de configuração;
-   * executar validações durante o build;
-   * preparar conteúdo que não possa ser transformado de modo confiável no navegador;
-   * emitir diagnósticos e impedir builds inválidos quando exigido pela configuração.
 7. Transformações realizadas no build DEVEM produzir HTML estático funcional sem exigir Ruby no navegador.
 8. Plugins ou scripts Ruby NÃO DEVEM duplicar regras centrais; DEVEM consumir contratos, schemas ou artefatos definidos pelo núcleo.
 9. O mesmo modelo DEVE admitir adaptadores equivalentes para outros ambientes, incluindo plugins, loaders, transforms, preprocessadores, hooks ou scripts escritos na linguagem nativa de cada plataforma.
@@ -73,34 +73,34 @@ A implementação DEVE:
 1. Problemas encontrados durante a integração inicial DEVEM ser analisados como classes de problema, não como exceções exclusivas do site.
 2. A correção DEVE resolver o padrão causal amplo, incluindo variações estruturalmente equivalentes, e não apenas o HTML, seletor, componente ou caso concreto observado.
 3. É PROIBIDO introduzir correções rígidas baseadas exclusivamente em:
+   - identificadores privados;
+   - nomes de classes acidentais;
+   - profundidade fixa de DOM;
+   - ordem circunstancial de elementos;
+   - caminho de arquivo específico;
+   - conteúdo textual particular;
+   - dependência implícita do tema inicial.
 
-   * identificadores privados;
-   * nomes de classes acidentais;
-   * profundidade fixa de DOM;
-   * ordem circunstancial de elementos;
-   * caminho de arquivo específico;
-   * conteúdo textual particular;
-   * dependência implícita do tema inicial.
 4. Exceções particulares somente PODEM ser tratadas por configuração, adaptador ou plugin, nunca incorporadas silenciosamente ao núcleo.
 5. Toda generalização DEVE preservar determinismo e evitar heurísticas ambíguas.
 6. Quando não houver identificação genérica confiável, a biblioteca DEVE exigir marcação, metadado ou configuração explícita.
 7. A solução DEVE abranger elementos semanticamente equivalentes mesmo quando implementados por marcações, componentes, geradores ou frameworks distintos.
 8. Cada correção relevante DEVE produzir:
+   - teste genérico reutilizável no núcleo;
+   - teste de contrato;
+   - quando aplicável, teste específico do adaptador ou plugin consumidor.
 
-   * teste genérico reutilizável no núcleo;
-   * teste de contrato;
-   * quando aplicável, teste específico do adaptador ou plugin consumidor.
 9. Soluções criadas originalmente em Ruby, TypeScript, Sass ou outra tecnologia DEVEM formalizar o comportamento em contrato independente da linguagem sempre que ele puder ser reutilizado por outras integrações.
 
 ## 5. Referência, precedência e determinismo
 
 1. O padrão IEEE vigente DEVE constituir a referência externa de geometria, composição, hierarquia e paginação; este RCF NÃO o redefine.
 2. As exceções locais prevalecem somente quanto a:
+   - fonte principal sem serifa;
+   - chamadas referenciais em sobrescrito;
+   - preservação controlada de tabelas, cores e avisos institucionais;
+   - integração, portabilidade e extensibilidade Web.
 
-   * fonte principal sem serifa;
-   * chamadas referenciais em sobrescrito;
-   * preservação controlada de tabelas, cores e avisos institucionais;
-   * integração, portabilidade e extensibilidade Web.
 3. Valores, medidas, tolerâncias, modelos ou comportamentos NÃO DEVEM ser imaginados, inferidos arbitrariamente ou adotados por mera semelhança visual.
 4. Todo parâmetro DEVE ser derivado de fonte normativa, template IEEE de controle, medição reproduzível ou requisito explícito.
 5. A conformidade DEVE ser aferida sobre impressão física ou PDF final, nunca apenas pela aparência em tela.
@@ -112,12 +112,12 @@ A implementação DEVE:
 2. A apresentação em tela NÃO DEVE ser alterada pela biblioteca.
 3. O artigo DEVE ser identificado por contrato semântico configurável, preferencialmente atributo como `[data-print-article]`.
 4. A camada de impressão DEVE:
+   - ocultar elementos não pertinentes;
+   - reexibir o artigo e os elementos institucionais autorizados;
+   - neutralizar estilos de layout incompatíveis;
+   - impedir que estilos globais, temas, frameworks ou componentes corrompam a impressão;
+   - preservar conteúdo, semântica e acessibilidade.
 
-   * ocultar elementos não pertinentes;
-   * reexibir o artigo e os elementos institucionais autorizados;
-   * neutralizar estilos de layout incompatíveis;
-   * impedir que estilos globais, temas, frameworks ou componentes corrompam a impressão;
-   * preservar conteúdo, semântica e acessibilidade.
 5. `!important` PODE ser utilizado exclusivamente quando necessário para garantir isolamento determinístico na impressão.
 6. Sass, TypeScript, Ruby, Jekyll, geradores estáticos, frameworks ou bibliotecas PODEM integrar a solução, mas NÃO DEVEM constituir dependência conceitual obrigatória do núcleo.
 7. Estruturas existentes de duas ou mais colunas destinadas à exibição em tela DEVEM ser ignoradas na impressão; somente a composição de colunas definida para o artigo impresso DEVE prevalecer.
@@ -130,13 +130,13 @@ A implementação DEVE:
 
 1. A biblioteca DEVE poder ser consumida por importação explícita em ambiente Node.js.
 2. Sua estrutura DEVE permitir, sem redesign:
+   - uso interno por workspace ou pacote local;
+   - publicação futura em registro de pacotes;
+   - versionamento semântico;
+   - geração de artefatos distribuíveis;
+   - uso com ou sem bundler, conforme escopo declarado;
+   - integração por gem, plugin ou pacote auxiliar quando a plataforma assim exigir.
 
-   * uso interno por workspace ou pacote local;
-   * publicação futura em registro de pacotes;
-   * versionamento semântico;
-   * geração de artefatos distribuíveis;
-   * uso com ou sem bundler, conforme escopo declarado;
-   * integração por gem, plugin ou pacote auxiliar quando a plataforma assim exigir.
 3. Entradas de CSS/Sass, TypeScript e adaptadores de plataforma DEVEM ser independentes e importáveis separadamente quando possível.
 4. Dependências opcionais NÃO DEVEM ser carregadas por consumidores que não utilizem seus recursos.
 5. O núcleo DEVE evitar efeitos colaterais na importação.
@@ -145,14 +145,14 @@ A implementação DEVE:
 8. Configurações DEVEM possuir valores padrão seguros, validação determinística e possibilidade de extensão.
 9. A biblioteca DEVE aceitar integração declarativa, programática, por build ou híbrida.
 10. O consumidor DEVE conseguir:
+    - identificar o artigo;
+    - mapear metadados;
+    - declarar elementos omitidos ou preservados;
+    - registrar elementos de largura total;
+    - ajustar parâmetros autorizados;
+    - acionar ou consultar o estado de preparação;
+    - fornecer transformações estáticas específicas da plataforma.
 
-    * identificar o artigo;
-    * mapear metadados;
-    * declarar elementos omitidos ou preservados;
-    * registrar elementos de largura total;
-    * ajustar parâmetros autorizados;
-    * acionar ou consultar o estado de preparação;
-    * fornecer transformações estáticas específicas da plataforma.
 11. APIs privadas NÃO DEVEM ser necessárias para integração normal.
 12. Recursos específicos do build do primeiro site DEVEM ser implementados em plugin, adaptador ou configuração externa.
 13. Plugins Ruby, pacotes Node.js e demais integrações DEVEM compartilhar, sempre que tecnicamente possível, schemas, fixtures, casos de teste e contratos de comportamento.
@@ -163,22 +163,22 @@ A implementação DEVE:
 1. A impressão nativa será o fluxo predominante e DEVE ser plenamente suportada.
 2. Scripts ou motores auxiliares, quando necessários, DEVEM responder também a impressões iniciadas externamente à interface do site.
 3. A implementação DEVE avaliar e combinar, conforme suporte efetivo:
+   - `beforeprint`;
+   - `afterprint`;
+   - consultas `matchMedia("print")`;
+   - preparação antecipada assíncrona;
+   - transformação estática no build;
+   - fallback exclusivamente CSS.
 
-   * `beforeprint`;
-   * `afterprint`;
-   * consultas `matchMedia("print")`;
-   * preparação antecipada assíncrona;
-   * transformação estática no build;
-   * fallback exclusivamente CSS.
 4. A compatibilidade DEVE abranger, no mínimo, os navegadores e motores oficialmente suportados pela biblioteca.
 5. A matriz de suporte DEVE pertencer à biblioteca, não ao primeiro site consumidor.
 6. A ausência, falha, bloqueio ou carregamento incompleto de JavaScript NÃO DEVE produzir página vazia, conteúdo truncado nem impressão inutilizável.
 7. Scripts auxiliares NÃO DEVEM cancelar, impedir ou sequestrar a impressão nativa.
 8. Quando a preparação completa ainda não estiver disponível, a folha e a visualização de impressão DEVEM:
+   - preservar o conteúdo legível;
+   - indicar discretamente que recursos de impressão ainda estão sendo preparados;
+   - evitar afirmar conformidade integral enquanto houver dependência pendente.
 
-   * preservar o conteúdo legível;
-   * indicar discretamente que recursos de impressão ainda estão sendo preparados;
-   * evitar afirmar conformidade integral enquanto houver dependência pendente.
 9. A mensagem de preparação NÃO DEVE aparecer após a conclusão bem-sucedida nem integrar permanentemente o artigo.
 10. Diferenças entre navegadores DEVEM ser absorvidas pelo núcleo ou por adaptadores de motor, nunca por condicionais específicas do site.
 11. Processamento realizado previamente por Ruby, Node.js ou outro build DEVE reduzir dependências de runtime quando isso ampliar robustez e compatibilidade.
@@ -189,23 +189,23 @@ A implementação DEVE:
 2. Recursos essenciais já disponíveis na página DEVEM ser reutilizados.
 3. Dependências adicionais somente PODEM ser carregadas quando tecnicamente justificadas.
 4. O carregamento adicional DEVE ocorrer, preferencialmente:
+   - de forma assíncrona;
+   - após o carregamento integral do documento;
+   - após imagens e recursos críticos da página;
+   - em período ocioso ou alguns segundos depois;
+   - sem bloquear interação, renderização ou navegação.
 
-   * de forma assíncrona;
-   * após o carregamento integral do documento;
-   * após imagens e recursos críticos da página;
-   * em período ocioso ou alguns segundos depois;
-   * sem bloquear interação, renderização ou navegação.
 5. `requestIdleCallback` PODE ser usado com fallback temporal compatível.
 6. O carregamento NÃO DEVE causar travamentos, mudanças visuais, reflow perceptível ou degradação relevante em conexões lentas.
 7. Atalhos ou impressão antecipada DEVEM acionar preparação imediata somente quando possível sem quebrar o fluxo nativo.
 8. Dispositivos móveis DEVEM possuir estratégia própria baseada em capacidade real, não apenas em identificação por agente de usuário.
 9. O build DEVE avaliar suporte e comportamento de impressão nos navegadores móveis oficialmente abrangidos.
 10. Recursos adicionais PODEM ser:
+    - omitidos quando a impressão não estiver tecnicamente disponível;
+    - carregados sob demanda quando houver sinal confiável de uso;
+    - condicionados por capacidade, plataforma e custo estimado;
+    - pré-processados estaticamente no build.
 
-    * omitidos quando a impressão não estiver tecnicamente disponível;
-    * carregados sob demanda quando houver sinal confiável de uso;
-    * condicionados por capacidade, plataforma e custo estimado;
-    * pré-processados estaticamente no build.
 11. A solução NÃO DEVE introduzir requisições, atrasos ou processamento móvel sem benefício verificável.
 12. Dependências opcionais DEVEM ser carregadas pela biblioteca por estratégia configurável e desacoplada do ciclo de carregamento do site.
 13. O consumidor DEVE poder fornecer recursos já carregados, cacheados, gerados ou hospedados localmente sem duplicação.
@@ -217,16 +217,16 @@ A implementação DEVE:
 2. Cada folha DEVE constituir unidade de paginação independente.
 3. O fluxo padrão em duas colunas DEVE ser fragmentado por página; é PROIBIDO tratar todo o documento como uma única região multicoluna contínua.
 4. A implementação DEVE controlar:
+   - largura e intervalo entre colunas;
+   - quebras de página e coluna;
+   - órfãs e viúvas;
+   - títulos desacompanhados;
+   - fragmentação de parágrafos;
+   - figuras, tabelas, equações e legendas;
+   - referências;
+   - elementos que atravessem ambas as colunas;
+   - balanceamento quando exigido pela referência.
 
-   * largura e intervalo entre colunas;
-   * quebras de página e coluna;
-   * órfãs e viúvas;
-   * títulos desacompanhados;
-   * fragmentação de parágrafos;
-   * figuras, tabelas, equações e legendas;
-   * referências;
-   * elementos que atravessem ambas as colunas;
-   * balanceamento quando exigido pela referência.
 5. Elementos indivisíveis NÃO DEVEM ser fragmentados quando couberem integralmente na página seguinte.
 6. Quebras manuais DEVEM ser excepcionais, sem marcação vazia ou puramente visual.
 7. A escala final DEVE ser `100%`; ajustes automáticos do tipo “encaixar na página” NÃO DEVEM ser pressupostos.
@@ -238,24 +238,24 @@ A implementação DEVE:
 
 1. A família principal DEVE ser `Noto Sans`, com fallback sans-serif local metricamente adequado.
 2. A fonte PODE ser obtida do Google Fonts, desde que:
+   - seja carregada antes da paginação final;
+   - contenha somente pesos efetivamente utilizados;
+   - seja incorporada ao PDF quando suportado;
+   - possua fallback determinístico;
+   - não torne a impressão dependente de conectividade tardia.
 
-   * seja carregada antes da paginação final;
-   * contenha somente pesos efetivamente utilizados;
-   * seja incorporada ao PDF quando suportado;
-   * possua fallback determinístico;
-   * não torne a impressão dependente de conectividade tardia.
 3. Hospedagem local da fonte DEVE ser preferida quando reduzir risco, latência ou dependência externa.
 4. O tamanho nominal em `pt` NÃO DEVE ser presumido visualmente equivalente ao Times New Roman da referência IEEE.
 5. Corpo, títulos, resumo, legendas, notas e referências DEVEM ser calibrados pela saída física.
 6. A calibração DEVE considerar:
+   - altura real das linhas;
+   - caracteres médios por linha;
+   - linhas por coluna;
+   - densidade e ocupação vertical;
+   - largura aparente;
+   - quebras de página;
+   - equivalência visual com o documento de controle.
 
-   * altura real das linhas;
-   * caracteres médios por linha;
-   * linhas por coluna;
-   * densidade e ocupação vertical;
-   * largura aparente;
-   * quebras de página;
-   * equivalência visual com o documento de controle.
 7. Geometria física DEVE usar unidades adequadas, preferencialmente `pt`, `in` ou `mm`; `px`, `rem` e unidades de viewport NÃO DEVEM governar dimensões impressas essenciais.
 8. O mecanismo tipográfico DEVE permanecer funcional quando a fonte remota não estiver disponível.
 9. Subconjuntos, arquivos e declarações de fonte PODEM ser preparados durante o build por Ruby, Node.js ou ferramenta equivalente, desde que preservem licenciamento, determinismo e fallback.
@@ -268,13 +268,13 @@ A implementação DEVE:
 4. Referências repetidas PODEM reutilizar a mesma numeração.
 5. URLs de links comuns NÃO DEVEM ser automaticamente anexadas ao texto impresso.
 6. A primeira página DEVE apresentar, de forma visível, discreta e coerente com o padrão IEEE:
+   - URL canônica de obtenção;
+   - data em que o conteúdo foi obtido ou impresso.
 
-   * URL canônica de obtenção;
-   * data em que o conteúdo foi obtido ou impresso.
 7. Quando existentes, também DEVEM ser apresentados:
+   - data original de publicação;
+   - data da última atualização.
 
-   * data original de publicação;
-   * data da última atualização.
 8. Esses dados DEVEM integrar naturalmente a área de autoria, identificação, nota editorial ou região equivalente, sem aparência promocional ou chamativa.
 9. Autores, afiliações, contatos e metadados PODEM ser reorganizados especificamente para impressão, desde que nenhum dado relevante seja perdido ou falseado.
 10. A biblioteca DEVE receber metadados por contrato genérico e permitir mapeamento entre esquemas distintos.
@@ -287,17 +287,17 @@ A implementação DEVE:
 1. Navegação, menus, barras laterais, publicidade, comentários, compartilhamento, controles, formulários, tags sociais e elementos interativos alheios ao artigo DEVEM ser ocultados.
 2. Título, autoria, afiliações, resumo, palavras-chave, seções, figuras compatíveis, tabelas, equações, notas, referências e avisos essenciais DEVEM permanecer.
 3. Imagens DEVEM:
+   - preservar proporção;
+   - manter resolução suficiente;
+   - respeitar limites de coluna ou página;
+   - conservar suas cores.
 
-   * preservar proporção;
-   * manter resolução suficiente;
-   * respeitar limites de coluna ou página;
-   * conservar suas cores.
 4. Cores de imagens NÃO DEVEM ser removidas, convertidas ou reduzidas arbitrariamente.
 5. Fundos decorativos, sombras, filtros, animações, transições e transparências não essenciais DEVEM ser removidos.
 6. Thumbnails e imagens de destaque DEVEM ser omitidos, salvo quando:
+   - constituírem conteúdo editorial relevante; e
+   - puderem ser inseridos de forma compatível com a composição IEEE.
 
-   * constituírem conteúdo editorial relevante; e
-   * puderem ser inseridos de forma compatível com a composição IEEE.
 7. Conteúdo não imprimível DEVE poder ser declarado por classe, atributo, seletor, front matter, configuração ou callback.
 8. A classificação automática de conteúdo DEVE ser conservadora e nunca remover material editorial sem regra explícita ou semântica confiável.
 9. Adaptadores de build PODEM enriquecer a marcação quando a semântica necessária estiver disponível apenas nos dados-fonte.
@@ -307,13 +307,13 @@ A implementação DEVE:
 1. O rodapé visual do site NÃO DEVE ser reproduzido integralmente.
 2. Elementos sociais, navegação, tags, widgets, fundos e decoração DEVEM ser removidos.
 3. Informações essenciais DEVEM ser preservadas e reorganizadas em bloco institucional discreto, incluindo, quando existentes:
+   - site ou entidade publicadora;
+   - disclaimer;
+   - licença;
+   - avisos legais;
+   - atribuições obrigatórias;
+   - demais informações cuja omissão altere o contexto jurídico ou editorial.
 
-   * site ou entidade publicadora;
-   * disclaimer;
-   * licença;
-   * avisos legais;
-   * atribuições obrigatórias;
-   * demais informações cuja omissão altere o contexto jurídico ou editorial.
 4. Esse bloco PODE divergir do IEEE estrito, mas DEVE ser integrado da forma mais natural, compacta e aderente possível.
 5. Conteúdo institucional redundante NÃO DEVE ser repetido em todas as páginas, salvo exigência normativa ou legal.
 6. A biblioteca DEVE permitir que cada consumidor mapeie suas informações institucionais sem alterar o núcleo.
@@ -325,12 +325,12 @@ A implementação DEVE:
 2. A implementação NÃO DEVE impor aparência IEEE rígida às tabelas.
 3. Tabelas zebradas, cabeçalhos escuros com texto claro e primeira coluna destacada PODEM ser preservados.
 4. O sistema DEVE interferir somente para:
+   - evitar estouro da área útil;
+   - preservar legibilidade;
+   - impedir cortes indevidos;
+   - corrigir cores ou contrastes inadequados para impressão;
+   - controlar fragmentação.
 
-   * evitar estouro da área útil;
-   * preservar legibilidade;
-   * impedir cortes indevidos;
-   * corrigir cores ou contrastes inadequados para impressão;
-   * controlar fragmentação.
 5. Redefinições visuais NÃO essenciais são PROIBIDAS.
 6. Tabelas largas DEVEM adotar estratégia determinística, como redução controlada, orientação de página, largura total ou divisão semanticamente segura, conforme capacidade e referência aplicável.
 7. Estratégias de tratamento DEVEM ser selecionáveis por configuração genérica, não por classes particulares do primeiro site.
@@ -339,13 +339,13 @@ A implementação DEVE:
 ## 16. Citações em bloco e elementos equivalentes
 
 1. Todas as marcações destinadas semanticamente a citações em bloco DEVEM receber tratamento uniforme, ainda que implementadas por:
+   - `<blockquote>`;
+   - classes;
+   - componentes;
+   - elementos genéricos;
+   - Markdown processado;
+   - estruturas HTML equivalentes.
 
-   * `<blockquote>`;
-   * classes;
-   * componentes;
-   * elementos genéricos;
-   * Markdown processado;
-   * estruturas HTML equivalentes.
 2. Múltiplos estilos de citação somente PODEM permanecer quando compatíveis com o padrão impresso ou expressamente autorizados.
 3. Variações meramente visuais de tela DEVEM ser normalizadas na impressão.
 4. Blockquotes ou equivalentes designados para atravessar ambas as colunas DEVEM preservar essa intenção e ocupar a largura total da região paginada.
@@ -360,24 +360,24 @@ A implementação DEVE:
 2. TypeScript somente DEVE ser introduzido para capacidades de runtime não executáveis com confiabilidade por CSS.
 3. Ruby ou outra linguagem de build PODE e DEVE ser utilizada quando a integração, transformação estática, validação ou compatibilidade da plataforma assim exigir.
 4. A progressividade tecnológica DEVE seguir, conforme o problema:
-
    1. HTML semântico;
    2. CSS/Sass;
    3. transformação estática no build;
    4. JavaScript/TypeScript de runtime;
    5. motor externo.
+
 5. A ordem anterior NÃO é absoluta quando outra camada oferecer solução comprovadamente mais simples, robusta, leve e determinística.
 6. Cada recurso programático DEVE ser isolado, opcional e progressivamente aprimorativo.
 7. Quando biblioteca externa for necessária, DEVE ser:
+   - open source;
+   - mantida;
+   - estável;
+   - leve;
+   - modular;
+   - compatível com os navegadores-alvo;
+   - proporcional ao problema;
+   - utilizável sem corromper a impressão nativa.
 
-   * open source;
-   * mantida;
-   * estável;
-   * leve;
-   * modular;
-   * compatível com os navegadores-alvo;
-   * proporcional ao problema;
-   * utilizável sem corromper a impressão nativa.
 8. **PubCSS** DEVE ser avaliado como base estrutural e referência inicial.
 9. **Vivliostyle** e **Paged.js** PODEM ser avaliados para paginação avançada.
 10. A escolha NÃO DEVE ser feita apenas por amplitude funcional; tamanho, custo de rede, tempo de inicialização, compatibilidade, manutenção e fallback DEVEM ser medidos.
@@ -390,20 +390,20 @@ A implementação DEVE:
 ## 18. Extensibilidade
 
 1. A biblioteca DEVE possuir:
+   - núcleo comum;
+   - configuração por consumidor;
+   - adaptadores opcionais;
+   - plugins de plataforma;
+   - sobreposições explicitamente delimitadas.
 
-   * núcleo comum;
-   * configuração por consumidor;
-   * adaptadores opcionais;
-   * plugins de plataforma;
-   * sobreposições explicitamente delimitadas.
 2. Ajustes locais DEVEM ocorrer por:
+   - propriedades customizadas CSS;
+   - classes ou atributos documentados;
+   - arquivo Sass/CSS posterior ao núcleo;
+   - hooks opcionais de preparação e finalização;
+   - mapeadores de metadados e seletores;
+   - plugins ou transformações de build documentados.
 
-   * propriedades customizadas CSS;
-   * classes ou atributos documentados;
-   * arquivo Sass/CSS posterior ao núcleo;
-   * hooks opcionais de preparação e finalização;
-   * mapeadores de metadados e seletores;
-   * plugins ou transformações de build documentados.
 3. Overrides NÃO DEVEM redefinir silenciosamente invariantes do padrão.
 4. Cada exceção local DEVE ser pontual, rastreável, documentada e testável.
 5. A biblioteca NÃO DEVE depender da estrutura integral do tema, layout, framework ou gerador do site.
@@ -414,28 +414,28 @@ A implementação DEVE:
 ## 19. Portabilidade e distribuição futura
 
 1. A biblioteca DEVE poder ser extraída do repositório inicial mantendo:
+   - histórico compreensível;
+   - testes;
+   - documentação;
+   - licença;
+   - API pública;
+   - build;
+   - artefatos de distribuição;
+   - adaptadores e plugins separáveis.
 
-   * histórico compreensível;
-   * testes;
-   * documentação;
-   * licença;
-   * API pública;
-   * build;
-   * artefatos de distribuição;
-   * adaptadores e plugins separáveis.
 2. Caminhos, aliases e infraestrutura do primeiro repositório NÃO DEVEM ser necessários após a extração.
 3. A biblioteca DEVE possuir licença open source compatível com suas dependências e finalidade de distribuição.
 4. Dependências e códigos derivados DEVEM preservar licenças, avisos e atribuições obrigatórias.
 5. O pacote futuro DEVE poder ser usado em múltiplos projetos sem duplicação ou fork.
 6. Personalizações por projeto DEVEM permanecer fora do pacote ou ser fornecidas como configuração e adaptadores reutilizáveis.
 7. A documentação DEVE distinguir claramente:
+   - comportamento do núcleo;
+   - integração mínima;
+   - recursos opcionais;
+   - adaptadores de plataforma;
+   - limitações por navegador;
+   - customização por consumidor.
 
-   * comportamento do núcleo;
-   * integração mínima;
-   * recursos opcionais;
-   * adaptadores de plataforma;
-   * limitações por navegador;
-   * customização por consumidor.
 8. A distribuição PODE compreender múltiplos artefatos coordenados, como pacote Node.js, entrada Sass, plugin Jekyll ou gem auxiliar, desde que o núcleo e seus contratos permaneçam únicos e coerentes.
 9. A existência de integração Ruby NÃO DEVE impedir o uso independente em projetos exclusivamente Node.js, assim como a existência do pacote Node.js NÃO DEVE impedir integração estática eficiente com Jekyll.
 
@@ -486,3 +486,166 @@ A implementação somente será considerada conforme quando:
 “Compatibilidade integral com Jekyll” DEVE significar que a biblioteca pode empregar Ruby, Liquid, plugins, hooks, scripts e transformações de build em camada própria para cobrir plenamente os fluxos suportados, sem converter o Jekyll em dependência do núcleo nem reduzir a portabilidade para outras plataformas.
 
 Similaridade visual em tela, dependência exclusiva de um motor, funcionamento apenas por fluxo controlado, correções específicas do primeiro site, recusa injustificada ao uso de tecnologias nativas da plataforma ou mera separação física de arquivos NÃO constituem conformidade.
+
+- [ ] Issue 1 — RCF/FT: Normatizar e implementar citações inline em artigos/postagens
+
+  ### Contexto
+
+  O RCF deve distinguir semanticamente citações inseridas dentro de parágrafos de conteúdos que não constituam citações estruturais.
+
+  Considera-se **citação inline** qualquer trecho de citação delimitado por `"` ou por `` ` `` inline, quando inserido dentro de um parágrafo que não seja, ele próprio, uma citação e que não esteja aninhado em uma citação estrutural ou em outra citação com subcitações.
+
+  ### Requisitos
+  - O RCF DEVE definir formalmente o conceito de **citação inline**.
+  - A detecção DEVE ser semanticamente correta, não baseada apenas em correspondência textual ingênua.
+  - Citações contidas em `blockquote` NÃO DEVEM ser tratadas como citações inline por esta regra.
+  - Citações aninhadas em outra citação NÃO DEVEM ser classificadas como citações inline da regra externa.
+  - Ao publicar/renderizar artigos e postagens, toda citação inline DEVE ser apresentada obrigatoriamente em **itálico**.
+  - A transformação NÃO DEVE alterar o conteúdo semântico ou textual da citação.
+  - A implementação DEVE preservar a estrutura e as demais estilizações já vigentes.
+  - O comportamento DEVE ser compatível com tema claro/escuro e com os mecanismos existentes de renderização.
+
+  ### FT
+
+  Criar uma FT específica para implementar a detecção e a apresentação normativa de citações inline.
+
+  A FT DEVE:
+  1.  inspecionar previamente o pipeline real de Markdown/renderização/publicação;
+  2.  identificar o ponto correto de aplicação da transformação;
+  3.  implementar a regra sem depender de heurísticas frágeis quando houver estrutura semântica disponível;
+  4.  cobrir aspas `"..."` e código inline `` `...` `` conforme a definição normativa;
+  5.  excluir corretamente `blockquote`, citações aninhadas e demais contextos explicitamente excluídos pelo RCF;
+  6.  preservar compatibilidade com as estilizações existentes;
+  7.  incluir testes para casos positivos, negativos, aninhados e ambíguos.
+
+  ### Critérios de aceite
+  - Toda citação inline elegível é renderizada em itálico.
+  - Citações dentro de `blockquote` não são indevidamente classificadas como inline.
+  - Subcitações não são confundidas com citações inline externas.
+  - Não há alteração indevida do conteúdo.
+  - Testes demonstram comportamento correto nos diferentes contextos suportados.
+  - A implementação permanece compatível com impressão e com a issue `RCF — Biblioteca agnóstica para impressão Web em formato IEEE`.
+
+  ***
+
+- [ ] Issue 2 — RCF/FT: Normatizar subcitações e sua diferenciação visual dinâmica
+
+  ### Contexto
+
+  Uma citação pode conter outra citação em seu interior. Essa relação deve ser semanticamente preservada e visualmente distinguível, independentemente de a citação externa estar em parágrafo, `blockquote` ou outro modelo estrutural de citação suportado pelo projeto.
+
+  ### Requisitos
+  - O RCF DEVE definir formalmente **subcitação** como citação semanticamente aninhada em outra citação.
+  - Toda subcitação DEVE possuir diferenciação visual própria em relação ao conteúdo circundante.
+  - A diferenciação DEVE utilizar cor de fundo baseada em `rgba`, permitindo adaptação dinâmica a tema claro/escuro.
+  - A estilização NÃO DEVE depender de uma cor fixa incompatível com o tema ativo.
+  - A estilização DEVE adaptar-se dinamicamente ao contexto em que a subcitação estiver inserida.
+  - A adaptação DEVE considerar:
+  - parágrafo;
+  - `blockquote`;
+  - diferentes estilos de `blockquote`;
+  - diferentes estruturas HTML utilizadas para representar `blockquote`;
+  - demais estilizações vigentes aplicáveis ao contexto.
+  - A diferenciação visual DEVE permanecer durante a impressão.
+  - A regra DEVE ser compatível com a `RCF — Biblioteca agnóstica para impressão Web em formato IEEE`.
+  - A implementação NÃO DEVE introduzir estilo visual que contradiga ou sobrescreva arbitrariamente estilos legítimos já definidos para o contexto.
+
+  ### FT
+
+  Criar FT específica para implementar a representação visual de subcitações.
+
+  A FT DEVE:
+  1.  inspecionar os modelos reais de citação existentes;
+  2.  identificar como o sistema representa citações aninhadas;
+  3.  implementar a diferenciação visual de forma contextual e agnóstica ao modelo estrutural;
+  4.  utilizar `rgba` e mecanismos compatíveis com temas claro/escuro;
+  5.  preservar a diferenciação durante impressão;
+  6.  testar subcitações em todos os modelos de `blockquote` efetivamente existentes;
+  7.  validar que a solução não depende exclusivamente da tag HTML `<blockquote>`.
+
+  ### Critérios de aceite
+  - Subcitações são semanticamente identificadas.
+  - Subcitações possuem fundo visualmente distinguível.
+  - O fundo adapta-se ao tema ativo.
+  - A estilização adapta-se ao contexto estrutural e visual.
+  - A diferenciação permanece na impressão.
+  - Nenhum modelo de citação existente perde sua estilização.
+  - Testes cobrem aninhamento, temas, modelos estruturais e impressão.
+
+  ***
+
+  # Issue 3 — RCF/FT: Unificar e normatizar `blockquote` como conceito semântico e permitir estilos/modelos por ocorrência
+
+  ### Contexto
+
+  O projeto utiliza múltiplas formas de representar visualmente citações. O termo `blockquote` deve representar o conceito semântico de bloco de citação, independentemente de sua implementação HTML.
+
+  Além da tag HTML padrão `<blockquote>`, o projeto pode utilizar estruturas compostas por `table`, `div` ou elementos customizados para produzir o mesmo conceito visual/semântico.
+
+  O RCF/Markdown já possui mecanismo para definir um estilo padrão de `blockquote` para o artigo, porém essa definição não deve impedir a especificação individual de estilo ou modelo para uma ocorrência específica.
+
+  ### Requisitos
+  - O RCF DEVE definir `blockquote` como conceito semântico de **bloco de citação**, e NÃO exclusivamente como a tag HTML `<blockquote>`.
+  - O conceito DEVE abranger, quando utilizados com essa finalidade, elementos/estruturas como:
+  - `<blockquote>`;
+  - `<div>`;
+  - `<table>`;
+  - elementos customizados;
+  - outras estruturas equivalentes comprovadamente utilizadas pelo projeto.
+  - A equivalência DEVE ser determinada pela finalidade semântica/estrutural da implementação, não apenas pelo nome da tag.
+  - O RCF DEVE reconhecer que existem múltiplos estilos de `blockquote`.
+  - O RCF DEVE permitir que o Markdown especifique dinamicamente o estilo/modelo aplicável a uma ocorrência específica de `blockquote`.
+  - A existência de um estilo/modelo padrão definido para o artigo NÃO DEVE obrigar todas as ocorrências a utilizá-lo.
+  - Uma especificação explícita para uma ocorrência DEVE prevalecer sobre o padrão global aplicável àquela ocorrência.
+  - A ausência de especificação específica DEVE permitir o uso do padrão global já definido.
+  - A customização DEVE preservar compatibilidade com as estruturas HTML realmente utilizadas pelo projeto.
+  - O mecanismo NÃO DEVE impor arbitrariamente um modelo ou estilo único.
+  - A solução DEVE preservar extensibilidade para novos modelos de `blockquote`.
+
+  ### Precedência normativa
+
+  Para cada ocorrência:
+  1.  especificação explícita da própria ocorrência;
+  2.  configuração contextual aplicável;
+  3.  padrão definido para o artigo;
+  4.  padrão global do sistema/RCF.
+
+  Nenhum nível inferior pode substituir uma configuração explicitamente definida em nível superior.
+
+  ### FT
+
+  Criar FT específica para:
+  1.  inspecionar a implementação atual de `blockquote` no Markdown e no pipeline de renderização;
+  2.  mapear os modelos estruturais existentes;
+  3.  formalizar o conceito semântico de `blockquote`;
+  4.  formalizar os estilos/modelos suportados;
+  5.  permitir seleção/customização por ocorrência;
+  6.  preservar o mecanismo existente de definição de padrão por artigo;
+  7.  impedir que o padrão global sobrescreva uma configuração específica;
+  8.  garantir compatibilidade com estruturas `<blockquote>`, `div`, `table` e customizadas quando efetivamente utilizadas;
+  9.  documentar a precedência entre configuração específica e padrões;
+  10. adicionar testes para múltiplos estilos, múltiplos modelos estruturais e sobrescrita localizada.
+
+  ### Critérios de aceite
+  - `blockquote` é tratado pelo RCF como conceito semântico, não como sinônimo exclusivo de `<blockquote>`.
+  - Todos os modelos efetivamente utilizados pelo projeto são contemplados.
+  - O artigo pode possuir um estilo/modelo padrão.
+  - Uma ocorrência específica pode sobrescrever esse padrão.
+  - A customização específica não é perdida durante renderização/publicação.
+  - Não há imposição arbitrária de estilo/modelo único.
+  - A precedência entre configuração específica e padrões é determinística.
+  - Novos modelos podem ser incorporados sem reestruturar a norma.
+  - Testes comprovam os comportamentos acima.
+
+  ***
+
+  # Dependências e integração
+
+  As três issues DEVEM ser implementadas de forma coordenada:
+  1.  **Issue 3** estabelece o modelo semântico e estrutural de `blockquote`.
+  2.  **Issue 1** utiliza essa definição para excluir corretamente citações pertencentes a contextos de citação.
+  3.  **Issue 2** utiliza a mesma definição para identificar e estilizar subcitações independentemente do modelo estrutural.
+
+  Todas as implementações DEVEM respeitar a `RCF — Biblioteca agnóstica para impressão Web em formato IEEE`, especialmente quanto à preservação das regras de apresentação durante impressão.
+
+  Nenhuma FT DEVE assumir estrutura, arquivo, pipeline, biblioteca, hook ou mecanismo que não seja comprovado pela inspeção do estado real do projeto.
