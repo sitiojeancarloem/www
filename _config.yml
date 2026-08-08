@@ -243,6 +243,16 @@ sass:
 
 # Outputting
 permalink: /p/:title/
+
+# Namespaces editoriais: URL lógica e representação física permanecem distintas.
+content_namespaces:
+  bate-papo:
+    title_prefix: 'Bate-papo:'
+    source_prefix: 'bate-papo-'
+    url_prefix: 'bate-papo:'
+    physical_prefix: 'bate-papo-'
+    route_prefix: '/p/'
+    disclaimer: 'Nota editorial: Esta síntese foi produzida e processada de forma automatizada, inclusive com uso de inteligência artificial, e pode conter erros, imprecisões ou interpretações inadequadas.'
 timezone: # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 
 # Pagination with jekyll-paginate

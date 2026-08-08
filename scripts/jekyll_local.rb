@@ -5,6 +5,26 @@ require "jekyll"
 require "jekyll/commands/build"
 require "jekyll/commands/doctor"
 require "jekyll/commands/serve"
+require_relative "../_plugins/jcem_content_namespaces"
+
+if Gem.win_platform?
+  require "jekyll/commands/serve/servlet"
+
+  module Jcem
+    module NamespaceServlet
+      def do_GET(request, response)
+        original_path = request.path
+        physical_path = ContentNamespaces.physical_path_for(original_path, @jekyll_opts)
+        request.instance_variable_set(:@path, physical_path) if physical_path != original_path
+        super
+      ensure
+        request.instance_variable_set(:@path, original_path) if original_path
+      end
+    end
+  end
+
+  Jekyll::Commands::Serve::Servlet.prepend(Jcem::NamespaceServlet)
+end
 
 command = ARGV.shift || "build"
 
