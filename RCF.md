@@ -64,6 +64,28 @@ Escopo: notas de rodapé, referências e bibliografia renderizadas por Jekyll/Kr
 - `npm run build:prod` deve confirmar integração Jekyll completa.
 - Alterações visíveis em footnotes devem ser validadas em página renderizada com post que possua reutilização de nota.
 
+# RCF-JCEM-BATE-PAPOS-001
+
+Status: vigente.
+
+Escopo: artigos que sintetizam bate-papos, conversas, estudos dialogados ou encontros equivalentes.
+
+## Regras Normativas
+
+- O artigo deve iniciar, após os metadados, com o seguinte aviso padronizado e ultrassucinto: **“Nota editorial: Esta é uma síntese fiel de um bate-papo, editada apenas para tornar a leitura mais clara e agradável. Nem tudo o que foi dito foi necessariamente aceito por todos: formulações coletivas não significam unanimidade, aprovação integral ou ausência de objeções; cada participante pode ter ponderado, discordado, preferido não se manifestar ou silenciado por razões distintas.”**
+- Ausência de manifestação nunca deve ser interpretada como concordância; expressões editoriais como “o grupo concluiu”, “chegou-se à conclusão” ou equivalentes descrevem somente a organização da síntese e não atribuem consenso aos participantes.
+- A edição deve preservar falas, posições, ressalvas, divergências, hesitações, condicionais, mudanças de posição, incertezas e contexto materialmente relevante; não pode inventar consenso, objeção, intenção ou posição.
+- Fala documentada, síntese editorial, inferência e conjectura devem permanecer semanticamente distinguíveis, mesmo quando organizadas em sequência fluida.
+- A primeira ocorrência explícita de cada citação textual deve apresentar integralmente o trecho preservado na fonte disponível e sua referência nomeada `[^id]`; ocorrência posterior deve reutilizar a referência e não repetir integralmente o texto sem necessidade editorial comprovada.
+- Quando a fonte disponível conservar apenas um excerto, a edição deve identificá-lo como parcial e nunca completar por memória, hipótese ou texto não documentado.
+- Referências devem obedecer integralmente ao `RCF-JCEM-FOOTNOTES-001`; sistema numérico manual ou paralelo é proibido.
+
+## Validação
+
+- A validação editorial deve confirmar o aviso na abertura, ausência de presunção de unanimidade, distinção entre conteúdo documentado e elaboração editorial, primeira ocorrência integral de cada citação preservada e ausência de repetição textual desnecessária.
+- Todas as chamadas e definições `[^id]` devem ser pareadas, reutilizar identificadores semanticamente equivalentes e renderizar pelo mecanismo Jekyll/Kramdown vigente.
+- O build com rascunhos deve confirmar hierarquia de títulos, blockquotes, linhas de referência, notas de rodapé e legibilidade da página renderizada.
+
 <!-- AI-PROCESSED -->
 # RCF-JCEM-PERFORMANCE-DEPENDENCIAS-001
 
