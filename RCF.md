@@ -73,6 +73,9 @@ Escopo: artigos que sintetizam bate-papos, conversas, estudos dialogados ou enco
 ## Regras Normativas
 
 - O artigo deve iniciar, após os metadados, com o seguinte aviso padronizado e ultrassucinto: **“Nota editorial: Esta é uma síntese fiel de um bate-papo, editada apenas para tornar a leitura mais clara e agradável. Nem tudo o que foi dito foi necessariamente aceito por todos: formulações coletivas não significam unanimidade, aprovação integral ou ausência de objeções; cada participante pode ter ponderado, discordado, preferido não se manifestar ou silenciado por razões distintas.”**
+- O título público e o segmento lógico da URL devem iniciar com o namespace `Bate-papo:`/`bate-papo:`; o caractere `:` deve ser literal quando gerador, sistema de arquivos, hospedagem e cliente o suportarem integralmente.
+- Quando o gerador interpretar `:` como marcador de template ou o sistema de arquivos não permitir sua materialização, o permalink deve representar o separador como `%3A`; essa codificação pertence à URL e não altera o namespace lógico `bate-papo:`.
+- O path físico da fonte deve substituir o separador lógico `:` por `-` em ambiente que não o aceite, inclusive Windows, sem alterar o título público nem a representação URL `%3A`; `bate-papo-` na URL somente é permitido como fallback explícito quando nem `:` nem `%3A` forem suportados de ponta a ponta.
 - Ausência de manifestação nunca deve ser interpretada como concordância; expressões editoriais como “o grupo concluiu”, “chegou-se à conclusão” ou equivalentes descrevem somente a organização da síntese e não atribuem consenso aos participantes.
 - A edição deve preservar falas, posições, ressalvas, divergências, hesitações, condicionais, mudanças de posição, incertezas e contexto materialmente relevante; não pode inventar consenso, objeção, intenção ou posição.
 - Fala documentada, síntese editorial, inferência e conjectura devem permanecer semanticamente distinguíveis, mesmo quando organizadas em sequência fluida.
@@ -85,6 +88,7 @@ Escopo: artigos que sintetizam bate-papos, conversas, estudos dialogados ou enco
 - A validação editorial deve confirmar o aviso na abertura, ausência de presunção de unanimidade, distinção entre conteúdo documentado e elaboração editorial, primeira ocorrência integral de cada citação preservada e ausência de repetição textual desnecessária.
 - Todas as chamadas e definições `[^id]` devem ser pareadas, reutilizar identificadores semanticamente equivalentes e renderizar pelo mecanismo Jekyll/Kramdown vigente.
 - O build com rascunhos deve confirmar hierarquia de títulos, blockquotes, linhas de referência, notas de rodapé e legibilidade da página renderizada.
+- A validação deve confirmar o título `Bate-papo:`, o namespace da URL, o path físico compatível com o ambiente e a resolução do permalink sem erro, redirecionamento involuntário ou divergência canônica.
 
 <!-- AI-PROCESSED -->
 # RCF-JCEM-PERFORMANCE-DEPENDENCIAS-001

@@ -48,18 +48,20 @@ inventario=Compatíveis: `to-ia`, `archive`; parcialmente compatíveis: atualiza
 verificacoes=FT-011: `node --check`; `agent:lint` (8 scripts); `agent:status`; `agents:update -- --help`; release n/a com código 3; `agent:handoff`; `agent:build` Jekyll em `tmp/agent-build` com `index.html`; `agent:verify` (TS, HTML, footnotes, math, assets e authors) concluído. Correção Windows: `bundle.bat` e `npm.cmd` são executados pelo `cmd.exe` explícito. Atualizador: classificação positiva/negativa de adaptador e preservação de comando local verificadas.
 retomada=Concluída: `dev` foi convergida por fast-forward em `main`; `_site` permaneceu fora da FT por alteração preexistente. Push remoto exige autorização explícita.
 
-FT-013|nome=Formatação normativa de síntese de bate-papo|objetivo=Preparar o rascunho sobre eventos finais para publicação fiel, legível e rastreável|escopo=Negócio editorial|prioridade=alta|status=em andamento|inicio=20260808.1300.00|atualizacao=20260808.1300.00
+FT-013|nome=Formatação normativa de síntese de bate-papo|objetivo=Preparar o rascunho sobre eventos finais para publicação fiel, legível e rastreável|escopo=Negócio editorial|prioridade=alta|status=em andamento|inicio=20260808.1300.00|atualizacao=20260808.1317.56
 dependencias=Pedido humano explícito; `RCF-JCEM-FOOTNOTES-001`; `WEB-BROWSER`, `WEB-STATIC` e `WEB-EDITORIAL`; draft hifenizado preservado do commit local de `main` em `dev`.
 riscos=Não inferir consenso a partir de silêncio ou formulação coletiva; não completar citação ausente; preservar nuances e distinguir fala, síntese, inferência e conjectura; branch remota contém versão concorrente em path inválido no Windows.
-1/4 Norma e inventário [em andamento]
-- Inspecionar norma, draft, referências, citações, hierarquia e estado Git; normatizar disclaimer geral sem duplicação [em andamento]
-2/4 Formatação editorial [pendente]
-- Aplicar metadados mínimos, disclaimer, hierarquia, blockquotes, referências nomeadas e atribuições sem falsa unanimidade [pendente]
-3/4 Validação [pendente]
-- Verificar citações, pares de footnotes, fidelidade, build com drafts e renderização focada [pendente]
-4/4 Encerramento [pendente]
-- Corrigir achados, atualizar memória/handoff, registrar commits e convergir branches conforme autoridade [pendente]
+1/4 Norma e inventário [concluído]
+- Inspecionar norma, draft, referências, citações, hierarquia e estado Git; normatizar disclaimer geral sem duplicação [concluído]
+2/4 Formatação editorial [concluído]
+- Aplicar metadados mínimos, disclaimer, hierarquia, blockquotes, referências nomeadas e atribuições sem falsa unanimidade [concluído]
+3/4 Validação [concluído]
+- Verificar citações, pares de footnotes, fidelidade, build com drafts e renderização focada [concluído]
+4/4 Encerramento [em andamento]
+- Corrigir achados, atualizar memória/handoff, registrar commits e convergir branches conforme autoridade [em andamento]
 evidencia_inicial=RCF vigente possui mecanismo `[^id]`, mas não regra equivalente de bate-papo; draft tem 695 linhas, múltiplos H1, rótulos bibliográficos manuais e nenhuma definição de footnote; nenhuma citação em blockquote se repete literalmente.
+resultado=RCF geral de bate-papo criado e ampliado com namespace lógico; título público usa `Bate-papo:`; path físico e permalink usam `bate-papo-` porque Jekyll interpreta `:` como chave de template e decodifica `%3A` antes da escrita, causando `Errno::EINVAL` no Windows. Draft recebeu disclaimer padrão, hierarquia única, fontes em linha própria, 38 footnotes nomeadas e atribuições sem presunção de unanimidade; repetição de Apocalipse 5:12 foi substituída por referência inequívoca à primeira citação.
+verificacoes=38 IDs chamados/definidos, sem ausente/ocioso/duplicado; zero H1 no corpo; `git diff --check`; `agent:rcf`; `npm run check` completo; build isolado do draft; build completo com cópia temporária em `_posts`; artefato tem título, disclaimer, 39 chamadas para 38 definições e targets válidos. Navegador: 18 fontes com travessão, citação sem itálico/indentação, parágrafo comum com 88px, retornos alfabéticos `a`/`b`, zero overflow em viewport mínimo solicitado de 320px (client 305px). Build integral com `--drafts` permanece bloqueado por binários legados de outros drafts lidos como UTF-8, falha preexistente e fora do escopo.
 
 FT-012|nome=Restabelecimento emergencial do agents:update|objetivo=Eliminar colisão local com o core upstream e concluir a atualização normativa ponta a ponta|escopo=Técnico|prioridade=emergencial|status=concluído|inicio=20260718|atualizacao=20260718|conclusao=20260718
 dependencias=Concessão humana excepcional para edição cirúrgica de governança e utilitários; FT-011 concluída; branch `dev` limpa.
