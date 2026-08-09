@@ -69,4 +69,21 @@ const distModule = await readFile(path.join(packageRoot, 'dist', 'index.js'), 'u
 assert.equal(publicModule, distModule);
 assert.match(publicModule, /^\/\*! Fonte:/);
 
+const jekyllConfig = await readFile(path.join(repositoryRoot, '_config.yml'), 'utf8');
+for (const excludedPath of [
+	'/src',
+	'/scripts/build-print-ieee.mjs',
+	'/scripts/inject-code-headers.mjs',
+	'/scripts/lib/code-header.mjs',
+	'/scripts/test_inline_quotes.mjs',
+	'/scripts/test_print_ieee.mjs',
+	'/scripts/test_quote_semantics.rb',
+]) {
+	assert.match(
+		jekyllConfig,
+		new RegExp(`^\\s*- ${excludedPath.replaceAll('/', '\\/')}\\s*$`, 'm'),
+		`fonte interna não excluída do artefato: ${excludedPath}`,
+	);
+}
+
 process.stdout.write(`print_ieee=ok profile=${profile.id} state=${controller.getState()}\n`);
