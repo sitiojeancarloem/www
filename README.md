@@ -162,6 +162,25 @@ jcem:
 
 Com o recurso ativo, `assets/jcem/js/site.js` transforma cada `blockquote` dentro de `.page__content` em `div.jcem-panel.jcem-panel--futuristic`, preservando o conteúdo original.
 
+O contrato semântico por ocorrência está normatizado no `RCF-JCEM-CITACOES-001`, mas sua implementação completa permanece pendente. Até a FT material ser autorizada e validada, conteúdo publicável deve usar somente `>` e os defaults acima; a marcação reservada abaixo não deve ser adotada como recurso já disponível.
+
+Após a implementação, um bloco poderá selecionar `standard`, `futuristic` ou outro modelo registrado por Kramdown IAL:
+
+```markdown
+> Conteúdo citado.
+{: data-jcem-quote-model="futuristic"}
+```
+
+A configuração da ocorrência prevalecerá sobre contexto, post e configuração global. O mesmo identificador selecionará estilos simples ou modelos que alterem a estrutura, sem uma segunda sintaxe.
+
+Citação inline em texto comum continuará usando aspas. Backticks continuam significando código; quando representarem citação, deverão receber marcação explícita:
+
+```markdown
+`conteúdo citado`{: .jcem-inline-quote}
+```
+
+O formatador legado já aplica itálico a pares de aspas em parte do conteúdo renderizado, mas autores não devem depender dessa heurística até a implementação dos contextos semânticos, das subcitações e dos testes previstos no RCF.
+
 ## Colunas Markdown
 
 Use HTML com classes do projeto para blocos em múltiplas colunas:
