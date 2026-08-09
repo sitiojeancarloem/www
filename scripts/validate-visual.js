@@ -1868,7 +1868,8 @@ const validatePage = async (page, url, theme, viewportName) => {
 		}
 
 		await page.locator('.jcem-scroll-top').click();
-		await page.waitForFunction(() => window.scrollY <= 2, null, { timeout: 1500 });
+		// FIX-BUG: páginas longas podem concluir a rolagem suave após 1,5 s em CI lento.
+		await page.waitForFunction(() => window.scrollY <= 2, null, { timeout: 5000 });
 	}
 
 	await page.screenshot({
