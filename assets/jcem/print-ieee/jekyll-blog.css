@@ -52,6 +52,17 @@
 		display: none !important;
 	}
 
+	body:has([data-print-article])
+		:is(#print-isolation-specificity-guard, [data-print-article])
+		:is(
+			details.jcem-collapsible--references,
+			details.jcem-collapsible--bibliography
+		)
+		> summary {
+		/* PROTECAO: o conteúdo abre para impressão, mas seu controle web não é reproduzido. */
+		display: none !important;
+	}
+
 	body:has([data-print-article]) [data-print-article] .jcem-post-header,
 	body:has([data-print-article]) [data-print-article] .jcem-article-authors {
 		column-span: all;

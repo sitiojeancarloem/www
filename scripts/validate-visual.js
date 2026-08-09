@@ -2092,7 +2092,7 @@ const validatePrintTheme = async (page, url, viewportName) => {
 				'.masthead, .page__hero, .jcem-featured-image, .jcem-featured-image__img, .page__footer, .sobpostbar, .page__share, .jcem-theme-toggle, .jcem-scroll-top, #silktide-wrapper, #silktide-cookie-icon',
 			),
 			webArticleHelpersHidden: hiddenByDisplay(
-				'[data-print-article] .toc, [data-print-article] .sidebar__right:has(.toc), [data-print-article] .header-link, [data-print-article] .jcem-date-flag, [data-print-article] .page__meta, [data-print-article] .page__share, [data-print-article] .pagination',
+				'[data-print-article] .toc, [data-print-article] .sidebar__right:has(.toc), [data-print-article] .header-link, [data-print-article] .jcem-date-flag, [data-print-article] .page__meta, [data-print-article] .page__share, [data-print-article] .pagination, [data-print-article] details.jcem-collapsible--references > summary, [data-print-article] details.jcem-collapsible--bibliography > summary',
 			),
 		};
 	});

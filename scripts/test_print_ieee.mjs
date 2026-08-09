@@ -98,6 +98,7 @@ for (const webOnlySelector of [
 	'.header-link',
 	'.jcem-date-flag',
 	'.pagination',
+	'> summary',
 ]) {
 	assert.match(
 		adapterCss,
