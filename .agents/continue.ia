@@ -191,16 +191,19 @@ dependencias=FT-015 concluída; FT-016 e FT-018 concluídas; contrato de impress
 resultado=Aninhamento semântico em bloco ou citação inline produz `data-jcem-subquote`; tokens `rgba` distinguem temas e painel, e borda dupla fornece segundo indício independente de fundo. Ambiguidade preserva o conteúdo sem inferência.
 verificacoes=Teste unitário cobriu dois casos de subcitação e contextos excluídos; navegador confirmou marcador, tokens no tema escuro e distinção impressa; PDF aferido preservou citações e subcitação sem corte ou sobreposição.
 
-FT-020|nome=Isolamento estrito entre web e impressão|objetivo=Impedir herança visual ou estrutural acidental entre tela e impressão, preservando apenas compartilhamentos semânticos normatizados|escopo=Técnico|prioridade=alta|status=em andamento|inicio=20260809.1700.00|atualizacao=20260809.1700.00
+FT-020|nome=Isolamento estrito entre web e impressão|objetivo=Impedir herança visual ou estrutural acidental entre tela e impressão, preservando apenas compartilhamentos semânticos normatizados|escopo=Técnico|prioridade=alta|status=concluído|inicio=20260809.1700.00|atualizacao=20260809.2245.00|conclusao=20260809.2245.00
 autorizacao=Pedido humano explícito para corrigir e normatizar o isolamento, eliminar o vazamento sem regressão, torná-lo obrigatório para recursos atuais/futuros e terceiros e fixar estilo IEEE exclusivo para `blockquote` salvo exceção seletiva no registro único do RCF.
 dependencias=FT-016–019 concluídas; `RCF-JCEM-CITACOES-001`; `RCF-JCEM-IMPRESSAO-IEEE-001`; build e validação renderizada vigentes.
 riscos=Reset amplo pode ocultar conteúdo semântico ou reexibir chrome; estrutura futurista em tabela pode conservar geometria web; regra impressa pode afetar screen se perder restrição de mídia; preservar perfil físico e relatório sem declarar nova aferição antes do PDF final.
 origem=CSS web permanece ativo em `print`; sobrescritas IEEE cobrem somente propriedades parciais. Regras web específicas mantêm recuo de parágrafo, fundos, bordas, sombras e tabela decorativa de blockquote. A validação visual também exige a imagem web clara do painel durante impressão, tornando o vazamento um falso requisito.
 1/4 Norma e diagnóstico [concluído]
 - Declarar fronteiras universais, adaptação de terceiros, registro único de exceções, estilo IEEE padrão de `blockquote`, compartilhamentos permitidos e matriz de validação; localizar regras e estruturas que atravessam contextos [concluído]
-2/4 Isolamento técnico [em andamento]
-- Aplicar reset impresso determinístico e normalizar estruturas auxiliares web sem afetar screen [em andamento]
-3/4 Antirregressão [pendente]
-- Criar sentinelas e verificar cascata, DOM semântico, build, web responsiva e impressão [pendente]
-4/4 Validação e encerramento [pendente]
-- Revisar navegador e PDF, sincronizar RCF/README/memória, commitar incrementalmente e convergir branches quando autorizado [pendente]
+2/4 Isolamento técnico [concluído]
+- Aplicar reset impresso determinístico e normalizar estruturas auxiliares web sem afetar screen [concluído]
+3/4 Antirregressão [concluído]
+- Criar sentinelas e verificar cascata, DOM semântico, build, web responsiva e impressão [concluído]
+4/4 Validação e encerramento [concluído]
+- Revisar navegador e PDF, sincronizar RCF/README/memória, commitar incrementalmente e convergir branches [concluído]
+resultado=RCF tornou o isolamento obrigatório para recurso atual/futuro e terceiro, centralizou exceções e fixou estilo IEEE exclusivo para `blockquote`; nenhuma exceção visual está ativa. O núcleo reverte a cascata web no artigo e declara a composição impressa; o adaptador achata painéis decorativos, oculta TOC, permalinks, bandeiras, paginação e controles recolhíveis, mas preserva conteúdo, semântica, referências, bibliografia e avisos. O CSS base participa de `screen` somente para ocultar auxiliares impressos e mantém toda apresentação IEEE dentro de `@media print`.
+achados_revisao=A primeira aferição revelou `Permalink`, sumário, bandeira de data e controles `summary` reexibidos pelo reset; todos foram neutralizados nominalmente e receberam teste. A composição multicoluna inicial também deslocava o corpo para a segunda folha; o artigo passou a ser o fluxo paginado e `[data-print-body]` tornou-se transparente, eliminando a folha quase vazia sem restaurar estilos web.
+verificacoes=`agent:rcf`, `check:print`, `npm run check`, `build:prod`, `agent:build`, `agent:verify` e duas passagens finais de `validate:visual` concluídos. Navegador: 18 painéis web preservados, dois auxiliares impressos ocultos, estado `nativo-preparado`, console limpo e zero overflow em desktop/320 px. PDF Chromium 151: sete páginas A4, zero vazia, Noto Sans regular/negrito/itálico/negrito-itálico, duas colunas, conteúdo integral e estilo IEEE de citação sem decoração ou controle web; relatório `2026-08-09-devaneios-chromium-151.json`, SHA-256 `ab0d5679de674e11abbccdf81d2180817a91ef8ecc1df2564268dee2c0a69dba`.

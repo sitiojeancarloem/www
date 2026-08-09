@@ -153,7 +153,7 @@ Escopo: biblioteca Web agnóstica para impressão ou exportação PDF de artigo 
 - O perfil canônico inicial é `ieee-conference-a4-ieeetran-1.8b`, schema 1, obtido em 2026-08-09 a partir do IEEEtran 1.8b indicado pelo IEEE Author Center e distribuído pelo CTAN sob LPPL-1.3c. O arquivo de referência NÃO é redistribuído; seu ZIP de controle possui SHA-256 `e0cd4f5afbd42c8076092280e72b3e0a5111efe501d35de9f715cfb8da313cb4`.
 - O perfil fixa papel A4, escala 100%, margens superior/direita/inferior/esquerda de 19,05/14,3225/43/14,3225 mm, duas colunas, intervalo de 4,2175 mm e largura de coluna de 88,5687 mm. A família Times do controle é substituída, por decisão deste RCF, por Noto Sans incorporada.
 - A biblioteca `@jcem/print-ieee` e seus artefatos próprios usam MPL-2.0. Licença da biblioteca e licença da referência externa DEVEM permanecer declaradas separadamente em perfil, pacote, documentação e relatório.
-- O runtime DEVE declarar no máximo `nativo-preparado`. Somente relatório individual de saída física ou PDF PODE declarar `ieee-validado`; a aferição inicial versionada reside em `src/jcem-print-ieee/reports/2026-08-09-devaneios-chromium-148.json`.
+- O runtime DEVE declarar no máximo `nativo-preparado`. Somente relatório individual de saída física ou PDF PODE declarar `ieee-validado`; a aferição vigente após isolamento reside em `src/jcem-print-ieee/reports/2026-08-09-devaneios-chromium-151.json`, e a aferição Chromium 148 permanece como registro histórico da composição anterior.
 
 ## Arquitetura, autoridade e API
 
