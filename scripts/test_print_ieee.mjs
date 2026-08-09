@@ -72,12 +72,7 @@ assert.match(publicModule, /^\/\*! Fonte:/);
 const jekyllConfig = await readFile(path.join(repositoryRoot, '_config.yml'), 'utf8');
 for (const excludedPath of [
 	'/src',
-	'/scripts/build-print-ieee.mjs',
-	'/scripts/inject-code-headers.mjs',
-	'/scripts/lib/code-header.mjs',
-	'/scripts/test_inline_quotes.mjs',
-	'/scripts/test_print_ieee.mjs',
-	'/scripts/test_quote_semantics.rb',
+	'/scripts',
 ]) {
 	assert.match(
 		jekyllConfig,

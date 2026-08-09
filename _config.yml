@@ -189,12 +189,7 @@ exclude:
   - /assets/jcem/ts
   - /importador
   - /src
-  - /scripts/build-print-ieee.mjs
-  - /scripts/inject-code-headers.mjs
-  - /scripts/lib/code-header.mjs
-  - /scripts/test_inline_quotes.mjs
-  - /scripts/test_print_ieee.mjs
-  - /scripts/test_quote_semantics.rb
+  - /scripts
   - Capfile
   - CHANGELOG
   - config
