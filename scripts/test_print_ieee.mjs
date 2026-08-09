@@ -26,6 +26,7 @@ const css = await readFile(path.join(packageRoot, 'dist', 'ieee.css'), 'utf8');
 assert.match(css, /size:\s*A4/);
 assert.match(css, /margin:\s*19\.05mm 14\.3225mm 43mm/);
 assert.match(css, /column-gap:\s*4\.2175mm/);
+assert.match(css, /column-fill:\s*balance/);
 assert.doesNotMatch(css.split('@media print')[0], /\[data-print-article\]\s*\{[^}]*font-/s);
 
 const dom = new JSDOM(

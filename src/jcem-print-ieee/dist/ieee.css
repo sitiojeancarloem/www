@@ -35,7 +35,8 @@
 	[data-print-article] [data-print-body] {
 		column-count: 2 !important;
 		column-gap: 4.2175mm !important;
-		column-fill: auto;
+		/* FIX-BUG: o motor paginado reinicia o fluxo por folha e equilibra somente a última. */
+		column-fill: balance;
 		orphans: 2;
 		widows: 2;
 	}
