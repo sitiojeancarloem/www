@@ -32,6 +32,15 @@
 		filter: none !important;
 	}
 
+	[data-print-article] * {
+		/* FIX-BUG: regras tipográficas do tema não podem prevalecer no artigo impresso. */
+		font-family: "Noto Sans", Arial, sans-serif !important;
+	}
+
+	[data-print-article] :where(code, pre, kbd, samp, code *, pre *) {
+		font-family: ui-monospace, "Cascadia Mono", Consolas, monospace !important;
+	}
+
 	[data-print-article] [data-print-body] {
 		column-count: 2 !important;
 		column-gap: 4.2175mm !important;
