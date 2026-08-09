@@ -29,6 +29,19 @@
 		box-shadow: none !important;
 	}
 
+	body:has([data-print-article]) .page__inner-wrap::before,
+	body:has([data-print-article]) .page__inner-wrap::after {
+		/* PROTECAO: molduras auxiliares da tela não integram o artigo impresso. */
+		display: none !important;
+		content: none !important;
+	}
+
+	body:has([data-print-article])
+		:is(#print-isolation-specificity-guard, [data-print-article])
+		:is(.page__meta, .page__share, .jcem-post-date-flag, .jcem-post-read-time) {
+		display: none !important;
+	}
+
 	body:has([data-print-article]) [data-print-article] .jcem-post-header,
 	body:has([data-print-article]) [data-print-article] .jcem-article-authors {
 		column-span: all;

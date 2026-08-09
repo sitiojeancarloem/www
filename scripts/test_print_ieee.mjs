@@ -23,13 +23,31 @@ assert.deepEqual(
 assert.equal(profile.classification.automaticMaximum, 'nativo-preparado');
 
 const css = await readFile(path.join(packageRoot, 'dist', 'ieee.css'), 'utf8');
+const headInclude = await readFile(
+	path.join(repositoryRoot, '_includes', 'head', 'custom.html'),
+	'utf8',
+);
 assert.match(css, /size:\s*A4/);
 assert.match(css, /margin:\s*19\.05mm 14\.3225mm 43mm/);
 assert.match(css, /column-gap:\s*4\.2175mm/);
 assert.match(css, /column-fill:\s*balance/);
-assert.match(css, /\[data-print-article\]\s+\*\s*\{[^}]*Noto Sans[^}]*!important/s);
+assert.match(css, /#print-isolation-specificity-guard/);
+assert.match(css, /all:\s*revert\s*!important/);
+assert.match(css, /\*::before[^{]*\*::after\s*\{[^}]*all:\s*revert\s*!important/s);
+assert.match(css, /\.jcem-panel__table[^}]*display:\s*contents\s*!important/s);
+assert.match(css, /\.jcem-panel__edge\)\s*\{[^}]*display:\s*none\s*!important/s);
+assert.match(css, /\[data-print-article\][^}]*\*\s*\{[^}]*Noto Sans[^}]*!important/s);
 assert.match(css, /:where\(code, pre, kbd, samp, code \*, pre \*\)/);
 assert.doesNotMatch(css.split('@media print')[0], /\[data-print-article\]\s*\{[^}]*font-/s);
+assert.match(
+	headInclude,
+	/<link rel="stylesheet" href="\{\{ '\/assets\/jcem\/print-ieee\/ieee\.css' \| relative_url \}\}">/,
+);
+assert.doesNotMatch(
+	headInclude,
+	/print-ieee\/ieee\.css[^>]*media="print"/,
+	'o ocultador de auxiliares impressos precisa participar somente do contexto screen interno',
+);
 
 const dom = new JSDOM(
 	'<article data-print-article data-print-state="legivel"><time data-print-acquired-at></time><aside data-print-span="all"></aside></article>',

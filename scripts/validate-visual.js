@@ -1891,6 +1891,58 @@ const validatePrintTheme = async (page, url, viewportName) => {
 	await page.goto(url, { waitUntil: 'domcontentloaded' });
 	await page.waitForLoadState('load', { timeout: 15000 }).catch(() => {});
 	await page.locator('label[for="jcem-theme-dark"]').click();
+	const screenIsolation = await page.evaluate(() => {
+		const probe = document.createElement('style');
+		probe.dataset.printIsolationProbe = '';
+		probe.textContent = `
+			@media print {
+				.main_jcem_wrapper article.jcem-post .page__content p {
+					color: rgb(1, 2, 3) !important;
+					background: rgb(4, 5, 6) !important;
+					box-shadow: 0 0 0 9px rgb(7, 8, 9) !important;
+					font-family: serif !important;
+					text-indent: 123px !important;
+				}
+				.main_jcem_wrapper article.jcem-post .page__content h2 {
+					border: 9px solid rgb(10, 11, 12) !important;
+					background: rgb(13, 14, 15) !important;
+					box-shadow: 0 0 0 9px rgb(16, 17, 18) !important;
+				}
+				.main_jcem_wrapper article.jcem-post .page__content .jcem-panel--blockquote {
+					border: 9px solid rgb(19, 20, 21) !important;
+					background: rgb(22, 23, 24) !important;
+					box-shadow: 0 0 0 9px rgb(25, 26, 27) !important;
+				}
+				.main_jcem_wrapper article.jcem-post .page__content .jcem-panel__corner {
+					display: table-cell !important;
+					background-image: linear-gradient(red, red) !important;
+				}
+			}
+		`;
+		document.head.append(probe);
+
+		const article = document.querySelector('[data-print-article]');
+		const printOnly = Array.from(
+			document.querySelectorAll('[data-print-article] [data-print-only]'),
+		);
+		const panelCorner = document.querySelector(
+			'[data-print-article] .jcem-panel__corner--top-left',
+		);
+
+		return {
+			hasArticle: Boolean(article),
+			printOnlyCount: printOnly.length,
+			printOnlyHidden: printOnly.every(
+				(node) => window.getComputedStyle(node).display === 'none',
+			),
+			panelCount: document.querySelectorAll(
+				'[data-print-article] .jcem-panel--blockquote',
+			).length,
+			panelImage: panelCorner
+				? window.getComputedStyle(panelCorner).backgroundImage
+				: '',
+		};
+	});
 	await page.emulateMedia({ media: 'print' });
 	await page.waitForTimeout(150);
 
@@ -1927,6 +1979,24 @@ const validatePrintTheme = async (page, url, viewportName) => {
 			: null;
 		const markdownColumnsStyle = markdownColumns
 			? window.getComputedStyle(markdownColumns)
+			: null;
+		const normalParagraph = Array.from(
+			document.querySelectorAll('[data-print-article] [data-print-body] p'),
+		).find((node) => !node.closest('[role="blockquote"], blockquote, .footnotes'));
+		const heading = document.querySelector(
+			'[data-print-article] [data-print-body] h2',
+		);
+		const panel = document.querySelector(
+			'[data-print-article] .jcem-panel--blockquote',
+		);
+		const panelTable = panel?.querySelector('.jcem-panel__table');
+		const normalParagraphStyle = normalParagraph
+			? window.getComputedStyle(normalParagraph)
+			: null;
+		const headingStyle = heading ? window.getComputedStyle(heading) : null;
+		const panelStyle = panel ? window.getComputedStyle(panel) : null;
+		const panelTableStyle = panelTable
+			? window.getComputedStyle(panelTable)
 			: null;
 		const bodyStyle = window.getComputedStyle(document.body);
 		const rootStyle = window.getComputedStyle(document.documentElement);
@@ -1981,6 +2051,32 @@ const validatePrintTheme = async (page, url, viewportName) => {
 				'.page__content .jcem-panel--blockquote',
 			).length,
 			panelImage: panelCornerStyle?.backgroundImage || '',
+			printOnlyVisible: visible('[data-print-article] [data-print-only]'),
+			articleFont: articleStyle?.fontFamily || '',
+			paragraph: normalParagraphStyle
+				? {
+						background: normalParagraphStyle.backgroundColor,
+						boxShadow: normalParagraphStyle.boxShadow,
+						color: normalParagraphStyle.color,
+						font: normalParagraphStyle.fontFamily,
+						textIndent: normalParagraphStyle.textIndent,
+					}
+				: null,
+			heading: headingStyle
+				? {
+						background: headingStyle.backgroundColor,
+						borderTopWidth: headingStyle.borderTopWidth,
+						boxShadow: headingStyle.boxShadow,
+					}
+				: null,
+			panel: panelStyle
+				? {
+						background: panelStyle.backgroundColor,
+						borderInlineStartWidth: panelStyle.borderInlineStartWidth,
+						boxShadow: panelStyle.boxShadow,
+						tableDisplay: panelTableStyle?.display || '',
+					}
+				: null,
 			hasContentLink: Boolean(firstContentLink),
 			linkAfterDisplay: firstContentLinkAfterStyle?.display || '',
 			linkAfterContent: firstContentLinkAfterStyle?.content || '',
@@ -1995,6 +2091,23 @@ const validatePrintTheme = async (page, url, viewportName) => {
 	});
 
 	await page.emulateMedia({ media: 'screen' });
+	await page.evaluate(() => {
+		document.querySelector('style[data-print-isolation-probe]')?.remove();
+	});
+
+	if (
+		screenIsolation.hasArticle &&
+		(screenIsolation.printOnlyCount === 0 || !screenIsolation.printOnlyHidden)
+	) {
+		fail(`Estrutura exclusiva de impressao vazou para screen em ${url}`);
+	}
+
+	if (
+		screenIsolation.panelCount > 0 &&
+		!screenIsolation.panelImage.includes('painel')
+	) {
+		fail(`Isolamento de impressao alterou o painel web em ${url}`);
+	}
 
 	if (!result.darkChecked) {
 		fail(`Tema escuro nao foi habilitado antes do teste de impressao em ${url}`);
@@ -2016,12 +2129,47 @@ const validatePrintTheme = async (page, url, viewportName) => {
 		fail(`Impressao manteve fundo escuro em ${url}`);
 	}
 
+	if (screenIsolation.hasArticle && !result.articleFont.includes('Noto Sans')) {
+		fail(`Impressao herdou tipografia web em ${url}: ${result.articleFont}`);
+	}
+
+	if (
+		result.paragraph &&
+		(result.paragraph.background !== 'rgba(0, 0, 0, 0)' ||
+			result.paragraph.boxShadow !== 'none' ||
+			result.paragraph.color === 'rgb(1, 2, 3)' ||
+			!result.paragraph.font.includes('Noto Sans') ||
+			Number.parseFloat(result.paragraph.textIndent || '0') !== 0)
+	) {
+		fail(`Estilo web de paragrafo vazou para impressao em ${url}: ${JSON.stringify(result.paragraph)}`);
+	}
+
+	if (
+		result.heading &&
+		(result.heading.background !== 'rgba(0, 0, 0, 0)' ||
+			result.heading.borderTopWidth !== '0px' ||
+			result.heading.boxShadow !== 'none')
+	) {
+		fail(`Estilo web de titulo vazou para impressao em ${url}: ${JSON.stringify(result.heading)}`);
+	}
+
 	if (
 		result.panelCount > 0 &&
-		(!result.panelImage.includes('painel-modo-claro.svg') ||
-			result.panelImage.includes('/painel.svg'))
+		(result.panelImage !== 'none' ||
+			result.panel?.background !== 'rgba(0, 0, 0, 0)' ||
+			result.panel?.boxShadow !== 'none' ||
+			result.panel?.tableDisplay !== 'contents' ||
+			Number.parseFloat(result.panel?.borderInlineStartWidth || '0') <= 0)
 	) {
-		fail(`Impressao nao usa painel claro em ${url}`);
+		fail(`Estrutura web de blockquote vazou para impressao em ${url}: ${JSON.stringify(result.panel)}`);
+	}
+
+	if (
+		screenIsolation.hasArticle &&
+		screenIsolation.printOnlyCount > 0 &&
+		!result.printOnlyVisible
+	) {
+		fail(`Estrutura exclusiva de impressao nao apareceu em print em ${url}`);
 	}
 
 	if (!result.hiddenChrome) {
