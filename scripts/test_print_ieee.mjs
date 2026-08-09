@@ -1,0 +1,69 @@
+/*! Fonte: https://github.com/sitiojeancarloem/blog | Autor: Jean Carlo EM — https://www.jeancarloem.com | Licença: MPL-2.0 — https://mozilla.org/MPL/2.0/ — código aberto, sem garantia. */
+
+import assert from 'node:assert/strict';
+import { readFile } from 'node:fs/promises';
+import path from 'node:path';
+import { pathToFileURL, fileURLToPath } from 'node:url';
+import { JSDOM } from 'jsdom';
+
+const repositoryRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
+const packageRoot = path.join(repositoryRoot, 'src', 'jcem-print-ieee');
+const profileName = 'ieee-conference-a4-ieeetran-1.8b.json';
+const profile = JSON.parse(
+	await readFile(path.join(packageRoot, 'profiles', profileName), 'utf8'),
+);
+assert.equal(
+	profile.authority.referenceArchiveSha256,
+	'e0cd4f5afbd42c8076092280e72b3e0a5111efe501d35de9f715cfb8da313cb4',
+);
+assert.deepEqual(
+	[profile.page.paper, profile.page.scalePercent, profile.columns.count],
+	['A4', 100, 2],
+);
+assert.equal(profile.classification.automaticMaximum, 'nativo-preparado');
+
+const css = await readFile(path.join(packageRoot, 'dist', 'ieee.css'), 'utf8');
+assert.match(css, /size:\s*A4/);
+assert.match(css, /margin:\s*19\.05mm 14\.3225mm 43mm/);
+assert.match(css, /column-gap:\s*4\.2175mm/);
+assert.doesNotMatch(css.split('@media print')[0], /\[data-print-article\]\s*\{[^}]*font-/s);
+
+const dom = new JSDOM(
+	'<article data-print-article data-print-state="legivel"><time data-print-acquired-at></time><aside data-print-span="all"></aside></article>',
+	{ url: 'https://example.test/post/' },
+);
+Object.assign(globalThis, {
+	window: dom.window,
+	document: dom.window.document,
+	HTMLElement: dom.window.HTMLElement,
+	CustomEvent: dom.window.CustomEvent,
+});
+dom.window.matchMedia = () => ({
+	matches: false,
+	addEventListener() {},
+	removeEventListener() {},
+});
+
+const library = await import(
+	`${pathToFileURL(path.join(packageRoot, 'dist', 'index.js')).href}?test=${Date.now()}`
+);
+const article = document.querySelector('article');
+assert.equal(article.dataset.printState, 'legivel', 'importação não deve auto-inicializar');
+const controller = library.prepareArticle(article, {
+	acquiredAt: new Date('2026-08-09T12:00:00.000Z'),
+});
+assert.equal(controller.getState(), 'nativo-preparado');
+assert.equal(article.dataset.printProfile, profile.id);
+assert.equal(article.querySelector('time').getAttribute('datetime'), '2026-08-09T12:00:00.000Z');
+assert.equal(article.querySelector('aside').dataset.printSpan, 'all');
+controller.dispose();
+
+const publicModule = await readFile(
+	path.join(repositoryRoot, 'assets', 'jcem', 'print-ieee', 'index.js'),
+	'utf8',
+);
+const distModule = await readFile(path.join(packageRoot, 'dist', 'index.js'), 'utf8');
+assert.equal(publicModule, distModule);
+assert.match(publicModule, /^\/\*! Fonte:/);
+
+process.stdout.write(`print_ieee=ok profile=${profile.id} state=${controller.getState()}\n`);

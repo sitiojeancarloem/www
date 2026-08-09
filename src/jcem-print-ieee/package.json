@@ -1,0 +1,24 @@
+{
+	"name": "@jcem/print-ieee",
+	"version": "0.1.0",
+	"description": "Biblioteca agnóstica de preparação progressiva para impressão editorial em perfil IEEE versionado.",
+	"type": "module",
+	"main": "dist/index.js",
+	"exports": {
+		".": "./dist/index.js",
+		"./styles/ieee.css": "./dist/ieee.css",
+		"./profiles/*": "./dist/profiles/*"
+	},
+	"files": [
+		"dist",
+		"LICENSE",
+		"README.md"
+	],
+	"license": "MPL-2.0",
+	"sideEffects": [
+		"./dist/ieee.css"
+	],
+	"engines": {
+		"node": ">=20"
+	}
+}

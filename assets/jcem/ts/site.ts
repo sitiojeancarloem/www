@@ -1640,6 +1640,29 @@ const hideNoScript = (): void => {
 	// PROTECAO: o conteudo permanece visivel mesmo sem JavaScript.
 };
 
+const prepareJcemPrintArticle = async (): Promise<void> => {
+	const article = select<HTMLElement>('[data-print-article]');
+	if (!article) return;
+
+	try {
+		const modulePath = new URL('../print-ieee/index.js', import.meta.url).href;
+		const library = (await import(modulePath)) as {
+			prepareArticle: (
+				article: HTMLElement,
+				options?: { profileId?: string },
+			) => unknown;
+		};
+		library.prepareArticle(article, {
+			profileId:
+				article.dataset.printProfile ||
+				'ieee-conference-a4-ieeetran-1.8b',
+		});
+	} catch (_error) {
+		// PROTECAO: falha do recurso de impressão preserva o artigo legível.
+		article.dataset.printState = 'legivel';
+	}
+};
+
 bindJcemLoadingProgress();
 bindJcemSkeletonAssets();
 scheduleJcemInitialReveal();
@@ -1655,6 +1678,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	bindJcemEditorialFormatting();
 	bindJcemFootnotes();
 	bindJcemMathControls();
+	void prepareJcemPrintArticle();
 	hideNoScript();
 });
 

@@ -1,0 +1,61 @@
+{
+	"schema": 1,
+	"id": "ieee-conference-a4-ieeetran-1.8b",
+	"title": "IEEE conference, A4, two-column control profile",
+	"edition": "IEEEtran 1.8b",
+	"authority": {
+		"templatePage": "https://conferences.ieeeauthorcenter.ieee.org/write-your-paper/authoring-tools-and-templates/",
+		"referenceArchive": "https://mirrors.ctan.org/macros/latex/contrib/IEEEtran.zip",
+		"referenceArchiveSha256": "e0cd4f5afbd42c8076092280e72b3e0a5111efe501d35de9f715cfb8da313cb4",
+		"acquiredOn": "2026-08-09",
+		"referenceLicense": "LPPL-1.3c",
+		"redistributed": false
+	},
+	"page": {
+		"paper": "A4",
+		"widthMm": 210,
+		"heightMm": 297,
+		"scalePercent": 100,
+		"marginTopMm": 19.05,
+		"marginRightMm": 14.3225,
+		"marginBottomMm": 43,
+		"marginLeftMm": 14.3225
+	},
+	"columns": {
+		"count": 2,
+		"contentWidthMm": 181.355,
+		"gapMm": 4.2175,
+		"columnWidthMm": 88.5687,
+		"referenceLinesPerColumn": 56
+	},
+	"typography": {
+		"referenceFamily": "Times",
+		"consumerFamily": "Noto Sans",
+		"fallbackFamily": "Arial, sans-serif",
+		"bodyPt": 9,
+		"lineHeightPt": 10.8
+	},
+	"tolerances": {
+		"pageMm": 0.5,
+		"columnMm": 0.5,
+		"scalePercent": 0
+	},
+	"classification": {
+		"automaticMaximum": "nativo-preparado",
+		"validatedRequiresPhysicalReport": true
+	},
+	"support": {
+		"browser": [
+			"Chromium 140+",
+			"Firefox 141+",
+			"Safari 18+"
+		],
+		"runtime": [
+			"ES2020",
+			"CSS Paged Media",
+			"CSS Multi-column Layout"
+		],
+		"node": ">=20",
+		"jekyll": "static adapter; no runtime dependency"
+	}
+}

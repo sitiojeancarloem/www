@@ -77,13 +77,14 @@ layout: default
 <div id="main" role="main">
   {% include sidebar.html locale=locale %}
 
-  <article class="page h-entry{% if page.collection == 'posts' %} jcem-post{% endif %}{% if jcem_featured_style != "" %} jcem-featured-style--{{ jcem_featured_style }}{% endif %}{% if jcem_blockquote_panels %} jcem-blockquote-panels{% endif %}" data-jcem-quote-default="{{ jcem_blockquote_model }}" itemscope itemtype="https://schema.org/CreativeWork"{% if page.locale %} lang="{{ page.locale }}"{% endif %}>
+  <article class="page h-entry{% if page.collection == 'posts' %} jcem-post{% endif %}{% if jcem_featured_style != "" %} jcem-featured-style--{{ jcem_featured_style }}{% endif %}{% if jcem_blockquote_panels %} jcem-blockquote-panels{% endif %}" data-jcem-quote-default="{{ jcem_blockquote_model }}"{% if page.collection == 'posts' %} data-print-article data-print-profile="ieee-conference-a4-ieeetran-1.8b" data-print-state="legivel"{% endif %} itemscope itemtype="https://schema.org/CreativeWork"{% if page.locale %} lang="{{ page.locale }}"{% endif %}>
     {% if page.title %}<meta itemprop="headline" content="{{ page.title | replace: '|', '&#124;' | markdownify | strip_html | strip_newlines | escape_once }}">{% endif %}
     {% if page.excerpt %}<meta itemprop="description" content="{{ page.excerpt | markdownify | strip_html | strip_newlines | escape_once }}">{% endif %}
     {% if page.date %}<meta itemprop="datePublished" content="{{ page.date | date_to_xmlschema }}">{% endif %}
     {% if page.last_modified_at %}<meta itemprop="dateModified" content="{{ page.last_modified_at | date_to_xmlschema }}">{% endif %}
 
     <div class="page__inner-wrap">
+	  {% if page.collection == 'posts' %}{% include jcem/print-metadata.html %}{% endif %}
       {% unless jcem_overlay_header %}
         <header class="jcem-post-header">
           {% if jcem_content_featured %}
@@ -100,7 +101,7 @@ layout: default
         </header>
       {% endunless %}
 
-      <section class="page__content e-content" itemprop="text">
+      <section class="page__content e-content"{% if page.collection == 'posts' %} data-print-body{% endif %} itemprop="text">
         {% if page.toc %}
           <aside class="sidebar__right {% if page.toc_sticky %}sticky{% endif %}">
             <nav class="toc" aria-label="Table of contents">
@@ -125,6 +126,7 @@ layout: default
       {% if page.share %}{% include social-share.html locale=locale %}{% endif %}
 
       {% include post_pagination.html locale=locale %}
+	  {% if page.collection == 'posts' %}{% include jcem/print-institutional.html %}{% endif %}
     </div>
 
     {% if site.comments.provider and page.comments %}

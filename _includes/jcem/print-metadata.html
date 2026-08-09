@@ -1,0 +1,8 @@
+{% comment %}Fonte: https://github.com/sitiojeancarloem/blog | Autor: Jean Carlo EM — https://www.jeancarloem.com | Licença: MPL-2.0 — https://mozilla.org/MPL/2.0/ — código aberto, sem garantia.{% endcomment %}
+<aside class="jcem-print-metadata" data-print-only data-print-metadata data-print-span="all" aria-label="Metadados da impressão">
+  <strong>{{ site.title }}</strong>
+  <span>URL canônica: {{ page.url | absolute_url }}</span>
+  {% if page.date %}<span>Publicado: <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%d/%m/%Y" }}</time></span>{% endif %}
+  {% if page.last_modified_at %}<span>Atualizado: <time datetime="{{ page.last_modified_at | date_to_xmlschema }}">{{ page.last_modified_at | date: "%d/%m/%Y" }}</time></span>{% endif %}
+  <span>Obtido para impressão: <time data-print-acquired-at>não preparado</time></span>
+</aside>

@@ -176,4 +176,9 @@
 <link rel="stylesheet" href="{{ '/assets/jcem/css/math.css' | relative_url }}">
 {% endif %}
 
+{% if page.collection == 'posts' %}
+<link rel="stylesheet" href="{{ '/assets/jcem/print-ieee/ieee.css' | relative_url }}" media="print">
+<link rel="stylesheet" href="{{ '/assets/jcem/print-ieee/jekyll-blog.css' | relative_url }}" media="print">
+{% endif %}
+
 <script src="{{ '/assets/jcem/js/site.js' | relative_url }}" type="module"></script>

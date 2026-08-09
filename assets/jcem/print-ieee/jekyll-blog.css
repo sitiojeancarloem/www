@@ -1,0 +1,44 @@
+/*! Fonte: https://github.com/sitiojeancarloem/blog | Autor: Jean Carlo EM — https://www.jeancarloem.com | Licença: MPL-2.0 — https://mozilla.org/MPL/2.0/ — código aberto, sem garantia. */
+
+@media print {
+	body:has([data-print-article]) > :not(.main_jcem_wrapper),
+	body:has([data-print-article]) .masthead,
+	body:has([data-print-article]) .sidebar,
+	body:has([data-print-article]) .page__footer,
+	body:has([data-print-article]) .page__meta,
+	body:has([data-print-article]) .page__share,
+	body:has([data-print-article]) .pagination,
+	body:has([data-print-article]) .toc,
+	body:has([data-print-article]) .jcem-post-date-flag,
+	body:has([data-print-article]) .jcem-post-read-time,
+	body:has([data-print-article]) .jcem-recent-posts,
+	body:has([data-print-article]) #disqus_thread {
+		display: none !important;
+	}
+
+	body:has([data-print-article]) .main_jcem_wrapper,
+	body:has([data-print-article]) .initial-content,
+	body:has([data-print-article]) #main,
+	body:has([data-print-article]) .page__inner-wrap {
+		box-sizing: border-box;
+		width: auto !important;
+		max-width: none !important;
+		margin: 0 !important;
+		padding: 0 !important;
+		background: #fff !important;
+		box-shadow: none !important;
+	}
+
+	body:has([data-print-article]) [data-print-article] .jcem-post-header,
+	body:has([data-print-article]) [data-print-article] .jcem-article-authors {
+		column-span: all;
+		break-inside: avoid;
+	}
+
+	body:has([data-print-article]) [data-print-article] .page__content {
+		width: auto !important;
+		max-width: none !important;
+		margin: 0 !important;
+		padding: 0 !important;
+	}
+}

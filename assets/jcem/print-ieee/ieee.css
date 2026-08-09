@@ -1,0 +1,113 @@
+/*! Fonte: https://github.com/sitiojeancarloem/blog | Autor: Jean Carlo EM — https://www.jeancarloem.com | Licença: MPL-2.0 — https://mozilla.org/MPL/2.0/ — código aberto, sem garantia. */
+
+@page {
+	size: A4;
+	margin: 19.05mm 14.3225mm 43mm;
+}
+
+@media screen {
+	[data-print-article] [data-print-only] {
+		display: none;
+	}
+}
+
+@media print {
+	html,
+	body {
+		background: #fff !important;
+	}
+
+	[data-print-article] {
+		box-sizing: border-box;
+		width: 181.355mm !important;
+		max-width: 181.355mm !important;
+		margin: 0 auto !important;
+		padding: 0 !important;
+		color: #000 !important;
+		background: #fff !important;
+		font-family: "Noto Sans", Arial, sans-serif !important;
+		font-size: 9pt !important;
+		line-height: 10.8pt !important;
+		box-shadow: none !important;
+		filter: none !important;
+	}
+
+	[data-print-article] [data-print-body] {
+		column-count: 2 !important;
+		column-gap: 4.2175mm !important;
+		column-fill: auto;
+		orphans: 2;
+		widows: 2;
+	}
+
+	[data-print-article] [data-print-only] {
+		display: block !important;
+	}
+
+	[data-print-article] [data-print-span="all"] {
+		column-span: all;
+	}
+
+	[data-print-article] h1,
+	[data-print-article] h2,
+	[data-print-article] h3,
+	[data-print-article] h4,
+	[data-print-article] h5,
+	[data-print-article] h6,
+	[data-print-article] figure,
+	[data-print-article] table,
+	[data-print-article] blockquote,
+	[data-print-article] [role="blockquote"] {
+		break-inside: avoid;
+	}
+
+	[data-print-article] h1 {
+		font-size: 18pt !important;
+		line-height: 21pt !important;
+		text-align: center;
+	}
+
+	[data-print-article] h2 {
+		font-size: 10pt !important;
+		line-height: 12pt !important;
+	}
+
+	[data-print-article] h3,
+	[data-print-article] h4,
+	[data-print-article] h5,
+	[data-print-article] h6 {
+		font-size: 9pt !important;
+		line-height: 10.8pt !important;
+	}
+
+	[data-print-article] img,
+	[data-print-article] svg,
+	[data-print-article] canvas,
+	[data-print-article] table {
+		max-width: 100% !important;
+		filter: none !important;
+		-webkit-print-color-adjust: exact;
+		print-color-adjust: exact;
+	}
+
+	[data-print-article] a::after {
+		content: none !important;
+	}
+
+	[data-print-article] [data-print-institutional],
+	[data-print-article] [data-print-metadata] {
+		column-span: all;
+		margin: 0 0 3mm;
+		padding: 0 0 2mm;
+		border-bottom: 0.25pt solid #777;
+		font-size: 7pt !important;
+		line-height: 8.4pt !important;
+	}
+
+	[data-print-article] [data-print-institutional] {
+		margin: 3mm 0 0;
+		padding: 2mm 0 0;
+		border-top: 0.25pt solid #777;
+		border-bottom: 0;
+	}
+}
