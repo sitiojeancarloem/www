@@ -622,7 +622,7 @@ Similaridade visual em tela, dependência exclusiva de um motor, funcionamento a
   5.  permitir seleção/customização por ocorrência;
   6.  preservar o mecanismo existente de definição de padrão por artigo;
   7.  impedir que o padrão global sobrescreva uma configuração específica;
-  8.  garantir compatibilidade com estruturas `<blockquote>`, `div`, `table` e customizadas quando efetivamente utilizadas;
+  8.  garantir compatibilidade com estruturas `<blockquote>`, `div`, `table` e customizadas quando efetivamente utilizadas - a mesma sintaxe de marcação que é capaz de atribuir estilo/estilização diferenciada é a mesma que é capaz de alterar a estrutura construtura, ou seja, um mesmo estilo de marcação inequivoco é auto interpretativo;
   9.  documentar a precedência entre configuração específica e padrões;
   10. adicionar testes para múltiplos estilos, múltiplos modelos estruturais e sobrescrita localizada.
 
@@ -633,6 +633,8 @@ Similaridade visual em tela, dependência exclusiva de um motor, funcionamento a
   - Uma ocorrência específica pode sobrescrever esse padrão.
   - A customização específica não é perdida durante renderização/publicação.
   - Não há imposição arbitrária de estilo/modelo único.
+  - Na ausência da especificação do modelo de blockquote, o modelo padrão é usado
+  - uma marcação especifica para cada blockquote permite desde meramente aplicar tema/estilo ao blockquote até alterar a estrutura a sedr usada para a construção do mesmo - a sintaxe neste caso é padronizada e segue o mesmo modelo
   - A precedência entre configuração específica e padrões é determinística.
   - Novos modelos podem ser incorporados sem reestruturar a norma.
   - Testes comprovam os comportamentos acima.
