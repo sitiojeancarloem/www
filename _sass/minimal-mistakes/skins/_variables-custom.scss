@@ -46,6 +46,9 @@
 	);
 	--dark--jcem-wide-header-lift: clamp(4rem, 12vh, 5rem);
 	--dark--jcem-quote-bg: #2b303b;
+	--dark--jcem-subquote-bg: rgba(244, 212, 0, 0.14);
+	--dark--jcem-subquote-border: rgba(244, 212, 0, 0.82);
+	--dark--jcem-subquote-panel-bg: rgba(123, 200, 255, 0.16);
 	--dark--jcem-alert-bg: #3c222a;
 	--dark--jcem-alert-background: #cd182a;
 	--dark--jcem-title-color: #f1ca4c;
@@ -108,6 +111,9 @@
 	);
 	--clean--jcem-wide-header-lift: clamp(4rem, 9vh, 5rem);
 	--clean--jcem-quote-bg: #f4f8fa;
+	--clean--jcem-subquote-bg: rgba(176, 139, 0, 0.13);
+	--clean--jcem-subquote-border: rgba(111, 86, 0, 0.76);
+	--clean--jcem-subquote-panel-bg: rgba(47, 125, 149, 0.13);
 	--clean--jcem-alert-bg: #fff3f3;
 	--clean--jcem-alert-background: #c01e1e;
 	--clean--jcem-title-color: #2f5963;
@@ -190,6 +196,9 @@ body > input.radio.jcem-theme-radio {
 	--jcem-article-fade: var(--clean--jcem-article-fade);
 	--jcem-wide-header-lift: var(--clean--jcem-wide-header-lift);
 	--jcem-quote-bg: var(--clean--jcem-quote-bg);
+	--jcem-subquote-bg: var(--clean--jcem-subquote-bg);
+	--jcem-subquote-border: var(--clean--jcem-subquote-border);
+	--jcem-subquote-panel-bg: var(--clean--jcem-subquote-panel-bg);
 	--jcem-alert-bg: var(--clean--jcem-alert-bg);
 	--jcem-alert-background: var(--clean--jcem-alert-background);
 	--jcem-title-color: var(--clean--jcem-title-color);
@@ -257,6 +266,9 @@ body > input.radio#jcem-theme-dark:checked ~ .main_jcem_wrapper {
 	--jcem-article-fade: var(--dark--jcem-article-fade);
 	--jcem-wide-header-lift: var(--dark--jcem-wide-header-lift);
 	--jcem-quote-bg: var(--dark--jcem-quote-bg);
+	--jcem-subquote-bg: var(--dark--jcem-subquote-bg);
+	--jcem-subquote-border: var(--dark--jcem-subquote-border);
+	--jcem-subquote-panel-bg: var(--dark--jcem-subquote-panel-bg);
 	--jcem-alert-bg: var(--dark--jcem-alert-bg);
 	--jcem-alert-background: var(--dark--jcem-alert-background);
 	--jcem-title-color: var(--dark--jcem-title-color);
@@ -1011,6 +1023,26 @@ body > input.radio#jcem-theme-dark:checked ~ .main_jcem_wrapper {
 	.page__content
 	.jcem-inline-quote {
 	font-style: italic;
+}
+
+.main_jcem_wrapper
+	article.jcem-post
+	.page__content
+	.jcem-inline-quote.jcem-subquote {
+	padding: 0.04em 0.24em 0.06em 0.32em;
+	border-inline-start: 0.16em double var(--jcem-subquote-border);
+	border-radius: 0.16em;
+	background: var(--jcem-subquote-bg);
+	box-decoration-break: clone;
+	-webkit-box-decoration-break: clone;
+}
+
+.main_jcem_wrapper
+	article.jcem-post
+	.page__content
+	.jcem-panel--futuristic
+	.jcem-inline-quote.jcem-subquote {
+	background: var(--jcem-subquote-panel-bg);
 }
 
 .main_jcem_wrapper .page__content .jcem-quote-reference {

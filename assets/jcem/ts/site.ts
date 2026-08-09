@@ -1,5 +1,7 @@
 /*! Fonte: https://github.com/sitiojeancarloem/blog | Autor: Jean Carlo EM — https://www.jeancarloem.com | Licença: MPL-2.0 — https://mozilla.org/MPL/2.0/ — código aberto, sem garantia. */
 
+import { formatJcemInlineQuotes } from './inline-quotes.js';
+
 declare global {
 	interface Element {
 		on(type: string, listener: EventListenerOrEventListenerObject): void;
@@ -866,121 +868,6 @@ const bindJcemQuoteReferences = (): void => {
 		.forEach(normalizeJcemQuoteReferences);
 };
 
-const jcemQuotePairs = new Map<string, string>([
-	['"', '"'],
-	["'", "'"],
-	['“', '”'],
-	['‘', '’'],
-]);
-
-const jcemWordCharacterPattern = /[0-9A-Za-zÀ-ÖØ-öø-ÿ]/;
-const jcemQuoteContentPattern = /[0-9A-Za-zÀ-ÖØ-öø-ÿ]/;
-
-const isJcemWordCharacter = (value: string): boolean =>
-	jcemWordCharacterPattern.test(value);
-
-const isJcemSingleQuoteBoundary = (
-	text: string,
-	index: number,
-	opening: boolean,
-): boolean => {
-	const previous = text[index - 1] || '';
-	const next = text[index + 1] || '';
-
-	if (opening) {
-		return !isJcemWordCharacter(previous) && Boolean(next.trim());
-	}
-
-	return !isJcemWordCharacter(next) && Boolean(previous.trim());
-};
-
-const findJcemClosingQuote = (
-	text: string,
-	start: number,
-	closeQuote: string,
-): number => {
-	for (let index = start + 1; index < text.length; index += 1) {
-		if (text[index] !== closeQuote) {
-			continue;
-		}
-
-		if (
-			closeQuote === "'" &&
-			!isJcemSingleQuoteBoundary(text, index, false)
-		) {
-			continue;
-		}
-
-		return index;
-	}
-
-	return -1;
-};
-
-const wrapJcemInlineQuotesInText = (textNode: Text): boolean => {
-	const text = textNode.textContent || '';
-
-	if (!/["'“‘]/.test(text)) {
-		return false;
-	}
-
-	const fragment = document.createDocumentFragment();
-	let cursor = 0;
-	let lastAppend = 0;
-	let changed = false;
-
-	while (cursor < text.length) {
-		const openQuote = text[cursor];
-		const closeQuote = jcemQuotePairs.get(openQuote);
-
-		if (
-			!closeQuote ||
-			(openQuote === "'" && !isJcemSingleQuoteBoundary(text, cursor, true))
-		) {
-			cursor += 1;
-			continue;
-		}
-
-		const closeIndex = findJcemClosingQuote(text, cursor, closeQuote);
-
-		if (closeIndex <= cursor + 1) {
-			cursor += 1;
-			continue;
-		}
-
-		const quoted = text.slice(cursor, closeIndex + 1);
-
-		if (!jcemQuoteContentPattern.test(quoted)) {
-			cursor += 1;
-			continue;
-		}
-
-		if (cursor > lastAppend) {
-			fragment.append(document.createTextNode(text.slice(lastAppend, cursor)));
-		}
-
-		const quote = document.createElement('em');
-		quote.className = 'jcem-inline-quote';
-		quote.textContent = quoted;
-		fragment.append(quote);
-
-		lastAppend = closeIndex + 1;
-		cursor = closeIndex + 1;
-		changed = true;
-	}
-
-	if (!changed) {
-		return false;
-	}
-
-	if (lastAppend < text.length) {
-		fragment.append(document.createTextNode(text.slice(lastAppend)));
-	}
-
-	textNode.replaceWith(fragment);
-	return changed;
-};
-
 const bindJcemEditorialFormatting = (): void => {
 	const article = select<HTMLElement>('article.page.jcem-post');
 	const content = select<HTMLElement>('.page__content');
@@ -989,37 +876,7 @@ const bindJcemEditorialFormatting = (): void => {
 		return;
 	}
 
-	const walker = document.createTreeWalker(
-		content,
-		NodeFilter.SHOW_TEXT,
-		{
-			acceptNode(node) {
-				const parent = node.parentElement;
-				const text = node.textContent || '';
-
-				if (!parent || !/["'“‘]/.test(text)) {
-					return NodeFilter.FILTER_REJECT;
-				}
-
-				if (
-					parent.closest(
-						'a, em, i, cite, code, pre, kbd, samp, script, style, .footnotes, .jcem-references, .jcem-inline-quote',
-					)
-				) {
-					return NodeFilter.FILTER_REJECT;
-				}
-
-				return NodeFilter.FILTER_ACCEPT;
-			},
-		},
-	);
-	const textNodes: Text[] = [];
-
-	while (walker.nextNode()) {
-		textNodes.push(walker.currentNode as Text);
-	}
-
-	textNodes.forEach(wrapJcemInlineQuotesInText);
+	formatJcemInlineQuotes(content);
 };
 
 const footnoteSummaryMaxLength = 260;

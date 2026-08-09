@@ -1,0 +1,142 @@
+/*! Fonte: https://github.com/sitiojeancarloem/blog | Autor: Jean Carlo EM — https://www.jeancarloem.com | Licença: MPL-2.0 — https://mozilla.org/MPL/2.0/ — código aberto, sem garantia. */
+
+export interface InlineQuoteFormattingResult {
+	inline: number;
+	subquotes: number;
+}
+
+const quotePairs = new Map<string, string>([
+	['"', '"'],
+	["'", "'"],
+	['“', '”'],
+	['‘', '’'],
+]);
+const wordCharacterPattern = /[0-9A-Za-zÀ-ÖØ-öø-ÿ]/;
+const quoteContentPattern = /[0-9A-Za-zÀ-ÖØ-öø-ÿ]/;
+const semanticBlockSelector =
+	'blockquote, [data-jcem-blockquote], [role="blockquote"]';
+const excludedContextSelector =
+	'a, em, i, cite, code, pre, kbd, samp, script, style, .footnotes, .jcem-references, .jcem-inline-quote';
+
+const isWordCharacter = (value: string): boolean =>
+	wordCharacterPattern.test(value);
+
+const isSingleQuoteBoundary = (
+	text: string,
+	index: number,
+	opening: boolean,
+): boolean => {
+	const previous = text[index - 1] || '';
+	const next = text[index + 1] || '';
+
+	return opening
+		? !isWordCharacter(previous) && Boolean(next.trim())
+		: !isWordCharacter(next) && Boolean(previous.trim());
+};
+
+const findClosingQuote = (
+	text: string,
+	start: number,
+	closeQuote: string,
+): number => {
+	for (let index = start + 1; index < text.length; index += 1) {
+		if (text[index] !== closeQuote) continue;
+		if (closeQuote === "'" && !isSingleQuoteBoundary(text, index, false)) {
+			continue;
+		}
+		return index;
+	}
+
+	return -1;
+};
+
+const wrapInlineQuotesInText = (textNode: Text): boolean => {
+	const text = textNode.textContent || '';
+	if (!/["'“‘]/.test(text)) return false;
+
+	const fragment = document.createDocumentFragment();
+	let cursor = 0;
+	let lastAppend = 0;
+	let changed = false;
+
+	while (cursor < text.length) {
+		const openQuote = text[cursor];
+		const closeQuote = quotePairs.get(openQuote);
+		if (
+			!closeQuote ||
+			(openQuote === "'" && !isSingleQuoteBoundary(text, cursor, true))
+		) {
+			cursor += 1;
+			continue;
+		}
+
+		const closeIndex = findClosingQuote(text, cursor, closeQuote);
+		if (closeIndex <= cursor + 1) {
+			cursor += 1;
+			continue;
+		}
+
+		const quoted = text.slice(cursor, closeIndex + 1);
+		if (!quoteContentPattern.test(quoted)) {
+			cursor += 1;
+			continue;
+		}
+
+		if (cursor > lastAppend) {
+			fragment.append(document.createTextNode(text.slice(lastAppend, cursor)));
+		}
+		const quote = document.createElement('em');
+		quote.className = 'jcem-inline-quote';
+		quote.dataset.jcemInlineQuote = 'automatic';
+		quote.textContent = quoted;
+		fragment.append(quote);
+
+		lastAppend = closeIndex + 1;
+		cursor = closeIndex + 1;
+		changed = true;
+	}
+
+	if (!changed) return false;
+	if (lastAppend < text.length) {
+		fragment.append(document.createTextNode(text.slice(lastAppend)));
+	}
+	textNode.replaceWith(fragment);
+	return true;
+};
+
+const classifyInlineQuote = (quote: HTMLElement): 'inline' | 'subquote' => {
+	const ancestor = quote.parentElement?.closest(
+		`${semanticBlockSelector}, .jcem-inline-quote`,
+	);
+	const kind = ancestor ? 'subquote' : 'inline';
+	quote.dataset.jcemQuoteKind = kind;
+	quote.classList.toggle('jcem-subquote', kind === 'subquote');
+	if (kind === 'subquote') quote.dataset.jcemSubquote = 'contextual';
+	else delete quote.dataset.jcemSubquote;
+	return kind;
+};
+
+export const formatJcemInlineQuotes = (
+	content: HTMLElement,
+): InlineQuoteFormattingResult => {
+	const walker = document.createTreeWalker(content, NodeFilter.SHOW_TEXT, {
+		acceptNode(node) {
+			const parent = node.parentElement;
+			const text = node.textContent || '';
+			if (!parent || !/["'“‘]/.test(text)) return NodeFilter.FILTER_REJECT;
+			if (parent.closest(excludedContextSelector)) return NodeFilter.FILTER_REJECT;
+			return NodeFilter.FILTER_ACCEPT;
+		},
+	});
+	const textNodes: Text[] = [];
+	while (walker.nextNode()) textNodes.push(walker.currentNode as Text);
+	textNodes.forEach(wrapInlineQuotesInText);
+
+	let inline = 0;
+	let subquotes = 0;
+	content.querySelectorAll<HTMLElement>('.jcem-inline-quote').forEach((quote) => {
+		if (classifyInlineQuote(quote) === 'subquote') subquotes += 1;
+		else inline += 1;
+	});
+	return { inline, subquotes };
+};
