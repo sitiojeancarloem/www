@@ -1,3 +1,5 @@
+/*! Fonte: https://github.com/sitiojeancarloem/blog | Autor: Jean Carlo EM — https://www.jeancarloem.com | Licença: MPL-2.0 — https://mozilla.org/MPL/2.0/ — código aberto, sem garantia. */
+import { formatJcemInlineQuotes } from './inline-quotes.js';
 Element.prototype.on = function (type, listener) {
     this.addEventListener(type, listener);
 };
@@ -422,16 +424,47 @@ const bindJcemCollapsibleSections = () => {
     });
     bindJcemPrintCollapsibles();
 };
+const jcemQuoteModels = ['standard', 'futuristic'];
+const isJcemQuoteModel = (value) => jcemQuoteModels.includes(value);
+const resolveJcemQuoteModel = (quote, article) => {
+    const requested = quote.dataset.jcemQuoteModel ||
+        article.dataset.jcemQuoteDefault ||
+        (article.classList.contains('jcem-blockquote-panels')
+            ? 'futuristic'
+            : 'standard');
+    if (isJcemQuoteModel(requested)) {
+        return requested;
+    }
+    quote.dataset.jcemQuoteDiagnostic = 'modelo-desconhecido';
+    console.warn(`quote_semantics=modelo_desconhecido model=${requested}`);
+    return 'standard';
+};
+const markJcemSemanticQuote = (quote, model) => {
+    quote.dataset.jcemBlockquote = '';
+    quote.dataset.jcemQuoteModel = model;
+    quote.classList.remove('jcem-quote-model--standard', 'jcem-quote-model--futuristic');
+    quote.classList.add(`jcem-quote-model--${model}`);
+    if (quote.tagName !== 'BLOCKQUOTE' && !quote.hasAttribute('role')) {
+        quote.setAttribute('role', 'blockquote');
+    }
+};
 const bindJcemBlockquotePanels = () => {
-    const article = select('article.page.jcem-blockquote-panels');
+    const article = select('article.page.jcem-post');
     const content = select('.page__content');
     if (!article || !content) {
         return;
     }
-    content
-        .querySelectorAll('blockquote:not(.jcem-panel)')
+    Array.from(content.querySelectorAll('blockquote:not(.jcem-panel), [data-jcem-blockquote]:not(.jcem-panel)'))
+        .reverse()
         .forEach((quote) => {
-        if (quote.closest('.footnotes, .jcem-references')) {
+        if (quote.closest('.footnotes, .jcem-references') ||
+            quote.dataset.jcemQuoteProcessed === 'true') {
+            return;
+        }
+        const model = resolveJcemQuoteModel(quote, article);
+        markJcemSemanticQuote(quote, model);
+        quote.dataset.jcemQuoteProcessed = 'true';
+        if (model !== 'futuristic' || quote.tagName !== 'BLOCKQUOTE') {
             return;
         }
         const panel = document.createElement('div');
@@ -456,11 +489,19 @@ const bindJcemBlockquotePanels = () => {
             'jcem-panel',
             'jcem-panel--blockquote',
             'jcem-panel--futuristic',
+            'jcem-quote-model--futuristic',
             quote.className,
         ]
             .filter(Boolean)
             .join(' ');
         panel.dataset.jcemPanelSource = 'blockquote';
+        panel.dataset.jcemBlockquote = '';
+        panel.dataset.jcemQuoteModel = 'futuristic';
+        panel.dataset.jcemQuoteProcessed = 'true';
+        panel.setAttribute('role', 'blockquote');
+        if (quote.id) {
+            panel.id = quote.id;
+        }
         table.className = 'nohover jcem-panel__table';
         table.cellSpacing = '0';
         table.cellPadding = '0';
@@ -474,6 +515,19 @@ const bindJcemBlockquotePanels = () => {
         final.className = 'final jcem-panel__edge jcem-panel__edge--bottom';
         body.className = 'jcem-panel__body';
         body.colSpan = 3;
+        body.dataset.jcemBlockquoteBody = '';
+        for (const attribute of [
+            'cite',
+            'lang',
+            'dir',
+            'aria-label',
+            'aria-labelledby',
+        ]) {
+            const value = quote.getAttribute(attribute);
+            if (value) {
+                body.setAttribute(attribute, value);
+            }
+        }
         topLeft.className = 'jcem-panel__corner jcem-panel__corner--top-left';
         topCenter.className = 'jcem-panel__edge-fill jcem-panel__edge-fill--top';
         topRight.className =
@@ -570,107 +624,13 @@ const bindJcemQuoteReferences = () => {
         .querySelectorAll('.page__content blockquote, .page__content .jcem-panel__body')
         .forEach(normalizeJcemQuoteReferences);
 };
-const jcemQuotePairs = new Map([
-    ['"', '"'],
-    ["'", "'"],
-    ['“', '”'],
-    ['‘', '’'],
-]);
-const jcemWordCharacterPattern = /[0-9A-Za-zÀ-ÖØ-öø-ÿ]/;
-const jcemQuoteContentPattern = /[0-9A-Za-zÀ-ÖØ-öø-ÿ]/;
-const isJcemWordCharacter = (value) => jcemWordCharacterPattern.test(value);
-const isJcemSingleQuoteBoundary = (text, index, opening) => {
-    const previous = text[index - 1] || '';
-    const next = text[index + 1] || '';
-    if (opening) {
-        return !isJcemWordCharacter(previous) && Boolean(next.trim());
-    }
-    return !isJcemWordCharacter(next) && Boolean(previous.trim());
-};
-const findJcemClosingQuote = (text, start, closeQuote) => {
-    for (let index = start + 1; index < text.length; index += 1) {
-        if (text[index] !== closeQuote) {
-            continue;
-        }
-        if (closeQuote === "'" &&
-            !isJcemSingleQuoteBoundary(text, index, false)) {
-            continue;
-        }
-        return index;
-    }
-    return -1;
-};
-const wrapJcemInlineQuotesInText = (textNode) => {
-    const text = textNode.textContent || '';
-    if (!/["'“‘]/.test(text)) {
-        return false;
-    }
-    const fragment = document.createDocumentFragment();
-    let cursor = 0;
-    let lastAppend = 0;
-    let changed = false;
-    while (cursor < text.length) {
-        const openQuote = text[cursor];
-        const closeQuote = jcemQuotePairs.get(openQuote);
-        if (!closeQuote ||
-            (openQuote === "'" && !isJcemSingleQuoteBoundary(text, cursor, true))) {
-            cursor += 1;
-            continue;
-        }
-        const closeIndex = findJcemClosingQuote(text, cursor, closeQuote);
-        if (closeIndex <= cursor + 1) {
-            cursor += 1;
-            continue;
-        }
-        const quoted = text.slice(cursor, closeIndex + 1);
-        if (!jcemQuoteContentPattern.test(quoted)) {
-            cursor += 1;
-            continue;
-        }
-        if (cursor > lastAppend) {
-            fragment.append(document.createTextNode(text.slice(lastAppend, cursor)));
-        }
-        const quote = document.createElement('em');
-        quote.className = 'jcem-inline-quote';
-        quote.textContent = quoted;
-        fragment.append(quote);
-        lastAppend = closeIndex + 1;
-        cursor = closeIndex + 1;
-        changed = true;
-    }
-    if (!changed) {
-        return false;
-    }
-    if (lastAppend < text.length) {
-        fragment.append(document.createTextNode(text.slice(lastAppend)));
-    }
-    textNode.replaceWith(fragment);
-    return changed;
-};
 const bindJcemEditorialFormatting = () => {
     const article = select('article.page.jcem-post');
     const content = select('.page__content');
     if (!article || !content) {
         return;
     }
-    const walker = document.createTreeWalker(content, NodeFilter.SHOW_TEXT, {
-        acceptNode(node) {
-            const parent = node.parentElement;
-            const text = node.textContent || '';
-            if (!parent || !/["'“‘]/.test(text)) {
-                return NodeFilter.FILTER_REJECT;
-            }
-            if (parent.closest('a, em, i, cite, code, pre, kbd, samp, script, style, .footnotes, .jcem-references, .jcem-inline-quote')) {
-                return NodeFilter.FILTER_REJECT;
-            }
-            return NodeFilter.FILTER_ACCEPT;
-        },
-    });
-    const textNodes = [];
-    while (walker.nextNode()) {
-        textNodes.push(walker.currentNode);
-    }
-    textNodes.forEach(wrapJcemInlineQuotesInText);
+    formatJcemInlineQuotes(content);
 };
 const footnoteSummaryMaxLength = 260;
 const jcemFootnoteRefSelector = "sup[id^='fnref'] a.footnote[href^='#fn:'], sup[id^='fnref'] a[role='doc-noteref'][href^='#fn:']";
@@ -1128,6 +1088,22 @@ const hideNoScript = () => {
         noScript.style.display = 'none';
     }
 };
+const prepareJcemPrintArticle = async () => {
+    const article = select('[data-print-article]');
+    if (!article)
+        return;
+    try {
+        const modulePath = new URL('../print-ieee/index.js', import.meta.url).href;
+        const library = (await import(modulePath));
+        library.prepareArticle(article, {
+            profileId: article.dataset.printProfile ||
+                'ieee-conference-a4-ieeetran-1.8b',
+        });
+    }
+    catch (_error) {
+        article.dataset.printState = 'legivel';
+    }
+};
 bindJcemLoadingProgress();
 bindJcemSkeletonAssets();
 scheduleJcemInitialReveal();
@@ -1142,6 +1118,6 @@ document.addEventListener('DOMContentLoaded', () => {
     bindJcemEditorialFormatting();
     bindJcemFootnotes();
     bindJcemMathControls();
+    void prepareJcemPrintArticle();
     hideNoScript();
 });
-export {};
