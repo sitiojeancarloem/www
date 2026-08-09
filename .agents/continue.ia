@@ -190,3 +190,17 @@ dependencias=FT-015 concluída; FT-016 e FT-018 concluídas; contrato de impress
 - Testar temas, modelos, impressão com e sem fundos, fallback, contraste e ausência de regressão [concluído]
 resultado=Aninhamento semântico em bloco ou citação inline produz `data-jcem-subquote`; tokens `rgba` distinguem temas e painel, e borda dupla fornece segundo indício independente de fundo. Ambiguidade preserva o conteúdo sem inferência.
 verificacoes=Teste unitário cobriu dois casos de subcitação e contextos excluídos; navegador confirmou marcador, tokens no tema escuro e distinção impressa; PDF aferido preservou citações e subcitação sem corte ou sobreposição.
+
+FT-020|nome=Isolamento estrito entre web e impressão|objetivo=Impedir herança visual ou estrutural acidental entre tela e impressão, preservando apenas compartilhamentos semânticos normatizados|escopo=Técnico|prioridade=alta|status=em andamento|inicio=20260809.1700.00|atualizacao=20260809.1700.00
+autorizacao=Pedido humano explícito para corrigir e normatizar o isolamento e eliminar o vazamento sem regressão nos dois modos.
+dependencias=FT-016–019 concluídas; `RCF-JCEM-CITACOES-001`; `RCF-JCEM-IMPRESSAO-IEEE-001`; build e validação renderizada vigentes.
+riscos=Reset amplo pode ocultar conteúdo semântico ou reexibir chrome; estrutura futurista em tabela pode conservar geometria web; regra impressa pode afetar screen se perder restrição de mídia; preservar perfil físico e relatório sem declarar nova aferição antes do PDF final.
+origem=CSS web permanece ativo em `print`; sobrescritas IEEE cobrem somente propriedades parciais. Regras web específicas mantêm recuo de parágrafo, fundos, bordas, sombras e tabela decorativa de blockquote. A validação visual também exige a imagem web clara do painel durante impressão, tornando o vazamento um falso requisito.
+1/4 Norma e diagnóstico [concluído]
+- Declarar fronteiras, compartilhamentos permitidos, exceções e matriz de validação; localizar regras e estruturas que atravessam contextos [concluído]
+2/4 Isolamento técnico [em andamento]
+- Aplicar reset impresso determinístico e normalizar estruturas auxiliares web sem afetar screen [em andamento]
+3/4 Antirregressão [pendente]
+- Criar sentinelas e verificar cascata, DOM semântico, build, web responsiva e impressão [pendente]
+4/4 Validação e encerramento [pendente]
+- Revisar navegador e PDF, sincronizar RCF/README/memória, commitar incrementalmente e convergir branches quando autorizado [pendente]
