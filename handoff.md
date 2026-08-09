@@ -3,41 +3,6 @@
 
 Resumo operacional gerado de `.agents/continue.ia`.
 
-## FT-016 - Modelo semântico de blocos de citação
-
-Objetivo: Implementar modelo registrado por ocorrência e normalização agnóstica de blockquotes, preservando defaults legados.
-
-<table>
-<thead><tr><th>Etapa</th><th>Tarefa</th><th>Status</th></tr></thead>
-<tbody>
-<tr>
-<td rowspan="1">Inventário e contrato executável</td>
-<td>Mapear estruturas reais, defaults, pipeline, atributos, acessibilidade e fallbacks</td>
-<td><span style="color:#64748b">&#9679;</span> pendente</td>
-</tr>
-<tr>
-<td rowspan="1">Registro e precedência</td>
-<td>Implementar schema de modelos, IAL por ocorrência e mapeamento legado `blockquote_panels`</td>
-<td><span style="color:#64748b">&#9679;</span> pendente</td>
-</tr>
-<tr>
-<td rowspan="1">Normalização e renderers</td>
-<td>Preservar semântica em `&lt;blockquote&gt;`, `div`, `table` e estruturas registradas sem dependência privada</td>
-<td><span style="color:#64748b">&#9679;</span> pendente</td>
-</tr>
-<tr>
-<td rowspan="1">Integração e documentação</td>
-<td>Integrar tema, impressão, ausência de JavaScript e modo de autoria definitivo</td>
-<td><span style="color:#64748b">&#9679;</span> pendente</td>
-</tr>
-<tr>
-<td rowspan="1">Validação e encerramento</td>
-<td>Cobrir precedência, modelos, acessibilidade, fallback, build e renderização</td>
-<td><span style="color:#64748b">&#9679;</span> pendente</td>
-</tr>
-</tbody>
-</table>
-
 ## FT-017 - Biblioteca agnóstica de impressão IEEE
 
 Objetivo: Construir e integrar biblioteca autônoma de impressão editorial conforme perfil físico versionado.

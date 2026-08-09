@@ -127,22 +127,24 @@ impedimentos=Implementação aguarda autorização humana expressa. O nível `ie
 verificacoes=`agent:rcf` retornou `RCF_OK`; `git diff --check` não encontrou erro material; `TODO.ia.md` permaneceu sem alteração; nenhum código, estilo, dependência, teste executável ou build foi iniciado.
 encerramento=Normatização registrada em commit incremental; FTs 016–019 mantêm toda implementação separada e pendente de autorização. Handoff derivado deve refletir somente as frentes materiais ativas.
 
-FT-016|nome=Modelo semântico de blocos de citação|objetivo=Implementar modelo registrado por ocorrência e normalização agnóstica de blockquotes, preservando defaults legados|escopo=Técnico|prioridade=alta|status=pendente|inicio=pendente|atualizacao=20260809.0435.00
-autorizacao=pendente; execução material proibida até solicitação humana expressa.
+FT-016|nome=Modelo semântico de blocos de citação|objetivo=Implementar modelo registrado por ocorrência e normalização agnóstica de blockquotes, preservando defaults legados|escopo=Técnico|prioridade=alta|status=concluído|inicio=20260809.1145.00|atualizacao=20260809.1205.00|conclusao=20260809.1205.00
+autorizacao=concedida em 20260809 para FT-016–019, seleção de perfil/licença, push e publicação GitHub Pages após revisão antirregressão.
 dependencias=FT-015 concluída; `RCF-JCEM-CITACOES-001`; Kramdown/Jekyll e estruturas reais inventariadas.
-1/5 Inventário e contrato executável [pendente]
-- Mapear estruturas reais, defaults, pipeline, atributos, acessibilidade e fallbacks [pendente]
-2/5 Registro e precedência [pendente]
-- Implementar schema de modelos, IAL por ocorrência e mapeamento legado `blockquote_panels` [pendente]
-3/5 Normalização e renderers [pendente]
-- Preservar semântica em `<blockquote>`, `div`, `table` e estruturas registradas sem dependência privada [pendente]
-4/5 Integração e documentação [pendente]
-- Integrar tema, impressão, ausência de JavaScript e modo de autoria definitivo [pendente]
-5/5 Validação e encerramento [pendente]
-- Cobrir precedência, modelos, acessibilidade, fallback, build e renderização [pendente]
+1/5 Inventário e contrato executável [concluído]
+- Mapear estruturas reais, defaults, pipeline, atributos, acessibilidade e fallbacks [concluído]
+2/5 Registro e precedência [concluído]
+- Implementar schema de modelos, IAL por ocorrência e mapeamento legado `blockquote_panels` [concluído]
+3/5 Normalização e renderers [concluído]
+- Preservar semântica em `<blockquote>`, `div`, `table` e estruturas registradas sem dependência privada [concluído]
+4/5 Integração e documentação [concluído]
+- Integrar tema, impressão, ausência de JavaScript e modo de autoria definitivo [concluído]
+5/5 Validação e encerramento [concluído]
+- Cobrir precedência, modelos, acessibilidade, fallback, build e renderização [concluído]
+resultado=Registro central define `standard` e `futuristic`; IAL por ocorrência é validada no build; o booleano legado determina somente o default. Elemento semântico é marcado, estrutura customizada recebe `role=blockquote`, e painel futurista reconstrói a semântica no corpo sem alterar o conteúdo.
+verificacoes=`check:quotes`, `check:ts`, sintaxe Ruby, `git diff --check` e `agent:build` concluídos; HTML gerado preserva `data-jcem-quote-default`; JS compilado recebe cabeçalho MPL-2.0 por configuração central.
 
-FT-017|nome=Biblioteca agnóstica de impressão IEEE|objetivo=Construir e integrar biblioteca autônoma de impressão editorial conforme perfil físico versionado|escopo=Técnico|prioridade=alta|status=pendente|inicio=pendente|atualizacao=20260809.0435.00
-autorizacao=pendente; execução material proibida até solicitação humana expressa.
+FT-017|nome=Biblioteca agnóstica de impressão IEEE|objetivo=Construir e integrar biblioteca autônoma de impressão editorial conforme perfil físico versionado|escopo=Técnico|prioridade=alta|status=em andamento|inicio=20260809.1205.00|atualizacao=20260809.1205.00
+autorizacao=concedida em 20260809 para perfil, licença MPL-2.0, push e publicação após revisão.
 dependencias=FT-015 concluída; marco semântico da FT-016; `RCF-JCEM-IMPRESSAO-IEEE-001`; perfil externo IEEE e licença distributiva autorizados.
 1/7 Perfil e matriz [pendente]
 - Registrar referência, hash, licença, medidas, tolerâncias, navegadores, engines, Jekyll, Ruby e Node.js [pendente]

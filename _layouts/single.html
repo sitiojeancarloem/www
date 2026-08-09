@@ -1,6 +1,7 @@
 ---
 layout: default
 ---
+{% comment %}Fonte: https://github.com/sitiojeancarloem/blog | Autor: Jean Carlo EM — https://www.jeancarloem.com | Licença: MPL-2.0 — https://mozilla.org/MPL/2.0/ — código aberto, sem garantia.{% endcomment %}
 {%- assign locale = page.locale | default: layout.locale | default: site.locale %}
 {% assign jcem_featured_style = page.featured_image_style | default: page.featured_image.style | default: page.header.image_style | default: page.header.featured_style | default: "" | downcase %}
 {% if jcem_featured_style == "inline" %}
@@ -50,6 +51,10 @@ layout: default
 {% elsif page.jcem.blockquote_panels != null %}
   {% assign jcem_blockquote_panels = page.jcem.blockquote_panels %}
 {% endif %}
+{% assign jcem_blockquote_model = "standard" %}
+{% if jcem_blockquote_panels %}
+  {% assign jcem_blockquote_model = "futuristic" %}
+{% endif %}
 
 {% if jcem_custom_featured and jcem_featured_style == "wide" %}
   {% include jcem/post-featured-image.html style="wide" %}
@@ -72,7 +77,7 @@ layout: default
 <div id="main" role="main">
   {% include sidebar.html locale=locale %}
 
-  <article class="page h-entry{% if page.collection == 'posts' %} jcem-post{% endif %}{% if jcem_featured_style != "" %} jcem-featured-style--{{ jcem_featured_style }}{% endif %}{% if jcem_blockquote_panels %} jcem-blockquote-panels{% endif %}" itemscope itemtype="https://schema.org/CreativeWork"{% if page.locale %} lang="{{ page.locale }}"{% endif %}>
+  <article class="page h-entry{% if page.collection == 'posts' %} jcem-post{% endif %}{% if jcem_featured_style != "" %} jcem-featured-style--{{ jcem_featured_style }}{% endif %}{% if jcem_blockquote_panels %} jcem-blockquote-panels{% endif %}" data-jcem-quote-default="{{ jcem_blockquote_model }}" itemscope itemtype="https://schema.org/CreativeWork"{% if page.locale %} lang="{{ page.locale }}"{% endif %}>
     {% if page.title %}<meta itemprop="headline" content="{{ page.title | replace: '|', '&#124;' | markdownify | strip_html | strip_newlines | escape_once }}">{% endif %}
     {% if page.excerpt %}<meta itemprop="description" content="{{ page.excerpt | markdownify | strip_html | strip_newlines | escape_once }}">{% endif %}
     {% if page.date %}<meta itemprop="datePublished" content="{{ page.date | date_to_xmlschema }}">{% endif %}

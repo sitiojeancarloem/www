@@ -1,0 +1,13 @@
+{
+	"schema": 1,
+	"repository": "https://github.com/sitiojeancarloem/blog",
+	"author": {
+		"name": "Jean Carlo EM",
+		"url": "https://www.jeancarloem.com"
+	},
+	"license": {
+		"spdx": "MPL-2.0",
+		"url": "https://mozilla.org/MPL/2.0/",
+		"summary": "código aberto, sem garantia"
+	}
+}

@@ -1,0 +1,18 @@
+{
+	"schema": 1,
+	"defaultModel": "futuristic",
+	"models": {
+		"standard": {
+			"structural": false,
+			"className": "jcem-quote-model--standard"
+		},
+		"futuristic": {
+			"structural": true,
+			"className": "jcem-quote-model--futuristic"
+		}
+	},
+	"attributes": {
+		"semantic": "data-jcem-blockquote",
+		"model": "data-jcem-quote-model"
+	}
+}

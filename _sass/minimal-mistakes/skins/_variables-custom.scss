@@ -1,3 +1,5 @@
+/*! Fonte: https://github.com/sitiojeancarloem/blog | Autor: Jean Carlo EM — https://www.jeancarloem.com | Licença: MPL-2.0 — https://mozilla.org/MPL/2.0/ — código aberto, sem garantia. */
+
 :root {
 	// Cores: modo escuro sempre disponivel.
 	--dark--tblb: #51555d;
@@ -1177,7 +1179,13 @@ body
 .main_jcem_wrapper
 	article:not(.jcem-blockquote-panels)
 	.page__content
-	blockquote:not(.jcem-panel) {
+	blockquote:not(.jcem-panel),
+.main_jcem_wrapper
+	.page__content
+	blockquote.jcem-quote-model--standard:not(.jcem-panel),
+.main_jcem_wrapper
+	.page__content
+	[data-jcem-blockquote].jcem-quote-model--standard:not(.jcem-panel) {
 	background:
 		linear-gradient(
 			90deg,

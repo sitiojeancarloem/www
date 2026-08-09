@@ -1,3 +1,5 @@
+/*! Fonte: https://github.com/sitiojeancarloem/blog | Autor: Jean Carlo EM — https://www.jeancarloem.com | Licença: MPL-2.0 — https://mozilla.org/MPL/2.0/ — código aberto, sem garantia. */
+
 declare global {
 	interface Element {
 		on(type: string, listener: EventListenerOrEventListenerObject): void;
@@ -606,18 +608,76 @@ const bindJcemCollapsibleSections = (): void => {
 	bindJcemPrintCollapsibles();
 };
 
+const jcemQuoteModels = ['standard', 'futuristic'] as const;
+type JcemQuoteModel = (typeof jcemQuoteModels)[number];
+
+const isJcemQuoteModel = (value: string): value is JcemQuoteModel =>
+	jcemQuoteModels.includes(value as JcemQuoteModel);
+
+const resolveJcemQuoteModel = (
+	quote: HTMLElement,
+	article: HTMLElement,
+): JcemQuoteModel => {
+	const requested =
+		quote.dataset.jcemQuoteModel ||
+		article.dataset.jcemQuoteDefault ||
+		(article.classList.contains('jcem-blockquote-panels')
+			? 'futuristic'
+			: 'standard');
+
+	if (isJcemQuoteModel(requested)) {
+		return requested;
+	}
+
+	quote.dataset.jcemQuoteDiagnostic = 'modelo-desconhecido';
+	console.warn(`quote_semantics=modelo_desconhecido model=${requested}`);
+	return 'standard';
+};
+
+const markJcemSemanticQuote = (
+	quote: HTMLElement,
+	model: JcemQuoteModel,
+): void => {
+	quote.dataset.jcemBlockquote = '';
+	quote.dataset.jcemQuoteModel = model;
+	quote.classList.remove(
+		'jcem-quote-model--standard',
+		'jcem-quote-model--futuristic',
+	);
+	quote.classList.add(`jcem-quote-model--${model}`);
+
+	if (quote.tagName !== 'BLOCKQUOTE' && !quote.hasAttribute('role')) {
+		quote.setAttribute('role', 'blockquote');
+	}
+};
+
 const bindJcemBlockquotePanels = (): void => {
-	const article = select<HTMLElement>('article.page.jcem-blockquote-panels');
+	const article = select<HTMLElement>('article.page.jcem-post');
 	const content = select<HTMLElement>('.page__content');
 
 	if (!article || !content) {
 		return;
 	}
 
-	content
-		.querySelectorAll<HTMLQuoteElement>('blockquote:not(.jcem-panel)')
+	Array.from(
+		content.querySelectorAll<HTMLElement>(
+			'blockquote:not(.jcem-panel), [data-jcem-blockquote]:not(.jcem-panel)',
+		),
+	)
+		.reverse()
 		.forEach((quote) => {
-			if (quote.closest('.footnotes, .jcem-references')) {
+			if (
+				quote.closest('.footnotes, .jcem-references') ||
+				quote.dataset.jcemQuoteProcessed === 'true'
+			) {
+				return;
+			}
+
+			const model = resolveJcemQuoteModel(quote, article);
+			markJcemSemanticQuote(quote, model);
+			quote.dataset.jcemQuoteProcessed = 'true';
+
+			if (model !== 'futuristic' || quote.tagName !== 'BLOCKQUOTE') {
 				return;
 			}
 
@@ -644,11 +704,19 @@ const bindJcemBlockquotePanels = (): void => {
 				'jcem-panel',
 				'jcem-panel--blockquote',
 				'jcem-panel--futuristic',
+				'jcem-quote-model--futuristic',
 				quote.className,
 			]
 				.filter(Boolean)
 				.join(' ');
 			panel.dataset.jcemPanelSource = 'blockquote';
+			panel.dataset.jcemBlockquote = '';
+			panel.dataset.jcemQuoteModel = 'futuristic';
+			panel.dataset.jcemQuoteProcessed = 'true';
+			panel.setAttribute('role', 'blockquote');
+			if (quote.id) {
+				panel.id = quote.id;
+			}
 
 			table.className = 'nohover jcem-panel__table';
 			table.cellSpacing = '0';
@@ -663,6 +731,19 @@ const bindJcemBlockquotePanels = (): void => {
 			final.className = 'final jcem-panel__edge jcem-panel__edge--bottom';
 			body.className = 'jcem-panel__body';
 			body.colSpan = 3;
+			body.dataset.jcemBlockquoteBody = '';
+			for (const attribute of [
+				'cite',
+				'lang',
+				'dir',
+				'aria-label',
+				'aria-labelledby',
+			]) {
+				const value = quote.getAttribute(attribute);
+				if (value) {
+					body.setAttribute(attribute, value);
+				}
+			}
 			topLeft.className = 'jcem-panel__corner jcem-panel__corner--top-left';
 			topCenter.className = 'jcem-panel__edge-fill jcem-panel__edge-fill--top';
 			topRight.className =
