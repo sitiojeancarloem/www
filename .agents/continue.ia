@@ -109,3 +109,76 @@ retomada_regressao=Solicitante identificou regressão no disclaimer de topo e de
 - Restaurar conteúdo removido sem necessidade, validar, commitar, reconvergir e enviar `dev`/`main` [concluído]
 resultado_regressao=O disclaimer anterior foi restaurado integralmente e a advertência de automação passou a ser adição cumulativa. Também foram restauradas atribuições e formulações editoriais removidas sem necessidade, inclusive a oscilação entre leituras; permaneceram somente mudanças exigidas de anonimização, síntese temática e supressão de metatexto processual. A única citação em bloco removida contra a base era a nota editorial sobre áudio, software e posição temporal, não uma fonte citada; chamadas, definições, referências e citações documentais permanecem inalteradas.
 verificacoes_regressao=`git diff --check`; `agent:rcf`; `npm run check`; comparação integral contra `cf6bb43887` com zero alteração em chamadas/definições e referências; build temático concluído. HTML contém disclaimer cumulativo, canonical literal `bate-papo:`, 39 chamadas para 38 definições, Instrutor principal e nenhuma ocorrência editorial de Emerson, noScribe ou posição temporal. Navegador confirmou o aviso no topo, conteúdo, canonical e ausência de overflow horizontal em 1280 px; avisos de binários e destinos duplicados pertencem a drafts legados fora da FT.
+
+FT-015|nome=Equalização normativa de impressão e citações|objetivo=Consolidar no RCF as TO-DOs de impressão IEEE, bloco de citação, citação inline e subcitação, sem iniciar implementação|escopo=Técnico normativo|prioridade=alta|status=concluído|inicio=20260809.0404.13|atualizacao=20260809.0442.00|conclusao=20260809.0442.00
+dependencias=Pedido humano explícito para executar `[equalizer]`; `AGENTS.md`; `RCF.md`; `TODO.ia.md`; `README.md`; `WEB-BROWSER`, `WEB-STATIC` e `WEB-EDITORIAL`.
+riscos=Não editar o item perene; preservar Kramdown, conteúdo, tema e mecanismo legado `blockquote_panels`; não confundir backtick semântico de código com citação; não inventar edição ou medidas IEEE; interromper antes de código, estilos, dependências, testes executáveis ou build.
+1/4 Leitura e equalização [concluído]
+- Ler integralmente TO-DOs e normas aplicáveis; inspecionar o contrato atual de Markdown, blockquotes, citações e impressão [concluído]
+2/4 Normatização RCF [concluído]
+- Consolidar os contratos agnósticos de impressão e citações, suas precedências, degradação e validação [concluído]
+3/4 Modo de uso e FTs materiais [concluído]
+- Documentar autoria Markdown e registrar implementações separadas, dependências, ordem e impedimentos [concluído]
+4/4 Validação e encerramento normativo [concluído]
+- Validar RCF/documentação, regenerar handoff e registrar commits incrementais sem executar implementação [concluído]
+decisoes=As quatro solicitações materiais convergem por um contrato semântico comum de artigo e citação. `blockquote` será conceito, não tag; a marcação por ocorrência terá precedência sobre defaults. Backticks permanecem código salvo declaração autoral inequívoca de citação, evitando regressão em posts técnicos. Fidelidade IEEE dependerá de perfil de referência externo versionado, não de valores inferidos.
+resultado_normativo=`RCF-JCEM-CITACOES-001` unifica bloco, citação inline e subcitação, fixa IAL por ocorrência, compatibilidade de `blockquote_panels`, temas, impressão e fallbacks. `RCF-JCEM-IMPRESSAO-IEEE-001` define biblioteca agnóstica, níveis de conformidade, arquitetura, progressividade, composição física, empacotamento e validação. README diferencia comportamento vigente da sintaxe reservada.
+impedimentos=Implementação aguarda autorização humana expressa. O nível `ieee-validado` também exige selecionar e registrar perfil IEEE externo versionado e decidir licença distributiva da biblioteca; nenhum dos dois dados pode ser inferido.
+verificacoes=`agent:rcf` retornou `RCF_OK`; `git diff --check` não encontrou erro material; `TODO.ia.md` permaneceu sem alteração; nenhum código, estilo, dependência, teste executável ou build foi iniciado.
+encerramento=Normatização registrada em commit incremental; FTs 016–019 mantêm toda implementação separada e pendente de autorização. Handoff derivado deve refletir somente as frentes materiais ativas.
+
+FT-016|nome=Modelo semântico de blocos de citação|objetivo=Implementar modelo registrado por ocorrência e normalização agnóstica de blockquotes, preservando defaults legados|escopo=Técnico|prioridade=alta|status=pendente|inicio=pendente|atualizacao=20260809.0435.00
+autorizacao=pendente; execução material proibida até solicitação humana expressa.
+dependencias=FT-015 concluída; `RCF-JCEM-CITACOES-001`; Kramdown/Jekyll e estruturas reais inventariadas.
+1/5 Inventário e contrato executável [pendente]
+- Mapear estruturas reais, defaults, pipeline, atributos, acessibilidade e fallbacks [pendente]
+2/5 Registro e precedência [pendente]
+- Implementar schema de modelos, IAL por ocorrência e mapeamento legado `blockquote_panels` [pendente]
+3/5 Normalização e renderers [pendente]
+- Preservar semântica em `<blockquote>`, `div`, `table` e estruturas registradas sem dependência privada [pendente]
+4/5 Integração e documentação [pendente]
+- Integrar tema, impressão, ausência de JavaScript e modo de autoria definitivo [pendente]
+5/5 Validação e encerramento [pendente]
+- Cobrir precedência, modelos, acessibilidade, fallback, build e renderização [pendente]
+
+FT-017|nome=Biblioteca agnóstica de impressão IEEE|objetivo=Construir e integrar biblioteca autônoma de impressão editorial conforme perfil físico versionado|escopo=Técnico|prioridade=alta|status=pendente|inicio=pendente|atualizacao=20260809.0435.00
+autorizacao=pendente; execução material proibida até solicitação humana expressa.
+dependencias=FT-015 concluída; marco semântico da FT-016; `RCF-JCEM-IMPRESSAO-IEEE-001`; perfil externo IEEE e licença distributiva autorizados.
+1/7 Perfil e matriz [pendente]
+- Registrar referência, hash, licença, medidas, tolerâncias, navegadores, engines, Jekyll, Ruby e Node.js [pendente]
+2/7 Núcleo e pacote [pendente]
+- Criar API, schema, CSS/Sass, artefatos e projeto Node.js de referência sem acoplamento ao blog [pendente]
+3/7 Adaptação Jekyll [pendente]
+- Mapear artigo, metadados, avisos e transformações estáticas por adaptador próprio [pendente]
+4/7 Paginação e tipografia [pendente]
+- Implementar perfil físico, colunas por página, Noto Sans calibrada, tabelas, imagens e conteúdo institucional [pendente]
+5/7 Ciclo progressivo [pendente]
+- Integrar impressão nativa, preparação assíncrona, fallback CSS e motor opcional medido [pendente]
+6/7 Validação cruzada [pendente]
+- Comparar PDF/papel por página, navegadores, mobile, sem JS, sem engine e sem adaptador Jekyll [pendente]
+7/7 Extração e encerramento [pendente]
+- Validar pacote extraível, licenças, documentação, build, distribuição e integração final [pendente]
+
+FT-018|nome=Citações inline semânticas|objetivo=Classificar e apresentar citações inline sem confundir bloco, subcitação, código ou ênfase autoral|escopo=Técnico|prioridade=alta|status=pendente|inicio=pendente|atualizacao=20260809.0435.00
+autorizacao=pendente; execução material proibida até solicitação humana expressa.
+dependencias=FT-015 concluída; FT-016 concluída; contrato de impressão da FT-017 disponível.
+1/4 Pipeline e casos [pendente]
+- Inventariar transformações atuais e corpus positivo, negativo, aninhado e ambíguo [pendente]
+2/4 Detecção e marcação [pendente]
+- Implementar aspas por estrutura semântica e backtick somente com classificação autoral explícita [pendente]
+3/4 Estilo e integrações [pendente]
+- Aplicar itálico sem duplicação e preservar tema, impressão, texto e estilização vigente [pendente]
+4/4 Validação e encerramento [pendente]
+- Testar conteúdo, contextos excluídos, build, DOM, impressão e renderização [pendente]
+
+FT-019|nome=Subcitações contextuais|objetivo=Identificar e diferenciar visualmente citação aninhada em qualquer modelo semântico suportado|escopo=Técnico|prioridade=alta|status=pendente|inicio=pendente|atualizacao=20260809.0435.00
+autorizacao=pendente; execução material proibida até solicitação humana expressa.
+dependencias=FT-015 concluída; FT-016 e FT-018 concluídas; contrato de impressão da FT-017 disponível.
+1/4 Modelos e aninhamento [pendente]
+- Mapear relações em parágrafo, bloco nativo, painel, `div`, `table` e estruturas registradas [pendente]
+2/4 Semântica e tokens [pendente]
+- Implementar marcador de subcitação e tokens `rgba` contextuais por tema/modelo [pendente]
+3/4 Impressão e acessibilidade [pendente]
+- Preservar distinção impressa com indício adicional não dependente somente de cor [pendente]
+4/4 Validação e encerramento [pendente]
+- Testar temas, modelos, impressão com e sem fundos, fallback, contraste e ausência de regressão [pendente]
