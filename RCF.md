@@ -66,7 +66,7 @@ Escopo: notas de rodapé, referências e bibliografia renderizadas por Jekyll/Kr
 
 # RCF-JCEM-CITACOES-001
 
-Status: vigente; implementação material pendente.
+Status: vigente; implementação material validada em 2026-08-09.
 
 Escopo: citação inline, subcitação e bloco semântico de citação em artigo ou post processado por Markdown, HTML, Jekyll e adaptações equivalentes.
 
@@ -129,7 +129,7 @@ Escopo: citação inline, subcitação e bloco semântico de citação em artigo
 
 # RCF-JCEM-IMPRESSAO-IEEE-001
 
-Status: vigente; implementação material pendente.
+Status: vigente; implementação material validada em 2026-08-09.
 
 Escopo: biblioteca Web agnóstica para impressão ou exportação PDF de artigo editorial completo, integração inicial com este blog e adaptadores futuros de plataforma.
 
@@ -147,6 +147,13 @@ Escopo: biblioteca Web agnóstica para impressão ou exportação PDF de artigo 
 - Valor físico, versão, medida, navegador, engine ou equivalência visual NÃO DEVE ser imaginado, inferido por semelhança em tela nem atualizado silenciosamente. Ausência do perfil versionado DEVE bloquear a classificação `ieee-validado`, sem bloquear o fallback legível.
 - A conformidade DEVE ser aferida no PDF ou papel final em escala `100%`; ajuste automático de encaixe e cabeçalho ou rodapé acrescentado pelo navegador NÃO DEVEM ser pressupostos.
 - Adaptação de consumidor ou plataforma NÃO DEVE alterar invariante do perfil; exceção DEVE residir em configuração ou adaptador, ser identificada no relatório de conformidade e possuir teste próprio.
+
+### Perfil implementado e autoridade
+
+- O perfil canônico inicial é `ieee-conference-a4-ieeetran-1.8b`, schema 1, obtido em 2026-08-09 a partir do IEEEtran 1.8b indicado pelo IEEE Author Center e distribuído pelo CTAN sob LPPL-1.3c. O arquivo de referência NÃO é redistribuído; seu ZIP de controle possui SHA-256 `e0cd4f5afbd42c8076092280e72b3e0a5111efe501d35de9f715cfb8da313cb4`.
+- O perfil fixa papel A4, escala 100%, margens superior/direita/inferior/esquerda de 19,05/14,3225/43/14,3225 mm, duas colunas, intervalo de 4,2175 mm e largura de coluna de 88,5687 mm. A família Times do controle é substituída, por decisão deste RCF, por Noto Sans incorporada.
+- A biblioteca `@jcem/print-ieee` e seus artefatos próprios usam MPL-2.0. Licença da biblioteca e licença da referência externa DEVEM permanecer declaradas separadamente em perfil, pacote, documentação e relatório.
+- O runtime DEVE declarar no máximo `nativo-preparado`. Somente relatório individual de saída física ou PDF PODE declarar `ieee-validado`; a aferição inicial versionada reside em `src/jcem-print-ieee/reports/2026-08-09-devaneios-chromium-148.json`.
 
 ## Arquitetura, autoridade e API
 

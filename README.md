@@ -160,26 +160,38 @@ jcem:
   blockquote_panels: false
 ```
 
-Com o recurso ativo, `assets/jcem/js/site.js` transforma cada `blockquote` dentro de `.page__content` em `div.jcem-panel.jcem-panel--futuristic`, preservando o conteúdo original.
+Com o recurso ativo, `assets/jcem/js/site.js` transforma cada `blockquote` normalizado dentro de `.page__content` em `div.jcem-panel.jcem-panel--futuristic`, preservando conteúdo, atributos e semântica acessível.
 
-O contrato semântico por ocorrência está normatizado no `RCF-JCEM-CITACOES-001`, mas sua implementação completa permanece pendente. Até a FT material ser autorizada e validada, conteúdo publicável deve usar somente `>` e os defaults acima; a marcação reservada abaixo não deve ser adotada como recurso já disponível.
-
-Após a implementação, um bloco poderá selecionar `standard`, `futuristic` ou outro modelo registrado por Kramdown IAL:
+O contrato por ocorrência do `RCF-JCEM-CITACOES-001` está implementado. Um bloco pode selecionar `standard`, `futuristic` ou outro modelo registrado por Kramdown IAL:
 
 ```markdown
 > Conteúdo citado.
 {: data-jcem-quote-model="futuristic"}
 ```
 
-A configuração da ocorrência prevalecerá sobre contexto, post e configuração global. O mesmo identificador selecionará estilos simples ou modelos que alterem a estrutura, sem uma segunda sintaxe.
+A configuração da ocorrência prevalece sobre contexto, post e configuração global. O mesmo identificador seleciona estilos simples ou modelos que alterem a estrutura, sem uma segunda sintaxe; identificador desconhecido falha no build controlado.
 
-Citação inline em texto comum continuará usando aspas. Backticks continuam significando código; quando representarem citação, deverão receber marcação explícita:
+Citação inline em texto comum usa pares de aspas retas ou tipográficas e recebe marcação semântica sem perder os delimitadores. Backticks continuam significando código; quando representarem citação, devem receber marcação explícita:
 
 ```markdown
 `conteúdo citado`{: .jcem-inline-quote}
 ```
 
-O formatador legado já aplica itálico a pares de aspas em parte do conteúdo renderizado, mas autores não devem depender dessa heurística até a implementação dos contextos semânticos, das subcitações e dos testes previstos no RCF.
+O formatador exclui links, ênfase, código, notas e referências, preserva apóstrofos e aspas sem par e marca citações dentro de bloco ou citação externa como subcitações. A subcitação usa fundo contextual por tema e borda dupla também na impressão, para não depender somente de cor.
+
+## Impressão editorial IEEE
+
+Posts completos carregam sob demanda a biblioteca agnóstica `@jcem/print-ieee`, localizada em `src/jcem-print-ieee`; home, mapas, arquivos, 404 e listagens não carregam seus recursos. A importação não produz efeito colateral, e o estado automático máximo é `nativo-preparado`.
+
+O perfil versionado `ieee-conference-a4-ieeetran-1.8b` usa A4 a 100%, duas colunas e Noto Sans. Ele referencia o IEEEtran 1.8b externo sob LPPL-1.3c sem redistribuí-lo; a biblioteca, o pacote e os artefatos próprios usam MPL-2.0. O relatório aferido inicial está em `src/jcem-print-ieee/reports/2026-08-09-devaneios-chromium-148.json`.
+
+Build, teste e inspeção do pacote:
+
+```bash
+npm run build:print
+npm run check:print
+npm pack --dry-run --json ./src/jcem-print-ieee
+```
 
 ## Colunas Markdown
 
@@ -283,3 +295,15 @@ Validação:
 ```bash
 npm run validate:visual
 ```
+
+## Autoria
+
+Jean Carlo EM — https://www.jeancarloem.com
+
+## Repositório
+
+https://github.com/sitiojeancarloem/blog
+
+## Licença
+
+Mozilla Public License 2.0 — https://mozilla.org/MPL/2.0/

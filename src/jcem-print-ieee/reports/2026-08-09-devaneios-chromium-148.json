@@ -1,0 +1,59 @@
+{
+	"schema": 1,
+	"id": "ieee-conference-a4-ieeetran-1.8b-devaneios-chromium-148-20260809",
+	"level": "ieee-validado",
+	"profile": {
+		"id": "ieee-conference-a4-ieeetran-1.8b",
+		"referenceArchiveSha256": "e0cd4f5afbd42c8076092280e72b3e0a5111efe501d35de9f715cfb8da313cb4",
+		"referenceLicense": "LPPL-1.3c",
+		"libraryLicense": "MPL-2.0"
+	},
+	"source": {
+		"route": "/p/devaneios/",
+		"revision": "98260477a1a326ddcaa63b7b41f835f6b3bacd9f",
+		"buildSha256": "7842df4a622e209efeb92b871f5cf16327836a81e68d9aaedf759e9ce9b0e4ac"
+	},
+	"renderer": {
+		"automation": "Playwright 1.60.0",
+		"browser": "Chromium",
+		"producer": "Skia/PDF m148",
+		"platform": "Windows",
+		"command": "playwright pdf --paper-format A4",
+		"scalePercent": 100,
+		"browserHeaderFooter": false
+	},
+	"output": {
+		"sha256": "d2ac14106748c99ce3ef9b05098b1e397d1c3dfe75129031b148fb14bf6a8e73",
+		"stored": false,
+		"pages": 10,
+		"blankPages": 0,
+		"pageWidthPt": 595.91998,
+		"pageHeightPt": 842.88,
+		"paper": "A4",
+		"embeddedTextFonts": [
+			"NotoSans-Regular",
+			"NotoSans-Bold",
+			"NotoSans-Italic",
+			"NotoSans-BoldItalic"
+		]
+	},
+	"checks": {
+		"allPagesRenderedAndReviewed": true,
+		"twoColumnsRestartPerPage": true,
+		"noBlankPage": true,
+		"noClipping": true,
+		"noOverlap": true,
+		"imagesPreserveRatio": true,
+		"quotesAndSubquotesLegible": true,
+		"referencesPresent": true,
+		"institutionalBlockPresent": true,
+		"screenUnaffected": true,
+		"mobileHorizontalOverflow": false,
+		"nonArticlePrintAssetsLoaded": false
+	},
+	"deviations": [
+		"A família de referência Times é substituída deliberadamente por Noto Sans, conforme o RCF do consumidor.",
+		"A saída aferida preserva cores e avisos institucionais previstos pelo adaptador do consumidor.",
+		"A biblioteca mantém nativo-preparado como limite automático; ieee-validado pertence exclusivamente a esta saída aferida."
+	]
+}
