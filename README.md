@@ -183,7 +183,7 @@ O formatador exclui links, ênfase, código, notas e referências, preserva apó
 
 Posts completos carregam sob demanda a biblioteca agnóstica `@jcem/print-ieee`, localizada em `src/jcem-print-ieee`; home, mapas, arquivos, 404 e listagens não carregam seus recursos. A importação não produz efeito colateral, e o estado automático máximo é `nativo-preparado`.
 
-Tela e impressão possuem contratos de apresentação isolados. A impressão reutiliza somente conteúdo e marcadores semânticos declarados, neutraliza tipografia, títulos, recuos, bordas, fundos, sombras, pseudo-elementos e estruturas decorativas da web e então aplica o perfil impresso. Componentes exclusivos de impressão permanecem ocultos em tela; qualquer exceção precisa ser registrada no `RCF-JCEM-IMPRESSAO-IEEE-001` e coberta por teste.
+Tela e impressão possuem contratos de apresentação isolados, obrigatórios também para recursos futuros e componentes de terceiros. A impressão reutiliza somente conteúdo e marcadores semânticos declarados, neutraliza tipografia, títulos, recuos, bordas, fundos, sombras, pseudo-elementos e estruturas decorativas da web e então aplica o perfil impresso. Componentes exclusivos de impressão permanecem ocultos em tela. `blockquote` usa exclusivamente o estilo IEEE por padrão; exceção precisa de autorização expressa, aplicação seletiva e registro no ponto único de exceções do `RCF-JCEM-IMPRESSAO-IEEE-001`.
 
 O perfil versionado `ieee-conference-a4-ieeetran-1.8b` usa A4 a 100%, duas colunas e Noto Sans. Ele referencia o IEEEtran 1.8b externo sob LPPL-1.3c sem redistribuí-lo; a biblioteca, o pacote e os artefatos próprios usam MPL-2.0. O relatório aferido inicial está em `src/jcem-print-ieee/reports/2026-08-09-devaneios-chromium-148.json`.
 

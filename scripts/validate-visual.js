@@ -2012,6 +2012,10 @@ const validatePrintTheme = async (page, url, viewportName) => {
 					style.visibility !== 'hidden'
 				);
 			});
+		const hiddenByDisplay = (selector) =>
+			Array.from(document.querySelectorAll(selector)).every(
+				(node) => window.getComputedStyle(node).display === 'none',
+			);
 		const printDetails = (selector) => {
 			const details = document.querySelector(selector);
 			const visibleContent = details
@@ -2086,6 +2090,9 @@ const validatePrintTheme = async (page, url, viewportName) => {
 			bibliographyPrint: printDetails('details.jcem-collapsible--bibliography'),
 			hiddenChrome: !visible(
 				'.masthead, .page__hero, .jcem-featured-image, .jcem-featured-image__img, .page__footer, .sobpostbar, .page__share, .jcem-theme-toggle, .jcem-scroll-top, #silktide-wrapper, #silktide-cookie-icon',
+			),
+			webArticleHelpersHidden: hiddenByDisplay(
+				'[data-print-article] .toc, [data-print-article] .sidebar__right:has(.toc), [data-print-article] .header-link, [data-print-article] .jcem-date-flag, [data-print-article] .page__meta, [data-print-article] .page__share, [data-print-article] .pagination',
 			),
 		};
 	});
@@ -2174,6 +2181,10 @@ const validatePrintTheme = async (page, url, viewportName) => {
 
 	if (!result.hiddenChrome) {
 		fail(`Impressao exibe elementos decorativos ou controles em ${url}`);
+	}
+
+	if (!result.webArticleHelpersHidden) {
+		fail(`Impressao reexibe auxiliares exclusivos da web em ${url}`);
 	}
 
 	if (
@@ -3101,6 +3112,7 @@ try {
 	validationOk = true;
 } catch (error) {
 	if (visualValidationStrict) {
+		console.error(error?.stack || error?.message || String(error));
 		throw error;
 	}
 

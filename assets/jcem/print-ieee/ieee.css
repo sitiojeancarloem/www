@@ -39,6 +39,12 @@
 		line-height: 10.8pt !important;
 		box-shadow: none !important;
 		filter: none !important;
+		column-count: 2 !important;
+		column-gap: 4.2175mm !important;
+		/* FIX-BUG: cada fragmento paginado equilibra suas duas colunas sem folha inicial vazia. */
+		column-fill: balance !important;
+		orphans: 2 !important;
+		widows: 2 !important;
 	}
 
 	:is(#print-isolation-specificity-guard, [data-print-article]) * {
@@ -54,17 +60,10 @@
 
 	:is(#print-isolation-specificity-guard, [data-print-article])
 		[data-print-body] {
-		display: block !important;
-		width: auto !important;
-		max-width: none !important;
-		margin: 0 !important;
-		padding: 0 !important;
-		column-count: 2 !important;
-		column-gap: 4.2175mm !important;
-		/* FIX-BUG: o motor paginado reinicia o fluxo por folha e equilibra somente a última. */
-		column-fill: balance;
-		orphans: 2;
-		widows: 2;
+		/* PROTECAO: o contêiner editorial não cria uma segunda região multicoluna. */
+		display: contents !important;
+		column-count: auto !important;
+		column-gap: normal !important;
 	}
 
 	:is(#print-isolation-specificity-guard, [data-print-article])

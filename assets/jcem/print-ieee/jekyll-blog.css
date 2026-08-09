@@ -38,7 +38,17 @@
 
 	body:has([data-print-article])
 		:is(#print-isolation-specificity-guard, [data-print-article])
-		:is(.page__meta, .page__share, .jcem-post-date-flag, .jcem-post-read-time) {
+		:is(
+			.page__meta,
+			.page__share,
+			.pagination,
+			.toc,
+			.sidebar__right:has(.toc),
+			.header-link,
+			.jcem-date-flag,
+			.jcem-post-date-flag,
+			.jcem-post-read-time
+		) {
 		display: none !important;
 	}
 
