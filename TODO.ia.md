@@ -681,3 +681,145 @@ Similaridade visual em tela, dependência exclusiva de um motor, funcionamento a
   Todas as implementações DEVEM respeitar a `RCF — Biblioteca agnóstica para impressão Web em formato IEEE`, especialmente quanto à preservação das regras de apresentação durante impressão.
 
   Nenhuma FT DEVE assumir estrutura, arquivo, pipeline, biblioteca, hook ou mecanismo que não seja comprovado pela inspeção do estado real do projeto.
+
+- [ ] Normatizar e migrar imagens de destaque para variantes responsivas por diretório
+  - Inspecione integralmente RCF, `AGENTS.md`, front matter/Markdown, layouts, includes, índice normatizado de medidas/proporções, pipelines de imagem, workflows existentes e posts publicados/drafts antes de alterar qualquer artefato.
+  - Preserve retrocompatibilidade e melhorias existentes; esta alteração DEVE ser aplicada também ao conteúdo histórico.
+
+  - **Modelo de armazenamento**
+    - O campo/path de imagem de destaque informado no Markdown NÃO DEVE mais representar diretamente um arquivo final isolado.
+    - Ele DEVE passar a representar o **diretório canônico da imagem de destaque**.
+    - Esse diretório DEVE conter:
+      - `1080p.png`
+      - `720p.png`
+      - `480p.png`
+      - `240p.png`
+      - o arquivo-fonte originalmente informado, preservado dentro da mesma pasta com seu **basename original**.
+    - Ao migrar uma imagem existente, o arquivo original DEVE ser movido para o novo diretório correspondente, preservando seu nome; NÃO duplicar ou perder o original.
+    - A organização em diretórios DEVE permanecer idêntica após build/publicação; É PROIBIDO achatar, renomear arbitrariamente ou redistribuir as variantes no output final.
+
+  - **Geração automática**
+    - As variantes DEVEM ser geradas automaticamente a partir do arquivo original pelos mecanismos já adotados:
+      - workflow `sharp-image-resize`;
+      - `Calibre Image Actions`.
+    - Inspecione a integração real entre ambos e elimine duplicidade ou inconsistência de processamento sem remover capacidades existentes.
+    - A geração DEVE ser determinística, idempotente e evitar recompressões desnecessárias quando os derivados válidos já existirem.
+    - Nenhuma variante obrigatória pode permanecer ausente silenciosamente; falhas DEVEM ser detectadas e tratadas conforme a política fail-safe vigente.
+    - NÃO ampliar/upscale desnecessariamente uma fonte menor apenas para satisfazer nominalmente uma resolução; preserve qualidade e documente/normatize o comportamento adequado para fontes insuficientes.
+
+  - **HTML responsivo**
+    - O HTML resultante DEVE utilizar mecanismo responsivo apropriado para que o navegador selecione/download apenas a variante adequada ao cenário real, evitando transferência desnecessária.
+    - Gere `srcset`, `sizes` e/ou `<picture>` conforme tecnicamente apropriado ao layout real.
+    - A imagem padrão/fallback DEVE permanecer válida para navegadores/cenários sem suporte ao mecanismo preferencial.
+    - As dimensões/descritores DEVEM corresponder às variantes reais; NÃO declarar resolução inexistente ou incompatível com o arquivo gerado.
+
+  - **Seleção inteligente por contexto**
+    - O RCF DEVE normatizar explicitamente que **cards, componentes e qualquer outro recurso que consuma imagem de destaque** NÃO DEVEM baixar indiscriminadamente a maior variante.
+    - Cada consumidor DEVE selecionar/preselecionar a imagem de **menor tamanho em bytes** que ainda seja a mais adequada ou próxima da necessidade real de resolução no contexto corrente.
+    - A seleção DEVE considerar, quando aplicável:
+      - dimensões reais de renderização;
+      - densidade de pixels/DPR;
+      - viewport;
+      - proporção/aspect ratio;
+      - layout responsivo;
+      - variantes efetivamente disponíveis;
+      - custo em bytes.
+    - Entre variantes visualmente suficientes para o mesmo contexto, DEVE prevalecer a de menor custo de transferência.
+    - A implementação NÃO DEVE usar apenas largura nominal como critério quando outro dado disponível permitir escolha mais eficiente.
+    - Cards, thumbnails, listas, destaques, previews, related posts e demais superfícies menores DEVEM evitar carregar resolução superior à necessária.
+    - A escolha DEVE permanecer adaptativa: mudança relevante de viewport/layout PODE resultar em variante distinta conforme mecanismos nativos do navegador, sem download redundante quando evitável.
+
+  - **Índice de medidas/proporções**
+    - Audite o índice já normatizado e existente que relaciona medidas e proporções dos recursos visuais.
+    - Atualize-o somente se necessário para suportar corretamente a seleção responsiva e a correspondência entre contexto, dimensão, proporção e variantes.
+    - A atualização DEVE ser **cirúrgica e compacta**, preservando sua finalidade e evitando prolixidade ou aumento significativo de tamanho.
+    - NÃO replique informações deriváveis do próprio arquivo/metadata quando isso aumentar manutenção sem benefício.
+    - O índice DEVE continuar servindo como fonte eficiente para decisões de layout/seleção, não como catálogo redundante de dados.
+
+  - **Metadados**
+    - Gere as metatags apropriadas para imagem de destaque/social/SEO a partir da estrutura responsiva.
+    - Todas as variações relevantes DEVEM estar representadas no HTML/metadados quando o padrão utilizado permitir múltiplas imagens.
+    - Quando determinado protocolo aceitar apenas uma imagem principal, selecione-a deterministicamente e mantenha as demais variantes disponíveis pelos mecanismos responsivos adequados.
+    - NÃO invente metatags proprietárias sem padrão ou consumidor comprovado.
+
+  - **Compatibilidade do conteúdo**
+    - Atualize a interpretação do path no front matter/Markdown sem exigir que o autor liste manualmente cada variante.
+    - Um único path canônico DEVE ser suficiente para derivar:
+      - arquivo-fonte;
+      - variantes;
+      - URLs publicadas;
+      - metadados;
+      - HTML responsivo.
+    - Preserve compatibilidade com conteúdo legado durante a migração, mas o estado final DEVE convergir para o novo modelo de diretório.
+
+  - **Migração integral**
+    - Localize e migre **todos** os artigos/posts que possuam imagem de destaque:
+      - publicados;
+      - drafts;
+      - demais estados de conteúdo suportados.
+    - NÃO limitar a migração aos posts recentes nem aos atualmente compilados.
+    - Para cada ocorrência:
+      1. identificar o arquivo original;
+      2. criar o diretório canônico;
+      3. mover/preservar o original com basename original;
+      4. gerar as quatro variantes;
+      5. atualizar a referência no Markdown/front matter para o diretório;
+      6. validar HTML e output publicado.
+    - A migração DEVE ser automatizada sempre que tecnicamente viável e reexecutável sem duplicação ou perda.
+
+  - **URLs e publicação**
+    - O caminho público DEVE preservar a mesma hierarquia lógica do diretório-fonte.
+    - Links, feeds, previews, SEO, Open Graph/Twitter Cards e qualquer consumidor existente da imagem de destaque DEVEM continuar funcionais.
+    - NÃO deixar referências antigas quebradas; quando necessário, preserve compatibilidade/redirecionamento segundo a arquitetura real.
+
+  - **Validação**
+    - Teste, no mínimo:
+      - conteúdo novo;
+      - post publicado legado;
+      - draft legado;
+      - imagens originalmente PNG/JPEG/WebP, conforme formatos realmente suportados;
+      - fontes maiores e menores que as resoluções-alvo;
+      - geração/reexecução idempotente;
+      - ausência de variante;
+      - HTML com `srcset`/`sizes`/`picture`;
+      - cards e componentes em múltiplas larguras;
+      - seleção da menor variante suficiente;
+      - comportamento com DPR distintos;
+      - diferenças de bytes entre variantes;
+      - metatags sociais/SEO;
+      - build local e GitHub Pages;
+      - preservação da hierarquia de diretórios no output;
+      - escolha efetiva de variantes menores em viewports adequados.
+    - Verifique por inspeção de rede/browser que:
+      - o download responsivo realmente evita carregar sempre a maior imagem;
+      - cards e demais componentes pequenos consomem variante proporcional à sua necessidade real;
+      - entre opções adequadas, prevalece a de menor transferência em bytes.
+
+  - **RCF e documentação**
+    - Normatize explicitamente:
+      - path de imagem de destaque como diretório;
+      - basename original preservado;
+      - nomes obrigatórios `1080p.png`, `720p.png`, `480p.png`, `240p.png`;
+      - geração por `sharp-image-resize`/`Calibre Image Actions`;
+      - HTML responsivo;
+      - seleção contextual da menor variante suficiente;
+      - consideração de resolução, proporção, DPR e bytes;
+      - aplicação obrigatória da seleção inteligente em cards e qualquer outro consumidor da imagem;
+      - uso/atualização compacta do índice de medidas/proporções;
+      - metadados;
+      - preservação da estrutura no output;
+      - migração de conteúdo histórico e drafts;
+      - comportamento para fonte insuficiente/falha de geração.
+    - Evite duplicação normativa: centralize o contrato e referencie-o nos pontos especializados.
+
+  - **Critérios de aceite**
+    - Todo artigo com imagem de destaque utiliza o novo modelo de diretório.
+    - Todas as variantes obrigatórias válidas são geradas automaticamente.
+    - O arquivo original permanece preservado pelo basename original.
+    - O HTML publicado permite seleção responsiva real e reduz download conforme viewport/cenário.
+    - Cards e demais consumidores baixam, de forma inteligente, a menor variante em bytes que satisfaça adequadamente sua resolução real.
+    - O índice existente de medidas/proporções foi preservado ou ajustado apenas no estritamente necessário, sem crescimento significativo ou redundância.
+    - Metadados apropriados são emitidos sem referências quebradas.
+    - A estrutura de diretórios é preservada após publicação.
+    - Todos os posts existentes, publicados ou em drafts, foram migrados.
+    - Reexecução do processo é segura, idempotente e não causa perda, duplicação ou regressão.
