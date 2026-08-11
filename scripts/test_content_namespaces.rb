@@ -42,14 +42,19 @@ assert(
   repository_config.include?("formulações coletivas não significam unanimidade"),
   "disclaimer perdeu a ressalva sobre formulações coletivas"
 )
-draft_path = File.expand_path(
-  "../_drafts/bate-papo-eventos-finais-rumo-ao-lar-viagem-dos-remidos-coroas-e-recompensa-celestial/" \
-  "bate-papo-eventos-finais-rumo-ao-lar-viagem-dos-remidos-coroas-e-recompensa-celestial.md",
-  __dir__
-)
-draft = File.binread(draft_path).force_encoding(Encoding::UTF_8)
-assert(draft.include?('data-jcem-quote-model="alerta1"'), "disclaimer bate-papo não usa alerta1")
-assert(!draft.match?(/^content_subnamespaces:/), "obra-base não inequívoca recebeu subnamespace")
+eventos_finais_drafts = [
+  "../_drafts/bate-papo/eventos-finais/bate-papo-eventos-finais-a-heranca-dos-santos.md",
+  "../_drafts/bate-papo/eventos-finais/" \
+    "bate-papo-eventos-finais-rumo-ao-lar-viagem-dos-remidos-coroas-e-recompensa-celestial.md"
+]
+eventos_finais_drafts.each do |relative_path|
+  draft = File.binread(File.expand_path(relative_path, __dir__)).force_encoding(Encoding::UTF_8)
+  assert(draft.include?('data-jcem-quote-model="alerta1"'), "disclaimer bate-papo não usa alerta1")
+  assert(
+    draft.match?(/^content_subnamespaces:\R  - eventos-finais$/),
+    "obra-base Eventos Finais perdeu o subnamespace"
+  )
+end
 
 site = Struct.new(:config).new(config)
 document = Struct.new(:relative_path, :data, :site, :content) do

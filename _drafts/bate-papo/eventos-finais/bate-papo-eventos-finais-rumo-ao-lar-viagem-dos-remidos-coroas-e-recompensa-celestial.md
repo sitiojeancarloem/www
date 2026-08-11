@@ -1,6 +1,8 @@
 ---
 title: 'Bate-papo: eventos finais — rumo ao lar, viagem dos remidos, coroas e recompensa celestial'
 content_namespace: bate-papo
+content_subnamespaces:
+  - eventos-finais
 ---
 
 <!-- AI-PROCESSED:START -->
