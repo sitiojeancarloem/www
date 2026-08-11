@@ -44,7 +44,13 @@ sitemap: false
     "image_style": {{ image_style | jsonify }},
     "image_width": {{ image_meta.width | default: nil | jsonify }},
     "image_height": {{ image_meta.height | default: nil | jsonify }},
-    "image_aspect_ratio": {{ image_meta.aspect_ratio_css | default: nil | jsonify }}
+    "image_aspect_ratio": {{ image_meta.aspect_ratio_css | default: nil | jsonify }},
+    "image_sizes": "(max-width: 40rem) calc(100vw - 2rem), (max-width: 64rem) 50vw, 33vw",
+    "image_variants": [
+      {%- for variant in image_meta.variants -%}
+      {"path": {{ variant.path | relative_url | jsonify }}, "width": {{ variant.width | jsonify }}, "height": {{ variant.height | jsonify }}, "byte_size": {{ variant.byte_size | jsonify }}}{% unless forloop.last %},{% endunless %}
+      {%- endfor -%}
+    ]
   }{% unless forloop.last %},{% endunless %}
 {%- endfor -%}
 ]

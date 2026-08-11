@@ -9,6 +9,26 @@
 		"futuristic": {
 			"structural": true,
 			"className": "jcem-quote-model--futuristic"
+		},
+		"notice": {
+			"structural": false,
+			"className": "jcem-quote-model--notice",
+			"defaultIcon": "📄"
+		},
+		"info": {
+			"structural": false,
+			"className": "jcem-quote-model--info",
+			"defaultIcon": "ℹ️"
+		},
+		"alerta1": {
+			"structural": false,
+			"className": "jcem-quote-model--alerta1",
+			"defaultIcon": "⚠️"
+		},
+		"alerta2": {
+			"structural": false,
+			"className": "jcem-quote-model--alerta2",
+			"defaultIcon": "❗"
 		}
 	},
 	"attributes": {

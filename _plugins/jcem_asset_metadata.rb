@@ -329,11 +329,47 @@ module Jcem
         }
       end
 
+      attach_responsive_variants!(assets, site.data["jcem_responsive_images"])
       site.data["jcem_asset_metadata"] = {
         "version" => 1,
         "assets" => assets
       }
       write_cache(site, next_cache)
+    end
+
+    def attach_responsive_variants!(assets, responsive_data)
+      definitions = responsive_data.is_a?(Hash) ? responsive_data.fetch("assets", {}) : {}
+      definitions.each do |canonical, definition|
+        variants = definition.fetch("variants", []).filter_map do |variant|
+          width = variant["width"].to_f
+          height = variant["height"].to_f
+          path = variant["path"].to_s
+          next unless width.positive? && height.positive? && path.start_with?("/")
+
+          {
+            "path" => path,
+            "width" => dimension_value(width),
+            "height" => dimension_value(height),
+            "aspect_ratio" => (width / height).round(6),
+            "byte_size" => variant["byte_size"],
+            "media_type" => variant["media_type"] || media_type_for_path(path)
+          }.compact
+        end.sort_by { |variant| variant["width"] }
+        next if variants.empty?
+        ratio = variants.last["width"].to_f / variants.last["height"].to_f
+        next unless variants.all? do |variant|
+          expected_height = variant["width"].to_f / ratio
+          (variant["height"].to_f - expected_height).abs <= 1.01
+        end
+
+        asset_lookup_keys(canonical).each do |key|
+          next unless assets[key]
+          assets[key] = assets[key].merge(
+            "variants" => variants,
+            "srcset" => variants.map { |variant| "#{variant["path"]} #{variant["width"]}w" }.join(", ")
+          )
+        end
+      end
     end
 
     def metadata_for(site, input)

@@ -1002,7 +1002,17 @@ jcem_context: 404
 								figure.style.setProperty('--jcem-asset-aspect-ratio', String(post.image_aspect_ratio));
 							}
 							const img = element('img', 'archive__item-image u-photo jcem-skeleton-asset');
-							img.src = image;
+							const variants = Array.isArray(post.image_variants)
+								? post.image_variants
+									.map((variant) => ({ ...variant, path: safeUrl(variant.path) }))
+									.filter((variant) => variant.path && Number(variant.width) > 0)
+									.sort((left, right) => Number(left.width) - Number(right.width))
+								: [];
+							img.src = variants[0]?.path || image;
+							if (variants.length) {
+								img.srcset = variants.map((variant) => `${variant.path} ${variant.width}w`).join(', ');
+								img.sizes = post.image_sizes || '(max-width: 40rem) calc(100vw - 2rem), (max-width: 64rem) 50vw, 33vw';
+							}
 							img.alt = String(post.image_alt || post.title);
 							img.loading = 'lazy';
 							img.decoding = 'async';

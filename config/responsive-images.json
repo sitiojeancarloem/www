@@ -1,0 +1,54 @@
+{
+	"schema": 1,
+	"quality": 82,
+	"widths": [
+		320,
+		640,
+		960,
+		1200,
+		1280,
+		1920
+	],
+	"assets": [
+		{
+			"id": "devaneios",
+			"source": "assets/images/posts/devaneios/devaneios-grande.png",
+			"canonical": "/assets/images/posts/devaneios/devaneios-grande.png"
+		},
+		{
+			"id": "tradicao-vs-biblia",
+			"source": "_drafts/_midias-recuperadas/blog.jeancarloem.com/wp-content/uploads/2020/04/COVER.png",
+			"canonical": "https://web.archive.org/web/20201006232837im_/https://blog.jeancarloem.com/wp-content/uploads/2020/04/COVER.png"
+		},
+		{
+			"id": "sola-scriptura",
+			"source": "_drafts/_midias-recuperadas/blog.jeancarloem.com/wp-content/uploads/2020/05/sola-scriptura-farol.png",
+			"canonical": "https://web.archive.org/web/20201011094944im_/https://blog.jeancarloem.com/wp-content/uploads/2020/05/sola-scriptura-farol.png"
+		},
+		{
+			"id": "nove-motivos-sabado",
+			"source": "_drafts/_midias-recuperadas/blog.jeancarloem.com/wp-content/uploads/2020/07/9-motivos-para-guardar-o-sabado.png",
+			"canonical": "https://web.archive.org/web/20201004084617im_/https://blog.jeancarloem.com/wp-content/uploads/2020/07/9-motivos-para-guardar-o-sabado.png"
+		},
+		{
+			"id": "cinco-verdades-genesis",
+			"source": "_drafts/_midias-recuperadas/blog.jeancarloem.com/wp-content/uploads/2020/07/5-verdades-de-genesis-2-7.png",
+			"canonical": "https://web.archive.org/web/20201005014559im_/https://blog.jeancarloem.com/wp-content/uploads/2020/07/5-verdades-de-genesis-2-7.png"
+		},
+		{
+			"id": "como-identificar-falacias",
+			"source": "_drafts/_midias-recuperadas/blog.jeancarloem.com/wp-content/uploads/2020/08/cover-como-identificar-falacias.png",
+			"canonical": "https://web.archive.org/web/20201005013131im_/https://blog.jeancarloem.com/wp-content/uploads/2020/08/cover-como-identificar-falacias.png"
+		},
+		{
+			"id": "salvacao-importa-ser-perfeito",
+			"source": "_drafts/_midias-recuperadas/blog.jeancarloem.com/wp-content/uploads/2020/08/importa-ser-perfeito.png",
+			"canonical": "https://web.archive.org/web/20201004153207im_/https://blog.jeancarloem.com/wp-content/uploads/2020/08/importa-ser-perfeito.png"
+		},
+		{
+			"id": "nenhum-alcool",
+			"source": "_drafts/_midias-recuperadas/blog.jeancarloem.com/wp-content/uploads/2021/02/Nenhum-nivel-de-alcool-faz-bem-a-saude.jpg",
+			"canonical": "https://web.archive.org/web/20210207030211im_/https://blog.jeancarloem.com/wp-content/uploads/2021/02/Nenhum-nivel-de-alcool-faz-bem-a-saude.jpg"
+		}
+	]
+}

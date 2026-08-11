@@ -20,6 +20,9 @@ markdown = <<~MARKDOWN
   > Citação por ocorrência.
   {: data-jcem-quote-model="standard"}
 
+  > Aviso tipado.
+  {: data-jcem-quote-model="alerta1" data-jcem-quote-icon="⚠️"}
+
   Parágrafo com `fala citada`{:.jcem-inline-quote} e `codigo_preservado`.
 MARKDOWN
 
@@ -29,6 +32,10 @@ normalized = Jcem::QuoteSemantics.normalize_html(html, config)
 assert(
   normalized.include?('data-jcem-quote-model="standard"'),
   "IAL do modelo por ocorrência não foi preservada"
+)
+assert(
+  normalized.include?('data-jcem-quote-model="alerta1"'),
+  "modelo tipado não foi preservado"
 )
 assert(
   normalized.include?('<em class="jcem-inline-quote" data-jcem-inline-quote="explicit">fala citada</em>'),
@@ -47,6 +54,16 @@ begin
   abort "quote_semantics=erro detalhe=modelo desconhecido foi aceito"
 rescue Jekyll::Errors::FatalException => error
   assert(error.message.include?("modelo_desconhecido"), "falha desconhecida perdeu diagnóstico")
+end
+
+begin
+  Jcem::QuoteSemantics.normalize_html(
+    '<blockquote data-jcem-quote-model="info" data-jcem-quote-icon-src="javascript:alert(1)" data-jcem-quote-icon-alt="x">x</blockquote>',
+    config
+  )
+  abort "quote_semantics=erro detalhe=icone inseguro foi aceito"
+rescue Jekyll::Errors::FatalException => error
+  assert(error.message.include?("icone_invalido"), "ícone inseguro perdeu diagnóstico")
 end
 
 puts "quote_semantics=ok"

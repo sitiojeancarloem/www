@@ -62,4 +62,38 @@ path_meta = Jcem::AssetMetadata.metadata_for(
 )
 assert(path_meta["aspect_ratio_css"] == "1200 / 630", "metadata declarado nao localizado por caminho")
 
+responsive_path = File.join(ROOT, "_data", "jcem_responsive_images.json")
+responsive_data = JSON.parse(File.binread(responsive_path))
+responsive_assets = {}
+responsive_data.fetch("assets").each do |canonical, definition|
+  first = definition.fetch("variants").first
+  metadata = Jcem::AssetMetadata.build_declared_metadata(
+    canonical,
+    "width" => first.fetch("width"), "height" => first.fetch("height")
+  )
+  Jcem::AssetMetadata.asset_lookup_keys(canonical).each { |key| responsive_assets[key] = metadata }
+end
+Jcem::AssetMetadata.attach_responsive_variants!(responsive_assets, responsive_data)
+assert(responsive_data.fetch("assets").size == 8, "catalogo responsivo deve cobrir oito imagens publicadas")
+
+responsive_data.fetch("assets").each do |canonical, definition|
+  metadata = Jcem::AssetMetadata.metadata_for(
+    Struct.new(:data).new({ "jcem_asset_metadata" => { "assets" => responsive_assets } }),
+    canonical
+  )
+  variants = metadata.fetch("variants")
+  assert(variants.size >= 2, "variantes insuficientes para #{canonical}")
+  assert(variants.map { |variant| variant.fetch("width") } == variants.map { |variant| variant.fetch("width") }.sort,
+         "variantes fora de ordem para #{canonical}")
+  variants.each do |variant|
+    file = File.join(ROOT, variant.fetch("path").delete_prefix("/"))
+    assert(File.file?(file) && File.size(file).positive?, "variante ausente para #{canonical}: #{file}")
+    measured = Jcem::AssetMetadata.build_metadata(file, variant.fetch("path"))
+    assert(measured["width"] == variant["width"] && measured["height"] == variant["height"],
+           "dimensoes responsivas divergentes para #{canonical}")
+  end
+  assert(metadata.fetch("srcset").include?("#{variants.first.fetch("width")}w"),
+         "srcset ausente para #{canonical}")
+end
+
 puts "asset_metadata=ok"

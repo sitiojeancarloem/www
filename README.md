@@ -29,6 +29,17 @@ Push comum em `main`, sem `publicar`, não publica o site; apenas atualiza o cac
 
 Quando `gh-pages` receber push direto, o workflow reencaminha a publicação para uma execução em `main`, mantendo compatibilidade com regras do ambiente `github-pages` que restringem branches de deploy.
 
+As normas do produto são roteadas pelo índice compacto [`RCF.md`](RCF.md) para especializações sob [`RCFs/`](RCFs/). Namespace editorial e subnamespaces são declarados no front matter, sem `permalink` ad hoc:
+
+```yaml
+content_namespace: bate-papo
+content_subnamespaces:
+  - obra-base
+  - parte-1
+```
+
+O plugin converte essas representações em rota pública determinística, preservando `:` no namespace de topo e usando caminhos físicos portáveis no build.
+
 ## Equações LaTeX
 
 <!-- AI-PROCESSED -->
@@ -88,6 +99,15 @@ Componentes elegíveis com assets potencialmente lentos usam skeleton loading em
 Durante o build, `_plugins/jcem_asset_metadata.rb` gera metadados opcionais para imagens públicas e publica o índice consolidado em `assets/jcem/asset-metadata.json`. O cache incremental fica em `.jekyll-cache/jcem-asset-metadata.json`.
 
 Quando disponíveis, esses dados são usados para emitir `width`, `height` e proporção em imagens destacadas, cards e posts recentes. Imagens externas sem arquivo local devem declarar metadados em `_data/jcem_asset_metadata.yml`, preservando a reserva exata de espaço desde o HTML inicial. Sem o índice, a página continua funcional; o skeleton apenas usa a reserva genérica definida por CSS.
+
+As imagens publicadas catalogadas em `config/responsive-images.json` possuem variantes WebP reais. Gere novamente após alterar uma fonte e versione os arquivos junto do índice:
+
+```bash
+python -m pip install -r scripts/requirements-responsive-images.txt
+npm run images:responsive
+```
+
+Cards, thumbnails, 404, posts recentes e imagens destacadas recebem `srcset`/`sizes`; o navegador escolhe a menor variante suficiente para viewport e DPR, mantendo proporção e fallback canônico.
 
 ## Autores de artigos
 
@@ -162,11 +182,21 @@ jcem:
 
 Com o recurso ativo, `assets/jcem/js/site.js` transforma cada `blockquote` normalizado dentro de `.page__content` em `div.jcem-panel.jcem-panel--futuristic`, preservando conteúdo, atributos e semântica acessível.
 
-O contrato por ocorrência do `RCF-JCEM-CITACOES-001` está implementado. Um bloco pode selecionar `standard`, `futuristic` ou outro modelo registrado por Kramdown IAL:
+O contrato por ocorrência do `RCF-JCEM-CITACOES-001` está implementado. Um bloco pode selecionar `standard`, `futuristic`, `notice`, `info`, `alerta1`, `alerta2` ou outro modelo registrado por Kramdown IAL:
 
 ```markdown
 > Conteúdo citado.
 {: data-jcem-quote-model="futuristic"}
+```
+
+Os quatro modelos informativos são responsivos e exclusivos da tela; impressão continua usando o perfil IEEE. O editor pode substituir o ícone padrão com emoji ou imagem segura:
+
+```markdown
+> Aviso editorial.
+{: data-jcem-quote-model="alerta1" data-jcem-quote-icon="🔎"}
+
+> Informação adicional.
+{: data-jcem-quote-model="info" data-jcem-quote-icon-src="/assets/images/info.svg" data-jcem-quote-icon-alt="Informação"}
 ```
 
 A configuração da ocorrência prevalece sobre contexto, post e configuração global. O mesmo identificador seleciona estilos simples ou modelos que alterem a estrutura, sem uma segunda sintaxe; identificador desconhecido falha no build controlado.
@@ -181,7 +211,7 @@ O formatador exclui links, ênfase, código, notas e referências, preserva apó
 
 ## Impressão editorial IEEE
 
-Posts completos carregam sob demanda a biblioteca agnóstica `@jcem/print-ieee`, localizada em `src/jcem-print-ieee`; home, mapas, arquivos, 404 e listagens não carregam seus recursos. A importação não produz efeito colateral, e o estado automático máximo é `nativo-preparado`.
+Posts completos carregam sob demanda a biblioteca agnóstica `@jcem/print-ieee`, localizada em `src/jcem-print-ieee`; home, mapas, arquivos, 404 e listagens não carregam seus recursos. A importação não produz efeito colateral, e o estado automático máximo é `nativo-preparado`. O módulo é postergado para fora da janela inicial e antecipado imediatamente por `beforeprint`, sem comprometer a primeira impressão.
 
 Tela e impressão possuem contratos de apresentação isolados, obrigatórios também para recursos futuros e componentes de terceiros. A impressão reutiliza somente conteúdo e marcadores semânticos declarados, neutraliza tipografia, títulos, recuos, bordas, fundos, sombras, pseudo-elementos e estruturas decorativas da web e então aplica o perfil impresso. Componentes exclusivos de impressão permanecem ocultos em tela. `blockquote` usa exclusivamente o estilo IEEE por padrão; exceção precisa de autorização expressa, aplicação seletiva e registro no ponto único de exceções do `RCF-JCEM-IMPRESSAO-IEEE-001`.
 
@@ -296,6 +326,12 @@ Validação:
 
 ```bash
 npm run validate:visual
+```
+
+A matriz representativa de PageSpeed (mobile e desktop, meta mínima 90 em todas as categorias) está em `config/pagespeed.json`. Resultados válidos são condensados e reutilizados por 24 horas:
+
+```bash
+npm run pagespeed
 ```
 
 ## Autoria

@@ -59,10 +59,12 @@ const saveJcemTheme = (theme: JcemTheme): void => {
 
 const applyJcemTheme = (theme: JcemTheme): void => {
 	const radio = select<HTMLInputElement>(`#jcem-theme-${theme}`);
+	const toggle = select<HTMLButtonElement>('.jcem-theme-toggle');
 
 	if (radio) {
 		radio.checked = true;
 	}
+	toggle?.setAttribute('aria-checked', String(theme === 'dark'));
 };
 
 const bindJcemTheme = (): void => {
@@ -80,6 +82,18 @@ const bindJcemTheme = (): void => {
 				}
 			});
 		});
+
+	select<HTMLButtonElement>('.jcem-theme-toggle')?.addEventListener(
+		'click',
+		() => {
+			const current = select<HTMLInputElement>(
+				'input[name="jcem-theme"]:checked',
+			)?.value;
+			const next: JcemTheme = current === 'light' ? 'dark' : 'light';
+			applyJcemTheme(next);
+			saveJcemTheme(next);
+		},
+	);
 };
 
 const bindJcemNav = (): void => {
@@ -654,8 +668,23 @@ const bindJcemCollapsibleSections = (): void => {
 	bindJcemPrintCollapsibles();
 };
 
-const jcemQuoteModels = ['standard', 'futuristic'] as const;
+const jcemQuoteModels = [
+	'standard',
+	'futuristic',
+	'notice',
+	'info',
+	'alerta1',
+	'alerta2',
+] as const;
 type JcemQuoteModel = (typeof jcemQuoteModels)[number];
+type JcemTypedQuoteModel = Exclude<JcemQuoteModel, 'standard' | 'futuristic'>;
+
+const jcemTypedQuoteIcons: Record<JcemTypedQuoteModel, string> = {
+	notice: '📄',
+	info: 'ℹ️',
+	alerta1: '⚠️',
+	alerta2: '❗',
+};
 
 const isJcemQuoteModel = (value: string): value is JcemQuoteModel =>
 	jcemQuoteModels.includes(value as JcemQuoteModel);
@@ -687,14 +716,47 @@ const markJcemSemanticQuote = (
 	quote.dataset.jcemBlockquote = '';
 	quote.dataset.jcemQuoteModel = model;
 	quote.classList.remove(
-		'jcem-quote-model--standard',
-		'jcem-quote-model--futuristic',
+		...jcemQuoteModels.map((name) => `jcem-quote-model--${name}`),
 	);
 	quote.classList.add(`jcem-quote-model--${model}`);
 
 	if (quote.tagName !== 'BLOCKQUOTE' && !quote.hasAttribute('role')) {
 		quote.setAttribute('role', 'blockquote');
 	}
+};
+
+const safeJcemQuoteIconUrl = (value: string): string | null => {
+	if (!value) return null;
+	try {
+		const url = new URL(value, document.baseURI);
+		return ['http:', 'https:'].includes(url.protocol) ? url.href : null;
+	} catch {
+		return null;
+	}
+};
+
+const decorateJcemTypedQuote = (
+	quote: HTMLElement,
+	model: JcemTypedQuoteModel,
+): void => {
+	if (quote.querySelector(':scope > .jcem-quote__icon')) return;
+	const icon = document.createElement('span');
+	icon.className = 'jcem-quote__icon';
+	const source = safeJcemQuoteIconUrl(quote.dataset.jcemQuoteIconSrc || '');
+	if (source) {
+		const image = document.createElement('img');
+		image.src = source;
+		image.alt = quote.dataset.jcemQuoteIconAlt || '';
+		image.loading = 'lazy';
+		image.decoding = 'async';
+		icon.append(image);
+	} else {
+		icon.textContent =
+			quote.dataset.jcemQuoteIcon || jcemTypedQuoteIcons[model];
+		icon.setAttribute('aria-hidden', 'true');
+	}
+	quote.classList.add('jcem-quote--typed', 'jcem-quote--runtime-icon');
+	quote.prepend(icon);
 };
 
 const bindJcemBlockquotePanels = (): void => {
@@ -721,6 +783,9 @@ const bindJcemBlockquotePanels = (): void => {
 
 			const model = resolveJcemQuoteModel(quote, article);
 			markJcemSemanticQuote(quote, model);
+			if (!['standard', 'futuristic'].includes(model)) {
+				decorateJcemTypedQuote(quote, model as JcemTypedQuoteModel);
+			}
 			quote.dataset.jcemQuoteProcessed = 'true';
 
 			if (model !== 'futuristic' || quote.tagName !== 'BLOCKQUOTE') {
@@ -1259,6 +1324,13 @@ type JcemRecentPost = {
 	image_width?: number;
 	image_height?: number;
 	image_aspect_ratio?: string;
+	image_sizes?: string;
+	image_variants?: Array<{
+		path: string;
+		width: number;
+		height: number;
+		byte_size?: number;
+	}>;
 };
 
 const jcemRecentMonths = [
@@ -1355,7 +1427,27 @@ const createJcemRecentCard = (post: JcemRecentPost): HTMLElement | null => {
 			figure.dataset.jcemAssetAspectRatio = post.image_aspect_ratio;
 			figure.style.setProperty('--jcem-asset-aspect-ratio', post.image_aspect_ratio);
 		}
-		img.src = image;
+		const variants = (post.image_variants || [])
+			.map((variant) => ({
+				...variant,
+				path: jcemSafeHttpUrl(variant.path),
+			}))
+			.filter(
+				(variant) =>
+					variant.path &&
+					Number(variant.width) > 0 &&
+					Number(variant.height) > 0,
+			)
+			.sort((left, right) => left.width - right.width);
+		img.src = variants[0]?.path || image;
+		if (variants.length) {
+			img.srcset = variants
+				.map((variant) => `${variant.path} ${variant.width}w`)
+				.join(', ');
+			img.sizes =
+				post.image_sizes ||
+				'(max-width: 40rem) calc(100vw - 2rem), (max-width: 64rem) 50vw, 33vw';
+		}
 		img.alt = String(post.image_alt || post.title);
 		img.loading = 'lazy';
 		img.decoding = 'async';

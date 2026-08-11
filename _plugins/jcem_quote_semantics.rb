@@ -5,6 +5,7 @@
 # Licença: MPL-2.0 — https://mozilla.org/MPL/2.0/ — código aberto, sem garantia.
 
 require "json"
+require "uri"
 
 module Jcem
   module QuoteSemantics
@@ -12,6 +13,8 @@ module Jcem
     MODEL_ATTRIBUTE = /\bdata-jcem-quote-model=(?<quote>['"])(?<model>[a-z0-9][a-z0-9_-]*)\k<quote>/i
     CODE_ELEMENT = /<code(?<attributes>\s[^>]*)?>(?<content>.*?)<\/code>/mi
     CLASS_ATTRIBUTE = /\sclass=(?<quote>['"])(?<classes>.*?)\k<quote>/mi
+    ICON_SOURCE_ATTRIBUTE = /\bdata-jcem-quote-icon-src=(?<quote>['"])(?<source>.*?)\k<quote>/i
+    ICON_ALT_ATTRIBUTE = /\bdata-jcem-quote-icon-alt=(?<quote>['"])(?<alt>.*?)\k<quote>/i
 
     module_function
 
@@ -38,6 +41,7 @@ module Jcem
 
     def normalize_html(html, config)
       validate_models!(html, config.fetch("models").keys)
+      validate_icons!(html)
       promote_explicit_inline_quotes(html)
     end
 
@@ -48,6 +52,31 @@ module Jcem
 
         raise Jekyll::Errors::FatalException,
               "quote_semantics=modelo_desconhecido model=#{model}"
+      end
+    end
+
+    def validate_icons!(html)
+      html.to_enum(:scan, ICON_SOURCE_ATTRIBUTE).each do
+        source = Regexp.last_match[:source].to_s.strip
+        element_start = html.rindex("<", Regexp.last_match.begin(0)) || 0
+        element_end = html.index(">", Regexp.last_match.end(0)) || Regexp.last_match.end(0)
+        attributes = html[element_start..element_end]
+        alt = attributes.match(ICON_ALT_ATTRIBUTE)&.[](:alt).to_s.strip
+        valid_source =
+          begin
+            uri = URI.parse(source)
+            (
+              !uri.absolute? &&
+              !source.start_with?("//") &&
+              !source.split("/").include?("..")
+            ) || uri.scheme == "https"
+          rescue URI::InvalidURIError
+            false
+          end
+        next if valid_source && !alt.empty?
+
+        raise Jekyll::Errors::FatalException,
+              "quote_semantics=icone_invalido source=#{source.inspect}"
       end
     end
 

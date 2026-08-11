@@ -17,6 +17,7 @@
     "check:inline-quotes": "npm run build:ts && node scripts/test_inline_quotes.mjs",
     "check:print": "npm run build:print && node scripts/test_print_ieee.mjs",
     "check:performance": "node scripts/test_web_performance.mjs",
+    "images:responsive": "python scripts/generate-responsive-images.py",
     "check:importador": "node --check importador/reconstruct-wxr.mjs && node --check importador/media-recovery.mjs && npm run import:wxr:dry && npm run import:media:plan -- --limit=5",
     "check": "npm run check:ts && npm run check:html && npm run check:footnotes && npm run check:math && npm run check:assets && npm run check:authors && npm run check:namespaces && npm run check:quotes && npm run check:inline-quotes && npm run check:print && npm run check:performance",
     "pagespeed": "node scripts/check-pagespeed.mjs",

@@ -2601,6 +2601,7 @@ body
 }
 
 .jcem-theme-toggle {
+	appearance: none;
 	display: inline-flex;
 	align-items: center;
 	flex: 0 0 auto;
@@ -2612,6 +2613,8 @@ body
 	background: var(--fbg);
 	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.125);
 	line-height: 1;
+	cursor: pointer;
+	font: inherit;
 }
 
 .jcem-theme-toggle__option {
@@ -2639,6 +2642,7 @@ body
 
 .main_jcem_wrapper .fa-sun::before,
 .main_jcem_wrapper .fa-moon::before,
+.main_jcem_wrapper .fa-bars::before,
 .main_jcem_wrapper .fa-arrow-up::before {
 	display: inline-block;
 	font-family: var(--_fa-family, 'Font Awesome 7 Free');
@@ -2651,6 +2655,10 @@ body
 
 .main_jcem_wrapper .fa-moon::before {
 	content: '\f186';
+}
+
+.main_jcem_wrapper .fa-bars::before {
+	content: '\f0c9';
 }
 
 .main_jcem_wrapper .fa-arrow-up::before {

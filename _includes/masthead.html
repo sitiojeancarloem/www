@@ -79,28 +79,28 @@ include.class | default: '' %} {% assign jcem_masthead_static_fragment
 					{%- endfor -%} {%- endif -%}
 				</ul>
 				{% unless jcem_masthead_reduced %}
-				<div
+				<button
 					class="jcem-theme-toggle"
-					role="group"
+					type="button"
+					role="switch"
+					aria-checked="true"
 					aria-label="Alternar tema"
 				>
-					<label
+					<span
 						class="jcem-theme-toggle__option jcem-theme-toggle__option--light"
-						for="jcem-theme-light"
 						title="Tema claro"
 					>
 						<span class="visually-hidden">Tema claro</span>
 						<i class="fas fa-sun" aria-hidden="true"></i>
-					</label>
-					<label
+					</span>
+					<span
 						class="jcem-theme-toggle__option jcem-theme-toggle__option--dark"
-						for="jcem-theme-dark"
 						title="Tema escuro"
 					>
 						<span class="visually-hidden">Tema escuro</span>
 						<i class="fas fa-moon" aria-hidden="true"></i>
-					</label>
-				</div>
+					</span>
+				</button>
 				{% if site.search == true %}
 				<button class="search__toggle" type="button">
 					<span class="visually-hidden"
@@ -119,7 +119,7 @@ include.class | default: '' %} {% assign jcem_masthead_static_fragment
 						>{{ site.data.ui-text[site.locale].menu_label | default:
 						"Toggle menu" }}</span
 					>
-					<span class="navicon"></span>
+					<i class="fas fa-bars" aria-hidden="true"></i>
 				</label>
 				<button class="greedy-nav__toggle hidden" type="button">
 					<span class="visually-hidden"

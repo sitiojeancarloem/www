@@ -1,0 +1,339 @@
+{
+  "schema": 1,
+  "assets": {
+    "/assets/images/posts/devaneios/devaneios-grande.png": {
+      "source": "assets/images/posts/devaneios/devaneios-grande.png",
+      "variants": [
+        {
+          "path": "/assets/images/responsive/devaneios/devaneios-320w.webp",
+          "width": 320,
+          "height": 23,
+          "byte_size": 2286,
+          "media_type": "image/webp"
+        },
+        {
+          "path": "/assets/images/responsive/devaneios/devaneios-640w.webp",
+          "width": 640,
+          "height": 46,
+          "byte_size": 5768,
+          "media_type": "image/webp"
+        },
+        {
+          "path": "/assets/images/responsive/devaneios/devaneios-960w.webp",
+          "width": 960,
+          "height": 70,
+          "byte_size": 10376,
+          "media_type": "image/webp"
+        },
+        {
+          "path": "/assets/images/responsive/devaneios/devaneios-1200w.webp",
+          "width": 1200,
+          "height": 87,
+          "byte_size": 13734,
+          "media_type": "image/webp"
+        },
+        {
+          "path": "/assets/images/responsive/devaneios/devaneios-1280w.webp",
+          "width": 1280,
+          "height": 93,
+          "byte_size": 14750,
+          "media_type": "image/webp"
+        },
+        {
+          "path": "/assets/images/responsive/devaneios/devaneios-1920w.webp",
+          "width": 1920,
+          "height": 139,
+          "byte_size": 24598,
+          "media_type": "image/webp"
+        }
+      ]
+    },
+    "https://web.archive.org/web/20201006232837im_/https://blog.jeancarloem.com/wp-content/uploads/2020/04/COVER.png": {
+      "source": "_drafts/_midias-recuperadas/blog.jeancarloem.com/wp-content/uploads/2020/04/COVER.png",
+      "variants": [
+        {
+          "path": "/assets/images/responsive/tradicao-vs-biblia/tradicao-vs-biblia-320w.webp",
+          "width": 320,
+          "height": 168,
+          "byte_size": 21582,
+          "media_type": "image/webp"
+        },
+        {
+          "path": "/assets/images/responsive/tradicao-vs-biblia/tradicao-vs-biblia-640w.webp",
+          "width": 640,
+          "height": 336,
+          "byte_size": 67058,
+          "media_type": "image/webp"
+        },
+        {
+          "path": "/assets/images/responsive/tradicao-vs-biblia/tradicao-vs-biblia-960w.webp",
+          "width": 960,
+          "height": 504,
+          "byte_size": 131048,
+          "media_type": "image/webp"
+        },
+        {
+          "path": "/assets/images/responsive/tradicao-vs-biblia/tradicao-vs-biblia-1200w.webp",
+          "width": 1200,
+          "height": 630,
+          "byte_size": 177964,
+          "media_type": "image/webp"
+        }
+      ]
+    },
+    "https://web.archive.org/web/20201011094944im_/https://blog.jeancarloem.com/wp-content/uploads/2020/05/sola-scriptura-farol.png": {
+      "source": "_drafts/_midias-recuperadas/blog.jeancarloem.com/wp-content/uploads/2020/05/sola-scriptura-farol.png",
+      "variants": [
+        {
+          "path": "/assets/images/responsive/sola-scriptura/sola-scriptura-320w.webp",
+          "width": 320,
+          "height": 168,
+          "byte_size": 11168,
+          "media_type": "image/webp"
+        },
+        {
+          "path": "/assets/images/responsive/sola-scriptura/sola-scriptura-640w.webp",
+          "width": 640,
+          "height": 336,
+          "byte_size": 31774,
+          "media_type": "image/webp"
+        },
+        {
+          "path": "/assets/images/responsive/sola-scriptura/sola-scriptura-960w.webp",
+          "width": 960,
+          "height": 504,
+          "byte_size": 58400,
+          "media_type": "image/webp"
+        },
+        {
+          "path": "/assets/images/responsive/sola-scriptura/sola-scriptura-1200w.webp",
+          "width": 1200,
+          "height": 630,
+          "byte_size": 79012,
+          "media_type": "image/webp"
+        }
+      ]
+    },
+    "https://web.archive.org/web/20201004084617im_/https://blog.jeancarloem.com/wp-content/uploads/2020/07/9-motivos-para-guardar-o-sabado.png": {
+      "source": "_drafts/_midias-recuperadas/blog.jeancarloem.com/wp-content/uploads/2020/07/9-motivos-para-guardar-o-sabado.png",
+      "variants": [
+        {
+          "path": "/assets/images/responsive/nove-motivos-sabado/nove-motivos-sabado-320w.webp",
+          "width": 320,
+          "height": 167,
+          "byte_size": 14026,
+          "media_type": "image/webp"
+        },
+        {
+          "path": "/assets/images/responsive/nove-motivos-sabado/nove-motivos-sabado-640w.webp",
+          "width": 640,
+          "height": 334,
+          "byte_size": 34232,
+          "media_type": "image/webp"
+        },
+        {
+          "path": "/assets/images/responsive/nove-motivos-sabado/nove-motivos-sabado-960w.webp",
+          "width": 960,
+          "height": 501,
+          "byte_size": 56306,
+          "media_type": "image/webp"
+        },
+        {
+          "path": "/assets/images/responsive/nove-motivos-sabado/nove-motivos-sabado-1200w.webp",
+          "width": 1200,
+          "height": 626,
+          "byte_size": 71786,
+          "media_type": "image/webp"
+        },
+        {
+          "path": "/assets/images/responsive/nove-motivos-sabado/nove-motivos-sabado-1280w.webp",
+          "width": 1280,
+          "height": 668,
+          "byte_size": 77860,
+          "media_type": "image/webp"
+        },
+        {
+          "path": "/assets/images/responsive/nove-motivos-sabado/nove-motivos-sabado-1920w.webp",
+          "width": 1920,
+          "height": 1002,
+          "byte_size": 121886,
+          "media_type": "image/webp"
+        }
+      ]
+    },
+    "https://web.archive.org/web/20201005014559im_/https://blog.jeancarloem.com/wp-content/uploads/2020/07/5-verdades-de-genesis-2-7.png": {
+      "source": "_drafts/_midias-recuperadas/blog.jeancarloem.com/wp-content/uploads/2020/07/5-verdades-de-genesis-2-7.png",
+      "variants": [
+        {
+          "path": "/assets/images/responsive/cinco-verdades-genesis/cinco-verdades-genesis-320w.webp",
+          "width": 320,
+          "height": 167,
+          "byte_size": 6184,
+          "media_type": "image/webp"
+        },
+        {
+          "path": "/assets/images/responsive/cinco-verdades-genesis/cinco-verdades-genesis-640w.webp",
+          "width": 640,
+          "height": 334,
+          "byte_size": 13408,
+          "media_type": "image/webp"
+        },
+        {
+          "path": "/assets/images/responsive/cinco-verdades-genesis/cinco-verdades-genesis-960w.webp",
+          "width": 960,
+          "height": 501,
+          "byte_size": 21144,
+          "media_type": "image/webp"
+        },
+        {
+          "path": "/assets/images/responsive/cinco-verdades-genesis/cinco-verdades-genesis-1200w.webp",
+          "width": 1200,
+          "height": 626,
+          "byte_size": 27170,
+          "media_type": "image/webp"
+        },
+        {
+          "path": "/assets/images/responsive/cinco-verdades-genesis/cinco-verdades-genesis-1280w.webp",
+          "width": 1280,
+          "height": 668,
+          "byte_size": 29456,
+          "media_type": "image/webp"
+        },
+        {
+          "path": "/assets/images/responsive/cinco-verdades-genesis/cinco-verdades-genesis-1920w.webp",
+          "width": 1920,
+          "height": 1002,
+          "byte_size": 47716,
+          "media_type": "image/webp"
+        }
+      ]
+    },
+    "https://web.archive.org/web/20201005013131im_/https://blog.jeancarloem.com/wp-content/uploads/2020/08/cover-como-identificar-falacias.png": {
+      "source": "_drafts/_midias-recuperadas/blog.jeancarloem.com/wp-content/uploads/2020/08/cover-como-identificar-falacias.png",
+      "variants": [
+        {
+          "path": "/assets/images/responsive/como-identificar-falacias/como-identificar-falacias-320w.webp",
+          "width": 320,
+          "height": 180,
+          "byte_size": 13570,
+          "media_type": "image/webp"
+        },
+        {
+          "path": "/assets/images/responsive/como-identificar-falacias/como-identificar-falacias-640w.webp",
+          "width": 640,
+          "height": 360,
+          "byte_size": 33136,
+          "media_type": "image/webp"
+        },
+        {
+          "path": "/assets/images/responsive/como-identificar-falacias/como-identificar-falacias-960w.webp",
+          "width": 960,
+          "height": 540,
+          "byte_size": 53366,
+          "media_type": "image/webp"
+        },
+        {
+          "path": "/assets/images/responsive/como-identificar-falacias/como-identificar-falacias-1200w.webp",
+          "width": 1200,
+          "height": 675,
+          "byte_size": 68750,
+          "media_type": "image/webp"
+        },
+        {
+          "path": "/assets/images/responsive/como-identificar-falacias/como-identificar-falacias-1280w.webp",
+          "width": 1280,
+          "height": 720,
+          "byte_size": 74008,
+          "media_type": "image/webp"
+        },
+        {
+          "path": "/assets/images/responsive/como-identificar-falacias/como-identificar-falacias-1920w.webp",
+          "width": 1920,
+          "height": 1080,
+          "byte_size": 114092,
+          "media_type": "image/webp"
+        }
+      ]
+    },
+    "https://web.archive.org/web/20201004153207im_/https://blog.jeancarloem.com/wp-content/uploads/2020/08/importa-ser-perfeito.png": {
+      "source": "_drafts/_midias-recuperadas/blog.jeancarloem.com/wp-content/uploads/2020/08/importa-ser-perfeito.png",
+      "variants": [
+        {
+          "path": "/assets/images/responsive/salvacao-importa-ser-perfeito/salvacao-importa-ser-perfeito-320w.webp",
+          "width": 320,
+          "height": 167,
+          "byte_size": 8084,
+          "media_type": "image/webp"
+        },
+        {
+          "path": "/assets/images/responsive/salvacao-importa-ser-perfeito/salvacao-importa-ser-perfeito-640w.webp",
+          "width": 640,
+          "height": 334,
+          "byte_size": 20384,
+          "media_type": "image/webp"
+        },
+        {
+          "path": "/assets/images/responsive/salvacao-importa-ser-perfeito/salvacao-importa-ser-perfeito-960w.webp",
+          "width": 960,
+          "height": 501,
+          "byte_size": 36444,
+          "media_type": "image/webp"
+        },
+        {
+          "path": "/assets/images/responsive/salvacao-importa-ser-perfeito/salvacao-importa-ser-perfeito-1200w.webp",
+          "width": 1200,
+          "height": 626,
+          "byte_size": 47760,
+          "media_type": "image/webp"
+        },
+        {
+          "path": "/assets/images/responsive/salvacao-importa-ser-perfeito/salvacao-importa-ser-perfeito-1280w.webp",
+          "width": 1280,
+          "height": 668,
+          "byte_size": 52718,
+          "media_type": "image/webp"
+        },
+        {
+          "path": "/assets/images/responsive/salvacao-importa-ser-perfeito/salvacao-importa-ser-perfeito-1920w.webp",
+          "width": 1920,
+          "height": 1002,
+          "byte_size": 88244,
+          "media_type": "image/webp"
+        }
+      ]
+    },
+    "https://web.archive.org/web/20210207030211im_/https://blog.jeancarloem.com/wp-content/uploads/2021/02/Nenhum-nivel-de-alcool-faz-bem-a-saude.jpg": {
+      "source": "_drafts/_midias-recuperadas/blog.jeancarloem.com/wp-content/uploads/2021/02/Nenhum-nivel-de-alcool-faz-bem-a-saude.jpg",
+      "variants": [
+        {
+          "path": "/assets/images/responsive/nenhum-alcool/nenhum-alcool-320w.webp",
+          "width": 320,
+          "height": 167,
+          "byte_size": 11450,
+          "media_type": "image/webp"
+        },
+        {
+          "path": "/assets/images/responsive/nenhum-alcool/nenhum-alcool-640w.webp",
+          "width": 640,
+          "height": 335,
+          "byte_size": 28716,
+          "media_type": "image/webp"
+        },
+        {
+          "path": "/assets/images/responsive/nenhum-alcool/nenhum-alcool-960w.webp",
+          "width": 960,
+          "height": 502,
+          "byte_size": 47388,
+          "media_type": "image/webp"
+        },
+        {
+          "path": "/assets/images/responsive/nenhum-alcool/nenhum-alcool-1200w.webp",
+          "width": 1200,
+          "height": 628,
+          "byte_size": 63374,
+          "media_type": "image/webp"
+        }
+      ]
+    }
+  }
+}

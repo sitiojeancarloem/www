@@ -33,11 +33,14 @@ const saveJcemTheme = (theme) => {
 };
 const applyJcemTheme = (theme) => {
     const radio = select(`#jcem-theme-${theme}`);
+    const toggle = select('.jcem-theme-toggle');
     if (radio) {
         radio.checked = true;
     }
+    toggle === null || toggle === void 0 ? void 0 : toggle.setAttribute('aria-checked', String(theme === 'dark'));
 };
 const bindJcemTheme = () => {
+    var _a;
     const storedTheme = getJcemTheme();
     const theme = isJcemTheme(storedTheme) ? storedTheme : 'dark';
     applyJcemTheme(theme);
@@ -49,6 +52,13 @@ const bindJcemTheme = () => {
                 saveJcemTheme(radio.value);
             }
         });
+    });
+    (_a = select('.jcem-theme-toggle')) === null || _a === void 0 ? void 0 : _a.addEventListener('click', () => {
+        var _a;
+        const current = (_a = select('input[name="jcem-theme"]:checked')) === null || _a === void 0 ? void 0 : _a.value;
+        const next = current === 'light' ? 'dark' : 'light';
+        applyJcemTheme(next);
+        saveJcemTheme(next);
     });
 };
 const bindJcemNav = () => {
@@ -459,7 +469,20 @@ const bindJcemCollapsibleSections = () => {
     });
     bindJcemPrintCollapsibles();
 };
-const jcemQuoteModels = ['standard', 'futuristic'];
+const jcemQuoteModels = [
+    'standard',
+    'futuristic',
+    'notice',
+    'info',
+    'alerta1',
+    'alerta2',
+];
+const jcemTypedQuoteIcons = {
+    notice: '📄',
+    info: 'ℹ️',
+    alerta1: '⚠️',
+    alerta2: '❗',
+};
 const isJcemQuoteModel = (value) => jcemQuoteModels.includes(value);
 const resolveJcemQuoteModel = (quote, article) => {
     const requested = quote.dataset.jcemQuoteModel ||
@@ -477,11 +500,44 @@ const resolveJcemQuoteModel = (quote, article) => {
 const markJcemSemanticQuote = (quote, model) => {
     quote.dataset.jcemBlockquote = '';
     quote.dataset.jcemQuoteModel = model;
-    quote.classList.remove('jcem-quote-model--standard', 'jcem-quote-model--futuristic');
+    quote.classList.remove(...jcemQuoteModels.map((name) => `jcem-quote-model--${name}`));
     quote.classList.add(`jcem-quote-model--${model}`);
     if (quote.tagName !== 'BLOCKQUOTE' && !quote.hasAttribute('role')) {
         quote.setAttribute('role', 'blockquote');
     }
+};
+const safeJcemQuoteIconUrl = (value) => {
+    if (!value)
+        return null;
+    try {
+        const url = new URL(value, document.baseURI);
+        return ['http:', 'https:'].includes(url.protocol) ? url.href : null;
+    }
+    catch {
+        return null;
+    }
+};
+const decorateJcemTypedQuote = (quote, model) => {
+    if (quote.querySelector(':scope > .jcem-quote__icon'))
+        return;
+    const icon = document.createElement('span');
+    icon.className = 'jcem-quote__icon';
+    const source = safeJcemQuoteIconUrl(quote.dataset.jcemQuoteIconSrc || '');
+    if (source) {
+        const image = document.createElement('img');
+        image.src = source;
+        image.alt = quote.dataset.jcemQuoteIconAlt || '';
+        image.loading = 'lazy';
+        image.decoding = 'async';
+        icon.append(image);
+    }
+    else {
+        icon.textContent =
+            quote.dataset.jcemQuoteIcon || jcemTypedQuoteIcons[model];
+        icon.setAttribute('aria-hidden', 'true');
+    }
+    quote.classList.add('jcem-quote--typed', 'jcem-quote--runtime-icon');
+    quote.prepend(icon);
 };
 const bindJcemBlockquotePanels = () => {
     const article = select('article.page.jcem-post');
@@ -498,6 +554,9 @@ const bindJcemBlockquotePanels = () => {
         }
         const model = resolveJcemQuoteModel(quote, article);
         markJcemSemanticQuote(quote, model);
+        if (!['standard', 'futuristic'].includes(model)) {
+            decorateJcemTypedQuote(quote, model);
+        }
         quote.dataset.jcemQuoteProcessed = 'true';
         if (model !== 'futuristic' || quote.tagName !== 'BLOCKQUOTE') {
             return;
@@ -949,6 +1008,7 @@ const createJcemRecentDateFlag = (post) => {
     return flag;
 };
 const createJcemRecentCard = (post) => {
+    var _a;
     const href = jcemSafeHttpUrl(post.url);
     if (!href || !post.title.trim())
         return null;
@@ -972,7 +1032,24 @@ const createJcemRecentCard = (post) => {
             figure.dataset.jcemAssetAspectRatio = post.image_aspect_ratio;
             figure.style.setProperty('--jcem-asset-aspect-ratio', post.image_aspect_ratio);
         }
-        img.src = image;
+        const variants = (post.image_variants || [])
+            .map((variant) => ({
+            ...variant,
+            path: jcemSafeHttpUrl(variant.path),
+        }))
+            .filter((variant) => variant.path &&
+            Number(variant.width) > 0 &&
+            Number(variant.height) > 0)
+            .sort((left, right) => left.width - right.width);
+        img.src = ((_a = variants[0]) === null || _a === void 0 ? void 0 : _a.path) || image;
+        if (variants.length) {
+            img.srcset = variants
+                .map((variant) => `${variant.path} ${variant.width}w`)
+                .join(', ');
+            img.sizes =
+                post.image_sizes ||
+                    '(max-width: 40rem) calc(100vw - 2rem), (max-width: 64rem) 50vw, 33vw';
+        }
         img.alt = String(post.image_alt || post.title);
         img.loading = 'lazy';
         img.decoding = 'async';
