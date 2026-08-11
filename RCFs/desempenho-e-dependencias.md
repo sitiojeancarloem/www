@@ -10,6 +10,7 @@ Escopo: scripts, estilos, fontes, bibliotecas externas, assets de terceiros e re
 - Implementação, manutenção, refatoração e evolução DEVEM buscar e manter pontuação PageSpeed Insights igual ou superior a 90 em todas as categorias aplicáveis, em mobile e desktop, para cada tipo real de página publicada.
 - A amostra mínima DEVE representar home, post/artigo, mapa/índice, about e cada outro layout público efetivamente descoberto. Não se mede indiscriminadamente toda URL equivalente nem se declara aprovação para layout não aferido.
 - Resultado inferior a 90 DEVE bloquear nova regressão e produzir diagnóstico do gargalo real; indisponibilidade externa, variação de laboratório ou limitação comprovada DEVE ser registrada separadamente e não convertida em sucesso.
+- Categoria só é aplicável quando não contradiz a semântica HTTP/editorial da rota. Em particular, SEO de indexação NÃO se aplica à página 404 deliberadamente `noindex`; desempenho, acessibilidade e boas práticas continuam obrigatórios nessa rota.
 - Medição DEVE ser reproduzível, condensada, cacheada por URL, estratégia, versão e hash de artefato. Cache válido DEVE evitar nova consulta; saída para IA DEVE preservar pontuações, Core Web Vitals, auditorias determinantes e evidência, sem payload prolixo.
 
 ## Regras Normativas
@@ -33,6 +34,7 @@ Escopo: scripts, estilos, fontes, bibliotecas externas, assets de terceiros e re
 - JavaScript de varredura no navegador para decidir carregamento de bibliotecas deve ser evitado quando o build consegue inferir o uso com custo menor.
 - Bibliotecas client-side amplas devem ser auditadas antes de qualquer inclusão global; ausência de uso na página implica ausência de carga.
 - O projeto DEVE fornecer medidor PageSpeed representativo com cache e resumo estruturado, sem exigir credencial para validações locais que não consultem a API.
+- Conteúdo acima da dobra que possa se tornar LCP NÃO DEVE usar lazy loading; deve ser descoberto no HTML e receber prioridade compatível. Scripts de consentimento não essenciais à primeira pintura DEVEM permanecer fora do `<head>` bloqueante.
 - O adaptador de masthead DEVE manter uma única fila de sincronização responsiva e aplicar mutações somente quando o estado calculado mudar.
 
 ## Validação

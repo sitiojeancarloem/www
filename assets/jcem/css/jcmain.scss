@@ -158,7 +158,7 @@ article {
 .jcem-foot {
 	font-size: 0.7rem;
 	margin: 3em 1em;
-	opacity: 0.7;
+	opacity: 1;
 }
 .jcem-foot,
 .jcem-foot *,
@@ -548,6 +548,13 @@ footer ul.social-icons li i {
 .main_jcem_wrapper .sidebar,
 .main_jcem_wrapper .sidebar__right {
 	display: none !important;
+}
+
+.main_jcem_wrapper .back-to-top,
+.main_jcem_wrapper .jcem-footer-region__taxonomy a {
+	display: inline-flex;
+	align-items: center;
+	min-height: 1.5rem;
 }
 
 @media screen {

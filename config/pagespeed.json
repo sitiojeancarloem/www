@@ -11,6 +11,6 @@
 		{"id": "about", "path": "/sobre/"},
 		{"id": "categories", "path": "/c/"},
 		{"id": "tags", "path": "/t/"},
-		{"id": "not-found", "path": "/404.html"}
+		{"id": "not-found", "path": "/404.html", "categories": ["performance", "accessibility", "best-practices"]}
 	]
 }

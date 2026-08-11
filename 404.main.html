@@ -9,6 +9,7 @@ jcem_context: 404
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<meta name="robots" content="noindex, follow" />
+		<meta name="description" content="Página não encontrada no site JeanCarloEM." />
 		<title>... - JeanCarloEM</title>
 		<script>
 			(() => {
@@ -618,8 +619,8 @@ jcem_context: 404
 		<noscript data-jcem-fragment="noscript-content">
 			{% include jcem/noscript-content.html %}
 		</noscript>
-		<input class="radio jcem-theme-radio" type="radio" name="jcem-theme" id="jcem-theme-light" value="light" />
-		<input class="radio jcem-theme-radio" type="radio" name="jcem-theme" id="jcem-theme-dark" value="dark" checked />
+		<input class="radio jcem-theme-radio" type="radio" name="jcem-theme" id="jcem-theme-light" value="light" aria-label="Tema claro" />
+		<input class="radio jcem-theme-radio" type="radio" name="jcem-theme" id="jcem-theme-dark" value="dark" aria-label="Tema escuro" checked />
 		<script>
 			(() => {
 				const allowedThemes = new Set(['light', 'dark']);

@@ -25,7 +25,7 @@ title: 'JeanCarloEM'
 title_separator: '-'
 subtitle: # site tagline that appears below site title in masthead
 name: 'Jean Carlo EM'
-description: ''
+description: 'Artigos, ensaios e reflexões de Jean Carlo EM sobre ciência, filosofia, religião e sociedade.'
 url: 'https://www.jeancarloem.com' # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl: '' # the subpath of your site, e.g. "/blog"
 repository: 'sitiojeancarloem/blog' # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
@@ -363,6 +363,7 @@ defaults:
       share: true
       related: true
 
-head_scripts:
+footer_scripts:
+  - /assets/js/main.min.js
   - /assets/jcem/consent-manager/silktide.js
   - /assets/jcem/consent-manager/start.js

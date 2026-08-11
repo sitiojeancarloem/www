@@ -22,6 +22,11 @@ export const validateConfig = (config) => {
 		if (!target.id || !String(target.path).startsWith('/') || ids.has(target.id)) {
 			throw new Error(`PAGESPEED_TARGET_INVALIDO:${target.id || ''}`);
 		}
+		if (target.categories && (
+			!Array.isArray(target.categories) ||
+			!target.categories.length ||
+			target.categories.some((category) => !config.categories.includes(category))
+		)) throw new Error(`PAGESPEED_CATEGORIAS_INVALIDAS:${target.id}`);
 		ids.add(target.id);
 	}
 	return config;
@@ -93,7 +98,8 @@ export const run = async (argv = process.argv.slice(2)) => {
 	const results = [];
 	for (const target of targets) {
 		for (const strategy of config.strategies) {
-			const { payload, cache } = await fetchResult(target, strategy, config.categories, maxAgeMs, force);
+			const categories = target.categories || config.categories;
+			const { payload, cache } = await fetchResult(target, strategy, categories, maxAgeMs, force);
 			results.push({ ...summarize(payload, target, strategy, config.minimumScore), cache });
 		}
 	}
