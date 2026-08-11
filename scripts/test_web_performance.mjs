@@ -57,6 +57,7 @@ assert.match(notFound, /window\.setTimeout\(\(\) => \{[\s\S]*requestIdleCallback
 assert.match(footer, /\{% comment %\}[\s\S]*RFC-JCEM-FOOTER-001[\s\S]*\{% endcomment %\}/);
 assert.match(customVariables, /jcem-skeleton-asset\[fetchpriority='high'\]/);
 assert.match(visualValidation, /text: document\.body\.textContent \|\| ''/);
+assert.match(visualValidation, /terminalTrackResetting[\s\S]*terminalTrackTransitionProperty !== 'none'/);
 assert.match(customVariables, /@media screen[\s\S]*content-visibility: auto/);
 assert.match(customVariables, /\.archive > \.entries-grid > \.grid__item:nth-child\(n \+ 3\)/);
 assert.doesNotMatch(customVariables, /\.grid__wrapper > \.grid__item:nth-child\(n \+ 3\)/);

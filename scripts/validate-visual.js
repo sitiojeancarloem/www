@@ -2959,6 +2959,7 @@ const validate404Page = async (page, url, viewportName) => {
 				terminalScreen?.dataset.jcemTerminalStepCount || '0',
 				10,
 			),
+			terminalTrackResetting: terminalTrack?.classList.contains('is-resetting') ?? false,
 			terminalTrackTransitionProperty:
 				terminalTrackStyle?.transitionProperty || '',
 			terminalTrackTransitionDuration:
@@ -3099,7 +3100,9 @@ const validate404Page = async (page, url, viewportName) => {
 		result.terminalTyping !== 'css-transition' ||
 		result.terminalRuntime !== 'precomputed' ||
 		result.terminalStepCount < 2 ||
-		!result.terminalTrackTransitionProperty.includes('transform') ||
+		(result.terminalTrackResetting
+			? result.terminalTrackTransitionProperty !== 'none'
+			: !result.terminalTrackTransitionProperty.includes('transform')) ||
 		Number.parseFloat(result.terminalTrackTransitionDuration || '0') <= 0 ||
 		result.terminalActiveTypingCount !== 1 ||
 		result.terminalEmbeddedCursorCount !== 0 ||
@@ -3125,6 +3128,7 @@ const validate404Page = async (page, url, viewportName) => {
 			terminalTyping: result.terminalTyping,
 			terminalRuntime: result.terminalRuntime,
 			terminalStepCount: result.terminalStepCount,
+			terminalTrackResetting: result.terminalTrackResetting,
 			terminalTrackTransitionProperty: result.terminalTrackTransitionProperty,
 			terminalTrackTransitionDuration: result.terminalTrackTransitionDuration,
 			terminalActiveTypingCount: result.terminalActiveTypingCount,
