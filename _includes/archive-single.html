@@ -33,10 +33,7 @@
 {% assign archive_image_src = archive_image_variant.path | default: archive_image_path %}
 {% capture archive_image_srcset %}{% for variant in archive_image_meta.variants %}{{ variant.path | relative_url }} {{ variant.width }}w{% unless forloop.last %}, {% endunless %}{% endfor %}{% endcapture %}
 {% assign archive_excerpt = post.excerpt | default: post.content %}
-{% assign archive_image_priority = false %}
-{% if page.layout == "home" and forloop.first %}
-  {% assign archive_image_priority = true %}
-{% endif %}
+{% assign archive_image_priority = include.priority | default: false %}
 
 <div class="{{ include.type | default: 'list' }}__item">
   <article class="archive__item{% if archive_image_path != "" %} archive__item--has-image{% endif %}{% if archive_featured_style != "" %} archive__item--{{ archive_featured_style }}{% endif %}" itemscope itemtype="https://schema.org/CreativeWork"{% if post.locale %} lang="{{ post.locale }}"{% endif %}>

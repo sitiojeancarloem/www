@@ -27,7 +27,7 @@
     {% if featured_style == "content" %}
       {% include jcem/post-date-flag.html placement="image" %}
     {% endif %}
-    <img class="jcem-featured-image__img u-photo jcem-skeleton-asset" src="{{ image_src | relative_url }}" alt="{{ image_alt }}" loading="lazy" decoding="async"{% if image_meta.variants and image_meta.variants.size > 0 %} srcset="{{ image_srcset | strip }}" sizes="(max-width: 64rem) calc(100vw - 2rem), 75rem"{% endif %}{% if image_meta.width and image_meta.height %} width="{{ image_meta.width }}" height="{{ image_meta.height }}"{% endif %}>
+    <img class="jcem-featured-image__img u-photo jcem-skeleton-asset" src="{{ image_src | relative_url }}" alt="{{ image_alt }}" loading="eager" decoding="async" fetchpriority="high"{% if image_meta.variants and image_meta.variants.size > 0 %} srcset="{{ image_srcset | strip }}" sizes="(max-width: 64rem) calc(100vw - 2rem), 75rem"{% endif %}{% if image_meta.width and image_meta.height %} width="{{ image_meta.width }}" height="{{ image_meta.height }}"{% endif %}>
     {% if image_caption %}
       <figcaption class="jcem-featured-image__caption">{{ image_caption | markdownify | remove: "<p>" | remove: "</p>" }}</figcaption>
     {% endif %}

@@ -91,6 +91,84 @@ const bindJcemMasthead = () => {
     window.addEventListener('scroll', requestSync, { passive: true });
     syncState();
 };
+const bindJcemThemeConnector = () => {
+    document
+        .querySelectorAll('.author__urls-wrapper button')
+        .forEach((button) => {
+        button.addEventListener('click', () => {
+            var _a;
+            const links = (_a = button
+                .closest('.author__urls-wrapper')) === null || _a === void 0 ? void 0 : _a.querySelector('.author__urls');
+            const visible = (links === null || links === void 0 ? void 0 : links.classList.toggle('is--visible')) || false;
+            button.classList.toggle('open', visible);
+            button.setAttribute('aria-expanded', String(visible));
+        });
+    });
+    const content = select('.page__content');
+    content === null || content === void 0 ? void 0 : content.querySelectorAll('h1[id], h2[id], h3[id], h4[id], h5[id], h6[id]').forEach((heading) => {
+        var _a;
+        if (heading.querySelector(':scope > .header-link'))
+            return;
+        const anchor = document.createElement('a');
+        anchor.className = 'header-link';
+        anchor.href = `#${encodeURIComponent(heading.id)}`;
+        anchor.title = 'Link permanente';
+        anchor.setAttribute('aria-label', `Link permanente: ${((_a = heading.textContent) === null || _a === void 0 ? void 0 : _a.trim()) || heading.id}`);
+        anchor.innerHTML = '<i class="fas fa-link" aria-hidden="true"></i>';
+        heading.append(anchor);
+    });
+    document.addEventListener('click', (event) => {
+        if (!(event.target instanceof Element))
+            return;
+        const anchor = event.target.closest('a[href^="#"]');
+        if (!anchor ||
+            event.defaultPrevented ||
+            (event instanceof MouseEvent &&
+                (event.button !== 0 ||
+                    event.metaKey ||
+                    event.ctrlKey ||
+                    event.shiftKey ||
+                    event.altKey)))
+            return;
+        const id = decodeURIComponent(anchor.hash.slice(1));
+        const target = id ? document.getElementById(id) : document.documentElement;
+        if (!target)
+            return;
+        event.preventDefault();
+        history.pushState(null, '', anchor.hash || '#top');
+        target.scrollIntoView({
+            behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches
+                ? 'auto'
+                : 'smooth',
+            block: 'start',
+        });
+    });
+    const tocLinks = Array.from(document.querySelectorAll('nav.toc a[href^="#"]'));
+    if (!tocLinks.length || typeof IntersectionObserver !== 'function')
+        return;
+    const linksById = new Map(tocLinks.map((link) => [decodeURIComponent(link.hash.slice(1)), link]));
+    const activate = (id) => {
+        tocLinks.forEach((link) => {
+            var _a;
+            const active = decodeURIComponent(link.hash.slice(1)) === id;
+            link.classList.toggle('active', active);
+            (_a = link.parentElement) === null || _a === void 0 ? void 0 : _a.classList.toggle('active', active);
+        });
+    };
+    const observer = new IntersectionObserver((entries) => {
+        const current = entries
+            .filter((entry) => entry.isIntersecting)
+            .sort((left, right) => left.boundingClientRect.top - right.boundingClientRect.top)[0];
+        if (current instanceof IntersectionObserverEntry &&
+            current.target instanceof HTMLElement)
+            activate(current.target.id);
+    }, { rootMargin: '-20px 0px -70% 0px', threshold: 0 });
+    linksById.forEach((_link, id) => {
+        const heading = document.getElementById(id);
+        if (heading)
+            observer.observe(heading);
+    });
+};
 const bindJcemResponsiveNav = () => {
     const navigation = select('#site-nav');
     if (!navigation)
@@ -1250,6 +1328,7 @@ scheduleJcemInitialReveal();
 document.addEventListener('DOMContentLoaded', () => {
     bindJcemTheme();
     bindJcemNav();
+    bindJcemThemeConnector();
     bindJcemMasthead();
     bindJcemResponsiveNav();
     bindJcemScrollTop();

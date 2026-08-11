@@ -4,7 +4,12 @@ import { validateConfig, summarize } from './check-pagespeed.mjs';
 
 const site = await readFile(new URL('../assets/jcem/ts/site.ts', import.meta.url), 'utf8');
 const archiveCard = await readFile(new URL('../_includes/archive-single.html', import.meta.url), 'utf8');
+const documentCollection = await readFile(new URL('../_includes/documents-collection.html', import.meta.url), 'utf8');
+const taxonomyCollection = await readFile(new URL('../_includes/posts-taxonomy.html', import.meta.url), 'utf8');
 const themeInputs = await readFile(new URL('../_includes/jcem/body/first.html', import.meta.url), 'utf8');
+const featuredImage = await readFile(new URL('../_includes/jcem/post-featured-image.html', import.meta.url), 'utf8');
+const head = await readFile(new URL('../_includes/head/custom.html', import.meta.url), 'utf8');
+const themeScripts = await readFile(new URL('../_includes/scripts.html', import.meta.url), 'utf8');
 const config = validateConfig(
 	JSON.parse(await readFile(new URL('../config/pagespeed.json', import.meta.url), 'utf8')),
 );
@@ -28,6 +33,15 @@ assert.deepEqual(config.targets.find(({ id }) => id === 'not-found').categories,
 ]);
 assert.match(archiveCard, /fetchpriority="high"/);
 assert.match(archiveCard, /loading="{% if archive_image_priority %}eager/);
+assert.match(documentCollection, /priority=forloop\.first/);
+assert.match(taxonomyCollection, /jcem_archive_priority_used/);
+assert.match(featuredImage, /loading="eager" decoding="async" fetchpriority="high"/);
+assert.doesNotMatch(head, /body > :not\(\.carregandoPagina\)/);
+assert.match(head, /consent-manager\/silktide\.js[^>]+defer/);
+assert.match(head, /consent-manager\/start\.js[^>]+defer/);
+assert.match(site, /bindJcemThemeConnector/);
+assert.match(themeScripts, /site\.search == true or page\.layout == "search"/);
+assert.doesNotMatch(themeScripts, /else[\s\S]*main\.min\.js/);
 assert.match(themeInputs, /aria-label="Tema claro"/);
 assert.match(themeInputs, /aria-label="Tema escuro"/);
 

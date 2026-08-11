@@ -362,8 +362,3 @@ defaults:
       comments: # true
       share: true
       related: true
-
-footer_scripts:
-  - /assets/js/main.min.js
-  - /assets/jcem/consent-manager/silktide.js
-  - /assets/jcem/consent-manager/start.js

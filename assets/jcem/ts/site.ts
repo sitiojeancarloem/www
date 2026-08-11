@@ -137,6 +137,99 @@ const bindJcemMasthead = (): void => {
 	syncState();
 };
 
+const bindJcemThemeConnector = (): void => {
+	document
+		.querySelectorAll<HTMLButtonElement>('.author__urls-wrapper button')
+		.forEach((button) => {
+			button.addEventListener('click', () => {
+				const links = button
+					.closest<HTMLElement>('.author__urls-wrapper')
+					?.querySelector<HTMLElement>('.author__urls');
+				const visible = links?.classList.toggle('is--visible') || false;
+				button.classList.toggle('open', visible);
+				button.setAttribute('aria-expanded', String(visible));
+			});
+		});
+
+	const content = select<HTMLElement>('.page__content');
+	content
+		?.querySelectorAll<HTMLHeadingElement>(
+			'h1[id], h2[id], h3[id], h4[id], h5[id], h6[id]',
+		)
+		.forEach((heading) => {
+			if (heading.querySelector(':scope > .header-link')) return;
+			const anchor = document.createElement('a');
+			anchor.className = 'header-link';
+			anchor.href = `#${encodeURIComponent(heading.id)}`;
+			anchor.title = 'Link permanente';
+			anchor.setAttribute(
+				'aria-label',
+				`Link permanente: ${heading.textContent?.trim() || heading.id}`,
+			);
+			anchor.innerHTML = '<i class="fas fa-link" aria-hidden="true"></i>';
+			heading.append(anchor);
+		});
+
+	document.addEventListener('click', (event) => {
+		if (!(event.target instanceof Element)) return;
+		const anchor = event.target.closest<HTMLAnchorElement>('a[href^="#"]');
+		if (
+			!anchor ||
+			event.defaultPrevented ||
+			(event instanceof MouseEvent &&
+				(event.button !== 0 ||
+					event.metaKey ||
+					event.ctrlKey ||
+					event.shiftKey ||
+					event.altKey))
+		)
+			return;
+		const id = decodeURIComponent(anchor.hash.slice(1));
+		const target = id ? document.getElementById(id) : document.documentElement;
+		if (!target) return;
+		event.preventDefault();
+		history.pushState(null, '', anchor.hash || '#top');
+		target.scrollIntoView({
+			behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches
+				? 'auto'
+				: 'smooth',
+			block: 'start',
+		});
+	});
+
+	const tocLinks = Array.from(
+		document.querySelectorAll<HTMLAnchorElement>('nav.toc a[href^="#"]'),
+	);
+	if (!tocLinks.length || typeof IntersectionObserver !== 'function') return;
+	const linksById = new Map(
+		tocLinks.map((link) => [decodeURIComponent(link.hash.slice(1)), link]),
+	);
+	const activate = (id: string): void => {
+		tocLinks.forEach((link) => {
+			const active = decodeURIComponent(link.hash.slice(1)) === id;
+			link.classList.toggle('active', active);
+			link.parentElement?.classList.toggle('active', active);
+		});
+	};
+	const observer = new IntersectionObserver(
+		(entries) => {
+			const current = entries
+				.filter((entry) => entry.isIntersecting)
+				.sort((left, right) => left.boundingClientRect.top - right.boundingClientRect.top)[0];
+			if (
+				current instanceof IntersectionObserverEntry &&
+				current.target instanceof HTMLElement
+			)
+				activate(current.target.id);
+		},
+		{ rootMargin: '-20px 0px -70% 0px', threshold: 0 },
+	);
+	linksById.forEach((_link, id) => {
+		const heading = document.getElementById(id);
+		if (heading) observer.observe(heading);
+	});
+};
+
 const bindJcemResponsiveNav = (): void => {
 	const navigation = select<HTMLElement>('#site-nav');
 	if (!navigation) return;
@@ -1688,6 +1781,7 @@ scheduleJcemInitialReveal();
 document.addEventListener('DOMContentLoaded', () => {
 	bindJcemTheme();
 	bindJcemNav();
+	bindJcemThemeConnector();
 	bindJcemMasthead();
 	bindJcemResponsiveNav();
 	bindJcemScrollTop();

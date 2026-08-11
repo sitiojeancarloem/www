@@ -62,15 +62,6 @@
 		}
 	}
 
-	html:not(.jcem-page-loaded) body {
-		/* PROTECAO: a pagina real so aparece apos recursos essenciais. */
-		overflow: hidden;
-	}
-
-	html:not(.jcem-page-loaded) body > :not(.carregandoPagina) {
-		visibility: hidden !important;
-	}
-
 	body > .carregandoPagina {
 		position: fixed;
 		inset: 0;
@@ -182,3 +173,5 @@
 {% endif %}
 
 <script src="{{ '/assets/jcem/js/site.js' | relative_url }}" type="module"></script>
+<script src="{{ '/assets/jcem/consent-manager/silktide.js' | relative_url }}" defer></script>
+<script src="{{ '/assets/jcem/consent-manager/start.js' | relative_url }}" defer></script>

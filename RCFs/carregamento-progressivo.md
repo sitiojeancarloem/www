@@ -7,7 +7,7 @@ Escopo: carregamento inicial, loader global, recursos pesados, skeleton loading 
 
 ## Regras Normativas
 
-- Apenas recursos essenciais podem bloquear a primeira renderização visível da página.
+- HTML e CSS devem produzir conteúdo legível imediatamente; JavaScript, consentimento e aprimoramentos progressivos NÃO PODEM ocultar ou bloquear a primeira renderização visível da página.
 - Recursos essenciais são HTML, CSS, JavaScript próprio necessário à inicialização e dependências leves do JavaScript, como JSON, XML ou formatos equivalentes.
 - Imagens, `background-image`, vídeos, áudios, iframes, fontes opcionais e demais assets pesados não devem bloquear a liberação inicial da página.
 - Recursos pesados devem carregar de forma assíncrona, progressiva e tolerante a falhas.
@@ -38,7 +38,7 @@ Escopo: carregamento inicial, loader global, recursos pesados, skeleton loading 
 
 ## Implementação
 
-- `_includes/head/custom.html` define o loader inicial e a barra superior com contraste próprio, independente do tema ativo.
+- `_includes/head/custom.html` define o loader inicial e a barra superior com contraste próprio, independente do tema ativo; o loader sinaliza aprimoramento pendente sem encobrir o conteúdo já pintável.
 - `assets/jcem/ts/site.ts` libera a página após `DOMContentLoaded` e preparação leve dos fragmentos essenciais, sem aguardar `window.load`.
 - `assets/jcem/ts/site.ts` monitora imagens e backgrounds elegíveis, aplicando estados `loading`, `loaded` e `error` em `.jcem-skeleton`.
 - `_includes/archive-single.html` e `_includes/jcem/post-featured-image.html` marcam cards e imagens destacadas com skeleton server-side.
@@ -52,7 +52,7 @@ Escopo: carregamento inicial, loader global, recursos pesados, skeleton loading 
 ## Validação
 
 - A validação visual deve simular asset pesado pendente e confirmar que `.jcem-page-loaded` é aplicado antes de `document.readyState === "complete"`.
-- A validação visual deve confirmar que o conteúdo permanece oculto antes dos recursos essenciais e visível após a liberação essencial.
+- A validação visual deve confirmar que o conteúdo permanece visível antes, durante e após a inicialização dos aprimoramentos essenciais.
 - A validação visual deve confirmar presença, geometria, pseudo-elemento e estado final dos skeletons em componentes elegíveis.
 - A validação visual deve aceitar skeleton pendente quando a animação estiver ativa e o asset correspondente ainda não estiver disponível.
 - A validação visual deve confirmar variação perceptível do skeleton entre dois momentos distintos de carregamento pendente.

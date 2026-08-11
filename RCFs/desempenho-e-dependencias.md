@@ -34,8 +34,9 @@ Escopo: scripts, estilos, fontes, bibliotecas externas, assets de terceiros e re
 - JavaScript de varredura no navegador para decidir carregamento de bibliotecas deve ser evitado quando o build consegue inferir o uso com custo menor.
 - Bibliotecas client-side amplas devem ser auditadas antes de qualquer inclusão global; ausência de uso na página implica ausência de carga.
 - O projeto DEVE fornecer medidor PageSpeed representativo com cache e resumo estruturado, sem exigir credencial para validações locais que não consultem a API.
-- Conteúdo acima da dobra que possa se tornar LCP NÃO DEVE usar lazy loading; deve ser descoberto no HTML e receber prioridade compatível. Scripts de consentimento não essenciais à primeira pintura DEVEM permanecer fora do `<head>` bloqueante.
+- Conteúdo acima da dobra que possa se tornar LCP NÃO DEVE usar lazy loading; deve ser descoberto no HTML e receber prioridade compatível. Scripts de consentimento não essenciais à primeira pintura PODEM ser descobertos no `<head>` somente com execução não bloqueante e ordenada, como `defer`; jamais podem impedir a análise do HTML ou ocultar o conteúdo.
 - O adaptador de masthead DEVE manter uma única fila de sincronização responsiva e aplicar mutações somente quando o estado calculado mudar.
+- O runtime global do tema de terceiros NÃO DEVE ser enviado quando suas funções ativas já estiverem cobertas pelo conector local. `_includes/scripts.html` condiciona o pacote amplo à busca realmente habilitada; `assets/jcem/ts/site.ts` preserva perfil do autor, links permanentes, rolagem interna e realce do sumário sem jQuery ou plugins globais.
 
 ## Validação
 

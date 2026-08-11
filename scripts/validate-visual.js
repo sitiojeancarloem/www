@@ -303,10 +303,11 @@ const validateLoadingGate = async (browser, baseUrl, url, viewport) => {
 			fail(`Progressbar do loader invalida antes dos recursos essenciais em ${url}`);
 		}
 
-		if (beforeLoad.wrapperVisible || beforeLoad.wrapperVisibility !== 'hidden') {
-			if (usesExternalSiteScript) {
-				fail(`Conteudo visivel antes dos recursos essenciais em ${url}`);
-			}
+		if (
+			usesExternalSiteScript &&
+			(!beforeLoad.wrapperVisible || beforeLoad.wrapperVisibility === 'hidden')
+		) {
+			fail(`Conteudo oculto durante o carregamento progressivo em ${url}`);
 		}
 
 		if (url === notFoundPage && beforeLoad.urlChecked !== 'true') {
