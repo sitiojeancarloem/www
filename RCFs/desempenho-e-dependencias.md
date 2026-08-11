@@ -34,12 +34,15 @@ Escopo: scripts, estilos, fontes, bibliotecas externas, assets de terceiros e re
 - JavaScript de varredura no navegador para decidir carregamento de bibliotecas deve ser evitado quando o build consegue inferir o uso com custo menor.
 - Bibliotecas client-side amplas devem ser auditadas antes de qualquer inclusão global; ausência de uso na página implica ausência de carga.
 - O projeto DEVE fornecer medidor PageSpeed representativo com cache e resumo estruturado, sem exigir credencial para validações locais que não consultem a API.
+- Falhas transitórias `5xx` da API PageSpeed DEVEM receber repetição curta, limitada e determinística; esgotadas as tentativas, o erro externo DEVE permanecer explícito e jamais ser convertido em pontuação aprovada. O resumo DEVE expor FCP, LCP, TBT e auditorias determinantes sem revelar credencial ou payload prolixo.
 - Conteúdo acima da dobra que possa se tornar LCP NÃO DEVE usar lazy loading; deve ser descoberto no HTML e receber prioridade compatível. Scripts de consentimento não essenciais à primeira pintura PODEM ser descobertos no `<head>` somente com execução não bloqueante e ordenada, como `defer`; jamais podem impedir a análise do HTML ou ocultar o conteúdo.
 - Skeleton de recurso prioritário NÃO PODE manter o candidato a LCP invisível depois que o navegador já dispõe de seus bytes. O placeholder PODE permanecer como fundo até a resolução do carregamento, sem impor atraso mínimo artificial à pintura do recurso real.
 - Imagens editoriais abaixo da dobra DEVEM nascer no HTML com carregamento tardio, dimensões e seleção responsiva quando houver variantes; adicionar `loading` somente depois da descoberta pelo navegador não satisfaz este contrato.
+- Imagem visual não candidata a LCP, ainda que próxima da primeira dobra, DEVE usar variante proporcional e prioridade inferior quando o original competir desnecessariamente com texto, CSS ou outro candidato crítico.
 - Contenção de layout/pintura para conteúdo distante da viewport PODE ser aplicada exclusivamente em mídia de tela, com tamanho intrínseco de reserva e renderização automática ao aproximar-se da viewport. Essa otimização NÃO PODE integrar, limitar nem alterar o fluxo de impressão.
 - O adaptador de masthead DEVE manter uma única fila de sincronização responsiva e aplicar mutações somente quando o estado calculado mudar.
 - O runtime global do tema de terceiros NÃO DEVE ser enviado quando suas funções ativas já estiverem cobertas pelo conector local. `_includes/scripts.html` condiciona o pacote amplo à busca realmente habilitada; `assets/jcem/ts/site.ts` preserva perfil do autor, links permanentes, rolagem interna e realce do sumário sem jQuery ou plugins globais.
+- Clonagem de fallback oculto e alimentação de blocos recentes DEVEM ocorrer somente após a liberação visual e fora da janela crítica inicial; o fallback sem JavaScript permanece estático e funcional sem depender dessas tarefas.
 
 ## Validação
 

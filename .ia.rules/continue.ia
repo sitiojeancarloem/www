@@ -33,7 +33,7 @@ plano:
   - id: FT-022
     classe: implementacao_codigo
     criado_em: 2026-08-11T13:55:44.4157934-03:00
-    estado: pendente
+    estado: em_andamento
     depende_de: FT-020
     objetivo: Consumir PAGESPEED_API_KEY de forma opaca no medidor e no workflow.
     aceite:
@@ -41,6 +41,10 @@ plano:
       - chave nunca aparece em log, cache ou artefato
       - API autenticada mede a amostra representativa em mobile e desktop
       - CI e gates locais permanecem sem regressao
+    progresso:
+      - segredo consumido de forma opaca no GitHub Actions e primeira amostra autenticada concluida
+      - repeticao limitada de falha transitoria 5xx e diagnostico FCP, LCP e TBT incorporados ao medidor
+      - otimizacoes adicionais em LCP e pagina 404 aguardam nova afericao autenticada
   - id: FT-023
     classe: implementacao_normativa_codigo
     criado_em: 2026-08-11T15:04:00-03:00

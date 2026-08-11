@@ -1638,8 +1638,10 @@ const scheduleJcemRecentPosts = (): void => {
 		void loadJcemRecentPosts();
 	};
 
-	if (window.requestIdleCallback) window.requestIdleCallback(run, { timeout: 1800 });
-	else window.setTimeout(run, 80);
+	window.setTimeout(() => {
+		if (window.requestIdleCallback) window.requestIdleCallback(run, { timeout: 1800 });
+		else window.setTimeout(run, 80);
+	}, 4000);
 };
 
 const prepareJcemNoScriptFragments = (): Promise<void> => {
@@ -1700,12 +1702,21 @@ const revealJcemPage = (): void => {
 	if (jcemPageRevealStarted) return;
 	jcemPageRevealStarted = true;
 
-	void prepareJcemNoScriptFragments().finally(() => {
-		// FIX-BUG: recursos pesados nao bloqueiam a primeira renderizacao.
-		setJcemLoadingProgress(100);
-		document.documentElement.classList.add('jcem-page-loaded');
-		scheduleJcemRecentPosts();
-	});
+	// FIX-BUG: a liberacao visual nao depende da clonagem do fallback oculto.
+	setJcemLoadingProgress(100);
+	document.documentElement.classList.add('jcem-page-loaded');
+	scheduleJcemRecentPosts();
+
+	const prepareFallback = (): void => {
+		void prepareJcemNoScriptFragments();
+	};
+	window.setTimeout(() => {
+		if (window.requestIdleCallback) {
+			window.requestIdleCallback(prepareFallback, { timeout: 1800 });
+		} else {
+			window.setTimeout(prepareFallback, 80);
+		}
+	}, 4000);
 };
 
 const scheduleJcemInitialReveal = (): void => {

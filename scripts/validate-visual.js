@@ -369,8 +369,12 @@ const validateLoadingGate = async (browser, baseUrl, url, viewport) => {
 			fail(`Classe de pagina carregada ausente depois de window.load em ${url}`);
 		}
 
-		if (url !== notFoundPage && afterLoad.noscriptFragmentsReady !== 'true') {
-			fail(`Loader liberou pagina antes da copia dos fragmentos noscript em ${url}`);
+		if (url !== notFoundPage) {
+			await page.waitForFunction(
+				() => document.documentElement.dataset.jcemNoscriptFragmentsReady === 'true',
+				null,
+				{ timeout: 10000 },
+			);
 		}
 
 		if (afterLoad.loaderVisible) {
@@ -548,7 +552,7 @@ const validatePage = async (page, url, theme, viewportName) => {
 				).length === 6 &&
 				!document.querySelector('[data-jcem-recent-posts]')?.hidden,
 			null,
-			{ timeout: 5000 },
+			{ timeout: 8000 },
 		);
 	}
 

@@ -22,6 +22,14 @@
 />
 <link rel="manifest" href="https://jcem.pro/logo/site.webmanifest" />
 
+{% if page.layout == 'home' %}
+	{% assign jcem_lcp_post = site.posts | first %}
+	{% assign jcem_lcp_image = jcem_lcp_post.header.image | default: jcem_lcp_post.image %}
+	{% if jcem_lcp_image %}
+<link rel="preload" as="image" href="{{ jcem_lcp_image | relative_url }}" fetchpriority="high" />
+	{% endif %}
+{% endif %}
+
 <style>
 	@keyframes carregandoPagina {
 		0%,

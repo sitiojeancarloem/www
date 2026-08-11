@@ -9,6 +9,11 @@ import { fileURLToPath } from 'node:url';
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const configPath = path.join(root, 'config', 'pagespeed.json');
 const cacheRoot = path.join(root, '.jekyll-cache', 'pagespeed');
+const retryableStatuses = new Set([500, 502, 503, 504]);
+
+export const isRetryablePageSpeedStatus = (status) => retryableStatuses.has(Number(status));
+
+const wait = (milliseconds) => new Promise((resolve) => setTimeout(resolve, milliseconds));
 
 export const validateConfig = (config) => {
 	if (
@@ -80,6 +85,14 @@ export const summarize = (payload, target, strategy, minimumScore) => {
 	const diagnostics = Object.fromEntries(
 		[
 			'render-blocking-resources',
+			'render-blocking-insight',
+			'document-latency-insight',
+			'dom-size-insight',
+			'forced-reflow-insight',
+			'image-delivery-insight',
+			'cache-insight',
+			'font-display-insight',
+			'legacy-javascript-insight',
 			'unused-css-rules',
 			'unused-javascript',
 			'modern-image-formats',
@@ -118,8 +131,15 @@ const fetchResult = async (target, strategy, categories, maxAgeMs, force, apiKey
 		if (cached) return { payload: cached.payload, cache: 'hit' };
 	}
 	const endpoint = createEndpoint(target, strategy, categories, apiKey);
-	const response = await fetch(endpoint, { signal: AbortSignal.timeout(120000) });
-	if (!response.ok) throw new Error(`PAGESPEED_HTTP_${response.status}`);
+	let response;
+	for (let attempt = 1; attempt <= 3; attempt += 1) {
+		response = await fetch(endpoint, { signal: AbortSignal.timeout(120000) });
+		if (response.ok) break;
+		if (!isRetryablePageSpeedStatus(response.status) || attempt === 3) {
+			throw new Error(`PAGESPEED_HTTP_${response.status}`);
+		}
+		await wait(attempt * 2000);
+	}
 	const payload = await response.json();
 	await mkdir(cacheRoot, { recursive: true });
 	await writeFile(file, JSON.stringify({ fetchedAt: new Date().toISOString(), payload }), 'utf8');

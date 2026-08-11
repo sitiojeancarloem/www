@@ -1,4 +1,4 @@
-<!--
+{% comment %}
 RFC-JCEM-FOOTER-001
 
 1. Objetivo
@@ -115,7 +115,7 @@ Toda otimização deve preservar o equilíbrio entre:
 - máxima concisão estrutural possível; e
 - máxima robustez defensiva semântica,
 evitando tanto excesso redundante quanto simplificação que reduza a eficácia do aviso.
--->
+{% endcomment %}
 
 {% assign jcem_footer_region_position = site.jcem.footer_region_position | default: 'after_legal' %}
 {% if jcem_footer_region_position == 'before_legal' %}

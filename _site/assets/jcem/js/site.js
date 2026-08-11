@@ -1210,10 +1210,12 @@ const scheduleJcemRecentPosts = () => {
     const run = () => {
         void loadJcemRecentPosts();
     };
-    if (window.requestIdleCallback)
-        window.requestIdleCallback(run, { timeout: 1800 });
-    else
-        window.setTimeout(run, 80);
+    window.setTimeout(() => {
+        if (window.requestIdleCallback)
+            window.requestIdleCallback(run, { timeout: 1800 });
+        else
+            window.setTimeout(run, 80);
+    }, 4000);
 };
 const prepareJcemNoScriptFragments = () => {
     if (jcemNoScriptFragmentsReady) {
@@ -1260,11 +1262,20 @@ const revealJcemPage = () => {
     if (jcemPageRevealStarted)
         return;
     jcemPageRevealStarted = true;
-    void prepareJcemNoScriptFragments().finally(() => {
-        setJcemLoadingProgress(100);
-        document.documentElement.classList.add('jcem-page-loaded');
-        scheduleJcemRecentPosts();
-    });
+    setJcemLoadingProgress(100);
+    document.documentElement.classList.add('jcem-page-loaded');
+    scheduleJcemRecentPosts();
+    const prepareFallback = () => {
+        void prepareJcemNoScriptFragments();
+    };
+    window.setTimeout(() => {
+        if (window.requestIdleCallback) {
+            window.requestIdleCallback(prepareFallback, { timeout: 1800 });
+        }
+        else {
+            window.setTimeout(prepareFallback, 80);
+        }
+    }, 4000);
 };
 const scheduleJcemInitialReveal = () => {
     if (document.readyState === 'loading') {

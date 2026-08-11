@@ -74,7 +74,7 @@ responsive_data.fetch("assets").each do |canonical, definition|
   Jcem::AssetMetadata.asset_lookup_keys(canonical).each { |key| responsive_assets[key] = metadata }
 end
 Jcem::AssetMetadata.attach_responsive_variants!(responsive_assets, responsive_data)
-assert(responsive_data.fetch("assets").size == 11, "catalogo responsivo deve cobrir onze imagens publicadas")
+assert(responsive_data.fetch("assets").size == 12, "catalogo responsivo deve cobrir doze imagens publicadas")
 
 responsive_data.fetch("assets").each do |canonical, definition|
   metadata = Jcem::AssetMetadata.metadata_for(

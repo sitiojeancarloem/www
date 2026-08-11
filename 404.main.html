@@ -650,7 +650,7 @@ jcem_context: 404
 			{% include masthead.html reduced=true %}
 
 			<figure class="jcem-featured-image jcem-featured-image--wide jcem-404-featured jcem-skeleton" data-jcem-skeleton-state="loading" aria-label="Imagem destacada da página 404">
-				<img class="jcem-featured-image__img jcem-skeleton-asset" src="/assets/jcem/img/e-o-fim-da-rosca-ccbysanc-jcem.png" alt="Página 404 JeanCarloEM" loading="lazy" decoding="async" />
+				<img class="jcem-featured-image__img jcem-skeleton-asset" src="/assets/images/responsive/pagina-404/pagina-404-480w.webp" srcset="/assets/images/responsive/pagina-404/pagina-404-320w.webp 320w, /assets/images/responsive/pagina-404/pagina-404-480w.webp 480w, /assets/images/responsive/pagina-404/pagina-404-640w.webp 640w, /assets/images/responsive/pagina-404/pagina-404-800w.webp 800w, /assets/images/responsive/pagina-404/pagina-404-960w.webp 960w, /assets/images/responsive/pagina-404/pagina-404-1200w.webp 1200w, /assets/images/responsive/pagina-404/pagina-404-1280w.webp 1280w, /assets/images/responsive/pagina-404/pagina-404-1804w.webp 1804w" sizes="100vw" width="1804" height="700" alt="Página 404 JeanCarloEM" loading="lazy" decoding="async" fetchpriority="low" />
 			</figure>
 
 			<main class="jcem-404">
@@ -1075,8 +1075,10 @@ jcem_context: 404
 					};
 					const schedule = () => {
 						const run = () => loadRecentPosts();
-						if ('requestIdleCallback' in window) window.requestIdleCallback(run, { timeout: 1800 });
-						else window.setTimeout(run, 80);
+						window.setTimeout(() => {
+							if ('requestIdleCallback' in window) window.requestIdleCallback(run, { timeout: 1800 });
+							else window.setTimeout(run, 80);
+						}, 5000);
 					};
 					window.addEventListener('load', schedule, { once: true });
 					if (document.readyState === 'complete') schedule();

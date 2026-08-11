@@ -629,6 +629,67 @@
           "media_type": "image/webp"
         }
       ]
+    },
+    "/assets/jcem/img/e-o-fim-da-rosca-ccbysanc-jcem.png": {
+      "source": "assets/jcem/img/e-o-fim-da-rosca-ccbysanc-jcem.png",
+      "variants": [
+        {
+          "path": "/assets/images/responsive/pagina-404/pagina-404-320w.webp",
+          "width": 320,
+          "height": 124,
+          "byte_size": 2666,
+          "media_type": "image/webp"
+        },
+        {
+          "path": "/assets/images/responsive/pagina-404/pagina-404-480w.webp",
+          "width": 480,
+          "height": 186,
+          "byte_size": 4752,
+          "media_type": "image/webp"
+        },
+        {
+          "path": "/assets/images/responsive/pagina-404/pagina-404-640w.webp",
+          "width": 640,
+          "height": 248,
+          "byte_size": 7412,
+          "media_type": "image/webp"
+        },
+        {
+          "path": "/assets/images/responsive/pagina-404/pagina-404-800w.webp",
+          "width": 800,
+          "height": 310,
+          "byte_size": 10258,
+          "media_type": "image/webp"
+        },
+        {
+          "path": "/assets/images/responsive/pagina-404/pagina-404-960w.webp",
+          "width": 960,
+          "height": 373,
+          "byte_size": 13094,
+          "media_type": "image/webp"
+        },
+        {
+          "path": "/assets/images/responsive/pagina-404/pagina-404-1200w.webp",
+          "width": 1200,
+          "height": 466,
+          "byte_size": 17404,
+          "media_type": "image/webp"
+        },
+        {
+          "path": "/assets/images/responsive/pagina-404/pagina-404-1280w.webp",
+          "width": 1280,
+          "height": 497,
+          "byte_size": 19496,
+          "media_type": "image/webp"
+        },
+        {
+          "path": "/assets/images/responsive/pagina-404/pagina-404-1804w.webp",
+          "width": 1804,
+          "height": 700,
+          "byte_size": 29882,
+          "media_type": "image/webp"
+        }
+      ]
     }
   }
 }

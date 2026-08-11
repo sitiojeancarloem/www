@@ -1,6 +1,11 @@
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
-import { createEndpoint, validateConfig, summarize } from './check-pagespeed.mjs';
+import {
+	createEndpoint,
+	isRetryablePageSpeedStatus,
+	validateConfig,
+	summarize,
+} from './check-pagespeed.mjs';
 
 const site = await readFile(new URL('../assets/jcem/ts/site.ts', import.meta.url), 'utf8');
 const archiveCard = await readFile(new URL('../_includes/archive-single.html', import.meta.url), 'utf8');
@@ -8,6 +13,9 @@ const documentCollection = await readFile(new URL('../_includes/documents-collec
 const taxonomyCollection = await readFile(new URL('../_includes/posts-taxonomy.html', import.meta.url), 'utf8');
 const themeInputs = await readFile(new URL('../_includes/jcem/body/first.html', import.meta.url), 'utf8');
 const featuredImage = await readFile(new URL('../_includes/jcem/post-featured-image.html', import.meta.url), 'utf8');
+const masthead = await readFile(new URL('../_includes/masthead.html', import.meta.url), 'utf8');
+const notFound = await readFile(new URL('../404.main.html', import.meta.url), 'utf8');
+const footer = await readFile(new URL('../_includes/footer/custom.html', import.meta.url), 'utf8');
 const head = await readFile(new URL('../_includes/head/custom.html', import.meta.url), 'utf8');
 const themeScripts = await readFile(new URL('../_includes/scripts.html', import.meta.url), 'utf8');
 const visualValidation = await readFile(new URL('./validate-visual.js', import.meta.url), 'utf8');
@@ -41,14 +49,22 @@ assert.match(archiveCard, /loading="{% if archive_image_priority %}eager/);
 assert.match(documentCollection, /forloop\.index <= 2/);
 assert.match(taxonomyCollection, /jcem_archive_priority_count < 2/);
 assert.match(featuredImage, /loading="eager" decoding="async" fetchpriority="high"/);
+assert.match(masthead, /width="630"[\s\S]*height="256"/);
+assert.match(notFound, /pagina-404-480w\.webp/);
+assert.match(notFound, /fetchpriority="low"/);
+assert.match(notFound, /window\.setTimeout\(\(\) => \{[\s\S]*requestIdleCallback\(run[\s\S]*\}, 5000\)/);
+assert.match(footer, /\{% comment %\}[\s\S]*RFC-JCEM-FOOTER-001[\s\S]*\{% endcomment %\}/);
 assert.match(customVariables, /jcem-skeleton-asset\[fetchpriority='high'\]/);
 assert.match(customVariables, /@media screen[\s\S]*content-visibility: auto/);
 assert.match(customVariables, /\.archive > \.entries-grid > \.grid__item:nth-child\(n \+ 3\)/);
 assert.doesNotMatch(customVariables, /\.grid__wrapper > \.grid__item:nth-child\(n \+ 3\)/);
 assert.doesNotMatch(head, /body > :not\(\.carregandoPagina\)/);
+assert.match(head, /page\.layout == 'home'[\s\S]*rel="preload" as="image"/);
 assert.match(head, /consent-manager\/silktide\.js[^>]+defer/);
 assert.match(head, /consent-manager\/start\.js[^>]+defer/);
 assert.match(site, /bindJcemThemeConnector/);
+assert.match(site, /liberacao visual nao depende da clonagem do fallback oculto/);
+assert.match(site, /window\.setTimeout\(\(\) => \{[\s\S]*requestIdleCallback\(prepareFallback[\s\S]*\}, 4000\)/);
 assert.match(themeScripts, /site\.search == true or page\.layout == "search"/);
 assert.doesNotMatch(themeScripts, /else[\s\S]*main\.min\.js/);
 assert.match(themeInputs, /aria-label="Tema claro"/);
@@ -100,5 +116,9 @@ const endpointWithKey = createEndpoint(
 assert.equal(endpointWithKey.searchParams.get('key'), 'credencial-apenas-de-teste');
 assert.deepEqual(endpointWithKey.searchParams.getAll('category'), ['performance', 'accessibility']);
 assert.equal(endpointWithKey.searchParams.get('strategy'), 'desktop');
+assert.equal(isRetryablePageSpeedStatus(500), true);
+assert.equal(isRetryablePageSpeedStatus(504), true);
+assert.equal(isRetryablePageSpeedStatus(429), false);
+assert.equal(isRetryablePageSpeedStatus(404), false);
 
 console.log('web_performance=ok');
