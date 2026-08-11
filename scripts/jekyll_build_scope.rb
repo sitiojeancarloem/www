@@ -6,12 +6,12 @@ require "digest"
 require "open3"
 require "shellwords"
 require "yaml"
+require_relative "jekyll_source_state"
 
 ROOT = File.expand_path("..", __dir__)
 MAP_PATH = File.join(ROOT, ".github", "jekyll-build-impact.yml")
 ZERO_SHA = "0000000000000000000000000000000000000000"
 SOURCE_STATE_PATH = File.join(ROOT, ".jekyll-cache", "jcem-source-state.json")
-IGNORED_SOURCE_STATE_FILES = [".jcem-publication.json", ".jcem-published-posts.txt"].freeze
 
 def run_git(*args)
   stdout, stderr, status = Open3.capture3("git", *args, chdir: ROOT)
@@ -65,10 +65,7 @@ def changed_paths(before, head)
 end
 
 def source_files
-  run_git("ls-files", "-z")
-    .split("\0")
-    .reject { |path| path.empty? || IGNORED_SOURCE_STATE_FILES.include?(path) }
-    .sort
+  JcemSourceState.files(ROOT)
 end
 
 def current_source_state

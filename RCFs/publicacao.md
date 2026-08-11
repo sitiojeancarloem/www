@@ -36,6 +36,7 @@ Escopo: publicação do site Jekyll no GitHub Pages, comandos locais, workflows 
 - Publicações iniciadas por `workflow_dispatch` ou `publicar` criam `gh-pages` e continuam build/deploy no mesmo workflow, sem depender de novo evento de push.
 - `scripts/jekyll_build_scope.rb` decide entre build completo e incremental por diff Git quando disponível, ou por estado de fonte cacheado quando o branch temporário foi recriado.
 - `scripts/jekyll_build_manifest.rb` grava manifesto de `_site`, estado de build e estado de fonte para preservar coesão entre cache, commit e artefato publicado.
+- O estado de fonte DEVE excluir `_site/`: a árvore é saída gerada, pode ser limpa durante o build e não constitui entrada estável para comparação de fontes.
 - `.github/workflows/scheduled.yml` prepara posts agendados, gera `gh-pages`, publica o artefato e só depois persiste a migração para `_posts`.
 
 ## Validação
@@ -45,4 +46,3 @@ Escopo: publicação do site Jekyll no GitHub Pages, comandos locais, workflows 
 - Alterações de workflow devem passar por parse YAML local.
 - `npm run check` deve permanecer obrigatório para regressões do projeto.
 - `npm run build:prod` deve confirmar integração Jekyll quando `_site` não estiver bloqueado; caso contrário, usar destino temporário em `tmp/`.
-

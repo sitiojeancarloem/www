@@ -6,13 +6,13 @@ require "fileutils"
 require "json"
 require "open3"
 require "time"
+require_relative "jekyll_source_state"
 
 ROOT = File.expand_path("..", __dir__)
 SITE_DIR = File.join(ROOT, "_site")
 MANIFEST_PATH = File.join(SITE_DIR, ".jcem-build-manifest.json")
 STATE_PATH = File.join(ROOT, ".jekyll-cache", "jcem-build-state.json")
 SOURCE_STATE_PATH = File.join(ROOT, ".jekyll-cache", "jcem-source-state.json")
-IGNORED_SOURCE_STATE_FILES = [".jcem-publication.json", ".jcem-published-posts.txt"].freeze
 
 def git_head
   stdout, _stderr, status = Open3.capture3("git", "rev-parse", "HEAD", chdir: ROOT)
@@ -33,13 +33,7 @@ def file_digest(relative_path)
 end
 
 def source_files
-  stdout, stderr, status = Open3.capture3("git", "ls-files", "-z", chdir: ROOT)
-  raise "git ls-files failed: #{stderr}" unless status.success?
-
-  stdout
-    .split("\0")
-    .reject { |path| path.empty? || IGNORED_SOURCE_STATE_FILES.include?(path) }
-    .sort
+  JcemSourceState.files(ROOT)
 end
 
 def source_file_digest(relative_path)

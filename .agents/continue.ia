@@ -233,7 +233,7 @@ FT-023|nome=Desempenho web permanente|objetivo=Instituir alvo PageSpeed 90+ por 
 dependencias=FT-021 concluida; carregamento progressivo; biblioteca de impressao; masthead responsiva.
 criterios=Gate representativo e cacheado; resize/orientation em leitura e escrita separadas; impressao carregada tardiamente e imediatamente sob sinal de impressao; sem regressao funcional.
 resultado=PageSpeed recebeu matriz mobile/desktop por layout, limiar 90 em todas as categorias e cache condensado de 24h. Masthead usa ResizeObserver e requestAnimationFrame sem leitura/escrita intercalada; runtime IEEE e carregado apos 5s/idle ou imediatamente em beforeprint/matchMedia. CSS de impressao usa media=print.
-verificacoes=check:performance, check:ts, build isolado e validacao visual estrita em seis viewports, dois temas, print e sem JavaScript concluidos.
+verificacoes=check:performance, check:ts, build isolado e validacao visual estrita em seis viewports, dois temas, print e sem JavaScript concluidos. O gate remoto de coesao foi corrigido para excluir `_site/` do estado de fonte, pois essa saida gerada pode ser limpa pelo proprio build antes do manifesto.
 
 FT-024|nome=Controles e blockquotes tipados|objetivo=Corrigir interacao do switch e icone do menu e adicionar notice, info, alerta1 e alerta2 com icone opcional e temas responsivos|escopo=Tecnico|prioridade=alta|status=concluido|inicio=20260811|conclusao=20260811
 dependencias=FT-021 concluida; RCF de citacoes; registro editorial-quotes; isolamento de impressao.
