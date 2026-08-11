@@ -208,20 +208,22 @@ resultado=RCF tornou o isolamento obrigatório para recurso atual/futuro e terce
 achados_revisao=A primeira aferição revelou `Permalink`, sumário, bandeira de data e controles `summary` reexibidos pelo reset; todos foram neutralizados nominalmente e receberam teste. A composição multicoluna inicial também deslocava o corpo para a segunda folha; o artigo passou a ser o fluxo paginado e `[data-print-body]` tornou-se transparente, eliminando a folha quase vazia sem restaurar estilos web.
 verificacoes=`agent:rcf`, `check:print`, `npm run check`, `build:prod`, `agent:build`, `agent:verify` e duas passagens finais de `validate:visual` concluídos. Navegador: 18 painéis web preservados, dois auxiliares impressos ocultos, estado `nativo-preparado`, console limpo e zero overflow em desktop/320 px. PDF Chromium 151: sete páginas A4, zero vazia, Noto Sans regular/negrito/itálico/negrito-itálico, duas colunas, conteúdo integral e estilo IEEE de citação sem decoração ou controle web; relatório `2026-08-09-devaneios-chromium-151.json`, SHA-256 `ab0d5679de674e11abbccdf81d2180817a91ef8ecc1df2564268dee2c0a69dba`.
 
-FT-021|nome=Equalizacao integral do backlog editorial e web|objetivo=Equalizar e normatizar todas as frentes abertas do TODO.ia.md em contratos convergentes, roteados e rastreaveis|escopo=Tecnico normativo e Negocio editorial|prioridade=alta|status=em_andamento|inicio=20260811
+FT-021|nome=Equalizacao integral do backlog editorial e web|objetivo=Equalizar e normatizar todas as frentes abertas do TODO.ia.md em contratos convergentes, roteados e rastreaveis|escopo=Tecnico normativo e Negocio editorial|prioridade=alta|status=concluido|inicio=20260811|conclusao=20260811
 autorizacao=Solicitacao humana explicita para prosseguir ate a completa e total implementacao do TODO.ia.md.
 dependencias=FT-016–020 concluidas; governanca v0.1.3; TODO.ia.md perene preservado.
 riscos=Preservar integralmente contratos vigentes durante modularizacao; nao editar o equalizer; nao duplicar norma; manter isolamento tela-impressao e publicacao deterministica.
-1/4 Inventario e equalizacao [em_andamento]
-- Inspecionar RCF, README, configuracao, plugins, layouts, conteudos, assets, testes, workflows e estado real [em_andamento]
-2/4 Roteamento e sub-RCFs [pendente]
-- Tornar RCF.md autoridade compacta e mover especializacoes sem perda para RCFs/ [pendente]
-3/4 Normatizacao transversal [pendente]
-- Consolidar namespaces, desempenho, blockquotes tipados, imagens responsivas e bate-papo [pendente]
-4/4 Validacao e marco normativo [pendente]
-- Validar links, cobertura, ausencia de duplicacao e registrar commit anterior a implementacao [pendente]
+1/4 Inventario e equalizacao [concluido]
+- Inspecionar RCF, README, configuracao, plugins, layouts, conteudos, assets, testes, workflows e estado real [concluido]
+2/4 Roteamento e sub-RCFs [concluido]
+- Tornar RCF.md autoridade compacta e mover especializacoes sem perda para RCFs/ [concluido]
+3/4 Normatizacao transversal [concluido]
+- Consolidar namespaces, desempenho, blockquotes tipados, imagens responsivas e bate-papo [concluido]
+4/4 Validacao e marco normativo [concluido]
+- Validar links, cobertura, ausencia de duplicacao e registrar commit anterior a implementacao [concluido]
+resultado=RCF.md tornou-se autoridade compacta e roteia dez sub-RCFs reais sob RCFs/. Os nove identificadores anteriores foram preservados uma unica vez; namespaces editoriais ganharam contrato geral; desempenho, blockquotes tipados, variantes responsivas e bate-papo foram consolidados sem editar TODO.ia.md.
+verificacoes=Links relativos existentes; dez IDs unicos; nove IDs legados preservados; agent:rcf retornou RCF_OK; git diff --check sem erro apos normalizacao.
 
-FT-022|nome=Namespaces editoriais e roteamento normativo|objetivo=Generalizar namespaces de topo e subnamespaces, modularizar RCFs e preservar publicacao deterministica multiplataforma|escopo=Tecnico|prioridade=alta|status=pendente|inicio=20260811
+FT-022|nome=Namespaces editoriais e roteamento normativo|objetivo=Generalizar namespaces de topo e subnamespaces, modularizar RCFs e preservar publicacao deterministica multiplataforma|escopo=Tecnico|prioridade=alta|status=em_andamento|inicio=20260811
 dependencias=FT-021 concluida; content_namespaces e jcem_content_namespaces.rb vigentes.
 criterios=Profundidade arbitraria de subnamespace; URL logica literal; path fisico portavel; fonte configurada unica; testes Windows/Linux; links de sub-RCF validos.
 
