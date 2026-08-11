@@ -823,10 +823,9 @@ Similaridade visual em tela, dependência exclusiva de um motor, funcionamento a
   - **Disclaimer de `bate-papo`**
     - Todo disclaimer normativo do namespace `bate-papo:` DEVE utilizar o tipo/estilo:
       ```text
-      disclaimer
+      alerta1
       ```
     - Normatize essa associação na sub-RCF de bate-papo.
-    - O estilo DEVE continuar semanticamente disclaimer, e NÃO ser confundido com alertas genéricos.
 
 - [ ] Preservar otimização responsiva das imagens de cards e thumbnails
   - Localize a TO-DO/regra já existente sobre variantes responsivas de imagem.
