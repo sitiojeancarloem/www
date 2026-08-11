@@ -3125,7 +3125,10 @@ const validate404Page = async (page, url, viewportName) => {
 			terminalTyping: result.terminalTyping,
 			terminalRuntime: result.terminalRuntime,
 			terminalStepCount: result.terminalStepCount,
+			terminalTrackTransitionProperty: result.terminalTrackTransitionProperty,
+			terminalTrackTransitionDuration: result.terminalTrackTransitionDuration,
 			terminalActiveTypingCount: result.terminalActiveTypingCount,
+			terminalEmbeddedCursorCount: result.terminalEmbeddedCursorCount,
 			terminalActiveCursorAnimation: result.terminalActiveCursorAnimation,
 			terminalActiveCursorLeft: result.terminalActiveCursorLeft,
 			terminalActiveMaskLeft: result.terminalActiveMaskLeft,
@@ -3142,6 +3145,7 @@ const validate404Page = async (page, url, viewportName) => {
 			terminalLineWhiteSpace: result.terminalLineWhiteSpace,
 			terminalScreenOverflow: result.terminalScreenOverflow,
 			terminalHiddenSequences: result.terminalHiddenSequences,
+			terminalFinalBorder: result.terminalFinalBorder,
 			terminalFinalBackground: result.terminalFinalBackground,
 		})}`);
 	}
