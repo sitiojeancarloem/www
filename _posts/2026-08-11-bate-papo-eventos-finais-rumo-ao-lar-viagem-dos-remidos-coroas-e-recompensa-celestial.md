@@ -66,9 +66,17 @@ A leitura feita no encontro, consolidada sem as interrupções da conversa, é:
 
 A leitura incorpora e pressupõe:
 
-- **1 Coríntios 15:52** — transformação descrita como instantânea [^bib19];
-- **Mateus 24:31** — reunião dos escolhidos [^bib20];
-- **1 Tessalonicenses 4:17** — encontro do Senhor nos ares [^bib20].
+> “Num momento, num abrir e fechar de olhos, ao som da última trombeta. Pois a trombeta soará, os mortos ressuscitarão incorruptíveis, e nós seremos transformados.”
+>
+> — 1 Coríntios 15:52.[^bib19]
+
+> “E ele enviará os seus anjos, com grande som de trombeta, os quais reunirão os seus escolhidos dos quatro ventos, de uma a outra extremidade dos céus.”
+>
+> — Mateus 24:31.[^bib20]
+
+> “Depois nós, os que ficarmos vivos, seremos arrebatados juntamente com eles nas nuvens, ao encontro do Senhor nos ares, e assim estaremos para sempre com o Senhor.”
+>
+> — 1 Tessalonicenses 4:17.[^bib20]
 
 ### 2.1. A “nuvem”, o “carro”, as rodas e as asas
 
@@ -118,7 +126,9 @@ A discussão observa que Isaías formula uma pergunta a partir daquilo que conte
 
 Em paralelo foi lembrado:
 
-### Apocalipse 6:14 — [^bib05]
+### Apocalipse 6:14
+
+> “O céu recolheu-se como um pergaminho quando se enrola, e todos os montes e ilhas foram removidos dos seus lugares.”[^bib05]
 
 O céu é descrito retirando-se ou enrolando-se por comparação com um pergaminho.
 
@@ -126,8 +136,13 @@ O princípio extraído é que a expressão **“como”** assinala analogia perc
 
 O mesmo raciocínio foi aplicado às imagens de Daniel e João:
 
-- **Daniel 7:10** — imagem do rio de fogo [^bib06];
-- **Apocalipse 15:2**, cf. 4:6 — imagem do mar de vidro [^bib07].
+> “Um rio de fogo manava e saía de diante dele; milhares de milhares o serviam, e miríades de miríades estavam diante dele. Assentou-se o tribunal, e abriram-se os livros.”
+>
+> — Daniel 7:10.[^bib06]
+
+> “Vi como que um mar de vidro misturado com fogo e os que venceram a besta, a sua imagem e o número do seu nome, em pé junto ao mar de vidro, tendo harpas de Deus.”
+>
+> — Apocalipse 15:2; cf. 4:6.[^bib07]
 
 <!-- AI-PROCESSED:START -->
 A interpretação registrada no bate-papo é que profetas diferentes podem descrever aspectos de uma realidade celestial mediante imagens distintas porque cada um verbaliza aquilo que viu segundo sua percepção e repertório.
@@ -176,7 +191,9 @@ Para sustentar essa leitura, o Instrutor principal a relacionou a:
 
 E com:
 
-### Daniel 9:21–23 — [^bib12]
+### Daniel 9:21–23
+
+> “Sim, enquanto eu ainda falava na oração, o homem Gabriel, que eu tinha visto na visão ao princípio, veio voando rapidamente e me tocou à hora do sacrifício da tarde. Ele me instruiu e falou comigo, dizendo: ‘Daniel, agora saí para dar a você sabedoria e entendimento. No princípio das suas súplicas, saiu a ordem, e eu vim para explicá-la a você, porque você é muito amado. Portanto, considere a palavra e entenda a visão.’”[^bib12]
 
 Gabriel recebe a ordem e chega enquanto Daniel ainda está orando.
 
@@ -206,9 +223,13 @@ A passagem apareceu na conversa, mas não é a base matemática direta do cálcu
 Um participante argumentou que “meia hora de silêncio” poderia abranger todo o período em que o Céu estivesse vazio, incluindo ida e retorno, e por isso levantou a divisão do período entre descida e subida. Também ponderou que a aproximação visível da nuvem — pequena a princípio e depois crescente — não parecia compatível com uma descida reduzida a segundos. O Instrutor principal respondeu que os sete dias são explicitamente atribuídos à ascensão dos remidos e defendeu uma descida muito rápida, com base na comparação com o relâmpago e na leitura de _Consultoria Doutrinária_. Outros participantes oscilaram entre as duas leituras, mantendo a tensão entre a duração da manifestação visível e a atribuição textual dos sete dias como eixo das ponderações apresentadas.
 <!-- AI-PROCESSED:END -->
 
-### Isaías 58 — [^bib02]
+### Isaías 58:13–14
 
-### Isaías 66:23 — [^bib03]
+> “Se desviares o teu pé de profanar o sábado e de cuidar dos teus próprios interesses no meu santo dia; se chamares ao sábado deleitoso e santo dia do Senhor, digno de honra; se o honrares, não seguindo os teus caminhos, não pretendendo fazer a tua própria vontade nem falando palavras vãs, então te deleitarás no Senhor. Eu te farei cavalgar sobre os altos da terra e te sustentarei com a herança de Jacó, teu pai, porque a boca do Senhor o disse.”[^bib02]
+
+### Isaías 66:23
+
+> “De uma Festa da Lua Nova à outra e de um sábado a outro, toda a humanidade virá adorar diante de mim, diz o Senhor.”[^bib03]
 
 Esses textos surgiram paralelamente na discussão sobre a perpetuidade do sábado. Particularmente Isaías 66:23 apresenta a adoração futura entre um sábado e outro.
 
@@ -238,17 +259,27 @@ sem dizer indevidamente:
 
 Na discussão sobre diferentes classes de anjos são mencionados:
 
-### Isaías 6:2 — [^bib13]
+### Isaías 6:2
+
+> “Serafins estavam por cima dele; cada um tinha seis asas: com duas cobria o rosto, com duas cobria os pés e com duas voava.”[^bib13]
 
 Serafins são apresentados com seis asas.
 
-### Ezequiel 1:6; 10:21 — [^bib14]
+### Ezequiel 1:6; 10:21
+
+> “Cada um tinha quatro rostos e quatro asas.” (Ezequiel 1:6)
+>
+> “Cada um tinha quatro rostos e quatro asas, e debaixo das asas havia algo semelhante a mãos humanas.” (Ezequiel 10:21)[^bib14]
 
 Os seres viventes/querubins são apresentados com quatro asas.
 
 A conversa então se desloca para _História da Redenção_, capítulo 1:
 
-### História da Redenção, cap. 1 — [^egw05]
+### História da Redenção, cap. 1
+
+> “Cristo formava parte do conselho especial de Deus para a consideração de Seus planos, ao passo que Satanás os desconhecia. Por outro lado, Cristo era reconhecido como Soberano do Céu com poder e autoridade iguais aos do próprio Deus.”
+>
+> — _História da Redenção_, cap. 1.[^egw05]
 
 O Instrutor principal usou a obra para discutir Cristo, Lúcifer e o conhecimento que os anjos possuíam acerca da posição do Filho.
 
@@ -288,13 +319,17 @@ A leitura fundamenta a ideia de que, na eternidade, o salvo compreenderá interv
 
 A discussão foi associada a:
 
-### 2 Reis 6:17 — [^bib16]
+### 2 Reis 6:17
+
+> “Eliseu orou e disse: ‘Senhor, peço-te que abras os olhos dele para que veja.’ O Senhor abriu os olhos do moço, e ele viu que o monte estava cheio de cavalos e carros de fogo, ao redor de Eliseu.”[^bib16]
 
 Deus abre os olhos do servo de Eliseu e ele percebe a realidade do exército celestial que já estava presente.
 
 Também foi lembrado:
 
-### 1 Coríntios 2:9 — [^bib15]
+### 1 Coríntios 2:9
+
+> “As coisas que o olho não viu, e o ouvido não ouviu, e não subiram ao coração do homem são as que Deus preparou para os que o amam.”[^bib15]
 
 A grandeza daquilo que Deus preparou ultrapassa a atual capacidade humana de concepção.
 
@@ -391,7 +426,9 @@ Um participante observa que a influência pode inclusive anteceder a própria co
 
 Isso é relacionado a:
 
-### Mateus 10:42 — [^bib17]
+### Mateus 10:42
+
+> “E quem der a beber, ainda que seja um copo de água fria, a um destes pequeninos, por ser este meu discípulo, em verdade vos digo que de modo algum perderá a sua recompensa.”[^bib17]
 
 Até a oferta de um copo de água fria feita por causa de Cristo não fica sem recompensa.
 
@@ -443,7 +480,11 @@ Portanto, a coroa simultaneamente:
 >
 > — _O Grande Conflito_, p. 647–648.[^egw10]
 
-A aclamação já apresentada é relacionada a Apocalipse 5:12 [^bib18], sem repetição integral do mesmo texto.
+A aclamação foi relacionada a:
+
+> “Digno é o Cordeiro que foi morto de receber o poder, a riqueza, a sabedoria, a força, a honra, a glória e o louvor.”
+>
+> — Apocalipse 5:12.[^bib18]
 
 A cena concentra vários temas anteriores: queda, expiação, graça, ausência de mérito humano, restauração e centralidade de Cristo.
 
@@ -475,9 +516,15 @@ O texto foi identificado no estudo como _Mensagens Escolhidas_, v. 2, capítulo 
 
 A partir daí surgiram questões sobre família e relações humanas na eternidade.
 
-### Mateus 22:30 / Lucas 20:35–36 — [^bib21]
+### Mateus 22:30 / Lucas 20:35–36
 
-A referência bíblica temática é a declaração de Cristo de que, na ressurreição, não se casa nem se dá em casamento.
+> “Na ressurreição, as pessoas não se casam nem são dadas em casamento, mas são como os anjos no céu.”
+>
+> — Mateus 22:30.[^bib21]
+
+> “Mas os que forem considerados dignos de tomar parte na era que há de vir e na ressurreição dos mortos não se casarão nem serão dados em casamento e não podem mais morrer, pois são como os anjos, os filhos de Deus, visto que são filhos da ressurreição.”
+>
+> — Lucas 20:35–36.[^bib21]
 
 <!-- AI-PROCESSED:START -->
 A síntese distingue, a partir das falas registradas:
@@ -539,41 +586,23 @@ A especulação pode ser intelectualmente útil quando identificada como tal; to
 
 ---
 
-## 12. Referências complementares sobre o mesmo tema
+## 12. Referências complementares localizadas
 
-Duas compilações foram identificadas, embora as fontes disponíveis não permitam reconstruir com segurança o trecho completo ou sua localização interna:
+As menções a _A Fé Pela Qual Eu Vivo_, _Vidas que Falam_ e ao _SDA Bible Commentary_ convergem em duas passagens que puderam ser identificadas. Em vez de publicar referências isoladas, preservam-se os textos:
 
-### A Fé Pela Qual Eu Vivo — [^egw14]
+### A Fé Pela Qual Eu Vivo, 18 de abril
 
-Obra mencionada durante a identificação das fontes relativas às vagas deixadas pelos anjos caídos. A data e a página exatas não ficaram preservadas com segurança.
+> “Aqueles que realmente andam como Cristo andou, que são pacientes, amáveis, tratáveis, mansos e afetuosos, que se apegam a Cristo e lançam sobre Ele suas cargas, que têm cuidado pelas pessoas como Cristo tem por eles — entrarão no gozo de seu Senhor. Verão com Cristo o trabalho de Sua alma e ficarão satisfeitos. O Céu triunfará, pois as vagas que nele se abriram pela queda de Satanás e seus anjos serão preenchidas pelos redimidos do Senhor.”
+>
+> — _A Fé Pela Qual Eu Vivo_ 111.2; fonte anterior: _SDA Bible Commentary_, v. 7, p. 948.[^egw14]
 
-### Vidas que Falam, meditação de 1971 — [^egw15]
+### Vidas que Falam, 15 de janeiro
 
-A obra foi mencionada como fonte anterior reproduzida posteriormente em outra compilação. O encontro não preservou com clareza suficiente a data exata da meditação.
+> “Deus criou o homem para Sua própria glória, para que depois de testada e provada, a família humana pudesse tornar-se uma com a família celestial. Era o propósito de Deus repovoar o Céu com a família humana, caso ela se demonstrasse obediente a cada palavra divina.”
+>
+> — _Vidas que Falam_, “Engano que custou caro”, 15 de janeiro.[^egw15]
 
-Essas referências devem permanecer registradas, mas **não devem receber uma precisão bibliográfica que a documentação disponível ainda não permite**.
-
----
-
-## 13. Comentário Bíblico Adventista e rastreabilidade das fontes
-
-### Comentário Bíblico Adventista / SDA Bible Commentary — [^out02]
-
-O final do encontro dedica atenção especial à utilidade bibliográfica do comentário.
-
-O ponto principal levantado pelo Instrutor principal é que determinadas seções do comentário — especialmente materiais suplementares — reúnem textos de Ellen White e referências a manuscritos que podem não aparecer com facilidade nas compilações mais difundidas.
-
-Foram mencionados oralmente, entre outros:
-
-- v. 7;
-- p. 948;
-- p. 990;
-- “v. 10”;
-- p. 915.
-
-A síntese não converte essas menções em citações verificadas, pois os trechos exatos não ficaram suficientemente definidos.
-
-Também surgiram opiniões e hipóteses sobre a publicação dos volumes no Brasil. Essas falas são historicamente interessantes para compreender o debate, mas não constituem prova documental da motivação editorial da CPB ou da Igreja.
+As demais páginas lembradas sem obra, edição ou trecho identificável não foram transformadas em citações, pois isso exigiria atribuição conjectural.
 
 ### Lição
 
@@ -587,13 +616,13 @@ Quando uma compilação reproduz outra obra, o estudo deve, quando possível, ca
 
 ---
 
-## 14. Síntese das lições extraídas
+## 13. Síntese das lições extraídas
 
-### 14.1. O escrito precede a experiência
+### 13.1. O escrito precede a experiência
 
 Sonhos, visões particulares, impressões, milagres, coincidências e experiências sobrenaturais não constituem autoridade autônoma. Sua validade precisa ser julgada pela revelação já estabelecida.
 
-### 14.2. O texto deve ser separado da interpretação do texto
+### 13.2. O texto deve ser separado da interpretação do texto
 
 Uma das melhores práticas que emerge do próprio diálogo é perguntar continuamente:
 
@@ -607,11 +636,11 @@ Pode haver:
 
 O erro começa quando essas categorias são confundidas.
 
-### 14.3. Uma inferência correta continua sendo uma inferência
+### 13.3. Uma inferência correta continua sendo uma inferência
 
 O exemplo do sábado durante os sete dias é paradigmático: várias premissas podem tornar uma conclusão muito plausível; isso ainda não autoriza atribuir a Ellen White uma frase que ela não escreveu.
 
-### 14.4. A linguagem profética descreve o transcendente por analogia
+### 13.4. A linguagem profética descreve o transcendente por analogia
 
 “Nuvem”, “carro”, “rodas”, “asas”, “rio de fogo”, “mar de vidro”, “pergaminho” e “pombas” demonstram a necessidade de considerar a relação entre:
 
@@ -619,33 +648,33 @@ O exemplo do sábado durante os sete dias é paradigmático: várias premissas p
 
 A fidelidade da revelação não exige vocabulário tecnológico moderno.
 
-### 14.5. A comparação de traduções é ferramenta hermenêutica
+### 13.5. A comparação de traduções é ferramenta hermenêutica
 
 A discussão de Isaías 60:8 demonstra que traduções diferentes podem revelar nuances que uma única versão obscurece. Compará-las não substitui o texto original, mas amplia a percepção semântica e ajuda a localizar onde uma interpretação depende da tradução.
 
-### 14.6. O conhecimento da criatura permanece progressivo
+### 13.6. O conhecimento da criatura permanece progressivo
 
 Santidade e perfeição não equivalem a onisciência. A criatura continuará aprendendo mesmo na eternidade.
 
 A eternidade, portanto, não representa estagnação cognitiva, mas crescimento ilimitado diante de um Deus inesgotável.
 
-### 14.7. A redenção é restauração com memória
+### 13.7. A redenção é restauração com memória
 
 Adão retorna ao Éden, mas retorna conhecendo a queda e contemplando no corpo de Cristo os sinais do preço de sua redenção.
 
 A restauração não simplesmente apaga a história: ela transforma a história do pecado em testemunho permanente da graça.
 
-### 14.8. A providência hoje invisível será compreendida
+### 13.8. A providência hoje invisível será compreendida
 
 A conversa com o anjo da guarda representa uma futura leitura retrospectiva da vida. Muitos acontecimentos aparentemente ordinários, acidentais ou incompreensíveis poderão ser compreendidos dentro de uma rede de providência que atualmente permanece oculta.
 
-### 14.9. A fé é formada pela prática
+### 13.9. A fé é formada pela prática
 
 Pedir fé, paciência, amor ou sabedoria não implica necessariamente receber conforto. Pode significar receber precisamente as circunstâncias nas quais aquela virtude precisa ser desenvolvida.
 
 A escola de Cristo não é apenas informativa; é formativa.
 
-### 14.10. A missão é cooperativa, mas o mérito é de Cristo
+### 13.10. A missão é cooperativa, mas o mérito é de Cristo
 
 O salvo pode participar real e significativamente da salvação de outros; essa participação pode inclusive assumir formas indiretas.
 
@@ -655,19 +684,19 @@ Contudo:
 
 Assim, a recompensa é real sem transformar a salvação em mérito humano.
 
-### 14.11. Nenhuma contribuição fiel é necessariamente irrelevante
+### 13.11. Nenhuma contribuição fiel é necessariamente irrelevante
 
 O princípio de Mateus 10:42, associado às coroas e estrelas, amplia o conceito de missão. Nem toda influência salvadora assume a forma de pregação pública ou estudo bíblico formal.
 
 Um gesto, presença, palavra, convite, exemplo ou serviço pode integrar uma cadeia causal cujo resultado final somente Deus conhece.
 
-### 14.12. Diferença de recompensa não significa desigualdade de felicidade
+### 13.12. Diferença de recompensa não significa desigualdade de felicidade
 
 As coroas diferem, mas todos estão perfeitamente satisfeitos.
 
 Consequentemente, a recompensa celestial pode reconhecer histórias distintas de serviço sem produzir competição, inveja ou hierarquia de valor pessoal.
 
-### 14.13. A escatologia deve produzir conduta presente
+### 13.13. A escatologia deve produzir conduta presente
 
 O objetivo prático da leitura não é satisfazer curiosidade sobre veículos celestiais, asas, coroas, viagens ou outros mundos. Esses temas funcionam como concretização da esperança.
 
@@ -679,7 +708,7 @@ mas:
 
 > **“Se isso é real, que valor têm, em comparação, as coisas pelas quais hoje arriscamos a eternidade?”**
 
-### 14.14. Estudar exige rastreabilidade
+### 13.14. Estudar exige rastreabilidade
 
 A conversa repetidamente procura livros, capítulos, páginas, traduções e fontes anteriores.
 
@@ -689,7 +718,7 @@ Esse procedimento deve ser preservado e aprofundado:
 
 Quanto mais importante a conclusão doutrinária, menor deve ser a dependência de citações de memória.
 
-### 14.15. Saber dizer “não sabemos” é parte do método
+### 13.15. Saber dizer “não sabemos” é parte do método
 
 Vários pontos permaneceram sem resposta: detalhes do carro/nuvem, dinâmica completa dos sete dias, condições dos outros mundos, casamento e procriação no plano original, entre outros.
 
@@ -749,9 +778,9 @@ Nenhuma referência identificada na revisão foi excluída desta síntese. As lo
 
 [^egw13]: WHITE, Ellen G. _A Verdade Sobre os Anjos_ 287.1–287.2 — vagas dos anjos caídos.
 
-[^egw14]: WHITE, Ellen G. _A Fé Pela Qual Eu Vivo_ — obra identificada, mas sem data ou página preservada com segurança na transcrição.
+[^egw14]: WHITE, Ellen G. _A Fé Pela Qual Eu Vivo_, 18 de abril, FQV 111.2; fonte anterior: _SDA Bible Commentary_, v. 7, p. 948.
 
-[^egw15]: WHITE, Ellen G. _Vidas que Falam_ (1971) — obra identificada, mas sem data da meditação preservada com segurança na transcrição.
+[^egw15]: WHITE, Ellen G. _Vidas que Falam_, “Engano que custou caro”, 15 de janeiro.
 
 [^bib01]: Bíblia, Isaías 8:20.
 
@@ -796,5 +825,3 @@ Nenhuma referência identificada na revisão foi excluída desta síntese. As lo
 [^bib21]: Bíblia, Mateus 22:30; Lucas 20:35–36.
 
 [^out01]: _Consultoria Doutrinária_. Casa Publicadora Brasileira, 1ª ed., 1979, “Interpretação Profética” / “Silêncio no Céu”, p. 90 conforme a edição utilizada.
-
-[^out02]: _Comentário Bíblico Adventista do Sétimo Dia / The Seventh-day Adventist Bible Commentary_ — volumes e páginas mencionados durante a pesquisa bibliográfica; os trechos exatos não ficaram suficientemente definidos na transcrição.

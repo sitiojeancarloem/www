@@ -30,6 +30,7 @@ config = {
 }
 
 repository_config = File.read(File.expand_path("../_config.yml", __dir__))
+bate_papo_rcf = File.read(File.expand_path("../RCFs/bate-papo.md", __dir__))
 assert(
   repository_config.include?("Esta é uma síntese fiel de um bate-papo"),
   "disclaimer perdeu a declaração de fidelidade"
@@ -42,18 +43,29 @@ assert(
   repository_config.include?("formulações coletivas não significam unanimidade"),
   "disclaimer perdeu a ressalva sobre formulações coletivas"
 )
-eventos_finais_drafts = [
-  "../_drafts/bate-papo/eventos-finais/bate-papo-eventos-finais-a-heranca-dos-santos.md",
-  "../_drafts/bate-papo/eventos-finais/" \
-    "bate-papo-eventos-finais-rumo-ao-lar-viagem-dos-remidos-coroas-e-recompensa-celestial.md"
+assert(
+  bate_papo_rcf.include?("mera referência bibliográfica") &&
+    bate_papo_rcf.include?("recompor a íntegra material") &&
+    bate_papo_rcf.include?("bloqueia a publicação"),
+  "RCF perdeu o contrato de citação integral e recomposição obrigatória"
+)
+eventos_finais_posts = [
+  "../_posts/2026-08-11-bate-papo-eventos-finais-a-heranca-dos-santos.md",
+  "../_posts/" \
+    "2026-08-11-bate-papo-eventos-finais-rumo-ao-lar-viagem-dos-remidos-coroas-e-recompensa-celestial.md"
 ]
-eventos_finais_drafts.each do |relative_path|
-  draft = File.binread(File.expand_path(relative_path, __dir__)).force_encoding(Encoding::UTF_8)
-  assert(draft.include?('data-jcem-quote-model="alerta1"'), "disclaimer bate-papo não usa alerta1")
+eventos_finais_posts.each do |relative_path|
+  post = File.binread(File.expand_path(relative_path, __dir__)).force_encoding(Encoding::UTF_8)
+  assert(post.include?('data-jcem-quote-model="alerta1"'), "disclaimer bate-papo não usa alerta1")
   assert(
-    draft.match?(/^content_subnamespaces:\R  - eventos-finais$/),
+    post.match?(/^content_subnamespaces:\R  - eventos-finais$/),
     "obra-base Eventos Finais perdeu o subnamespace"
   )
+  assert(
+    !post.match?(/^(?:##|###|####|#####|######) .*\[\^[^\]]+\]\s*$/),
+    "bate-papo contém título com mera referência"
+  )
+  assert(!post.include?("[...]"), "bate-papo contém corte editorial em citação")
 end
 
 site = Struct.new(:config).new(config)
