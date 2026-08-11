@@ -11,10 +11,16 @@ const artifactDir = path.resolve(process.env.VISUAL_ARTIFACT_DIR || 'visual-arti
 const visualValidationStrict = !['0', 'false', 'no', 'advisory'].includes(
 	String(process.env.VISUAL_VALIDATION_STRICT || 'true').toLowerCase(),
 );
-const pages = ['/', '/sobre/', '/p/devaneios/', '/mapa/'];
-const themes = ['dark', 'light'];
+const configuredList = (name, fallback) => {
+	const value = process.env[name];
+	return value
+		? value.split(',').map((item) => item.trim()).filter(Boolean)
+		: fallback;
+};
+const pages = configuredList('VISUAL_PAGES', ['/', '/sobre/', '/p/devaneios/', '/mapa/']);
+const themes = configuredList('VISUAL_THEMES', ['dark', 'light']);
 const notFoundPage = '/rota-inexistente-codex/';
-const viewports = [
+const allViewports = [
 	{ name: 'wide', width: 1920, height: 1080 },
 	{ name: 'desktop', width: 1366, height: 768 },
 	{ name: 'reduced', width: 900, height: 700 },
@@ -22,6 +28,10 @@ const viewports = [
 	{ name: 'mobile', width: 390, height: 844 },
 	{ name: 'compact', width: 320, height: 720 },
 ];
+const selectedViewportNames = new Set(
+	configuredList('VISUAL_VIEWPORTS', allViewports.map(({ name }) => name)),
+);
+const viewports = allViewports.filter(({ name }) => selectedViewportNames.has(name));
 
 const contentTypes = new Map([
 	['.html', 'text/html; charset=utf-8'],
@@ -548,9 +558,17 @@ const validatePage = async (page, url, theme, viewportName) => {
 		theme === 'light' ? 'painel-modo-claro.svg' : 'painel.svg';
 
 	await page.waitForTimeout(150);
+	const switchBefore = await page.locator('.jcem-theme-toggle').getAttribute('aria-checked');
+	await page.locator('.jcem-theme-toggle').click();
+	const switchAfter = await page.locator('.jcem-theme-toggle').getAttribute('aria-checked');
+	if (switchBefore === switchAfter) {
+		fail(`Switch inteiro nao alternou tema em ${url} ${theme} ${viewportName}`);
+	}
+	await page.locator('.jcem-theme-toggle').click();
+	await page.waitForTimeout(300);
 	await page
 		.waitForFunction(() => {
-			const icon = document.querySelector('label[for="jcem-theme-light"] i');
+			const icon = document.querySelector('.jcem-theme-toggle__option--light i');
 			const pseudo = icon ? window.getComputedStyle(icon, '::before') : null;
 			return pseudo && pseudo.display !== 'none' && pseudo.content !== 'none' && pseudo.content !== '""';
 		}, null, { timeout: 15000 })
@@ -647,26 +665,66 @@ const validatePage = async (page, url, theme, viewportName) => {
 
 			const effectiveBackgroundColor = (node) => {
 				let current = node;
+				const layers = [];
 
 				while (current) {
 					const backgroundColor = window.getComputedStyle(current).backgroundColor;
-
-					if (backgroundColor && !backgroundColor.endsWith(', 0)') && backgroundColor !== 'transparent') {
-						return backgroundColor;
+					const match = backgroundColor.match(
+						/rgba?\((\d+),\s*(\d+),\s*(\d+)(?:,\s*([\d.]+))?/,
+					);
+					if (match) {
+						layers.push([
+							Number(match[1]),
+							Number(match[2]),
+							Number(match[3]),
+							match[4] === undefined ? 1 : Number(match[4]),
+						]);
 					}
-
 					current = current.parentElement;
 				}
 
-				return window.getComputedStyle(document.documentElement).backgroundColor;
+				const composite = layers.reverse().reduce(
+					(base, [red, green, blue, alpha]) => [
+						Math.round(red * alpha + base[0] * (1 - alpha)),
+						Math.round(green * alpha + base[1] * (1 - alpha)),
+						Math.round(blue * alpha + base[2] * (1 - alpha)),
+					],
+					[255, 255, 255],
+				);
+				return `rgb(${composite.join(', ')})`;
 			};
 
-			const style = window.getComputedStyle(element);
+			const textElement = [element, ...element.querySelectorAll('*')].find(
+				(candidate) => {
+					if (
+						candidate.closest(
+							'.visually-hidden, [aria-hidden="true"], .jcem-date-flag',
+						)
+					) {
+						return false;
+					}
+					const hasDirectText = Array.from(candidate.childNodes).some(
+						(node) =>
+							node.nodeType === Node.TEXT_NODE && Boolean(node.textContent?.trim()),
+					);
+					const candidateStyle = window.getComputedStyle(candidate);
+					const candidateRect = candidate.getBoundingClientRect();
+					return (
+						hasDirectText &&
+						candidateStyle.display !== 'none' &&
+						candidateStyle.visibility !== 'hidden' &&
+						candidateRect.width > 1 &&
+						candidateRect.height > 1
+					);
+				},
+			) || element;
+			const style = window.getComputedStyle(textElement);
 			const rect = element.getBoundingClientRect();
 			return {
 				selector,
+				contrastTarget: `${textElement.tagName.toLowerCase()}${textElement.className ? `.${String(textElement.className).trim().replace(/\s+/g, '.')}` : ''}`,
 				color: style.color,
-				backgroundColor: effectiveBackgroundColor(element),
+				backgroundColor: effectiveBackgroundColor(textElement),
 				width: rect.width,
 				height: rect.height,
 			};
@@ -1020,6 +1078,9 @@ const validatePage = async (page, url, theme, viewportName) => {
 					frame?.getAttribute('data-jcem-asset-aspect-ratio') ||
 						frame?.style.getPropertyValue('--jcem-asset-aspect-ratio'),
 				),
+				hasResponsiveSelection: Boolean(
+					image.getAttribute('srcset') && image.getAttribute('sizes'),
+				),
 			};
 		});
 		const footerRegion =
@@ -1068,8 +1129,9 @@ const validatePage = async (page, url, theme, viewportName) => {
 					}
 				: null,
 			icons: {
-				themeLight: iconStyle('label[for="jcem-theme-light"] i'),
-				themeDark: iconStyle('label[for="jcem-theme-dark"] i'),
+				themeLight: iconStyle('.jcem-theme-toggle__option--light i'),
+				themeDark: iconStyle('.jcem-theme-toggle__option--dark i'),
+				navBars: iconStyle('.jcem-nav-toggle .fa-bars'),
 				scrollTop: iconStyle('.jcem-scroll-top i'),
 			},
 			headerControls: {
@@ -1298,6 +1360,9 @@ const validatePage = async (page, url, theme, viewportName) => {
 				missingReservedImageMetadataCount: reservedImageMetrics.filter(
 					(metric) => !metric.hasDimensions && !metric.hasAspectRatio,
 				).length,
+				missingResponsiveSelectionCount: reservedImageMetrics.filter(
+					(metric) => !metric.hasResponsiveSelection,
+				).length,
 				skeletonCount: skeletonMetrics.length,
 				badSkeletonCount: skeletonMetrics.filter(
 					(metric) =>
@@ -1399,6 +1464,10 @@ const validatePage = async (page, url, theme, viewportName) => {
 
 	if (result.archive.missingReservedImageMetadataCount > 0) {
 		fail(`Imagem de card sem reserva de geometria em ${url} ${theme} ${viewportName}`);
+	}
+
+	if (result.archive.missingResponsiveSelectionCount > 0) {
+		fail(`Imagem publicada sem srcset/sizes em ${url} ${theme} ${viewportName}`);
 	}
 
 	if (
@@ -1642,6 +1711,10 @@ const validatePage = async (page, url, theme, viewportName) => {
 			fail(`Icone Font Awesome ausente em ${url} ${theme} ${viewportName}: ${name}`);
 		}
 	}
+	const barsGlyph = result.icons.navBars.content.replace(/["']/g, '');
+	if (barsGlyph.codePointAt(0) !== 0xf0c9) {
+		fail(`Icone do menu nao usa Font Awesome f0c9 em ${url} ${theme} ${viewportName}`);
+	}
 
 	if (result.scrollTopButton.width < 42 || result.scrollTopButton.height < 42) {
 		fail(`Botao de retorno ao topo pequeno em ${url} ${theme} ${viewportName}`);
@@ -1775,7 +1848,7 @@ const validatePage = async (page, url, theme, viewportName) => {
 		if (style.selector !== '.jcem-theme-toggle') {
 			const ratio = contrastRatio(style.color, style.backgroundColor);
 			if (ratio < 3) {
-				fail(`Contraste baixo em ${url} ${theme} ${viewportName}: ${style.selector} (${ratio.toFixed(2)})`);
+				fail(`Contraste baixo em ${url} ${theme} ${viewportName}: ${style.selector} -> ${style.contrastTarget} (${ratio.toFixed(2)}; ${style.color} sobre ${style.backgroundColor})`);
 			}
 		}
 	}
@@ -1890,7 +1963,12 @@ const validatePrintTheme = async (page, url, viewportName) => {
 
 	await page.goto(url, { waitUntil: 'domcontentloaded' });
 	await page.waitForLoadState('load', { timeout: 15000 }).catch(() => {});
-	await page.locator('label[for="jcem-theme-dark"]').click();
+	await page.evaluate(() => {
+		const dark = document.querySelector('#jcem-theme-dark');
+		if (!(dark instanceof HTMLInputElement)) return;
+		dark.checked = true;
+		dark.dispatchEvent(new Event('change', { bubbles: true }));
+	});
 	const screenIsolation = await page.evaluate(() => {
 		const probe = document.createElement('style');
 		probe.dataset.printIsolationProbe = '';
@@ -2218,6 +2296,119 @@ const validatePrintTheme = async (page, url, viewportName) => {
 			result.linkAfterContent !== 'none')
 	) {
 		fail(`Impressao exibe URLs automaticas em links em ${url}`);
+	}
+};
+
+const validateTypedQuoteModels = async (browser, baseUrl, viewport) => {
+	const context = await browser.newContext({ viewport });
+	await seedCookieConsent(context);
+	await context.addInitScript(() => {
+		document.addEventListener('DOMContentLoaded', () => {
+			const content = document.querySelector('.page__content');
+			if (!content) return;
+			const definitions = [
+				['notice', 'Aviso editorial', '📄', '', ''],
+				['info', 'Informação contextual', '', '/assets/jcem/img/painel.svg', 'Informação'],
+				['alerta1', 'Alerta moderado', '⚠️', '', ''],
+				['alerta2', 'Alerta crítico', '❗', '', ''],
+			];
+			for (const [model, text, icon, source, alt] of definitions.reverse()) {
+				const quote = document.createElement('blockquote');
+				quote.dataset.jcemQuoteFixture = '';
+				quote.dataset.jcemQuoteModel = model;
+				if (icon) quote.dataset.jcemQuoteIcon = icon;
+				if (source) quote.dataset.jcemQuoteIconSrc = source;
+				if (alt) quote.dataset.jcemQuoteIconAlt = alt;
+				const paragraph = document.createElement('p');
+				paragraph.textContent = text;
+				quote.append(paragraph);
+				content.prepend(quote);
+			}
+		}, { once: true });
+	});
+	const page = await context.newPage();
+	try {
+		await page.goto(`${baseUrl}/p/devaneios/`, { waitUntil: 'load' });
+		await page.waitForFunction(
+			() =>
+				document.querySelectorAll(
+					'[data-jcem-quote-fixture].jcem-quote--typed > .jcem-quote__icon',
+				).length === 4,
+			null,
+			{ timeout: 15000 },
+		);
+
+		for (const theme of ['dark', 'light']) {
+			await page.emulateMedia({ media: 'screen' });
+			await page.evaluate((selectedTheme) => {
+				const radio = document.querySelector(`#jcem-theme-${selectedTheme}`);
+				if (!(radio instanceof HTMLInputElement)) return;
+				radio.checked = true;
+				radio.dispatchEvent(new Event('change', { bubbles: true }));
+			}, theme);
+			await page.waitForTimeout(300);
+			const screen = await page.evaluate(() =>
+				Array.from(document.querySelectorAll('[data-jcem-quote-fixture]')).map(
+					(quote) => {
+						const rect = quote.getBoundingClientRect();
+						const style = window.getComputedStyle(quote);
+						return {
+							model: quote.getAttribute('data-jcem-quote-model'),
+							display: style.display,
+							background: style.backgroundColor,
+							borderWidth: Number.parseFloat(style.borderInlineStartWidth || '0'),
+							insideViewport: rect.left >= -1 && rect.right <= window.innerWidth + 1,
+							iconCount: quote.querySelectorAll(':scope > .jcem-quote__icon').length,
+							imageAlt: quote.querySelector('.jcem-quote__icon img')?.getAttribute('alt') || '',
+						};
+					},
+				),
+			);
+			if (
+				screen.length !== 4 ||
+				screen.some(
+					(metric) =>
+						metric.display !== 'grid' ||
+						metric.background === 'rgba(0, 0, 0, 0)' ||
+						metric.borderWidth < 4 ||
+						!metric.insideViewport ||
+						metric.iconCount !== 1,
+				)
+			) {
+				fail(`Blockquote tipado invalido em ${theme} ${viewport.name}: ${JSON.stringify(screen)}`);
+			}
+			if (!screen.some((metric) => metric.imageAlt === 'Informação')) {
+				fail(`Icone de imagem tipado perdeu alt em ${theme} ${viewport.name}`);
+			}
+			await page.screenshot({
+				path: path.join(artifactDir, `typed-quotes-${theme}-${viewport.name}.png`),
+				fullPage: false,
+			});
+		}
+
+		await page.emulateMedia({ media: 'print' });
+		await page.waitForTimeout(150);
+		const print = await page.evaluate(() =>
+			Array.from(document.querySelectorAll('[data-jcem-quote-fixture]')).map(
+				(quote) => ({
+					background: window.getComputedStyle(quote).backgroundColor,
+					iconDisplay: window.getComputedStyle(
+						quote.querySelector(':scope > .jcem-quote__icon'),
+					).display,
+				}),
+			),
+		);
+		if (
+			print.length !== 4 ||
+			print.some(
+				(metric) =>
+					metric.background !== 'rgba(0, 0, 0, 0)' || metric.iconDisplay !== 'none',
+			)
+		) {
+			fail(`Blockquote tipado vazou para impressao ${viewport.name}: ${JSON.stringify(print)}`);
+		}
+	} finally {
+		await context.close();
 	}
 };
 
@@ -3060,6 +3251,11 @@ try {
 	await validateRecentPostPlaceholders(publishedPostPaths);
 
 	browser = await launchBrowser();
+	for (const viewport of viewports.filter(({ name }) =>
+		['wide', 'mobile', 'compact'].includes(name)
+	)) {
+		await validateTypedQuoteModels(browser, baseUrl, viewport);
+	}
 
 	const editorialContext = await browser.newContext({ viewport: viewports[0] });
 	await seedCookieConsent(editorialContext);

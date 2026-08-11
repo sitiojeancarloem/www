@@ -22,9 +22,9 @@ Contexto técnico persistente:
 - Matemática: KaTeX é SSR condicional por `_plugins/jcem_math.rb`; navegador não renderiza fórmula. Fontes/CDN somente em páginas com matemática.
 - Importador: `importador/` é isolado; WXR gera drafts sem sobrescrita; mídia é retomável por `importador/state/`, em lotes pequenos (`--limit`, `--concurrency=1`, timeout 45000).
 - Editorial: preservar originais; modificação semântica usa `AI-PROCESSED`; builds com drafts têm avisos de binários/conflitos conhecidos.
-- Ambiente: Ruby 4 requer `scripts/jekyll_local.rb` e `jekyll_compat.rb`; build direto em `_site` pode falhar com `Errno::EINVAL`, usar destino `tmp/`; suíte visual integral pode exceder timeout sem erro, então executar validação focada. Não encerrar servidor/processo existente sem confirmação.
+- Ambiente: Ruby 4 requer `scripts/jekyll_local.rb` e `jekyll_compat.rb`; build direto em `_site` pode falhar com `Errno::EINVAL`, usar destino `tmp/`; suíte visual aceita filtros `VISUAL_PAGES`, `VISUAL_THEMES` e `VISUAL_VIEWPORTS`, mas a matriz integral permanece o gate final. Não encerrar servidor/processo existente sem confirmação.
 - Auditoria herdada: `scripts/.agents/` e `scripts/lib/` vieram de outro contexto e referenciam arquitetura `src/dist/release`; execução básica resolve, mas a adequação ao blog é pendência da FT especializada. Não repetir `agent:verify`, `agent:dist`, `agent:release` ou comandos mutáveis antes dessa análise.
-proximo=FT-011 concluída; acompanhar somente a publicação remota quando houver autorização explícita.
+proximo=FT-021–026 concluídas e validadas; publicar o commit final autorizado, acompanhar GitHub Pages e aferir PageSpeed no artefato implantado.
 
 FT-011|nome=Especializacao de scripts de agentes|objetivo=Adaptar a infraestrutura herdada de scripts ao blog, sem duplicação nem regressão|escopo=Técnico|prioridade=alta|status=concluído|inicio=20260713.2320.19|atualizacao=20260714.0300.00|conclusao=20260714.0300.00
 dependencias=FT-010 concluída; AGENTS/microconceitos/cenários vigentes; RCF, manifests, `.agents/meta/index.json` e scripts atuais.
@@ -229,18 +229,26 @@ criterios=Profundidade arbitraria de subnamespace; URL logica literal; path fisi
 resultado=Plugin aceita content_subnamespaces ordenados com profundidade arbitraria, slug latino deterministico, rejeicao de path inseguro/duplicado e metadados logicos/fisicos separados. Destino Windows usa diretorios portaveis; Linux conserva dois-pontos literal. Segunda classe configurada comprovou ausencia de acoplamento a bate-papo.
 verificacoes=test_content_namespaces cobre topo, dois subnamespaces, classe adicional, entrada insegura, Windows e Linux; ruby -c concluido.
 
-FT-023|nome=Desempenho web permanente|objetivo=Instituir alvo PageSpeed 90+ por tipo de pagina e eliminar reflow e carga inicial indevida sem remover comportamento|escopo=Tecnico|prioridade=alta|status=em_andamento|inicio=20260811
+FT-023|nome=Desempenho web permanente|objetivo=Instituir alvo PageSpeed 90+ por tipo de pagina e eliminar reflow e carga inicial indevida sem remover comportamento|escopo=Tecnico|prioridade=alta|status=concluido|inicio=20260811|conclusao=20260811
 dependencias=FT-021 concluida; carregamento progressivo; biblioteca de impressao; masthead responsiva.
 criterios=Gate representativo e cacheado; resize/orientation em leitura e escrita separadas; impressao carregada tardiamente e imediatamente sob sinal de impressao; sem regressao funcional.
+resultado=PageSpeed recebeu matriz mobile/desktop por layout, limiar 90 em todas as categorias e cache condensado de 24h. Masthead usa ResizeObserver e requestAnimationFrame sem leitura/escrita intercalada; runtime IEEE e carregado apos 5s/idle ou imediatamente em beforeprint/matchMedia. CSS de impressao usa media=print.
+verificacoes=check:performance, check:ts, build isolado e validacao visual estrita em seis viewports, dois temas, print e sem JavaScript concluidos.
 
-FT-024|nome=Controles e blockquotes tipados|objetivo=Corrigir interacao do switch e icone do menu e adicionar notice, info, alerta1 e alerta2 com icone opcional e temas responsivos|escopo=Tecnico|prioridade=alta|status=pendente|inicio=20260811
+FT-024|nome=Controles e blockquotes tipados|objetivo=Corrigir interacao do switch e icone do menu e adicionar notice, info, alerta1 e alerta2 com icone opcional e temas responsivos|escopo=Tecnico|prioridade=alta|status=concluido|inicio=20260811|conclusao=20260811
 dependencias=FT-021 concluida; RCF de citacoes; registro editorial-quotes; isolamento de impressao.
 criterios=Area integral do switch alterna tema; menu usa Font Awesome bars f0c9; modelos tipados preservam semantica, fallback, claro/escuro, mobile e IEEE impresso.
+resultado=Switch e um button role=switch integral com aria-checked sincronizado; menu usa bars f0c9. Registro, validador e runtime suportam notice, info, alerta1 e alerta2, emoji ou imagem segura com alt; apresentacao tipada fica em screen e o icone auxiliar e neutralizado no adaptador IEEE.
+verificacoes=check:quotes, check:ts, check:print e fixture renderizada em 1920, 390 e 320 px nos dois temas; print confirmou fundo IEEE transparente e icone web oculto.
 
-FT-025|nome=Variantes responsivas de imagens|objetivo=Selecionar para cards, thumbnails e destaques a menor variante suficiente por viewport, DPR e proporcao|escopo=Tecnico|prioridade=alta|status=pendente|inicio=20260811
+FT-025|nome=Variantes responsivas de imagens|objetivo=Selecionar para cards, thumbnails e destaques a menor variante suficiente por viewport, DPR e proporcao|escopo=Tecnico|prioridade=alta|status=concluido|inicio=20260811|conclusao=20260811
 dependencias=FT-021 concluida; jcem_asset_metadata; skeleton e reserva de geometria vigentes.
 criterios=Indice versionado de variantes e bytes; srcset/sizes deterministas; card dinamico equivalente; fallback preservado; testes comprovam que a maior imagem nao e default.
+resultado=Oito fontes publicadas receberam familias WebP entre 320 e 1920 px sem upscale, catalogo versionado com dimensoes/bytes e integracao ao indice de assets. Destaques, cards Liquid, recentes dinamicos e 404 usam menor src, srcset e sizes com fallback canonico.
+verificacoes=Gerador Pillow reproduzivel; check:assets mede cada arquivo e dimensao; build isolado emitiu srcset/sizes e validacao visual exigiu selecao responsiva em todos os consumidores publicados.
 
-FT-026|nome=Sub-RCF e aplicacao bate-papo|objetivo=Especializar sinteses bate-papo em sub-RCF propria, aplicar namespace/subnamespace, disclaimer alerta1 e validar todo conteudo legitimo|escopo=Negocio editorial e Tecnico|prioridade=alta|status=pendente|inicio=20260811
+FT-026|nome=Sub-RCF e aplicacao bate-papo|objetivo=Especializar sinteses bate-papo em sub-RCF propria, aplicar namespace/subnamespace, disclaimer alerta1 e validar todo conteudo legitimo|escopo=Negocio editorial e Tecnico|prioridade=alta|status=concluido|inicio=20260811|conclusao=20260811
 dependencias=FT-021, FT-022 e FT-024 concluidas; conteudo existente preservado; RCF de footnotes/citacoes.
 criterios=Norma geral sem regra de artigo particular; disclaimer semanticamente completo alerta1; obra-base unica quando inequivoca; citacoes/referencias intactas; build, rota e publicacao validados.
+resultado=Sub-RCF bate-papo geral e roteada preserva sintese, fidelidade, autoria intelectual, referencias e disclaimer cumulativo. O unico conteudo existente recebeu alerta1 sem alteracao textual; nenhuma obra-base unica e inequivoca foi identificada, portanto nenhum subnamespace artificial foi criado.
+verificacoes=check:namespaces valida disclaimer, alerta1 e ausencia motivada de subnamespace; check:quotes, agent:rcf, build isolado e gate completo concluidos.

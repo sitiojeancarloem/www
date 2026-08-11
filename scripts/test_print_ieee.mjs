@@ -43,12 +43,11 @@ assert.match(css, /:where\(code, pre, kbd, samp, code \*, pre \*\)/);
 assert.doesNotMatch(css.split('@media print')[0], /\[data-print-article\]\s*\{[^}]*font-/s);
 assert.match(
 	headInclude,
-	/<link rel="stylesheet" href="\{\{ '\/assets\/jcem\/print-ieee\/ieee\.css' \| relative_url \}\}">/,
+	/<link rel="stylesheet" href="\{\{ '\/assets\/jcem\/print-ieee\/ieee\.css' \| relative_url \}\}" media="print">/,
 );
-assert.doesNotMatch(
+assert.match(
 	headInclude,
-	/print-ieee\/ieee\.css[^>]*media="print"/,
-	'o ocultador de auxiliares impressos precisa participar somente do contexto screen interno',
+	/<link rel="stylesheet" href="\{\{ '\/assets\/jcem\/print-ieee\/jekyll-blog\.css' \| relative_url \}\}" media="print">/,
 );
 
 const dom = new JSDOM(
@@ -93,6 +92,7 @@ const adapterCss = await readFile(
 	path.join(packageRoot, 'adapters', 'jekyll-blog.css'),
 	'utf8',
 );
+assert.match(adapterCss, /\.jcem-quote__icon\s*\{[^}]*display:\s*none\s*!important/s);
 for (const webOnlySelector of [
 	'.toc',
 	'.header-link',
@@ -109,13 +109,18 @@ for (const webOnlySelector of [
 
 const jekyllConfig = await readFile(path.join(repositoryRoot, '_config.yml'), 'utf8');
 const rcf = await readFile(path.join(repositoryRoot, 'RCF.md'), 'utf8');
-assert.match(rcf, /Registro único de exceções de isolamento e do perfil impresso/);
-assert.match(rcf, /Exceções vigentes ao isolamento ou ao estilo IEEE: nenhuma/);
+const printRcf = await readFile(
+	path.join(repositoryRoot, 'RCFs', 'impressao-ieee.md'),
+	'utf8',
+);
+assert.match(rcf, /\[Impressão IEEE\]\(\.\/RCFs\/impressao-ieee\.md\)/);
+assert.match(printRcf, /Registro único de exceções de isolamento e do perfil impresso/);
+assert.match(printRcf, /Exceções vigentes ao isolamento ou ao estilo IEEE: nenhuma/);
 assert.match(
-	rcf,
+	printRcf,
 	/`blockquote` e estrutura semanticamente equivalente DEVEM usar na impressão, por padrão, exclusivamente o estilo definido pelo perfil IEEE/,
 );
-assert.match(rcf, /Componente de terceiro NÃO está dispensado/);
+assert.match(printRcf, /Componente de terceiro NÃO está dispensado/);
 for (const excludedPath of [
 	'/src',
 	'/scripts',

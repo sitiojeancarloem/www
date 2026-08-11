@@ -78,6 +78,7 @@ const bindJcemTheme = (): void => {
 		.forEach((radio) => {
 			radio.addEventListener('change', () => {
 				if (radio.checked && isJcemTheme(radio.value)) {
+					applyJcemTheme(radio.value);
 					saveJcemTheme(radio.value);
 				}
 			});

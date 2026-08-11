@@ -27,7 +27,7 @@
   - Toda alteração que implique em alteração no modo de codificar markdown, deve ser devidamente documentada em modo de uso.
   - Esta TO-DO é perene: NÃO PODE ser marcada como concluída nem removida e nem editada. Sua existência é perene; sua contabilização somente é necessária quando houver ao menos uma TO-DO por ela regida.
 
-* [ ] RCF — Biblioteca agnóstica para impressão Web em formato IEEE
+* [x] RCF — Biblioteca agnóstica para impressão Web em formato IEEE
 
 ## 1. Objetivo
 
@@ -517,7 +517,7 @@ A implementação somente será considerada conforme quando:
 
 Similaridade visual em tela, dependência exclusiva de um motor, funcionamento apenas por fluxo controlado, correções específicas do primeiro site, recusa injustificada ao uso de tecnologias nativas da plataforma ou mera separação física de arquivos NÃO constituem conformidade.
 
-- [ ] Issue 1 — RCF/FT: Normatizar e implementar citações inline em artigos/postagens
+- [x] Issue 1 — RCF/FT: Normatizar e implementar citações inline em artigos/postagens
 
   ### Contexto
 
@@ -558,7 +558,7 @@ Similaridade visual em tela, dependência exclusiva de um motor, funcionamento a
 
   ***
 
-- [ ] Issue 2 — RCF/FT: Normatizar subcitações e sua diferenciação visual dinâmica
+- [x] Issue 2 — RCF/FT: Normatizar subcitações e sua diferenciação visual dinâmica
 
   ### Contexto
 
@@ -682,7 +682,7 @@ Similaridade visual em tela, dependência exclusiva de um motor, funcionamento a
 
   Nenhuma FT DEVE assumir estrutura, arquivo, pipeline, biblioteca, hook ou mecanismo que não seja comprovado pela inspeção do estado real do projeto.
 
-- [ ] Consolidar namespaces editoriais, roteamento em sub-RCFs e publicação determinística
+- [x] Consolidar namespaces editoriais, roteamento em sub-RCFs e publicação determinística
   - INSPECIONE integralmente o estado real do repositório, RCF principal, `AGENTS.md`, `agents.local.md` equivalente, configuração Jekyll/GitHub Pages, plugins, layouts, conteúdos e normas existentes antes de alterar qualquer artefato.
   - Toda edição normativa DEVE preservar integralmente regras, recursos, contratos, especializações e melhorias já existentes, inclusive não relacionadas diretamente a esta tarefa. É PROIBIDO enfraquecer, degradar ou remover gradualmente comportamento normatizado sob pretexto de reorganização.
   - Preserve e consolide a semântica já estabelecida de namespace: identificador de classe editorial anteposto ao título lógico, análogo aos namespaces da Wikipédia, sem equivalê-lo a diretório-fonte ou taxonomia ordinária. :contentReference[oaicite:0]{index=0}
@@ -736,7 +736,7 @@ Similaridade visual em tela, dependência exclusiva de um motor, funcionamento a
     - Sub-RCF NÃO PODE redefinir normas gerais sem delegação explícita da RCF principal.
     - Antes de criar nova norma, procure regra equivalente e consolide-a; NÃO duplique contratos.
 
-- [ ] Instituir desempenho web ≥90 como requisito permanente e corrigir gargalos reais
+- [x] Instituir desempenho web ≥90 como requisito permanente e corrigir gargalos reais
   - Normatize explicitamente, de forma permanente, que implementação, manutenção, refatoração e evolução do site DEVEM buscar e manter **90%+ em todas as métricas/categorias aplicáveis do PageSpeed Insights**, tanto em mobile quanto desktop, para cada modalidade real de página publicada.
   - Abranja, no mínimo, layouts reais existentes como:
     - home;
@@ -793,7 +793,7 @@ Similaridade visual em tela, dependência exclusiva de um motor, funcionamento a
       - alternativas menores igualmente compatíveis.
     - Substituição de dependência somente DEVE ocorrer se houver ganho comprovado sem regressão funcional ou normativa.
 
-- [ ] Corrigir controles visuais e implementar sistema responsivo de blockquotes tipados
+- [x] Corrigir controles visuais e implementar sistema responsivo de blockquotes tipados
   - **Switch claro/escuro**
     - Preserve integralmente aparência e aderência visual atuais.
     - Corrija exclusivamente a área interativa: clique/tap em qualquer ponto do switch inteiro DEVE alternar o estado/tema.
@@ -827,7 +827,7 @@ Similaridade visual em tela, dependência exclusiva de um motor, funcionamento a
       ```
     - Normatize essa associação na sub-RCF de bate-papo.
 
-- [ ] Preservar otimização responsiva das imagens de cards e thumbnails
+- [x] Preservar otimização responsiva das imagens de cards e thumbnails
   - Localize a TO-DO/regra já existente sobre variantes responsivas de imagem.
   - Se realmente existir, **some este requisito à norma existente**, NÃO crie contrato paralelo.
   - Cards, thumbnails e demais consumidores DEVEM carregar somente a menor imagem que satisfaça a resolução real necessária no contexto corrente.
@@ -841,7 +841,7 @@ Similaridade visual em tela, dependência exclusiva de um motor, funcionamento a
     - índice de medidas/proporções.
   - NÃO regredir para download da maior imagem por conveniência.
 
-- [ ] Criar e aplicar sub-RCF especializada para sínteses `bate-papo`
+- [x] Criar e aplicar sub-RCF especializada para sínteses `bate-papo`
   - Criar sub-RCF compacta, autossuficiente em seu domínio e subordinada à RCF principal.
   - A RCF principal DEVE obrigatoriamente roteá-la e referenciá-la por link relativo real sob `./RCFs/`.
   - A norma especializada DEVE generalizar a classe editorial, NÃO um artigo particular.
