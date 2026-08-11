@@ -50,10 +50,11 @@ Escopo: citação inline, subcitação e bloco semântico de citação em artigo
 
 ## Apresentação de citações inline e subcitações
 
-- Toda citação inline elegível DEVE ser renderizada em itálico por elemento ou classe semântica, preservando ênfase interna preexistente e demais estilos legítimos. Corpo de bloco de citação NÃO DEVE receber itálico automático.
-- Subcitação DEVE receber marcador semântico próprio e fundo por token `rgba`, derivado do tema e do contexto do modelo externo; cor fixa independente do tema NÃO DEVE ser usada.
-- O fundo DEVE adaptar contraste e composição em tema claro, escuro, `standard`, `futuristic` e demais modelos registrados sem sobrescrever arbitrariamente borda, tipografia, estrutura ou estilo legítimo do contexto.
-- A diferenciação de subcitação DEVE permanecer na impressão. Como impressão de fundo PODE ser desativada pelo usuário ou engine, um segundo indício não dependente somente de cor DEVE preservar distinção e legibilidade.
+- Toda citação inline elegível em texto comum DEVE ser renderizada em itálico por elemento ou classe semântica, preservando ênfase interna preexistente e demais estilos legítimos. O contêiner semântico já distingue um bloco de citação; por isso, seu corpo e seus parágrafos NÃO DEVEM receber itálico automático.
+- A profundidade citacional DEVE ser calculada pela cadeia de ancestrais semânticos, não pela tag isolada. Subcitação imediata, com profundidade um, DEVE receber somente itálico, sem fundo, borda, sombra ou ornamento próprio. Somente profundidade dois ou superior PODE receber fundo discreto por token `rgba`, quando necessário para distinguir inequivocamente os níveis.
+- Fundo de subcitação possui finalidade única de diferenciação sutil de hierarquia; NÃO PODE funcionar como alerta, destaque, ênfase editorial ou ornamento. Deve adaptar contraste e composição em tema claro, escuro, `standard`, `futuristic` e demais modelos registrados, com intensidade proporcional, sem sobrescrever tipografia, estrutura ou estilo legítimo do contexto.
+- Borda de bloco DEVE pertencer somente ao contêiner semântico previsto. Parágrafo, `span`, citação inline ou subcitação interna NÃO DEVE herdar, repetir ou receber `border-left`/`border-inline-start` do bloco ou painel; bloco semanticamente aninhado continua sendo contêiner próprio e PODE receber a borda de seu modelo.
+- A diferenciação hierárquica DEVE permanecer na impressão sem importar a aparência web. Subcitação imediata conserva apenas itálico; profundidade adicional PODE usar fundo discreto e DEVE possuir segundo indício não dependente somente de cor para o caso de fundos desativados pelo usuário ou engine.
 - Subcitação em parágrafo, `<blockquote>`, painel construído por `div` ou `table` e estrutura customizada registrada DEVE usar o mesmo contrato semântico. Se a relação de aninhamento não puder ser determinada de modo inequívoco, o conteúdo DEVE ser preservado sem classificação automática e a fonte DEVE exigir marcador explícito.
 
 ## Integração com impressão e progressividade
@@ -68,5 +69,5 @@ Escopo: citação inline, subcitação e bloco semântico de citação em artigo
 - Testes DEVEM cobrir aspas retas e tipográficas, backtick explicitamente classificado, código preservado, delimitadores sem par, apóstrofos, ênfase preexistente, nós divididos, links, notas, referências, conteúdo positivo, negativo, aninhado e ambíguo.
 - Matriz de bloco DEVE cobrir `<blockquote>`, `div`, `table`, elemento customizado efetivamente suportado, `standard`, `futuristic`, default global, default de artigo, contexto, override por ocorrência, identificador inválido e fallback sem JavaScript.
 - A matriz DEVE cobrir também os quatro modelos tipados, ícone padrão, emoji, imagem válida/inválida, temas, 320 px e isolamento impresso.
-- Matriz de subcitação DEVE cobrir parágrafo, cada modelo estrutural registrado, temas claro e escuro, impressão com e sem fundos e ausência de marcador confiável.
+- Matriz de subcitação DEVE cobrir texto comum, profundidade um, duas ou mais profundidades, cada modelo estrutural registrado, ausência de bordas internas, temas claro e escuro, impressão com e sem fundos e ausência de marcador confiável.
 - Validação DEVE comparar Markdown fonte, HTML estático, DOM preparado e saída impressa, comprovando preservação textual e semântica, precedência determinística, acessibilidade, ausência de regressão visual e compatibilidade com `RCF-JCEM-IMPRESSAO-IEEE-001`.

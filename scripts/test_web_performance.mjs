@@ -47,6 +47,7 @@ assert.match(themeInputs, /aria-label="Tema claro"/);
 assert.match(themeInputs, /aria-label="Tema escuro"/);
 assert.match(visualValidation, /const isVector = .*\.endsWith\('\.svg'\)/);
 assert.match(visualValidation, /hasResponsiveSelection: isVector \|\| Boolean/);
+assert.match(visualValidation, /const visit = async \(directory\)/);
 
 const summary = summarize(
 	{

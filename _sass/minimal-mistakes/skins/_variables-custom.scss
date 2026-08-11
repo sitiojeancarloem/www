@@ -1029,8 +1029,19 @@ body > input.radio#jcem-theme-dark:checked ~ .main_jcem_wrapper {
 	article.jcem-post
 	.page__content
 	.jcem-inline-quote.jcem-subquote {
+	padding: 0;
+	border: 0;
+	border-radius: 0;
+	background: transparent;
+	box-shadow: none;
+}
+
+.main_jcem_wrapper
+	article.jcem-post
+	.page__content
+	.jcem-inline-quote.jcem-subquote--nested {
 	padding: 0.04em 0.24em 0.06em 0.32em;
-	border-inline-start: 0.16em double var(--jcem-subquote-border);
+	border: 0;
 	border-radius: 0.16em;
 	background: var(--jcem-subquote-bg);
 	box-decoration-break: clone;
@@ -1041,8 +1052,17 @@ body > input.radio#jcem-theme-dark:checked ~ .main_jcem_wrapper {
 	article.jcem-post
 	.page__content
 	.jcem-panel--futuristic
-	.jcem-inline-quote.jcem-subquote {
+	.jcem-inline-quote.jcem-subquote--nested {
 	background: var(--jcem-subquote-panel-bg);
+}
+
+.main_jcem_wrapper
+	article.jcem-post
+	.page__content
+	:is(blockquote, [data-jcem-blockquote], [role='blockquote'], .jcem-panel__body)
+	:is(p, span, em) {
+	border-left: 0;
+	border-inline-start: 0;
 }
 
 .main_jcem_wrapper .page__content .jcem-quote-reference {

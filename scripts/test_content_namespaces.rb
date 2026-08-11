@@ -58,7 +58,7 @@ eventos_finais_posts.each do |relative_path|
   post = File.binread(File.expand_path(relative_path, __dir__)).force_encoding(Encoding::UTF_8)
   assert(post.include?('data-jcem-quote-model="alerta1"'), "disclaimer bate-papo não usa alerta1")
   assert(
-    post.match?(/^content_subnamespaces:\R  - eventos-finais$/),
+    post.match?(/^content_subnamespaces:\R  - eventos-finais\R/),
     "obra-base Eventos Finais perdeu o subnamespace"
   )
   assert(
@@ -133,6 +133,19 @@ assert(
     namespace_data: subdocument.data
   ).include?("bate-papo:o-grande-conflito"),
   "destino compatível perdeu namespace literal com subnamespace"
+)
+
+site_collection = Struct.new(:docs).new([subdocument])
+site_with_collections = Struct.new(:config, :collections).new(
+  config,
+  { "posts" => site_collection }
+)
+subdocument.data.delete("jcem_namespace_url")
+Jcem::ContentNamespaces.apply_site!(site_with_collections)
+assert(
+  subdocument.data["jcem_namespace_url"] ==
+    "/p/bate-papo:o-grande-conflito/capitulo-42/tema/",
+  "post_read não aplicou subnamespaces após o front matter"
 )
 
 explicit = Struct.new(:relative_path, :data, :site, :content) do

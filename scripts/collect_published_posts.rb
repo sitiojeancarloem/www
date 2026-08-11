@@ -9,6 +9,9 @@ require "pathname"
 require "time"
 require "uri"
 require "yaml"
+require_relative "jekyll_compat"
+require "jekyll"
+require_relative "../_plugins/jcem_content_namespaces"
 
 options = {
   out: "published-posts.json",
@@ -27,6 +30,7 @@ end.parse!
 
 root = Pathname.new(Dir.pwd).realpath
 site_url = options[:site_url].sub(%r{/+\z}, "")
+site_config = YAML.safe_load(root.join("_config.yml").read, aliases: true) || {}
 
 def front_matter_for(path)
   content = File.read(path)
@@ -72,9 +76,15 @@ def absolute_url(site_url, path)
   site_url.empty? ? normalized : "#{site_url}#{normalized}"
 end
 
-def post_url(site_url, path, data)
+def post_url(site_url, path, data, site_config)
   permalink = data["permalink"].to_s
   return absolute_url(site_url, permalink) unless permalink.empty?
+
+  site = Struct.new(:config).new(site_config)
+  document = Struct.new(:relative_path, :data, :site).new(path, data.dup, site)
+  Jcem::ContentNamespaces.apply!(document)
+  namespace_url = document.data["jcem_namespace_url"].to_s
+  return absolute_url(site_url, namespace_url) unless namespace_url.empty?
 
   category_path = relative_post_categories(path).join("/")
   title_path = slug_for(path)
@@ -136,7 +146,7 @@ posts = files.uniq.filter_map do |relative|
   {
     "title" => title,
     "summary" => data["excerpt"].to_s.strip.empty? ? text_excerpt(body) : data["excerpt"].to_s.strip,
-    "url" => post_url(site_url, relative, data),
+    "url" => post_url(site_url, relative, data, site_config),
     "image" => image_url(site_url, data),
     "hashtags" => tags_for(data),
     "source_path" => relative

@@ -12,7 +12,7 @@
     "check:math": "bundle exec ruby scripts/test_math.rb",
     "check:assets": "bundle exec ruby scripts/test_asset_metadata.rb",
     "check:authors": "bundle exec ruby scripts/test_article_authors.rb",
-    "check:namespaces": "bundle exec ruby scripts/test_content_namespaces.rb",
+    "check:namespaces": "bundle exec ruby scripts/test_content_namespaces.rb && bundle exec ruby scripts/test_published_posts.rb",
     "check:quotes": "bundle exec ruby scripts/test_quote_semantics.rb",
     "check:inline-quotes": "npm run build:ts && node scripts/test_inline_quotes.mjs",
     "check:print": "npm run build:print && node scripts/test_print_ieee.mjs",

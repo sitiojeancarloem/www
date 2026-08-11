@@ -14,7 +14,10 @@ const dom = new JSDOM(`
     <p id="explicit"><em class="jcem-inline-quote" data-jcem-inline-quote="explicit">fala explícita</em></p>
     <p id="emphasis"><em>"ênfase autoral"</em></p>
     <p id="code"><code>"codigo"</code></p>
-    <blockquote id="native"><p>Segundo a fonte, "subcitação".</p></blockquote>
+    <blockquote id="native">
+      <p>Segundo a fonte, "subcitação".</p>
+      <blockquote id="nested"><p>Outro nível contém "subcitação profunda".</p></blockquote>
+    </blockquote>
     <div id="custom" role="blockquote"><p>Estrutura com “subcitação customizada”.</p></div>
     <section class="footnotes"><p>"referência excluída"</p></section>
   </main>
@@ -32,7 +35,7 @@ const content = document.querySelector('main');
 const before = content.textContent;
 const result = formatJcemInlineQuotes(content);
 
-assert.deepEqual(result, { inline: 4, subquotes: 2 });
+assert.deepEqual(result, { inline: 4, subquotes: 3 });
 assert.equal(content.textContent, before, 'texto e delimitadores devem ser preservados');
 assert.equal(document.querySelectorAll('#plain .jcem-inline-quote').length, 2);
 assert.equal(document.querySelectorAll('#apostrophe .jcem-inline-quote').length, 1);
@@ -40,7 +43,11 @@ assert.equal(document.querySelectorAll('#unpaired .jcem-inline-quote').length, 0
 assert.equal(document.querySelectorAll('#emphasis .jcem-inline-quote').length, 0);
 assert.equal(document.querySelectorAll('#code .jcem-inline-quote').length, 0);
 assert.equal(document.querySelectorAll('.footnotes .jcem-inline-quote').length, 0);
-assert.equal(document.querySelectorAll('[data-jcem-subquote="contextual"]').length, 2);
+assert.equal(document.querySelectorAll('[data-jcem-subquote="contextual"]').length, 3);
+assert.equal(document.querySelector('#native .jcem-inline-quote')?.dataset.jcemQuoteDepth, '1');
+assert.equal(document.querySelector('#custom .jcem-inline-quote')?.dataset.jcemQuoteDepth, '1');
+assert.equal(document.querySelector('#nested .jcem-inline-quote')?.dataset.jcemQuoteDepth, '2');
+assert.equal(document.querySelectorAll('.jcem-subquote--nested').length, 1);
 assert.equal(document.querySelector('#explicit').textContent, 'fala explícita');
 
 process.stdout.write(`inline_quotes=ok inline=${result.inline} subquotes=${result.subquotes}\n`);

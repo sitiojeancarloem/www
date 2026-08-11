@@ -104,13 +104,30 @@ const wrapInlineQuotesInText = (textNode: Text): boolean => {
 	return true;
 };
 
+const quoteDepth = (quote: HTMLElement): number => {
+	let depth = 0;
+	let ancestor = quote.parentElement;
+
+	while (ancestor) {
+		if (
+			ancestor.matches(semanticBlockSelector) ||
+			ancestor.classList.contains('jcem-inline-quote')
+		) {
+			depth += 1;
+		}
+		ancestor = ancestor.parentElement;
+	}
+
+	return depth;
+};
+
 const classifyInlineQuote = (quote: HTMLElement): 'inline' | 'subquote' => {
-	const ancestor = quote.parentElement?.closest(
-		`${semanticBlockSelector}, .jcem-inline-quote`,
-	);
-	const kind = ancestor ? 'subquote' : 'inline';
+	const depth = quoteDepth(quote);
+	const kind = depth > 0 ? 'subquote' : 'inline';
+	quote.dataset.jcemQuoteDepth = String(depth);
 	quote.dataset.jcemQuoteKind = kind;
 	quote.classList.toggle('jcem-subquote', kind === 'subquote');
+	quote.classList.toggle('jcem-subquote--nested', depth > 1);
 	if (kind === 'subquote') quote.dataset.jcemSubquote = 'contextual';
 	else delete quote.dataset.jcemSubquote;
 	return kind;

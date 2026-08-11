@@ -2,7 +2,7 @@ schema: jcem-continue/v1
 machine_id: JEAN-DESKTOP
 data_ref: 2026-08-11T13:55:44.4157934-03:00
 fonte: TODO.ia.md
-objetivo: Concluir o equalizer vigente, publicar os dois bate-papos e fechar a afericao PageSpeed autenticada sem regressao.
+objetivo: Concluir o equalizer vigente, publicar os dois bate-papos, corrigir a hierarquia visual de citacoes e fechar a afericao PageSpeed autenticada sem regressao.
 autorizacao:
   origem: prompt humano
   data: 2026-08-11T13:55:44.4157934-03:00
@@ -41,6 +41,19 @@ plano:
       - chave nunca aparece em log, cache ou artefato
       - API autenticada mede a amostra representativa em mobile e desktop
       - CI e gates locais permanecem sem regressao
+  - id: FT-023
+    classe: implementacao_normativa_codigo
+    criado_em: 2026-08-11T15:04:00-03:00
+    estado: em_andamento
+    depende_de: FT-020
+    objetivo: Corrigir a semantica visual hierarquica de citacoes e subcitacoes sem vazamento de bordas.
+    escopo: RCF-JCEM-CITACOES-001 e isolamento de RCF-JCEM-IMPRESSAO-IEEE-001.
+    aceite:
+      - corpo do bloco permanece sem italico automatico
+      - subcitacao imediata usa apenas italico e nenhum fundo proprio
+      - fundo discreto aparece somente em profundidades citacionais adicionais
+      - borda pertence somente ao conteiner semanticamente previsto
+      - claro, escuro, nesting, painel e impressao validados sem regressao
 lacunas:
   - id: GAP-AGENTS-CJS-ESM-001
     estado: isolada

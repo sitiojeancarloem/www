@@ -99,12 +99,21 @@ const readPublishedPostPaths = async () => {
 		return [];
 	}
 
-	const entries = await readdir(postRoot, { withFileTypes: true });
+	const visit = async (directory) => {
+		const entries = await readdir(directory, { withFileTypes: true });
+		const nested = await Promise.all(
+			entries
+				.filter((entry) => entry.isDirectory())
+				.map((entry) => visit(path.join(directory, entry.name))),
+		);
+		const current = entries.some((entry) => entry.isFile() && entry.name === 'index.html')
+			? [`/${path.relative(root, directory).split(path.sep).join('/')}/`]
+			: [];
 
-	return entries
-		.filter((entry) => entry.isDirectory())
-		.map((entry) => `/p/${entry.name}/`)
-		.sort();
+		return current.concat(...nested);
+	};
+
+	return (await visit(postRoot)).sort();
 };
 
 const validateRecentPostPlaceholders = async (postPaths) => {
@@ -2333,6 +2342,23 @@ const validateTypedQuoteModels = async (browser, baseUrl, viewport) => {
 				quote.append(paragraph);
 				content.prepend(quote);
 			}
+			for (const model of ['standard', 'futuristic']) {
+				const outer = document.createElement('blockquote');
+				outer.id = `quote-hierarchy-${model}`;
+				outer.dataset.jcemQuoteModel = model;
+				const main = document.createElement('p');
+				main.id = `quote-hierarchy-main-${model}`;
+				main.textContent = 'Corpo principal sem itálico e "subcitação imediata".';
+				const nested = document.createElement('blockquote');
+				nested.id = `quote-hierarchy-nested-${model}`;
+				nested.dataset.jcemQuoteModel = model;
+				const nestedText = document.createElement('p');
+				nestedText.id = `quote-hierarchy-nested-text-${model}`;
+				nestedText.textContent = 'Nível adicional com "subcitação profunda".';
+				nested.append(nestedText);
+				outer.append(main, nested);
+				content.prepend(outer);
+			}
 		}, { once: true });
 	});
 	const page = await context.newPage();
@@ -2389,6 +2415,52 @@ const validateTypedQuoteModels = async (browser, baseUrl, viewport) => {
 			if (!screen.some((metric) => metric.imageAlt === 'Informação')) {
 				fail(`Icone de imagem tipado perdeu alt em ${theme} ${viewport.name}`);
 			}
+			const hierarchy = await page.evaluate(() =>
+				['standard', 'futuristic'].map((model) => {
+					const outer = document.querySelector(`#quote-hierarchy-${model}`);
+					const main = document.querySelector(`#quote-hierarchy-main-${model}`);
+					const nestedText = document.querySelector(`#quote-hierarchy-nested-text-${model}`);
+					const immediate = main?.querySelector('.jcem-inline-quote');
+					const deep = nestedText?.querySelector('.jcem-inline-quote');
+					const metric = (element) => {
+						const style = element ? window.getComputedStyle(element) : null;
+						return {
+							fontStyle: style?.fontStyle || '',
+							background: style?.backgroundColor || '',
+							borderWidth: Number.parseFloat(style?.borderInlineStartWidth || '0'),
+						};
+					};
+					return {
+						model,
+						outer: metric(outer),
+						main: metric(main),
+						immediate: metric(immediate),
+						immediateDepth: immediate?.getAttribute('data-jcem-quote-depth'),
+						deep: metric(deep),
+						deepDepth: deep?.getAttribute('data-jcem-quote-depth'),
+						nestedText: metric(nestedText),
+					};
+				}),
+			);
+			if (
+				hierarchy.some(
+					(metric) =>
+						metric.outer.fontStyle !== 'normal' ||
+						metric.main.fontStyle !== 'normal' ||
+						metric.main.borderWidth !== 0 ||
+						metric.immediate.fontStyle !== 'italic' ||
+						metric.immediate.background !== 'rgba(0, 0, 0, 0)' ||
+						metric.immediate.borderWidth !== 0 ||
+						metric.immediateDepth !== '1' ||
+						metric.deep.fontStyle !== 'italic' ||
+						metric.deep.background === 'rgba(0, 0, 0, 0)' ||
+						metric.deep.borderWidth !== 0 ||
+						metric.deepDepth !== '2' ||
+						metric.nestedText.borderWidth !== 0,
+				)
+			) {
+				fail(`Hierarquia de citacao invalida em ${theme} ${viewport.name}: ${JSON.stringify(hierarchy)}`);
+			}
 			await page.screenshot({
 				path: path.join(artifactDir, `typed-quotes-${theme}-${viewport.name}.png`),
 				fullPage: false,
@@ -2415,6 +2487,31 @@ const validateTypedQuoteModels = async (browser, baseUrl, viewport) => {
 			)
 		) {
 			fail(`Blockquote tipado vazou para impressao ${viewport.name}: ${JSON.stringify(print)}`);
+		}
+		const printHierarchy = await page.evaluate(() => {
+			const immediate = document.querySelector('#quote-hierarchy-main-standard .jcem-inline-quote');
+			const deep = document.querySelector('#quote-hierarchy-nested-text-standard .jcem-inline-quote');
+			const metric = (element) => {
+				const style = window.getComputedStyle(element);
+				return {
+					fontStyle: style.fontStyle,
+					background: style.backgroundColor,
+					borderWidth: Number.parseFloat(style.borderInlineStartWidth || '0'),
+					decoration: style.textDecorationLine,
+				};
+			};
+			return { immediate: metric(immediate), deep: metric(deep) };
+		});
+		if (
+			printHierarchy.immediate.fontStyle !== 'italic' ||
+			printHierarchy.immediate.background !== 'rgba(0, 0, 0, 0)' ||
+			printHierarchy.immediate.borderWidth !== 0 ||
+			printHierarchy.deep.fontStyle !== 'italic' ||
+			printHierarchy.deep.background === 'rgba(0, 0, 0, 0)' ||
+			printHierarchy.deep.borderWidth !== 0 ||
+			!printHierarchy.deep.decoration.includes('underline')
+		) {
+			fail(`Hierarquia de citacao invalida na impressao ${viewport.name}: ${JSON.stringify(printHierarchy)}`);
 		}
 	} finally {
 		await context.close();

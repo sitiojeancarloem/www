@@ -15,6 +15,10 @@ end
 
 root = File.expand_path("..", __dir__)
 config = Jcem::QuoteSemantics.load_config(root)
+rcf = File.read(File.join(root, "RCFs", "citacoes.md"))
+assert(rcf.include?("profundidade um"), "RCF perdeu a subcitação imediata mínima")
+assert(rcf.include?("profundidade dois ou superior"), "RCF perdeu o fundo hierárquico")
+assert(rcf.include?("NÃO DEVE herdar, repetir ou receber `border-left`"), "RCF perdeu isolamento da borda")
 
 markdown = <<~MARKDOWN
   > Citação por ocorrência.

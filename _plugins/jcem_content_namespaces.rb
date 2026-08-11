@@ -72,6 +72,10 @@ module Jcem
 
       key, definition, slug = resolved
       subnamespaces = normalize_subnamespaces(document)
+      physical_subnamespace_prefix = "#{subnamespaces.join("-")}-"
+      if subnamespaces.any? && slug.start_with?(physical_subnamespace_prefix)
+        slug = slug.delete_prefix(physical_subnamespace_prefix)
+      end
       all_subnamespaces = subnamespaces.dup
       logical_segment =
         if subnamespaces.empty?
@@ -102,6 +106,12 @@ module Jcem
       document.data["jcem_namespace_physical_segment"] = physical_segment
       document.data["jcem_namespace_subnamespaces"] = all_subnamespaces
       document.instance_variable_set(:@url, nil)
+    end
+
+    def apply_site!(site)
+      site.collections.each_value do |collection|
+        collection.docs.each { |document| apply!(document) }
+      end
     end
 
     def validate!(document, *_payload)
@@ -162,5 +172,5 @@ end
 
 Jekyll::Document.prepend(Jcem::ContentNamespaces::DocumentUrl)
 Jekyll::Document.prepend(Jcem::ContentNamespaces::DocumentDestination)
-Jekyll::Hooks.register :documents, :post_init, &Jcem::ContentNamespaces.method(:apply!)
+Jekyll::Hooks.register :site, :post_read, &Jcem::ContentNamespaces.method(:apply_site!)
 Jekyll::Hooks.register :documents, :pre_render, &Jcem::ContentNamespaces.method(:validate!)

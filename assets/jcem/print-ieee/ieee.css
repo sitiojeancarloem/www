@@ -181,15 +181,33 @@
 
 	:is(#print-isolation-specificity-guard, [data-print-article])
 		[data-jcem-subquote] {
+		padding: 0 !important;
+		border: 0 !important;
+		border-radius: 0 !important;
+		background: transparent !important;
+		box-shadow: none !important;
+		font-style: italic !important;
+	}
+
+	:is(#print-isolation-specificity-guard, [data-print-article])
+		[data-jcem-subquote].jcem-subquote--nested {
 		padding: 0 1.5pt 0 2pt !important;
 		border: 0 !important;
-		border-inline-start: 1.2pt double currentColor !important;
 		border-radius: 0 !important;
 		background: rgba(0, 0, 0, 0.07) !important;
 		box-shadow: none !important;
 		font-style: italic !important;
+		text-decoration: underline dotted 0.4pt !important;
+		text-underline-offset: 1pt !important;
 		-webkit-print-color-adjust: exact;
 		print-color-adjust: exact;
+	}
+
+	:is(#print-isolation-specificity-guard, [data-print-article])
+		:is(blockquote, [role="blockquote"])
+		:is(p, span, em) {
+		border-left: 0 !important;
+		border-inline-start: 0 !important;
 	}
 
 	:is(#print-isolation-specificity-guard, [data-print-article])

@@ -74,12 +74,25 @@ const wrapInlineQuotesInText = (textNode) => {
     textNode.replaceWith(fragment);
     return true;
 };
+const quoteDepth = (quote) => {
+    let depth = 0;
+    let ancestor = quote.parentElement;
+    while (ancestor) {
+        if (ancestor.matches(semanticBlockSelector) ||
+            ancestor.classList.contains('jcem-inline-quote')) {
+            depth += 1;
+        }
+        ancestor = ancestor.parentElement;
+    }
+    return depth;
+};
 const classifyInlineQuote = (quote) => {
-    var _a;
-    const ancestor = (_a = quote.parentElement) === null || _a === void 0 ? void 0 : _a.closest(`${semanticBlockSelector}, .jcem-inline-quote`);
-    const kind = ancestor ? 'subquote' : 'inline';
+    const depth = quoteDepth(quote);
+    const kind = depth > 0 ? 'subquote' : 'inline';
+    quote.dataset.jcemQuoteDepth = String(depth);
     quote.dataset.jcemQuoteKind = kind;
     quote.classList.toggle('jcem-subquote', kind === 'subquote');
+    quote.classList.toggle('jcem-subquote--nested', depth > 1);
     if (kind === 'subquote')
         quote.dataset.jcemSubquote = 'contextual';
     else
