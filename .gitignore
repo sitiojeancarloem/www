@@ -1,5 +1,8 @@
 node_modules
 /.*/
+!/.ia.rules/
+/.ia.rules/*
+!/.ia.rules/continue.ia
 !.vscode
 src/__generated__
 *.psd

@@ -1,0 +1,49 @@
+schema: jcem-continue/v1
+machine_id: JEAN-DESKTOP
+data_ref: 2026-08-11T13:55:44.4157934-03:00
+fonte: TODO.ia.md
+objetivo: Concluir o equalizer vigente, publicar os dois bate-papos e fechar a afericao PageSpeed autenticada sem regressao.
+autorizacao:
+  origem: prompt humano
+  data: 2026-08-11T13:55:44.4157934-03:00
+  escopo: implementacao integral, commits, push e publicacao GitHub Pages
+plano:
+  - id: FT-020
+    classe: implementacao_normativa
+    criado_em: 2026-08-11T13:55:44.4157934-03:00
+    estado: concluido
+    objetivo: Equalizar os novos itens com os contratos vigentes.
+    escopo: RCF-JCEM-BATE-PAPOS-001, RCF-JCEM-NAMESPACES-EDITORIAIS-001, RCF-JCEM-PUBLICACAO-001 e RCF-JCEM-PERFORMANCE-DEPENDENCIAS-001.
+    resultado: A normatizacao vigente ja cobre sintese fiel, subnamespace, publicacao e medicao PageSpeed; nenhuma nova regra de produto e necessaria.
+    aceite:
+      - fonte integral lida
+      - precedencias conciliadas
+      - ausencia de conflito material
+  - id: FT-021
+    classe: implementacao_conteudo
+    criado_em: 2026-08-11T13:55:44.4157934-03:00
+    estado: em_andamento
+    depende_de: FT-020
+    objetivo: Produzir a sintese fiel, corrigir o path fisico do outro bate-papo e publicar ambos.
+    aceite:
+      - detalhes, nuances, divergencias, citacoes e referencias preservados
+      - disclaimer alerta1 e front matter conformes
+      - ambos sob o subnamespace eventos-finais
+      - build, validacao editorial e URLs publicadas aprovados
+  - id: FT-022
+    classe: implementacao_codigo
+    criado_em: 2026-08-11T13:55:44.4157934-03:00
+    estado: pendente
+    depende_de: FT-020
+    objetivo: Consumir PAGESPEED_API_KEY de forma opaca no medidor e no workflow.
+    aceite:
+      - segredo ausente nao vaza nem altera validacoes locais sem API
+      - chave nunca aparece em log, cache ou artefato
+      - API autenticada mede a amostra representativa em mobile e desktop
+      - CI e gates locais permanecem sem regressao
+lacunas:
+  - id: GAP-AGENTS-CJS-ESM-001
+    estado: isolada
+    evidencia: update:agents --check falha ao carregar package-registry.js CommonJS sob package.json type=module
+    restricao: nucleo gerenciado nao sera editado neste repositorio Final
+    impacto: nao bloqueia as FTs de produto acima
