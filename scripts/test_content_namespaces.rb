@@ -17,6 +17,14 @@ config = {
       "physical_prefix" => "bate-papo-",
       "route_prefix" => "/p/",
       "disclaimer" => "aviso automatizado"
+    },
+    "ensaio" => {
+      "title_prefix" => "Ensaio:",
+      "source_prefix" => "ensaio-",
+      "url_prefix" => "ensaio:",
+      "physical_prefix" => "ensaio-",
+      "route_prefix" => "/p/",
+      "disclaimer" => "aviso ensaio"
     }
   }
 }
@@ -65,5 +73,67 @@ assert(
   ) == "/site/p/bate-papo:tema/index.html",
   "path publicável compatível perdeu o namespace literal"
 )
+
+subdocument = Struct.new(:relative_path, :data, :site, :content) do
+  attr_accessor :url
+end.new(
+  "_posts/2026-08-08-bate-papo-tema.md",
+  {
+    "title" => "Bate-papo: tema",
+    "content_subnamespaces" => ["O Grande Conflito", "Capítulo 42"]
+  },
+  site,
+  "> aviso automatizado"
+)
+Jcem::ContentNamespaces.apply!(subdocument)
+assert(
+  subdocument.data["jcem_namespace_url"] ==
+    "/p/bate-papo:o-grande-conflito/capitulo-42/tema/",
+  "subnamespaces não preservaram profundidade e ordem: #{subdocument.data["jcem_namespace_url"]}"
+)
+assert(
+  Jcem::ContentNamespaces.physical_path_for(
+    "C:/site/p/bate-papo:o-grande-conflito/capitulo-42/tema/index.html",
+    config,
+    windows: true,
+    namespace_data: subdocument.data
+  ) == "C:/site/p/bate-papo/o-grande-conflito/capitulo-42/tema/index.html",
+  "subnamespaces não produziram diretórios físicos portáveis"
+)
+assert(
+  Jcem::ContentNamespaces.physical_path_for(
+    "/site/p/bate-papo:o-grande-conflito/capitulo-42/tema/index.html",
+    config,
+    windows: false,
+    namespace_data: subdocument.data
+  ).include?("bate-papo:o-grande-conflito"),
+  "destino compatível perdeu namespace literal com subnamespace"
+)
+
+explicit = Struct.new(:relative_path, :data, :site, :content) do
+  attr_accessor :url
+end.new(
+  "_posts/2026-08-08-ensaio-teste.md",
+  { "title" => "Ensaio: teste", "content_namespace" => "ensaio" },
+  site,
+  "> aviso ensaio"
+)
+Jcem::ContentNamespaces.apply!(explicit)
+assert(explicit.data["jcem_namespace_url"] == "/p/ensaio:teste/", "segunda classe ficou acoplada a bate-papo")
+
+begin
+  invalid = Struct.new(:relative_path, :data, :site, :content) do
+    attr_accessor :url
+  end.new(
+    "_posts/2026-08-08-bate-papo-invalido.md",
+    { "title" => "Bate-papo: inválido", "content_subnamespaces" => ["../segredo"] },
+    site,
+    "> aviso automatizado"
+  )
+  Jcem::ContentNamespaces.apply!(invalid)
+  abort "content_namespaces=erro detalhe=subnamespace inseguro foi aceito"
+rescue Jekyll::Errors::FatalException
+  # esperado
+end
 
 puts "content_namespaces=ok"

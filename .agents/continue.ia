@@ -223,11 +223,13 @@ riscos=Preservar integralmente contratos vigentes durante modularizacao; nao edi
 resultado=RCF.md tornou-se autoridade compacta e roteia dez sub-RCFs reais sob RCFs/. Os nove identificadores anteriores foram preservados uma unica vez; namespaces editoriais ganharam contrato geral; desempenho, blockquotes tipados, variantes responsivas e bate-papo foram consolidados sem editar TODO.ia.md.
 verificacoes=Links relativos existentes; dez IDs unicos; nove IDs legados preservados; agent:rcf retornou RCF_OK; git diff --check sem erro apos normalizacao.
 
-FT-022|nome=Namespaces editoriais e roteamento normativo|objetivo=Generalizar namespaces de topo e subnamespaces, modularizar RCFs e preservar publicacao deterministica multiplataforma|escopo=Tecnico|prioridade=alta|status=em_andamento|inicio=20260811
+FT-022|nome=Namespaces editoriais e roteamento normativo|objetivo=Generalizar namespaces de topo e subnamespaces, modularizar RCFs e preservar publicacao deterministica multiplataforma|escopo=Tecnico|prioridade=alta|status=concluido|inicio=20260811|conclusao=20260811
 dependencias=FT-021 concluida; content_namespaces e jcem_content_namespaces.rb vigentes.
 criterios=Profundidade arbitraria de subnamespace; URL logica literal; path fisico portavel; fonte configurada unica; testes Windows/Linux; links de sub-RCF validos.
+resultado=Plugin aceita content_subnamespaces ordenados com profundidade arbitraria, slug latino deterministico, rejeicao de path inseguro/duplicado e metadados logicos/fisicos separados. Destino Windows usa diretorios portaveis; Linux conserva dois-pontos literal. Segunda classe configurada comprovou ausencia de acoplamento a bate-papo.
+verificacoes=test_content_namespaces cobre topo, dois subnamespaces, classe adicional, entrada insegura, Windows e Linux; ruby -c concluido.
 
-FT-023|nome=Desempenho web permanente|objetivo=Instituir alvo PageSpeed 90+ por tipo de pagina e eliminar reflow e carga inicial indevida sem remover comportamento|escopo=Tecnico|prioridade=alta|status=pendente|inicio=20260811
+FT-023|nome=Desempenho web permanente|objetivo=Instituir alvo PageSpeed 90+ por tipo de pagina e eliminar reflow e carga inicial indevida sem remover comportamento|escopo=Tecnico|prioridade=alta|status=em_andamento|inicio=20260811
 dependencias=FT-021 concluida; carregamento progressivo; biblioteca de impressao; masthead responsiva.
 criterios=Gate representativo e cacheado; resize/orientation em leitura e escrita separadas; impressao carregada tardiamente e imediatamente sob sinal de impressao; sem regressao funcional.
 

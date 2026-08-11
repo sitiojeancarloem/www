@@ -3,6 +3,7 @@
 module Jcem
   module ContentNamespaces
     DATE_PREFIX = /\A\d{4}-\d{2}-\d{2}-/.freeze
+    INVALID_SEGMENT = %r{[\\/]|\A\.{1,2}\z}.freeze
 
     module_function
 
@@ -12,6 +13,36 @@ module Jcem
 
     def source_basename(document)
       File.basename(document.relative_path.to_s, File.extname(document.relative_path.to_s)).sub(DATE_PREFIX, "")
+    end
+
+    def normalize_subnamespaces(document)
+      raw = document.data.fetch("content_subnamespaces", [])
+      raw = [raw] if raw.is_a?(String)
+      unless raw.is_a?(Array)
+        raise Jekyll::Errors::FatalException,
+              "content_subnamespaces deve ser lista em #{document.relative_path}"
+      end
+
+      normalized = raw.map do |value|
+        source = value.to_s.strip
+        if source.empty? || source.match?(INVALID_SEGMENT)
+          raise Jekyll::Errors::FatalException,
+                "Subnamespace editorial invalido em #{document.relative_path}: #{value.inspect}"
+        end
+
+        slug = Jekyll::Utils.slugify(source, mode: "latin", cased: false)
+        if slug.empty?
+          raise Jekyll::Errors::FatalException,
+                "Subnamespace editorial vazio apos normalizacao em #{document.relative_path}"
+        end
+        slug
+      end
+
+      if normalized.uniq.length != normalized.length
+        raise Jekyll::Errors::FatalException,
+              "Subnamespace editorial duplicado em #{document.relative_path}"
+      end
+      normalized
     end
 
     def resolve(document)
@@ -40,8 +71,28 @@ module Jcem
       return unless resolved
 
       key, definition, slug = resolved
-      logical_segment = "#{definition.fetch("url_prefix")}#{slug}"
-      physical_segment = "#{definition.fetch("physical_prefix")}#{slug}"
+      subnamespaces = normalize_subnamespaces(document)
+      all_subnamespaces = subnamespaces.dup
+      logical_segment =
+        if subnamespaces.empty?
+          "#{definition.fetch("url_prefix")}#{slug}"
+        else
+          [
+            "#{definition.fetch("url_prefix")}#{subnamespaces.shift}",
+            *subnamespaces,
+            slug
+          ].join("/")
+        end
+      physical_segment =
+        if all_subnamespaces.empty?
+          "#{definition.fetch("physical_prefix")}#{slug}"
+        else
+          [
+            definition.fetch("physical_prefix").sub(/[-_:]+\z/, ""),
+            *all_subnamespaces,
+            slug
+          ].join("/")
+        end
       route_prefix = definition.fetch("route_prefix", "/p/").sub(%r!/*\z!, "/")
 
       document.data["content_namespace"] = key
@@ -49,6 +100,7 @@ module Jcem
       document.data["jcem_namespace_url"] = "#{route_prefix}#{logical_segment}/"
       document.data["jcem_namespace_logical_segment"] = logical_segment
       document.data["jcem_namespace_physical_segment"] = physical_segment
+      document.data["jcem_namespace_subnamespaces"] = all_subnamespaces
       document.instance_variable_set(:@url, nil)
     end
 
@@ -72,8 +124,14 @@ module Jcem
             "Disclaimer do namespace ausente em #{document.relative_path}"
     end
 
-    def physical_path_for(path, config, windows: Gem.win_platform?)
+    def physical_path_for(path, config, windows: Gem.win_platform?, namespace_data: nil)
       return path unless windows
+
+      logical_segment = namespace_data&.fetch("jcem_namespace_logical_segment", nil)
+      physical_segment = namespace_data&.fetch("jcem_namespace_physical_segment", nil)
+      if logical_segment && physical_segment && path.include?(logical_segment)
+        return path.sub(logical_segment, physical_segment)
+      end
 
       definitions(config).each_value do |definition|
         logical = definition.fetch("url_prefix")
@@ -86,7 +144,11 @@ module Jcem
     module DocumentDestination
       def destination(base_directory)
         logical_path = super
-        Jcem::ContentNamespaces.physical_path_for(logical_path, site.config)
+        Jcem::ContentNamespaces.physical_path_for(
+          logical_path,
+          site.config,
+          namespace_data: data
+        )
       end
     end
 
