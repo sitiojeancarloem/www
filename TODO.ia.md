@@ -25,6 +25,9 @@
     - impedimentos materiais identificados.
 
   - Toda alteração que implique em alteração no modo de codificar markdown, deve ser devidamente documentada em modo de uso.
+
+  - Elimine TO-DOs completas, mantendo este arquivo sempre limpo.
+
   - Esta TO-DO é perene: NÃO PODE ser marcada como concluída nem removida e nem editada. Sua existência é perene; sua contabilização somente é necessária quando houver ao menos uma TO-DO por ela regida.
 
 * [x] RCF — Biblioteca agnóstica para impressão Web em formato IEEE
@@ -987,4 +990,4 @@ Similaridade visual em tela, dependência exclusiva de um motor, funcionamento a
 
 - [ ] corrigir o nome do outro \_draft de bate papo para subnamespacesob `eventos-finais`.
 
-- [ ]publicar ambos os bate-papos.
+- [ ] Publicar ambos os bate-papos.
