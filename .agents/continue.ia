@@ -207,3 +207,36 @@ origem=CSS web permanece ativo em `print`; sobrescritas IEEE cobrem somente prop
 resultado=RCF tornou o isolamento obrigatório para recurso atual/futuro e terceiro, centralizou exceções e fixou estilo IEEE exclusivo para `blockquote`; nenhuma exceção visual está ativa. O núcleo reverte a cascata web no artigo e declara a composição impressa; o adaptador achata painéis decorativos, oculta TOC, permalinks, bandeiras, paginação e controles recolhíveis, mas preserva conteúdo, semântica, referências, bibliografia e avisos. O CSS base participa de `screen` somente para ocultar auxiliares impressos e mantém toda apresentação IEEE dentro de `@media print`.
 achados_revisao=A primeira aferição revelou `Permalink`, sumário, bandeira de data e controles `summary` reexibidos pelo reset; todos foram neutralizados nominalmente e receberam teste. A composição multicoluna inicial também deslocava o corpo para a segunda folha; o artigo passou a ser o fluxo paginado e `[data-print-body]` tornou-se transparente, eliminando a folha quase vazia sem restaurar estilos web.
 verificacoes=`agent:rcf`, `check:print`, `npm run check`, `build:prod`, `agent:build`, `agent:verify` e duas passagens finais de `validate:visual` concluídos. Navegador: 18 painéis web preservados, dois auxiliares impressos ocultos, estado `nativo-preparado`, console limpo e zero overflow em desktop/320 px. PDF Chromium 151: sete páginas A4, zero vazia, Noto Sans regular/negrito/itálico/negrito-itálico, duas colunas, conteúdo integral e estilo IEEE de citação sem decoração ou controle web; relatório `2026-08-09-devaneios-chromium-151.json`, SHA-256 `ab0d5679de674e11abbccdf81d2180817a91ef8ecc1df2564268dee2c0a69dba`.
+
+FT-021|nome=Equalizacao integral do backlog editorial e web|objetivo=Equalizar e normatizar todas as frentes abertas do TODO.ia.md em contratos convergentes, roteados e rastreaveis|escopo=Tecnico normativo e Negocio editorial|prioridade=alta|status=em_andamento|inicio=20260811
+autorizacao=Solicitacao humana explicita para prosseguir ate a completa e total implementacao do TODO.ia.md.
+dependencias=FT-016–020 concluidas; governanca v0.1.3; TODO.ia.md perene preservado.
+riscos=Preservar integralmente contratos vigentes durante modularizacao; nao editar o equalizer; nao duplicar norma; manter isolamento tela-impressao e publicacao deterministica.
+1/4 Inventario e equalizacao [em_andamento]
+- Inspecionar RCF, README, configuracao, plugins, layouts, conteudos, assets, testes, workflows e estado real [em_andamento]
+2/4 Roteamento e sub-RCFs [pendente]
+- Tornar RCF.md autoridade compacta e mover especializacoes sem perda para RCFs/ [pendente]
+3/4 Normatizacao transversal [pendente]
+- Consolidar namespaces, desempenho, blockquotes tipados, imagens responsivas e bate-papo [pendente]
+4/4 Validacao e marco normativo [pendente]
+- Validar links, cobertura, ausencia de duplicacao e registrar commit anterior a implementacao [pendente]
+
+FT-022|nome=Namespaces editoriais e roteamento normativo|objetivo=Generalizar namespaces de topo e subnamespaces, modularizar RCFs e preservar publicacao deterministica multiplataforma|escopo=Tecnico|prioridade=alta|status=pendente|inicio=20260811
+dependencias=FT-021 concluida; content_namespaces e jcem_content_namespaces.rb vigentes.
+criterios=Profundidade arbitraria de subnamespace; URL logica literal; path fisico portavel; fonte configurada unica; testes Windows/Linux; links de sub-RCF validos.
+
+FT-023|nome=Desempenho web permanente|objetivo=Instituir alvo PageSpeed 90+ por tipo de pagina e eliminar reflow e carga inicial indevida sem remover comportamento|escopo=Tecnico|prioridade=alta|status=pendente|inicio=20260811
+dependencias=FT-021 concluida; carregamento progressivo; biblioteca de impressao; masthead responsiva.
+criterios=Gate representativo e cacheado; resize/orientation em leitura e escrita separadas; impressao carregada tardiamente e imediatamente sob sinal de impressao; sem regressao funcional.
+
+FT-024|nome=Controles e blockquotes tipados|objetivo=Corrigir interacao do switch e icone do menu e adicionar notice, info, alerta1 e alerta2 com icone opcional e temas responsivos|escopo=Tecnico|prioridade=alta|status=pendente|inicio=20260811
+dependencias=FT-021 concluida; RCF de citacoes; registro editorial-quotes; isolamento de impressao.
+criterios=Area integral do switch alterna tema; menu usa Font Awesome bars f0c9; modelos tipados preservam semantica, fallback, claro/escuro, mobile e IEEE impresso.
+
+FT-025|nome=Variantes responsivas de imagens|objetivo=Selecionar para cards, thumbnails e destaques a menor variante suficiente por viewport, DPR e proporcao|escopo=Tecnico|prioridade=alta|status=pendente|inicio=20260811
+dependencias=FT-021 concluida; jcem_asset_metadata; skeleton e reserva de geometria vigentes.
+criterios=Indice versionado de variantes e bytes; srcset/sizes deterministas; card dinamico equivalente; fallback preservado; testes comprovam que a maior imagem nao e default.
+
+FT-026|nome=Sub-RCF e aplicacao bate-papo|objetivo=Especializar sinteses bate-papo em sub-RCF propria, aplicar namespace/subnamespace, disclaimer alerta1 e validar todo conteudo legitimo|escopo=Negocio editorial e Tecnico|prioridade=alta|status=pendente|inicio=20260811
+dependencias=FT-021, FT-022 e FT-024 concluidas; conteudo existente preservado; RCF de footnotes/citacoes.
+criterios=Norma geral sem regra de artigo particular; disclaimer semanticamente completo alerta1; obra-base unica quando inequivoca; citacoes/referencias intactas; build, rota e publicacao validados.
