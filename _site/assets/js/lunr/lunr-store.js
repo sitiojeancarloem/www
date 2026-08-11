@@ -46,4 +46,16 @@ var store = [{
         "tags": ["A bíblia está certa","bíblia","ciência","Deus está certo","estudo","medicina","saúde"],
         "url": "/p/nenhum-nivel-de-alcool-faz-bem-a-saude/",
         "teaser": null
+      },{
+        "title": "Bate-papo: eventos finais — a herança dos santos",
+        "excerpt":"Nota editorial: Esta é uma síntese fiel de um bate-papo, editada apenas para tornar a leitura mais clara e agradável. O material foi produzido e processado de forma automatizada, inclusive com uso de inteligência artificial, e pode conter erros, imprecisões ou interpretações inadequadas. Nem tudo o que foi dito foi...","categories": [],
+        "tags": [],
+        "url": "/p/bate-papo:eventos-finais-a-heranca-dos-santos/",
+        "teaser": null
+      },{
+        "title": "Bate-papo: eventos finais — rumo ao lar, viagem dos remidos, coroas e recompensa celestial",
+        "excerpt":"Nota editorial: Esta é uma síntese fiel de um bate-papo, editada apenas para tornar a leitura mais clara e agradável. O material foi produzido e processado de forma automatizada, inclusive com uso de inteligência artificial, e pode conter erros, imprecisões ou interpretações inadequadas. Nem tudo o que foi dito foi...","categories": [],
+        "tags": [],
+        "url": "/p/bate-papo:eventos-finais-rumo-ao-lar-viagem-dos-remidos-coroas-e-recompensa-celestial/",
+        "teaser": null
       },]

@@ -25,8 +25,6 @@
 <link rel="stylesheet" href="/assets/css/main.css">
 <link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
 <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css"></noscript>
-<script src="/assets/jcem/consent-manager/silktide.js"></script>
-<script src="/assets/jcem/consent-manager/start.js"></script>
 <meta name="apple-mobile-web-app-title" content="JeanCarloEM" />
 <link
 rel="icon"
@@ -84,15 +82,6 @@ href="https://jcem.pro/logo/apple-touch-icon.png"
 		100% {
 			transform: rotate(-90deg);
 		}
-	}
-
-	html:not(.jcem-page-loaded) body {
-		/* PROTECAO: a pagina real so aparece apos recursos essenciais. */
-		overflow: hidden;
-	}
-
-	html:not(.jcem-page-loaded) body > :not(.carregandoPagina) {
-		visibility: hidden !important;
 	}
 
 	body > .carregandoPagina {
@@ -394,9 +383,11 @@ href="https://jcem.pro/logo/apple-touch-icon.png"
 	}
 </style>
 </noscript>
-<link rel="stylesheet" href="/assets/jcem/print-ieee/ieee.css">
+<link rel="stylesheet" href="/assets/jcem/print-ieee/ieee.css" media="print">
 <link rel="stylesheet" href="/assets/jcem/print-ieee/jekyll-blog.css" media="print">
 <script src="/assets/jcem/js/site.js" type="module"></script>
+<script src="/assets/jcem/consent-manager/silktide.js" defer></script>
+<script src="/assets/jcem/consent-manager/start.js" defer></script>
 </head>
 <body class="layout--single" dir="ltr">
 <div id="carregandoPagina" class="carregandoPagina" aria-hidden="true">
@@ -952,6 +943,7 @@ type="radio"
 name="jcem-theme"
 id="jcem-theme-light"
 value="light"
+aria-label="Tema claro"
 />
 <input
 class="radio jcem-theme-radio"
@@ -959,6 +951,7 @@ type="radio"
 name="jcem-theme"
 id="jcem-theme-dark"
 value="dark"
+aria-label="Tema escuro"
 checked
 />
 <div class="main_jcem_wrapper">
@@ -1024,6 +1017,7 @@ class="masthead"
 class="jcem-nav-state"
 type="checkbox"
 id="jcem-nav-state"
+aria-label="Alternar menu"
 />
 <nav
 id="site-nav"
@@ -1069,28 +1063,28 @@ href="https://github.com/jeancarloem"
 >GitHub</a
 >
 </li></ul>
-<div
+<button
 class="jcem-theme-toggle"
-role="group"
+type="button"
+role="switch"
+aria-checked="true"
 aria-label="Alternar tema"
 >
-<label
+<span
 class="jcem-theme-toggle__option jcem-theme-toggle__option--light"
-for="jcem-theme-light"
 title="Tema claro"
 >
 <span class="visually-hidden">Tema claro</span>
 <i class="fas fa-sun" aria-hidden="true"></i>
-</label>
-<label
+</span>
+<span
 class="jcem-theme-toggle__option jcem-theme-toggle__option--dark"
-for="jcem-theme-dark"
 title="Tema escuro"
 >
 <span class="visually-hidden">Tema escuro</span>
 <i class="fas fa-moon" aria-hidden="true"></i>
-</label>
-</div>
+</span>
+</button>
 <label
 class="jcem-nav-toggle"
 for="jcem-nav-state"
@@ -1099,7 +1093,7 @@ aria-label="Alternar menu"
 <span class="visually-hidden"
 >Chavear menu</span
 >
-<span class="navicon"></span>
+<i class="fas fa-bars" aria-hidden="true"></i>
 </label>
 <button class="greedy-nav__toggle hidden" type="button">
 <span class="visually-hidden"
@@ -1119,7 +1113,7 @@ aria-hidden="true"
 </div>
 <div class="initial-content">
 <figure class="jcem-featured-image jcem-featured-image--wide jcem-skeleton" data-jcem-skeleton-state="loading" data-jcem-asset-aspect-ratio="1200 / 630" style="--jcem-asset-aspect-ratio: 1200 / 630">
-<img class="jcem-featured-image__img u-photo jcem-skeleton-asset" src="https://web.archive.org/web/20201006232837im_/https://blog.jeancarloem.com/wp-content/uploads/2020/04/COVER.png" alt="Tradição VS Bíblia – Tradição OU Bíblia" loading="lazy" decoding="async" width="1200" height="630">
+<img class="jcem-featured-image__img u-photo jcem-skeleton-asset" src="/assets/images/responsive/tradicao-vs-biblia/tradicao-vs-biblia-320w.webp" alt="Tradição VS Bíblia – Tradição OU Bíblia" loading="eager" decoding="async" fetchpriority="high" srcset="/assets/images/responsive/tradicao-vs-biblia/tradicao-vs-biblia-320w.webp 320w, /assets/images/responsive/tradicao-vs-biblia/tradicao-vs-biblia-640w.webp 640w, /assets/images/responsive/tradicao-vs-biblia/tradicao-vs-biblia-960w.webp 960w, /assets/images/responsive/tradicao-vs-biblia/tradicao-vs-biblia-1200w.webp 1200w" sizes="(max-width: 64rem) calc(100vw - 2rem), 75rem" width="1200" height="630">
 </figure>
 <div id="main" role="main">
 <article class="page h-entry jcem-post jcem-featured-style--wide jcem-blockquote-panels" data-jcem-quote-default="futuristic" data-print-article data-print-profile="ieee-conference-a4-ieeetran-1.8b" data-print-state="legivel" itemscope itemtype="https://schema.org/CreativeWork">
@@ -1345,7 +1339,7 @@ Podemos seguir os passos de Satanás e de Adão e Eva, e nos colocar como deuses
 </p>
 </footer>
 <section class="page__share">
-<h4 class="page__share-title">Compartilhe</h4>
+<h2 class="page__share-title">Compartilhe</h2>
 <a href="https://x.com/intent/tweet?text=Tradi%C3%A7%C3%A3o+VS+B%C3%ADblia+%E2%80%93+Tradi%C3%A7%C3%A3o+OU+B%C3%ADblia%20https%3A%2F%2Fwww.jeancarloem.com%2Fp%2Ftradicao-vs-biblia-tradicao-ou-biblia%2F" class="btn btn--x" aria-label="Share on X" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Compartilhe X">
 <i class="fab fa-fw fa-x-twitter" aria-hidden="true"></i><span> X</span>
 </a>
@@ -1375,10 +1369,78 @@ Podemos seguir os passos de Satanás e de Adão e Eva, e nos colocar como deuses
 <div class="grid__wrapper">
 <div class="grid__item">
 <article class="archive__item archive__item--has-image" itemscope itemtype="https://schema.org/CreativeWork">
+<a class="archive__item-link u-url" href="/p/bate-papo:eventos-finais-rumo-ao-lar-viagem-dos-remidos-coroas-e-recompensa-celestial/" rel="permalink">
+<header class="archive__item-header">
+<figure class="archive__item-teaser jcem-skeleton" data-jcem-skeleton-state="loading" data-jcem-asset-aspect-ratio="1200.0 / 630.0" style="--jcem-asset-aspect-ratio: 1200.0 / 630.0">
+<img class="archive__item-image u-photo jcem-skeleton-asset" src="/assets/images/posts/eventos-finais/eventos-finais.svg" alt="Cidade luminosa ao horizonte, sobre colinas e sob um céu estrelado" loading="lazy" decoding="async" width="1200.0" height="630.0">
+</figure>
+<div class="jcem-date-flag jcem-date-flag--updated jcem-date-flag--archive">
+<time datetime="2026-08-11T00:00:00-03:00" title="Publicado em 11/08/2026; atualizado em 15/06/2026" aria-label="Publicado em 11/08/2026; atualizado em 15/06/2026">
+<span class="jcem-date-flag__year">2026</span>
+<span class="jcem-date-flag__month">AGO</span>
+<span class="jcem-date-flag__day">11</span>
+</time>
+</div>
+<h2 class="archive__item-title no_toc p-name" itemprop="headline">Bate-papo: eventos finais — rumo ao lar, viagem dos remidos, coroas e recompensa celestial
+</h2>
+</header>
+<div class="archive__item-body">
+<p class="page__meta">
+<span class="page__meta-date">
+<i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+<time datetime="2026-08-11T00:00:00-03:00">August 11, 2026</time>
+</span>
+<span class="page__meta-sep"></span>
+<span class="page__meta-readtime">
+<i class="far fa-fw fa-clock" aria-hidden="true"></i>
+32 minuto(s) de leitura
+</span>
+</p>
+<p class="archive__item-excerpt p-summary" itemprop="description">Nota editorial: Esta é uma síntese fiel de um bate-papo, editada apenas para tornar a leitura mais clara e agradável. O material foi produzido e processado d...</p>
+</div>
+</a>
+</article>
+</div>
+<div class="grid__item">
+<article class="archive__item archive__item--has-image" itemscope itemtype="https://schema.org/CreativeWork">
+<a class="archive__item-link u-url" href="/p/bate-papo:eventos-finais-a-heranca-dos-santos/" rel="permalink">
+<header class="archive__item-header">
+<figure class="archive__item-teaser jcem-skeleton" data-jcem-skeleton-state="loading" data-jcem-asset-aspect-ratio="1200.0 / 630.0" style="--jcem-asset-aspect-ratio: 1200.0 / 630.0">
+<img class="archive__item-image u-photo jcem-skeleton-asset" src="/assets/images/posts/eventos-finais/eventos-finais.svg" alt="Cidade luminosa ao horizonte, sobre colinas e sob um céu estrelado" loading="lazy" decoding="async" width="1200.0" height="630.0">
+</figure>
+<div class="jcem-date-flag jcem-date-flag--updated jcem-date-flag--archive">
+<time datetime="2026-08-11T00:00:00-03:00" title="Publicado em 11/08/2026; atualizado em 15/06/2026" aria-label="Publicado em 11/08/2026; atualizado em 15/06/2026">
+<span class="jcem-date-flag__year">2026</span>
+<span class="jcem-date-flag__month">AGO</span>
+<span class="jcem-date-flag__day">11</span>
+</time>
+</div>
+<h2 class="archive__item-title no_toc p-name" itemprop="headline">Bate-papo: eventos finais — a herança dos santos
+</h2>
+</header>
+<div class="archive__item-body">
+<p class="page__meta">
+<span class="page__meta-date">
+<i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+<time datetime="2026-08-11T00:00:00-03:00">August 11, 2026</time>
+</span>
+<span class="page__meta-sep"></span>
+<span class="page__meta-readtime">
+<i class="far fa-fw fa-clock" aria-hidden="true"></i>
+25 minuto(s) de leitura
+</span>
+</p>
+<p class="archive__item-excerpt p-summary" itemprop="description">Nota editorial: Esta é uma síntese fiel de um bate-papo, editada apenas para tornar a leitura mais clara e agradável. O material foi produzido e processado d...</p>
+</div>
+</a>
+</article>
+</div>
+<div class="grid__item">
+<article class="archive__item archive__item--has-image" itemscope itemtype="https://schema.org/CreativeWork">
 <a class="archive__item-link u-url" href="/p/nenhum-nivel-de-alcool-faz-bem-a-saude/" rel="permalink">
 <header class="archive__item-header">
 <figure class="archive__item-teaser jcem-skeleton" data-jcem-skeleton-state="loading" data-jcem-asset-aspect-ratio="1200 / 628" style="--jcem-asset-aspect-ratio: 1200 / 628">
-<img class="archive__item-image u-photo jcem-skeleton-asset" src="https://web.archive.org/web/20210207030211im_/https://blog.jeancarloem.com/wp-content/uploads/2021/02/Nenhum-nivel-de-alcool-faz-bem-a-saude.jpg" alt="Nenhum nível de álcool faz bem à saúde" loading="lazy" decoding="async" width="1200" height="628">
+<img class="archive__item-image u-photo jcem-skeleton-asset" src="/assets/images/responsive/nenhum-alcool/nenhum-alcool-320w.webp" alt="Nenhum nível de álcool faz bem à saúde" loading="lazy" decoding="async" srcset="/assets/images/responsive/nenhum-alcool/nenhum-alcool-320w.webp 320w, /assets/images/responsive/nenhum-alcool/nenhum-alcool-640w.webp 640w, /assets/images/responsive/nenhum-alcool/nenhum-alcool-960w.webp 960w, /assets/images/responsive/nenhum-alcool/nenhum-alcool-1200w.webp 1200w" sizes="(max-width: 40rem) calc(100vw - 2rem), (max-width: 64rem) 50vw, 33vw" width="1200" height="628">
 </figure>
 <div class="jcem-date-flag jcem-date-flag--updated jcem-date-flag--archive">
 <time datetime="2021-02-06T23:50:42-03:00" title="Publicado em 06/02/2021; atualizado em 15/06/2026" aria-label="Publicado em 06/02/2021; atualizado em 15/06/2026">
@@ -1412,7 +1474,7 @@ Podemos seguir os passos de Satanás e de Adão e Eva, e nos colocar como deuses
 <a class="archive__item-link u-url" href="/p/salvacao-importa-ser-perfeito/" rel="permalink">
 <header class="archive__item-header">
 <figure class="archive__item-teaser jcem-skeleton" data-jcem-skeleton-state="loading" data-jcem-asset-aspect-ratio="1920 / 1002" style="--jcem-asset-aspect-ratio: 1920 / 1002">
-<img class="archive__item-image u-photo jcem-skeleton-asset" src="https://web.archive.org/web/20201004153207im_/https://blog.jeancarloem.com/wp-content/uploads/2020/08/importa-ser-perfeito.png" alt="Salvação: Importa ser Perfeito?" loading="lazy" decoding="async" width="1920" height="1002">
+<img class="archive__item-image u-photo jcem-skeleton-asset" src="/assets/images/responsive/salvacao-importa-ser-perfeito/salvacao-importa-ser-perfeito-320w.webp" alt="Salvação: Importa ser Perfeito?" loading="lazy" decoding="async" srcset="/assets/images/responsive/salvacao-importa-ser-perfeito/salvacao-importa-ser-perfeito-320w.webp 320w, /assets/images/responsive/salvacao-importa-ser-perfeito/salvacao-importa-ser-perfeito-640w.webp 640w, /assets/images/responsive/salvacao-importa-ser-perfeito/salvacao-importa-ser-perfeito-960w.webp 960w, /assets/images/responsive/salvacao-importa-ser-perfeito/salvacao-importa-ser-perfeito-1200w.webp 1200w, /assets/images/responsive/salvacao-importa-ser-perfeito/salvacao-importa-ser-perfeito-1280w.webp 1280w, /assets/images/responsive/salvacao-importa-ser-perfeito/salvacao-importa-ser-perfeito-1920w.webp 1920w" sizes="(max-width: 40rem) calc(100vw - 2rem), (max-width: 64rem) 50vw, 33vw" width="1920" height="1002">
 </figure>
 <div class="jcem-date-flag jcem-date-flag--updated jcem-date-flag--archive">
 <time datetime="2020-08-29T14:44:06-03:00" title="Publicado em 29/08/2020; atualizado em 15/06/2026" aria-label="Publicado em 29/08/2020; atualizado em 15/06/2026">
@@ -1446,7 +1508,7 @@ Podemos seguir os passos de Satanás e de Adão e Eva, e nos colocar como deuses
 <a class="archive__item-link u-url" href="/p/como-identificar-falacias/" rel="permalink">
 <header class="archive__item-header">
 <figure class="archive__item-teaser jcem-skeleton" data-jcem-skeleton-state="loading" data-jcem-asset-aspect-ratio="1920 / 1080" style="--jcem-asset-aspect-ratio: 1920 / 1080">
-<img class="archive__item-image u-photo jcem-skeleton-asset" src="https://web.archive.org/web/20201005013131im_/https://blog.jeancarloem.com/wp-content/uploads/2020/08/cover-como-identificar-falacias.png" alt="Como identificar Falácias" loading="lazy" decoding="async" width="1920" height="1080">
+<img class="archive__item-image u-photo jcem-skeleton-asset" src="/assets/images/responsive/como-identificar-falacias/como-identificar-falacias-320w.webp" alt="Como identificar Falácias" loading="lazy" decoding="async" srcset="/assets/images/responsive/como-identificar-falacias/como-identificar-falacias-320w.webp 320w, /assets/images/responsive/como-identificar-falacias/como-identificar-falacias-640w.webp 640w, /assets/images/responsive/como-identificar-falacias/como-identificar-falacias-960w.webp 960w, /assets/images/responsive/como-identificar-falacias/como-identificar-falacias-1200w.webp 1200w, /assets/images/responsive/como-identificar-falacias/como-identificar-falacias-1280w.webp 1280w, /assets/images/responsive/como-identificar-falacias/como-identificar-falacias-1920w.webp 1920w" sizes="(max-width: 40rem) calc(100vw - 2rem), (max-width: 64rem) 50vw, 33vw" width="1920" height="1080">
 </figure>
 <div class="jcem-date-flag jcem-date-flag--updated jcem-date-flag--archive">
 <time datetime="2020-08-15T19:14:17-03:00" title="Publicado em 15/08/2020; atualizado em 15/06/2026" aria-label="Publicado em 15/08/2020; atualizado em 15/06/2026">
@@ -1480,7 +1542,7 @@ Podemos seguir os passos de Satanás e de Adão e Eva, e nos colocar como deuses
 <a class="archive__item-link u-url" href="/p/5-verdades-de-genesis-27/" rel="permalink">
 <header class="archive__item-header">
 <figure class="archive__item-teaser jcem-skeleton" data-jcem-skeleton-state="loading" data-jcem-asset-aspect-ratio="1920 / 1002" style="--jcem-asset-aspect-ratio: 1920 / 1002">
-<img class="archive__item-image u-photo jcem-skeleton-asset" src="https://web.archive.org/web/20201005014559im_/https://blog.jeancarloem.com/wp-content/uploads/2020/07/5-verdades-de-genesis-2-7.png" alt="5 verdades de Gênesis 2:7" loading="lazy" decoding="async" width="1920" height="1002">
+<img class="archive__item-image u-photo jcem-skeleton-asset" src="/assets/images/responsive/cinco-verdades-genesis/cinco-verdades-genesis-320w.webp" alt="5 verdades de Gênesis 2:7" loading="lazy" decoding="async" srcset="/assets/images/responsive/cinco-verdades-genesis/cinco-verdades-genesis-320w.webp 320w, /assets/images/responsive/cinco-verdades-genesis/cinco-verdades-genesis-640w.webp 640w, /assets/images/responsive/cinco-verdades-genesis/cinco-verdades-genesis-960w.webp 960w, /assets/images/responsive/cinco-verdades-genesis/cinco-verdades-genesis-1200w.webp 1200w, /assets/images/responsive/cinco-verdades-genesis/cinco-verdades-genesis-1280w.webp 1280w, /assets/images/responsive/cinco-verdades-genesis/cinco-verdades-genesis-1920w.webp 1920w" sizes="(max-width: 40rem) calc(100vw - 2rem), (max-width: 64rem) 50vw, 33vw" width="1920" height="1002">
 </figure>
 <div class="jcem-date-flag jcem-date-flag--updated jcem-date-flag--archive">
 <time datetime="2020-07-11T19:24:08-03:00" title="Publicado em 11/07/2020; atualizado em 15/06/2026" aria-label="Publicado em 11/07/2020; atualizado em 15/06/2026">
@@ -1505,74 +1567,6 @@ Podemos seguir os passos de Satanás e de Adão e Eva, e nos colocar como deuses
 </span>
 </p>
 <p class="archive__item-excerpt p-summary" itemprop="description">Extrair 5 verdades de Gênesis 2:7, um texto bíblico repleto de significação e verdade e, em muitos casos, não lido atentamente, levando muitos à má interpret...</p>
-</div>
-</a>
-</article>
-</div>
-<div class="grid__item">
-<article class="archive__item archive__item--has-image" itemscope itemtype="https://schema.org/CreativeWork">
-<a class="archive__item-link u-url" href="/p/nove-motivos-para-guardar-o-sabado/" rel="permalink">
-<header class="archive__item-header">
-<figure class="archive__item-teaser jcem-skeleton" data-jcem-skeleton-state="loading" data-jcem-asset-aspect-ratio="1920 / 1002" style="--jcem-asset-aspect-ratio: 1920 / 1002">
-<img class="archive__item-image u-photo jcem-skeleton-asset" src="https://web.archive.org/web/20201004084617im_/https://blog.jeancarloem.com/wp-content/uploads/2020/07/9-motivos-para-guardar-o-sabado.png" alt="Nove motivos para guardar o sábado" loading="lazy" decoding="async" width="1920" height="1002">
-</figure>
-<div class="jcem-date-flag jcem-date-flag--updated jcem-date-flag--archive">
-<time datetime="2020-07-04T21:38:11-03:00" title="Publicado em 04/07/2020; atualizado em 15/06/2026" aria-label="Publicado em 04/07/2020; atualizado em 15/06/2026">
-<span class="jcem-date-flag__year">2020</span>
-<span class="jcem-date-flag__month">JUL</span>
-<span class="jcem-date-flag__day">04</span>
-</time>
-</div>
-<h2 class="archive__item-title no_toc p-name" itemprop="headline">Nove motivos para guardar o sábado
-</h2>
-</header>
-<div class="archive__item-body">
-<p class="page__meta">
-<span class="page__meta-date">
-<i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
-<time datetime="2020-07-04T21:38:11-03:00">July 4, 2020</time>
-</span>
-<span class="page__meta-sep"></span>
-<span class="page__meta-readtime">
-<i class="far fa-fw fa-clock" aria-hidden="true"></i>
-27 minuto(s) de leitura
-</span>
-</p>
-<p class="archive__item-excerpt p-summary" itemprop="description">Certamente, você já ouviu dizer sobre a guarda do sábado, seja por judeus, adventistas ou outro grupo cristão qualquer. A pergunta que, provavelmente você já...</p>
-</div>
-</a>
-</article>
-</div>
-<div class="grid__item">
-<article class="archive__item archive__item--has-image" itemscope itemtype="https://schema.org/CreativeWork">
-<a class="archive__item-link u-url" href="/p/sola-scriptura/" rel="permalink">
-<header class="archive__item-header">
-<figure class="archive__item-teaser jcem-skeleton" data-jcem-skeleton-state="loading" data-jcem-asset-aspect-ratio="1200 / 630" style="--jcem-asset-aspect-ratio: 1200 / 630">
-<img class="archive__item-image u-photo jcem-skeleton-asset" src="https://web.archive.org/web/20201011094944im_/https://blog.jeancarloem.com/wp-content/uploads/2020/05/sola-scriptura-farol.png" alt="Sola Scriptura" loading="lazy" decoding="async" width="1200" height="630">
-</figure>
-<div class="jcem-date-flag jcem-date-flag--updated jcem-date-flag--archive">
-<time datetime="2020-05-22T16:53:21-03:00" title="Publicado em 22/05/2020; atualizado em 15/06/2026" aria-label="Publicado em 22/05/2020; atualizado em 15/06/2026">
-<span class="jcem-date-flag__year">2020</span>
-<span class="jcem-date-flag__month">MAI</span>
-<span class="jcem-date-flag__day">22</span>
-</time>
-</div>
-<h2 class="archive__item-title no_toc p-name" itemprop="headline">Sola Scriptura
-</h2>
-</header>
-<div class="archive__item-body">
-<p class="page__meta">
-<span class="page__meta-date">
-<i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
-<time datetime="2020-05-22T16:53:21-03:00">May 22, 2020</time>
-</span>
-<span class="page__meta-sep"></span>
-<span class="page__meta-readtime">
-<i class="far fa-fw fa-clock" aria-hidden="true"></i>
-47 minuto(s) de leitura
-</span>
-</p>
-<p class="archive__item-excerpt p-summary" itemprop="description">A bíblia – a palavra de Deus vivo, “é viva, e eficaz, e mais cortante do que qualquer espada de dois gumes, e penetra até ao ponto de dividir alma e espírito...</p>
 </div>
 </a>
 </article>
@@ -1972,7 +1966,6 @@ class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1872"
 <a class="jcem-scroll-top" href="#" aria-label="Voltar ao topo" title="Voltar ao topo" aria-hidden="true" tabindex="-1">
 <i class="fas fa-arrow-up" aria-hidden="true"></i>
 </a>
-<script src="/assets/js/main.min.js"></script>
 </div>
 </body>
 </html>

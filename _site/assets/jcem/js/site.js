@@ -33,11 +33,14 @@ const saveJcemTheme = (theme) => {
 };
 const applyJcemTheme = (theme) => {
     const radio = select(`#jcem-theme-${theme}`);
+    const toggle = select('.jcem-theme-toggle');
     if (radio) {
         radio.checked = true;
     }
+    toggle === null || toggle === void 0 ? void 0 : toggle.setAttribute('aria-checked', String(theme === 'dark'));
 };
 const bindJcemTheme = () => {
+    var _a;
     const storedTheme = getJcemTheme();
     const theme = isJcemTheme(storedTheme) ? storedTheme : 'dark';
     applyJcemTheme(theme);
@@ -46,9 +49,17 @@ const bindJcemTheme = () => {
         .forEach((radio) => {
         radio.addEventListener('change', () => {
             if (radio.checked && isJcemTheme(radio.value)) {
+                applyJcemTheme(radio.value);
                 saveJcemTheme(radio.value);
             }
         });
+    });
+    (_a = select('.jcem-theme-toggle')) === null || _a === void 0 ? void 0 : _a.addEventListener('click', () => {
+        var _a;
+        const current = (_a = select('input[name="jcem-theme"]:checked')) === null || _a === void 0 ? void 0 : _a.value;
+        const next = current === 'light' ? 'dark' : 'light';
+        applyJcemTheme(next);
+        saveJcemTheme(next);
     });
 };
 const bindJcemNav = () => {
@@ -69,7 +80,7 @@ const bindJcemMasthead = () => {
     let ticking = false;
     const syncState = () => {
         ticking = false;
-        document.documentElement.classList.toggle('jcem-masthead-stuck', window.scrollY > 0 && masthead.getBoundingClientRect().top <= 0);
+        document.documentElement.classList.toggle('jcem-masthead-stuck', window.scrollY > 0);
     };
     const requestSync = () => {
         if (!ticking) {
@@ -78,8 +89,121 @@ const bindJcemMasthead = () => {
         }
     };
     window.addEventListener('scroll', requestSync, { passive: true });
-    window.addEventListener('resize', requestSync, { passive: true });
     syncState();
+};
+const bindJcemThemeConnector = () => {
+    document
+        .querySelectorAll('.author__urls-wrapper button')
+        .forEach((button) => {
+        button.addEventListener('click', () => {
+            var _a;
+            const links = (_a = button
+                .closest('.author__urls-wrapper')) === null || _a === void 0 ? void 0 : _a.querySelector('.author__urls');
+            const visible = (links === null || links === void 0 ? void 0 : links.classList.toggle('is--visible')) || false;
+            button.classList.toggle('open', visible);
+            button.setAttribute('aria-expanded', String(visible));
+        });
+    });
+    const content = select('.page__content');
+    content === null || content === void 0 ? void 0 : content.querySelectorAll('h1[id], h2[id], h3[id], h4[id], h5[id], h6[id]').forEach((heading) => {
+        var _a;
+        if (heading.querySelector(':scope > .header-link'))
+            return;
+        const anchor = document.createElement('a');
+        anchor.className = 'header-link';
+        anchor.href = `#${encodeURIComponent(heading.id)}`;
+        anchor.title = 'Link permanente';
+        anchor.setAttribute('aria-label', `Link permanente: ${((_a = heading.textContent) === null || _a === void 0 ? void 0 : _a.trim()) || heading.id}`);
+        anchor.innerHTML = '<i class="fas fa-link" aria-hidden="true"></i>';
+        heading.append(anchor);
+    });
+    document.addEventListener('click', (event) => {
+        if (!(event.target instanceof Element))
+            return;
+        const anchor = event.target.closest('a[href^="#"]');
+        if (!anchor ||
+            event.defaultPrevented ||
+            (event instanceof MouseEvent &&
+                (event.button !== 0 ||
+                    event.metaKey ||
+                    event.ctrlKey ||
+                    event.shiftKey ||
+                    event.altKey)))
+            return;
+        const id = decodeURIComponent(anchor.hash.slice(1));
+        const target = id ? document.getElementById(id) : document.documentElement;
+        if (!target)
+            return;
+        event.preventDefault();
+        history.pushState(null, '', anchor.hash || '#top');
+        target.scrollIntoView({
+            behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches
+                ? 'auto'
+                : 'smooth',
+            block: 'start',
+        });
+    });
+    const tocLinks = Array.from(document.querySelectorAll('nav.toc a[href^="#"]'));
+    if (!tocLinks.length || typeof IntersectionObserver !== 'function')
+        return;
+    const linksById = new Map(tocLinks.map((link) => [decodeURIComponent(link.hash.slice(1)), link]));
+    const activate = (id) => {
+        tocLinks.forEach((link) => {
+            var _a;
+            const active = decodeURIComponent(link.hash.slice(1)) === id;
+            link.classList.toggle('active', active);
+            (_a = link.parentElement) === null || _a === void 0 ? void 0 : _a.classList.toggle('active', active);
+        });
+    };
+    const observer = new IntersectionObserver((entries) => {
+        const current = entries
+            .filter((entry) => entry.isIntersecting)
+            .sort((left, right) => left.boundingClientRect.top - right.boundingClientRect.top)[0];
+        if (current instanceof IntersectionObserverEntry &&
+            current.target instanceof HTMLElement)
+            activate(current.target.id);
+    }, { rootMargin: '-20px 0px -70% 0px', threshold: 0 });
+    linksById.forEach((_link, id) => {
+        const heading = document.getElementById(id);
+        if (heading)
+            observer.observe(heading);
+    });
+};
+const bindJcemResponsiveNav = () => {
+    const navigation = select('#site-nav');
+    if (!navigation)
+        return;
+    let frame = 0;
+    let pendingWidth = navigation.clientWidth;
+    let currentCompact = null;
+    const compactBreakpoint = 1024;
+    const applyState = () => {
+        frame = 0;
+        const compact = pendingWidth <= compactBreakpoint;
+        if (compact === currentCompact)
+            return;
+        currentCompact = compact;
+        navigation.dataset.jcemNavCompact = compact ? 'true' : 'false';
+    };
+    const schedule = (width) => {
+        pendingWidth = width;
+        if (frame)
+            return;
+        frame = window.requestAnimationFrame(applyState);
+    };
+    const ResizeObserverCtor = window.ResizeObserver;
+    if (typeof ResizeObserverCtor === 'function') {
+        const observer = new ResizeObserverCtor((entries) => {
+            var _a;
+            const width = (_a = entries[0]) === null || _a === void 0 ? void 0 : _a.contentRect.width;
+            if (width)
+                schedule(width);
+        });
+        observer.observe(navigation);
+    }
+    window.addEventListener('resize', () => schedule(navigation.clientWidth), { passive: true });
+    window.addEventListener('orientationchange', () => schedule(navigation.clientWidth), { passive: true });
+    schedule(pendingWidth);
 };
 const bindJcemScrollTop = () => {
     const button = select('.jcem-scroll-top');
@@ -424,7 +548,20 @@ const bindJcemCollapsibleSections = () => {
     });
     bindJcemPrintCollapsibles();
 };
-const jcemQuoteModels = ['standard', 'futuristic'];
+const jcemQuoteModels = [
+    'standard',
+    'futuristic',
+    'notice',
+    'info',
+    'alerta1',
+    'alerta2',
+];
+const jcemTypedQuoteIcons = {
+    notice: '📄',
+    info: 'ℹ️',
+    alerta1: '⚠️',
+    alerta2: '❗',
+};
 const isJcemQuoteModel = (value) => jcemQuoteModels.includes(value);
 const resolveJcemQuoteModel = (quote, article) => {
     const requested = quote.dataset.jcemQuoteModel ||
@@ -442,11 +579,44 @@ const resolveJcemQuoteModel = (quote, article) => {
 const markJcemSemanticQuote = (quote, model) => {
     quote.dataset.jcemBlockquote = '';
     quote.dataset.jcemQuoteModel = model;
-    quote.classList.remove('jcem-quote-model--standard', 'jcem-quote-model--futuristic');
+    quote.classList.remove(...jcemQuoteModels.map((name) => `jcem-quote-model--${name}`));
     quote.classList.add(`jcem-quote-model--${model}`);
     if (quote.tagName !== 'BLOCKQUOTE' && !quote.hasAttribute('role')) {
         quote.setAttribute('role', 'blockquote');
     }
+};
+const safeJcemQuoteIconUrl = (value) => {
+    if (!value)
+        return null;
+    try {
+        const url = new URL(value, document.baseURI);
+        return ['http:', 'https:'].includes(url.protocol) ? url.href : null;
+    }
+    catch {
+        return null;
+    }
+};
+const decorateJcemTypedQuote = (quote, model) => {
+    if (quote.querySelector(':scope > .jcem-quote__icon'))
+        return;
+    const icon = document.createElement('span');
+    icon.className = 'jcem-quote__icon';
+    const source = safeJcemQuoteIconUrl(quote.dataset.jcemQuoteIconSrc || '');
+    if (source) {
+        const image = document.createElement('img');
+        image.src = source;
+        image.alt = quote.dataset.jcemQuoteIconAlt || '';
+        image.loading = 'lazy';
+        image.decoding = 'async';
+        icon.append(image);
+    }
+    else {
+        icon.textContent =
+            quote.dataset.jcemQuoteIcon || jcemTypedQuoteIcons[model];
+        icon.setAttribute('aria-hidden', 'true');
+    }
+    quote.classList.add('jcem-quote--typed', 'jcem-quote--runtime-icon');
+    quote.prepend(icon);
 };
 const bindJcemBlockquotePanels = () => {
     const article = select('article.page.jcem-post');
@@ -463,6 +633,9 @@ const bindJcemBlockquotePanels = () => {
         }
         const model = resolveJcemQuoteModel(quote, article);
         markJcemSemanticQuote(quote, model);
+        if (!['standard', 'futuristic'].includes(model)) {
+            decorateJcemTypedQuote(quote, model);
+        }
         quote.dataset.jcemQuoteProcessed = 'true';
         if (model !== 'futuristic' || quote.tagName !== 'BLOCKQUOTE') {
             return;
@@ -914,6 +1087,7 @@ const createJcemRecentDateFlag = (post) => {
     return flag;
 };
 const createJcemRecentCard = (post) => {
+    var _a;
     const href = jcemSafeHttpUrl(post.url);
     if (!href || !post.title.trim())
         return null;
@@ -937,7 +1111,24 @@ const createJcemRecentCard = (post) => {
             figure.dataset.jcemAssetAspectRatio = post.image_aspect_ratio;
             figure.style.setProperty('--jcem-asset-aspect-ratio', post.image_aspect_ratio);
         }
-        img.src = image;
+        const variants = (post.image_variants || [])
+            .map((variant) => ({
+            ...variant,
+            path: jcemSafeHttpUrl(variant.path),
+        }))
+            .filter((variant) => variant.path &&
+            Number(variant.width) > 0 &&
+            Number(variant.height) > 0)
+            .sort((left, right) => left.width - right.width);
+        img.src = ((_a = variants[0]) === null || _a === void 0 ? void 0 : _a.path) || image;
+        if (variants.length) {
+            img.srcset = variants
+                .map((variant) => `${variant.path} ${variant.width}w`)
+                .join(', ');
+            img.sizes =
+                post.image_sizes ||
+                    '(max-width: 40rem) calc(100vw - 2rem), (max-width: 64rem) 50vw, 33vw';
+        }
         img.alt = String(post.image_alt || post.title);
         img.loading = 'lazy';
         img.decoding = 'async';
@@ -1088,21 +1279,48 @@ const hideNoScript = () => {
         noScript.style.display = 'none';
     }
 };
-const prepareJcemPrintArticle = async () => {
+let jcemPrintPreparation = null;
+const prepareJcemPrintArticle = () => {
     const article = select('[data-print-article]');
     if (!article)
-        return;
-    try {
-        const modulePath = new URL('../print-ieee/index.js', import.meta.url).href;
-        const library = (await import(modulePath));
+        return Promise.resolve();
+    if (jcemPrintPreparation)
+        return jcemPrintPreparation;
+    jcemPrintPreparation = import(new URL('../print-ieee/index.js', import.meta.url).href)
+        .then((library) => {
         library.prepareArticle(article, {
             profileId: article.dataset.printProfile ||
                 'ieee-conference-a4-ieeetran-1.8b',
         });
-    }
-    catch (_error) {
+    })
+        .catch(() => {
         article.dataset.printState = 'legivel';
-    }
+    });
+    return jcemPrintPreparation;
+};
+const bindJcemPrintPreparation = () => {
+    var _a, _b;
+    const article = select('[data-print-article]');
+    if (!article)
+        return;
+    const prepareNow = () => {
+        void prepareJcemPrintArticle();
+    };
+    window.addEventListener('beforeprint', prepareNow);
+    const printMedia = (_a = window.matchMedia) === null || _a === void 0 ? void 0 : _a.call(window, 'print');
+    (_b = printMedia === null || printMedia === void 0 ? void 0 : printMedia.addEventListener) === null || _b === void 0 ? void 0 : _b.call(printMedia, 'change', (event) => {
+        if (event.matches)
+            prepareNow();
+    });
+    const scheduleIdle = () => {
+        if (window.requestIdleCallback) {
+            window.requestIdleCallback(prepareNow, { timeout: 2000 });
+        }
+        else {
+            window.setTimeout(prepareNow, 0);
+        }
+    };
+    window.setTimeout(scheduleIdle, 5000);
 };
 bindJcemLoadingProgress();
 bindJcemSkeletonAssets();
@@ -1110,7 +1328,9 @@ scheduleJcemInitialReveal();
 document.addEventListener('DOMContentLoaded', () => {
     bindJcemTheme();
     bindJcemNav();
+    bindJcemThemeConnector();
     bindJcemMasthead();
+    bindJcemResponsiveNav();
     bindJcemScrollTop();
     bindJcemCollapsibleSections();
     bindJcemBlockquotePanels();
@@ -1118,6 +1338,6 @@ document.addEventListener('DOMContentLoaded', () => {
     bindJcemEditorialFormatting();
     bindJcemFootnotes();
     bindJcemMathControls();
-    void prepareJcemPrintArticle();
+    bindJcemPrintPreparation();
     hideNoScript();
 });

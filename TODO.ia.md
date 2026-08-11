@@ -29,7 +29,7 @@
   - Elimine TO-DOs completas, mantendo este arquivo sempre limpo.
   - Itens da TO-DO marcados somente devem estar marcados quando em andamento.
   - Qualquer título imediatamente abaixo de um item deve ser considerado subordinado à ele e deve ter identação obrigatóriamente sub alinhada, preservando a visualização aninhada.
-  - Iten marcados com `x` apenas indicam que fora lidos, tiveram a FT criada, e estão em andamento.
+  - Itens marcados com `x` apenas indicam que fora lidos, tiveram a FT criada, e estão em andamento.
 
   - Esta TO-DO é perene: NÃO PODE ser marcada como concluída nem removida e nem editada. Sua existência é perene; sua contabilização somente é necessária quando houver ao menos uma TO-DO por ela regida.
 

@@ -10,6 +10,7 @@ const themeInputs = await readFile(new URL('../_includes/jcem/body/first.html', 
 const featuredImage = await readFile(new URL('../_includes/jcem/post-featured-image.html', import.meta.url), 'utf8');
 const head = await readFile(new URL('../_includes/head/custom.html', import.meta.url), 'utf8');
 const themeScripts = await readFile(new URL('../_includes/scripts.html', import.meta.url), 'utf8');
+const visualValidation = await readFile(new URL('./validate-visual.js', import.meta.url), 'utf8');
 const config = validateConfig(
 	JSON.parse(await readFile(new URL('../config/pagespeed.json', import.meta.url), 'utf8')),
 );
@@ -44,6 +45,8 @@ assert.match(themeScripts, /site\.search == true or page\.layout == "search"/);
 assert.doesNotMatch(themeScripts, /else[\s\S]*main\.min\.js/);
 assert.match(themeInputs, /aria-label="Tema claro"/);
 assert.match(themeInputs, /aria-label="Tema escuro"/);
+assert.match(visualValidation, /const isVector = .*\.endsWith\('\.svg'\)/);
+assert.match(visualValidation, /hasResponsiveSelection: isVector \|\| Boolean/);
 
 const summary = summarize(
 	{

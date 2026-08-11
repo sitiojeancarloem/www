@@ -3,14 +3,14 @@
 <head>
 <meta charset="utf-8">
 <!-- begin _includes/seo.html --><title>Sobre - JeanCarloEM</title>
-<meta name="description" content="">
+<meta name="description" content="Artigos, ensaios e reflexões de Jean Carlo EM sobre ciência, filosofia, religião e sociedade.">
 <meta name="author" content="Jean Carlo EM">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="pt_BR">
 <meta property="og:site_name" content="JeanCarloEM">
 <meta property="og:title" content="Sobre">
 <meta property="og:url" content="https://www.jeancarloem.com/sobre/">
-<meta property="og:description" content="">
+<meta property="og:description" content="Artigos, ensaios e reflexões de Jean Carlo EM sobre ciência, filosofia, religião e sociedade.">
 <link rel="canonical" href="https://www.jeancarloem.com/sobre/">
 <!-- end _includes/seo.html -->
 <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="JeanCarloEM Feed">
@@ -23,8 +23,6 @@
 <link rel="stylesheet" href="/assets/css/main.css">
 <link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
 <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css"></noscript>
-<script src="/assets/jcem/consent-manager/silktide.js"></script>
-<script src="/assets/jcem/consent-manager/start.js"></script>
 <meta name="apple-mobile-web-app-title" content="JeanCarloEM" />
 <link
 rel="icon"
@@ -82,15 +80,6 @@ href="https://jcem.pro/logo/apple-touch-icon.png"
 		100% {
 			transform: rotate(-90deg);
 		}
-	}
-
-	html:not(.jcem-page-loaded) body {
-		/* PROTECAO: a pagina real so aparece apos recursos essenciais. */
-		overflow: hidden;
-	}
-
-	html:not(.jcem-page-loaded) body > :not(.carregandoPagina) {
-		visibility: hidden !important;
 	}
 
 	body > .carregandoPagina {
@@ -393,6 +382,8 @@ href="https://jcem.pro/logo/apple-touch-icon.png"
 </style>
 </noscript>
 <script src="/assets/jcem/js/site.js" type="module"></script>
+<script src="/assets/jcem/consent-manager/silktide.js" defer></script>
+<script src="/assets/jcem/consent-manager/start.js" defer></script>
 </head>
 <body class="layout--default jcem-sobre-page" dir="ltr">
 <div id="carregandoPagina" class="carregandoPagina" aria-hidden="true">
@@ -948,6 +939,7 @@ type="radio"
 name="jcem-theme"
 id="jcem-theme-light"
 value="light"
+aria-label="Tema claro"
 />
 <input
 class="radio jcem-theme-radio"
@@ -955,6 +947,7 @@ type="radio"
 name="jcem-theme"
 id="jcem-theme-dark"
 value="dark"
+aria-label="Tema escuro"
 checked
 />
 <div class="main_jcem_wrapper">
@@ -1020,6 +1013,7 @@ class="masthead"
 class="jcem-nav-state"
 type="checkbox"
 id="jcem-nav-state"
+aria-label="Alternar menu"
 />
 <nav
 id="site-nav"
@@ -1065,28 +1059,28 @@ href="https://github.com/jeancarloem"
 >GitHub</a
 >
 </li></ul>
-<div
+<button
 class="jcem-theme-toggle"
-role="group"
+type="button"
+role="switch"
+aria-checked="true"
 aria-label="Alternar tema"
 >
-<label
+<span
 class="jcem-theme-toggle__option jcem-theme-toggle__option--light"
-for="jcem-theme-light"
 title="Tema claro"
 >
 <span class="visually-hidden">Tema claro</span>
 <i class="fas fa-sun" aria-hidden="true"></i>
-</label>
-<label
+</span>
+<span
 class="jcem-theme-toggle__option jcem-theme-toggle__option--dark"
-for="jcem-theme-dark"
 title="Tema escuro"
 >
 <span class="visually-hidden">Tema escuro</span>
 <i class="fas fa-moon" aria-hidden="true"></i>
-</label>
-</div>
+</span>
+</button>
 <label
 class="jcem-nav-toggle"
 for="jcem-nav-state"
@@ -1095,7 +1089,7 @@ aria-label="Alternar menu"
 <span class="visually-hidden"
 >Chavear menu</span
 >
-<span class="navicon"></span>
+<i class="fas fa-bars" aria-hidden="true"></i>
 </label>
 <button class="greedy-nav__toggle hidden" type="button">
 <span class="visually-hidden"
@@ -1833,7 +1827,6 @@ class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1872"
 <a class="jcem-scroll-top" href="#" aria-label="Voltar ao topo" title="Voltar ao topo" aria-hidden="true" tabindex="-1">
 <i class="fas fa-arrow-up" aria-hidden="true"></i>
 </a>
-<script src="/assets/js/main.min.js"></script>
 </div>
 </body>
 </html>

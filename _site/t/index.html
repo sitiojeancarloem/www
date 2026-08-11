@@ -3,14 +3,14 @@
 <head>
 <meta charset="utf-8">
 <!-- begin _includes/seo.html --><title>Assuntos - JeanCarloEM</title>
-<meta name="description" content="">
+<meta name="description" content="Artigos, ensaios e reflexões de Jean Carlo EM sobre ciência, filosofia, religião e sociedade.">
 <meta name="author" content="Jean Carlo EM">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="pt_BR">
 <meta property="og:site_name" content="JeanCarloEM">
 <meta property="og:title" content="Assuntos">
 <meta property="og:url" content="https://www.jeancarloem.com/t/">
-<meta property="og:description" content="">
+<meta property="og:description" content="Artigos, ensaios e reflexões de Jean Carlo EM sobre ciência, filosofia, religião e sociedade.">
 <link rel="canonical" href="https://www.jeancarloem.com/t/">
 <!-- end _includes/seo.html -->
 <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="JeanCarloEM Feed">
@@ -23,8 +23,6 @@
 <link rel="stylesheet" href="/assets/css/main.css">
 <link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
 <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css"></noscript>
-<script src="/assets/jcem/consent-manager/silktide.js"></script>
-<script src="/assets/jcem/consent-manager/start.js"></script>
 <meta name="apple-mobile-web-app-title" content="JeanCarloEM" />
 <link
 rel="icon"
@@ -82,15 +80,6 @@ href="https://jcem.pro/logo/apple-touch-icon.png"
 		100% {
 			transform: rotate(-90deg);
 		}
-	}
-
-	html:not(.jcem-page-loaded) body {
-		/* PROTECAO: a pagina real so aparece apos recursos essenciais. */
-		overflow: hidden;
-	}
-
-	html:not(.jcem-page-loaded) body > :not(.carregandoPagina) {
-		visibility: hidden !important;
 	}
 
 	body > .carregandoPagina {
@@ -393,6 +382,8 @@ href="https://jcem.pro/logo/apple-touch-icon.png"
 </style>
 </noscript>
 <script src="/assets/jcem/js/site.js" type="module"></script>
+<script src="/assets/jcem/consent-manager/silktide.js" defer></script>
+<script src="/assets/jcem/consent-manager/start.js" defer></script>
 </head>
 <body class="layout--tags" dir="ltr">
 <div id="carregandoPagina" class="carregandoPagina" aria-hidden="true">
@@ -948,6 +939,7 @@ type="radio"
 name="jcem-theme"
 id="jcem-theme-light"
 value="light"
+aria-label="Tema claro"
 />
 <input
 class="radio jcem-theme-radio"
@@ -955,6 +947,7 @@ type="radio"
 name="jcem-theme"
 id="jcem-theme-dark"
 value="dark"
+aria-label="Tema escuro"
 checked
 />
 <div class="main_jcem_wrapper">
@@ -1020,6 +1013,7 @@ class="masthead"
 class="jcem-nav-state"
 type="checkbox"
 id="jcem-nav-state"
+aria-label="Alternar menu"
 />
 <nav
 id="site-nav"
@@ -1065,28 +1059,28 @@ href="https://github.com/jeancarloem"
 >GitHub</a
 >
 </li></ul>
-<div
+<button
 class="jcem-theme-toggle"
-role="group"
+type="button"
+role="switch"
+aria-checked="true"
 aria-label="Alternar tema"
 >
-<label
+<span
 class="jcem-theme-toggle__option jcem-theme-toggle__option--light"
-for="jcem-theme-light"
 title="Tema claro"
 >
 <span class="visually-hidden">Tema claro</span>
 <i class="fas fa-sun" aria-hidden="true"></i>
-</label>
-<label
+</span>
+<span
 class="jcem-theme-toggle__option jcem-theme-toggle__option--dark"
-for="jcem-theme-dark"
 title="Tema escuro"
 >
 <span class="visually-hidden">Tema escuro</span>
 <i class="fas fa-moon" aria-hidden="true"></i>
-</label>
-</div>
+</span>
+</button>
 <label
 class="jcem-nav-toggle"
 for="jcem-nav-state"
@@ -1095,7 +1089,7 @@ aria-label="Alternar menu"
 <span class="visually-hidden"
 >Chavear menu</span
 >
-<span class="navicon"></span>
+<i class="fas fa-bars" aria-hidden="true"></i>
 </label>
 <button class="greedy-nav__toggle hidden" type="button">
 <span class="visually-hidden"
@@ -1118,276 +1112,60 @@ aria-hidden="true"
 <div class="archive">
 <h1 id="page-title" class="page__title">Assuntos</h1>
 <ul class="taxonomy__index">
-<li>
-<a href="#bíblia">
-<strong>bíblia</strong> <span class="taxonomy__count">5</span>
-</a>
-</li>
-<li>
-<a href="#ciência">
-<strong>ciência</strong> <span class="taxonomy__count">3</span>
-</a>
-</li>
-<li>
-<a href="#fakenews">
-<strong>fakenews</strong> <span class="taxonomy__count">2</span>
-</a>
-</li>
-<li>
-<a href="#tradição">
-<strong>tradição</strong> <span class="taxonomy__count">2</span>
-</a>
-</li>
-<li>
-<a href="#verdade">
-<strong>verdade</strong> <span class="taxonomy__count">2</span>
-</a>
-</li>
-<li>
-<a href="#matemática">
-<strong>matemática</strong> <span class="taxonomy__count">2</span>
-</a>
-</li>
-<li>
-<a href="#tabela-verdade">
-<strong>tabela verdade</strong> <span class="taxonomy__count">2</span>
-</a>
-</li>
-<li>
-<a href="#absolutismo">
-<strong>absolutismo</strong> <span class="taxonomy__count">1</span>
-</a>
-</li>
-<li>
-<a href="#convergencialismo">
-<strong>convergencialismo</strong> <span class="taxonomy__count">1</span>
-</a>
-</li>
-<li>
-<a href="#ficção">
-<strong>ficção</strong> <span class="taxonomy__count">1</span>
-</a>
-</li>
-<li>
-<a href="#filosofia">
-<strong>filosofia</strong> <span class="taxonomy__count">1</span>
-</a>
-</li>
-<li>
-<a href="#ilusão">
-<strong>ilusão</strong> <span class="taxonomy__count">1</span>
-</a>
-</li>
-<li>
-<a href="#relatividade">
-<strong>relatividade</strong> <span class="taxonomy__count">1</span>
-</a>
-</li>
-<li>
-<a href="#relativismo">
-<strong>relativismo</strong> <span class="taxonomy__count">1</span>
-</a>
-</li>
-<li>
-<a href="#religião">
-<strong>religião</strong> <span class="taxonomy__count">1</span>
-</a>
-</li>
-<li>
-<a href="#renascentismo">
-<strong>renascentismo</strong> <span class="taxonomy__count">1</span>
-</a>
-</li>
-<li>
-<a href="#universionalismo">
-<strong>universionalismo</strong> <span class="taxonomy__count">1</span>
-</a>
-</li>
-<li>
-<a href="#ensinamento">
-<strong>ensinamento</strong> <span class="taxonomy__count">1</span>
-</a>
-</li>
-<li>
-<a href="#referêncial-cristão">
-<strong>referêncial cristão</strong> <span class="taxonomy__count">1</span>
-</a>
-</li>
-<li>
-<a href="#sola-scriptura">
-<strong>sola scriptura</strong> <span class="taxonomy__count">1</span>
-</a>
-</li>
-<li>
-<a href="#verdade-absolute">
-<strong>verdade absolute</strong> <span class="taxonomy__count">1</span>
-</a>
-</li>
-<li>
-<a href="#dez-mandamentos">
-<strong>dez mandamentos</strong> <span class="taxonomy__count">1</span>
-</a>
-</li>
-<li>
-<a href="#lei">
-<strong>lei</strong> <span class="taxonomy__count">1</span>
-</a>
-</li>
-<li>
-<a href="#sábado">
-<strong>sábado</strong> <span class="taxonomy__count">1</span>
-</a>
-</li>
-<li>
-<a href="#sétimo-dia">
-<strong>sétimo dia</strong> <span class="taxonomy__count">1</span>
-</a>
-</li>
-<li>
-<a href="#torá">
-<strong>torá</strong> <span class="taxonomy__count">1</span>
-</a>
-</li>
-<li>
-<a href="#alma">
-<strong>alma</strong> <span class="taxonomy__count">1</span>
-</a>
-</li>
-<li>
-<a href="#criação">
-<strong>criação</strong> <span class="taxonomy__count">1</span>
-</a>
-</li>
-<li>
-<a href="#espiritismo">
-<strong>espiritismo</strong> <span class="taxonomy__count">1</span>
-</a>
-</li>
-<li>
-<a href="#espírito">
-<strong>espírito</strong> <span class="taxonomy__count">1</span>
-</a>
-</li>
-<li>
-<a href="#espiritualismo">
-<strong>espiritualismo</strong> <span class="taxonomy__count">1</span>
-</a>
-</li>
-<li>
-<a href="#gênesis">
-<strong>gênesis</strong> <span class="taxonomy__count">1</span>
-</a>
-</li>
-<li>
-<a href="#imortal">
-<strong>imortal</strong> <span class="taxonomy__count">1</span>
-</a>
-</li>
-<li>
-<a href="#mortal">
-<strong>mortal</strong> <span class="taxonomy__count">1</span>
-</a>
-</li>
-<li>
-<a href="#verdades-do-verso">
-<strong>verdades do verso</strong> <span class="taxonomy__count">1</span>
-</a>
-</li>
-<li>
-<a href="#falácia">
-<strong>falácia</strong> <span class="taxonomy__count">1</span>
-</a>
-</li>
-<li>
-<a href="#matemática-combinacional">
-<strong>matemática combinacional</strong> <span class="taxonomy__count">1</span>
-</a>
-</li>
-<li>
-<a href="#mentira">
-<strong>mentira</strong> <span class="taxonomy__count">1</span>
-</a>
-</li>
-<li>
-<a href="#esforço-humano">
-<strong>esforço humano</strong> <span class="taxonomy__count">1</span>
-</a>
-</li>
-<li>
-<a href="#espírito-santo">
-<strong>Espírito Santo</strong> <span class="taxonomy__count">1</span>
-</a>
-</li>
-<li>
-<a href="#perfecionismo">
-<strong>perfecionismo</strong> <span class="taxonomy__count">1</span>
-</a>
-</li>
-<li>
-<a href="#pós-lapsariano">
-<strong>pós-lapsariano</strong> <span class="taxonomy__count">1</span>
-</a>
-</li>
-<li>
-<a href="#pós-lapso">
-<strong>pós-lapso</strong> <span class="taxonomy__count">1</span>
-</a>
-</li>
-<li>
-<a href="#pré-lapsariano">
-<strong>pré-lapsariano</strong> <span class="taxonomy__count">1</span>
-</a>
-</li>
-<li>
-<a href="#pré-lapso">
-<strong>pré-lapso</strong> <span class="taxonomy__count">1</span>
-</a>
-</li>
-<li>
-<a href="#prefeição">
-<strong>prefeição</strong> <span class="taxonomy__count">1</span>
-</a>
-</li>
-<li>
-<a href="#salvação">
-<strong>salvação</strong> <span class="taxonomy__count">1</span>
-</a>
-</li>
-<li>
-<a href="#santidade">
-<strong>santidade</strong> <span class="taxonomy__count">1</span>
-</a>
-</li>
-<li>
-<a href="#santificação">
-<strong>santificação</strong> <span class="taxonomy__count">1</span>
-</a>
-</li>
-<li>
-<a href="#a-bíblia-está-certa">
-<strong>A bíblia está certa</strong> <span class="taxonomy__count">1</span>
-</a>
-</li>
-<li>
-<a href="#deus-está-certo">
-<strong>Deus está certo</strong> <span class="taxonomy__count">1</span>
-</a>
-</li>
-<li>
-<a href="#estudo">
-<strong>estudo</strong> <span class="taxonomy__count">1</span>
-</a>
-</li>
-<li>
-<a href="#medicina">
-<strong>medicina</strong> <span class="taxonomy__count">1</span>
-</a>
-</li>
-<li>
-<a href="#saúde">
-<strong>saúde</strong> <span class="taxonomy__count">1</span>
-</a>
-</li>
+<li><a href="#bíblia"><strong>bíblia</strong> <span class="taxonomy__count">5</span></a></li>
+<li><a href="#ciência"><strong>ciência</strong> <span class="taxonomy__count">3</span></a></li>
+<li><a href="#fakenews"><strong>fakenews</strong> <span class="taxonomy__count">2</span></a></li>
+<li><a href="#tradição"><strong>tradição</strong> <span class="taxonomy__count">2</span></a></li>
+<li><a href="#verdade"><strong>verdade</strong> <span class="taxonomy__count">2</span></a></li>
+<li><a href="#matemática"><strong>matemática</strong> <span class="taxonomy__count">2</span></a></li>
+<li><a href="#tabela-verdade"><strong>tabela verdade</strong> <span class="taxonomy__count">2</span></a></li>
+<li><a href="#absolutismo"><strong>absolutismo</strong> <span class="taxonomy__count">1</span></a></li>
+<li><a href="#convergencialismo"><strong>convergencialismo</strong> <span class="taxonomy__count">1</span></a></li>
+<li><a href="#ficção"><strong>ficção</strong> <span class="taxonomy__count">1</span></a></li>
+<li><a href="#filosofia"><strong>filosofia</strong> <span class="taxonomy__count">1</span></a></li>
+<li><a href="#ilusão"><strong>ilusão</strong> <span class="taxonomy__count">1</span></a></li>
+<li><a href="#relatividade"><strong>relatividade</strong> <span class="taxonomy__count">1</span></a></li>
+<li><a href="#relativismo"><strong>relativismo</strong> <span class="taxonomy__count">1</span></a></li>
+<li><a href="#religião"><strong>religião</strong> <span class="taxonomy__count">1</span></a></li>
+<li><a href="#renascentismo"><strong>renascentismo</strong> <span class="taxonomy__count">1</span></a></li>
+<li><a href="#universionalismo"><strong>universionalismo</strong> <span class="taxonomy__count">1</span></a></li>
+<li><a href="#ensinamento"><strong>ensinamento</strong> <span class="taxonomy__count">1</span></a></li>
+<li><a href="#referêncial-cristão"><strong>referêncial cristão</strong> <span class="taxonomy__count">1</span></a></li>
+<li><a href="#sola-scriptura"><strong>sola scriptura</strong> <span class="taxonomy__count">1</span></a></li>
+<li><a href="#verdade-absolute"><strong>verdade absolute</strong> <span class="taxonomy__count">1</span></a></li>
+<li><a href="#dez-mandamentos"><strong>dez mandamentos</strong> <span class="taxonomy__count">1</span></a></li>
+<li><a href="#lei"><strong>lei</strong> <span class="taxonomy__count">1</span></a></li>
+<li><a href="#sábado"><strong>sábado</strong> <span class="taxonomy__count">1</span></a></li>
+<li><a href="#sétimo-dia"><strong>sétimo dia</strong> <span class="taxonomy__count">1</span></a></li>
+<li><a href="#torá"><strong>torá</strong> <span class="taxonomy__count">1</span></a></li>
+<li><a href="#alma"><strong>alma</strong> <span class="taxonomy__count">1</span></a></li>
+<li><a href="#criação"><strong>criação</strong> <span class="taxonomy__count">1</span></a></li>
+<li><a href="#espiritismo"><strong>espiritismo</strong> <span class="taxonomy__count">1</span></a></li>
+<li><a href="#espírito"><strong>espírito</strong> <span class="taxonomy__count">1</span></a></li>
+<li><a href="#espiritualismo"><strong>espiritualismo</strong> <span class="taxonomy__count">1</span></a></li>
+<li><a href="#gênesis"><strong>gênesis</strong> <span class="taxonomy__count">1</span></a></li>
+<li><a href="#imortal"><strong>imortal</strong> <span class="taxonomy__count">1</span></a></li>
+<li><a href="#mortal"><strong>mortal</strong> <span class="taxonomy__count">1</span></a></li>
+<li><a href="#verdades-do-verso"><strong>verdades do verso</strong> <span class="taxonomy__count">1</span></a></li>
+<li><a href="#falácia"><strong>falácia</strong> <span class="taxonomy__count">1</span></a></li>
+<li><a href="#matemática-combinacional"><strong>matemática combinacional</strong> <span class="taxonomy__count">1</span></a></li>
+<li><a href="#mentira"><strong>mentira</strong> <span class="taxonomy__count">1</span></a></li>
+<li><a href="#esforço-humano"><strong>esforço humano</strong> <span class="taxonomy__count">1</span></a></li>
+<li><a href="#espírito-santo"><strong>Espírito Santo</strong> <span class="taxonomy__count">1</span></a></li>
+<li><a href="#perfecionismo"><strong>perfecionismo</strong> <span class="taxonomy__count">1</span></a></li>
+<li><a href="#pós-lapsariano"><strong>pós-lapsariano</strong> <span class="taxonomy__count">1</span></a></li>
+<li><a href="#pós-lapso"><strong>pós-lapso</strong> <span class="taxonomy__count">1</span></a></li>
+<li><a href="#pré-lapsariano"><strong>pré-lapsariano</strong> <span class="taxonomy__count">1</span></a></li>
+<li><a href="#pré-lapso"><strong>pré-lapso</strong> <span class="taxonomy__count">1</span></a></li>
+<li><a href="#prefeição"><strong>prefeição</strong> <span class="taxonomy__count">1</span></a></li>
+<li><a href="#salvação"><strong>salvação</strong> <span class="taxonomy__count">1</span></a></li>
+<li><a href="#santidade"><strong>santidade</strong> <span class="taxonomy__count">1</span></a></li>
+<li><a href="#santificação"><strong>santificação</strong> <span class="taxonomy__count">1</span></a></li>
+<li><a href="#a-bíblia-está-certa"><strong>A bíblia está certa</strong> <span class="taxonomy__count">1</span></a></li>
+<li><a href="#deus-está-certo"><strong>Deus está certo</strong> <span class="taxonomy__count">1</span></a></li>
+<li><a href="#estudo"><strong>estudo</strong> <span class="taxonomy__count">1</span></a></li>
+<li><a href="#medicina"><strong>medicina</strong> <span class="taxonomy__count">1</span></a></li>
+<li><a href="#saúde"><strong>saúde</strong> <span class="taxonomy__count">1</span></a></li>
 </ul>
 <section id="bíblia" class="taxonomy__section">
 <h2 class="archive__subtitle">bíblia</h2>
@@ -1397,7 +1175,7 @@ aria-hidden="true"
 <a class="archive__item-link u-url" href="/p/nenhum-nivel-de-alcool-faz-bem-a-saude/" rel="permalink">
 <header class="archive__item-header">
 <figure class="archive__item-teaser jcem-skeleton" data-jcem-skeleton-state="loading" data-jcem-asset-aspect-ratio="1200 / 628" style="--jcem-asset-aspect-ratio: 1200 / 628">
-<img class="archive__item-image u-photo jcem-skeleton-asset" src="https://web.archive.org/web/20210207030211im_/https://blog.jeancarloem.com/wp-content/uploads/2021/02/Nenhum-nivel-de-alcool-faz-bem-a-saude.jpg" alt="Nenhum nível de álcool faz bem à saúde" loading="lazy" decoding="async" width="1200" height="628">
+<img class="archive__item-image u-photo jcem-skeleton-asset" src="/assets/images/responsive/nenhum-alcool/nenhum-alcool-320w.webp" alt="Nenhum nível de álcool faz bem à saúde" loading="eager" decoding="async" fetchpriority="high" srcset="/assets/images/responsive/nenhum-alcool/nenhum-alcool-320w.webp 320w, /assets/images/responsive/nenhum-alcool/nenhum-alcool-640w.webp 640w, /assets/images/responsive/nenhum-alcool/nenhum-alcool-960w.webp 960w, /assets/images/responsive/nenhum-alcool/nenhum-alcool-1200w.webp 1200w" sizes="(max-width: 40rem) calc(100vw - 2rem), (max-width: 64rem) 50vw, 33vw" width="1200" height="628">
 </figure>
 <div class="jcem-date-flag jcem-date-flag--updated jcem-date-flag--archive">
 <time datetime="2021-02-06T23:50:42-03:00" title="Publicado em 06/02/2021; atualizado em 15/06/2026" aria-label="Publicado em 06/02/2021; atualizado em 15/06/2026">
@@ -1431,7 +1209,7 @@ aria-hidden="true"
 <a class="archive__item-link u-url" href="/p/5-verdades-de-genesis-27/" rel="permalink">
 <header class="archive__item-header">
 <figure class="archive__item-teaser jcem-skeleton" data-jcem-skeleton-state="loading" data-jcem-asset-aspect-ratio="1920 / 1002" style="--jcem-asset-aspect-ratio: 1920 / 1002">
-<img class="archive__item-image u-photo jcem-skeleton-asset" src="https://web.archive.org/web/20201005014559im_/https://blog.jeancarloem.com/wp-content/uploads/2020/07/5-verdades-de-genesis-2-7.png" alt="5 verdades de Gênesis 2:7" loading="lazy" decoding="async" width="1920" height="1002">
+<img class="archive__item-image u-photo jcem-skeleton-asset" src="/assets/images/responsive/cinco-verdades-genesis/cinco-verdades-genesis-320w.webp" alt="5 verdades de Gênesis 2:7" loading="lazy" decoding="async" srcset="/assets/images/responsive/cinco-verdades-genesis/cinco-verdades-genesis-320w.webp 320w, /assets/images/responsive/cinco-verdades-genesis/cinco-verdades-genesis-640w.webp 640w, /assets/images/responsive/cinco-verdades-genesis/cinco-verdades-genesis-960w.webp 960w, /assets/images/responsive/cinco-verdades-genesis/cinco-verdades-genesis-1200w.webp 1200w, /assets/images/responsive/cinco-verdades-genesis/cinco-verdades-genesis-1280w.webp 1280w, /assets/images/responsive/cinco-verdades-genesis/cinco-verdades-genesis-1920w.webp 1920w" sizes="(max-width: 40rem) calc(100vw - 2rem), (max-width: 64rem) 50vw, 33vw" width="1920" height="1002">
 </figure>
 <div class="jcem-date-flag jcem-date-flag--updated jcem-date-flag--archive">
 <time datetime="2020-07-11T19:24:08-03:00" title="Publicado em 11/07/2020; atualizado em 15/06/2026" aria-label="Publicado em 11/07/2020; atualizado em 15/06/2026">
@@ -1465,7 +1243,7 @@ aria-hidden="true"
 <a class="archive__item-link u-url" href="/p/nove-motivos-para-guardar-o-sabado/" rel="permalink">
 <header class="archive__item-header">
 <figure class="archive__item-teaser jcem-skeleton" data-jcem-skeleton-state="loading" data-jcem-asset-aspect-ratio="1920 / 1002" style="--jcem-asset-aspect-ratio: 1920 / 1002">
-<img class="archive__item-image u-photo jcem-skeleton-asset" src="https://web.archive.org/web/20201004084617im_/https://blog.jeancarloem.com/wp-content/uploads/2020/07/9-motivos-para-guardar-o-sabado.png" alt="Nove motivos para guardar o sábado" loading="lazy" decoding="async" width="1920" height="1002">
+<img class="archive__item-image u-photo jcem-skeleton-asset" src="/assets/images/responsive/nove-motivos-sabado/nove-motivos-sabado-320w.webp" alt="Nove motivos para guardar o sábado" loading="lazy" decoding="async" srcset="/assets/images/responsive/nove-motivos-sabado/nove-motivos-sabado-320w.webp 320w, /assets/images/responsive/nove-motivos-sabado/nove-motivos-sabado-640w.webp 640w, /assets/images/responsive/nove-motivos-sabado/nove-motivos-sabado-960w.webp 960w, /assets/images/responsive/nove-motivos-sabado/nove-motivos-sabado-1200w.webp 1200w, /assets/images/responsive/nove-motivos-sabado/nove-motivos-sabado-1280w.webp 1280w, /assets/images/responsive/nove-motivos-sabado/nove-motivos-sabado-1920w.webp 1920w" sizes="(max-width: 40rem) calc(100vw - 2rem), (max-width: 64rem) 50vw, 33vw" width="1920" height="1002">
 </figure>
 <div class="jcem-date-flag jcem-date-flag--updated jcem-date-flag--archive">
 <time datetime="2020-07-04T21:38:11-03:00" title="Publicado em 04/07/2020; atualizado em 15/06/2026" aria-label="Publicado em 04/07/2020; atualizado em 15/06/2026">
@@ -1499,7 +1277,7 @@ aria-hidden="true"
 <a class="archive__item-link u-url" href="/p/sola-scriptura/" rel="permalink">
 <header class="archive__item-header">
 <figure class="archive__item-teaser jcem-skeleton" data-jcem-skeleton-state="loading" data-jcem-asset-aspect-ratio="1200 / 630" style="--jcem-asset-aspect-ratio: 1200 / 630">
-<img class="archive__item-image u-photo jcem-skeleton-asset" src="https://web.archive.org/web/20201011094944im_/https://blog.jeancarloem.com/wp-content/uploads/2020/05/sola-scriptura-farol.png" alt="Sola Scriptura" loading="lazy" decoding="async" width="1200" height="630">
+<img class="archive__item-image u-photo jcem-skeleton-asset" src="/assets/images/responsive/sola-scriptura/sola-scriptura-320w.webp" alt="Sola Scriptura" loading="lazy" decoding="async" srcset="/assets/images/responsive/sola-scriptura/sola-scriptura-320w.webp 320w, /assets/images/responsive/sola-scriptura/sola-scriptura-640w.webp 640w, /assets/images/responsive/sola-scriptura/sola-scriptura-960w.webp 960w, /assets/images/responsive/sola-scriptura/sola-scriptura-1200w.webp 1200w" sizes="(max-width: 40rem) calc(100vw - 2rem), (max-width: 64rem) 50vw, 33vw" width="1200" height="630">
 </figure>
 <div class="jcem-date-flag jcem-date-flag--updated jcem-date-flag--archive">
 <time datetime="2020-05-22T16:53:21-03:00" title="Publicado em 22/05/2020; atualizado em 15/06/2026" aria-label="Publicado em 22/05/2020; atualizado em 15/06/2026">
@@ -1533,7 +1311,7 @@ aria-hidden="true"
 <a class="archive__item-link u-url" href="/p/tradicao-vs-biblia-tradicao-ou-biblia/" rel="permalink">
 <header class="archive__item-header">
 <figure class="archive__item-teaser jcem-skeleton" data-jcem-skeleton-state="loading" data-jcem-asset-aspect-ratio="1200 / 630" style="--jcem-asset-aspect-ratio: 1200 / 630">
-<img class="archive__item-image u-photo jcem-skeleton-asset" src="https://web.archive.org/web/20201006232837im_/https://blog.jeancarloem.com/wp-content/uploads/2020/04/COVER.png" alt="Tradição VS Bíblia – Tradição OU Bíblia" loading="lazy" decoding="async" width="1200" height="630">
+<img class="archive__item-image u-photo jcem-skeleton-asset" src="/assets/images/responsive/tradicao-vs-biblia/tradicao-vs-biblia-320w.webp" alt="Tradição VS Bíblia – Tradição OU Bíblia" loading="lazy" decoding="async" srcset="/assets/images/responsive/tradicao-vs-biblia/tradicao-vs-biblia-320w.webp 320w, /assets/images/responsive/tradicao-vs-biblia/tradicao-vs-biblia-640w.webp 640w, /assets/images/responsive/tradicao-vs-biblia/tradicao-vs-biblia-960w.webp 960w, /assets/images/responsive/tradicao-vs-biblia/tradicao-vs-biblia-1200w.webp 1200w" sizes="(max-width: 40rem) calc(100vw - 2rem), (max-width: 64rem) 50vw, 33vw" width="1200" height="630">
 </figure>
 <div class="jcem-date-flag jcem-date-flag--updated jcem-date-flag--archive">
 <time datetime="2020-04-26T10:36:53-03:00" title="Publicado em 26/04/2020; atualizado em 15/06/2026" aria-label="Publicado em 26/04/2020; atualizado em 15/06/2026">
@@ -1573,7 +1351,7 @@ aria-hidden="true"
 <a class="archive__item-link u-url" href="/p/nenhum-nivel-de-alcool-faz-bem-a-saude/" rel="permalink">
 <header class="archive__item-header">
 <figure class="archive__item-teaser jcem-skeleton" data-jcem-skeleton-state="loading" data-jcem-asset-aspect-ratio="1200 / 628" style="--jcem-asset-aspect-ratio: 1200 / 628">
-<img class="archive__item-image u-photo jcem-skeleton-asset" src="https://web.archive.org/web/20210207030211im_/https://blog.jeancarloem.com/wp-content/uploads/2021/02/Nenhum-nivel-de-alcool-faz-bem-a-saude.jpg" alt="Nenhum nível de álcool faz bem à saúde" loading="lazy" decoding="async" width="1200" height="628">
+<img class="archive__item-image u-photo jcem-skeleton-asset" src="/assets/images/responsive/nenhum-alcool/nenhum-alcool-320w.webp" alt="Nenhum nível de álcool faz bem à saúde" loading="lazy" decoding="async" srcset="/assets/images/responsive/nenhum-alcool/nenhum-alcool-320w.webp 320w, /assets/images/responsive/nenhum-alcool/nenhum-alcool-640w.webp 640w, /assets/images/responsive/nenhum-alcool/nenhum-alcool-960w.webp 960w, /assets/images/responsive/nenhum-alcool/nenhum-alcool-1200w.webp 1200w" sizes="(max-width: 40rem) calc(100vw - 2rem), (max-width: 64rem) 50vw, 33vw" width="1200" height="628">
 </figure>
 <div class="jcem-date-flag jcem-date-flag--updated jcem-date-flag--archive">
 <time datetime="2021-02-06T23:50:42-03:00" title="Publicado em 06/02/2021; atualizado em 15/06/2026" aria-label="Publicado em 06/02/2021; atualizado em 15/06/2026">
@@ -1607,7 +1385,7 @@ aria-hidden="true"
 <a class="archive__item-link u-url" href="/p/como-identificar-falacias/" rel="permalink">
 <header class="archive__item-header">
 <figure class="archive__item-teaser jcem-skeleton" data-jcem-skeleton-state="loading" data-jcem-asset-aspect-ratio="1920 / 1080" style="--jcem-asset-aspect-ratio: 1920 / 1080">
-<img class="archive__item-image u-photo jcem-skeleton-asset" src="https://web.archive.org/web/20201005013131im_/https://blog.jeancarloem.com/wp-content/uploads/2020/08/cover-como-identificar-falacias.png" alt="Como identificar Falácias" loading="lazy" decoding="async" width="1920" height="1080">
+<img class="archive__item-image u-photo jcem-skeleton-asset" src="/assets/images/responsive/como-identificar-falacias/como-identificar-falacias-320w.webp" alt="Como identificar Falácias" loading="lazy" decoding="async" srcset="/assets/images/responsive/como-identificar-falacias/como-identificar-falacias-320w.webp 320w, /assets/images/responsive/como-identificar-falacias/como-identificar-falacias-640w.webp 640w, /assets/images/responsive/como-identificar-falacias/como-identificar-falacias-960w.webp 960w, /assets/images/responsive/como-identificar-falacias/como-identificar-falacias-1200w.webp 1200w, /assets/images/responsive/como-identificar-falacias/como-identificar-falacias-1280w.webp 1280w, /assets/images/responsive/como-identificar-falacias/como-identificar-falacias-1920w.webp 1920w" sizes="(max-width: 40rem) calc(100vw - 2rem), (max-width: 64rem) 50vw, 33vw" width="1920" height="1080">
 </figure>
 <div class="jcem-date-flag jcem-date-flag--updated jcem-date-flag--archive">
 <time datetime="2020-08-15T19:14:17-03:00" title="Publicado em 15/08/2020; atualizado em 15/06/2026" aria-label="Publicado em 15/08/2020; atualizado em 15/06/2026">
@@ -1641,7 +1419,7 @@ aria-hidden="true"
 <a class="archive__item-link u-url" href="/p/devaneios/" rel="permalink">
 <header class="archive__item-header">
 <figure class="archive__item-teaser jcem-skeleton" data-jcem-skeleton-state="loading" data-jcem-asset-aspect-ratio="6345 / 460" style="--jcem-asset-aspect-ratio: 6345 / 460">
-<img class="archive__item-image u-photo jcem-skeleton-asset" src="/assets/images/posts/devaneios/devaneios-grande.png" alt="Devaneios" loading="lazy" decoding="async" width="6345" height="460">
+<img class="archive__item-image u-photo jcem-skeleton-asset" src="/assets/images/responsive/devaneios/devaneios-320w.webp" alt="Devaneios" loading="lazy" decoding="async" srcset="/assets/images/responsive/devaneios/devaneios-320w.webp 320w, /assets/images/responsive/devaneios/devaneios-640w.webp 640w, /assets/images/responsive/devaneios/devaneios-960w.webp 960w, /assets/images/responsive/devaneios/devaneios-1200w.webp 1200w, /assets/images/responsive/devaneios/devaneios-1280w.webp 1280w, /assets/images/responsive/devaneios/devaneios-1920w.webp 1920w" sizes="(max-width: 40rem) calc(100vw - 2rem), (max-width: 64rem) 50vw, 33vw" width="6345" height="460">
 </figure>
 <div class="jcem-date-flag jcem-date-flag--updated jcem-date-flag--archive">
 <time datetime="2014-04-16T00:55:57-03:00" title="Publicado em 16/04/2014; atualizado em 08/10/2020" aria-label="Publicado em 16/04/2014; atualizado em 08/10/2020">
@@ -1681,7 +1459,7 @@ aria-hidden="true"
 <a class="archive__item-link u-url" href="/p/como-identificar-falacias/" rel="permalink">
 <header class="archive__item-header">
 <figure class="archive__item-teaser jcem-skeleton" data-jcem-skeleton-state="loading" data-jcem-asset-aspect-ratio="1920 / 1080" style="--jcem-asset-aspect-ratio: 1920 / 1080">
-<img class="archive__item-image u-photo jcem-skeleton-asset" src="https://web.archive.org/web/20201005013131im_/https://blog.jeancarloem.com/wp-content/uploads/2020/08/cover-como-identificar-falacias.png" alt="Como identificar Falácias" loading="lazy" decoding="async" width="1920" height="1080">
+<img class="archive__item-image u-photo jcem-skeleton-asset" src="/assets/images/responsive/como-identificar-falacias/como-identificar-falacias-320w.webp" alt="Como identificar Falácias" loading="lazy" decoding="async" srcset="/assets/images/responsive/como-identificar-falacias/como-identificar-falacias-320w.webp 320w, /assets/images/responsive/como-identificar-falacias/como-identificar-falacias-640w.webp 640w, /assets/images/responsive/como-identificar-falacias/como-identificar-falacias-960w.webp 960w, /assets/images/responsive/como-identificar-falacias/como-identificar-falacias-1200w.webp 1200w, /assets/images/responsive/como-identificar-falacias/como-identificar-falacias-1280w.webp 1280w, /assets/images/responsive/como-identificar-falacias/como-identificar-falacias-1920w.webp 1920w" sizes="(max-width: 40rem) calc(100vw - 2rem), (max-width: 64rem) 50vw, 33vw" width="1920" height="1080">
 </figure>
 <div class="jcem-date-flag jcem-date-flag--updated jcem-date-flag--archive">
 <time datetime="2020-08-15T19:14:17-03:00" title="Publicado em 15/08/2020; atualizado em 15/06/2026" aria-label="Publicado em 15/08/2020; atualizado em 15/06/2026">
@@ -1715,7 +1493,7 @@ aria-hidden="true"
 <a class="archive__item-link u-url" href="/p/tradicao-vs-biblia-tradicao-ou-biblia/" rel="permalink">
 <header class="archive__item-header">
 <figure class="archive__item-teaser jcem-skeleton" data-jcem-skeleton-state="loading" data-jcem-asset-aspect-ratio="1200 / 630" style="--jcem-asset-aspect-ratio: 1200 / 630">
-<img class="archive__item-image u-photo jcem-skeleton-asset" src="https://web.archive.org/web/20201006232837im_/https://blog.jeancarloem.com/wp-content/uploads/2020/04/COVER.png" alt="Tradição VS Bíblia – Tradição OU Bíblia" loading="lazy" decoding="async" width="1200" height="630">
+<img class="archive__item-image u-photo jcem-skeleton-asset" src="/assets/images/responsive/tradicao-vs-biblia/tradicao-vs-biblia-320w.webp" alt="Tradição VS Bíblia – Tradição OU Bíblia" loading="lazy" decoding="async" srcset="/assets/images/responsive/tradicao-vs-biblia/tradicao-vs-biblia-320w.webp 320w, /assets/images/responsive/tradicao-vs-biblia/tradicao-vs-biblia-640w.webp 640w, /assets/images/responsive/tradicao-vs-biblia/tradicao-vs-biblia-960w.webp 960w, /assets/images/responsive/tradicao-vs-biblia/tradicao-vs-biblia-1200w.webp 1200w" sizes="(max-width: 40rem) calc(100vw - 2rem), (max-width: 64rem) 50vw, 33vw" width="1200" height="630">
 </figure>
 <div class="jcem-date-flag jcem-date-flag--updated jcem-date-flag--archive">
 <time datetime="2020-04-26T10:36:53-03:00" title="Publicado em 26/04/2020; atualizado em 15/06/2026" aria-label="Publicado em 26/04/2020; atualizado em 15/06/2026">
@@ -1755,7 +1533,7 @@ aria-hidden="true"
 <a class="archive__item-link u-url" href="/p/sola-scriptura/" rel="permalink">
 <header class="archive__item-header">
 <figure class="archive__item-teaser jcem-skeleton" data-jcem-skeleton-state="loading" data-jcem-asset-aspect-ratio="1200 / 630" style="--jcem-asset-aspect-ratio: 1200 / 630">
-<img class="archive__item-image u-photo jcem-skeleton-asset" src="https://web.archive.org/web/20201011094944im_/https://blog.jeancarloem.com/wp-content/uploads/2020/05/sola-scriptura-farol.png" alt="Sola Scriptura" loading="lazy" decoding="async" width="1200" height="630">
+<img class="archive__item-image u-photo jcem-skeleton-asset" src="/assets/images/responsive/sola-scriptura/sola-scriptura-320w.webp" alt="Sola Scriptura" loading="lazy" decoding="async" srcset="/assets/images/responsive/sola-scriptura/sola-scriptura-320w.webp 320w, /assets/images/responsive/sola-scriptura/sola-scriptura-640w.webp 640w, /assets/images/responsive/sola-scriptura/sola-scriptura-960w.webp 960w, /assets/images/responsive/sola-scriptura/sola-scriptura-1200w.webp 1200w" sizes="(max-width: 40rem) calc(100vw - 2rem), (max-width: 64rem) 50vw, 33vw" width="1200" height="630">
 </figure>
 <div class="jcem-date-flag jcem-date-flag--updated jcem-date-flag--archive">
 <time datetime="2020-05-22T16:53:21-03:00" title="Publicado em 22/05/2020; atualizado em 15/06/2026" aria-label="Publicado em 22/05/2020; atualizado em 15/06/2026">
@@ -1789,7 +1567,7 @@ aria-hidden="true"
 <a class="archive__item-link u-url" href="/p/tradicao-vs-biblia-tradicao-ou-biblia/" rel="permalink">
 <header class="archive__item-header">
 <figure class="archive__item-teaser jcem-skeleton" data-jcem-skeleton-state="loading" data-jcem-asset-aspect-ratio="1200 / 630" style="--jcem-asset-aspect-ratio: 1200 / 630">
-<img class="archive__item-image u-photo jcem-skeleton-asset" src="https://web.archive.org/web/20201006232837im_/https://blog.jeancarloem.com/wp-content/uploads/2020/04/COVER.png" alt="Tradição VS Bíblia – Tradição OU Bíblia" loading="lazy" decoding="async" width="1200" height="630">
+<img class="archive__item-image u-photo jcem-skeleton-asset" src="/assets/images/responsive/tradicao-vs-biblia/tradicao-vs-biblia-320w.webp" alt="Tradição VS Bíblia – Tradição OU Bíblia" loading="lazy" decoding="async" srcset="/assets/images/responsive/tradicao-vs-biblia/tradicao-vs-biblia-320w.webp 320w, /assets/images/responsive/tradicao-vs-biblia/tradicao-vs-biblia-640w.webp 640w, /assets/images/responsive/tradicao-vs-biblia/tradicao-vs-biblia-960w.webp 960w, /assets/images/responsive/tradicao-vs-biblia/tradicao-vs-biblia-1200w.webp 1200w" sizes="(max-width: 40rem) calc(100vw - 2rem), (max-width: 64rem) 50vw, 33vw" width="1200" height="630">
 </figure>
 <div class="jcem-date-flag jcem-date-flag--updated jcem-date-flag--archive">
 <time datetime="2020-04-26T10:36:53-03:00" title="Publicado em 26/04/2020; atualizado em 15/06/2026" aria-label="Publicado em 26/04/2020; atualizado em 15/06/2026">
@@ -1829,7 +1607,7 @@ aria-hidden="true"
 <a class="archive__item-link u-url" href="/p/como-identificar-falacias/" rel="permalink">
 <header class="archive__item-header">
 <figure class="archive__item-teaser jcem-skeleton" data-jcem-skeleton-state="loading" data-jcem-asset-aspect-ratio="1920 / 1080" style="--jcem-asset-aspect-ratio: 1920 / 1080">
-<img class="archive__item-image u-photo jcem-skeleton-asset" src="https://web.archive.org/web/20201005013131im_/https://blog.jeancarloem.com/wp-content/uploads/2020/08/cover-como-identificar-falacias.png" alt="Como identificar Falácias" loading="lazy" decoding="async" width="1920" height="1080">
+<img class="archive__item-image u-photo jcem-skeleton-asset" src="/assets/images/responsive/como-identificar-falacias/como-identificar-falacias-320w.webp" alt="Como identificar Falácias" loading="lazy" decoding="async" srcset="/assets/images/responsive/como-identificar-falacias/como-identificar-falacias-320w.webp 320w, /assets/images/responsive/como-identificar-falacias/como-identificar-falacias-640w.webp 640w, /assets/images/responsive/como-identificar-falacias/como-identificar-falacias-960w.webp 960w, /assets/images/responsive/como-identificar-falacias/como-identificar-falacias-1200w.webp 1200w, /assets/images/responsive/como-identificar-falacias/como-identificar-falacias-1280w.webp 1280w, /assets/images/responsive/como-identificar-falacias/como-identificar-falacias-1920w.webp 1920w" sizes="(max-width: 40rem) calc(100vw - 2rem), (max-width: 64rem) 50vw, 33vw" width="1920" height="1080">
 </figure>
 <div class="jcem-date-flag jcem-date-flag--updated jcem-date-flag--archive">
 <time datetime="2020-08-15T19:14:17-03:00" title="Publicado em 15/08/2020; atualizado em 15/06/2026" aria-label="Publicado em 15/08/2020; atualizado em 15/06/2026">
@@ -1863,7 +1641,7 @@ aria-hidden="true"
 <a class="archive__item-link u-url" href="/p/5-verdades-de-genesis-27/" rel="permalink">
 <header class="archive__item-header">
 <figure class="archive__item-teaser jcem-skeleton" data-jcem-skeleton-state="loading" data-jcem-asset-aspect-ratio="1920 / 1002" style="--jcem-asset-aspect-ratio: 1920 / 1002">
-<img class="archive__item-image u-photo jcem-skeleton-asset" src="https://web.archive.org/web/20201005014559im_/https://blog.jeancarloem.com/wp-content/uploads/2020/07/5-verdades-de-genesis-2-7.png" alt="5 verdades de Gênesis 2:7" loading="lazy" decoding="async" width="1920" height="1002">
+<img class="archive__item-image u-photo jcem-skeleton-asset" src="/assets/images/responsive/cinco-verdades-genesis/cinco-verdades-genesis-320w.webp" alt="5 verdades de Gênesis 2:7" loading="lazy" decoding="async" srcset="/assets/images/responsive/cinco-verdades-genesis/cinco-verdades-genesis-320w.webp 320w, /assets/images/responsive/cinco-verdades-genesis/cinco-verdades-genesis-640w.webp 640w, /assets/images/responsive/cinco-verdades-genesis/cinco-verdades-genesis-960w.webp 960w, /assets/images/responsive/cinco-verdades-genesis/cinco-verdades-genesis-1200w.webp 1200w, /assets/images/responsive/cinco-verdades-genesis/cinco-verdades-genesis-1280w.webp 1280w, /assets/images/responsive/cinco-verdades-genesis/cinco-verdades-genesis-1920w.webp 1920w" sizes="(max-width: 40rem) calc(100vw - 2rem), (max-width: 64rem) 50vw, 33vw" width="1920" height="1002">
 </figure>
 <div class="jcem-date-flag jcem-date-flag--updated jcem-date-flag--archive">
 <time datetime="2020-07-11T19:24:08-03:00" title="Publicado em 11/07/2020; atualizado em 15/06/2026" aria-label="Publicado em 11/07/2020; atualizado em 15/06/2026">
@@ -1903,7 +1681,7 @@ aria-hidden="true"
 <a class="archive__item-link u-url" href="/p/salvacao-importa-ser-perfeito/" rel="permalink">
 <header class="archive__item-header">
 <figure class="archive__item-teaser jcem-skeleton" data-jcem-skeleton-state="loading" data-jcem-asset-aspect-ratio="1920 / 1002" style="--jcem-asset-aspect-ratio: 1920 / 1002">
-<img class="archive__item-image u-photo jcem-skeleton-asset" src="https://web.archive.org/web/20201004153207im_/https://blog.jeancarloem.com/wp-content/uploads/2020/08/importa-ser-perfeito.png" alt="Salvação: Importa ser Perfeito?" loading="lazy" decoding="async" width="1920" height="1002">
+<img class="archive__item-image u-photo jcem-skeleton-asset" src="/assets/images/responsive/salvacao-importa-ser-perfeito/salvacao-importa-ser-perfeito-320w.webp" alt="Salvação: Importa ser Perfeito?" loading="lazy" decoding="async" srcset="/assets/images/responsive/salvacao-importa-ser-perfeito/salvacao-importa-ser-perfeito-320w.webp 320w, /assets/images/responsive/salvacao-importa-ser-perfeito/salvacao-importa-ser-perfeito-640w.webp 640w, /assets/images/responsive/salvacao-importa-ser-perfeito/salvacao-importa-ser-perfeito-960w.webp 960w, /assets/images/responsive/salvacao-importa-ser-perfeito/salvacao-importa-ser-perfeito-1200w.webp 1200w, /assets/images/responsive/salvacao-importa-ser-perfeito/salvacao-importa-ser-perfeito-1280w.webp 1280w, /assets/images/responsive/salvacao-importa-ser-perfeito/salvacao-importa-ser-perfeito-1920w.webp 1920w" sizes="(max-width: 40rem) calc(100vw - 2rem), (max-width: 64rem) 50vw, 33vw" width="1920" height="1002">
 </figure>
 <div class="jcem-date-flag jcem-date-flag--updated jcem-date-flag--archive">
 <time datetime="2020-08-29T14:44:06-03:00" title="Publicado em 29/08/2020; atualizado em 15/06/2026" aria-label="Publicado em 29/08/2020; atualizado em 15/06/2026">
@@ -1937,7 +1715,7 @@ aria-hidden="true"
 <a class="archive__item-link u-url" href="/p/como-identificar-falacias/" rel="permalink">
 <header class="archive__item-header">
 <figure class="archive__item-teaser jcem-skeleton" data-jcem-skeleton-state="loading" data-jcem-asset-aspect-ratio="1920 / 1080" style="--jcem-asset-aspect-ratio: 1920 / 1080">
-<img class="archive__item-image u-photo jcem-skeleton-asset" src="https://web.archive.org/web/20201005013131im_/https://blog.jeancarloem.com/wp-content/uploads/2020/08/cover-como-identificar-falacias.png" alt="Como identificar Falácias" loading="lazy" decoding="async" width="1920" height="1080">
+<img class="archive__item-image u-photo jcem-skeleton-asset" src="/assets/images/responsive/como-identificar-falacias/como-identificar-falacias-320w.webp" alt="Como identificar Falácias" loading="lazy" decoding="async" srcset="/assets/images/responsive/como-identificar-falacias/como-identificar-falacias-320w.webp 320w, /assets/images/responsive/como-identificar-falacias/como-identificar-falacias-640w.webp 640w, /assets/images/responsive/como-identificar-falacias/como-identificar-falacias-960w.webp 960w, /assets/images/responsive/como-identificar-falacias/como-identificar-falacias-1200w.webp 1200w, /assets/images/responsive/como-identificar-falacias/como-identificar-falacias-1280w.webp 1280w, /assets/images/responsive/como-identificar-falacias/como-identificar-falacias-1920w.webp 1920w" sizes="(max-width: 40rem) calc(100vw - 2rem), (max-width: 64rem) 50vw, 33vw" width="1920" height="1080">
 </figure>
 <div class="jcem-date-flag jcem-date-flag--updated jcem-date-flag--archive">
 <time datetime="2020-08-15T19:14:17-03:00" title="Publicado em 15/08/2020; atualizado em 15/06/2026" aria-label="Publicado em 15/08/2020; atualizado em 15/06/2026">
@@ -1977,7 +1755,7 @@ aria-hidden="true"
 <a class="archive__item-link u-url" href="/p/salvacao-importa-ser-perfeito/" rel="permalink">
 <header class="archive__item-header">
 <figure class="archive__item-teaser jcem-skeleton" data-jcem-skeleton-state="loading" data-jcem-asset-aspect-ratio="1920 / 1002" style="--jcem-asset-aspect-ratio: 1920 / 1002">
-<img class="archive__item-image u-photo jcem-skeleton-asset" src="https://web.archive.org/web/20201004153207im_/https://blog.jeancarloem.com/wp-content/uploads/2020/08/importa-ser-perfeito.png" alt="Salvação: Importa ser Perfeito?" loading="lazy" decoding="async" width="1920" height="1002">
+<img class="archive__item-image u-photo jcem-skeleton-asset" src="/assets/images/responsive/salvacao-importa-ser-perfeito/salvacao-importa-ser-perfeito-320w.webp" alt="Salvação: Importa ser Perfeito?" loading="lazy" decoding="async" srcset="/assets/images/responsive/salvacao-importa-ser-perfeito/salvacao-importa-ser-perfeito-320w.webp 320w, /assets/images/responsive/salvacao-importa-ser-perfeito/salvacao-importa-ser-perfeito-640w.webp 640w, /assets/images/responsive/salvacao-importa-ser-perfeito/salvacao-importa-ser-perfeito-960w.webp 960w, /assets/images/responsive/salvacao-importa-ser-perfeito/salvacao-importa-ser-perfeito-1200w.webp 1200w, /assets/images/responsive/salvacao-importa-ser-perfeito/salvacao-importa-ser-perfeito-1280w.webp 1280w, /assets/images/responsive/salvacao-importa-ser-perfeito/salvacao-importa-ser-perfeito-1920w.webp 1920w" sizes="(max-width: 40rem) calc(100vw - 2rem), (max-width: 64rem) 50vw, 33vw" width="1920" height="1002">
 </figure>
 <div class="jcem-date-flag jcem-date-flag--updated jcem-date-flag--archive">
 <time datetime="2020-08-29T14:44:06-03:00" title="Publicado em 29/08/2020; atualizado em 15/06/2026" aria-label="Publicado em 29/08/2020; atualizado em 15/06/2026">
@@ -2011,7 +1789,7 @@ aria-hidden="true"
 <a class="archive__item-link u-url" href="/p/como-identificar-falacias/" rel="permalink">
 <header class="archive__item-header">
 <figure class="archive__item-teaser jcem-skeleton" data-jcem-skeleton-state="loading" data-jcem-asset-aspect-ratio="1920 / 1080" style="--jcem-asset-aspect-ratio: 1920 / 1080">
-<img class="archive__item-image u-photo jcem-skeleton-asset" src="https://web.archive.org/web/20201005013131im_/https://blog.jeancarloem.com/wp-content/uploads/2020/08/cover-como-identificar-falacias.png" alt="Como identificar Falácias" loading="lazy" decoding="async" width="1920" height="1080">
+<img class="archive__item-image u-photo jcem-skeleton-asset" src="/assets/images/responsive/como-identificar-falacias/como-identificar-falacias-320w.webp" alt="Como identificar Falácias" loading="lazy" decoding="async" srcset="/assets/images/responsive/como-identificar-falacias/como-identificar-falacias-320w.webp 320w, /assets/images/responsive/como-identificar-falacias/como-identificar-falacias-640w.webp 640w, /assets/images/responsive/como-identificar-falacias/como-identificar-falacias-960w.webp 960w, /assets/images/responsive/como-identificar-falacias/como-identificar-falacias-1200w.webp 1200w, /assets/images/responsive/como-identificar-falacias/como-identificar-falacias-1280w.webp 1280w, /assets/images/responsive/como-identificar-falacias/como-identificar-falacias-1920w.webp 1920w" sizes="(max-width: 40rem) calc(100vw - 2rem), (max-width: 64rem) 50vw, 33vw" width="1920" height="1080">
 </figure>
 <div class="jcem-date-flag jcem-date-flag--updated jcem-date-flag--archive">
 <time datetime="2020-08-15T19:14:17-03:00" title="Publicado em 15/08/2020; atualizado em 15/06/2026" aria-label="Publicado em 15/08/2020; atualizado em 15/06/2026">
@@ -2051,7 +1829,7 @@ aria-hidden="true"
 <a class="archive__item-link u-url" href="/p/devaneios/" rel="permalink">
 <header class="archive__item-header">
 <figure class="archive__item-teaser jcem-skeleton" data-jcem-skeleton-state="loading" data-jcem-asset-aspect-ratio="6345 / 460" style="--jcem-asset-aspect-ratio: 6345 / 460">
-<img class="archive__item-image u-photo jcem-skeleton-asset" src="/assets/images/posts/devaneios/devaneios-grande.png" alt="Devaneios" loading="lazy" decoding="async" width="6345" height="460">
+<img class="archive__item-image u-photo jcem-skeleton-asset" src="/assets/images/responsive/devaneios/devaneios-320w.webp" alt="Devaneios" loading="lazy" decoding="async" srcset="/assets/images/responsive/devaneios/devaneios-320w.webp 320w, /assets/images/responsive/devaneios/devaneios-640w.webp 640w, /assets/images/responsive/devaneios/devaneios-960w.webp 960w, /assets/images/responsive/devaneios/devaneios-1200w.webp 1200w, /assets/images/responsive/devaneios/devaneios-1280w.webp 1280w, /assets/images/responsive/devaneios/devaneios-1920w.webp 1920w" sizes="(max-width: 40rem) calc(100vw - 2rem), (max-width: 64rem) 50vw, 33vw" width="6345" height="460">
 </figure>
 <div class="jcem-date-flag jcem-date-flag--updated jcem-date-flag--archive">
 <time datetime="2014-04-16T00:55:57-03:00" title="Publicado em 16/04/2014; atualizado em 08/10/2020" aria-label="Publicado em 16/04/2014; atualizado em 08/10/2020">
@@ -2091,7 +1869,7 @@ aria-hidden="true"
 <a class="archive__item-link u-url" href="/p/devaneios/" rel="permalink">
 <header class="archive__item-header">
 <figure class="archive__item-teaser jcem-skeleton" data-jcem-skeleton-state="loading" data-jcem-asset-aspect-ratio="6345 / 460" style="--jcem-asset-aspect-ratio: 6345 / 460">
-<img class="archive__item-image u-photo jcem-skeleton-asset" src="/assets/images/posts/devaneios/devaneios-grande.png" alt="Devaneios" loading="lazy" decoding="async" width="6345" height="460">
+<img class="archive__item-image u-photo jcem-skeleton-asset" src="/assets/images/responsive/devaneios/devaneios-320w.webp" alt="Devaneios" loading="lazy" decoding="async" srcset="/assets/images/responsive/devaneios/devaneios-320w.webp 320w, /assets/images/responsive/devaneios/devaneios-640w.webp 640w, /assets/images/responsive/devaneios/devaneios-960w.webp 960w, /assets/images/responsive/devaneios/devaneios-1200w.webp 1200w, /assets/images/responsive/devaneios/devaneios-1280w.webp 1280w, /assets/images/responsive/devaneios/devaneios-1920w.webp 1920w" sizes="(max-width: 40rem) calc(100vw - 2rem), (max-width: 64rem) 50vw, 33vw" width="6345" height="460">
 </figure>
 <div class="jcem-date-flag jcem-date-flag--updated jcem-date-flag--archive">
 <time datetime="2014-04-16T00:55:57-03:00" title="Publicado em 16/04/2014; atualizado em 08/10/2020" aria-label="Publicado em 16/04/2014; atualizado em 08/10/2020">
@@ -2131,7 +1909,7 @@ aria-hidden="true"
 <a class="archive__item-link u-url" href="/p/devaneios/" rel="permalink">
 <header class="archive__item-header">
 <figure class="archive__item-teaser jcem-skeleton" data-jcem-skeleton-state="loading" data-jcem-asset-aspect-ratio="6345 / 460" style="--jcem-asset-aspect-ratio: 6345 / 460">
-<img class="archive__item-image u-photo jcem-skeleton-asset" src="/assets/images/posts/devaneios/devaneios-grande.png" alt="Devaneios" loading="lazy" decoding="async" width="6345" height="460">
+<img class="archive__item-image u-photo jcem-skeleton-asset" src="/assets/images/responsive/devaneios/devaneios-320w.webp" alt="Devaneios" loading="lazy" decoding="async" srcset="/assets/images/responsive/devaneios/devaneios-320w.webp 320w, /assets/images/responsive/devaneios/devaneios-640w.webp 640w, /assets/images/responsive/devaneios/devaneios-960w.webp 960w, /assets/images/responsive/devaneios/devaneios-1200w.webp 1200w, /assets/images/responsive/devaneios/devaneios-1280w.webp 1280w, /assets/images/responsive/devaneios/devaneios-1920w.webp 1920w" sizes="(max-width: 40rem) calc(100vw - 2rem), (max-width: 64rem) 50vw, 33vw" width="6345" height="460">
 </figure>
 <div class="jcem-date-flag jcem-date-flag--updated jcem-date-flag--archive">
 <time datetime="2014-04-16T00:55:57-03:00" title="Publicado em 16/04/2014; atualizado em 08/10/2020" aria-label="Publicado em 16/04/2014; atualizado em 08/10/2020">
@@ -2171,7 +1949,7 @@ aria-hidden="true"
 <a class="archive__item-link u-url" href="/p/devaneios/" rel="permalink">
 <header class="archive__item-header">
 <figure class="archive__item-teaser jcem-skeleton" data-jcem-skeleton-state="loading" data-jcem-asset-aspect-ratio="6345 / 460" style="--jcem-asset-aspect-ratio: 6345 / 460">
-<img class="archive__item-image u-photo jcem-skeleton-asset" src="/assets/images/posts/devaneios/devaneios-grande.png" alt="Devaneios" loading="lazy" decoding="async" width="6345" height="460">
+<img class="archive__item-image u-photo jcem-skeleton-asset" src="/assets/images/responsive/devaneios/devaneios-320w.webp" alt="Devaneios" loading="lazy" decoding="async" srcset="/assets/images/responsive/devaneios/devaneios-320w.webp 320w, /assets/images/responsive/devaneios/devaneios-640w.webp 640w, /assets/images/responsive/devaneios/devaneios-960w.webp 960w, /assets/images/responsive/devaneios/devaneios-1200w.webp 1200w, /assets/images/responsive/devaneios/devaneios-1280w.webp 1280w, /assets/images/responsive/devaneios/devaneios-1920w.webp 1920w" sizes="(max-width: 40rem) calc(100vw - 2rem), (max-width: 64rem) 50vw, 33vw" width="6345" height="460">
 </figure>
 <div class="jcem-date-flag jcem-date-flag--updated jcem-date-flag--archive">
 <time datetime="2014-04-16T00:55:57-03:00" title="Publicado em 16/04/2014; atualizado em 08/10/2020" aria-label="Publicado em 16/04/2014; atualizado em 08/10/2020">
@@ -2211,7 +1989,7 @@ aria-hidden="true"
 <a class="archive__item-link u-url" href="/p/devaneios/" rel="permalink">
 <header class="archive__item-header">
 <figure class="archive__item-teaser jcem-skeleton" data-jcem-skeleton-state="loading" data-jcem-asset-aspect-ratio="6345 / 460" style="--jcem-asset-aspect-ratio: 6345 / 460">
-<img class="archive__item-image u-photo jcem-skeleton-asset" src="/assets/images/posts/devaneios/devaneios-grande.png" alt="Devaneios" loading="lazy" decoding="async" width="6345" height="460">
+<img class="archive__item-image u-photo jcem-skeleton-asset" src="/assets/images/responsive/devaneios/devaneios-320w.webp" alt="Devaneios" loading="lazy" decoding="async" srcset="/assets/images/responsive/devaneios/devaneios-320w.webp 320w, /assets/images/responsive/devaneios/devaneios-640w.webp 640w, /assets/images/responsive/devaneios/devaneios-960w.webp 960w, /assets/images/responsive/devaneios/devaneios-1200w.webp 1200w, /assets/images/responsive/devaneios/devaneios-1280w.webp 1280w, /assets/images/responsive/devaneios/devaneios-1920w.webp 1920w" sizes="(max-width: 40rem) calc(100vw - 2rem), (max-width: 64rem) 50vw, 33vw" width="6345" height="460">
 </figure>
 <div class="jcem-date-flag jcem-date-flag--updated jcem-date-flag--archive">
 <time datetime="2014-04-16T00:55:57-03:00" title="Publicado em 16/04/2014; atualizado em 08/10/2020" aria-label="Publicado em 16/04/2014; atualizado em 08/10/2020">
@@ -2251,7 +2029,7 @@ aria-hidden="true"
 <a class="archive__item-link u-url" href="/p/devaneios/" rel="permalink">
 <header class="archive__item-header">
 <figure class="archive__item-teaser jcem-skeleton" data-jcem-skeleton-state="loading" data-jcem-asset-aspect-ratio="6345 / 460" style="--jcem-asset-aspect-ratio: 6345 / 460">
-<img class="archive__item-image u-photo jcem-skeleton-asset" src="/assets/images/posts/devaneios/devaneios-grande.png" alt="Devaneios" loading="lazy" decoding="async" width="6345" height="460">
+<img class="archive__item-image u-photo jcem-skeleton-asset" src="/assets/images/responsive/devaneios/devaneios-320w.webp" alt="Devaneios" loading="lazy" decoding="async" srcset="/assets/images/responsive/devaneios/devaneios-320w.webp 320w, /assets/images/responsive/devaneios/devaneios-640w.webp 640w, /assets/images/responsive/devaneios/devaneios-960w.webp 960w, /assets/images/responsive/devaneios/devaneios-1200w.webp 1200w, /assets/images/responsive/devaneios/devaneios-1280w.webp 1280w, /assets/images/responsive/devaneios/devaneios-1920w.webp 1920w" sizes="(max-width: 40rem) calc(100vw - 2rem), (max-width: 64rem) 50vw, 33vw" width="6345" height="460">
 </figure>
 <div class="jcem-date-flag jcem-date-flag--updated jcem-date-flag--archive">
 <time datetime="2014-04-16T00:55:57-03:00" title="Publicado em 16/04/2014; atualizado em 08/10/2020" aria-label="Publicado em 16/04/2014; atualizado em 08/10/2020">
@@ -2291,7 +2069,7 @@ aria-hidden="true"
 <a class="archive__item-link u-url" href="/p/devaneios/" rel="permalink">
 <header class="archive__item-header">
 <figure class="archive__item-teaser jcem-skeleton" data-jcem-skeleton-state="loading" data-jcem-asset-aspect-ratio="6345 / 460" style="--jcem-asset-aspect-ratio: 6345 / 460">
-<img class="archive__item-image u-photo jcem-skeleton-asset" src="/assets/images/posts/devaneios/devaneios-grande.png" alt="Devaneios" loading="lazy" decoding="async" width="6345" height="460">
+<img class="archive__item-image u-photo jcem-skeleton-asset" src="/assets/images/responsive/devaneios/devaneios-320w.webp" alt="Devaneios" loading="lazy" decoding="async" srcset="/assets/images/responsive/devaneios/devaneios-320w.webp 320w, /assets/images/responsive/devaneios/devaneios-640w.webp 640w, /assets/images/responsive/devaneios/devaneios-960w.webp 960w, /assets/images/responsive/devaneios/devaneios-1200w.webp 1200w, /assets/images/responsive/devaneios/devaneios-1280w.webp 1280w, /assets/images/responsive/devaneios/devaneios-1920w.webp 1920w" sizes="(max-width: 40rem) calc(100vw - 2rem), (max-width: 64rem) 50vw, 33vw" width="6345" height="460">
 </figure>
 <div class="jcem-date-flag jcem-date-flag--updated jcem-date-flag--archive">
 <time datetime="2014-04-16T00:55:57-03:00" title="Publicado em 16/04/2014; atualizado em 08/10/2020" aria-label="Publicado em 16/04/2014; atualizado em 08/10/2020">
@@ -2331,7 +2109,7 @@ aria-hidden="true"
 <a class="archive__item-link u-url" href="/p/devaneios/" rel="permalink">
 <header class="archive__item-header">
 <figure class="archive__item-teaser jcem-skeleton" data-jcem-skeleton-state="loading" data-jcem-asset-aspect-ratio="6345 / 460" style="--jcem-asset-aspect-ratio: 6345 / 460">
-<img class="archive__item-image u-photo jcem-skeleton-asset" src="/assets/images/posts/devaneios/devaneios-grande.png" alt="Devaneios" loading="lazy" decoding="async" width="6345" height="460">
+<img class="archive__item-image u-photo jcem-skeleton-asset" src="/assets/images/responsive/devaneios/devaneios-320w.webp" alt="Devaneios" loading="lazy" decoding="async" srcset="/assets/images/responsive/devaneios/devaneios-320w.webp 320w, /assets/images/responsive/devaneios/devaneios-640w.webp 640w, /assets/images/responsive/devaneios/devaneios-960w.webp 960w, /assets/images/responsive/devaneios/devaneios-1200w.webp 1200w, /assets/images/responsive/devaneios/devaneios-1280w.webp 1280w, /assets/images/responsive/devaneios/devaneios-1920w.webp 1920w" sizes="(max-width: 40rem) calc(100vw - 2rem), (max-width: 64rem) 50vw, 33vw" width="6345" height="460">
 </figure>
 <div class="jcem-date-flag jcem-date-flag--updated jcem-date-flag--archive">
 <time datetime="2014-04-16T00:55:57-03:00" title="Publicado em 16/04/2014; atualizado em 08/10/2020" aria-label="Publicado em 16/04/2014; atualizado em 08/10/2020">
@@ -2371,7 +2149,7 @@ aria-hidden="true"
 <a class="archive__item-link u-url" href="/p/devaneios/" rel="permalink">
 <header class="archive__item-header">
 <figure class="archive__item-teaser jcem-skeleton" data-jcem-skeleton-state="loading" data-jcem-asset-aspect-ratio="6345 / 460" style="--jcem-asset-aspect-ratio: 6345 / 460">
-<img class="archive__item-image u-photo jcem-skeleton-asset" src="/assets/images/posts/devaneios/devaneios-grande.png" alt="Devaneios" loading="lazy" decoding="async" width="6345" height="460">
+<img class="archive__item-image u-photo jcem-skeleton-asset" src="/assets/images/responsive/devaneios/devaneios-320w.webp" alt="Devaneios" loading="lazy" decoding="async" srcset="/assets/images/responsive/devaneios/devaneios-320w.webp 320w, /assets/images/responsive/devaneios/devaneios-640w.webp 640w, /assets/images/responsive/devaneios/devaneios-960w.webp 960w, /assets/images/responsive/devaneios/devaneios-1200w.webp 1200w, /assets/images/responsive/devaneios/devaneios-1280w.webp 1280w, /assets/images/responsive/devaneios/devaneios-1920w.webp 1920w" sizes="(max-width: 40rem) calc(100vw - 2rem), (max-width: 64rem) 50vw, 33vw" width="6345" height="460">
 </figure>
 <div class="jcem-date-flag jcem-date-flag--updated jcem-date-flag--archive">
 <time datetime="2014-04-16T00:55:57-03:00" title="Publicado em 16/04/2014; atualizado em 08/10/2020" aria-label="Publicado em 16/04/2014; atualizado em 08/10/2020">
@@ -2411,7 +2189,7 @@ aria-hidden="true"
 <a class="archive__item-link u-url" href="/p/devaneios/" rel="permalink">
 <header class="archive__item-header">
 <figure class="archive__item-teaser jcem-skeleton" data-jcem-skeleton-state="loading" data-jcem-asset-aspect-ratio="6345 / 460" style="--jcem-asset-aspect-ratio: 6345 / 460">
-<img class="archive__item-image u-photo jcem-skeleton-asset" src="/assets/images/posts/devaneios/devaneios-grande.png" alt="Devaneios" loading="lazy" decoding="async" width="6345" height="460">
+<img class="archive__item-image u-photo jcem-skeleton-asset" src="/assets/images/responsive/devaneios/devaneios-320w.webp" alt="Devaneios" loading="lazy" decoding="async" srcset="/assets/images/responsive/devaneios/devaneios-320w.webp 320w, /assets/images/responsive/devaneios/devaneios-640w.webp 640w, /assets/images/responsive/devaneios/devaneios-960w.webp 960w, /assets/images/responsive/devaneios/devaneios-1200w.webp 1200w, /assets/images/responsive/devaneios/devaneios-1280w.webp 1280w, /assets/images/responsive/devaneios/devaneios-1920w.webp 1920w" sizes="(max-width: 40rem) calc(100vw - 2rem), (max-width: 64rem) 50vw, 33vw" width="6345" height="460">
 </figure>
 <div class="jcem-date-flag jcem-date-flag--updated jcem-date-flag--archive">
 <time datetime="2014-04-16T00:55:57-03:00" title="Publicado em 16/04/2014; atualizado em 08/10/2020" aria-label="Publicado em 16/04/2014; atualizado em 08/10/2020">
@@ -2451,7 +2229,7 @@ aria-hidden="true"
 <a class="archive__item-link u-url" href="/p/tradicao-vs-biblia-tradicao-ou-biblia/" rel="permalink">
 <header class="archive__item-header">
 <figure class="archive__item-teaser jcem-skeleton" data-jcem-skeleton-state="loading" data-jcem-asset-aspect-ratio="1200 / 630" style="--jcem-asset-aspect-ratio: 1200 / 630">
-<img class="archive__item-image u-photo jcem-skeleton-asset" src="https://web.archive.org/web/20201006232837im_/https://blog.jeancarloem.com/wp-content/uploads/2020/04/COVER.png" alt="Tradição VS Bíblia – Tradição OU Bíblia" loading="lazy" decoding="async" width="1200" height="630">
+<img class="archive__item-image u-photo jcem-skeleton-asset" src="/assets/images/responsive/tradicao-vs-biblia/tradicao-vs-biblia-320w.webp" alt="Tradição VS Bíblia – Tradição OU Bíblia" loading="lazy" decoding="async" srcset="/assets/images/responsive/tradicao-vs-biblia/tradicao-vs-biblia-320w.webp 320w, /assets/images/responsive/tradicao-vs-biblia/tradicao-vs-biblia-640w.webp 640w, /assets/images/responsive/tradicao-vs-biblia/tradicao-vs-biblia-960w.webp 960w, /assets/images/responsive/tradicao-vs-biblia/tradicao-vs-biblia-1200w.webp 1200w" sizes="(max-width: 40rem) calc(100vw - 2rem), (max-width: 64rem) 50vw, 33vw" width="1200" height="630">
 </figure>
 <div class="jcem-date-flag jcem-date-flag--updated jcem-date-flag--archive">
 <time datetime="2020-04-26T10:36:53-03:00" title="Publicado em 26/04/2020; atualizado em 15/06/2026" aria-label="Publicado em 26/04/2020; atualizado em 15/06/2026">
@@ -2491,7 +2269,7 @@ aria-hidden="true"
 <a class="archive__item-link u-url" href="/p/sola-scriptura/" rel="permalink">
 <header class="archive__item-header">
 <figure class="archive__item-teaser jcem-skeleton" data-jcem-skeleton-state="loading" data-jcem-asset-aspect-ratio="1200 / 630" style="--jcem-asset-aspect-ratio: 1200 / 630">
-<img class="archive__item-image u-photo jcem-skeleton-asset" src="https://web.archive.org/web/20201011094944im_/https://blog.jeancarloem.com/wp-content/uploads/2020/05/sola-scriptura-farol.png" alt="Sola Scriptura" loading="lazy" decoding="async" width="1200" height="630">
+<img class="archive__item-image u-photo jcem-skeleton-asset" src="/assets/images/responsive/sola-scriptura/sola-scriptura-320w.webp" alt="Sola Scriptura" loading="lazy" decoding="async" srcset="/assets/images/responsive/sola-scriptura/sola-scriptura-320w.webp 320w, /assets/images/responsive/sola-scriptura/sola-scriptura-640w.webp 640w, /assets/images/responsive/sola-scriptura/sola-scriptura-960w.webp 960w, /assets/images/responsive/sola-scriptura/sola-scriptura-1200w.webp 1200w" sizes="(max-width: 40rem) calc(100vw - 2rem), (max-width: 64rem) 50vw, 33vw" width="1200" height="630">
 </figure>
 <div class="jcem-date-flag jcem-date-flag--updated jcem-date-flag--archive">
 <time datetime="2020-05-22T16:53:21-03:00" title="Publicado em 22/05/2020; atualizado em 15/06/2026" aria-label="Publicado em 22/05/2020; atualizado em 15/06/2026">
@@ -2531,7 +2309,7 @@ aria-hidden="true"
 <a class="archive__item-link u-url" href="/p/sola-scriptura/" rel="permalink">
 <header class="archive__item-header">
 <figure class="archive__item-teaser jcem-skeleton" data-jcem-skeleton-state="loading" data-jcem-asset-aspect-ratio="1200 / 630" style="--jcem-asset-aspect-ratio: 1200 / 630">
-<img class="archive__item-image u-photo jcem-skeleton-asset" src="https://web.archive.org/web/20201011094944im_/https://blog.jeancarloem.com/wp-content/uploads/2020/05/sola-scriptura-farol.png" alt="Sola Scriptura" loading="lazy" decoding="async" width="1200" height="630">
+<img class="archive__item-image u-photo jcem-skeleton-asset" src="/assets/images/responsive/sola-scriptura/sola-scriptura-320w.webp" alt="Sola Scriptura" loading="lazy" decoding="async" srcset="/assets/images/responsive/sola-scriptura/sola-scriptura-320w.webp 320w, /assets/images/responsive/sola-scriptura/sola-scriptura-640w.webp 640w, /assets/images/responsive/sola-scriptura/sola-scriptura-960w.webp 960w, /assets/images/responsive/sola-scriptura/sola-scriptura-1200w.webp 1200w" sizes="(max-width: 40rem) calc(100vw - 2rem), (max-width: 64rem) 50vw, 33vw" width="1200" height="630">
 </figure>
 <div class="jcem-date-flag jcem-date-flag--updated jcem-date-flag--archive">
 <time datetime="2020-05-22T16:53:21-03:00" title="Publicado em 22/05/2020; atualizado em 15/06/2026" aria-label="Publicado em 22/05/2020; atualizado em 15/06/2026">
@@ -2571,7 +2349,7 @@ aria-hidden="true"
 <a class="archive__item-link u-url" href="/p/sola-scriptura/" rel="permalink">
 <header class="archive__item-header">
 <figure class="archive__item-teaser jcem-skeleton" data-jcem-skeleton-state="loading" data-jcem-asset-aspect-ratio="1200 / 630" style="--jcem-asset-aspect-ratio: 1200 / 630">
-<img class="archive__item-image u-photo jcem-skeleton-asset" src="https://web.archive.org/web/20201011094944im_/https://blog.jeancarloem.com/wp-content/uploads/2020/05/sola-scriptura-farol.png" alt="Sola Scriptura" loading="lazy" decoding="async" width="1200" height="630">
+<img class="archive__item-image u-photo jcem-skeleton-asset" src="/assets/images/responsive/sola-scriptura/sola-scriptura-320w.webp" alt="Sola Scriptura" loading="lazy" decoding="async" srcset="/assets/images/responsive/sola-scriptura/sola-scriptura-320w.webp 320w, /assets/images/responsive/sola-scriptura/sola-scriptura-640w.webp 640w, /assets/images/responsive/sola-scriptura/sola-scriptura-960w.webp 960w, /assets/images/responsive/sola-scriptura/sola-scriptura-1200w.webp 1200w" sizes="(max-width: 40rem) calc(100vw - 2rem), (max-width: 64rem) 50vw, 33vw" width="1200" height="630">
 </figure>
 <div class="jcem-date-flag jcem-date-flag--updated jcem-date-flag--archive">
 <time datetime="2020-05-22T16:53:21-03:00" title="Publicado em 22/05/2020; atualizado em 15/06/2026" aria-label="Publicado em 22/05/2020; atualizado em 15/06/2026">
@@ -2611,7 +2389,7 @@ aria-hidden="true"
 <a class="archive__item-link u-url" href="/p/nove-motivos-para-guardar-o-sabado/" rel="permalink">
 <header class="archive__item-header">
 <figure class="archive__item-teaser jcem-skeleton" data-jcem-skeleton-state="loading" data-jcem-asset-aspect-ratio="1920 / 1002" style="--jcem-asset-aspect-ratio: 1920 / 1002">
-<img class="archive__item-image u-photo jcem-skeleton-asset" src="https://web.archive.org/web/20201004084617im_/https://blog.jeancarloem.com/wp-content/uploads/2020/07/9-motivos-para-guardar-o-sabado.png" alt="Nove motivos para guardar o sábado" loading="lazy" decoding="async" width="1920" height="1002">
+<img class="archive__item-image u-photo jcem-skeleton-asset" src="/assets/images/responsive/nove-motivos-sabado/nove-motivos-sabado-320w.webp" alt="Nove motivos para guardar o sábado" loading="lazy" decoding="async" srcset="/assets/images/responsive/nove-motivos-sabado/nove-motivos-sabado-320w.webp 320w, /assets/images/responsive/nove-motivos-sabado/nove-motivos-sabado-640w.webp 640w, /assets/images/responsive/nove-motivos-sabado/nove-motivos-sabado-960w.webp 960w, /assets/images/responsive/nove-motivos-sabado/nove-motivos-sabado-1200w.webp 1200w, /assets/images/responsive/nove-motivos-sabado/nove-motivos-sabado-1280w.webp 1280w, /assets/images/responsive/nove-motivos-sabado/nove-motivos-sabado-1920w.webp 1920w" sizes="(max-width: 40rem) calc(100vw - 2rem), (max-width: 64rem) 50vw, 33vw" width="1920" height="1002">
 </figure>
 <div class="jcem-date-flag jcem-date-flag--updated jcem-date-flag--archive">
 <time datetime="2020-07-04T21:38:11-03:00" title="Publicado em 04/07/2020; atualizado em 15/06/2026" aria-label="Publicado em 04/07/2020; atualizado em 15/06/2026">
@@ -2651,7 +2429,7 @@ aria-hidden="true"
 <a class="archive__item-link u-url" href="/p/nove-motivos-para-guardar-o-sabado/" rel="permalink">
 <header class="archive__item-header">
 <figure class="archive__item-teaser jcem-skeleton" data-jcem-skeleton-state="loading" data-jcem-asset-aspect-ratio="1920 / 1002" style="--jcem-asset-aspect-ratio: 1920 / 1002">
-<img class="archive__item-image u-photo jcem-skeleton-asset" src="https://web.archive.org/web/20201004084617im_/https://blog.jeancarloem.com/wp-content/uploads/2020/07/9-motivos-para-guardar-o-sabado.png" alt="Nove motivos para guardar o sábado" loading="lazy" decoding="async" width="1920" height="1002">
+<img class="archive__item-image u-photo jcem-skeleton-asset" src="/assets/images/responsive/nove-motivos-sabado/nove-motivos-sabado-320w.webp" alt="Nove motivos para guardar o sábado" loading="lazy" decoding="async" srcset="/assets/images/responsive/nove-motivos-sabado/nove-motivos-sabado-320w.webp 320w, /assets/images/responsive/nove-motivos-sabado/nove-motivos-sabado-640w.webp 640w, /assets/images/responsive/nove-motivos-sabado/nove-motivos-sabado-960w.webp 960w, /assets/images/responsive/nove-motivos-sabado/nove-motivos-sabado-1200w.webp 1200w, /assets/images/responsive/nove-motivos-sabado/nove-motivos-sabado-1280w.webp 1280w, /assets/images/responsive/nove-motivos-sabado/nove-motivos-sabado-1920w.webp 1920w" sizes="(max-width: 40rem) calc(100vw - 2rem), (max-width: 64rem) 50vw, 33vw" width="1920" height="1002">
 </figure>
 <div class="jcem-date-flag jcem-date-flag--updated jcem-date-flag--archive">
 <time datetime="2020-07-04T21:38:11-03:00" title="Publicado em 04/07/2020; atualizado em 15/06/2026" aria-label="Publicado em 04/07/2020; atualizado em 15/06/2026">
@@ -2691,7 +2469,7 @@ aria-hidden="true"
 <a class="archive__item-link u-url" href="/p/nove-motivos-para-guardar-o-sabado/" rel="permalink">
 <header class="archive__item-header">
 <figure class="archive__item-teaser jcem-skeleton" data-jcem-skeleton-state="loading" data-jcem-asset-aspect-ratio="1920 / 1002" style="--jcem-asset-aspect-ratio: 1920 / 1002">
-<img class="archive__item-image u-photo jcem-skeleton-asset" src="https://web.archive.org/web/20201004084617im_/https://blog.jeancarloem.com/wp-content/uploads/2020/07/9-motivos-para-guardar-o-sabado.png" alt="Nove motivos para guardar o sábado" loading="lazy" decoding="async" width="1920" height="1002">
+<img class="archive__item-image u-photo jcem-skeleton-asset" src="/assets/images/responsive/nove-motivos-sabado/nove-motivos-sabado-320w.webp" alt="Nove motivos para guardar o sábado" loading="lazy" decoding="async" srcset="/assets/images/responsive/nove-motivos-sabado/nove-motivos-sabado-320w.webp 320w, /assets/images/responsive/nove-motivos-sabado/nove-motivos-sabado-640w.webp 640w, /assets/images/responsive/nove-motivos-sabado/nove-motivos-sabado-960w.webp 960w, /assets/images/responsive/nove-motivos-sabado/nove-motivos-sabado-1200w.webp 1200w, /assets/images/responsive/nove-motivos-sabado/nove-motivos-sabado-1280w.webp 1280w, /assets/images/responsive/nove-motivos-sabado/nove-motivos-sabado-1920w.webp 1920w" sizes="(max-width: 40rem) calc(100vw - 2rem), (max-width: 64rem) 50vw, 33vw" width="1920" height="1002">
 </figure>
 <div class="jcem-date-flag jcem-date-flag--updated jcem-date-flag--archive">
 <time datetime="2020-07-04T21:38:11-03:00" title="Publicado em 04/07/2020; atualizado em 15/06/2026" aria-label="Publicado em 04/07/2020; atualizado em 15/06/2026">
@@ -2731,7 +2509,7 @@ aria-hidden="true"
 <a class="archive__item-link u-url" href="/p/nove-motivos-para-guardar-o-sabado/" rel="permalink">
 <header class="archive__item-header">
 <figure class="archive__item-teaser jcem-skeleton" data-jcem-skeleton-state="loading" data-jcem-asset-aspect-ratio="1920 / 1002" style="--jcem-asset-aspect-ratio: 1920 / 1002">
-<img class="archive__item-image u-photo jcem-skeleton-asset" src="https://web.archive.org/web/20201004084617im_/https://blog.jeancarloem.com/wp-content/uploads/2020/07/9-motivos-para-guardar-o-sabado.png" alt="Nove motivos para guardar o sábado" loading="lazy" decoding="async" width="1920" height="1002">
+<img class="archive__item-image u-photo jcem-skeleton-asset" src="/assets/images/responsive/nove-motivos-sabado/nove-motivos-sabado-320w.webp" alt="Nove motivos para guardar o sábado" loading="lazy" decoding="async" srcset="/assets/images/responsive/nove-motivos-sabado/nove-motivos-sabado-320w.webp 320w, /assets/images/responsive/nove-motivos-sabado/nove-motivos-sabado-640w.webp 640w, /assets/images/responsive/nove-motivos-sabado/nove-motivos-sabado-960w.webp 960w, /assets/images/responsive/nove-motivos-sabado/nove-motivos-sabado-1200w.webp 1200w, /assets/images/responsive/nove-motivos-sabado/nove-motivos-sabado-1280w.webp 1280w, /assets/images/responsive/nove-motivos-sabado/nove-motivos-sabado-1920w.webp 1920w" sizes="(max-width: 40rem) calc(100vw - 2rem), (max-width: 64rem) 50vw, 33vw" width="1920" height="1002">
 </figure>
 <div class="jcem-date-flag jcem-date-flag--updated jcem-date-flag--archive">
 <time datetime="2020-07-04T21:38:11-03:00" title="Publicado em 04/07/2020; atualizado em 15/06/2026" aria-label="Publicado em 04/07/2020; atualizado em 15/06/2026">
@@ -2771,7 +2549,7 @@ aria-hidden="true"
 <a class="archive__item-link u-url" href="/p/nove-motivos-para-guardar-o-sabado/" rel="permalink">
 <header class="archive__item-header">
 <figure class="archive__item-teaser jcem-skeleton" data-jcem-skeleton-state="loading" data-jcem-asset-aspect-ratio="1920 / 1002" style="--jcem-asset-aspect-ratio: 1920 / 1002">
-<img class="archive__item-image u-photo jcem-skeleton-asset" src="https://web.archive.org/web/20201004084617im_/https://blog.jeancarloem.com/wp-content/uploads/2020/07/9-motivos-para-guardar-o-sabado.png" alt="Nove motivos para guardar o sábado" loading="lazy" decoding="async" width="1920" height="1002">
+<img class="archive__item-image u-photo jcem-skeleton-asset" src="/assets/images/responsive/nove-motivos-sabado/nove-motivos-sabado-320w.webp" alt="Nove motivos para guardar o sábado" loading="lazy" decoding="async" srcset="/assets/images/responsive/nove-motivos-sabado/nove-motivos-sabado-320w.webp 320w, /assets/images/responsive/nove-motivos-sabado/nove-motivos-sabado-640w.webp 640w, /assets/images/responsive/nove-motivos-sabado/nove-motivos-sabado-960w.webp 960w, /assets/images/responsive/nove-motivos-sabado/nove-motivos-sabado-1200w.webp 1200w, /assets/images/responsive/nove-motivos-sabado/nove-motivos-sabado-1280w.webp 1280w, /assets/images/responsive/nove-motivos-sabado/nove-motivos-sabado-1920w.webp 1920w" sizes="(max-width: 40rem) calc(100vw - 2rem), (max-width: 64rem) 50vw, 33vw" width="1920" height="1002">
 </figure>
 <div class="jcem-date-flag jcem-date-flag--updated jcem-date-flag--archive">
 <time datetime="2020-07-04T21:38:11-03:00" title="Publicado em 04/07/2020; atualizado em 15/06/2026" aria-label="Publicado em 04/07/2020; atualizado em 15/06/2026">
@@ -2811,7 +2589,7 @@ aria-hidden="true"
 <a class="archive__item-link u-url" href="/p/5-verdades-de-genesis-27/" rel="permalink">
 <header class="archive__item-header">
 <figure class="archive__item-teaser jcem-skeleton" data-jcem-skeleton-state="loading" data-jcem-asset-aspect-ratio="1920 / 1002" style="--jcem-asset-aspect-ratio: 1920 / 1002">
-<img class="archive__item-image u-photo jcem-skeleton-asset" src="https://web.archive.org/web/20201005014559im_/https://blog.jeancarloem.com/wp-content/uploads/2020/07/5-verdades-de-genesis-2-7.png" alt="5 verdades de Gênesis 2:7" loading="lazy" decoding="async" width="1920" height="1002">
+<img class="archive__item-image u-photo jcem-skeleton-asset" src="/assets/images/responsive/cinco-verdades-genesis/cinco-verdades-genesis-320w.webp" alt="5 verdades de Gênesis 2:7" loading="lazy" decoding="async" srcset="/assets/images/responsive/cinco-verdades-genesis/cinco-verdades-genesis-320w.webp 320w, /assets/images/responsive/cinco-verdades-genesis/cinco-verdades-genesis-640w.webp 640w, /assets/images/responsive/cinco-verdades-genesis/cinco-verdades-genesis-960w.webp 960w, /assets/images/responsive/cinco-verdades-genesis/cinco-verdades-genesis-1200w.webp 1200w, /assets/images/responsive/cinco-verdades-genesis/cinco-verdades-genesis-1280w.webp 1280w, /assets/images/responsive/cinco-verdades-genesis/cinco-verdades-genesis-1920w.webp 1920w" sizes="(max-width: 40rem) calc(100vw - 2rem), (max-width: 64rem) 50vw, 33vw" width="1920" height="1002">
 </figure>
 <div class="jcem-date-flag jcem-date-flag--updated jcem-date-flag--archive">
 <time datetime="2020-07-11T19:24:08-03:00" title="Publicado em 11/07/2020; atualizado em 15/06/2026" aria-label="Publicado em 11/07/2020; atualizado em 15/06/2026">
@@ -2851,7 +2629,7 @@ aria-hidden="true"
 <a class="archive__item-link u-url" href="/p/5-verdades-de-genesis-27/" rel="permalink">
 <header class="archive__item-header">
 <figure class="archive__item-teaser jcem-skeleton" data-jcem-skeleton-state="loading" data-jcem-asset-aspect-ratio="1920 / 1002" style="--jcem-asset-aspect-ratio: 1920 / 1002">
-<img class="archive__item-image u-photo jcem-skeleton-asset" src="https://web.archive.org/web/20201005014559im_/https://blog.jeancarloem.com/wp-content/uploads/2020/07/5-verdades-de-genesis-2-7.png" alt="5 verdades de Gênesis 2:7" loading="lazy" decoding="async" width="1920" height="1002">
+<img class="archive__item-image u-photo jcem-skeleton-asset" src="/assets/images/responsive/cinco-verdades-genesis/cinco-verdades-genesis-320w.webp" alt="5 verdades de Gênesis 2:7" loading="lazy" decoding="async" srcset="/assets/images/responsive/cinco-verdades-genesis/cinco-verdades-genesis-320w.webp 320w, /assets/images/responsive/cinco-verdades-genesis/cinco-verdades-genesis-640w.webp 640w, /assets/images/responsive/cinco-verdades-genesis/cinco-verdades-genesis-960w.webp 960w, /assets/images/responsive/cinco-verdades-genesis/cinco-verdades-genesis-1200w.webp 1200w, /assets/images/responsive/cinco-verdades-genesis/cinco-verdades-genesis-1280w.webp 1280w, /assets/images/responsive/cinco-verdades-genesis/cinco-verdades-genesis-1920w.webp 1920w" sizes="(max-width: 40rem) calc(100vw - 2rem), (max-width: 64rem) 50vw, 33vw" width="1920" height="1002">
 </figure>
 <div class="jcem-date-flag jcem-date-flag--updated jcem-date-flag--archive">
 <time datetime="2020-07-11T19:24:08-03:00" title="Publicado em 11/07/2020; atualizado em 15/06/2026" aria-label="Publicado em 11/07/2020; atualizado em 15/06/2026">
@@ -2891,7 +2669,7 @@ aria-hidden="true"
 <a class="archive__item-link u-url" href="/p/5-verdades-de-genesis-27/" rel="permalink">
 <header class="archive__item-header">
 <figure class="archive__item-teaser jcem-skeleton" data-jcem-skeleton-state="loading" data-jcem-asset-aspect-ratio="1920 / 1002" style="--jcem-asset-aspect-ratio: 1920 / 1002">
-<img class="archive__item-image u-photo jcem-skeleton-asset" src="https://web.archive.org/web/20201005014559im_/https://blog.jeancarloem.com/wp-content/uploads/2020/07/5-verdades-de-genesis-2-7.png" alt="5 verdades de Gênesis 2:7" loading="lazy" decoding="async" width="1920" height="1002">
+<img class="archive__item-image u-photo jcem-skeleton-asset" src="/assets/images/responsive/cinco-verdades-genesis/cinco-verdades-genesis-320w.webp" alt="5 verdades de Gênesis 2:7" loading="lazy" decoding="async" srcset="/assets/images/responsive/cinco-verdades-genesis/cinco-verdades-genesis-320w.webp 320w, /assets/images/responsive/cinco-verdades-genesis/cinco-verdades-genesis-640w.webp 640w, /assets/images/responsive/cinco-verdades-genesis/cinco-verdades-genesis-960w.webp 960w, /assets/images/responsive/cinco-verdades-genesis/cinco-verdades-genesis-1200w.webp 1200w, /assets/images/responsive/cinco-verdades-genesis/cinco-verdades-genesis-1280w.webp 1280w, /assets/images/responsive/cinco-verdades-genesis/cinco-verdades-genesis-1920w.webp 1920w" sizes="(max-width: 40rem) calc(100vw - 2rem), (max-width: 64rem) 50vw, 33vw" width="1920" height="1002">
 </figure>
 <div class="jcem-date-flag jcem-date-flag--updated jcem-date-flag--archive">
 <time datetime="2020-07-11T19:24:08-03:00" title="Publicado em 11/07/2020; atualizado em 15/06/2026" aria-label="Publicado em 11/07/2020; atualizado em 15/06/2026">
@@ -2931,7 +2709,7 @@ aria-hidden="true"
 <a class="archive__item-link u-url" href="/p/5-verdades-de-genesis-27/" rel="permalink">
 <header class="archive__item-header">
 <figure class="archive__item-teaser jcem-skeleton" data-jcem-skeleton-state="loading" data-jcem-asset-aspect-ratio="1920 / 1002" style="--jcem-asset-aspect-ratio: 1920 / 1002">
-<img class="archive__item-image u-photo jcem-skeleton-asset" src="https://web.archive.org/web/20201005014559im_/https://blog.jeancarloem.com/wp-content/uploads/2020/07/5-verdades-de-genesis-2-7.png" alt="5 verdades de Gênesis 2:7" loading="lazy" decoding="async" width="1920" height="1002">
+<img class="archive__item-image u-photo jcem-skeleton-asset" src="/assets/images/responsive/cinco-verdades-genesis/cinco-verdades-genesis-320w.webp" alt="5 verdades de Gênesis 2:7" loading="lazy" decoding="async" srcset="/assets/images/responsive/cinco-verdades-genesis/cinco-verdades-genesis-320w.webp 320w, /assets/images/responsive/cinco-verdades-genesis/cinco-verdades-genesis-640w.webp 640w, /assets/images/responsive/cinco-verdades-genesis/cinco-verdades-genesis-960w.webp 960w, /assets/images/responsive/cinco-verdades-genesis/cinco-verdades-genesis-1200w.webp 1200w, /assets/images/responsive/cinco-verdades-genesis/cinco-verdades-genesis-1280w.webp 1280w, /assets/images/responsive/cinco-verdades-genesis/cinco-verdades-genesis-1920w.webp 1920w" sizes="(max-width: 40rem) calc(100vw - 2rem), (max-width: 64rem) 50vw, 33vw" width="1920" height="1002">
 </figure>
 <div class="jcem-date-flag jcem-date-flag--updated jcem-date-flag--archive">
 <time datetime="2020-07-11T19:24:08-03:00" title="Publicado em 11/07/2020; atualizado em 15/06/2026" aria-label="Publicado em 11/07/2020; atualizado em 15/06/2026">
@@ -2971,7 +2749,7 @@ aria-hidden="true"
 <a class="archive__item-link u-url" href="/p/5-verdades-de-genesis-27/" rel="permalink">
 <header class="archive__item-header">
 <figure class="archive__item-teaser jcem-skeleton" data-jcem-skeleton-state="loading" data-jcem-asset-aspect-ratio="1920 / 1002" style="--jcem-asset-aspect-ratio: 1920 / 1002">
-<img class="archive__item-image u-photo jcem-skeleton-asset" src="https://web.archive.org/web/20201005014559im_/https://blog.jeancarloem.com/wp-content/uploads/2020/07/5-verdades-de-genesis-2-7.png" alt="5 verdades de Gênesis 2:7" loading="lazy" decoding="async" width="1920" height="1002">
+<img class="archive__item-image u-photo jcem-skeleton-asset" src="/assets/images/responsive/cinco-verdades-genesis/cinco-verdades-genesis-320w.webp" alt="5 verdades de Gênesis 2:7" loading="lazy" decoding="async" srcset="/assets/images/responsive/cinco-verdades-genesis/cinco-verdades-genesis-320w.webp 320w, /assets/images/responsive/cinco-verdades-genesis/cinco-verdades-genesis-640w.webp 640w, /assets/images/responsive/cinco-verdades-genesis/cinco-verdades-genesis-960w.webp 960w, /assets/images/responsive/cinco-verdades-genesis/cinco-verdades-genesis-1200w.webp 1200w, /assets/images/responsive/cinco-verdades-genesis/cinco-verdades-genesis-1280w.webp 1280w, /assets/images/responsive/cinco-verdades-genesis/cinco-verdades-genesis-1920w.webp 1920w" sizes="(max-width: 40rem) calc(100vw - 2rem), (max-width: 64rem) 50vw, 33vw" width="1920" height="1002">
 </figure>
 <div class="jcem-date-flag jcem-date-flag--updated jcem-date-flag--archive">
 <time datetime="2020-07-11T19:24:08-03:00" title="Publicado em 11/07/2020; atualizado em 15/06/2026" aria-label="Publicado em 11/07/2020; atualizado em 15/06/2026">
@@ -3011,7 +2789,7 @@ aria-hidden="true"
 <a class="archive__item-link u-url" href="/p/5-verdades-de-genesis-27/" rel="permalink">
 <header class="archive__item-header">
 <figure class="archive__item-teaser jcem-skeleton" data-jcem-skeleton-state="loading" data-jcem-asset-aspect-ratio="1920 / 1002" style="--jcem-asset-aspect-ratio: 1920 / 1002">
-<img class="archive__item-image u-photo jcem-skeleton-asset" src="https://web.archive.org/web/20201005014559im_/https://blog.jeancarloem.com/wp-content/uploads/2020/07/5-verdades-de-genesis-2-7.png" alt="5 verdades de Gênesis 2:7" loading="lazy" decoding="async" width="1920" height="1002">
+<img class="archive__item-image u-photo jcem-skeleton-asset" src="/assets/images/responsive/cinco-verdades-genesis/cinco-verdades-genesis-320w.webp" alt="5 verdades de Gênesis 2:7" loading="lazy" decoding="async" srcset="/assets/images/responsive/cinco-verdades-genesis/cinco-verdades-genesis-320w.webp 320w, /assets/images/responsive/cinco-verdades-genesis/cinco-verdades-genesis-640w.webp 640w, /assets/images/responsive/cinco-verdades-genesis/cinco-verdades-genesis-960w.webp 960w, /assets/images/responsive/cinco-verdades-genesis/cinco-verdades-genesis-1200w.webp 1200w, /assets/images/responsive/cinco-verdades-genesis/cinco-verdades-genesis-1280w.webp 1280w, /assets/images/responsive/cinco-verdades-genesis/cinco-verdades-genesis-1920w.webp 1920w" sizes="(max-width: 40rem) calc(100vw - 2rem), (max-width: 64rem) 50vw, 33vw" width="1920" height="1002">
 </figure>
 <div class="jcem-date-flag jcem-date-flag--updated jcem-date-flag--archive">
 <time datetime="2020-07-11T19:24:08-03:00" title="Publicado em 11/07/2020; atualizado em 15/06/2026" aria-label="Publicado em 11/07/2020; atualizado em 15/06/2026">
@@ -3051,7 +2829,7 @@ aria-hidden="true"
 <a class="archive__item-link u-url" href="/p/5-verdades-de-genesis-27/" rel="permalink">
 <header class="archive__item-header">
 <figure class="archive__item-teaser jcem-skeleton" data-jcem-skeleton-state="loading" data-jcem-asset-aspect-ratio="1920 / 1002" style="--jcem-asset-aspect-ratio: 1920 / 1002">
-<img class="archive__item-image u-photo jcem-skeleton-asset" src="https://web.archive.org/web/20201005014559im_/https://blog.jeancarloem.com/wp-content/uploads/2020/07/5-verdades-de-genesis-2-7.png" alt="5 verdades de Gênesis 2:7" loading="lazy" decoding="async" width="1920" height="1002">
+<img class="archive__item-image u-photo jcem-skeleton-asset" src="/assets/images/responsive/cinco-verdades-genesis/cinco-verdades-genesis-320w.webp" alt="5 verdades de Gênesis 2:7" loading="lazy" decoding="async" srcset="/assets/images/responsive/cinco-verdades-genesis/cinco-verdades-genesis-320w.webp 320w, /assets/images/responsive/cinco-verdades-genesis/cinco-verdades-genesis-640w.webp 640w, /assets/images/responsive/cinco-verdades-genesis/cinco-verdades-genesis-960w.webp 960w, /assets/images/responsive/cinco-verdades-genesis/cinco-verdades-genesis-1200w.webp 1200w, /assets/images/responsive/cinco-verdades-genesis/cinco-verdades-genesis-1280w.webp 1280w, /assets/images/responsive/cinco-verdades-genesis/cinco-verdades-genesis-1920w.webp 1920w" sizes="(max-width: 40rem) calc(100vw - 2rem), (max-width: 64rem) 50vw, 33vw" width="1920" height="1002">
 </figure>
 <div class="jcem-date-flag jcem-date-flag--updated jcem-date-flag--archive">
 <time datetime="2020-07-11T19:24:08-03:00" title="Publicado em 11/07/2020; atualizado em 15/06/2026" aria-label="Publicado em 11/07/2020; atualizado em 15/06/2026">
@@ -3091,7 +2869,7 @@ aria-hidden="true"
 <a class="archive__item-link u-url" href="/p/5-verdades-de-genesis-27/" rel="permalink">
 <header class="archive__item-header">
 <figure class="archive__item-teaser jcem-skeleton" data-jcem-skeleton-state="loading" data-jcem-asset-aspect-ratio="1920 / 1002" style="--jcem-asset-aspect-ratio: 1920 / 1002">
-<img class="archive__item-image u-photo jcem-skeleton-asset" src="https://web.archive.org/web/20201005014559im_/https://blog.jeancarloem.com/wp-content/uploads/2020/07/5-verdades-de-genesis-2-7.png" alt="5 verdades de Gênesis 2:7" loading="lazy" decoding="async" width="1920" height="1002">
+<img class="archive__item-image u-photo jcem-skeleton-asset" src="/assets/images/responsive/cinco-verdades-genesis/cinco-verdades-genesis-320w.webp" alt="5 verdades de Gênesis 2:7" loading="lazy" decoding="async" srcset="/assets/images/responsive/cinco-verdades-genesis/cinco-verdades-genesis-320w.webp 320w, /assets/images/responsive/cinco-verdades-genesis/cinco-verdades-genesis-640w.webp 640w, /assets/images/responsive/cinco-verdades-genesis/cinco-verdades-genesis-960w.webp 960w, /assets/images/responsive/cinco-verdades-genesis/cinco-verdades-genesis-1200w.webp 1200w, /assets/images/responsive/cinco-verdades-genesis/cinco-verdades-genesis-1280w.webp 1280w, /assets/images/responsive/cinco-verdades-genesis/cinco-verdades-genesis-1920w.webp 1920w" sizes="(max-width: 40rem) calc(100vw - 2rem), (max-width: 64rem) 50vw, 33vw" width="1920" height="1002">
 </figure>
 <div class="jcem-date-flag jcem-date-flag--updated jcem-date-flag--archive">
 <time datetime="2020-07-11T19:24:08-03:00" title="Publicado em 11/07/2020; atualizado em 15/06/2026" aria-label="Publicado em 11/07/2020; atualizado em 15/06/2026">
@@ -3131,7 +2909,7 @@ aria-hidden="true"
 <a class="archive__item-link u-url" href="/p/5-verdades-de-genesis-27/" rel="permalink">
 <header class="archive__item-header">
 <figure class="archive__item-teaser jcem-skeleton" data-jcem-skeleton-state="loading" data-jcem-asset-aspect-ratio="1920 / 1002" style="--jcem-asset-aspect-ratio: 1920 / 1002">
-<img class="archive__item-image u-photo jcem-skeleton-asset" src="https://web.archive.org/web/20201005014559im_/https://blog.jeancarloem.com/wp-content/uploads/2020/07/5-verdades-de-genesis-2-7.png" alt="5 verdades de Gênesis 2:7" loading="lazy" decoding="async" width="1920" height="1002">
+<img class="archive__item-image u-photo jcem-skeleton-asset" src="/assets/images/responsive/cinco-verdades-genesis/cinco-verdades-genesis-320w.webp" alt="5 verdades de Gênesis 2:7" loading="lazy" decoding="async" srcset="/assets/images/responsive/cinco-verdades-genesis/cinco-verdades-genesis-320w.webp 320w, /assets/images/responsive/cinco-verdades-genesis/cinco-verdades-genesis-640w.webp 640w, /assets/images/responsive/cinco-verdades-genesis/cinco-verdades-genesis-960w.webp 960w, /assets/images/responsive/cinco-verdades-genesis/cinco-verdades-genesis-1200w.webp 1200w, /assets/images/responsive/cinco-verdades-genesis/cinco-verdades-genesis-1280w.webp 1280w, /assets/images/responsive/cinco-verdades-genesis/cinco-verdades-genesis-1920w.webp 1920w" sizes="(max-width: 40rem) calc(100vw - 2rem), (max-width: 64rem) 50vw, 33vw" width="1920" height="1002">
 </figure>
 <div class="jcem-date-flag jcem-date-flag--updated jcem-date-flag--archive">
 <time datetime="2020-07-11T19:24:08-03:00" title="Publicado em 11/07/2020; atualizado em 15/06/2026" aria-label="Publicado em 11/07/2020; atualizado em 15/06/2026">
@@ -3171,7 +2949,7 @@ aria-hidden="true"
 <a class="archive__item-link u-url" href="/p/como-identificar-falacias/" rel="permalink">
 <header class="archive__item-header">
 <figure class="archive__item-teaser jcem-skeleton" data-jcem-skeleton-state="loading" data-jcem-asset-aspect-ratio="1920 / 1080" style="--jcem-asset-aspect-ratio: 1920 / 1080">
-<img class="archive__item-image u-photo jcem-skeleton-asset" src="https://web.archive.org/web/20201005013131im_/https://blog.jeancarloem.com/wp-content/uploads/2020/08/cover-como-identificar-falacias.png" alt="Como identificar Falácias" loading="lazy" decoding="async" width="1920" height="1080">
+<img class="archive__item-image u-photo jcem-skeleton-asset" src="/assets/images/responsive/como-identificar-falacias/como-identificar-falacias-320w.webp" alt="Como identificar Falácias" loading="lazy" decoding="async" srcset="/assets/images/responsive/como-identificar-falacias/como-identificar-falacias-320w.webp 320w, /assets/images/responsive/como-identificar-falacias/como-identificar-falacias-640w.webp 640w, /assets/images/responsive/como-identificar-falacias/como-identificar-falacias-960w.webp 960w, /assets/images/responsive/como-identificar-falacias/como-identificar-falacias-1200w.webp 1200w, /assets/images/responsive/como-identificar-falacias/como-identificar-falacias-1280w.webp 1280w, /assets/images/responsive/como-identificar-falacias/como-identificar-falacias-1920w.webp 1920w" sizes="(max-width: 40rem) calc(100vw - 2rem), (max-width: 64rem) 50vw, 33vw" width="1920" height="1080">
 </figure>
 <div class="jcem-date-flag jcem-date-flag--updated jcem-date-flag--archive">
 <time datetime="2020-08-15T19:14:17-03:00" title="Publicado em 15/08/2020; atualizado em 15/06/2026" aria-label="Publicado em 15/08/2020; atualizado em 15/06/2026">
@@ -3211,7 +2989,7 @@ aria-hidden="true"
 <a class="archive__item-link u-url" href="/p/como-identificar-falacias/" rel="permalink">
 <header class="archive__item-header">
 <figure class="archive__item-teaser jcem-skeleton" data-jcem-skeleton-state="loading" data-jcem-asset-aspect-ratio="1920 / 1080" style="--jcem-asset-aspect-ratio: 1920 / 1080">
-<img class="archive__item-image u-photo jcem-skeleton-asset" src="https://web.archive.org/web/20201005013131im_/https://blog.jeancarloem.com/wp-content/uploads/2020/08/cover-como-identificar-falacias.png" alt="Como identificar Falácias" loading="lazy" decoding="async" width="1920" height="1080">
+<img class="archive__item-image u-photo jcem-skeleton-asset" src="/assets/images/responsive/como-identificar-falacias/como-identificar-falacias-320w.webp" alt="Como identificar Falácias" loading="lazy" decoding="async" srcset="/assets/images/responsive/como-identificar-falacias/como-identificar-falacias-320w.webp 320w, /assets/images/responsive/como-identificar-falacias/como-identificar-falacias-640w.webp 640w, /assets/images/responsive/como-identificar-falacias/como-identificar-falacias-960w.webp 960w, /assets/images/responsive/como-identificar-falacias/como-identificar-falacias-1200w.webp 1200w, /assets/images/responsive/como-identificar-falacias/como-identificar-falacias-1280w.webp 1280w, /assets/images/responsive/como-identificar-falacias/como-identificar-falacias-1920w.webp 1920w" sizes="(max-width: 40rem) calc(100vw - 2rem), (max-width: 64rem) 50vw, 33vw" width="1920" height="1080">
 </figure>
 <div class="jcem-date-flag jcem-date-flag--updated jcem-date-flag--archive">
 <time datetime="2020-08-15T19:14:17-03:00" title="Publicado em 15/08/2020; atualizado em 15/06/2026" aria-label="Publicado em 15/08/2020; atualizado em 15/06/2026">
@@ -3251,7 +3029,7 @@ aria-hidden="true"
 <a class="archive__item-link u-url" href="/p/como-identificar-falacias/" rel="permalink">
 <header class="archive__item-header">
 <figure class="archive__item-teaser jcem-skeleton" data-jcem-skeleton-state="loading" data-jcem-asset-aspect-ratio="1920 / 1080" style="--jcem-asset-aspect-ratio: 1920 / 1080">
-<img class="archive__item-image u-photo jcem-skeleton-asset" src="https://web.archive.org/web/20201005013131im_/https://blog.jeancarloem.com/wp-content/uploads/2020/08/cover-como-identificar-falacias.png" alt="Como identificar Falácias" loading="lazy" decoding="async" width="1920" height="1080">
+<img class="archive__item-image u-photo jcem-skeleton-asset" src="/assets/images/responsive/como-identificar-falacias/como-identificar-falacias-320w.webp" alt="Como identificar Falácias" loading="lazy" decoding="async" srcset="/assets/images/responsive/como-identificar-falacias/como-identificar-falacias-320w.webp 320w, /assets/images/responsive/como-identificar-falacias/como-identificar-falacias-640w.webp 640w, /assets/images/responsive/como-identificar-falacias/como-identificar-falacias-960w.webp 960w, /assets/images/responsive/como-identificar-falacias/como-identificar-falacias-1200w.webp 1200w, /assets/images/responsive/como-identificar-falacias/como-identificar-falacias-1280w.webp 1280w, /assets/images/responsive/como-identificar-falacias/como-identificar-falacias-1920w.webp 1920w" sizes="(max-width: 40rem) calc(100vw - 2rem), (max-width: 64rem) 50vw, 33vw" width="1920" height="1080">
 </figure>
 <div class="jcem-date-flag jcem-date-flag--updated jcem-date-flag--archive">
 <time datetime="2020-08-15T19:14:17-03:00" title="Publicado em 15/08/2020; atualizado em 15/06/2026" aria-label="Publicado em 15/08/2020; atualizado em 15/06/2026">
@@ -3291,7 +3069,7 @@ aria-hidden="true"
 <a class="archive__item-link u-url" href="/p/salvacao-importa-ser-perfeito/" rel="permalink">
 <header class="archive__item-header">
 <figure class="archive__item-teaser jcem-skeleton" data-jcem-skeleton-state="loading" data-jcem-asset-aspect-ratio="1920 / 1002" style="--jcem-asset-aspect-ratio: 1920 / 1002">
-<img class="archive__item-image u-photo jcem-skeleton-asset" src="https://web.archive.org/web/20201004153207im_/https://blog.jeancarloem.com/wp-content/uploads/2020/08/importa-ser-perfeito.png" alt="Salvação: Importa ser Perfeito?" loading="lazy" decoding="async" width="1920" height="1002">
+<img class="archive__item-image u-photo jcem-skeleton-asset" src="/assets/images/responsive/salvacao-importa-ser-perfeito/salvacao-importa-ser-perfeito-320w.webp" alt="Salvação: Importa ser Perfeito?" loading="lazy" decoding="async" srcset="/assets/images/responsive/salvacao-importa-ser-perfeito/salvacao-importa-ser-perfeito-320w.webp 320w, /assets/images/responsive/salvacao-importa-ser-perfeito/salvacao-importa-ser-perfeito-640w.webp 640w, /assets/images/responsive/salvacao-importa-ser-perfeito/salvacao-importa-ser-perfeito-960w.webp 960w, /assets/images/responsive/salvacao-importa-ser-perfeito/salvacao-importa-ser-perfeito-1200w.webp 1200w, /assets/images/responsive/salvacao-importa-ser-perfeito/salvacao-importa-ser-perfeito-1280w.webp 1280w, /assets/images/responsive/salvacao-importa-ser-perfeito/salvacao-importa-ser-perfeito-1920w.webp 1920w" sizes="(max-width: 40rem) calc(100vw - 2rem), (max-width: 64rem) 50vw, 33vw" width="1920" height="1002">
 </figure>
 <div class="jcem-date-flag jcem-date-flag--updated jcem-date-flag--archive">
 <time datetime="2020-08-29T14:44:06-03:00" title="Publicado em 29/08/2020; atualizado em 15/06/2026" aria-label="Publicado em 29/08/2020; atualizado em 15/06/2026">
@@ -3331,7 +3109,7 @@ aria-hidden="true"
 <a class="archive__item-link u-url" href="/p/salvacao-importa-ser-perfeito/" rel="permalink">
 <header class="archive__item-header">
 <figure class="archive__item-teaser jcem-skeleton" data-jcem-skeleton-state="loading" data-jcem-asset-aspect-ratio="1920 / 1002" style="--jcem-asset-aspect-ratio: 1920 / 1002">
-<img class="archive__item-image u-photo jcem-skeleton-asset" src="https://web.archive.org/web/20201004153207im_/https://blog.jeancarloem.com/wp-content/uploads/2020/08/importa-ser-perfeito.png" alt="Salvação: Importa ser Perfeito?" loading="lazy" decoding="async" width="1920" height="1002">
+<img class="archive__item-image u-photo jcem-skeleton-asset" src="/assets/images/responsive/salvacao-importa-ser-perfeito/salvacao-importa-ser-perfeito-320w.webp" alt="Salvação: Importa ser Perfeito?" loading="lazy" decoding="async" srcset="/assets/images/responsive/salvacao-importa-ser-perfeito/salvacao-importa-ser-perfeito-320w.webp 320w, /assets/images/responsive/salvacao-importa-ser-perfeito/salvacao-importa-ser-perfeito-640w.webp 640w, /assets/images/responsive/salvacao-importa-ser-perfeito/salvacao-importa-ser-perfeito-960w.webp 960w, /assets/images/responsive/salvacao-importa-ser-perfeito/salvacao-importa-ser-perfeito-1200w.webp 1200w, /assets/images/responsive/salvacao-importa-ser-perfeito/salvacao-importa-ser-perfeito-1280w.webp 1280w, /assets/images/responsive/salvacao-importa-ser-perfeito/salvacao-importa-ser-perfeito-1920w.webp 1920w" sizes="(max-width: 40rem) calc(100vw - 2rem), (max-width: 64rem) 50vw, 33vw" width="1920" height="1002">
 </figure>
 <div class="jcem-date-flag jcem-date-flag--updated jcem-date-flag--archive">
 <time datetime="2020-08-29T14:44:06-03:00" title="Publicado em 29/08/2020; atualizado em 15/06/2026" aria-label="Publicado em 29/08/2020; atualizado em 15/06/2026">
@@ -3371,7 +3149,7 @@ aria-hidden="true"
 <a class="archive__item-link u-url" href="/p/salvacao-importa-ser-perfeito/" rel="permalink">
 <header class="archive__item-header">
 <figure class="archive__item-teaser jcem-skeleton" data-jcem-skeleton-state="loading" data-jcem-asset-aspect-ratio="1920 / 1002" style="--jcem-asset-aspect-ratio: 1920 / 1002">
-<img class="archive__item-image u-photo jcem-skeleton-asset" src="https://web.archive.org/web/20201004153207im_/https://blog.jeancarloem.com/wp-content/uploads/2020/08/importa-ser-perfeito.png" alt="Salvação: Importa ser Perfeito?" loading="lazy" decoding="async" width="1920" height="1002">
+<img class="archive__item-image u-photo jcem-skeleton-asset" src="/assets/images/responsive/salvacao-importa-ser-perfeito/salvacao-importa-ser-perfeito-320w.webp" alt="Salvação: Importa ser Perfeito?" loading="lazy" decoding="async" srcset="/assets/images/responsive/salvacao-importa-ser-perfeito/salvacao-importa-ser-perfeito-320w.webp 320w, /assets/images/responsive/salvacao-importa-ser-perfeito/salvacao-importa-ser-perfeito-640w.webp 640w, /assets/images/responsive/salvacao-importa-ser-perfeito/salvacao-importa-ser-perfeito-960w.webp 960w, /assets/images/responsive/salvacao-importa-ser-perfeito/salvacao-importa-ser-perfeito-1200w.webp 1200w, /assets/images/responsive/salvacao-importa-ser-perfeito/salvacao-importa-ser-perfeito-1280w.webp 1280w, /assets/images/responsive/salvacao-importa-ser-perfeito/salvacao-importa-ser-perfeito-1920w.webp 1920w" sizes="(max-width: 40rem) calc(100vw - 2rem), (max-width: 64rem) 50vw, 33vw" width="1920" height="1002">
 </figure>
 <div class="jcem-date-flag jcem-date-flag--updated jcem-date-flag--archive">
 <time datetime="2020-08-29T14:44:06-03:00" title="Publicado em 29/08/2020; atualizado em 15/06/2026" aria-label="Publicado em 29/08/2020; atualizado em 15/06/2026">
@@ -3411,7 +3189,7 @@ aria-hidden="true"
 <a class="archive__item-link u-url" href="/p/salvacao-importa-ser-perfeito/" rel="permalink">
 <header class="archive__item-header">
 <figure class="archive__item-teaser jcem-skeleton" data-jcem-skeleton-state="loading" data-jcem-asset-aspect-ratio="1920 / 1002" style="--jcem-asset-aspect-ratio: 1920 / 1002">
-<img class="archive__item-image u-photo jcem-skeleton-asset" src="https://web.archive.org/web/20201004153207im_/https://blog.jeancarloem.com/wp-content/uploads/2020/08/importa-ser-perfeito.png" alt="Salvação: Importa ser Perfeito?" loading="lazy" decoding="async" width="1920" height="1002">
+<img class="archive__item-image u-photo jcem-skeleton-asset" src="/assets/images/responsive/salvacao-importa-ser-perfeito/salvacao-importa-ser-perfeito-320w.webp" alt="Salvação: Importa ser Perfeito?" loading="lazy" decoding="async" srcset="/assets/images/responsive/salvacao-importa-ser-perfeito/salvacao-importa-ser-perfeito-320w.webp 320w, /assets/images/responsive/salvacao-importa-ser-perfeito/salvacao-importa-ser-perfeito-640w.webp 640w, /assets/images/responsive/salvacao-importa-ser-perfeito/salvacao-importa-ser-perfeito-960w.webp 960w, /assets/images/responsive/salvacao-importa-ser-perfeito/salvacao-importa-ser-perfeito-1200w.webp 1200w, /assets/images/responsive/salvacao-importa-ser-perfeito/salvacao-importa-ser-perfeito-1280w.webp 1280w, /assets/images/responsive/salvacao-importa-ser-perfeito/salvacao-importa-ser-perfeito-1920w.webp 1920w" sizes="(max-width: 40rem) calc(100vw - 2rem), (max-width: 64rem) 50vw, 33vw" width="1920" height="1002">
 </figure>
 <div class="jcem-date-flag jcem-date-flag--updated jcem-date-flag--archive">
 <time datetime="2020-08-29T14:44:06-03:00" title="Publicado em 29/08/2020; atualizado em 15/06/2026" aria-label="Publicado em 29/08/2020; atualizado em 15/06/2026">
@@ -3451,7 +3229,7 @@ aria-hidden="true"
 <a class="archive__item-link u-url" href="/p/salvacao-importa-ser-perfeito/" rel="permalink">
 <header class="archive__item-header">
 <figure class="archive__item-teaser jcem-skeleton" data-jcem-skeleton-state="loading" data-jcem-asset-aspect-ratio="1920 / 1002" style="--jcem-asset-aspect-ratio: 1920 / 1002">
-<img class="archive__item-image u-photo jcem-skeleton-asset" src="https://web.archive.org/web/20201004153207im_/https://blog.jeancarloem.com/wp-content/uploads/2020/08/importa-ser-perfeito.png" alt="Salvação: Importa ser Perfeito?" loading="lazy" decoding="async" width="1920" height="1002">
+<img class="archive__item-image u-photo jcem-skeleton-asset" src="/assets/images/responsive/salvacao-importa-ser-perfeito/salvacao-importa-ser-perfeito-320w.webp" alt="Salvação: Importa ser Perfeito?" loading="lazy" decoding="async" srcset="/assets/images/responsive/salvacao-importa-ser-perfeito/salvacao-importa-ser-perfeito-320w.webp 320w, /assets/images/responsive/salvacao-importa-ser-perfeito/salvacao-importa-ser-perfeito-640w.webp 640w, /assets/images/responsive/salvacao-importa-ser-perfeito/salvacao-importa-ser-perfeito-960w.webp 960w, /assets/images/responsive/salvacao-importa-ser-perfeito/salvacao-importa-ser-perfeito-1200w.webp 1200w, /assets/images/responsive/salvacao-importa-ser-perfeito/salvacao-importa-ser-perfeito-1280w.webp 1280w, /assets/images/responsive/salvacao-importa-ser-perfeito/salvacao-importa-ser-perfeito-1920w.webp 1920w" sizes="(max-width: 40rem) calc(100vw - 2rem), (max-width: 64rem) 50vw, 33vw" width="1920" height="1002">
 </figure>
 <div class="jcem-date-flag jcem-date-flag--updated jcem-date-flag--archive">
 <time datetime="2020-08-29T14:44:06-03:00" title="Publicado em 29/08/2020; atualizado em 15/06/2026" aria-label="Publicado em 29/08/2020; atualizado em 15/06/2026">
@@ -3491,7 +3269,7 @@ aria-hidden="true"
 <a class="archive__item-link u-url" href="/p/salvacao-importa-ser-perfeito/" rel="permalink">
 <header class="archive__item-header">
 <figure class="archive__item-teaser jcem-skeleton" data-jcem-skeleton-state="loading" data-jcem-asset-aspect-ratio="1920 / 1002" style="--jcem-asset-aspect-ratio: 1920 / 1002">
-<img class="archive__item-image u-photo jcem-skeleton-asset" src="https://web.archive.org/web/20201004153207im_/https://blog.jeancarloem.com/wp-content/uploads/2020/08/importa-ser-perfeito.png" alt="Salvação: Importa ser Perfeito?" loading="lazy" decoding="async" width="1920" height="1002">
+<img class="archive__item-image u-photo jcem-skeleton-asset" src="/assets/images/responsive/salvacao-importa-ser-perfeito/salvacao-importa-ser-perfeito-320w.webp" alt="Salvação: Importa ser Perfeito?" loading="lazy" decoding="async" srcset="/assets/images/responsive/salvacao-importa-ser-perfeito/salvacao-importa-ser-perfeito-320w.webp 320w, /assets/images/responsive/salvacao-importa-ser-perfeito/salvacao-importa-ser-perfeito-640w.webp 640w, /assets/images/responsive/salvacao-importa-ser-perfeito/salvacao-importa-ser-perfeito-960w.webp 960w, /assets/images/responsive/salvacao-importa-ser-perfeito/salvacao-importa-ser-perfeito-1200w.webp 1200w, /assets/images/responsive/salvacao-importa-ser-perfeito/salvacao-importa-ser-perfeito-1280w.webp 1280w, /assets/images/responsive/salvacao-importa-ser-perfeito/salvacao-importa-ser-perfeito-1920w.webp 1920w" sizes="(max-width: 40rem) calc(100vw - 2rem), (max-width: 64rem) 50vw, 33vw" width="1920" height="1002">
 </figure>
 <div class="jcem-date-flag jcem-date-flag--updated jcem-date-flag--archive">
 <time datetime="2020-08-29T14:44:06-03:00" title="Publicado em 29/08/2020; atualizado em 15/06/2026" aria-label="Publicado em 29/08/2020; atualizado em 15/06/2026">
@@ -3531,7 +3309,7 @@ aria-hidden="true"
 <a class="archive__item-link u-url" href="/p/salvacao-importa-ser-perfeito/" rel="permalink">
 <header class="archive__item-header">
 <figure class="archive__item-teaser jcem-skeleton" data-jcem-skeleton-state="loading" data-jcem-asset-aspect-ratio="1920 / 1002" style="--jcem-asset-aspect-ratio: 1920 / 1002">
-<img class="archive__item-image u-photo jcem-skeleton-asset" src="https://web.archive.org/web/20201004153207im_/https://blog.jeancarloem.com/wp-content/uploads/2020/08/importa-ser-perfeito.png" alt="Salvação: Importa ser Perfeito?" loading="lazy" decoding="async" width="1920" height="1002">
+<img class="archive__item-image u-photo jcem-skeleton-asset" src="/assets/images/responsive/salvacao-importa-ser-perfeito/salvacao-importa-ser-perfeito-320w.webp" alt="Salvação: Importa ser Perfeito?" loading="lazy" decoding="async" srcset="/assets/images/responsive/salvacao-importa-ser-perfeito/salvacao-importa-ser-perfeito-320w.webp 320w, /assets/images/responsive/salvacao-importa-ser-perfeito/salvacao-importa-ser-perfeito-640w.webp 640w, /assets/images/responsive/salvacao-importa-ser-perfeito/salvacao-importa-ser-perfeito-960w.webp 960w, /assets/images/responsive/salvacao-importa-ser-perfeito/salvacao-importa-ser-perfeito-1200w.webp 1200w, /assets/images/responsive/salvacao-importa-ser-perfeito/salvacao-importa-ser-perfeito-1280w.webp 1280w, /assets/images/responsive/salvacao-importa-ser-perfeito/salvacao-importa-ser-perfeito-1920w.webp 1920w" sizes="(max-width: 40rem) calc(100vw - 2rem), (max-width: 64rem) 50vw, 33vw" width="1920" height="1002">
 </figure>
 <div class="jcem-date-flag jcem-date-flag--updated jcem-date-flag--archive">
 <time datetime="2020-08-29T14:44:06-03:00" title="Publicado em 29/08/2020; atualizado em 15/06/2026" aria-label="Publicado em 29/08/2020; atualizado em 15/06/2026">
@@ -3571,7 +3349,7 @@ aria-hidden="true"
 <a class="archive__item-link u-url" href="/p/salvacao-importa-ser-perfeito/" rel="permalink">
 <header class="archive__item-header">
 <figure class="archive__item-teaser jcem-skeleton" data-jcem-skeleton-state="loading" data-jcem-asset-aspect-ratio="1920 / 1002" style="--jcem-asset-aspect-ratio: 1920 / 1002">
-<img class="archive__item-image u-photo jcem-skeleton-asset" src="https://web.archive.org/web/20201004153207im_/https://blog.jeancarloem.com/wp-content/uploads/2020/08/importa-ser-perfeito.png" alt="Salvação: Importa ser Perfeito?" loading="lazy" decoding="async" width="1920" height="1002">
+<img class="archive__item-image u-photo jcem-skeleton-asset" src="/assets/images/responsive/salvacao-importa-ser-perfeito/salvacao-importa-ser-perfeito-320w.webp" alt="Salvação: Importa ser Perfeito?" loading="lazy" decoding="async" srcset="/assets/images/responsive/salvacao-importa-ser-perfeito/salvacao-importa-ser-perfeito-320w.webp 320w, /assets/images/responsive/salvacao-importa-ser-perfeito/salvacao-importa-ser-perfeito-640w.webp 640w, /assets/images/responsive/salvacao-importa-ser-perfeito/salvacao-importa-ser-perfeito-960w.webp 960w, /assets/images/responsive/salvacao-importa-ser-perfeito/salvacao-importa-ser-perfeito-1200w.webp 1200w, /assets/images/responsive/salvacao-importa-ser-perfeito/salvacao-importa-ser-perfeito-1280w.webp 1280w, /assets/images/responsive/salvacao-importa-ser-perfeito/salvacao-importa-ser-perfeito-1920w.webp 1920w" sizes="(max-width: 40rem) calc(100vw - 2rem), (max-width: 64rem) 50vw, 33vw" width="1920" height="1002">
 </figure>
 <div class="jcem-date-flag jcem-date-flag--updated jcem-date-flag--archive">
 <time datetime="2020-08-29T14:44:06-03:00" title="Publicado em 29/08/2020; atualizado em 15/06/2026" aria-label="Publicado em 29/08/2020; atualizado em 15/06/2026">
@@ -3611,7 +3389,7 @@ aria-hidden="true"
 <a class="archive__item-link u-url" href="/p/salvacao-importa-ser-perfeito/" rel="permalink">
 <header class="archive__item-header">
 <figure class="archive__item-teaser jcem-skeleton" data-jcem-skeleton-state="loading" data-jcem-asset-aspect-ratio="1920 / 1002" style="--jcem-asset-aspect-ratio: 1920 / 1002">
-<img class="archive__item-image u-photo jcem-skeleton-asset" src="https://web.archive.org/web/20201004153207im_/https://blog.jeancarloem.com/wp-content/uploads/2020/08/importa-ser-perfeito.png" alt="Salvação: Importa ser Perfeito?" loading="lazy" decoding="async" width="1920" height="1002">
+<img class="archive__item-image u-photo jcem-skeleton-asset" src="/assets/images/responsive/salvacao-importa-ser-perfeito/salvacao-importa-ser-perfeito-320w.webp" alt="Salvação: Importa ser Perfeito?" loading="lazy" decoding="async" srcset="/assets/images/responsive/salvacao-importa-ser-perfeito/salvacao-importa-ser-perfeito-320w.webp 320w, /assets/images/responsive/salvacao-importa-ser-perfeito/salvacao-importa-ser-perfeito-640w.webp 640w, /assets/images/responsive/salvacao-importa-ser-perfeito/salvacao-importa-ser-perfeito-960w.webp 960w, /assets/images/responsive/salvacao-importa-ser-perfeito/salvacao-importa-ser-perfeito-1200w.webp 1200w, /assets/images/responsive/salvacao-importa-ser-perfeito/salvacao-importa-ser-perfeito-1280w.webp 1280w, /assets/images/responsive/salvacao-importa-ser-perfeito/salvacao-importa-ser-perfeito-1920w.webp 1920w" sizes="(max-width: 40rem) calc(100vw - 2rem), (max-width: 64rem) 50vw, 33vw" width="1920" height="1002">
 </figure>
 <div class="jcem-date-flag jcem-date-flag--updated jcem-date-flag--archive">
 <time datetime="2020-08-29T14:44:06-03:00" title="Publicado em 29/08/2020; atualizado em 15/06/2026" aria-label="Publicado em 29/08/2020; atualizado em 15/06/2026">
@@ -3651,7 +3429,7 @@ aria-hidden="true"
 <a class="archive__item-link u-url" href="/p/salvacao-importa-ser-perfeito/" rel="permalink">
 <header class="archive__item-header">
 <figure class="archive__item-teaser jcem-skeleton" data-jcem-skeleton-state="loading" data-jcem-asset-aspect-ratio="1920 / 1002" style="--jcem-asset-aspect-ratio: 1920 / 1002">
-<img class="archive__item-image u-photo jcem-skeleton-asset" src="https://web.archive.org/web/20201004153207im_/https://blog.jeancarloem.com/wp-content/uploads/2020/08/importa-ser-perfeito.png" alt="Salvação: Importa ser Perfeito?" loading="lazy" decoding="async" width="1920" height="1002">
+<img class="archive__item-image u-photo jcem-skeleton-asset" src="/assets/images/responsive/salvacao-importa-ser-perfeito/salvacao-importa-ser-perfeito-320w.webp" alt="Salvação: Importa ser Perfeito?" loading="lazy" decoding="async" srcset="/assets/images/responsive/salvacao-importa-ser-perfeito/salvacao-importa-ser-perfeito-320w.webp 320w, /assets/images/responsive/salvacao-importa-ser-perfeito/salvacao-importa-ser-perfeito-640w.webp 640w, /assets/images/responsive/salvacao-importa-ser-perfeito/salvacao-importa-ser-perfeito-960w.webp 960w, /assets/images/responsive/salvacao-importa-ser-perfeito/salvacao-importa-ser-perfeito-1200w.webp 1200w, /assets/images/responsive/salvacao-importa-ser-perfeito/salvacao-importa-ser-perfeito-1280w.webp 1280w, /assets/images/responsive/salvacao-importa-ser-perfeito/salvacao-importa-ser-perfeito-1920w.webp 1920w" sizes="(max-width: 40rem) calc(100vw - 2rem), (max-width: 64rem) 50vw, 33vw" width="1920" height="1002">
 </figure>
 <div class="jcem-date-flag jcem-date-flag--updated jcem-date-flag--archive">
 <time datetime="2020-08-29T14:44:06-03:00" title="Publicado em 29/08/2020; atualizado em 15/06/2026" aria-label="Publicado em 29/08/2020; atualizado em 15/06/2026">
@@ -3691,7 +3469,7 @@ aria-hidden="true"
 <a class="archive__item-link u-url" href="/p/salvacao-importa-ser-perfeito/" rel="permalink">
 <header class="archive__item-header">
 <figure class="archive__item-teaser jcem-skeleton" data-jcem-skeleton-state="loading" data-jcem-asset-aspect-ratio="1920 / 1002" style="--jcem-asset-aspect-ratio: 1920 / 1002">
-<img class="archive__item-image u-photo jcem-skeleton-asset" src="https://web.archive.org/web/20201004153207im_/https://blog.jeancarloem.com/wp-content/uploads/2020/08/importa-ser-perfeito.png" alt="Salvação: Importa ser Perfeito?" loading="lazy" decoding="async" width="1920" height="1002">
+<img class="archive__item-image u-photo jcem-skeleton-asset" src="/assets/images/responsive/salvacao-importa-ser-perfeito/salvacao-importa-ser-perfeito-320w.webp" alt="Salvação: Importa ser Perfeito?" loading="lazy" decoding="async" srcset="/assets/images/responsive/salvacao-importa-ser-perfeito/salvacao-importa-ser-perfeito-320w.webp 320w, /assets/images/responsive/salvacao-importa-ser-perfeito/salvacao-importa-ser-perfeito-640w.webp 640w, /assets/images/responsive/salvacao-importa-ser-perfeito/salvacao-importa-ser-perfeito-960w.webp 960w, /assets/images/responsive/salvacao-importa-ser-perfeito/salvacao-importa-ser-perfeito-1200w.webp 1200w, /assets/images/responsive/salvacao-importa-ser-perfeito/salvacao-importa-ser-perfeito-1280w.webp 1280w, /assets/images/responsive/salvacao-importa-ser-perfeito/salvacao-importa-ser-perfeito-1920w.webp 1920w" sizes="(max-width: 40rem) calc(100vw - 2rem), (max-width: 64rem) 50vw, 33vw" width="1920" height="1002">
 </figure>
 <div class="jcem-date-flag jcem-date-flag--updated jcem-date-flag--archive">
 <time datetime="2020-08-29T14:44:06-03:00" title="Publicado em 29/08/2020; atualizado em 15/06/2026" aria-label="Publicado em 29/08/2020; atualizado em 15/06/2026">
@@ -3731,7 +3509,7 @@ aria-hidden="true"
 <a class="archive__item-link u-url" href="/p/nenhum-nivel-de-alcool-faz-bem-a-saude/" rel="permalink">
 <header class="archive__item-header">
 <figure class="archive__item-teaser jcem-skeleton" data-jcem-skeleton-state="loading" data-jcem-asset-aspect-ratio="1200 / 628" style="--jcem-asset-aspect-ratio: 1200 / 628">
-<img class="archive__item-image u-photo jcem-skeleton-asset" src="https://web.archive.org/web/20210207030211im_/https://blog.jeancarloem.com/wp-content/uploads/2021/02/Nenhum-nivel-de-alcool-faz-bem-a-saude.jpg" alt="Nenhum nível de álcool faz bem à saúde" loading="lazy" decoding="async" width="1200" height="628">
+<img class="archive__item-image u-photo jcem-skeleton-asset" src="/assets/images/responsive/nenhum-alcool/nenhum-alcool-320w.webp" alt="Nenhum nível de álcool faz bem à saúde" loading="lazy" decoding="async" srcset="/assets/images/responsive/nenhum-alcool/nenhum-alcool-320w.webp 320w, /assets/images/responsive/nenhum-alcool/nenhum-alcool-640w.webp 640w, /assets/images/responsive/nenhum-alcool/nenhum-alcool-960w.webp 960w, /assets/images/responsive/nenhum-alcool/nenhum-alcool-1200w.webp 1200w" sizes="(max-width: 40rem) calc(100vw - 2rem), (max-width: 64rem) 50vw, 33vw" width="1200" height="628">
 </figure>
 <div class="jcem-date-flag jcem-date-flag--updated jcem-date-flag--archive">
 <time datetime="2021-02-06T23:50:42-03:00" title="Publicado em 06/02/2021; atualizado em 15/06/2026" aria-label="Publicado em 06/02/2021; atualizado em 15/06/2026">
@@ -3771,7 +3549,7 @@ aria-hidden="true"
 <a class="archive__item-link u-url" href="/p/nenhum-nivel-de-alcool-faz-bem-a-saude/" rel="permalink">
 <header class="archive__item-header">
 <figure class="archive__item-teaser jcem-skeleton" data-jcem-skeleton-state="loading" data-jcem-asset-aspect-ratio="1200 / 628" style="--jcem-asset-aspect-ratio: 1200 / 628">
-<img class="archive__item-image u-photo jcem-skeleton-asset" src="https://web.archive.org/web/20210207030211im_/https://blog.jeancarloem.com/wp-content/uploads/2021/02/Nenhum-nivel-de-alcool-faz-bem-a-saude.jpg" alt="Nenhum nível de álcool faz bem à saúde" loading="lazy" decoding="async" width="1200" height="628">
+<img class="archive__item-image u-photo jcem-skeleton-asset" src="/assets/images/responsive/nenhum-alcool/nenhum-alcool-320w.webp" alt="Nenhum nível de álcool faz bem à saúde" loading="lazy" decoding="async" srcset="/assets/images/responsive/nenhum-alcool/nenhum-alcool-320w.webp 320w, /assets/images/responsive/nenhum-alcool/nenhum-alcool-640w.webp 640w, /assets/images/responsive/nenhum-alcool/nenhum-alcool-960w.webp 960w, /assets/images/responsive/nenhum-alcool/nenhum-alcool-1200w.webp 1200w" sizes="(max-width: 40rem) calc(100vw - 2rem), (max-width: 64rem) 50vw, 33vw" width="1200" height="628">
 </figure>
 <div class="jcem-date-flag jcem-date-flag--updated jcem-date-flag--archive">
 <time datetime="2021-02-06T23:50:42-03:00" title="Publicado em 06/02/2021; atualizado em 15/06/2026" aria-label="Publicado em 06/02/2021; atualizado em 15/06/2026">
@@ -3811,7 +3589,7 @@ aria-hidden="true"
 <a class="archive__item-link u-url" href="/p/nenhum-nivel-de-alcool-faz-bem-a-saude/" rel="permalink">
 <header class="archive__item-header">
 <figure class="archive__item-teaser jcem-skeleton" data-jcem-skeleton-state="loading" data-jcem-asset-aspect-ratio="1200 / 628" style="--jcem-asset-aspect-ratio: 1200 / 628">
-<img class="archive__item-image u-photo jcem-skeleton-asset" src="https://web.archive.org/web/20210207030211im_/https://blog.jeancarloem.com/wp-content/uploads/2021/02/Nenhum-nivel-de-alcool-faz-bem-a-saude.jpg" alt="Nenhum nível de álcool faz bem à saúde" loading="lazy" decoding="async" width="1200" height="628">
+<img class="archive__item-image u-photo jcem-skeleton-asset" src="/assets/images/responsive/nenhum-alcool/nenhum-alcool-320w.webp" alt="Nenhum nível de álcool faz bem à saúde" loading="lazy" decoding="async" srcset="/assets/images/responsive/nenhum-alcool/nenhum-alcool-320w.webp 320w, /assets/images/responsive/nenhum-alcool/nenhum-alcool-640w.webp 640w, /assets/images/responsive/nenhum-alcool/nenhum-alcool-960w.webp 960w, /assets/images/responsive/nenhum-alcool/nenhum-alcool-1200w.webp 1200w" sizes="(max-width: 40rem) calc(100vw - 2rem), (max-width: 64rem) 50vw, 33vw" width="1200" height="628">
 </figure>
 <div class="jcem-date-flag jcem-date-flag--updated jcem-date-flag--archive">
 <time datetime="2021-02-06T23:50:42-03:00" title="Publicado em 06/02/2021; atualizado em 15/06/2026" aria-label="Publicado em 06/02/2021; atualizado em 15/06/2026">
@@ -3851,7 +3629,7 @@ aria-hidden="true"
 <a class="archive__item-link u-url" href="/p/nenhum-nivel-de-alcool-faz-bem-a-saude/" rel="permalink">
 <header class="archive__item-header">
 <figure class="archive__item-teaser jcem-skeleton" data-jcem-skeleton-state="loading" data-jcem-asset-aspect-ratio="1200 / 628" style="--jcem-asset-aspect-ratio: 1200 / 628">
-<img class="archive__item-image u-photo jcem-skeleton-asset" src="https://web.archive.org/web/20210207030211im_/https://blog.jeancarloem.com/wp-content/uploads/2021/02/Nenhum-nivel-de-alcool-faz-bem-a-saude.jpg" alt="Nenhum nível de álcool faz bem à saúde" loading="lazy" decoding="async" width="1200" height="628">
+<img class="archive__item-image u-photo jcem-skeleton-asset" src="/assets/images/responsive/nenhum-alcool/nenhum-alcool-320w.webp" alt="Nenhum nível de álcool faz bem à saúde" loading="lazy" decoding="async" srcset="/assets/images/responsive/nenhum-alcool/nenhum-alcool-320w.webp 320w, /assets/images/responsive/nenhum-alcool/nenhum-alcool-640w.webp 640w, /assets/images/responsive/nenhum-alcool/nenhum-alcool-960w.webp 960w, /assets/images/responsive/nenhum-alcool/nenhum-alcool-1200w.webp 1200w" sizes="(max-width: 40rem) calc(100vw - 2rem), (max-width: 64rem) 50vw, 33vw" width="1200" height="628">
 </figure>
 <div class="jcem-date-flag jcem-date-flag--updated jcem-date-flag--archive">
 <time datetime="2021-02-06T23:50:42-03:00" title="Publicado em 06/02/2021; atualizado em 15/06/2026" aria-label="Publicado em 06/02/2021; atualizado em 15/06/2026">
@@ -3891,7 +3669,7 @@ aria-hidden="true"
 <a class="archive__item-link u-url" href="/p/nenhum-nivel-de-alcool-faz-bem-a-saude/" rel="permalink">
 <header class="archive__item-header">
 <figure class="archive__item-teaser jcem-skeleton" data-jcem-skeleton-state="loading" data-jcem-asset-aspect-ratio="1200 / 628" style="--jcem-asset-aspect-ratio: 1200 / 628">
-<img class="archive__item-image u-photo jcem-skeleton-asset" src="https://web.archive.org/web/20210207030211im_/https://blog.jeancarloem.com/wp-content/uploads/2021/02/Nenhum-nivel-de-alcool-faz-bem-a-saude.jpg" alt="Nenhum nível de álcool faz bem à saúde" loading="lazy" decoding="async" width="1200" height="628">
+<img class="archive__item-image u-photo jcem-skeleton-asset" src="/assets/images/responsive/nenhum-alcool/nenhum-alcool-320w.webp" alt="Nenhum nível de álcool faz bem à saúde" loading="lazy" decoding="async" srcset="/assets/images/responsive/nenhum-alcool/nenhum-alcool-320w.webp 320w, /assets/images/responsive/nenhum-alcool/nenhum-alcool-640w.webp 640w, /assets/images/responsive/nenhum-alcool/nenhum-alcool-960w.webp 960w, /assets/images/responsive/nenhum-alcool/nenhum-alcool-1200w.webp 1200w" sizes="(max-width: 40rem) calc(100vw - 2rem), (max-width: 64rem) 50vw, 33vw" width="1200" height="628">
 </figure>
 <div class="jcem-date-flag jcem-date-flag--updated jcem-date-flag--archive">
 <time datetime="2021-02-06T23:50:42-03:00" title="Publicado em 06/02/2021; atualizado em 15/06/2026" aria-label="Publicado em 06/02/2021; atualizado em 15/06/2026">
@@ -4313,7 +4091,6 @@ class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1872"
 <a class="jcem-scroll-top" href="#" aria-label="Voltar ao topo" title="Voltar ao topo" aria-hidden="true" tabindex="-1">
 <i class="fas fa-arrow-up" aria-hidden="true"></i>
 </a>
-<script src="/assets/js/main.min.js"></script>
 </div>
 </body>
 </html>

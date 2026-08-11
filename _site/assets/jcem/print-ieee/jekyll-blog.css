@@ -54,6 +54,13 @@
 
 	body:has([data-print-article])
 		:is(#print-isolation-specificity-guard, [data-print-article])
+		.jcem-quote__icon {
+		/* PROTECAO: iconização tipada pertence à tela; o conteúdo usa o blockquote IEEE. */
+		display: none !important;
+	}
+
+	body:has([data-print-article])
+		:is(#print-isolation-specificity-guard, [data-print-article])
 		:is(
 			details.jcem-collapsible--references,
 			details.jcem-collapsible--bibliography

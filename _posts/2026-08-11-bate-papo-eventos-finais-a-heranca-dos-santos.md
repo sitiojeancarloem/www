@@ -3,6 +3,9 @@ title: 'Bate-papo: eventos finais — a herança dos santos'
 content_namespace: bate-papo
 content_subnamespaces:
   - eventos-finais
+header:
+  image: '/assets/images/posts/eventos-finais/eventos-finais.svg'
+  image_description: 'Cidade luminosa ao horizonte, sobre colinas e sob um céu estrelado'
 ---
 
 <!-- AI-PROCESSED:START -->

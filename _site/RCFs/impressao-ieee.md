@@ -1,0 +1,88 @@
+<!-- AI-PROCESSED -->
+# RCF-JCEM-IMPRESSAO-IEEE-001
+
+Status: vigente; implementação material validada em 2026-08-09.
+
+Escopo: biblioteca Web agnóstica para impressão ou exportação PDF de artigo editorial completo, integração inicial com este blog e adaptadores futuros de plataforma.
+
+## Resultado e níveis de conformidade
+
+- Somente artigo, `article` ou post editorial completo identificado pelo contrato público da biblioteca DEVE receber a composição IEEE; home, arquivo, mapa, 404, listagem e página sem artigo integral DEVEM manter impressão natural.
+- Navegação, menu, atalho, compartilhamento do sistema, botão próprio e mecanismo equivalente DEVEM continuar aptos a iniciar a impressão nativa; a biblioteca NÃO DEVE bloquear, substituir, sequestrar nem tornar obrigatório um iniciador específico.
+- A apresentação em tela NÃO DEVE ser alterada pela biblioteca, e falha, ausência ou carregamento parcial de JavaScript, fonte ou motor externo NÃO DEVE produzir página vazia, truncada ou inutilizável.
+- A biblioteca DEVE expor estados distinguíveis de conformidade: `legivel`, para fallback sem preparação completa; `nativo-preparado`, para impressão nativa preparada e validada; e `ieee-validado`, exclusivamente para saída aferida contra o perfil de referência aplicável. Interface, metadado e diagnóstico NÃO DEVEM declarar conformidade superior à efetivamente obtida.
+- “Compatível com IEEE” DEVE significar equivalência física, estrutural e composicional mensurável no PDF ou papel final, ressalvadas somente Noto Sans, chamadas referenciais sobrescritas, preservação controlada de cores, tabelas e avisos institucionais e demais exceções expressas neste RCF.
+
+## Perfil de referência e determinismo
+
+- Geometria, composição, hierarquia, paginação e tolerâncias DEVEM provir de perfil externo versionado, formado por identificador, título, edição, origem, data de obtenção, licença ou condição de uso, hash do documento ou template de controle, papel, escala, unidades, margens, colunas, tipografia de referência e tolerâncias reproduzíveis.
+- Valor físico, versão, medida, navegador, engine ou equivalência visual NÃO DEVE ser imaginado, inferido por semelhança em tela nem atualizado silenciosamente. Ausência do perfil versionado DEVE bloquear a classificação `ieee-validado`, sem bloquear o fallback legível.
+- A conformidade DEVE ser aferida no PDF ou papel final em escala `100%`; ajuste automático de encaixe e cabeçalho ou rodapé acrescentado pelo navegador NÃO DEVEM ser pressupostos.
+- Adaptação de consumidor ou plataforma NÃO DEVE alterar invariante do perfil; exceção DEVE residir em configuração ou adaptador, ser identificada no relatório de conformidade e possuir teste próprio.
+
+### Perfil implementado e autoridade
+
+- O perfil canônico inicial é `ieee-conference-a4-ieeetran-1.8b`, schema 1, obtido em 2026-08-09 a partir do IEEEtran 1.8b indicado pelo IEEE Author Center e distribuído pelo CTAN sob LPPL-1.3c. O arquivo de referência NÃO é redistribuído; seu ZIP de controle possui SHA-256 `e0cd4f5afbd42c8076092280e72b3e0a5111efe501d35de9f715cfb8da313cb4`.
+- O perfil fixa papel A4, escala 100%, margens superior/direita/inferior/esquerda de 19,05/14,3225/43/14,3225 mm, duas colunas, intervalo de 4,2175 mm e largura de coluna de 88,5687 mm. A família Times do controle é substituída, por decisão deste RCF, por Noto Sans incorporada.
+- A biblioteca `@jcem/print-ieee` e seus artefatos próprios usam MPL-2.0. Licença da biblioteca e licença da referência externa DEVEM permanecer declaradas separadamente em perfil, pacote, documentação e relatório.
+- O runtime DEVE declarar no máximo `nativo-preparado`. Somente relatório individual de saída física ou PDF PODE declarar `ieee-validado`; a aferição vigente após isolamento reside em `src/jcem-print-ieee/reports/2026-08-09-devaneios-chromium-151.json`, e a aferição Chromium 148 permanece como registro histórico da composição anterior.
+
+## Arquitetura, autoridade e API
+
+- A solução DEVE nascer como biblioteca autônoma, importada explicitamente pelo blog, ainda que armazenada inicialmente em sua estrutura-fonte; localização inicial NÃO DEVE acoplar o núcleo ao tema, ao site, ao Jekyll nem à árvore privada do consumidor.
+- A biblioteca DEVE separar núcleo genérico, CSS/Sass, preparação de runtime, adaptadores de engine, plugins de plataforma, configuração do consumidor e overrides locais. Núcleo e contratos públicos NÃO DEVEM importar alias, helper, template, front matter, estado, classe acidental nem arquivo privado do primeiro consumidor.
+- O contrato público DEVE permitir identificar o artigo, fornecer e mapear metadados, declarar conteúdo omitido ou preservado, registrar elemento indivisível ou de largura total, selecionar parâmetro autorizado, fornecer transformação estática e consultar ou acionar preparação. `[data-print-article]` DEVERIA ser o marcador declarativo padrão; outro seletor DEVE ser configurável.
+- API, configuração e schema DEVEM ser mínimos, estáveis, versionados, validados e sem efeito colateral na importação. Inicialização automática DEVE depender de ativação explícita.
+- Dependência opcional NÃO DEVE ser carregada nem instalada pelo consumidor que não usa seu recurso. Consumidor Node.js NÃO DEVE depender de Ruby, e consumidor Jekyll NÃO DEVE executar Node.js no navegador; dependência de build DEVE pertencer ao adaptador correspondente.
+- Integração Jekyll DEVE permanecer em plugin, filtro, hook, include, Liquid, Ruby ou adaptador próprio e PODE mapear front matter, enriquecer HTML, gerar metadados, preparar conteúdo e rejeitar build inválido. Saída DEVE ser HTML estático funcional sem Ruby no navegador.
+- A árvore-fonte da biblioteca, seus testes, relatórios e construtores DEVEM ser excluídos do artefato Jekyll. Somente módulos, estilos e perfil explicitamente materializados em `assets/jcem/print-ieee/` PODEM alcançar a superfície pública.
+- Transformação equivalente em Ruby, Node.js ou outra integração DEVE consumir o mesmo schema, fixtures e contrato e produzir semântica equivalente. Remover o adaptador Jekyll NÃO DEVE comprometer o núcleo nem o uso básico por HTML, CSS e JavaScript padronizados.
+- Correção originada no primeiro site DEVE resolver a classe geral do problema e produzir teste genérico, de contrato e do adaptador aplicável. Identificador privado, profundidade fixa de DOM, ordem circunstancial, conteúdo textual, path ou classe acidental NÃO DEVEM integrar o núcleo; caso não generalizável DEVE exigir marcação ou configuração explícita.
+
+## Isolamento estrito entre tela e impressão
+
+- Visualização web e impressão DEVEM constituir contextos de apresentação independentes. Na ausência de regra expressa neste RCF ou em adaptador versionado, estilo, personalização, layout, comportamento e estrutura auxiliar de um contexto NÃO DEVEM participar do outro.
+- Toda implementação ou recurso visual ou web, existente, em desenvolvimento ou futuro, DEVE cumprir este isolamento como critério obrigatório de arquitetura, revisão e aceite. Componente de terceiro NÃO está dispensado: DEVE ser configurado, encapsulado ou acoplado por plugin, conector ou adaptador versionado quando necessário para impedir travessia de estilo, estrutura ou comportamento.
+- Conteúdo e semântica PODEM ser compartilhados deliberadamente: texto, ordem de leitura, títulos semânticos, links, figuras, tabelas editoriais, `data-jcem-blockquote`, `data-jcem-subquote`, papéis acessíveis e marcadores públicos `data-print-*`. Esse compartilhamento NÃO autoriza herdar aparência, geometria, tipografia ou estrutura decorativa.
+- O contexto de impressão DEVE aplicar reset determinístico, limitado ao artigo e a pseudo-elementos descendentes, antes de declarar sua própria tipografia, títulos, parágrafos, espaçamentos, bordas, cores, tabelas, citações e elementos auxiliares. Token de tema, seletor de skin, classe visual web e regra responsiva de tela NÃO DEVEM determinar o resultado impresso.
+- Estrutura auxiliar exclusiva da web DEVE ser omitida ou neutralizada pelo adaptador de impressão. Em especial, renderer decorativo de citação construído com `div`, tabela de apresentação, cantos, bordas, imagens ou preenchimentos DEVE degradar na impressão para o bloco semântico equivalente, sem transferir sua composição visual.
+- Estrutura exclusiva de impressão DEVE usar marcador público próprio, permanecer oculta em `screen` e não participar de geometria, acessibilidade, foco nem comportamento da visualização web. CSS de impressão DEVE ser carregado com mídia restrita ou conter escopo `@media print`; CSS de tela específico DEVERIA usar escopo `@media screen` quando não estiver integralmente neutralizado pelo reset impresso.
+- `blockquote` e estrutura semanticamente equivalente DEVEM usar na impressão, por padrão, exclusivamente o estilo definido pelo perfil IEEE, independentemente de modelo, classe, renderer ou aparência web. Customização impressa somente PODE existir por autorização humana expressa registrada no ponto único abaixo e DEVE selecionar nominalmente as ocorrências ou estruturas autorizadas; seletor, token ou regra que generalize a exceção para todos os `blockquote`, todo o artigo ou todo o documento É PROIBIDO.
+
+### Registro único de exceções de isolamento e do perfil impresso
+
+- Esta subseção é o único ponto autoritativo para exceção ao isolamento ou estilização impressa divergente do padrão IEEE. Exceção DEVE possuir autorização humana expressa, identificador, justificativa, contexto de origem, escopo semântico, seletor ou marcador seletivo, propriedade divergente, aplicação, artefatos e validação rastreáveis. Adaptador ou documentação auxiliar somente PODE referenciar a entrada daqui, nunca instituir exceção paralela.
+- Compartilhamentos deliberados vigentes, que não alteram o estilo IEEE: conteúdo e semântica editorial; abertura de `Referências` e `Bibliografia`; redução explícita de colunas Markdown internas para uma coluna antes da composição IEEE; preservação controlada de cores de imagens e tabelas editoriais. Nenhuma decoração web de painel, título, parágrafo, tema ou chrome integra essa lista.
+- Exceções vigentes ao isolamento ou ao estilo IEEE: nenhuma.
+
+## Progressividade, ciclo de impressão e custo
+
+- A progressividade DEVE preferir HTML semântico → CSS/Sass → transformação estática de build → TypeScript de runtime → motor externo, admitida inversão somente quando comprovadamente mais simples, leve, robusta e determinística.
+- CSS Paged Media e fallback exclusivamente CSS DEVEM permanecer funcionais. TypeScript DEVE limitar-se a estado ou preparação inviável em CSS; Ruby e mecanismos nativos da plataforma DEVEM ser usados no adaptador quando eliminarem custo de runtime ou ampliarem compatibilidade.
+- `beforeprint`, `afterprint`, `matchMedia("print")`, preparação antecipada assíncrona e transformação estática DEVEM ser combinados conforme a matriz de suporte. Preparação incompleta DEVE preservar conteúdo e PODE exibir aviso discreto e temporário; aviso NÃO DEVE permanecer após sucesso nem integrar o artigo.
+- PubCSS DEVE ser avaliado como base estrutural inicial. Vivliostyle, Paged.js ou motor equivalente PODEM ser adotados somente após medição de tamanho, rede, inicialização, paginação, compatibilidade, manutenção e fallback; motor DEVE permanecer substituível atrás de adaptador e NÃO DEVE vazar à API pública.
+- Download ou processamento exclusivo de impressão DEVE ser mínimo, assíncrono, posterior ao conteúdo crítico e preferencialmente ocioso, com preparação imediata segura diante de impressão antecipada. Recurso existente, cacheado, gerado ou hospedado pelo consumidor DEVE ser reutilizável sem duplicação.
+- Dispositivo móvel DEVE ser tratado por capacidade real e matriz declarada, não somente por agente de usuário. Recurso sem benefício verificável ou sem impressão tecnicamente disponível NÃO DEVE gerar rede, atraso, reflow perceptível nem processamento adicional.
+
+## Composição física e conteúdo
+
+- `@page`, papel, margens, área útil, largura e intervalo de colunas, órfãs, viúvas, títulos, fragmentação, balanceamento, referências e elementos de largura total DEVEM seguir o perfil de referência.
+- O fluxo padrão de duas colunas DEVE reiniciar e fragmentar por página; uma região multicoluna única para todo o documento NÃO DEVE ser classificada como conforme. Elemento indivisível que caiba na página seguinte NÃO DEVE ser fragmentado, e quebra manual vazia ou meramente visual NÃO DEVE ser usada.
+- Noto Sans DEVE ser a família principal, com fallback sans-serif local metricamente aferido. Pesos, subconjuntos, incorporação, caracteres por linha, linhas por coluna, altura, densidade e quebras DEVEM ser calibrados na saída física; unidade essencial DEVE usar `pt`, `in` ou `mm`, não `px`, `rem` ou viewport.
+- Fonte remota PODE ser usada somente se carregar antes da paginação final, possuir versão e fallback determinísticos e não tornar a impressão dependente de conectividade tardia. Hospedagem local DEVERIA prevalecer quando reduzir risco, latência ou dependência.
+- Navegação, barras, publicidade, comentários, compartilhamento, controles, formulários, tags sociais e decoração alheia ao artigo DEVEM ser ocultados. Título, autoria, afiliação, resumo, palavras-chave, seções, figuras, tabelas, equações, notas, referências e avisos essenciais DEVEM permanecer.
+- Primeira página DEVE apresentar URL canônica e data de obtenção ou impressão e, quando disponíveis, publicação e atualização, integradas discretamente à identificação editorial. URL de link comum NÃO DEVE ser anexada automaticamente ao texto.
+- Imagem DEVE preservar proporção, resolução suficiente e cor; thumbnail ou destaque DEVE ser omitido salvo relevância editorial e compatibilidade comprovadas. Fundo decorativo, sombra, filtro, animação, transição e transparência não essencial DEVEM ser removidos.
+- Tabela preexistente DEVE conservar aparência legítima, inclusive zebra, cabeçalho escuro e destaque de coluna, salvo intervenção mínima para largura, contraste, legibilidade ou fragmentação. Tabela larga DEVE usar estratégia configurável e determinística.
+- Bloco de citação e subcitação DEVEM obedecer ao `RCF-JCEM-CITACOES-001`; travessia de colunas DEVE ser declarada, nunca inferida por aparência.
+- Rodapé visual do site NÃO DEVE ser reproduzido integralmente. Publicador, disclaimer, licença, aviso legal e atribuição obrigatória DEVEM compor bloco institucional discreto e não redundante, mapeado pelo consumidor.
+- Reset, namespace, seletor ou `!important` DEVE permanecer limitado ao artigo e ao contexto de impressão; `!important` PODE ser usado somente para isolamento determinístico. Estilo de tela ou de outro componente NÃO DEVE ser afetado.
+
+## Suporte, empacotamento e validação
+
+- Biblioteca e adaptadores DEVEM declarar e versionar navegadores, engines, Jekyll, Ruby, Liquid, Node.js, modos de build e fluxos suportados. “Compatibilidade integral com Jekyll” DEVE significar cobertura testada dessa matriz, não de versão, plugin ou ambiente desconhecido.
+- Estrutura DEVE permitir workspace ou pacote local, pacote Node.js, entrada CSS/Sass, plugin ou gem auxiliar, artefato distribuível, SemVer e extração futura sem reescrita substancial. Histórico, API, testes, build, documentação, licença e atribuições DEVEM acompanhar a extração; licença NÃO DEVE ser inferida antes de decisão autoritativa.
+- Validação DEVE cobrir unidade do núcleo, schema e contrato, integração por adaptador, projeto Node.js de referência distinto, Jekyll com e sem runtime JavaScript, remoção do adaptador Jekyll, impressão nativa por todos os iniciadores, fallback sem fonte ou motor, temas, carregamento parcial, mobile e navegadores declarados.
+- Comparação DEVE medir visual e geometricamente cada página contra o controle, incluindo reinício de colunas, escala, fontes, conteúdo, imagem, tabela, citação, metadado e bloco institucional. Relatório DEVE registrar perfil, hashes, navegador, engine, versões, papel, escala, fonte, dependências, parâmetros, desvios e nível obtido.
+- Teste DEVE comprovar ausência de efeito fora do artigo, independência do núcleo, equivalência semântica entre transformações, ausência de correção rígida do consumidor e saída final utilizável. Similaridade de tela, funcionamento somente em fluxo controlado ou dependência exclusiva de motor NÃO DEVEM constituir aceite.
+- Validação de isolamento DEVE comparar estilos computados em `screen` e `print`, usar sentinelas web deliberadamente conflitantes para tipografia, títulos, parágrafos, blockquotes, tabelas auxiliares, bordas, fundos, sombras e pseudo-elementos, e comprovar que o CSS exclusivo de impressão permanece inerte em tela. PDF final e captura web DEVEM ser revistos após mudança material desse contrato.

@@ -3,6 +3,9 @@ title: 'Bate-papo: eventos finais — rumo ao lar, viagem dos remidos, coroas e 
 content_namespace: bate-papo
 content_subnamespaces:
   - eventos-finais
+header:
+  image: '/assets/images/posts/eventos-finais/eventos-finais.svg'
+  image_description: 'Cidade luminosa ao horizonte, sobre colinas e sob um céu estrelado'
 ---
 
 <!-- AI-PROCESSED:START -->

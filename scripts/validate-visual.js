@@ -1073,6 +1073,8 @@ const validatePage = async (page, url, theme, viewportName) => {
 			const frame = image.closest(
 				'.archive__item-teaser, .jcem-featured-image',
 			);
+			const imageUrl = new URL(image.currentSrc || image.src, document.baseURI);
+			const isVector = imageUrl.pathname.toLowerCase().endsWith('.svg');
 			return {
 				hasDimensions: Boolean(
 					image.getAttribute('width') && image.getAttribute('height'),
@@ -1081,7 +1083,7 @@ const validatePage = async (page, url, theme, viewportName) => {
 					frame?.getAttribute('data-jcem-asset-aspect-ratio') ||
 						frame?.style.getPropertyValue('--jcem-asset-aspect-ratio'),
 				),
-				hasResponsiveSelection: Boolean(
+				hasResponsiveSelection: isVector || Boolean(
 					image.getAttribute('srcset') && image.getAttribute('sizes'),
 				),
 			};

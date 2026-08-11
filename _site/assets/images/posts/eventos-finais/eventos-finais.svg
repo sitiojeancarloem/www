@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Fonte: https://github.com/sitiojeancarloem/blog | Autor: Jean Carlo EM — https://www.jeancarloem.com | Licença: MPL-2.0 -->
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">Eventos finais</title>
+  <desc id="desc">Cidade luminosa ao horizonte, sobre colinas e sob um céu estrelado</desc>
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#081426"/>
+      <stop offset="0.58" stop-color="#283f68"/>
+      <stop offset="1" stop-color="#f0b76d"/>
+    </linearGradient>
+    <radialGradient id="light" cx="50%" cy="58%" r="35%">
+      <stop offset="0" stop-color="#fff8d8" stop-opacity="0.96"/>
+      <stop offset="0.45" stop-color="#ffd785" stop-opacity="0.55"/>
+      <stop offset="1" stop-color="#ffd785" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="hill" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#183f3c"/>
+      <stop offset="1" stop-color="#071c22"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#sky)"/>
+  <circle cx="600" cy="350" r="310" fill="url(#light)"/>
+  <g fill="#fff8d8" opacity="0.92">
+    <circle cx="110" cy="92" r="3"/><circle cx="210" cy="160" r="2"/>
+    <circle cx="330" cy="78" r="2.5"/><circle cx="448" cy="135" r="2"/>
+    <circle cx="738" cy="90" r="2.5"/><circle cx="865" cy="154" r="2"/>
+    <circle cx="1010" cy="88" r="3"/><circle cx="1100" cy="182" r="2"/>
+  </g>
+  <path d="M0 455 Q175 365 360 442 T745 435 T1200 430 V630 H0Z" fill="#214e49"/>
+  <path d="M0 520 Q210 425 410 510 T790 500 T1200 490 V630 H0Z" fill="url(#hill)"/>
+  <g fill="#f7df9a" stroke="#fff7d2" stroke-width="3">
+    <path d="M475 420V306h42v114z"/><path d="M529 420V270h46v150z"/>
+    <path d="M588 420V228h52v192z"/><path d="M653 420V282h44v138z"/>
+    <path d="M709 420V326h38v94z"/>
+  </g>
+  <path d="M565 270 614 205l49 65z" fill="#fff4c2"/>
+  <path d="M425 420h350" stroke="#fff4c2" stroke-width="7" stroke-linecap="round"/>
+  <g fill="#0b2828">
+    <path d="m125 525 38-88 38 88z"/><path d="m188 540 32-76 32 76z"/>
+    <path d="m965 532 40-94 40 94z"/><path d="m1040 548 30-72 30 72z"/>
+  </g>
+</svg>
