@@ -9,9 +9,7 @@ require "pathname"
 require "time"
 require "uri"
 require "yaml"
-require_relative "jekyll_compat"
-require "jekyll"
-require_relative "../_plugins/jcem_content_namespaces"
+require_relative "../_plugins/jcem_content_namespace_core"
 
 options = {
   out: "published-posts.json",
@@ -80,10 +78,8 @@ def post_url(site_url, path, data, site_config)
   permalink = data["permalink"].to_s
   return absolute_url(site_url, permalink) unless permalink.empty?
 
-  site = Struct.new(:config).new(site_config)
-  document = Struct.new(:relative_path, :data, :site).new(path, data.dup, site)
-  Jcem::ContentNamespaces.apply!(document)
-  namespace_url = document.data["jcem_namespace_url"].to_s
+  namespace = Jcem::ContentNamespaceCore.resolve(path, data, site_config)
+  namespace_url = namespace&.fetch(:url).to_s
   return absolute_url(site_url, namespace_url) unless namespace_url.empty?
 
   category_path = relative_post_categories(path).join("/")
