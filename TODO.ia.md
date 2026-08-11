@@ -681,3 +681,301 @@ Similaridade visual em tela, dependência exclusiva de um motor, funcionamento a
   Todas as implementações DEVEM respeitar a `RCF — Biblioteca agnóstica para impressão Web em formato IEEE`, especialmente quanto à preservação das regras de apresentação durante impressão.
 
   Nenhuma FT DEVE assumir estrutura, arquivo, pipeline, biblioteca, hook ou mecanismo que não seja comprovado pela inspeção do estado real do projeto.
+
+- [ ] Consolidar namespaces editoriais, roteamento em sub-RCFs e publicação determinística
+  - INSPECIONE integralmente o estado real do repositório, RCF principal, `AGENTS.md`, `agents.local.md` equivalente, configuração Jekyll/GitHub Pages, plugins, layouts, conteúdos e normas existentes antes de alterar qualquer artefato.
+  - Toda edição normativa DEVE preservar integralmente regras, recursos, contratos, especializações e melhorias já existentes, inclusive não relacionadas diretamente a esta tarefa. É PROIBIDO enfraquecer, degradar ou remover gradualmente comportamento normatizado sob pretexto de reorganização.
+  - Preserve e consolide a semântica já estabelecida de namespace: identificador de classe editorial anteposto ao título lógico, análogo aos namespaces da Wikipédia, sem equivalê-lo a diretório-fonte ou taxonomia ordinária. :contentReference[oaicite:0]{index=0}
+
+  - **Namespaces de topo**
+    - Todo namespace de topo DEVE terminar semanticamente em `:`.
+    - `bate-papo:` permanece o namespace canônico das sínteses dessa classe.
+    - O título público DEVE iniciar pela representação editorial correspondente, por exemplo `Bate-papo:`.
+    - A URL pública canônica DEVE conservar literalmente o `:` no namespace quando suportado pela publicação, seguindo:
+      ```text
+      /p/<namespace>:<titulo-normalizado>/
+      ```
+    - `%3A`, substituição pública por `-` ou outras formas alternativas NÃO DEVEM tornar-se representação canônica.
+    - No filesystem, use representação compatível com todos os sistemas operacionais, sem `:` quando incompatível.
+    - Para `bate-papo:`, o prefixo físico correspondente permanece `bate-papo-`.
+    - Namespace lógico, URL pública e nome físico DEVEM permanecer representações distintas e deterministicamente conversíveis.
+
+  - **Subnamespaces**
+    - Subnamespaces PODEM existir em quantidade e profundidade indeterminadas, porém:
+      - DEVEM estar subordinados a um namespace de topo;
+      - NÃO recebem `:` como substituto da semântica reservada ao namespace de topo;
+      - DEVEM ser materializados como níveis aninhados de diretórios/rota.
+    - O padrão público DEVE ser equivalente a:
+      ```text
+      /p/<namespace>:<sub-namespace-1-normalizado>/.../<sub-namespace-N-normalizado>/<titulo-normalizado>/
+      ```
+    - `N` é indeterminado; NÃO imponha profundidade artificial.
+    - Múltiplos namespaces e subnamespaces DEVEM poder coexistir futuramente sem lógica específica por caso.
+    - Toda normalização DEVE ser central, determinística, reutilizável e compatível entre Windows, Linux, ambiente de desenvolvimento, build e GitHub Pages.
+
+  - **Autoridade de conversão**
+    - Preserve `content_namespaces` como autoridade única do mapeamento entre representação física, namespace lógico, título e URL, se esse contrato estiver efetivamente vigente.
+    - O mecanismo/plugin responsável DEVE derivar a URL a partir da configuração normativa, validar título/disclaimer/regras especializadas e produzir resultado idêntico em desenvolvimento, build e publicação.
+    - NÃO utilizar `permalink` individual ou decisões ad hoc para contornar o roteamento central.
+    - Em filesystem incompatível com `:`, somente a representação física muda; a URL canônica NÃO DEVE ser degradada para refletir limitação local.
+
+  - **Sub-RCFs e roteamento normativo**
+    - Reestruture o RCF segundo conceito equivalente ao roteamento já empregado por `AGENTS.md`: norma principal compacta + sub-RCFs especializadas carregadas somente quando pertinentes.
+    - A finalidade é reduzir leitura/tokenização desnecessária, aumentar rastreabilidade, segregação temática, manutenção de microconceitos e precisão de escopo.
+    - Todas as sub-RCFs DEVEM residir obrigatoriamente sob:
+      ```text
+      ./RCFs/
+      ```
+    - O RCF principal DEVE:
+      - permanecer autoridade superior;
+      - identificar claramente cada domínio especializado;
+      - rotear para a sub-RCF aplicável;
+      - usar links Markdown relativos reais;
+      - estabelecer escopo e precedência;
+      - NÃO repetir o conteúdo especializado.
+    - Sub-RCF NÃO PODE redefinir normas gerais sem delegação explícita da RCF principal.
+    - Antes de criar nova norma, procure regra equivalente e consolide-a; NÃO duplique contratos.
+
+- [ ] Instituir desempenho web ≥90 como requisito permanente e corrigir gargalos reais
+  - Normatize explicitamente, de forma permanente, que implementação, manutenção, refatoração e evolução do site DEVEM buscar e manter **90%+ em todas as métricas/categorias aplicáveis do PageSpeed Insights**, tanto em mobile quanto desktop, para cada modalidade real de página publicada.
+  - Abranja, no mínimo, layouts reais existentes como:
+    - home;
+    - posts/artigos;
+    - índices/mapas;
+    - about;
+    - demais tipos efetivamente disponibilizados.
+  - NÃO presuma layouts inexistentes; descubra-os no repositório.
+  - Esta especialização NÃO se sobrepõe ao `AGENTS.md`; complementa suas regras de desempenho para o produto final.
+  - Se necessário para torná-la perene e inequivocamente vinculante ao repositório, DEVE ser reforçada no `agents.local.md` equivalente sem duplicação prolixa.
+  - A norma DEVE permanecer válida continuamente: nova feature, correção ou refatoração NÃO PODE deteriorar desempenho sem justificativa material e tratamento correspondente.
+
+  - **Medição eficiente**
+    - Automatize medições apenas quando pertinentes.
+    - PODE utilizar API adequada para aferição local quando isso evitar penalizar o asset público do GitHub Pages e reduzir custo operacional.
+    - Filtre/condense automaticamente os resultados antes de apresentá-los à IA sempre que isso reduzir tokens sem perder diagnóstico útil.
+    - Preserve cache e resultados válidos.
+    - Evite reexecução, releitura e recálculo quando estado relevante não mudou.
+    - A validação DEVE ser representativa por tipo de layout, não simplesmente repetida indiscriminadamente para cada URL equivalente.
+
+  - **Reflow forçado em resize/orientation**
+    - Preserve a necessidade funcional real de reagir a:
+      - mudança de orientação;
+      - redimensionamento;
+      - falta/sobra de espaço;
+      - agrupamento da barra de ferramentas em menu;
+      - desagrupamento quando espaço voltar a existir.
+    - NÃO remover ou desabilitar esse comportamento.
+    - Reimplemente/refine-o para minimizar drasticamente forced reflow/layout thrashing.
+    - Audite:
+      - leituras/escritas intercaladas de layout;
+      - eventos de `resize`;
+      - observers;
+      - medições repetitivas;
+      - recálculos síncronos;
+      - mutações redundantes;
+      - listeners duplicados;
+      - reconstruções integrais desnecessárias.
+    - Use estratégia proporcional e consolidada — batching, debounce/throttle, `ResizeObserver`, cache de dimensões ou equivalente — somente conforme o estado real justificar.
+    - O comportamento DEVE permanecer responsivo visualmente sem ocasionar travamentos ocasionais perceptíveis em hardware contemporâneo.
+    - Valide especificamente resize contínuo/orientation e impacto nas métricas de desempenho.
+
+  - **Recursos de impressão IEEE**
+    - Os downloads/recursos necessários exclusivamente à impressão IEEE DEVEM permanecer funcionalmente disponíveis, porém fortemente desacoplados do carregamento essencial da página.
+    - NÃO carregar antecipadamente bibliotecas/assets pesados de impressão quando não forem necessários à experiência inicial.
+    - Avalie carregamento tardio/lazy/on-demand ou postergação temporal suficientemente afastada da medição inicial, inclusive janela da ordem de segundos se tecnicamente adequada.
+    - NÃO interprete isso como autorização para ocultar, remover ou desabilitar impressão.
+    - Audite também:
+      - tamanho dos assets;
+      - compressão;
+      - tree-shaking;
+      - divisão de bundle;
+      - bibliotecas terceiras;
+      - alternativas menores igualmente compatíveis.
+    - Substituição de dependência somente DEVE ocorrer se houver ganho comprovado sem regressão funcional ou normativa.
+
+- [ ] Corrigir controles visuais e implementar sistema responsivo de blockquotes tipados
+  - **Switch claro/escuro**
+    - Preserve integralmente aparência e aderência visual atuais.
+    - Corrija exclusivamente a área interativa: clique/tap em qualquer ponto do switch inteiro DEVE alternar o estado/tema.
+    - NÃO exigir clique preciso sobre o ícone interno.
+    - Preserve acessibilidade, teclado, semântica e estado visual.
+
+  - **Botão de menu**
+    - O botão junto ao switch DEVE utilizar o ícone Font Awesome `bars`, código `f0c9`.
+    - Remova o ícone incorreto somente no ponto correspondente, sem alterar indevidamente demais iconizações.
+
+  - **Blockquotes tipados**
+    - Implemente sistema totalmente responsivo, compatível com claro/escuro e integrado visualmente ao tema existente.
+    - Use como referência visual/conceitual — com adaptações pontuais necessárias ao projeto — os modelos indicados:
+      - `notice`: equivalente conceitual ao `Template:Unreferenced category/doc`;
+      - `info`: equivalente ao `Template:GOCEinuse`;
+      - `alerta1`: equivalente ao `Template:Recently revised`;
+      - `alerta2`: equivalente ao `Template:Unreferenced category`.
+    - Preserve semântica local; NÃO copie dependências ou estrutura da Wikipédia desnecessariamente.
+    - O sistema DEVE admitir iconização opcional definida pelo editor:
+      - emoji;
+      - imagem;
+      - URL/recurso equivalente suportado.
+    - Quando nenhum ícone for informado, PODE existir padrão contextualmente coerente com o tipo.
+    - Tema, ícone, borda, fundo, contraste, espaçamento e responsividade DEVEM funcionar corretamente nos dois modos.
+    - Faça validação visual efetiva em múltiplos tamanhos de viewport.
+
+  - **Disclaimer de `bate-papo`**
+    - Todo disclaimer normativo do namespace `bate-papo:` DEVE utilizar o tipo/estilo:
+      ```text
+      disclaimer
+      ```
+    - Normatize essa associação na sub-RCF de bate-papo.
+    - O estilo DEVE continuar semanticamente disclaimer, e NÃO ser confundido com alertas genéricos.
+
+- [ ] Preservar otimização responsiva das imagens de cards e thumbnails
+  - Localize a TO-DO/regra já existente sobre variantes responsivas de imagem.
+  - Se realmente existir, **some este requisito à norma existente**, NÃO crie contrato paralelo.
+  - Cards, thumbnails e demais consumidores DEVEM carregar somente a menor imagem que satisfaça a resolução real necessária no contexto corrente.
+  - Preserve os contratos já estabelecidos sobre:
+    - variantes;
+    - DPR;
+    - viewport;
+    - proporção;
+    - custo em bytes;
+    - seleção responsiva;
+    - índice de medidas/proporções.
+  - NÃO regredir para download da maior imagem por conveniência.
+
+- [ ] Criar e aplicar sub-RCF especializada para sínteses `bate-papo`
+  - Criar sub-RCF compacta, autossuficiente em seu domínio e subordinada à RCF principal.
+  - A RCF principal DEVE obrigatoriamente roteá-la e referenciá-la por link relativo real sob `./RCFs/`.
+  - A norma especializada DEVE generalizar a classe editorial, NÃO um artigo particular.
+
+  - **Natureza editorial**
+    - Todo `bate-papo:` DEVE ser síntese temática, NÃO transcrição, ata, reconstrução cronológica nem artigo autoral independente.
+    - A organização temática DEVE preservar cronologia quando material à compreensão.
+    - O resultado DEVE permanecer íntegro, fiel, legível, fluido e agradável.
+    - Preserve proporcionalmente:
+      - ideias;
+      - argumentos;
+      - filosofias;
+      - conceitos;
+      - divergências;
+      - hipóteses;
+      - raciocínios intermediários;
+      - hesitações;
+      - condicionais;
+      - mudanças de posição;
+      - qualificações;
+      - contexto necessário.
+    - Densidade informacional NÃO autoriza reducionismo.
+    - Elimine repetição, redundância e prolixidade sem reduzir substância.
+    - Use linguagem acessível a diferentes níveis de formação, mantendo tecnicidade quando necessária.
+    - NÃO mencionar áudio, ferramenta/processo de transcrição ou timestamps salvo indispensabilidade material.
+    - Formulações discretas como “o participante argumenta” ou “o instrutor observa” PODEM preservar origem intelectual.
+    - NÃO converter conteúdo dos participantes em autoria própria do redator.
+
+  - **Fidelidade**
+    - NÃO inventar, completar ou atribuir posição, intenção, objeção, conclusão, concordância, rejeição ou aprovação não demonstrada.
+    - Silêncio NÃO significa concordância.
+    - NÃO inferir consenso.
+    - “O grupo concluiu” e equivalentes somente PODEM ser usados se caráter coletivo estiver demonstrado.
+    - Preserve incerteza quando ela existir.
+    - Corrija linguagem editorial que induza unanimidade inexistente.
+
+  - **Participantes**
+    - Usar nomes fictícios por padrão, salvo identificação inequívoca contrária ou ID previamente normatizado.
+    - Papéis funcionais PODEM ser utilizados quando efetivamente demonstrados.
+    - NÃO converter papel editorial observado em autoridade/título não comprovado.
+    - Particularidades de um bate-papo NÃO DEVEM virar regra geral.
+
+  - **Disclaimer**
+    - Todo conteúdo `bate-papo:` DEVE iniciar com disclaimer padronizado, visível, semanticamente completo e ultrassucinto.
+    - Deve informar, sem prolixidade:
+      - natureza de síntese editorial;
+      - inexistência de garantia de concordância coletiva;
+      - silêncio/ausência de manifestação não implica unanimidade;
+      - possibilidade de ponderação/discordância/não manifestação;
+      - processamento automatizado, inclusive com IA;
+      - possibilidade de erro, imprecisão ou interpretação inadequada.
+    - NÃO reiterar no corpo ressalvas já suficientemente cobertas pelo disclaimer.
+
+  - **Citações**
+    - Preserve integralmente todas as citações e referências existentes.
+    - Toda citação textual DEVE aparecer integralmente em sua primeira ocorrência explícita, com referência.
+    - Repetições posteriores NÃO DEVEM reproduzi-la integralmente sem necessidade.
+    - Confirme equivalência antes de deduplicar.
+    - NÃO invente trechos ausentes.
+    - Referência bibliográfica NÃO equivale a citação textual.
+    - Citação integral da obra PODE ser acrescentada em nota adicional para contexto/fluidez quando materialmente útil.
+
+  - **Complementação editorial**
+    - Quando um participante fizer referência inequívoca a fonte/citação omitida, cortada ou não localizada, PODE — e preferencialmente DEVE quando melhorar exatidão/compreensão — localizar e acrescentar pontualmente a referência/citação.
+    - O acréscimo DEVE ser explicitamente identificado como nota adicional/editorial.
+    - NÃO expandir livremente o argumento.
+    - Exceção de complemento externo DEVE ser pequena, tecnicamente justificada e orientada exclusivamente à continuidade lógica, exatidão ou fluidez.
+
+  - **Referências**
+    - Utilizar exclusivamente:
+      ```markdown
+      [^nomeado]
+      ```
+    - Respeitar o sistema já definido pela RCF principal.
+    - NÃO criar numeração concorrente ou sistema paralelo.
+    - Reutilizar referências semanticamente equivalentes.
+
+  - **Subnamespace de obra-base**
+    - Quando for inequívoco que o bate-papo inicia ou continua estudo/leitura de **uma obra-base principal**, crie/vincule um único subnamespace correspondente ao nome normalizado dessa obra.
+    - Outras obras citadas durante a discussão NÃO DEVEM gerar automaticamente subnamespaces concorrentes.
+    - A decisão DEVE decorrer do papel estrutural da obra no bate-papo, não da mera quantidade de citações.
+
+  - **Estrutura/estilo**
+    - Normatize, conforme aplicável:
+      - títulos/subtítulos;
+      - autoria/origem de falas;
+      - citações;
+      - referências;
+      - `blockquote`;
+      - subcitações;
+      - Markdown;
+      - intervenções editoriais;
+      - separação entre original e complemento;
+      - publicação.
+    - NÃO introduzir ornamentação por preferência estética.
+
+  - **Renomeação física**
+    - Ao concluir a transformação da transcrição/origem para `.md`, o arquivo final DEVE ser renomeado adequadamente conforme:
+      - namespace;
+      - subnamespace;
+      - tema/título efetivo;
+      - normalização prevista no RCF.
+    - A regra vale independentemente do nome temporário ou pasta original, respeitando casos em que diretório próprio do artigo seja parte do contrato.
+
+  - **Aplicação imediata**
+    - Após criar a sub-RCF, aplique-a ao conteúdo `bate-papo` já existente que esteja dentro do escopo legítimo.
+    - NÃO limite a normalização ao `_draft` atual.
+    - Preserve integralmente citações, referências, detalhes, nuances e autoria intelectual.
+
+  - **Validação e aceite**
+    - Validar:
+      - RCF principal → sub-RCF;
+      - links relativos;
+      - ausência de duplicação normativa relevante;
+      - namespace físico/lógico/público;
+      - subnamespaces;
+      - disclaimer;
+      - estilo `disclaimer`;
+      - síntese temática;
+      - fluidez;
+      - fidelidade individual;
+      - ausência de consenso inferido;
+      - divergências/incertezas;
+      - participantes;
+      - primeira ocorrência integral das citações;
+      - deduplicação;
+      - referências `[^nomeado]`;
+      - notas editoriais;
+      - autoria intelectual;
+      - nomes físicos finais;
+      - estrutura/estilo;
+      - build;
+      - desenvolvimento local;
+      - publicação GitHub Pages;
+      - testes/validadores aplicáveis.
+    - O aceite exige comportamento uniforme, determinístico e verificável para conteúdos atuais e futuros, sem perda de regra, feature, citação, referência, detalhe, nuance ou especialização preexistente.
