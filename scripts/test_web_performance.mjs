@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
-import { validateConfig, summarize } from './check-pagespeed.mjs';
+import { createEndpoint, validateConfig, summarize } from './check-pagespeed.mjs';
 
 const site = await readFile(new URL('../assets/jcem/ts/site.ts', import.meta.url), 'utf8');
 const archiveCard = await readFile(new URL('../_includes/archive-single.html', import.meta.url), 'utf8');
@@ -64,5 +64,22 @@ const summary = summarize(
 assert.equal(summary.ok, false);
 assert.deepEqual(summary.failing, ['accessibility']);
 assert.equal(summary.categories.performance, 94);
+
+const endpointWithoutKey = createEndpoint(
+	{ url: 'https://example.test/' },
+	'mobile',
+	['performance'],
+);
+assert.equal(endpointWithoutKey.searchParams.has('key'), false);
+
+const endpointWithKey = createEndpoint(
+	{ url: 'https://example.test/' },
+	'desktop',
+	['performance', 'accessibility'],
+	'credencial-apenas-de-teste',
+);
+assert.equal(endpointWithKey.searchParams.get('key'), 'credencial-apenas-de-teste');
+assert.deepEqual(endpointWithKey.searchParams.getAll('category'), ['performance', 'accessibility']);
+assert.equal(endpointWithKey.searchParams.get('strategy'), 'desktop');
 
 console.log('web_performance=ok');

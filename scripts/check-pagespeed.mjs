@@ -39,6 +39,15 @@ const cacheFile = (url, strategy, categories) => {
 	return path.join(cacheRoot, `${key}.json`);
 };
 
+export const createEndpoint = (target, strategy, categories, apiKey = '') => {
+	const endpoint = new URL('https://www.googleapis.com/pagespeedonline/v5/runPagespeed');
+	endpoint.searchParams.set('url', target.url);
+	endpoint.searchParams.set('strategy', strategy);
+	for (const category of categories) endpoint.searchParams.append('category', category);
+	if (apiKey) endpoint.searchParams.set('key', apiKey);
+	return endpoint;
+};
+
 const readCache = async (file, maxAgeMs) => {
 	try {
 		const payload = JSON.parse(await readFile(file, 'utf8'));
@@ -67,16 +76,13 @@ export const summarize = (payload, target, strategy, minimumScore) => {
 	return { target: target.id, url: target.url, strategy, categories, vitals, failing, ok: failing.length === 0 };
 };
 
-const fetchResult = async (target, strategy, categories, maxAgeMs, force) => {
+const fetchResult = async (target, strategy, categories, maxAgeMs, force, apiKey) => {
 	const file = cacheFile(target.url, strategy, categories);
 	if (!force) {
 		const cached = await readCache(file, maxAgeMs);
 		if (cached) return { payload: cached.payload, cache: 'hit' };
 	}
-	const endpoint = new URL('https://www.googleapis.com/pagespeedonline/v5/runPagespeed');
-	endpoint.searchParams.set('url', target.url);
-	endpoint.searchParams.set('strategy', strategy);
-	for (const category of categories) endpoint.searchParams.append('category', category);
+	const endpoint = createEndpoint(target, strategy, categories, apiKey);
 	const response = await fetch(endpoint, { signal: AbortSignal.timeout(120000) });
 	if (!response.ok) throw new Error(`PAGESPEED_HTTP_${response.status}`);
 	const payload = await response.json();
@@ -90,6 +96,7 @@ export const run = async (argv = process.argv.slice(2)) => {
 	const baseUrl = argv.find((value) => value.startsWith('--base-url='))?.slice(11) || 'https://www.jeancarloem.com';
 	const only = argv.find((value) => value.startsWith('--target='))?.slice(9);
 	const force = argv.includes('--force');
+	const apiKey = process.env.PAGESPEED_API_KEY?.trim() || '';
 	const targets = config.targets
 		.filter((target) => !only || target.id === only)
 		.map((target) => ({ ...target, url: new URL(target.path, baseUrl).href }));
@@ -99,7 +106,14 @@ export const run = async (argv = process.argv.slice(2)) => {
 	for (const target of targets) {
 		for (const strategy of config.strategies) {
 			const categories = target.categories || config.categories;
-			const { payload, cache } = await fetchResult(target, strategy, categories, maxAgeMs, force);
+			const { payload, cache } = await fetchResult(
+				target,
+				strategy,
+				categories,
+				maxAgeMs,
+				force,
+				apiKey,
+			);
 			results.push({ ...summarize(payload, target, strategy, config.minimumScore), cache });
 		}
 	}
