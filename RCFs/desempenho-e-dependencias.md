@@ -43,6 +43,8 @@ Escopo: scripts, estilos, fontes, bibliotecas externas, assets de terceiros e re
 - O adaptador de masthead DEVE manter uma única fila de sincronização responsiva e aplicar mutações somente quando o estado calculado mudar.
 - O runtime global do tema de terceiros NÃO DEVE ser enviado quando suas funções ativas já estiverem cobertas pelo conector local. `_includes/scripts.html` condiciona o pacote amplo à busca realmente habilitada; `assets/jcem/ts/site.ts` preserva perfil do autor, links permanentes, rolagem interna e realce do sumário sem jQuery ou plugins globais.
 - Clonagem de fallback oculto e alimentação de blocos recentes DEVEM ocorrer somente após a liberação visual e fora da janela crítica inicial; o fallback sem JavaScript permanece estático e funcional sem depender dessas tarefas.
+- O fallback estático em `noscript` DEVE permanecer funcional sem JavaScript, mas sua serialização NÃO DEVE preceder o conteúdo principal no fluxo HTML entregue a navegadores com JavaScript, quando isso atrasar a descoberta do candidato a LCP. A ordem física PODE colocá-lo após o wrapper principal desde que o modo sem JavaScript continue exibindo exclusivamente o fallback e preserve navegação, conteúdo e rodapé.
+- Em coleções e taxonomias, somente o primeiro candidato efetivamente acima da dobra DEVE receber carregamento `eager` e prioridade alta por padrão. Sua variante responsiva DEVE ser antecipada no `<head>` quando o build conhecer deterministicamente o asset; cards seguintes não podem competir pela mesma prioridade sem evidência de que também compõem a primeira viewport.
 
 ## Validação
 

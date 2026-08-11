@@ -6,6 +6,6 @@
 
 {%- for post in entries -%}
   {% assign jcem_archive_priority = false %}
-  {% if forloop.index <= 2 %}{% assign jcem_archive_priority = true %}{% endif %}
+  {% if forloop.index == 1 %}{% assign jcem_archive_priority = true %}{% endif %}
   {% include archive-single.html locale=locale type=include.type priority=jcem_archive_priority %}
 {%- endfor -%}

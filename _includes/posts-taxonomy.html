@@ -20,7 +20,7 @@
         <div class="entries-{{ entries_layout }}">
           {% for post in taxonomy.last %}
             {% assign jcem_archive_priority = false %}
-            {% if jcem_archive_priority_count < 2 %}
+            {% if jcem_archive_priority_count < 1 %}
               {% assign jcem_archive_priority = true %}
               {% assign jcem_archive_priority_count = jcem_archive_priority_count | plus: 1 %}
             {% endif %}

@@ -44,7 +44,8 @@ plano:
     progresso:
       - segredo consumido de forma opaca no GitHub Actions e primeira amostra autenticada concluida
       - repeticao limitada de falha transitoria 5xx e diagnostico FCP, LCP e TBT incorporados ao medidor
-      - otimizacoes adicionais em LCP e pagina 404 aguardam nova afericao autenticada
+      - afericao autenticada da revisao a252c20bd4 aprovou 12 de 14 combinacoes; artigo mobile obteve 84 e categorias mobile 89
+      - fallback noscript reposicionado apos o conteudo principal, prioridade eager limitada ao primeiro card e preload responsivo de taxonomias aguardam nova afericao autenticada
   - id: FT-023
     classe: implementacao_normativa_codigo
     criado_em: 2026-08-11T15:04:00-03:00
