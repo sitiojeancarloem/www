@@ -71,6 +71,8 @@ assert.match(head, /consent-manager\/start\.js[^>]+defer/);
 assert.match(site, /bindJcemThemeConnector/);
 assert.match(site, /liberacao visual nao depende da clonagem do fallback oculto/);
 assert.match(site, /window\.setTimeout\(\(\) => \{[\s\S]*requestIdleCallback\(prepareFallback[\s\S]*\}, 4000\)/);
+assert.match(site, /oportunidade real de pintura[\s\S]*requestAnimationFrame\(run\)/);
+assert.match(site, /bindJcemTheme\(\);[\s\S]*scheduleJcemPostPaintEnhancements\(\)/);
 assert.match(themeScripts, /site\.search == true or page\.layout == "search"/);
 assert.doesNotMatch(themeScripts, /else[\s\S]*main\.min\.js/);
 assert.match(themeInputs, /aria-label="Tema claro"/);

@@ -1785,12 +1785,8 @@ const bindJcemPrintPreparation = (): void => {
 	window.setTimeout(scheduleIdle, 5000);
 };
 
-bindJcemLoadingProgress();
-bindJcemSkeletonAssets();
-scheduleJcemInitialReveal();
-
-document.addEventListener('DOMContentLoaded', () => {
-	bindJcemTheme();
+const bindJcemPostPaintEnhancements = (): void => {
+	bindJcemSkeletonAssets();
 	bindJcemNav();
 	bindJcemThemeConnector();
 	bindJcemMasthead();
@@ -1803,7 +1799,28 @@ document.addEventListener('DOMContentLoaded', () => {
 	bindJcemFootnotes();
 	bindJcemMathControls();
 	bindJcemPrintPreparation();
+};
+
+const scheduleJcemPostPaintEnhancements = (): void => {
+	const run = (): void => {
+		window.setTimeout(bindJcemPostPaintEnhancements, 0);
+	};
+
+	// PROTECAO: libera uma oportunidade real de pintura entre o reveal e as
+	// transformacoes editoriais que percorrem artigos ou taxonomias extensas.
+	if (window.requestAnimationFrame) window.requestAnimationFrame(run);
+	else window.setTimeout(bindJcemPostPaintEnhancements, 0);
+};
+
+bindJcemLoadingProgress();
+scheduleJcemInitialReveal();
+
+document.addEventListener('DOMContentLoaded', () => {
+	// Tema e fallback sao sincronizados antes da primeira pintura; os percursos
+	// amplos do DOM ficam para a oportunidade posterior.
+	bindJcemTheme();
 	hideNoScript();
+	scheduleJcemPostPaintEnhancements();
 });
 
 export {};

@@ -45,7 +45,8 @@ plano:
       - segredo consumido de forma opaca no GitHub Actions e primeira amostra autenticada concluida
       - repeticao limitada de falha transitoria 5xx e diagnostico FCP, LCP e TBT incorporados ao medidor
       - afericao autenticada da revisao a252c20bd4 aprovou 12 de 14 combinacoes; artigo mobile obteve 84 e categorias mobile 89
-      - fallback noscript reposicionado apos o conteudo principal, prioridade eager limitada ao primeiro card e preload responsivo de taxonomias aguardam nova afericao autenticada
+      - afericao autenticada da revisao 14c5708045 elevou categorias mobile a 92; artigo permaneceu em 84 e assuntos variou para 89
+      - liberacao visual separada dos percursos editoriais e de skeleton pos-pintura aguarda nova afericao autenticada para artigo e assuntos
   - id: FT-023
     classe: implementacao_normativa_codigo
     criado_em: 2026-08-11T15:04:00-03:00
@@ -77,6 +78,7 @@ plano:
       - composicao titulo, autores, metadados, Resumo, Abstract e corpo justificado implementada no adaptador Jekyll
       - saida A4 de 7 paginas aferida sem pagina vazia, corte ou sobreposicao no relatorio 2026-08-11-devaneios-chromium-148.json
       - regressao intermitente da mascara do terminal 404 identificada no runner Linux e corrigida antes da republicacao
+      - contrato estrutural e isolamento revalidados na matriz visual integral apos a separacao dos conectores pos-pintura
 lacunas:
   - id: GAP-AGENTS-CJS-ESM-001
     estado: isolada

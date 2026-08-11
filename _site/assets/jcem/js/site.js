@@ -1333,11 +1333,8 @@ const bindJcemPrintPreparation = () => {
     };
     window.setTimeout(scheduleIdle, 5000);
 };
-bindJcemLoadingProgress();
-bindJcemSkeletonAssets();
-scheduleJcemInitialReveal();
-document.addEventListener('DOMContentLoaded', () => {
-    bindJcemTheme();
+const bindJcemPostPaintEnhancements = () => {
+    bindJcemSkeletonAssets();
     bindJcemNav();
     bindJcemThemeConnector();
     bindJcemMasthead();
@@ -1350,5 +1347,20 @@ document.addEventListener('DOMContentLoaded', () => {
     bindJcemFootnotes();
     bindJcemMathControls();
     bindJcemPrintPreparation();
+};
+const scheduleJcemPostPaintEnhancements = () => {
+    const run = () => {
+        window.setTimeout(bindJcemPostPaintEnhancements, 0);
+    };
+    if (window.requestAnimationFrame)
+        window.requestAnimationFrame(run);
+    else
+        window.setTimeout(bindJcemPostPaintEnhancements, 0);
+};
+bindJcemLoadingProgress();
+scheduleJcemInitialReveal();
+document.addEventListener('DOMContentLoaded', () => {
+    bindJcemTheme();
     hideNoScript();
+    scheduleJcemPostPaintEnhancements();
 });

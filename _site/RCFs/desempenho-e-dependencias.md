@@ -45,6 +45,7 @@ Escopo: scripts, estilos, fontes, bibliotecas externas, assets de terceiros e re
 - Clonagem de fallback oculto e alimentação de blocos recentes DEVEM ocorrer somente após a liberação visual e fora da janela crítica inicial; o fallback sem JavaScript permanece estático e funcional sem depender dessas tarefas.
 - O fallback estático em `noscript` DEVE permanecer funcional sem JavaScript, mas sua serialização NÃO DEVE preceder o conteúdo principal no fluxo HTML entregue a navegadores com JavaScript, quando isso atrasar a descoberta do candidato a LCP. A ordem física PODE colocá-lo após o wrapper principal desde que o modo sem JavaScript continue exibindo exclusivamente o fallback e preserve navegação, conteúdo e rodapé.
 - Em coleções e taxonomias, somente o primeiro candidato efetivamente acima da dobra DEVE receber carregamento `eager` e prioridade alta por padrão. Sua variante responsiva DEVE ser antecipada no `<head>` quando o build conhecer deterministicamente o asset; cards seguintes não podem competir pela mesma prioridade sem evidência de que também compõem a primeira viewport.
+- A liberação visual em `DOMContentLoaded` DEVE possuir uma oportunidade real de pintura antes de percursos amplos do DOM, formatação editorial automática, conexão de skeletons ou aprimoramentos equivalentes. Tema e estado mínimo contra FOUC permanecem sincronizados antes da primeira pintura; os demais conectores DEVEM ser acoplados no primeiro turno posterior sem bloquear a apresentação do conteúdo estático já válido.
 
 ## Validação
 
