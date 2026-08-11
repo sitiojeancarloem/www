@@ -46,7 +46,8 @@ plano:
       - repeticao limitada de falha transitoria 5xx e diagnostico FCP, LCP e TBT incorporados ao medidor
       - afericao autenticada da revisao a252c20bd4 aprovou 12 de 14 combinacoes; artigo mobile obteve 84 e categorias mobile 89
       - afericao autenticada da revisao 14c5708045 elevou categorias mobile a 92; artigo permaneceu em 84 e assuntos variou para 89
-      - liberacao visual separada dos percursos editoriais e de skeleton pos-pintura aguarda nova afericao autenticada para artigo e assuntos
+      - afericao autenticada da revisao ce09a4071a aprovou 12 de 14 combinacoes; artigo mobile subiu a 86 e assuntos permaneceu em 89
+      - paragrafo LCP monolitico do artigo e repeticao de 65 cards completos em assuntos foram identificados como causas estruturais da proxima correcao
   - id: FT-023
     classe: implementacao_normativa_codigo
     criado_em: 2026-08-11T15:04:00-03:00

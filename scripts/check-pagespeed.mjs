@@ -84,6 +84,8 @@ export const summarize = (payload, target, strategy, minimumScore) => {
 	);
 	const diagnostics = Object.fromEntries(
 		[
+			'lcp-breakdown-insight',
+			'lcp-discovery-insight',
 			'render-blocking-resources',
 			'render-blocking-insight',
 			'document-latency-insight',
@@ -104,10 +106,21 @@ export const summarize = (payload, target, strategy, minimumScore) => {
 			'network-dependency-tree',
 		]
 			.filter((id) => audits[id]?.score !== null && Number(audits[id]?.score) < 0.9)
-			.map((id) => [id, {
-				score: Math.round(Number(audits[id].score || 0) * 100),
-				value: audits[id].displayValue || audits[id].title,
-			}]),
+			.map((id) => {
+				const details = Array.isArray(audits[id].details?.items)
+					? audits[id].details.items.slice(0, 6).map((item) => ({
+						phase: item.phase,
+						duration: item.duration ?? item.timing,
+						selector: item.node?.selector,
+						label: item.node?.nodeLabel,
+					}))
+					: undefined;
+				return [id, {
+					score: Math.round(Number(audits[id].score || 0) * 100),
+					value: audits[id].displayValue || audits[id].title,
+					...(details?.length ? { details } : {}),
+				}];
+			}),
 	);
 	const failing = Object.entries(categories)
 		.filter(([, score]) => score < minimumScore)

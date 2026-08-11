@@ -726,6 +726,39 @@ body > input.radio#jcem-theme-dark:checked ~ .main_jcem_wrapper {
 		content-visibility: auto;
 		contain-intrinsic-size: auto 24rem;
 	}
+
+	.main_jcem_wrapper .jcem-taxonomy-posts {
+		display: grid;
+		gap: 0.45rem;
+		margin: 0 0 1rem;
+		padding: 0;
+		list-style: none;
+	}
+
+	.main_jcem_wrapper .jcem-taxonomy-posts a {
+		display: flex;
+		align-items: baseline;
+		justify-content: space-between;
+		gap: 1rem;
+		padding: 0.62rem 0.75rem;
+		border: 1px solid var(--jcem-panel-border);
+		border-radius: 0.25rem;
+		background: var(--jcem-panel-bg);
+		color: var(--tc);
+		text-decoration: none;
+	}
+
+	.main_jcem_wrapper .jcem-taxonomy-posts a:hover,
+	.main_jcem_wrapper .jcem-taxonomy-posts a:focus-visible {
+		border-color: var(--jcem-panel-accent-hot);
+		text-decoration: underline;
+	}
+
+	.main_jcem_wrapper .jcem-taxonomy-posts time {
+		flex: 0 0 auto;
+		font-size: 0.76rem;
+		font-weight: 700;
+	}
 }
 
 .main_jcem_wrapper .notice,

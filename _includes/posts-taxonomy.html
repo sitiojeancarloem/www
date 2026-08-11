@@ -11,12 +11,27 @@
 </ul>
 
 {% assign entries_layout = page.entries_layout | default: 'list' %}
+{% assign jcem_taxonomy_compact = page.taxonomy_compact | default: false %}
 {% assign jcem_archive_priority_count = 0 %}
 {% for i in (1..items_max) reversed %}
   {% for taxonomy in include.taxonomies %}
     {% if taxonomy[1].size == i %}
       <section id="{{ taxonomy[0] | slugify }}" class="taxonomy__section">
         <h2 class="archive__subtitle">{{ taxonomy[0] }}</h2>
+        {% if jcem_taxonomy_compact %}
+        <ul class="jcem-taxonomy-posts">
+          {% for post in taxonomy.last %}
+            {% assign taxonomy_title = post.title | markdownify | strip_html | strip_newlines %}
+            {% assign taxonomy_url = post.link | default: post.url | relative_url %}
+            <li>
+              <a href="{{ taxonomy_url }}"{% unless post.link %} rel="permalink"{% endunless %}>
+                <span>{{ taxonomy_title }}</span>
+                {% if post.date %}<time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%Y" }}</time>{% endif %}
+              </a>
+            </li>
+          {% endfor %}
+        </ul>
+        {% else %}
         <div class="entries-{{ entries_layout }}">
           {% for post in taxonomy.last %}
             {% assign jcem_archive_priority = false %}
@@ -27,6 +42,7 @@
             {% include archive-single.html locale=locale type=entries_layout priority=jcem_archive_priority %}
           {% endfor %}
         </div>
+        {% endif %}
         <a href="#page-title" class="back-to-top">{{ site.data.ui-text[locale].back_to_top | default: 'Voltar ao topo' }} &uarr;</a>
       </section>
     {% endif %}
