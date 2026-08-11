@@ -4,6 +4,7 @@ author: 'jeancarlo'
 date: '2020-08-29T20:44:06+03:00'
 last_modified_at: '2026-06-15T00:00:00-03:00'
 description: 'O assunto de ser perfeito tem levado a igreja à décadas de discussão e é tão tolo e desnecessário que, deve-se admitir, foi inserido na igreja pelo próprio Satanás para distrair seus servos do principal: prepara-se para encontrar Jesus nas nuvens. Neste, demonstrar-se-á matematicamente que tal assunto não importa.'
+abstract: 'The question of being perfect has led the church into decades of discussion and is so foolish and unnecessary that, the article argues, Satan himself introduced it to distract his servants from what matters most: preparing to meet Jesus in the clouds. The article demonstrates mathematically that this issue does not matter.'
 source: 'https://web.archive.org/web/20201004153207/https://blog.jeancarloem.com/salvacao-importa-ser-perfeito/'
 featured_image_style: wide
 header:

@@ -1,5 +1,7 @@
 ---
 title: 'Bate-papo: eventos finais — rumo ao lar, viagem dos remidos, coroas e recompensa celestial'
+description: 'Síntese de um bate-papo sobre a volta de Cristo, a viagem dos remidos, linguagem profética, anjos da guarda, formação do caráter, coroas, recompensa celestial e limites do que foi revelado.'
+abstract: 'A synthesis of a conversation about Christ’s return, the journey of the redeemed, prophetic language, guardian angels, character formation, crowns, heavenly reward, and the limits of what has been revealed.'
 content_namespace: bate-papo
 content_subnamespaces:
   - eventos-finais

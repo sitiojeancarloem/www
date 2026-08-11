@@ -4,6 +4,7 @@ author: 'jeancarlo'
 date: '2014-04-16T00:55:57-03:00'
 last_modified_at: '2020-10-08T00:40:55-03:00'
 description: 'O que é real? Seria tudo uma ilusão, um delírio da mente? Existe uma verdade absoluta ou é relativo? Qual é a verdade? É possível encontrá-la?'
+abstract: 'What is real? Could everything be an illusion, a delusion of the mind? Is there an absolute truth, or is truth relative? What is truth? Is it possible to find it?'
 source: 'https://web.archive.org/web/20230209191918/https://blog.jeancarloem.com/devaneios/'
 featured_image_style: wide
 archive_image_style: wide

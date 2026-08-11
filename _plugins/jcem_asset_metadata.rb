@@ -4,6 +4,7 @@ require "json"
 require "fileutils"
 require "time"
 require "uri"
+require "cgi"
 
 module Jcem
   module AssetMetadata
@@ -384,6 +385,52 @@ module Jcem
       {}
     end
 
+    def html_attribute(attributes, name)
+      attributes[/\b#{Regexp.escape(name)}=(['"])(.*?)\1/i, 2]
+    end
+
+    def add_html_attribute(attributes, name, value)
+      return attributes if html_attribute(attributes, name)
+
+      %(#{attributes} #{name}="#{CGI.escapeHTML(value.to_s)}")
+    end
+
+    def normalize_post_images(html, site)
+      html.to_s.gsub(/<img\b(?<attributes>[^>]*)>/i) do |element|
+        attributes = Regexp.last_match[:attributes].to_s
+        source = html_attribute(attributes, "src")
+        next element unless source
+
+        metadata = metadata_for(site, source)
+        variants = metadata.fetch("variants", [])
+        editorial_source = source.start_with?("/assets/images/posts/") || !variants.empty?
+        next element unless editorial_source
+
+        normalized = attributes.sub(/\s*\/\s*\z/, "")
+        priority = html_attribute(normalized, "loading") == "eager" ||
+                   html_attribute(normalized, "fetchpriority") == "high"
+        normalized = add_html_attribute(normalized, "loading", "lazy") unless priority
+        normalized = add_html_attribute(normalized, "decoding", "async")
+        if metadata["width"] && metadata["height"]
+          normalized = add_html_attribute(normalized, "width", dimension_value(metadata["width"]))
+          normalized = add_html_attribute(normalized, "height", dimension_value(metadata["height"]))
+        end
+        unless variants.empty?
+          normalized = normalized.sub(
+            /\bsrc=(['"])(.*?)\1/i,
+            %(src="#{CGI.escapeHTML(variants.first.fetch("path"))}")
+          )
+          normalized = add_html_attribute(normalized, "srcset", metadata.fetch("srcset"))
+          normalized = add_html_attribute(
+            normalized,
+            "sizes",
+            "(max-width: 48rem) calc(100vw - 2rem), 48rem"
+          )
+        end
+        "<img#{normalized}>"
+      end
+    end
+
     def clean_absolute_url(value)
       uri = URI.parse(value.to_s)
       return nil unless uri.is_a?(URI::HTTP) && uri.host
@@ -464,6 +511,13 @@ end
 Jekyll::Hooks.register :site, :post_write do |site|
   assets = site.data.dig("jcem_asset_metadata", "assets") || {}
   Jcem::AssetMetadata.write_index(site, assets)
+end
+
+Jekyll::Hooks.register :documents, :post_render do |document|
+  collection = document.respond_to?(:collection) ? document.collection : nil
+  next unless collection&.respond_to?(:label) && collection.label == "posts"
+
+  document.output = Jcem::AssetMetadata.normalize_post_images(document.output, document.site)
 end
 
 Liquid::Template.register_filter(JcemAssetMetadataFilter)

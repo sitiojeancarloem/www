@@ -85,6 +85,20 @@
 	}
 
 	:is(#print-isolation-specificity-guard, [data-print-article])
+		[data-print-body]
+		:where(p, li) {
+		text-align: justify !important;
+		hyphens: auto !important;
+	}
+
+	:is(#print-isolation-specificity-guard, [data-print-article])
+		[data-print-body]
+		:where(pre, code, kbd, samp, figcaption) {
+		text-align: start !important;
+		hyphens: manual !important;
+	}
+
+	:is(#print-isolation-specificity-guard, [data-print-article])
 		:is(h1, h2, h3, h4, h5, h6, figure, table, blockquote, [role="blockquote"]) {
 		break-inside: avoid !important;
 	}
@@ -107,6 +121,10 @@
 		font-size: 18pt !important;
 		line-height: 21pt !important;
 		text-align: center !important;
+	}
+
+	:is(#print-isolation-specificity-guard, [data-print-article]) h1 a {
+		text-decoration: none !important;
 	}
 
 	:is(#print-isolation-specificity-guard, [data-print-article]) h2 {
@@ -224,6 +242,61 @@
 		box-shadow: none !important;
 		font-size: 7pt !important;
 		line-height: 8.4pt !important;
+	}
+
+	:is(#print-isolation-specificity-guard, [data-print-article])
+		[data-print-authors] {
+		display: flex !important;
+		align-items: flex-start !important;
+		justify-content: center !important;
+		gap: 5mm !important;
+		margin: 0 0 2mm !important;
+		text-align: center !important;
+	}
+
+	:is(#print-isolation-specificity-guard, [data-print-article])
+		.jcem-print-author,
+	:is(#print-isolation-specificity-guard, [data-print-article])
+		[data-print-publication] {
+		display: flex !important;
+		flex-direction: column !important;
+		align-items: center !important;
+	}
+
+	:is(#print-isolation-specificity-guard, [data-print-article])
+		[data-print-publication] {
+		margin: 0 0 2mm !important;
+		text-align: center !important;
+	}
+
+	:is(#print-isolation-specificity-guard, [data-print-article])
+		.jcem-print-summary {
+		display: grid !important;
+		grid-template-columns: auto minmax(0, 1fr) !important;
+		align-items: baseline !important;
+		gap: 0 0.7mm !important;
+		margin: 0 0 1.5mm !important;
+	}
+
+	:is(#print-isolation-specificity-guard, [data-print-article])
+		.jcem-print-summary h2 {
+		margin: 0 !important;
+		font-size: 8pt !important;
+		line-height: 9.6pt !important;
+	}
+
+	:is(#print-isolation-specificity-guard, [data-print-article])
+		.jcem-print-summary h2::after {
+		content: "—" !important;
+		margin-inline-start: 0.5mm !important;
+	}
+
+	:is(#print-isolation-specificity-guard, [data-print-article])
+		.jcem-print-summary p {
+		margin: 0 !important;
+		font-size: 8pt !important;
+		line-height: 9.6pt !important;
+		text-align: justify !important;
 	}
 
 	:is(#print-isolation-specificity-guard, [data-print-article])

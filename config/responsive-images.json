@@ -3,7 +3,9 @@
 	"quality": 82,
 	"widths": [
 		320,
+		480,
 		640,
+		800,
 		960,
 		1200,
 		1280,
@@ -14,6 +16,21 @@
 			"id": "devaneios",
 			"source": "assets/images/posts/devaneios/devaneios-grande.png",
 			"canonical": "/assets/images/posts/devaneios/devaneios-grande.png"
+		},
+		{
+			"id": "devaneios-observador-restaurantes",
+			"source": "assets/images/posts/devaneios/observador-restaurantes-jcem-ccbysa.png",
+			"canonical": "/assets/images/posts/devaneios/observador-restaurantes-jcem-ccbysa.png"
+		},
+		{
+			"id": "devaneios-lua-terra",
+			"source": "assets/images/posts/devaneios/vistas-lua-terra-visao2-ccbysa-jcem.png",
+			"canonical": "/assets/images/posts/devaneios/vistas-lua-terra-visao2-ccbysa-jcem.png"
+		},
+		{
+			"id": "devaneios-origem-conviccao",
+			"source": "assets/images/posts/devaneios/OrigemDaConvicao-jcem-ccbysanc.png",
+			"canonical": "/assets/images/posts/devaneios/OrigemDaConvicao-jcem-ccbysanc.png"
 		},
 		{
 			"id": "tradicao-vs-biblia",

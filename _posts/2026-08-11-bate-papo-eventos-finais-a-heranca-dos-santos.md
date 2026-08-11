@@ -1,5 +1,7 @@
 ---
 title: 'Bate-papo: eventos finais — a herança dos santos'
+description: 'Síntese de um bate-papo sobre a herança dos santos, a Terra renovada, identidade e vínculos após a ressurreição, os 144 mil, formação do caráter e limites responsáveis da interpretação.'
+abstract: 'A synthesis of a conversation about the inheritance of the saints, the renewed Earth, identity and relationships after the resurrection, the 144,000, character formation, and responsible limits of interpretation.'
 content_namespace: bate-papo
 content_subnamespaces:
   - eventos-finais

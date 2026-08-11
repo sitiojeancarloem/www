@@ -71,9 +71,14 @@
 	}
 
 	body:has([data-print-article]) [data-print-article] .jcem-post-header,
+	body:has([data-print-article]) [data-print-article] [data-print-metadata] {
+		column-span: all !important;
+		break-inside: avoid !important;
+	}
+
 	body:has([data-print-article]) [data-print-article] .jcem-article-authors {
-		column-span: all;
-		break-inside: avoid;
+		/* PROTECAO: a ficha visual web não duplica nem desloca a autoria acadêmica impressa. */
+		display: none !important;
 	}
 
 	body:has([data-print-article]) [data-print-article] .page__content {

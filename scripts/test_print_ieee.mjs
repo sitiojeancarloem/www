@@ -1,7 +1,7 @@
 /*! Fonte: https://github.com/sitiojeancarloem/blog | Autor: Jean Carlo EM — https://www.jeancarloem.com | Licença: MPL-2.0 — https://mozilla.org/MPL/2.0/ — código aberto, sem garantia. */
 
 import assert from 'node:assert/strict';
-import { readFile } from 'node:fs/promises';
+import { readFile, readdir } from 'node:fs/promises';
 import path from 'node:path';
 import { pathToFileURL, fileURLToPath } from 'node:url';
 import { JSDOM } from 'jsdom';
@@ -31,6 +31,7 @@ assert.match(css, /size:\s*A4/);
 assert.match(css, /margin:\s*19\.05mm 14\.3225mm 43mm/);
 assert.match(css, /column-gap:\s*4\.2175mm/);
 assert.match(css, /column-fill:\s*balance/);
+assert.match(css, /\[data-print-body\][^{]*:where\(p, li\)\s*\{[^}]*text-align:\s*justify\s*!important/s);
 assert.match(css, /\[data-print-body\]\s*\{[^}]*display:\s*contents\s*!important/s);
 assert.match(css, /\[data-print-body\]\s*\{[^}]*column-count:\s*auto\s*!important/s);
 assert.match(css, /#print-isolation-specificity-guard/);
@@ -93,6 +94,8 @@ const adapterCss = await readFile(
 	'utf8',
 );
 assert.match(adapterCss, /\.jcem-quote__icon\s*\{[^}]*display:\s*none\s*!important/s);
+assert.match(adapterCss, /\.jcem-post-header,[^{]*\[data-print-metadata\]\s*\{[^}]*column-span:\s*all\s*!important/s);
+assert.match(adapterCss, /\.jcem-article-authors\s*\{[^}]*display:\s*none\s*!important/s);
 for (const webOnlySelector of [
 	'.toc',
 	'.header-link',
@@ -105,6 +108,33 @@ for (const webOnlySelector of [
 		new RegExp(webOnlySelector.replaceAll('.', '\\.')),
 		`auxiliar web sem neutralização impressa: ${webOnlySelector}`,
 	);
+}
+
+const layout = await readFile(
+	path.join(repositoryRoot, '_layouts', 'single.html'),
+	'utf8',
+);
+const printMetadata = await readFile(
+	path.join(repositoryRoot, '_includes', 'jcem', 'print-metadata.html'),
+	'utf8',
+);
+const titlePosition = layout.indexOf('<header class="jcem-post-header"');
+assert.match(layout, /<header class="jcem-post-header"[^>]*data-print-span="all"/);
+const metadataPosition = layout.indexOf('{% include jcem/print-metadata.html %}');
+const bodyPosition = layout.indexOf('<section class="page__content e-content"');
+assert(titlePosition >= 0 && titlePosition < metadataPosition && metadataPosition < bodyPosition);
+assert.match(printMetadata, /data-print-authors/);
+assert.match(printMetadata, /data-print-summary[^>]*lang="pt-BR"/);
+assert.match(printMetadata, /data-print-abstract[^>]*lang="en"/);
+assert.match(printMetadata, /page\.description/);
+assert.match(printMetadata, /page\.abstract/);
+
+const postsRoot = path.join(repositoryRoot, '_posts');
+for (const name of (await readdir(postsRoot)).filter((entry) => entry.endsWith('.md'))) {
+	const source = await readFile(path.join(postsRoot, name), 'utf8');
+	const frontMatter = source.match(/^---\s*\r?\n([\s\S]*?)\r?\n---/)?.[1] || '';
+	assert.match(frontMatter, /^description:\s*\S.+$/m, `${name}: Resumo ausente`);
+	assert.match(frontMatter, /^abstract:\s*\S.+$/m, `${name}: Abstract ausente`);
 }
 
 const jekyllConfig = await readFile(path.join(repositoryRoot, '_config.yml'), 'utf8');

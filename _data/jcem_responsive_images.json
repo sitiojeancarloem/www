@@ -12,10 +12,24 @@
           "media_type": "image/webp"
         },
         {
+          "path": "/assets/images/responsive/devaneios/devaneios-480w.webp",
+          "width": 480,
+          "height": 35,
+          "byte_size": 4106,
+          "media_type": "image/webp"
+        },
+        {
           "path": "/assets/images/responsive/devaneios/devaneios-640w.webp",
           "width": 640,
           "height": 46,
           "byte_size": 5768,
+          "media_type": "image/webp"
+        },
+        {
+          "path": "/assets/images/responsive/devaneios/devaneios-800w.webp",
+          "width": 800,
+          "height": 58,
+          "byte_size": 8022,
           "media_type": "image/webp"
         },
         {
@@ -48,6 +62,189 @@
         }
       ]
     },
+    "/assets/images/posts/devaneios/observador-restaurantes-jcem-ccbysa.png": {
+      "source": "assets/images/posts/devaneios/observador-restaurantes-jcem-ccbysa.png",
+      "variants": [
+        {
+          "path": "/assets/images/responsive/devaneios-observador-restaurantes/devaneios-observador-restaurantes-320w.webp",
+          "width": 320,
+          "height": 180,
+          "byte_size": 17046,
+          "media_type": "image/webp"
+        },
+        {
+          "path": "/assets/images/responsive/devaneios-observador-restaurantes/devaneios-observador-restaurantes-480w.webp",
+          "width": 480,
+          "height": 270,
+          "byte_size": 33250,
+          "media_type": "image/webp"
+        },
+        {
+          "path": "/assets/images/responsive/devaneios-observador-restaurantes/devaneios-observador-restaurantes-640w.webp",
+          "width": 640,
+          "height": 360,
+          "byte_size": 52586,
+          "media_type": "image/webp"
+        },
+        {
+          "path": "/assets/images/responsive/devaneios-observador-restaurantes/devaneios-observador-restaurantes-800w.webp",
+          "width": 800,
+          "height": 450,
+          "byte_size": 75876,
+          "media_type": "image/webp"
+        },
+        {
+          "path": "/assets/images/responsive/devaneios-observador-restaurantes/devaneios-observador-restaurantes-960w.webp",
+          "width": 960,
+          "height": 540,
+          "byte_size": 98622,
+          "media_type": "image/webp"
+        },
+        {
+          "path": "/assets/images/responsive/devaneios-observador-restaurantes/devaneios-observador-restaurantes-1200w.webp",
+          "width": 1200,
+          "height": 675,
+          "byte_size": 135506,
+          "media_type": "image/webp"
+        },
+        {
+          "path": "/assets/images/responsive/devaneios-observador-restaurantes/devaneios-observador-restaurantes-1280w.webp",
+          "width": 1280,
+          "height": 720,
+          "byte_size": 149438,
+          "media_type": "image/webp"
+        },
+        {
+          "path": "/assets/images/responsive/devaneios-observador-restaurantes/devaneios-observador-restaurantes-1672w.webp",
+          "width": 1672,
+          "height": 941,
+          "byte_size": 210310,
+          "media_type": "image/webp"
+        }
+      ]
+    },
+    "/assets/images/posts/devaneios/vistas-lua-terra-visao2-ccbysa-jcem.png": {
+      "source": "assets/images/posts/devaneios/vistas-lua-terra-visao2-ccbysa-jcem.png",
+      "variants": [
+        {
+          "path": "/assets/images/responsive/devaneios-lua-terra/devaneios-lua-terra-320w.webp",
+          "width": 320,
+          "height": 240,
+          "byte_size": 14818,
+          "media_type": "image/webp"
+        },
+        {
+          "path": "/assets/images/responsive/devaneios-lua-terra/devaneios-lua-terra-480w.webp",
+          "width": 480,
+          "height": 360,
+          "byte_size": 29064,
+          "media_type": "image/webp"
+        },
+        {
+          "path": "/assets/images/responsive/devaneios-lua-terra/devaneios-lua-terra-640w.webp",
+          "width": 640,
+          "height": 480,
+          "byte_size": 45216,
+          "media_type": "image/webp"
+        },
+        {
+          "path": "/assets/images/responsive/devaneios-lua-terra/devaneios-lua-terra-800w.webp",
+          "width": 800,
+          "height": 600,
+          "byte_size": 64798,
+          "media_type": "image/webp"
+        },
+        {
+          "path": "/assets/images/responsive/devaneios-lua-terra/devaneios-lua-terra-960w.webp",
+          "width": 960,
+          "height": 720,
+          "byte_size": 84406,
+          "media_type": "image/webp"
+        },
+        {
+          "path": "/assets/images/responsive/devaneios-lua-terra/devaneios-lua-terra-1200w.webp",
+          "width": 1200,
+          "height": 900,
+          "byte_size": 114748,
+          "media_type": "image/webp"
+        },
+        {
+          "path": "/assets/images/responsive/devaneios-lua-terra/devaneios-lua-terra-1280w.webp",
+          "width": 1280,
+          "height": 960,
+          "byte_size": 128228,
+          "media_type": "image/webp"
+        },
+        {
+          "path": "/assets/images/responsive/devaneios-lua-terra/devaneios-lua-terra-1448w.webp",
+          "width": 1448,
+          "height": 1086,
+          "byte_size": 152186,
+          "media_type": "image/webp"
+        }
+      ]
+    },
+    "/assets/images/posts/devaneios/OrigemDaConvicao-jcem-ccbysanc.png": {
+      "source": "assets/images/posts/devaneios/OrigemDaConvicao-jcem-ccbysanc.png",
+      "variants": [
+        {
+          "path": "/assets/images/responsive/devaneios-origem-conviccao/devaneios-origem-conviccao-320w.webp",
+          "width": 320,
+          "height": 154,
+          "byte_size": 15012,
+          "media_type": "image/webp"
+        },
+        {
+          "path": "/assets/images/responsive/devaneios-origem-conviccao/devaneios-origem-conviccao-480w.webp",
+          "width": 480,
+          "height": 230,
+          "byte_size": 28812,
+          "media_type": "image/webp"
+        },
+        {
+          "path": "/assets/images/responsive/devaneios-origem-conviccao/devaneios-origem-conviccao-640w.webp",
+          "width": 640,
+          "height": 307,
+          "byte_size": 45206,
+          "media_type": "image/webp"
+        },
+        {
+          "path": "/assets/images/responsive/devaneios-origem-conviccao/devaneios-origem-conviccao-800w.webp",
+          "width": 800,
+          "height": 384,
+          "byte_size": 64640,
+          "media_type": "image/webp"
+        },
+        {
+          "path": "/assets/images/responsive/devaneios-origem-conviccao/devaneios-origem-conviccao-960w.webp",
+          "width": 960,
+          "height": 461,
+          "byte_size": 85390,
+          "media_type": "image/webp"
+        },
+        {
+          "path": "/assets/images/responsive/devaneios-origem-conviccao/devaneios-origem-conviccao-1200w.webp",
+          "width": 1200,
+          "height": 576,
+          "byte_size": 116402,
+          "media_type": "image/webp"
+        },
+        {
+          "path": "/assets/images/responsive/devaneios-origem-conviccao/devaneios-origem-conviccao-1280w.webp",
+          "width": 1280,
+          "height": 614,
+          "byte_size": 129262,
+          "media_type": "image/webp"
+        },
+        {
+          "path": "/assets/images/responsive/devaneios-origem-conviccao/devaneios-origem-conviccao-1717w.webp",
+          "width": 1717,
+          "height": 824,
+          "byte_size": 190928,
+          "media_type": "image/webp"
+        }
+      ]
+    },
     "https://web.archive.org/web/20201006232837im_/https://blog.jeancarloem.com/wp-content/uploads/2020/04/COVER.png": {
       "source": "_drafts/_midias-recuperadas/blog.jeancarloem.com/wp-content/uploads/2020/04/COVER.png",
       "variants": [
@@ -59,10 +256,24 @@
           "media_type": "image/webp"
         },
         {
+          "path": "/assets/images/responsive/tradicao-vs-biblia/tradicao-vs-biblia-480w.webp",
+          "width": 480,
+          "height": 252,
+          "byte_size": 41294,
+          "media_type": "image/webp"
+        },
+        {
           "path": "/assets/images/responsive/tradicao-vs-biblia/tradicao-vs-biblia-640w.webp",
           "width": 640,
           "height": 336,
           "byte_size": 67058,
+          "media_type": "image/webp"
+        },
+        {
+          "path": "/assets/images/responsive/tradicao-vs-biblia/tradicao-vs-biblia-800w.webp",
+          "width": 800,
+          "height": 420,
+          "byte_size": 95124,
           "media_type": "image/webp"
         },
         {
@@ -92,10 +303,24 @@
           "media_type": "image/webp"
         },
         {
+          "path": "/assets/images/responsive/sola-scriptura/sola-scriptura-480w.webp",
+          "width": 480,
+          "height": 252,
+          "byte_size": 20508,
+          "media_type": "image/webp"
+        },
+        {
           "path": "/assets/images/responsive/sola-scriptura/sola-scriptura-640w.webp",
           "width": 640,
           "height": 336,
           "byte_size": 31774,
+          "media_type": "image/webp"
+        },
+        {
+          "path": "/assets/images/responsive/sola-scriptura/sola-scriptura-800w.webp",
+          "width": 800,
+          "height": 420,
+          "byte_size": 44810,
           "media_type": "image/webp"
         },
         {
@@ -125,10 +350,24 @@
           "media_type": "image/webp"
         },
         {
+          "path": "/assets/images/responsive/nove-motivos-sabado/nove-motivos-sabado-480w.webp",
+          "width": 480,
+          "height": 250,
+          "byte_size": 24250,
+          "media_type": "image/webp"
+        },
+        {
           "path": "/assets/images/responsive/nove-motivos-sabado/nove-motivos-sabado-640w.webp",
           "width": 640,
           "height": 334,
           "byte_size": 34232,
+          "media_type": "image/webp"
+        },
+        {
+          "path": "/assets/images/responsive/nove-motivos-sabado/nove-motivos-sabado-800w.webp",
+          "width": 800,
+          "height": 418,
+          "byte_size": 45592,
           "media_type": "image/webp"
         },
         {
@@ -172,10 +411,24 @@
           "media_type": "image/webp"
         },
         {
+          "path": "/assets/images/responsive/cinco-verdades-genesis/cinco-verdades-genesis-480w.webp",
+          "width": 480,
+          "height": 250,
+          "byte_size": 9864,
+          "media_type": "image/webp"
+        },
+        {
           "path": "/assets/images/responsive/cinco-verdades-genesis/cinco-verdades-genesis-640w.webp",
           "width": 640,
           "height": 334,
           "byte_size": 13408,
+          "media_type": "image/webp"
+        },
+        {
+          "path": "/assets/images/responsive/cinco-verdades-genesis/cinco-verdades-genesis-800w.webp",
+          "width": 800,
+          "height": 418,
+          "byte_size": 17440,
           "media_type": "image/webp"
         },
         {
@@ -219,10 +472,24 @@
           "media_type": "image/webp"
         },
         {
+          "path": "/assets/images/responsive/como-identificar-falacias/como-identificar-falacias-480w.webp",
+          "width": 480,
+          "height": 270,
+          "byte_size": 23016,
+          "media_type": "image/webp"
+        },
+        {
           "path": "/assets/images/responsive/como-identificar-falacias/como-identificar-falacias-640w.webp",
           "width": 640,
           "height": 360,
           "byte_size": 33136,
+          "media_type": "image/webp"
+        },
+        {
+          "path": "/assets/images/responsive/como-identificar-falacias/como-identificar-falacias-800w.webp",
+          "width": 800,
+          "height": 450,
+          "byte_size": 43012,
           "media_type": "image/webp"
         },
         {
@@ -266,10 +533,24 @@
           "media_type": "image/webp"
         },
         {
+          "path": "/assets/images/responsive/salvacao-importa-ser-perfeito/salvacao-importa-ser-perfeito-480w.webp",
+          "width": 480,
+          "height": 250,
+          "byte_size": 14104,
+          "media_type": "image/webp"
+        },
+        {
           "path": "/assets/images/responsive/salvacao-importa-ser-perfeito/salvacao-importa-ser-perfeito-640w.webp",
           "width": 640,
           "height": 334,
           "byte_size": 20384,
+          "media_type": "image/webp"
+        },
+        {
+          "path": "/assets/images/responsive/salvacao-importa-ser-perfeito/salvacao-importa-ser-perfeito-800w.webp",
+          "width": 800,
+          "height": 418,
+          "byte_size": 28248,
           "media_type": "image/webp"
         },
         {
@@ -313,10 +594,24 @@
           "media_type": "image/webp"
         },
         {
+          "path": "/assets/images/responsive/nenhum-alcool/nenhum-alcool-480w.webp",
+          "width": 480,
+          "height": 251,
+          "byte_size": 19744,
+          "media_type": "image/webp"
+        },
+        {
           "path": "/assets/images/responsive/nenhum-alcool/nenhum-alcool-640w.webp",
           "width": 640,
           "height": 335,
           "byte_size": 28716,
+          "media_type": "image/webp"
+        },
+        {
+          "path": "/assets/images/responsive/nenhum-alcool/nenhum-alcool-800w.webp",
+          "width": 800,
+          "height": 419,
+          "byte_size": 37882,
           "media_type": "image/webp"
         },
         {

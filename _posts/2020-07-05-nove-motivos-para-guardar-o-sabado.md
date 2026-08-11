@@ -4,6 +4,7 @@ author: 'jeancarlo'
 date: '2020-07-05T03:38:11+03:00'
 last_modified_at: '2026-06-15T00:00:00-03:00'
 description: 'Confira neste 9 motivos para guardar o sábado.'
+abstract: 'This article presents nine reasons for keeping the Sabbath.'
 source: 'https://web.archive.org/web/20201004084617/https://blog.jeancarloem.com/nove-motivos-para-guardar-o-sabado/'
 featured_image_style: wide
 header:

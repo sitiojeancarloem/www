@@ -4,6 +4,7 @@ author: 'jeancarlo'
 date: '2020-08-16T01:14:17+03:00'
 last_modified_at: '2026-06-15T00:00:00-03:00'
 description: 'Falácias são afirmações ditas com tom de cultura e eloquência mas que na realidade são falsas. Como identificá-las? Este artigo apresenta um método matemático para identificar falácias.'
+abstract: 'Fallacies are statements delivered with an air of culture and eloquence that are actually false. How can they be identified? This article presents a mathematical method for identifying fallacies.'
 source: 'https://web.archive.org/web/20201005013131/https://blog.jeancarloem.com/como-identificar-falacias/'
 featured_image_style: wide
 header:

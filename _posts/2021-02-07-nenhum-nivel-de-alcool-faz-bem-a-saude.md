@@ -4,6 +4,7 @@ author: 'jeancarlo'
 date: '2021-02-07T05:50:42+03:00'
 last_modified_at: '2026-06-15T00:00:00-03:00'
 description: 'Álcool, independentemente da quantidade, é um "problema colossal de saúde" comprova Ciência pura e legítima.'
+abstract: 'Alcohol, regardless of the amount consumed, is a colossal health problem, as sound scientific evidence demonstrates.'
 source: 'https://web.archive.org/web/20210207030211/https://blog.jeancarloem.com/nenhum-nivel-de-alcool-faz-bem-a-saude/'
 featured_image_style:
 header:

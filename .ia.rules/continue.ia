@@ -54,6 +54,20 @@ plano:
       - fundo discreto aparece somente em profundidades citacionais adicionais
       - borda pertence somente ao conteiner semanticamente previsto
       - claro, escuro, nesting, painel e impressao validados sem regressao
+  - id: FT-024
+    classe: implementacao_normativa_codigo
+    criado_em: 2026-08-11T16:40:00-03:00
+    estado: em_andamento
+    depende_de: FT-020
+    objetivo: Corrigir a composicao estrutural do cabecalho academico e a justificacao efetiva do corpo impresso.
+    escopo: RCF-JCEM-IMPRESSAO-IEEE-001 e adaptador Jekyll da biblioteca de impressao.
+    aceite:
+      - titulo principal ocupa a largura integral antes do fluxo em colunas
+      - autoria e metadados associados aparecem abaixo do titulo e antes do corpo
+      - Resumo em portugues e Abstract equivalente em ingles existem em todos os artigos
+      - paragrafos do corpo em colunas usam alinhamento justificado computado
+      - estruturas exclusivas de impressao permanecem ausentes da visualizacao web
+      - PDF, claro, escuro, build e validacao visual aprovados sem regressao
 lacunas:
   - id: GAP-AGENTS-CJS-ESM-001
     estado: isolada

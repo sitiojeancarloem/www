@@ -11,6 +11,10 @@ const featuredImage = await readFile(new URL('../_includes/jcem/post-featured-im
 const head = await readFile(new URL('../_includes/head/custom.html', import.meta.url), 'utf8');
 const themeScripts = await readFile(new URL('../_includes/scripts.html', import.meta.url), 'utf8');
 const visualValidation = await readFile(new URL('./validate-visual.js', import.meta.url), 'utf8');
+const customVariables = await readFile(
+	new URL('../_sass/minimal-mistakes/skins/_variables-custom.scss', import.meta.url),
+	'utf8',
+);
 const config = validateConfig(
 	JSON.parse(await readFile(new URL('../config/pagespeed.json', import.meta.url), 'utf8')),
 );
@@ -34,9 +38,13 @@ assert.deepEqual(config.targets.find(({ id }) => id === 'not-found').categories,
 ]);
 assert.match(archiveCard, /fetchpriority="high"/);
 assert.match(archiveCard, /loading="{% if archive_image_priority %}eager/);
-assert.match(documentCollection, /priority=forloop\.first/);
-assert.match(taxonomyCollection, /jcem_archive_priority_used/);
+assert.match(documentCollection, /forloop\.index <= 2/);
+assert.match(taxonomyCollection, /jcem_archive_priority_count < 2/);
 assert.match(featuredImage, /loading="eager" decoding="async" fetchpriority="high"/);
+assert.match(customVariables, /jcem-skeleton-asset\[fetchpriority='high'\]/);
+assert.match(customVariables, /@media screen[\s\S]*content-visibility: auto/);
+assert.match(customVariables, /\.archive > \.entries-grid > \.grid__item:nth-child\(n \+ 3\)/);
+assert.doesNotMatch(customVariables, /\.grid__wrapper > \.grid__item:nth-child\(n \+ 3\)/);
 assert.doesNotMatch(head, /body > :not\(\.carregandoPagina\)/);
 assert.match(head, /consent-manager\/silktide\.js[^>]+defer/);
 assert.match(head, /consent-manager\/start\.js[^>]+defer/);

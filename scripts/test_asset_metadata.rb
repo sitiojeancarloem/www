@@ -74,7 +74,7 @@ responsive_data.fetch("assets").each do |canonical, definition|
   Jcem::AssetMetadata.asset_lookup_keys(canonical).each { |key| responsive_assets[key] = metadata }
 end
 Jcem::AssetMetadata.attach_responsive_variants!(responsive_assets, responsive_data)
-assert(responsive_data.fetch("assets").size == 8, "catalogo responsivo deve cobrir oito imagens publicadas")
+assert(responsive_data.fetch("assets").size == 11, "catalogo responsivo deve cobrir onze imagens publicadas")
 
 responsive_data.fetch("assets").each do |canonical, definition|
   metadata = Jcem::AssetMetadata.metadata_for(
@@ -95,5 +95,18 @@ responsive_data.fetch("assets").each do |canonical, definition|
   assert(metadata.fetch("srcset").include?("#{variants.first.fetch("width")}w"),
          "srcset ausente para #{canonical}")
 end
+
+delivery_site = Struct.new(:data).new({ "jcem_asset_metadata" => { "assets" => responsive_assets } })
+delivery_html = Jcem::AssetMetadata.normalize_post_images(
+  '<p><img src="/assets/images/posts/devaneios/observador-restaurantes-jcem-ccbysa.png" alt="Teste"></p>',
+  delivery_site
+)
+assert(delivery_html.include?('loading="lazy"'), "imagem editorial deve nascer lazy no HTML")
+assert(delivery_html.include?('decoding="async"'), "imagem editorial deve nascer com decoding async")
+assert(delivery_html.include?('srcset="'), "imagem editorial responsiva deve emitir srcset")
+assert(delivery_html.include?('sizes="'), "imagem editorial responsiva deve emitir sizes")
+assert(delivery_html.include?('width="'), "imagem editorial deve reservar largura")
+assert(delivery_html.include?('height="'), "imagem editorial deve reservar altura")
+assert(!delivery_html.include?('/ loading='), "atributos devem preceder o fechamento da imagem")
 
 puts "asset_metadata=ok"

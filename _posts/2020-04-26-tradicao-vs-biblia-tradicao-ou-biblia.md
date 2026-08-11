@@ -4,6 +4,7 @@ author: 'jeancarlo'
 date: '2020-04-26T16:36:53+03:00'
 last_modified_at: '2026-06-15T00:00:00-03:00'
 description: 'No #debateTeológico existe a milênios, uma disputa entre #tradições, os #ensinamento da #igreja, e a #bíblia, a #palavraDeDeus. No meio deste #conflito, quem tem mais autoridade, a #tradição ou a bíblia? A igreja ou a palavra de Deus?'
+abstract: 'For millennia, theological debate has involved a dispute between traditions, church teachings, and the Bible, the Word of God. Amid this conflict, which has greater authority: tradition or the Bible, the church or the Word of God?'
 source: 'https://web.archive.org/web/20201006232837/https://blog.jeancarloem.com/tradicao-vs-biblia-tradicao-ou-biblia/'
 featured_image_style: wide
 header:

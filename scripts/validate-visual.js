@@ -2089,6 +2089,18 @@ const validatePrintTheme = async (page, url, viewportName) => {
 		const normalParagraphStyle = normalParagraph
 			? window.getComputedStyle(normalParagraph)
 			: null;
+		const printTitle = document.querySelector('[data-print-article] .jcem-post-header h1');
+		const printTitleHeader = printTitle?.closest('.jcem-post-header');
+		const printMetadata = document.querySelector('[data-print-article] [data-print-metadata]');
+		const printAuthors = document.querySelector('[data-print-article] [data-print-authors]');
+		const printSummary = document.querySelector('[data-print-article] [data-print-summary]');
+		const printAbstract = document.querySelector('[data-print-article] [data-print-abstract]');
+		const printBody = document.querySelector('[data-print-article] [data-print-body]');
+		const webAuthors = document.querySelector('[data-print-article] .jcem-article-authors');
+		const articleRect = article?.getBoundingClientRect();
+		const titleRect = printTitleHeader?.getBoundingClientRect();
+		const metadataRect = printMetadata?.getBoundingClientRect();
+		const firstBodyRect = normalParagraph?.getBoundingClientRect();
 		const headingStyle = heading ? window.getComputedStyle(heading) : null;
 		const panelStyle = panel ? window.getComputedStyle(panel) : null;
 		const panelTableStyle = panelTable
@@ -2160,8 +2172,37 @@ const validatePrintTheme = async (page, url, viewportName) => {
 						color: normalParagraphStyle.color,
 						font: normalParagraphStyle.fontFamily,
 						textIndent: normalParagraphStyle.textIndent,
+						textAlign: normalParagraphStyle.textAlign,
 					}
 				: null,
+			academicHeader: {
+				exists: Boolean(printTitle && printMetadata && printAuthors && printSummary && printAbstract),
+				orderOk: Boolean(
+					printTitle &&
+					printMetadata &&
+					printBody &&
+					(printTitle.compareDocumentPosition(printMetadata) & Node.DOCUMENT_POSITION_FOLLOWING) &&
+					(printMetadata.compareDocumentPosition(printBody) & Node.DOCUMENT_POSITION_FOLLOWING)
+				),
+				titleColumnSpan: printTitleHeader
+					? window.getComputedStyle(printTitleHeader).columnSpan
+					: '',
+				metadataColumnSpan: printMetadata
+					? window.getComputedStyle(printMetadata).columnSpan
+					: '',
+				titleWidth: titleRect?.width || 0,
+				articleWidth: articleRect?.width || 0,
+				titleBeforeMetadata: Boolean(
+					titleRect && metadataRect && titleRect.bottom <= metadataRect.top + 1,
+				),
+				metadataBeforeBody: Boolean(
+					metadataRect && firstBodyRect && metadataRect.bottom <= firstBodyRect.top + 1,
+				),
+				authorText: printAuthors?.textContent?.trim() || '',
+				summaryText: printSummary?.textContent?.trim() || '',
+				abstractText: printAbstract?.textContent?.trim() || '',
+				webAuthorsHidden: !webAuthors || window.getComputedStyle(webAuthors).display === 'none',
+			},
 			heading: headingStyle
 				? {
 						background: headingStyle.backgroundColor,
@@ -2245,6 +2286,27 @@ const validatePrintTheme = async (page, url, viewportName) => {
 			Number.parseFloat(result.paragraph.textIndent || '0') !== 0)
 	) {
 		fail(`Estilo web de paragrafo vazou para impressao em ${url}: ${JSON.stringify(result.paragraph)}`);
+	}
+
+	if (result.paragraph && result.paragraph.textAlign !== 'justify') {
+		fail(`Texto colunar nao esta justificado em ${url}: ${JSON.stringify(result.paragraph)}`);
+	}
+
+	if (
+		screenIsolation.hasArticle &&
+		(!result.academicHeader.exists ||
+			!result.academicHeader.orderOk ||
+			result.academicHeader.titleColumnSpan !== 'all' ||
+			result.academicHeader.metadataColumnSpan !== 'all' ||
+			result.academicHeader.titleWidth < result.academicHeader.articleWidth * 0.9 ||
+			!result.academicHeader.titleBeforeMetadata ||
+			!result.academicHeader.metadataBeforeBody ||
+			!result.academicHeader.authorText ||
+			!result.academicHeader.summaryText.startsWith('Resumo') ||
+			!result.academicHeader.abstractText.startsWith('Abstract') ||
+			!result.academicHeader.webAuthorsHidden)
+	) {
+		fail(`Cabecalho academico impresso invalido em ${url}: ${JSON.stringify(result.academicHeader)}`);
 	}
 
 	if (

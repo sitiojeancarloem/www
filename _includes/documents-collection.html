@@ -5,5 +5,7 @@
 {% if include.sort_order == 'reverse' %}{% assign entries = entries | reverse %}{% endif %}
 
 {%- for post in entries -%}
-  {% include archive-single.html locale=locale type=include.type priority=forloop.first %}
+  {% assign jcem_archive_priority = false %}
+  {% if forloop.index <= 2 %}{% assign jcem_archive_priority = true %}{% endif %}
+  {% include archive-single.html locale=locale type=include.type priority=jcem_archive_priority %}
 {%- endfor -%}

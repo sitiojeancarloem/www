@@ -1,8 +1,49 @@
 {% comment %}Fonte: https://github.com/sitiojeancarloem/blog | Autor: Jean Carlo EM — https://www.jeancarloem.com | Licença: MPL-2.0 — https://mozilla.org/MPL/2.0/ — código aberto, sem garantia.{% endcomment %}
-<aside class="jcem-print-metadata" data-print-only data-print-metadata data-print-span="all" aria-label="Metadados da impressão">
-  <strong>{{ site.title }}</strong>
-  <span>URL canônica: {{ page.url | absolute_url }}</span>
-  {% if page.date %}<span>Publicado: <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%d/%m/%Y" }}</time></span>{% endif %}
-  {% if page.last_modified_at %}<span>Atualizado: <time datetime="{{ page.last_modified_at | date_to_xmlschema }}">{{ page.last_modified_at | date: "%d/%m/%Y" }}</time></span>{% endif %}
-  <span>Obtido para impressão: <time data-print-acquired-at>não preparado</time></span>
+{% assign print_authors = page.article_authors | default: empty %}
+{% assign valid_print_author_count = 0 %}
+{% for author in print_authors %}
+  {% if author.name %}{% assign valid_print_author_count = valid_print_author_count | plus: 1 %}{% endif %}
+{% endfor %}
+<aside class="jcem-print-metadata" data-print-only data-print-metadata data-print-span="all" aria-label="Cabeçalho acadêmico da impressão">
+  <section class="jcem-print-authors" data-print-authors aria-label="Autoria">
+    {% if valid_print_author_count > 0 %}
+      {% for author in print_authors %}
+        {% if author.name %}
+          <div class="jcem-print-author" itemprop="author" itemscope itemtype="https://schema.org/Person">
+            <strong itemprop="name">{{ author.name }}</strong>
+            {% if author.affiliation %}<span data-print-author-affiliation>{{ author.affiliation }}</span>{% endif %}
+            {% if author.bio %}<span itemprop="description">{{ author.bio }}</span>{% endif %}
+            {% if author.location %}<span>{{ author.location }}</span>{% endif %}
+            {% if author.email %}<span>{{ author.email }}</span>{% endif %}
+          </div>
+        {% endif %}
+      {% endfor %}
+    {% else %}
+      {% assign print_author = site.author %}
+      {% if page.author.name %}{% assign print_author = page.author %}{% endif %}
+      <div class="jcem-print-author" itemprop="author" itemscope itemtype="https://schema.org/Person">
+        <strong itemprop="name">{{ print_author.name | default: site.title }}</strong>
+        {% if print_author.bio %}<span itemprop="description">{{ print_author.bio }}</span>{% endif %}
+        {% if print_author.location %}<span>{{ print_author.location }}</span>{% endif %}
+        {% if print_author.email %}<span>{{ print_author.email }}</span>{% endif %}
+      </div>
+    {% endif %}
+  </section>
+
+  <div class="jcem-print-publication" data-print-publication>
+    <strong>{{ site.title }}</strong>
+    <span>URL canônica: {{ page.url | absolute_url }}</span>
+    {% if page.date %}<span>Publicado: <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%d/%m/%Y" }}</time></span>{% endif %}
+    {% if page.last_modified_at %}<span>Atualizado: <time datetime="{{ page.last_modified_at | date_to_xmlschema }}">{{ page.last_modified_at | date: "%d/%m/%Y" }}</time></span>{% endif %}
+    <span>Obtido para impressão: <time data-print-acquired-at>não preparado</time></span>
+  </div>
+
+  <section class="jcem-print-summary" data-print-summary lang="pt-BR" aria-labelledby="jcem-print-summary-title">
+    <h2 id="jcem-print-summary-title">Resumo</h2>
+    <p>{{ page.description | strip_html | strip_newlines }}</p>
+  </section>
+  <section class="jcem-print-summary" data-print-abstract lang="en" aria-labelledby="jcem-print-abstract-title">
+    <h2 id="jcem-print-abstract-title">Abstract</h2>
+    <p>{{ page.abstract | strip_html | strip_newlines }}</p>
+  </section>
 </aside>

@@ -4,6 +4,7 @@ author: 'jeancarlo'
 date: '2020-07-12T01:24:08+03:00'
 last_modified_at: '2026-06-15T00:00:00-03:00'
 description: 'Extrair 5 verdades de Gênesis 2:7, um texto bíblico repleto de significação e verdade e, em muitos casos, não lido atentamente, levando muitos à má interpretação.'
+abstract: 'This article draws five truths from Genesis 2:7, a biblical text rich in meaning and truth that is often not read carefully, leading many to misinterpret it.'
 source: 'https://web.archive.org/web/20201005014559/https://blog.jeancarloem.com/5-verdades-de-genesis-27/'
 featured_image_style: wide
 header:

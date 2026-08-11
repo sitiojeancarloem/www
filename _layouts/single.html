@@ -84,9 +84,8 @@ layout: default
     {% if page.last_modified_at %}<meta itemprop="dateModified" content="{{ page.last_modified_at | date_to_xmlschema }}">{% endif %}
 
     <div class="page__inner-wrap">
-	  {% if page.collection == 'posts' %}{% include jcem/print-metadata.html %}{% endif %}
       {% unless jcem_overlay_header %}
-        <header class="jcem-post-header">
+        <header class="jcem-post-header"{% if page.collection == 'posts' %} data-print-span="all"{% endif %}>
           {% if jcem_content_featured %}
             {% include jcem/post-featured-image.html style="content" %}
           {% else %}
@@ -100,6 +99,8 @@ layout: default
           {% include jcem/post-read-time.html locale=locale %}
         </header>
       {% endunless %}
+
+	  {% if page.collection == 'posts' %}{% include jcem/print-metadata.html %}{% endif %}
 
       <section class="page__content e-content"{% if page.collection == 'posts' %} data-print-body{% endif %} itemprop="text">
         {% if page.toc %}

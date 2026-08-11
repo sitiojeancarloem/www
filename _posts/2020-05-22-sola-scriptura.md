@@ -4,6 +4,7 @@ author: 'jeancarlo'
 date: '2020-05-22T22:53:21+03:00'
 last_modified_at: '2026-06-15T00:00:00-03:00'
 description: 'Ao longo de toda história, a bíblia foi responsável por reformas que fizeram a igreja apostatada ou apostatante retornar ao verdadeiro Deus. Ele é única fixa, imutável e sólida o suficiente para servir de alicerce confiável para sustentação cristã.'
+abstract: 'Throughout history, the Bible has prompted reforms that led an apostate or apostatizing church back to the true God. It is the only fixed, immutable, and solid foundation reliable enough to sustain the Christian faith.'
 source: 'https://web.archive.org/web/20201011094944/https://blog.jeancarloem.com/sola-scriptura/'
 featured_image_style: wide
 header:

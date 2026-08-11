@@ -678,6 +678,14 @@ body > input.radio#jcem-theme-dark:checked ~ .main_jcem_wrapper {
 	opacity: 0;
 }
 
+// O recurso LCP prioritario deve pintar assim que seus bytes estiverem disponiveis;
+// o skeleton permanece como fundo, sem impor atraso artificial ao conteúdo real.
+.main_jcem_wrapper
+	.jcem-skeleton[data-jcem-skeleton-state='loading']
+	.jcem-skeleton-asset[fetchpriority='high'] {
+	opacity: 1;
+}
+
 .main_jcem_wrapper
 	.jcem-skeleton[data-jcem-skeleton-state='loaded']
 	.jcem-skeleton-asset {
@@ -705,6 +713,19 @@ body > input.radio#jcem-theme-dark:checked ~ .main_jcem_wrapper {
 
 .main_jcem_wrapper .jcem-skeleton-asset {
 	transition: opacity 0.24s ease;
+}
+
+@media screen {
+	// PROTECAO: evita layout e pintura antecipados de conteúdo distante da
+	// viewport sem importar esta otimização para o contrato de impressão.
+	.main_jcem_wrapper .page__content > *:nth-child(n + 4),
+	.main_jcem_wrapper .archive > .entries-list > .list__item:nth-child(n + 3),
+	.main_jcem_wrapper .archive > .entries-grid > .grid__item:nth-child(n + 3),
+	.main_jcem_wrapper .jcem-mapa > *:nth-child(n + 4),
+	.main_jcem_wrapper .jcem-footer-region {
+		content-visibility: auto;
+		contain-intrinsic-size: auto 24rem;
+	}
 }
 
 .main_jcem_wrapper .notice,
