@@ -239,7 +239,7 @@ FT-024|nome=Controles e blockquotes tipados|objetivo=Corrigir interacao do switc
 dependencias=FT-021 concluida; RCF de citacoes; registro editorial-quotes; isolamento de impressao.
 criterios=Area integral do switch alterna tema; menu usa Font Awesome bars f0c9; modelos tipados preservam semantica, fallback, claro/escuro, mobile e IEEE impresso.
 resultado=Switch e um button role=switch integral com aria-checked sincronizado; menu usa bars f0c9. Registro, validador e runtime suportam notice, info, alerta1 e alerta2, emoji ou imagem segura com alt; apresentacao tipada fica em screen e o icone auxiliar e neutralizado no adaptador IEEE.
-verificacoes=check:quotes, check:ts, check:print e fixture renderizada em 1920, 390 e 320 px nos dois temas; print confirmou fundo IEEE transparente e icone web oculto.
+verificacoes=check:quotes, check:ts, check:print e fixture renderizada em 1920, 390 e 320 px nos dois temas; print confirmou fundo IEEE transparente e icone web oculto. O gate remoto detectou e eliminou contraste transitorio de 2,81:1 no titulo durante a troca escuro-claro.
 
 FT-025|nome=Variantes responsivas de imagens|objetivo=Selecionar para cards, thumbnails e destaques a menor variante suficiente por viewport, DPR e proporcao|escopo=Tecnico|prioridade=alta|status=concluido|inicio=20260811|conclusao=20260811
 dependencias=FT-021 concluida; jcem_asset_metadata; skeleton e reserva de geometria vigentes.

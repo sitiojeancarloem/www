@@ -1119,6 +1119,12 @@ body > input.radio#jcem-theme-dark:checked ~ .main_jcem_wrapper {
 	color: inherit;
 }
 
+.main_jcem_wrapper .jcem-post-header .page__title,
+.main_jcem_wrapper .jcem-post-header .page__title a {
+	// PROTECAO: evita cor intermediaria sem contraste durante troca de tema.
+	transition: none;
+}
+
 .main_jcem_wrapper .jcem-post-header .page__meta {
 	display: block;
 	width: auto;

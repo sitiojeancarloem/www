@@ -723,6 +723,8 @@ const validatePage = async (page, url, theme, viewportName) => {
 			return {
 				selector,
 				contrastTarget: `${textElement.tagName.toLowerCase()}${textElement.className ? `.${String(textElement.className).trim().replace(/\s+/g, '.')}` : ''}`,
+				contrastText: textElement.textContent?.trim().replace(/\s+/g, ' ').slice(0, 120) || '',
+				contrastHref: textElement instanceof HTMLAnchorElement ? textElement.href : '',
 				color: style.color,
 				backgroundColor: effectiveBackgroundColor(textElement),
 				width: rect.width,
@@ -1836,6 +1838,10 @@ const validatePage = async (page, url, theme, viewportName) => {
 		fail(`Botoes de compartilhamento incompletos em ${url} ${theme} ${viewportName}`);
 	}
 
+	if (process.env.VISUAL_TRACE_CONTRAST === 'true') {
+		console.log(`visual_contrast_trace=${JSON.stringify({ url, theme, viewportName, styles: result.styles })}`);
+	}
+
 	for (const style of result.styles) {
 		if (style.width <= 1 || style.height <= 1) {
 			fail(`Componente sem dimensao em ${url}: ${style.selector}`);
@@ -1848,7 +1854,7 @@ const validatePage = async (page, url, theme, viewportName) => {
 		if (style.selector !== '.jcem-theme-toggle') {
 			const ratio = contrastRatio(style.color, style.backgroundColor);
 			if (ratio < 3) {
-				fail(`Contraste baixo em ${url} ${theme} ${viewportName}: ${style.selector} -> ${style.contrastTarget} (${ratio.toFixed(2)}; ${style.color} sobre ${style.backgroundColor})`);
+				fail(`Contraste baixo em ${url} ${theme} ${viewportName}: ${style.selector} -> ${style.contrastTarget} (${ratio.toFixed(2)}; ${style.color} sobre ${style.backgroundColor}; texto=${JSON.stringify(style.contrastText)}; href=${JSON.stringify(style.contrastHref)})`);
 			}
 		}
 	}
