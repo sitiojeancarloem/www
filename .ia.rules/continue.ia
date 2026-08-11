@@ -72,6 +72,10 @@ plano:
       - paragrafos do corpo em colunas usam alinhamento justificado computado
       - estruturas exclusivas de impressao permanecem ausentes da visualizacao web
       - PDF, claro, escuro, build e validacao visual aprovados sem regressao
+    progresso:
+      - composicao titulo, autores, metadados, Resumo, Abstract e corpo justificado implementada no adaptador Jekyll
+      - saida A4 de 7 paginas aferida sem pagina vazia, corte ou sobreposicao no relatorio 2026-08-11-devaneios-chromium-148.json
+      - regressao intermitente da mascara do terminal 404 identificada no runner Linux e corrigida antes da republicacao
 lacunas:
   - id: GAP-AGENTS-CJS-ESM-001
     estado: isolada

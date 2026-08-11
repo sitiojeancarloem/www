@@ -741,6 +741,7 @@ jcem_context: 404
 						let lastTypedLine = '';
 						let activeLine = null;
 						let maskedLines = [];
+						let pendingLines = [];
 
 						const clearTyping = () => {
 							const lines = new Set(maskedLines);
@@ -750,8 +751,22 @@ jcem_context: 404
 								line.style.removeProperty('--jcem-terminal-type-width');
 								line.style.removeProperty('--jcem-terminal-type-duration');
 							});
+							pendingLines.forEach((line) => line.style.removeProperty('visibility'));
 							maskedLines = [];
+							pendingLines = [];
 							activeLine = null;
+						};
+						const maskFollowingLines = (lines) => {
+							const pending = new Set();
+							lines.forEach((line) => {
+								let sibling = line?.nextElementSibling;
+								while (sibling) {
+									if (sibling.matches?.(lineSelector)) pending.add(sibling);
+									sibling = sibling.nextElementSibling;
+								}
+							});
+							pendingLines = Array.from(pending);
+							pendingLines.forEach((line) => line.style.setProperty('visibility', 'hidden'));
 						};
 						const lineKey = (line) =>
 							line ? `${Math.round(line.offsetTop)}:${(line.textContent || '').trim()}` : '';
@@ -833,6 +848,7 @@ jcem_context: 404
 								line.style.setProperty('--jcem-terminal-type-width', '0px');
 								line.classList.add('is-preparing');
 							});
+							maskFollowingLines(maskedLines);
 							screen.dataset.jcemTerminalPreparedLine = step.key;
 							screen.dataset.jcemTerminalPhase = 'preparing';
 							void track.offsetHeight;

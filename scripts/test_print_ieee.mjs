@@ -151,6 +151,21 @@ assert.match(
 	/`blockquote` e estrutura semanticamente equivalente DEVEM usar na impressão, por padrão, exclusivamente o estilo definido pelo perfil IEEE/,
 );
 assert.match(printRcf, /Componente de terceiro NÃO está dispensado/);
+assert.match(printRcf, /2026-08-11-devaneios-chromium-148\.json/);
+const currentReport = JSON.parse(
+	await readFile(
+		path.join(packageRoot, 'reports', '2026-08-11-devaneios-chromium-148.json'),
+		'utf8',
+	),
+);
+assert.equal(currentReport.level, 'ieee-validado');
+assert.equal(currentReport.output.paper, 'A4');
+assert.equal(currentReport.output.pages, 7);
+assert.equal(currentReport.output.blankPages, 0);
+assert.equal(currentReport.checks.titleFullSpanBeforeColumns, true);
+assert.equal(currentReport.checks.authorsAndMetadataBeforeBody, true);
+assert.equal(currentReport.checks.summaryAndAbstractPresent, true);
+assert.equal(currentReport.checks.bodyColumnsJustified, true);
 for (const excludedPath of [
 	'/src',
 	'/scripts',

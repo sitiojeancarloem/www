@@ -1,0 +1,66 @@
+{
+	"schema": 1,
+	"id": "ieee-conference-a4-ieeetran-1.8b-devaneios-chromium-148-20260811",
+	"level": "ieee-validado",
+	"profile": {
+		"id": "ieee-conference-a4-ieeetran-1.8b",
+		"referenceArchiveSha256": "e0cd4f5afbd42c8076092280e72b3e0a5111efe501d35de9f715cfb8da313cb4",
+		"referenceLicense": "LPPL-1.3c",
+		"libraryLicense": "MPL-2.0"
+	},
+	"source": {
+		"route": "/p/devaneios/",
+		"revision": "c30ee853b278eab08ddd3a0a53ccc94d8c2db821",
+		"buildSha256": "dffd441fbc50cde1e2d16963b85b0afa1ffa58f04e66d28b0ca2992b25d12cc9"
+	},
+	"renderer": {
+		"automation": "Playwright 1.60.0",
+		"browser": "Chromium 148.0.7778.96",
+		"producer": "Skia/PDF m148",
+		"platform": "Windows",
+		"command": "Playwright page.pdf com preferCSSPageSize e printBackground",
+		"scalePercent": 100,
+		"browserHeaderFooter": false
+	},
+	"output": {
+		"sha256": "37c5758028924ce52c644ae1ad79b8fdcf6dd10c80c437a765b4b100e6482c09",
+		"stored": false,
+		"pages": 7,
+		"blankPages": 0,
+		"pageWidthPt": 594.95996,
+		"pageHeightPt": 841.91998,
+		"paper": "A4",
+		"embeddedTextFonts": [
+			"NotoSans-Regular",
+			"NotoSans-Bold",
+			"NotoSans-Italic",
+			"NotoSans-BoldItalic"
+		]
+	},
+	"checks": {
+		"allPagesRenderedAndReviewed": true,
+		"titleFullSpanBeforeColumns": true,
+		"authorsAndMetadataBeforeBody": true,
+		"summaryAndAbstractPresent": true,
+		"bodyColumnsJustified": true,
+		"twoColumnsRestartPerPage": true,
+		"noBlankPage": true,
+		"noClipping": true,
+		"noOverlap": true,
+		"imagesPreserveRatio": true,
+		"quotesAndSubquotesLegible": true,
+		"blockquoteUsesIeeeStyleOnly": true,
+		"webPanelDecorationAbsent": true,
+		"webHelpersAbsent": true,
+		"referencesPresent": true,
+		"institutionalBlockPresent": true,
+		"screenUnaffected": true,
+		"mobileHorizontalOverflow": false,
+		"nonArticlePrintAssetsLoaded": false
+	},
+	"deviations": [
+		"A família de referência Times é substituída deliberadamente por Noto Sans, conforme o RCF do consumidor.",
+		"A saída aferida preserva cores de imagens, tabelas editoriais e avisos institucionais previstos no registro único do RCF.",
+		"A biblioteca mantém nativo-preparado como limite automático; ieee-validado pertence exclusivamente a esta saída aferida."
+	]
+}

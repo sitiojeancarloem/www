@@ -52,9 +52,11 @@ assert.match(featuredImage, /loading="eager" decoding="async" fetchpriority="hig
 assert.match(masthead, /width="630"[\s\S]*height="256"/);
 assert.match(notFound, /pagina-404-480w\.webp/);
 assert.match(notFound, /fetchpriority="low"/);
+assert.match(notFound, /pendingLines\.forEach\(\(line\) => line\.style\.setProperty\('visibility', 'hidden'\)\)/);
 assert.match(notFound, /window\.setTimeout\(\(\) => \{[\s\S]*requestIdleCallback\(run[\s\S]*\}, 5000\)/);
 assert.match(footer, /\{% comment %\}[\s\S]*RFC-JCEM-FOOTER-001[\s\S]*\{% endcomment %\}/);
 assert.match(customVariables, /jcem-skeleton-asset\[fetchpriority='high'\]/);
+assert.match(visualValidation, /text: document\.body\.textContent \|\| ''/);
 assert.match(customVariables, /@media screen[\s\S]*content-visibility: auto/);
 assert.match(customVariables, /\.archive > \.entries-grid > \.grid__item:nth-child\(n \+ 3\)/);
 assert.doesNotMatch(customVariables, /\.grid__wrapper > \.grid__item:nth-child\(n \+ 3\)/);

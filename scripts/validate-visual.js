@@ -3001,7 +3001,7 @@ const validate404Page = async (page, url, viewportName) => {
 			terminalFinalBackground: terminalFinalStyle?.backgroundColor || '',
 			terminalFinalColor: terminalFinalStyle?.color || '',
 			loader: rectFor(loader),
-			text: document.body.innerText || '',
+			text: document.body.textContent || '',
 			overflowX: document.documentElement.scrollWidth - document.documentElement.clientWidth,
 		};
 	});
