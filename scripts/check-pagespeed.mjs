@@ -66,14 +66,49 @@ export const summarize = (payload, target, strategy, minimumScore) => {
 	);
 	const audits = payload.lighthouseResult?.audits || {};
 	const vitals = Object.fromEntries(
-		['largest-contentful-paint', 'cumulative-layout-shift', 'interaction-to-next-paint', 'speed-index']
+		[
+			'first-contentful-paint',
+			'largest-contentful-paint',
+			'total-blocking-time',
+			'cumulative-layout-shift',
+			'interaction-to-next-paint',
+			'speed-index',
+		]
 			.filter((id) => audits[id])
 			.map((id) => [id, audits[id].displayValue || audits[id].numericValue]),
+	);
+	const diagnostics = Object.fromEntries(
+		[
+			'render-blocking-resources',
+			'unused-css-rules',
+			'unused-javascript',
+			'modern-image-formats',
+			'uses-responsive-images',
+			'uses-optimized-images',
+			'server-response-time',
+			'mainthread-work-breakdown',
+			'bootup-time',
+			'network-dependency-tree',
+		]
+			.filter((id) => audits[id]?.score !== null && Number(audits[id]?.score) < 0.9)
+			.map((id) => [id, {
+				score: Math.round(Number(audits[id].score || 0) * 100),
+				value: audits[id].displayValue || audits[id].title,
+			}]),
 	);
 	const failing = Object.entries(categories)
 		.filter(([, score]) => score < minimumScore)
 		.map(([id]) => id);
-	return { target: target.id, url: target.url, strategy, categories, vitals, failing, ok: failing.length === 0 };
+	return {
+		target: target.id,
+		url: target.url,
+		strategy,
+		categories,
+		vitals,
+		diagnostics,
+		failing,
+		ok: failing.length === 0,
+	};
 };
 
 const fetchResult = async (target, strategy, categories, maxAgeMs, force, apiKey) => {

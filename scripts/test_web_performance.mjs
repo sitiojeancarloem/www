@@ -66,6 +66,8 @@ const summary = summarize(
 			},
 			audits: {
 				'largest-contentful-paint': { displayValue: '1.2 s' },
+				'total-blocking-time': { displayValue: '120 ms' },
+				'unused-css-rules': { score: 0.71, displayValue: 'Potential savings of 18 KiB' },
 			},
 		},
 	},
@@ -76,6 +78,11 @@ const summary = summarize(
 assert.equal(summary.ok, false);
 assert.deepEqual(summary.failing, ['accessibility']);
 assert.equal(summary.categories.performance, 94);
+assert.equal(summary.vitals['total-blocking-time'], '120 ms');
+assert.deepEqual(summary.diagnostics['unused-css-rules'], {
+	score: 71,
+	value: 'Potential savings of 18 KiB',
+});
 
 const endpointWithoutKey = createEndpoint(
 	{ url: 'https://example.test/' },
