@@ -978,3 +978,13 @@ Similaridade visual em tela, dependência exclusiva de um motor, funcionamento a
       - publicação GitHub Pages;
       - testes/validadores aplicáveis.
     - O aceite exige comportamento uniforme, determinístico e verificável para conteúdos atuais e futuros, sem perda de regra, feature, citação, referência, detalhe, nuance ou especialização preexistente.
+
+- [ ] Criar, conforme já definido no RCF, a `síntese fiel` em .md, da transcrição do bate-papo salvo em `_drafts\bate-papo\eventos-finais\` salvando-o devidamente para .md, já devidamente nomeado e aninhado.
+  - preservar todo detalhe e nuance importante para correta compreensão;
+  - citações e referenciasa não podem ser perdidas em devem ser localizadas e preenchidas casos não estejam plenamente compreendias;
+  - Considerar que por boa parte do tempo inicial, cerca de 30 minutos, o assunto não hava iniciado, embora eventualmente tocado em assuntos importantes, o papo ficou em cumprimentos e em grande parte em assuntos não teológicos que devem ser ignorados.
+  - realizar commit após completo.
+
+- [ ] corrigir o nome do outro \_draft de bate papo para subnamespacesob `eventos-finais`.
+
+- [ ]publicar ambos os bate-papos.
