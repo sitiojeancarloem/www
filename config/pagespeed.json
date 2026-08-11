@@ -1,0 +1,16 @@
+{
+	"schema": 1,
+	"minimumScore": 90,
+	"cacheMaxAgeHours": 24,
+	"strategies": ["mobile", "desktop"],
+	"categories": ["performance", "accessibility", "best-practices", "seo"],
+	"targets": [
+		{"id": "home", "path": "/"},
+		{"id": "article", "path": "/p/devaneios/"},
+		{"id": "map", "path": "/mapa/"},
+		{"id": "about", "path": "/sobre/"},
+		{"id": "categories", "path": "/c/"},
+		{"id": "tags", "path": "/t/"},
+		{"id": "not-found", "path": "/404.html"}
+	]
+}

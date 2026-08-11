@@ -107,7 +107,7 @@ const bindJcemMasthead = (): void => {
 		ticking = false;
 		document.documentElement.classList.toggle(
 			'jcem-masthead-stuck',
-			window.scrollY > 0 && masthead.getBoundingClientRect().top <= 0,
+			window.scrollY > 0,
 		);
 	};
 
@@ -119,8 +119,52 @@ const bindJcemMasthead = (): void => {
 	};
 
 	window.addEventListener('scroll', requestSync, { passive: true });
-	window.addEventListener('resize', requestSync, { passive: true });
 	syncState();
+};
+
+const bindJcemResponsiveNav = (): void => {
+	const navigation = select<HTMLElement>('#site-nav');
+	if (!navigation) return;
+
+	let frame = 0;
+	let pendingWidth = navigation.clientWidth;
+	let currentCompact: boolean | null = null;
+	const compactBreakpoint = 1024;
+
+	const applyState = (): void => {
+		frame = 0;
+		const compact = pendingWidth <= compactBreakpoint;
+		if (compact === currentCompact) return;
+		currentCompact = compact;
+		navigation.dataset.jcemNavCompact = compact ? 'true' : 'false';
+	};
+
+	const schedule = (width: number): void => {
+		pendingWidth = width;
+		if (frame) return;
+		frame = window.requestAnimationFrame(applyState);
+	};
+
+	const ResizeObserverCtor = window.ResizeObserver;
+	if (typeof ResizeObserverCtor === 'function') {
+		const observer = new ResizeObserverCtor((entries) => {
+			const width = entries[0]?.contentRect.width;
+			if (width) schedule(width);
+		});
+		observer.observe(navigation);
+	}
+	window.addEventListener(
+		'resize',
+		() => schedule(navigation.clientWidth),
+		{ passive: true },
+	);
+	window.addEventListener(
+		'orientationchange',
+		() => schedule(navigation.clientWidth),
+		{ passive: true },
+	);
+
+	schedule(pendingWidth);
 };
 
 const bindJcemScrollTop = (): void => {
@@ -1497,27 +1541,51 @@ const hideNoScript = (): void => {
 	// PROTECAO: o conteudo permanece visivel mesmo sem JavaScript.
 };
 
-const prepareJcemPrintArticle = async (): Promise<void> => {
+let jcemPrintPreparation: Promise<void> | null = null;
+
+const prepareJcemPrintArticle = (): Promise<void> => {
+	const article = select<HTMLElement>('[data-print-article]');
+	if (!article) return Promise.resolve();
+	if (jcemPrintPreparation) return jcemPrintPreparation;
+
+	jcemPrintPreparation = import(
+		new URL('../print-ieee/index.js', import.meta.url).href
+	)
+		.then((library) => {
+			library.prepareArticle(article, {
+				profileId:
+					article.dataset.printProfile ||
+					'ieee-conference-a4-ieeetran-1.8b',
+			});
+		})
+		.catch(() => {
+			// PROTECAO: falha do recurso de impressão preserva o artigo legível.
+			article.dataset.printState = 'legivel';
+		});
+	return jcemPrintPreparation;
+};
+
+const bindJcemPrintPreparation = (): void => {
 	const article = select<HTMLElement>('[data-print-article]');
 	if (!article) return;
 
-	try {
-		const modulePath = new URL('../print-ieee/index.js', import.meta.url).href;
-		const library = (await import(modulePath)) as {
-			prepareArticle: (
-				article: HTMLElement,
-				options?: { profileId?: string },
-			) => unknown;
-		};
-		library.prepareArticle(article, {
-			profileId:
-				article.dataset.printProfile ||
-				'ieee-conference-a4-ieeetran-1.8b',
-		});
-	} catch (_error) {
-		// PROTECAO: falha do recurso de impressão preserva o artigo legível.
-		article.dataset.printState = 'legivel';
-	}
+	const prepareNow = (): void => {
+		void prepareJcemPrintArticle();
+	};
+	window.addEventListener('beforeprint', prepareNow);
+	const printMedia = window.matchMedia?.('print');
+	printMedia?.addEventListener?.('change', (event) => {
+		if (event.matches) prepareNow();
+	});
+
+	const scheduleIdle = (): void => {
+		if (window.requestIdleCallback) {
+			window.requestIdleCallback(prepareNow, { timeout: 2000 });
+		} else {
+			window.setTimeout(prepareNow, 0);
+		}
+	};
+	window.setTimeout(scheduleIdle, 5000);
 };
 
 bindJcemLoadingProgress();
@@ -1528,6 +1596,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	bindJcemTheme();
 	bindJcemNav();
 	bindJcemMasthead();
+	bindJcemResponsiveNav();
 	bindJcemScrollTop();
 	bindJcemCollapsibleSections();
 	bindJcemBlockquotePanels();
@@ -1535,7 +1604,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	bindJcemEditorialFormatting();
 	bindJcemFootnotes();
 	bindJcemMathControls();
-	void prepareJcemPrintArticle();
+	bindJcemPrintPreparation();
 	hideNoScript();
 });
 

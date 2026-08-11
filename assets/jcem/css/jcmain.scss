@@ -550,6 +550,12 @@ footer ul.social-icons li i {
 	display: none !important;
 }
 
+@media screen {
+	[data-print-only] {
+		display: none !important;
+	}
+}
+
 .main_jcem_wrapper .page,
 .main_jcem_wrapper .archive {
 	float: none;

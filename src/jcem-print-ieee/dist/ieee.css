@@ -5,12 +5,6 @@
 	margin: 19.05mm 14.3225mm 43mm;
 }
 
-@media screen {
-	[data-print-article] [data-print-only] {
-		display: none;
-	}
-}
-
 @media print {
 	html,
 	body {
