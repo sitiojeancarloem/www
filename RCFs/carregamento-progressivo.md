@@ -27,7 +27,8 @@ Escopo: carregamento inicial, loader global, recursos pesados, skeleton loading 
 - A geração deve ser incremental sempre que tecnicamente viável, evitando reprocessamento de assets não alterados.
 - O índice consolidado de metadados deve ser cacheável, possuir baixa latência e minimizar requisições HTTP.
 - O índice DEVE registrar variantes responsivas conhecidas por asset, com URL, largura, altura, proporção, formato e custo em bytes quando disponível.
-- Cards, thumbnails, destaques e consumidores equivalentes DEVEM emitir `srcset` e `sizes` ou contrato equivalente que permita ao navegador escolher a menor variante suficiente para largura renderizada, viewport e DPR; a maior imagem NÃO DEVE ser o default por conveniência.
+- Cards e thumbnails DEVEM emitir `srcset` e `sizes` ou contrato equivalente que permita ao navegador escolher a menor variante suficiente para largura renderizada, viewport e DPR; a maior imagem NÃO DEVE ser o default por conveniência. Imagem destacada ou interna do artigo preserva o original, salvo autorização editorial explícita diversa.
+- Variantes de cards e thumbnails DEVEM nascer diretamente do original declarado uma única vez. Configuração e índice DEVEM registrar hash SHA-256, tamanho e commit do original; build subsequente apenas valida e reutiliza as saídas, sem recompressão cumulativa.
 - Variante incompatível em proporção ou finalidade NÃO DEVE integrar o mesmo conjunto. Ausência de variantes DEVE preservar a origem como fallback sem inventar arquivo ou URL.
 - Card criado no cliente DEVE consumir o mesmo índice e regra de seleção do HTML estático, sem duplicar heurística divergente.
 - Metadados incorporados diretamente ao arquivo original, como EXIF ou mecanismo equivalente, só devem ser gravados quando houver suporte seguro, preservação integral dos metadados existentes e ausência de impacto relevante no build.
@@ -41,10 +42,10 @@ Escopo: carregamento inicial, loader global, recursos pesados, skeleton loading 
 - `_includes/head/custom.html` define o loader inicial e a barra superior com contraste próprio, independente do tema ativo; o loader sinaliza aprimoramento pendente sem encobrir o conteúdo já pintável.
 - `assets/jcem/ts/site.ts` libera a página após `DOMContentLoaded` e preparação leve dos fragmentos essenciais, sem aguardar `window.load`.
 - `assets/jcem/ts/site.ts` monitora imagens e backgrounds elegíveis, aplicando estados `loading`, `loaded` e `error` em `.jcem-skeleton`.
-- `_includes/archive-single.html` e `_includes/jcem/post-featured-image.html` marcam cards e imagens destacadas com skeleton server-side.
+- `_includes/archive-single.html` e `_includes/jcem/post-featured-image.html` marcam cards e imagens destacadas com skeleton server-side; somente o primeiro consome variantes responsivas editoriais.
 - `_plugins/jcem_asset_metadata.rb` gera metadados opcionais de imagens, mantém cache incremental em `.jekyll-cache/jcem-asset-metadata.json` e publica índice consolidado em `assets/jcem/asset-metadata.json`.
 - `_includes/archive-single.html`, `_includes/jcem/post-featured-image.html` e `recent-posts.json` usam metadados disponíveis para emitir `width`, `height` e proporção sem criar dependência funcional.
-- Esses consumidores DEVEM também propagar variantes, `srcset` e `sizes` centralmente derivados; o JSON dinâmico DEVE transportar a mesma projeção sanitizada.
+- Os consumidores de card/thumbnail DEVEM propagar variantes, `srcset` e `sizes` centralmente derivados; o JSON dinâmico DEVE transportar a mesma projeção sanitizada. A página individual NÃO DEVE substituir a imagem editorial original por essas variantes.
 - `_sass/minimal-mistakes/skins/_variables-custom.scss` define tokens e animação de skeleton em CSS puro.
 - `404.main.html` mantém implementação local equivalente para loader, imagem destacada e cards recentes, gerando `/404.html` em tempo de build.
 - A implementação atual não grava EXIF nos arquivos originais porque a camada sidecar atende ao contrato com menor risco, sem nova dependência e sem mutação de assets autorais.

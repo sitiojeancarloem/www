@@ -85,7 +85,7 @@ plano:
   - id: FT-025
     classe: implementacao_normativa
     criado_em: 2026-08-11T23:10:00-03:00
-    estado: em_andamento
+    estado: concluido
     depende_de: FT-020
     objetivo: Corrigir o contrato de desempenho para afericao estrutural por modelo, sem degradacao editorial.
     escopo: RCF-JCEM-PERFORMANCE-DEPENDENCIAS-001 e equalizer vigente.
@@ -94,10 +94,11 @@ plano:
       - cada layout aferido por multiplas amostras representativas e custo editorial separado do estrutural
       - conteudo e assets editoriais proibidos como alvos de otimizacao iterativa por pagina
       - excecao de cards e thumbnails limitada a uma unica derivacao rastreavel por hash e estado da origem
+    resultado: RCF corrigido para mediana de multiplas amostras por layout, separacao de custo editorial e proibicao de otimizar publicacao individual.
   - id: FT-026
     classe: implementacao_codigo
     criado_em: 2026-08-11T23:10:01-03:00
-    estado: pendente
+    estado: em_andamento
     depende_de: FT-025
     objetivo: Restaurar regressoes editoriais e implementar o gate PageSpeed por layout com proveniencia das variantes autorizadas.
     aceite:
