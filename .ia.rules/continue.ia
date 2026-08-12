@@ -137,7 +137,7 @@ plano:
   - id: FT-028
     classe: implementacao_normativa_codigo
     criado_em: 2026-08-12T10:25:00-03:00
-    estado: em_andamento
+    estado: concluido
     depende_de: FT-027
     fonte: .ia.rules/state/requests/FT-028/prompt.md
     objetivo: Corrigir cirurgicamente as regressoes documentadas nas evidencias 6 a 9 sem afetar contratos consolidados.
@@ -148,6 +148,12 @@ plano:
       - citacoes extensas fragmentam naturalmente entre colunas impressas
       - modelos tipados nao mantem vazio inferior artificial e preservam padding legitimo
       - claro, escuro, impressao e matriz adjacente aprovados sem regressao
+    progresso:
+      - caixa da imagem destacada passou a respeitar a proporcao intrinseca com altura automatica e teto responsivo, sem crop ou deformacao
+      - content-visibility removido somente dos itens da grade cujas flags extrapolam semanticamente o card; demais alvos de carregamento progressivo preservados
+      - blockquotes removidos da regra de indivisibilidade e fixados em fragmentacao automatica exclusivamente no perfil de impressao IEEE
+      - icones dos modelos tipados deixaram de criar linhas implicitas, eliminando o vazio inferior sem alterar o padding do conteiner
+      - build de producao, checks focados e matriz visual integral aprovados; PDF A4 de sete paginas confirmou continuidade da citacao entre colunas sem corte ou sobreposicao
 lacunas:
   - id: GAP-AGENTS-CJS-ESM-001
     estado: isolada

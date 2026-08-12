@@ -445,14 +445,16 @@ aside {
 }
 
 .jcem-featured-image--wide {
+	--jcem-featured-height: clamp(12rem, 32vh, 24rem);
+
 	width: 100vw;
 	max-width: 100vw;
 	margin-right: calc(50% - 50vw);
 	margin-left: calc(50% - 50vw);
 
 	.jcem-featured-image__img {
-		height: clamp(12rem, 32vh, 24rem);
-		object-fit: cover;
+		height: var(--jcem-featured-height);
+		object-fit: contain;
 		object-position: center;
 	}
 }
@@ -632,9 +634,10 @@ footer ul.social-icons li i {
 
 	.main_jcem_wrapper .page__content .jcem-quote__icon {
 		display: inline-grid;
-		grid-row: 1 / span 20;
+		grid-row: 1;
 		grid-column: 1;
 		place-items: start center;
+		align-self: start;
 		width: clamp(1.5rem, 6vw, 2.25rem);
 		font-size: clamp(1.1rem, 4vw, 1.55rem);
 		line-height: 1;
@@ -1023,7 +1026,7 @@ footer ul.social-icons li i {
 	}
 
 	.jcem-featured-image--wide .jcem-featured-image__img {
-		height: clamp(10rem, 30vh, 18rem);
+		--jcem-featured-height: clamp(10rem, 30vh, 18rem);
 	}
 
 	.jcem-featured-image--content .jcem-date-flag {

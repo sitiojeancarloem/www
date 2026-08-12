@@ -811,6 +811,10 @@ const validatePage = async (page, url, theme, viewportName) => {
 					}),
 				)
 			: 0;
+		const featuredFrame = document.querySelector('.jcem-featured-image--wide');
+		const featuredImage = featuredFrame?.querySelector('.jcem-featured-image__img');
+		const featuredFrameRect = featuredFrame?.getBoundingClientRect();
+		const featuredImageRect = featuredImage?.getBoundingClientRect();
 		const blockquotes = Array.from(
 			document.querySelectorAll('.page__content blockquote'),
 		);
@@ -958,6 +962,7 @@ const validatePage = async (page, url, theme, viewportName) => {
 			document.querySelectorAll('.entries-grid .archive__item'),
 		);
 		const archiveCardMetrics = archiveItems.map((item) => {
+			const gridItem = item.closest('.grid__item');
 			const itemRect = item.getBoundingClientRect();
 			const teaser = item.querySelector('.archive__item-teaser');
 			const title = item.querySelector('.archive__item-title');
@@ -972,6 +977,9 @@ const validatePage = async (page, url, theme, viewportName) => {
 			const yearRect = year?.getBoundingClientRect();
 
 			return {
+				contentVisibility: gridItem
+					? window.getComputedStyle(gridItem).contentVisibility
+					: '',
 				imageTitleGap:
 					teaserRect && titleRect ? Math.abs(titleRect.top - teaserRect.bottom) : 0,
 				titleBodyGap:
@@ -1202,6 +1210,28 @@ const validatePage = async (page, url, theme, viewportName) => {
 				firstPanel: boxInfo('.page__content .jcem-panel--blockquote'),
 				flag: boxInfo('.jcem-post-header > .jcem-date-flag'),
 				flagTextMaxOffset,
+				featured: featuredFrameRect && featuredImageRect
+					? {
+							heightMatchesFrame:
+								Math.abs(featuredImageRect.height - featuredFrameRect.height) <= 2,
+							withinFrameWidth: featuredImageRect.width <= featuredFrameRect.width + 2,
+							centered:
+								Math.abs(
+									(featuredImageRect.left + featuredImageRect.right) / 2 -
+										(featuredFrameRect.left + featuredFrameRect.right) / 2,
+								) <= 3,
+							naturalRatio:
+								featuredImage.naturalHeight > 0
+									? featuredImage.naturalWidth / featuredImage.naturalHeight
+									: 0,
+							renderedRatio:
+								featuredImageRect.height > 0
+									? featuredImageRect.width / featuredImageRect.height
+									: 0,
+							frameHeight: featuredFrameRect.height,
+							viewportHeight: window.innerHeight,
+						}
+					: null,
 				blockquotePanelsEnabled: Boolean(
 					document.querySelector('article.page.jcem-blockquote-panels'),
 				),
@@ -1353,6 +1383,7 @@ const validatePage = async (page, url, theme, viewportName) => {
 					.length,
 				badFlagCount: archiveCardMetrics.filter(
 					(metric) =>
+						metric.contentVisibility === 'auto' ||
 						!metric.flagEscapesCardTop ||
 						!metric.flagInsideCardBottom ||
 						!metric.flagYearVisible,
@@ -1508,6 +1539,7 @@ const validatePage = async (page, url, theme, viewportName) => {
 
 	if (url.includes('/p/')) {
 		const editorial = result.post.editorial;
+		const featured = result.post.featured;
 		const paragraphIndent = Number.parseFloat(
 			editorial.normalParagraph?.textIndent || '0',
 		);
@@ -1517,6 +1549,18 @@ const validatePage = async (page, url, theme, viewportName) => {
 
 		if (!result.post.isPost) {
 			fail(`Post sem classe editorial em ${url} ${theme} ${viewportName}`);
+		}
+
+		if (
+			featured &&
+			(!featured.heightMatchesFrame ||
+				!featured.withinFrameWidth ||
+				!featured.centered ||
+				featured.frameHeight >= featured.viewportHeight ||
+				featured.naturalRatio <= 0 ||
+				Math.abs(featured.renderedRatio - featured.naturalRatio) > 0.02)
+		) {
+			fail(`Imagem destacada ampla distorcida ou fora do limite em ${url} ${theme} ${viewportName}: ${JSON.stringify(featured)}`);
 		}
 
 		if (!editorial.normalParagraph || paragraphIndent < 48) {
@@ -2220,6 +2264,8 @@ const validatePrintTheme = async (page, url, viewportName) => {
 						background: panelStyle.backgroundColor,
 						borderInlineStartWidth: panelStyle.borderInlineStartWidth,
 						boxShadow: panelStyle.boxShadow,
+						breakInside: panelStyle.breakInside,
+						pageBreakInside: panelStyle.pageBreakInside,
 						tableDisplay: panelTableStyle?.display || '',
 					}
 				: null,
@@ -2328,6 +2374,8 @@ const validatePrintTheme = async (page, url, viewportName) => {
 		(result.panelImage !== 'none' ||
 			result.panel?.background !== 'rgba(0, 0, 0, 0)' ||
 			result.panel?.boxShadow !== 'none' ||
+			result.panel?.breakInside !== 'auto' ||
+			result.panel?.pageBreakInside !== 'auto' ||
 			result.panel?.tableDisplay !== 'contents' ||
 			Number.parseFloat(result.panel?.borderInlineStartWidth || '0') <= 0)
 	) {
@@ -2454,6 +2502,10 @@ const validateTypedQuoteModels = async (browser, baseUrl, viewport) => {
 					(quote) => {
 						const rect = quote.getBoundingClientRect();
 						const style = window.getComputedStyle(quote);
+						const contentRect = quote.querySelector(':scope > p')?.getBoundingClientRect();
+						const iconRect = quote
+							.querySelector(':scope > .jcem-quote__icon')
+							?.getBoundingClientRect();
 						return {
 							model: quote.getAttribute('data-jcem-quote-model'),
 							display: style.display,
@@ -2462,6 +2514,9 @@ const validateTypedQuoteModels = async (browser, baseUrl, viewport) => {
 							insideViewport: rect.left >= -1 && rect.right <= window.innerWidth + 1,
 							iconCount: quote.querySelectorAll(':scope > .jcem-quote__icon').length,
 							imageAlt: quote.querySelector('.jcem-quote__icon img')?.getAttribute('alt') || '',
+							bottomGap: contentRect ? rect.bottom - contentRect.bottom : 0,
+							paddingBottom: Number.parseFloat(style.paddingBottom || '0'),
+							iconHeight: iconRect?.height || 0,
 						};
 					},
 				),
@@ -2474,7 +2529,9 @@ const validateTypedQuoteModels = async (browser, baseUrl, viewport) => {
 						metric.background === 'rgba(0, 0, 0, 0)' ||
 						metric.borderWidth < 4 ||
 						!metric.insideViewport ||
-						metric.iconCount !== 1,
+						metric.iconCount !== 1 ||
+						metric.bottomGap > metric.paddingBottom + 2 ||
+						metric.iconHeight > 60,
 				)
 			) {
 				fail(`Blockquote tipado invalido em ${theme} ${viewport.name}: ${JSON.stringify(screen)}`);

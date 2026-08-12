@@ -38,6 +38,10 @@ const customVariables = await readFile(
 	new URL('../_sass/minimal-mistakes/skins/_variables-custom.scss', import.meta.url),
 	'utf8',
 );
+const customTheme = await readFile(
+	new URL('../assets/jcem/css/jcmain.scss', import.meta.url),
+	'utf8',
+);
 const config = validateConfig(
 	JSON.parse(await readFile(new URL('../config/pagespeed.json', import.meta.url), 'utf8')),
 );
@@ -72,6 +76,24 @@ assert.match(taxonomyCollection, /jcem_taxonomy_compact[\s\S]*jcem-taxonomy-post
 assert.match(featuredImage, /loading="eager" decoding="async" fetchpriority="high"/);
 assert.doesNotMatch(featuredImage, /srcset=/);
 assert.doesNotMatch(assetMetadataPlugin, /normalize_post_images|documents, :post_render/);
+assert.doesNotMatch(
+	customVariables,
+	/\.archive\s*>\s*\.entries-grid\s*>\s*\.grid__item:nth-child\(n \+ 3\)[^{]*\{[^}]*content-visibility:\s*auto/s,
+);
+assert.match(
+	customVariables,
+	/\.jcem-featured-image--wide\s*\{[^}]*aspect-ratio:\s*auto;[^}]*height:\s*auto;[^}]*max-height:\s*min\(\s*var\(--jcem-featured-height\)/s,
+);
+assert.match(customTheme, /--jcem-featured-height:\s*clamp\(12rem, 32vh, 24rem\)/);
+assert.match(customTheme, /--jcem-featured-height:\s*clamp\(10rem, 30vh, 18rem\)/);
+assert.match(
+	customVariables,
+	/\.jcem-featured-image--wide\s+\.jcem-featured-image__img\s*\{[^}]*width:\s*auto;[^}]*height:\s*auto;[^}]*margin-inline:\s*auto;[^}]*max-height:\s*min\(/s,
+);
+assert.match(
+	customTheme,
+	/\.jcem-quote__icon\s*\{[^}]*grid-row:\s*1;[^}]*align-self:\s*start;/s,
+);
 assert.match(quoteSemanticsPlugin, /documents, :post_render/);
 assert.match(quoteSemanticsPlugin, /render_structural_quotes/);
 assert.match(responsiveGenerator, /RESPONSIVE_SOURCE_HASH_DIVERGENTE/);
@@ -126,7 +148,7 @@ assert.match(customVariables, /jcem-skeleton-asset\[fetchpriority='high'\]/);
 assert.match(visualValidation, /text: document\.body\.textContent \|\| ''/);
 assert.match(visualValidation, /terminalTrackResetting[\s\S]*terminalTrackTransitionProperty !== 'none'/);
 assert.match(customVariables, /@media screen[\s\S]*content-visibility: auto/);
-assert.match(customVariables, /\.archive > \.entries-grid > \.grid__item:nth-child\(n \+ 3\)/);
+assert.doesNotMatch(customVariables, /\.archive > \.entries-grid > \.grid__item:nth-child\(n \+ 3\)/);
 assert.match(customVariables, /@media screen[\s\S]*\.jcem-taxonomy-posts/);
 assert.doesNotMatch(customVariables, /\.grid__wrapper > \.grid__item:nth-child\(n \+ 3\)/);
 assert.doesNotMatch(head, /body > :not\(\.carregandoPagina\)/);

@@ -31,6 +31,14 @@ assert.match(css, /size:\s*A4/);
 assert.match(css, /margin:\s*19\.05mm 14\.3225mm 25mm/);
 assert.match(css, /column-gap:\s*4\.2175mm/);
 assert.match(css, /column-fill:\s*balance/);
+assert.doesNotMatch(
+	css,
+	/:is\(h1, h2, h3, h4, h5, h6, figure, table, blockquote, \[role="blockquote"\]\)/,
+);
+assert.match(
+	css,
+	/:is\(blockquote, \[role="blockquote"\]\)\s*\{[^}]*break-inside:\s*auto\s*!important[^}]*page-break-inside:\s*auto\s*!important/s,
+);
 assert.match(css, /\[data-print-body\][^{]*:where\(p, li\)\s*\{[^}]*text-align:\s*justify\s*!important/s);
 assert.match(css, /\[data-print-body\]\s*\{[^}]*display:\s*contents\s*!important/s);
 assert.match(css, /\[data-print-body\]\s*\{[^}]*column-count:\s*auto\s*!important/s);

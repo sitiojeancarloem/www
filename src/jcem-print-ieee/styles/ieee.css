@@ -99,7 +99,7 @@
 	}
 
 	:is(#print-isolation-specificity-guard, [data-print-article])
-		:is(h1, h2, h3, h4, h5, h6, figure, table, blockquote, [role="blockquote"]) {
+		:is(h1, h2, h3, h4, h5, h6, figure, table) {
 		break-inside: avoid !important;
 	}
 
@@ -189,6 +189,8 @@
 		box-shadow: none !important;
 		font-style: normal !important;
 		transform: none !important;
+		break-inside: auto !important;
+		page-break-inside: auto !important;
 	}
 
 	:is(#print-isolation-specificity-guard, [data-print-article])

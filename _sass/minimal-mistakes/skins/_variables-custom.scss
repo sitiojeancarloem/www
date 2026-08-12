@@ -720,7 +720,6 @@ body > input.radio#jcem-theme-dark:checked ~ .main_jcem_wrapper {
 	// viewport sem importar esta otimização para o contrato de impressão.
 	.main_jcem_wrapper .page__content > *:nth-child(n + 4),
 	.main_jcem_wrapper .archive > .entries-list > .list__item:nth-child(n + 3),
-	.main_jcem_wrapper .archive > .entries-grid > .grid__item:nth-child(n + 3),
 	.main_jcem_wrapper .jcem-mapa > *:nth-child(n + 4),
 	.main_jcem_wrapper .jcem-footer-region {
 		content-visibility: auto;
@@ -1244,7 +1243,13 @@ body > input.radio#jcem-theme-dark:checked ~ .main_jcem_wrapper {
 
 @media screen {
 	body:has([data-print-article]) .main_jcem_wrapper .jcem-featured-image--wide {
-		max-height: calc(100dvh - var(--jcem-masthead-h, 7.25rem));
+		aspect-ratio: auto;
+		height: auto;
+		max-height: min(
+			var(--jcem-featured-height),
+			calc(100dvh - var(--jcem-masthead-h, 7.25rem))
+		);
+		text-align: center;
 	}
 
 	body:has([data-print-article])
@@ -1252,8 +1257,13 @@ body > input.radio#jcem-theme-dark:checked ~ .main_jcem_wrapper {
 		.jcem-featured-image--wide
 		.jcem-featured-image__img {
 		display: block;
-		width: 100%;
-		max-height: calc(100dvh - var(--jcem-masthead-h, 7.25rem));
+		width: auto;
+		height: auto;
+		margin-inline: auto;
+		max-height: min(
+			var(--jcem-featured-height),
+			calc(100dvh - var(--jcem-masthead-h, 7.25rem))
+		);
 		object-fit: contain;
 		object-position: center;
 	}
