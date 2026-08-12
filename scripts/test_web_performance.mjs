@@ -42,11 +42,20 @@ const customTheme = await readFile(
 	new URL('../assets/jcem/css/jcmain.scss', import.meta.url),
 	'utf8',
 );
+const tableTheme = await readFile(
+	new URL('../_sass/minimal-mistakes/_tables.scss', import.meta.url),
+	'utf8',
+);
 const config = validateConfig(
 	JSON.parse(await readFile(new URL('../config/pagespeed.json', import.meta.url), 'utf8')),
 );
 
 assert.match(site, /ResizeObserver/);
+assert.match(site, /bindJcemImageViewers/);
+assert.match(site, /jcemImageViewerExcludedSelector/);
+assert.match(site, /requestFullscreen/);
+assert.match(site, /is-fullscreen-fallback/);
+assert.match(site, /jcemImageViewerOrigin\?\.focus\(\)/);
 assert.match(site, /requestAnimationFrame\(applyState\)/);
 assert.doesNotMatch(
 	site.slice(site.indexOf('const bindJcemMasthead'), site.indexOf('const bindJcemScrollTop')),
@@ -141,6 +150,12 @@ assert.match(customVariables, /pagination a::after/);
 assert.match(customVariables, /100dvh - var\(--jcem-masthead-h/);
 assert.match(notFound, /pagina-404-480w\.webp/);
 assert.match(notFound, /fetchpriority="low"/);
+assert.match(notFound, /body\.layout--404\s*\{[\s\S]*overflow-x:\s*clip/);
+assert.match(notFound, /\.layout--404 \.main_jcem_wrapper\s*\{[\s\S]*overflow-x:\s*visible/);
+assert.match(tableTheme, /border-bottom:\s*1px solid var\(--tblb\)/);
+assert.match(customVariables, /--dark--table-head:\s*#303640/);
+assert.match(customVariables, /table:not\(\.jcem-panel__table\)[\s\S]*var\(--table-head\)/);
+assert.match(customVariables, /@media screen[\s\S]*\.jcem-image-viewer__control/);
 assert.match(notFound, /pendingLines\.forEach\(\(line\) => line\.style\.setProperty\('visibility', 'hidden'\)\)/);
 assert.match(notFound, /window\.setTimeout\(\(\) => \{[\s\S]*requestIdleCallback\(run[\s\S]*\}, 5000\)/);
 assert.match(footer, /\{% comment %\}[\s\S]*RFC-JCEM-FOOTER-001[\s\S]*\{% endcomment %\}/);

@@ -171,7 +171,7 @@ plano:
   - id: FT-030
     classe: implementacao_codigo
     criado_em: 2026-08-12T14:30:01-03:00
-    estado: em_andamento
+    estado: concluido
     depende_de: FT-029
     fonte: .ia.rules/state/requests/FT-029/prompt.md
     objetivo: Implementar e validar integralmente as tres frentes visuais equalizadas.
@@ -182,10 +182,16 @@ plano:
       - controle de ampliacao funciona por mouse, toque e teclado e retorna ao contexto
       - impressao e componentes com tratamento especifico permanecem isolados
       - build, checks e matriz visual aprovados sem regressao
+    progresso:
+      - clipping vertical da masthead 404 eliminado no wrapper especifico, mantendo contencao horizontal no body da pagina
+      - tabelas editoriais receberam tokens tematicos claros e escuros, bordas validas e troca sem estado visual transitorio
+      - ampliador progressivo aplicado somente a imagens editoriais do corpo, com fullscreen nativo, fallback local, toque, teclado e restauracao de foco
+      - imagem destacada, skeleton, paineis, cards, avatares, icones e impressao permaneceram fora do conector
+      - npm run check, build de producao, validacao mobile focada e matriz visual integral em seis viewports foram aprovados
   - id: FT-031
     classe: integracao_publicacao
     criado_em: 2026-08-12T14:30:02-03:00
-    estado: pendente
+    estado: em_andamento
     depende_de: FT-030
     fonte: .ia.rules/state/requests/FT-029/prompt.md
     objetivo: Integrar, limpar TO-DOs concluidas, publicar e validar o resultado no GitHub Pages.

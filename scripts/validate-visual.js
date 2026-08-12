@@ -2884,6 +2884,8 @@ const validate404Page = async (page, url, viewportName) => {
 
 	const result = await page.evaluate(() => {
 		const page404 = document.querySelector('.jcem-404');
+		const masthead = document.querySelector('.masthead');
+		const mastheadLogo = masthead?.querySelector('.site-logo img');
 		const featured = document.querySelector('.jcem-404-featured');
 		const featuredImage = featured?.querySelector('.jcem-featured-image__img');
 		const terminal = document.querySelector('.jcem-404__terminal');
@@ -3005,6 +3007,8 @@ const validate404Page = async (page, url, viewportName) => {
 					? featuredImage.naturalWidth / featuredImage.naturalHeight
 					: 0,
 			page404: rectFor(page404),
+			masthead: rectFor(masthead),
+			mastheadLogo: rectFor(mastheadLogo),
 			page404BackgroundColor: page404Style?.backgroundColor || '',
 			page404BackgroundGradientLayers:
 				(page404Style?.backgroundImage.match(/radial-gradient/g) || []).length,
@@ -3075,6 +3079,15 @@ const validate404Page = async (page, url, viewportName) => {
 
 	if (result.hasThemeToggle) {
 		fail(`404 importou switch de tema em ${url} ${viewportName}`);
+	}
+
+	if (
+		!result.masthead ||
+		!result.mastheadLogo ||
+		result.mastheadLogo.top >= result.masthead.top ||
+		result.mastheadLogo.bottom <= result.masthead.bottom
+	) {
+		fail(`Logotipo da 404 nao extrapola verticalmente a masthead em ${url} ${viewportName}`);
 	}
 
 	if (
@@ -3249,6 +3262,134 @@ const validate404Page = async (page, url, viewportName) => {
 		path: path.join(artifactDir, `404-${viewportName}.png`),
 		fullPage: true,
 	});
+};
+
+const validateEqualizerVisuals = async (browser, baseUrl, viewport) => {
+	const context = await browser.newContext({ viewport, hasTouch: viewport.width <= 720 });
+	await seedCookieConsent(context);
+	const page = await context.newPage();
+
+	try {
+		await page.goto(`${baseUrl}/p/como-identificar-falacias/`, {
+			waitUntil: 'domcontentloaded',
+		});
+		await page.waitForSelector('.jcem-image-viewer__control', { timeout: 15000 });
+
+		const tableThemes = {};
+		for (const theme of themes) {
+			await page.evaluate((selectedTheme) => {
+				const input = document.querySelector(`#jcem-theme-${selectedTheme}`);
+				if (!(input instanceof HTMLInputElement)) return;
+				input.click();
+			}, theme);
+			await page.waitForFunction(
+				(selectedTheme) =>
+					document.querySelector('.main_jcem_wrapper')?.getAttribute('data-jcem-theme') === selectedTheme ||
+					document.querySelector(`#jcem-theme-${selectedTheme}`)?.checked,
+				theme,
+			);
+			await page.waitForTimeout(500);
+			tableThemes[theme] = await page.evaluate(() => {
+				const table = document.querySelector('.page__content table:not(.jcem-panel__table)');
+				const head = table?.querySelector('thead th, tbody tr.title th, tbody tr.title td');
+				const row = table?.querySelector('tbody tr:not(.title):nth-child(even) td');
+				const stripe = table?.querySelector('tbody tr:not(.title):nth-child(odd) td');
+				const styleFor = (element) => {
+					const style = element ? window.getComputedStyle(element) : null;
+					return style
+						? { background: style.backgroundColor, color: style.color, border: style.borderBottomColor }
+						: null;
+				};
+				return { head: styleFor(head), row: styleFor(row), stripe: styleFor(stripe) };
+			});
+		}
+
+		for (const theme of themes) {
+			const metrics = tableThemes[theme];
+			if (!metrics?.head || !metrics.row || !metrics.stripe) {
+				fail(`Tabela editorial sem estilos computados em ${theme} ${viewport.name}`);
+			}
+			if (
+				metrics.head.background === 'rgba(0, 0, 0, 0)' ||
+				metrics.row.background === 'rgba(0, 0, 0, 0)' ||
+				metrics.stripe.background === metrics.row.background ||
+				metrics.row.border === 'rgba(0, 0, 0, 0)'
+			) {
+				fail(`Tabela editorial sem hierarquia tematica em ${theme} ${viewport.name}: ${JSON.stringify(metrics)}`);
+			}
+		}
+		if (
+			tableThemes.dark.head.background === tableThemes.light.head.background ||
+			tableThemes.dark.row.background === tableThemes.light.row.background
+		) {
+			fail(`Tabela editorial nao alternou paleta entre claro e escuro em ${viewport.name}: ${JSON.stringify(tableThemes)}`);
+		}
+
+		await page.goto(`${baseUrl}/p/devaneios/`, { waitUntil: 'domcontentloaded' });
+		await page.waitForSelector('.page__content .jcem-image-viewer__control', {
+			timeout: 15000,
+		});
+		const viewer = page.locator('.page__content .jcem-image-viewer').filter({
+			has: page.locator('img'),
+		}).first();
+		const control = viewer.locator(':scope > .jcem-image-viewer__control');
+		const before = await viewer.boundingBox();
+		await viewer.evaluate((element) => {
+			element.dispatchEvent(
+				new PointerEvent('pointerdown', { bubbles: true, pointerType: 'touch' }),
+			);
+		});
+		if (!(await viewer.evaluate((element) => element.classList.contains('is-controls-visible')))) {
+			fail(`Controle de imagem nao foi revelado por toque em ${viewport.name}`);
+		}
+		await viewer.evaluate((element) => element.scrollIntoView({ block: 'center' }));
+		await page.waitForTimeout(180);
+		await control.focus();
+		await control.click();
+		await page.waitForFunction(() => {
+			const active = document.querySelector('.jcem-image-viewer');
+			return Boolean(
+				document.fullscreenElement === active ||
+				active?.classList.contains('is-fullscreen-fallback'),
+			);
+		});
+		const expanded = await viewer.evaluate((element) => {
+			const image = element.querySelector('img');
+			const rect = image?.getBoundingClientRect();
+			return {
+				label: element.querySelector('.jcem-image-viewer__control')?.getAttribute('aria-label') || '',
+				width: rect?.width || 0,
+				height: rect?.height || 0,
+				viewportWidth: window.innerWidth,
+				viewportHeight: window.innerHeight,
+			};
+		});
+		if (
+			expanded.label !== 'Fechar imagem ampliada' ||
+			expanded.width <= 1 ||
+			expanded.height <= 1 ||
+			expanded.width > expanded.viewportWidth ||
+			expanded.height > expanded.viewportHeight
+		) {
+			fail(`Imagem ampliada fora do contrato em ${viewport.name}: ${JSON.stringify(expanded)}`);
+		}
+		await control.click();
+		await page.waitForFunction(() => !document.fullscreenElement && !document.querySelector('.jcem-image-viewer.is-fullscreen-fallback'));
+		await page.waitForTimeout(180);
+		const after = await viewer.boundingBox();
+		const focusRestored = await control.evaluate((element) => document.activeElement === element);
+		if (
+			!before ||
+			!after ||
+			Math.abs(before.width - after.width) > 2 ||
+			Math.abs(before.height - after.height) > 2 ||
+			!focusRestored
+		) {
+			fail(`Ampliador nao restaurou geometria e foco em ${viewport.name}: ${JSON.stringify({ before, after, focusRestored })}`);
+		}
+	} finally {
+		await context.close();
+	}
 };
 
 const validatePublishedPostEditorialFormatting = async (page, baseUrl, postPath) => {
@@ -3489,6 +3630,11 @@ try {
 	await validateRecentPostPlaceholders(publishedPostPaths);
 
 	browser = await launchBrowser();
+	for (const viewport of viewports.filter(({ name }) =>
+		['desktop', 'mobile'].includes(name)
+	)) {
+		await validateEqualizerVisuals(browser, baseUrl, viewport);
+	}
 	for (const viewport of viewports.filter(({ name }) =>
 		['wide', 'mobile', 'compact'].includes(name)
 	)) {

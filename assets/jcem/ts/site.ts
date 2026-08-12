@@ -1401,6 +1401,120 @@ const bindJcemMathControls = (): void => {
 	document.addEventListener('fullscreenchange', syncJcemMathFullscreenState);
 };
 
+const jcemImageViewerSelector =
+	'article.jcem-post .page__content img';
+const jcemImageViewerExcludedSelector =
+	'.jcem-panel, .jcem-math, .jcem-quote__icon, .author__avatar, [role="presentation"]';
+let jcemImageViewerOrigin: HTMLButtonElement | null = null;
+
+const closeJcemImageViewerFallback = (): void => {
+	const active = document.querySelector<HTMLElement>(
+		'.jcem-image-viewer.is-fullscreen-fallback',
+	);
+	if (!active) return;
+	active.classList.remove('is-fullscreen-fallback');
+	document.documentElement.classList.remove('jcem-image-modal-open');
+	jcemImageViewerOrigin?.focus();
+	jcemImageViewerOrigin = null;
+};
+
+const syncJcemImageViewerControl = (viewer: HTMLElement): void => {
+	const button = viewer.querySelector<HTMLButtonElement>(
+		':scope > .jcem-image-viewer__control',
+	);
+	if (!button) return;
+	const expanded =
+		document.fullscreenElement === viewer ||
+		viewer.classList.contains('is-fullscreen-fallback');
+	const label = expanded ? 'Fechar imagem ampliada' : 'Ampliar imagem';
+	button.setAttribute('aria-label', label);
+	button.title = label;
+	button.setAttribute('aria-expanded', String(expanded));
+	const icon = button.querySelector('i');
+	if (icon) icon.className = `fas ${expanded ? 'fa-compress' : 'fa-expand'}`;
+};
+
+const toggleJcemImageViewer = async (
+	viewer: HTMLElement,
+	button: HTMLButtonElement,
+): Promise<void> => {
+	if (
+		document.fullscreenElement === viewer ||
+		viewer.classList.contains('is-fullscreen-fallback')
+	) {
+		if (document.fullscreenElement === viewer) await document.exitFullscreen();
+		else closeJcemImageViewerFallback();
+		return;
+	}
+
+	jcemImageViewerOrigin = button;
+	if (viewer.requestFullscreen) {
+		try {
+			await viewer.requestFullscreen();
+			return;
+		} catch (_error) {
+			// PROTECAO: fullscreen recusado degrada para modal local acessivel.
+		}
+	}
+
+	viewer.classList.add('is-fullscreen-fallback');
+	document.documentElement.classList.add('jcem-image-modal-open');
+	syncJcemImageViewerControl(viewer);
+};
+
+const bindJcemImageViewers = (): void => {
+	const images = Array.from(
+		document.querySelectorAll<HTMLImageElement>(jcemImageViewerSelector),
+	).filter(
+		(image) =>
+			!image.closest(jcemImageViewerExcludedSelector) &&
+			!image.closest('.jcem-image-viewer'),
+	);
+	if (!images.length) return;
+
+	images.forEach((image) => {
+		const media =
+			image.closest('picture') ||
+			(image.parentElement?.matches('a') &&
+			image.parentElement.childElementCount === 1
+				? image.parentElement
+				: image);
+		const viewer = document.createElement('span');
+		const button = document.createElement('button');
+		const icon = document.createElement('i');
+		viewer.className = 'jcem-image-viewer';
+		button.type = 'button';
+		button.className = 'jcem-image-viewer__control';
+		button.setAttribute('aria-label', 'Ampliar imagem');
+		button.setAttribute('aria-expanded', 'false');
+		button.title = 'Ampliar imagem';
+		icon.className = 'fas fa-expand';
+		icon.setAttribute('aria-hidden', 'true');
+		button.append(icon);
+		media.before(viewer);
+		viewer.append(media, button);
+		button.addEventListener('click', () => {
+			void toggleJcemImageViewer(viewer, button);
+		});
+		viewer.addEventListener('pointerdown', (event) => {
+			if (event.pointerType !== 'mouse') viewer.classList.add('is-controls-visible');
+		});
+	});
+
+	document.addEventListener('fullscreenchange', () => {
+		document
+			.querySelectorAll<HTMLElement>('.jcem-image-viewer')
+			.forEach(syncJcemImageViewerControl);
+		if (!document.fullscreenElement && jcemImageViewerOrigin) {
+			jcemImageViewerOrigin.focus();
+			jcemImageViewerOrigin = null;
+		}
+	});
+	document.addEventListener('keydown', (event) => {
+		if (event.key === 'Escape') closeJcemImageViewerFallback();
+	});
+};
+
 let jcemNoScriptFragmentsReady: Promise<void> | null = null;
 
 type JcemRecentPost = {
@@ -1798,6 +1912,7 @@ const bindJcemPostPaintEnhancements = (): void => {
 	bindJcemEditorialFormatting();
 	bindJcemFootnotes();
 	bindJcemMathControls();
+	bindJcemImageViewers();
 	bindJcemPrintPreparation();
 };
 

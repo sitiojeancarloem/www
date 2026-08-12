@@ -7,7 +7,7 @@ Escopo: carregamento inicial, loader global, recursos pesados, skeleton loading 
 
 ## Regras Normativas
 
-- Toda imagem editorial de conteúdo e imagem destacada elegível em mídia de tela DEVE receber, por aprimoramento progressivo, um controle sutil de ampliação sem reflow. O controle DEVE ter alvo adequado a mouse e toque, nome acessível e acionamento por teclado; PODE surgir por `hover`, foco ou primeira interação de toque/clique, mas NÃO PODE depender exclusivamente de `hover`.
+- Toda imagem editorial de conteúdo elegível em mídia de tela DEVE receber, por aprimoramento progressivo, um controle sutil de ampliação sem reflow. O controle DEVE ter alvo adequado a mouse e toque, nome acessível e acionamento por teclado; PODE surgir por `hover`, foco ou primeira interação de toque/clique, mas NÃO PODE depender exclusivamente de `hover`.
 - A visualização ampliada DEVE usar o asset de maior qualidade já disponível no elemento, preservar proporção, limitar-se à viewport, fornecer fechamento inequívoco por controle, `Escape` e retorno ao contexto/foco anterior. Fullscreen nativo PODE ser usado, com fallback modal local quando indisponível ou recusado.
 - Logo, ícone, avatar, imagem de controle, card/thumbnail e mídia pertencente a componente com contrato próprio NÃO são imagem editorial elegível. A exclusão DEVE decorrer do papel semântico/estrutural, não de exceção arbitrária por URL, página, formato ou dispositivo.
 - O aprimoramento de ampliação DEVE permanecer ausente da impressão e não PODE alterar o asset, suas dimensões no fluxo, `srcset`, `sizes`, skeleton, legenda, link editorial ou comportamento de carregamento.
