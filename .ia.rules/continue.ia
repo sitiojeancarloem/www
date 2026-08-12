@@ -154,6 +154,45 @@ plano:
       - blockquotes removidos da regra de indivisibilidade e fixados em fragmentacao automatica exclusivamente no perfil de impressao IEEE
       - icones dos modelos tipados deixaram de criar linhas implicitas, eliminando o vazio inferior sem alterar o padding do conteiner
       - build de producao, checks focados e matriz visual integral aprovados; PDF A4 de sete paginas confirmou continuidade da citacao entre colunas sem corte ou sobreposicao
+  - id: FT-029
+    classe: implementacao_normativa
+    criado_em: 2026-08-12T14:30:00-03:00
+    estado: em_andamento
+    depende_de: FT-028
+    fonte: .ia.rules/state/requests/FT-029/prompt.md
+    objetivo: Equalizar e normatizar as correcoes de 404, tabelas escuras e ampliacao acessivel de imagens.
+    escopo: RCF-JCEM-COMPONENTES-COMPARTILHADOS-001 e RCF-JCEM-CARREGAMENTO-PROGRESSIVO-001.
+    aceite:
+      - causa especifica do clipping do logotipo na 404 normatizada sem alterar paginas validas
+      - tabelas escuras com contraste coerente e sem regressao no tema claro
+      - imagens de conteudo com ampliacao geral, acessivel e sem reflow
+      - item equalizer preservado intacto e desmarcado
+  - id: FT-030
+    classe: implementacao_codigo
+    criado_em: 2026-08-12T14:30:01-03:00
+    estado: pendente
+    depende_de: FT-029
+    fonte: .ia.rules/state/requests/FT-029/prompt.md
+    objetivo: Implementar e validar integralmente as tres frentes visuais equalizadas.
+    escopo: 404, tabelas editoriais em tela, imagens de conteudo, testes e validacao visual.
+    aceite:
+      - logotipo extrapola a masthead da 404 como nas demais paginas
+      - tabela possui contraste e legibilidade em claro e escuro
+      - controle de ampliacao funciona por mouse, toque e teclado e retorna ao contexto
+      - impressao e componentes com tratamento especifico permanecem isolados
+      - build, checks e matriz visual aprovados sem regressao
+  - id: FT-031
+    classe: integracao_publicacao
+    criado_em: 2026-08-12T14:30:02-03:00
+    estado: pendente
+    depende_de: FT-030
+    fonte: .ia.rules/state/requests/FT-029/prompt.md
+    objetivo: Integrar, limpar TO-DOs concluidas, publicar e validar o resultado no GitHub Pages.
+    aceite:
+      - TODO.ia.md conserva apenas governanca e equalizer perene apos conclusao
+      - commits de fase preservam rastreabilidade
+      - branch principal e remoto convergem
+      - publicacao oficial e pagina publica validadas
 lacunas:
   - id: GAP-AGENTS-CJS-ESM-001
     estado: isolada
