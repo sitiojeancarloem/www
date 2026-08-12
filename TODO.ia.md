@@ -2,6 +2,8 @@
 
 Esta seção de governança DEVE permanecer no topo do arquivo, NÃO PODE ser removida nem editada e rege todas as TO-DOs posteriores até o marcador explícito de início das TO-DOs operacionais.
 
+O arquivo TODO.ia.md não pode ser removido.
+
 ## 1. Estrutura normativa do arquivo
 
 Este arquivo constitui uma lista normativa e operacional de TO-DOs convergentes.

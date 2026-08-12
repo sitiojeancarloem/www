@@ -110,7 +110,13 @@ export const summarize = (payload, target, strategy, minimumScore) => {
 			'bootup-time',
 			'network-dependency-tree',
 		]
-			.filter((id) => audits[id]?.score !== null && Number(audits[id]?.score) < 0.9)
+			.filter((id) =>
+				audits[id] &&
+				(
+					audits[id].score === null ||
+					Number(audits[id].score) < 0.9
+				),
+			)
 			.map((id) => {
 				const details = Array.isArray(audits[id].details?.items)
 					? audits[id].details.items.slice(0, 6).map((item) => ({
