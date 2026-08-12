@@ -62,6 +62,8 @@ TO-DOs integralmente concluídas DEVEM ser removidas, mantendo o arquivo limpo.
 
 Este marcador encerra a seção de governança e inicia exclusivamente as TO-DOs operacionais. Todo item de topo abaixo dele está sujeito integralmente ao RCF acima.
 
+---
+
 - [x] RCF — Biblioteca agnóstica para impressão Web em formato IEEE
 
   ## 1. Objetivo
