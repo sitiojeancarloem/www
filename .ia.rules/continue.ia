@@ -200,6 +200,10 @@ plano:
       - commits de fase preservam rastreabilidade
       - branch principal e remoto convergem
       - publicacao oficial e pagina publica validadas
+    progresso:
+      - TO-DOs operacionais concluidas removidas e item equalizer perene preservado literalmente
+      - implementacao, contrato, fonte da FT e validacoes separados em commits rastreaveis
+      - integracao e publicacao oficial preparadas para o commit final desta FT
 lacunas:
   - id: GAP-AGENTS-CJS-ESM-001
     estado: isolada
