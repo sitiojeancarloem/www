@@ -157,7 +157,7 @@ plano:
   - id: FT-029
     classe: implementacao_normativa
     criado_em: 2026-08-12T14:30:00-03:00
-    estado: em_andamento
+    estado: concluido
     depende_de: FT-028
     fonte: .ia.rules/state/requests/FT-029/prompt.md
     objetivo: Equalizar e normatizar as correcoes de 404, tabelas escuras e ampliacao acessivel de imagens.
@@ -167,10 +167,11 @@ plano:
       - tabelas escuras com contraste coerente e sem regressao no tema claro
       - imagens de conteudo com ampliacao geral, acessivel e sem reflow
       - item equalizer preservado intacto e desmarcado
+    resultado: Contratos de masthead especial, tabelas tematicas e ampliacao progressiva foram centralizados nas RCFs vigentes, sem fluxo paralelo.
   - id: FT-030
     classe: implementacao_codigo
     criado_em: 2026-08-12T14:30:01-03:00
-    estado: pendente
+    estado: em_andamento
     depende_de: FT-029
     fonte: .ia.rules/state/requests/FT-029/prompt.md
     objetivo: Implementar e validar integralmente as tres frentes visuais equalizadas.

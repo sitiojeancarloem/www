@@ -7,6 +7,10 @@ Escopo: carregamento inicial, loader global, recursos pesados, skeleton loading 
 
 ## Regras Normativas
 
+- Toda imagem editorial de conteúdo e imagem destacada elegível em mídia de tela DEVE receber, por aprimoramento progressivo, um controle sutil de ampliação sem reflow. O controle DEVE ter alvo adequado a mouse e toque, nome acessível e acionamento por teclado; PODE surgir por `hover`, foco ou primeira interação de toque/clique, mas NÃO PODE depender exclusivamente de `hover`.
+- A visualização ampliada DEVE usar o asset de maior qualidade já disponível no elemento, preservar proporção, limitar-se à viewport, fornecer fechamento inequívoco por controle, `Escape` e retorno ao contexto/foco anterior. Fullscreen nativo PODE ser usado, com fallback modal local quando indisponível ou recusado.
+- Logo, ícone, avatar, imagem de controle, card/thumbnail e mídia pertencente a componente com contrato próprio NÃO são imagem editorial elegível. A exclusão DEVE decorrer do papel semântico/estrutural, não de exceção arbitrária por URL, página, formato ou dispositivo.
+- O aprimoramento de ampliação DEVE permanecer ausente da impressão e não PODE alterar o asset, suas dimensões no fluxo, `srcset`, `sizes`, skeleton, legenda, link editorial ou comportamento de carregamento.
 - Imagem destacada ampla limitada pela viewport DEVE preencher a altura visual calculada sem deformação: o contêiner e a caixa da imagem DEVEM compartilhar a mesma altura efetiva, enquanto a largura deriva da proporção intrínseca e permanece centralizada e limitada à viewport. `aspect-ratio` de reserva de carregamento NÃO PODE conservar altura excedente depois que esse limite passa a governar a imagem.
 
 - HTML e CSS devem produzir conteúdo legível imediatamente; JavaScript, consentimento e aprimoramentos progressivos NÃO PODEM ocultar ou bloquear a primeira renderização visível da página.
@@ -42,6 +46,7 @@ Escopo: carregamento inicial, loader global, recursos pesados, skeleton loading 
 
 ## Implementação
 
+- `assets/jcem/ts/site.ts` acopla o controle de ampliação às imagens editoriais elegíveis depois da primeira pintura, reutiliza o contrato de fullscreen com fallback local e preserva o foco de origem. `_sass/minimal-mistakes/skins/_variables-custom.scss` contém somente a aparência de tela do controle e da superfície ampliada.
 - `_includes/head/custom.html` define o loader inicial e a barra superior com contraste próprio, independente do tema ativo; o loader sinaliza aprimoramento pendente sem encobrir o conteúdo já pintável.
 - Raster JPG, JPEG ou PNG compartilhado de tema/infraestrutura, ou abrangido pela exceção de cards e thumbnails, PODE possuir derivado WebP desde que o original permaneça versionado e intacto. Cada derivado DEVE ser criado uma única vez diretamente do original e vinculado em manifesto a hash SHA-256, tamanho, mtime de origem, hash/tamanho de destino e instante de geração; mudança de origem ou destino DEVE falhar até autorização/atualização explícita, vedada qualquer cadeia de recompressão.
 - A conversão automática DEVE operar somente sobre allowlist de fontes compartilhadas autorizadas. Asset ou ligação editorial específica NÃO PODE entrar nesse fluxo por mera existência sob `assets/`; acervos de `_drafts`, recuperação e legado também permanecem excluídos até autorização explícita aplicável.
@@ -58,6 +63,7 @@ Escopo: carregamento inicial, loader global, recursos pesados, skeleton loading 
 
 ## Validação
 
+- A validação visual DEVE comprovar controle sem deslocamento de layout, revelação por hover/foco e primeira interação, acionamento por mouse e teclado, proporção/contain na viewport, fechamento por botão e `Escape`, restauração de foco e ausência em imagens excluídas e impressão.
 - A validação visual deve simular asset pesado pendente e confirmar que `.jcem-page-loaded` é aplicado antes de `document.readyState === "complete"`.
 - A validação visual deve confirmar que o conteúdo permanece visível antes, durante e após a inicialização dos aprimoramentos essenciais.
 - A validação visual deve confirmar presença, geometria, pseudo-elemento e estado final dos skeletons em componentes elegíveis.
