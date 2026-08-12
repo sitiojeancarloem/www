@@ -1,6 +1,7 @@
 {
 	"schema": 1,
 	"minimumScore": 90,
+	"concurrency": 2,
 	"cacheMaxAgeHours": 24,
 	"strategies": ["mobile", "desktop"],
 	"categories": ["performance", "accessibility", "best-practices", "seo"],

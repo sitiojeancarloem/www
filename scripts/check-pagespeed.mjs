@@ -12,6 +12,8 @@ const cacheRoot = path.join(root, '.jekyll-cache', 'pagespeed');
 const retryableStatuses = new Set([500, 502, 503, 504]);
 
 export const isRetryablePageSpeedStatus = (status) => retryableStatuses.has(Number(status));
+export const isRetryablePageSpeedError = (error) =>
+	error?.name === 'TimeoutError' || error?.name === 'AbortError';
 
 const wait = (milliseconds) => new Promise((resolve) => setTimeout(resolve, milliseconds));
 
@@ -19,6 +21,9 @@ export const validateConfig = (config) => {
 	if (
 		config?.schema !== 1 ||
 		!Number.isFinite(config.minimumScore) ||
+		!Number.isInteger(config.concurrency) ||
+		config.concurrency < 1 ||
+		config.concurrency > 4 ||
 		!Array.isArray(config.targets) ||
 		!config.targets.length
 	) throw new Error('PAGESPEED_CONFIG_INVALIDA');
@@ -146,7 +151,15 @@ const fetchResult = async (target, strategy, categories, maxAgeMs, force, apiKey
 	const endpoint = createEndpoint(target, strategy, categories, apiKey);
 	let response;
 	for (let attempt = 1; attempt <= 3; attempt += 1) {
-		response = await fetch(endpoint, { signal: AbortSignal.timeout(120000) });
+		try {
+			response = await fetch(endpoint, { signal: AbortSignal.timeout(120000) });
+		} catch (error) {
+			if (!isRetryablePageSpeedError(error) || attempt === 3) {
+				throw new Error(`PAGESPEED_TIMEOUT:${target.id}:${strategy}`, { cause: error });
+			}
+			await wait(attempt * 2000);
+			continue;
+		}
 		if (response.ok) break;
 		if (!isRetryablePageSpeedStatus(response.status) || attempt === 3) {
 			throw new Error(`PAGESPEED_HTTP_${response.status}`);
@@ -170,9 +183,16 @@ export const run = async (argv = process.argv.slice(2)) => {
 		.map((target) => ({ ...target, url: new URL(target.path, baseUrl).href }));
 	if (!targets.length) throw new Error(`PAGESPEED_TARGET_AUSENTE:${only}`);
 	const maxAgeMs = config.cacheMaxAgeHours * 3600000;
-	const results = [];
-	for (const target of targets) {
-		for (const strategy of config.strategies) {
+	const tasks = targets.flatMap((target) =>
+		config.strategies.map((strategy) => ({ target, strategy })),
+	);
+	const results = new Array(tasks.length);
+	let cursor = 0;
+	const worker = async () => {
+		while (cursor < tasks.length) {
+			const index = cursor;
+			cursor += 1;
+			const { target, strategy } = tasks[index];
 			const categories = target.categories || config.categories;
 			const { payload, cache } = await fetchResult(
 				target,
@@ -182,9 +202,16 @@ export const run = async (argv = process.argv.slice(2)) => {
 				force,
 				apiKey,
 			);
-			results.push({ ...summarize(payload, target, strategy, config.minimumScore), cache });
+			const result = { ...summarize(payload, target, strategy, config.minimumScore), cache };
+			results[index] = result;
+			console.error(
+				`pagespeed_progress target=${target.id} strategy=${strategy} performance=${result.categories.performance ?? 'n/a'} ok=${result.ok}`,
+			);
 		}
-	}
+	};
+	await Promise.all(
+		Array.from({ length: Math.min(config.concurrency, tasks.length) }, worker),
+	);
 	console.log(JSON.stringify({ schema: 1, minimumScore: config.minimumScore, results }));
 	if (results.some((result) => !result.ok)) process.exitCode = 1;
 	return results;

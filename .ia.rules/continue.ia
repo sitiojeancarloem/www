@@ -48,6 +48,8 @@ plano:
       - afericao autenticada da revisao 14c5708045 elevou categorias mobile a 92; artigo permaneceu em 84 e assuntos variou para 89
       - afericao autenticada da revisao ce09a4071a aprovou 12 de 14 combinacoes; artigo mobile subiu a 86 e assuntos permaneceu em 89
       - paragrafo LCP monolitico do artigo e repeticao de 65 cards completos em assuntos foram identificados como causas estruturais da proxima correcao
+      - primeira afericao da revisao 3810ca80a1 ficou inconclusiva por timeout de transporte sem resultado final; repeticao isolada do job foi acionada
+      - repeticao isolada tambem expirou sem pontuacoes; medidor passou a repetir timeout e usar concorrencia limitada a dois com progresso por alvo
   - id: FT-023
     classe: implementacao_normativa_codigo
     criado_em: 2026-08-11T15:04:00-03:00

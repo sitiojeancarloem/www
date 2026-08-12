@@ -2,6 +2,7 @@ import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
 import {
 	createEndpoint,
+	isRetryablePageSpeedError,
 	isRetryablePageSpeedStatus,
 	validateConfig,
 	summarize,
@@ -41,6 +42,7 @@ assert.deepEqual(
 	config.targets.map((target) => target.id),
 	['home', 'article', 'map', 'about', 'categories', 'tags', 'not-found'],
 );
+assert.equal(config.concurrency, 2);
 assert.deepEqual(config.targets.find(({ id }) => id === 'not-found').categories, [
 	'performance',
 	'accessibility',
@@ -132,5 +134,9 @@ assert.equal(isRetryablePageSpeedStatus(500), true);
 assert.equal(isRetryablePageSpeedStatus(504), true);
 assert.equal(isRetryablePageSpeedStatus(429), false);
 assert.equal(isRetryablePageSpeedStatus(404), false);
+assert.equal(isRetryablePageSpeedError({ name: 'TimeoutError' }), true);
+assert.equal(isRetryablePageSpeedError({ name: 'AbortError' }), true);
+assert.equal(isRetryablePageSpeedError({ name: 'TypeError' }), false);
+assert.match(await readFile(new URL('./check-pagespeed.mjs', import.meta.url), 'utf8'), /Math\.min\(config\.concurrency, tasks\.length\)/);
 
 console.log('web_performance=ok');
