@@ -107,6 +107,14 @@ plano:
       - cards e thumbnails usam variantes derivadas diretamente do original imutavel
       - gerador recusa reprocessamento cumulativo ou origem divergente
       - matriz local, PageSpeed autenticado, claro, escuro e impressao aprovados sem regressao
+    progresso:
+      - fragmentacao do paragrafo introdutorio de Devaneios restaurada integralmente ao estado editorial anterior
+      - imagem destacada e imagens internas voltaram a consumir os originais, sem variantes geradas para o corpo
+      - tres familias WebP exclusivas do corpo removidas; variantes de capa permanecem restritas a cards e thumbnails
+      - nove origens autorizadas vinculadas a SHA-256, tamanho e commit; segunda execucao comprovou zero alteracao de bytes ou timestamp
+      - medidor atualizado para schema 2, multiplas amostras e mediana por layout e estrategia
+      - fixtures de mapa e institucional publicas, noindex e ausentes de sitemap, feed e navegacao
+      - npm run check, build de producao e matriz visual integral aprovados
 lacunas:
   - id: GAP-AGENTS-CJS-ESM-001
     estado: isolada

@@ -1089,6 +1089,7 @@ const validatePage = async (page, url, theme, viewportName) => {
 			const imageUrl = new URL(image.currentSrc || image.src, document.baseURI);
 			const isVector = imageUrl.pathname.toLowerCase().endsWith('.svg');
 			return {
+				isArchiveImage: Boolean(image.closest('.archive__item-teaser')),
 				hasDimensions: Boolean(
 					image.getAttribute('width') && image.getAttribute('height'),
 				),
@@ -1379,7 +1380,7 @@ const validatePage = async (page, url, theme, viewportName) => {
 					(metric) => !metric.hasDimensions && !metric.hasAspectRatio,
 				).length,
 				missingResponsiveSelectionCount: reservedImageMetrics.filter(
-					(metric) => !metric.hasResponsiveSelection,
+					(metric) => metric.isArchiveImage && !metric.hasResponsiveSelection,
 				).length,
 				skeletonCount: skeletonMetrics.length,
 				badSkeletonCount: skeletonMetrics.filter(

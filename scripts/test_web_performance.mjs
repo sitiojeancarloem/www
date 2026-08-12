@@ -2,6 +2,7 @@ import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
 import {
 	createEndpoint,
+	aggregateLayouts,
 	isRetryablePageSpeedError,
 	isRetryablePageSpeedStatus,
 	validateConfig,
@@ -16,6 +17,8 @@ const tagsPage = await readFile(new URL('../assuntos.md', import.meta.url), 'utf
 const themeInputs = await readFile(new URL('../_includes/jcem/body/first.html', import.meta.url), 'utf8');
 const mainPage = await readFile(new URL('../_includes/main_page.html', import.meta.url), 'utf8');
 const featuredImage = await readFile(new URL('../_includes/jcem/post-featured-image.html', import.meta.url), 'utf8');
+const assetMetadataPlugin = await readFile(new URL('../_plugins/jcem_asset_metadata.rb', import.meta.url), 'utf8');
+const responsiveGenerator = await readFile(new URL('./generate-responsive-images.py', import.meta.url), 'utf8');
 const masthead = await readFile(new URL('../_includes/masthead.html', import.meta.url), 'utf8');
 const notFound = await readFile(new URL('../404.main.html', import.meta.url), 'utf8');
 const footer = await readFile(new URL('../_includes/footer/custom.html', import.meta.url), 'utf8');
@@ -39,11 +42,13 @@ assert.doesNotMatch(
 assert.match(site, /addEventListener\('beforeprint', prepareNow\)/);
 assert.match(site, /setTimeout\(scheduleIdle, 5000\)/);
 assert.deepEqual(
-	config.targets.map((target) => target.id),
-	['home', 'article', 'map', 'about', 'categories', 'tags', 'not-found'],
+	config.layouts.map((layout) => layout.id),
+	['home', 'article', 'map', 'about', 'taxonomy', 'not-found'],
 );
+assert.equal(config.schema, 2);
+assert.ok(config.layouts.every(({ samples }) => samples.length >= 2));
 assert.equal(config.concurrency, 2);
-assert.deepEqual(config.targets.find(({ id }) => id === 'not-found').categories, [
+assert.deepEqual(config.layouts.find(({ id }) => id === 'not-found').categories, [
 	'performance',
 	'accessibility',
 	'best-practices',
@@ -55,6 +60,10 @@ assert.match(taxonomyCollection, /jcem_archive_priority_count < 1/);
 assert.match(tagsPage, /^taxonomy_compact:\s*true$/m);
 assert.match(taxonomyCollection, /jcem_taxonomy_compact[\s\S]*jcem-taxonomy-posts/);
 assert.match(featuredImage, /loading="eager" decoding="async" fetchpriority="high"/);
+assert.doesNotMatch(featuredImage, /srcset=/);
+assert.doesNotMatch(assetMetadataPlugin, /normalize_post_images|documents, :post_render/);
+assert.match(responsiveGenerator, /RESPONSIVE_SOURCE_HASH_DIVERGENTE/);
+assert.match(responsiveGenerator, /if not target\.is_file\(\)/);
 assert.match(masthead, /width="630"[\s\S]*height="256"/);
 assert.match(notFound, /pagina-404-480w\.webp/);
 assert.match(notFound, /fetchpriority="low"/);
@@ -69,7 +78,8 @@ assert.match(customVariables, /\.archive > \.entries-grid > \.grid__item:nth-chi
 assert.match(customVariables, /@media screen[\s\S]*\.jcem-taxonomy-posts/);
 assert.doesNotMatch(customVariables, /\.grid__wrapper > \.grid__item:nth-child\(n \+ 3\)/);
 assert.doesNotMatch(head, /body > :not\(\.carregandoPagina\)/);
-assert.match(head, /page\.jcem_lcp_image[\s\S]*imagesrcset=[\s\S]*fetchpriority="high"/);
+assert.match(head, /page\.layout == 'home' or page\.layout == 'categories' or page\.layout == 'tags'[\s\S]*imagesrcset=/);
+assert.match(head, /else[\s\S]*jcem_lcp_image \| relative_url[\s\S]*fetchpriority="high"/);
 assert.doesNotMatch(themeInputs, /<noscript>/);
 assert.match(mainPage, /<\/div>[\s\S]*<noscript>[\s\S]*noscript-content\.html[\s\S]*<\/noscript>[\s\S]*<\/body>/);
 assert.match(head, /consent-manager\/silktide\.js[^>]+defer/);
@@ -113,6 +123,15 @@ assert.deepEqual(summary.diagnostics['unused-css-rules'], {
 	score: 71,
 	value: 'Potential savings of 18 KiB',
 });
+
+const layoutSummary = aggregateLayouts([
+	{ layout: 'article', target: 'a', url: 'https://example.test/a', strategy: 'mobile', categories: { performance: 84, accessibility: 100 } },
+	{ layout: 'article', target: 'b', url: 'https://example.test/b', strategy: 'mobile', categories: { performance: 94, accessibility: 98 } },
+	{ layout: 'article', target: 'c', url: 'https://example.test/c', strategy: 'mobile', categories: { performance: 96, accessibility: 99 } },
+], 90);
+assert.equal(layoutSummary[0].categories.performance, 94);
+assert.equal(layoutSummary[0].ok, true);
+assert.equal(layoutSummary[0].samples.length, 3);
 
 const endpointWithoutKey = createEndpoint(
 	{ url: 'https://example.test/' },

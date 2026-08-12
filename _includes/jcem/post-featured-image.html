@@ -20,14 +20,11 @@
   {% assign image_alt = page.featured_image.alt | default: page.header.image_description | default: page.title | markdownify | strip_html | strip_newlines | escape_once %}
   {% assign image_caption = page.featured_image.caption | default: page.header.caption %}
   {% assign image_meta = image_path | jcem_asset_metadata %}
-  {% assign image_variant = image_meta.variants | first %}
-  {% assign image_src = image_variant.path | default: image_path %}
-  {% capture image_srcset %}{% for variant in image_meta.variants %}{{ variant.path | relative_url }} {{ variant.width }}w{% unless forloop.last %}, {% endunless %}{% endfor %}{% endcapture %}
   <figure class="jcem-featured-image jcem-featured-image--{{ featured_style }} jcem-skeleton" data-jcem-skeleton-state="loading"{% if image_meta.aspect_ratio_css %} data-jcem-asset-aspect-ratio="{{ image_meta.aspect_ratio_css }}" style="--jcem-asset-aspect-ratio: {{ image_meta.aspect_ratio_css }}"{% endif %}>
     {% if featured_style == "content" %}
       {% include jcem/post-date-flag.html placement="image" %}
     {% endif %}
-    <img class="jcem-featured-image__img u-photo jcem-skeleton-asset" src="{{ image_src | relative_url }}" alt="{{ image_alt }}" loading="eager" decoding="async" fetchpriority="high"{% if image_meta.variants and image_meta.variants.size > 0 %} srcset="{{ image_srcset | strip }}" sizes="(max-width: 64rem) calc(100vw - 2rem), 75rem"{% endif %}{% if image_meta.width and image_meta.height %} width="{{ image_meta.width }}" height="{{ image_meta.height }}"{% endif %}>
+    <img class="jcem-featured-image__img u-photo jcem-skeleton-asset" src="{{ image_path | relative_url }}" alt="{{ image_alt }}" loading="eager" decoding="async" fetchpriority="high"{% if image_meta.width and image_meta.height %} width="{{ image_meta.width }}" height="{{ image_meta.height }}"{% endif %}>
     {% if image_caption %}
       <figcaption class="jcem-featured-image__caption">{{ image_caption | markdownify | remove: "<p>" | remove: "</p>" }}</figcaption>
     {% endif %}

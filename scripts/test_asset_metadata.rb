@@ -2,6 +2,7 @@
 
 require_relative "jekyll_compat"
 require "jekyll"
+require "digest"
 require_relative "../_plugins/jcem_asset_metadata"
 
 ROOT = File.expand_path("..", __dir__)
@@ -64,6 +65,13 @@ assert(path_meta["aspect_ratio_css"] == "1200 / 630", "metadata declarado nao lo
 
 responsive_path = File.join(ROOT, "_data", "jcem_responsive_images.json")
 responsive_data = JSON.parse(File.binread(responsive_path))
+responsive_config = JSON.parse(File.binread(File.join(ROOT, "config", "responsive-images.json")))
+responsive_config.fetch("assets").each do |definition|
+  assert(!definition.fetch("source").include?("/responsive/"), "variante nao pode servir de origem")
+  assert(definition.fetch("sourceSha256").match?(/\A[0-9a-f]{64}\z/), "hash declarado invalido")
+  assert(definition.fetch("sourceBytes").positive?, "tamanho declarado invalido")
+  assert(definition.fetch("sourceCommit").match?(/\A[0-9a-f]{40}\z/), "commit declarado invalido")
+end
 responsive_assets = {}
 responsive_data.fetch("assets").each do |canonical, definition|
   first = definition.fetch("variants").first
@@ -74,9 +82,14 @@ responsive_data.fetch("assets").each do |canonical, definition|
   Jcem::AssetMetadata.asset_lookup_keys(canonical).each { |key| responsive_assets[key] = metadata }
 end
 Jcem::AssetMetadata.attach_responsive_variants!(responsive_assets, responsive_data)
-assert(responsive_data.fetch("assets").size == 12, "catalogo responsivo deve cobrir doze imagens publicadas")
+assert(responsive_data.fetch("assets").size == 9, "catalogo responsivo deve cobrir nove imagens de card ou thumbnail")
 
 responsive_data.fetch("assets").each do |canonical, definition|
+  source = File.join(ROOT, definition.fetch("source"))
+  source_hash = Digest::SHA256.file(source).hexdigest
+  assert(definition.fetch("source_sha256") == source_hash, "hash de origem divergente para #{canonical}")
+  assert(definition.fetch("source_bytes") == File.size(source), "tamanho de origem divergente para #{canonical}")
+  assert(definition.fetch("source_commit").match?(/\A[0-9a-f]{40}\z/), "commit de origem invalido para #{canonical}")
   metadata = Jcem::AssetMetadata.metadata_for(
     Struct.new(:data).new({ "jcem_asset_metadata" => { "assets" => responsive_assets } }),
     canonical
@@ -95,18 +108,5 @@ responsive_data.fetch("assets").each do |canonical, definition|
   assert(metadata.fetch("srcset").include?("#{variants.first.fetch("width")}w"),
          "srcset ausente para #{canonical}")
 end
-
-delivery_site = Struct.new(:data).new({ "jcem_asset_metadata" => { "assets" => responsive_assets } })
-delivery_html = Jcem::AssetMetadata.normalize_post_images(
-  '<p><img src="/assets/images/posts/devaneios/observador-restaurantes-jcem-ccbysa.png" alt="Teste"></p>',
-  delivery_site
-)
-assert(delivery_html.include?('loading="lazy"'), "imagem editorial deve nascer lazy no HTML")
-assert(delivery_html.include?('decoding="async"'), "imagem editorial deve nascer com decoding async")
-assert(delivery_html.include?('srcset="'), "imagem editorial responsiva deve emitir srcset")
-assert(delivery_html.include?('sizes="'), "imagem editorial responsiva deve emitir sizes")
-assert(delivery_html.include?('width="'), "imagem editorial deve reservar largura")
-assert(delivery_html.include?('height="'), "imagem editorial deve reservar altura")
-assert(!delivery_html.include?('/ loading='), "atributos devem preceder o fechamento da imagem")
 
 puts "asset_metadata=ok"

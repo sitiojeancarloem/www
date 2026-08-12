@@ -19,27 +19,72 @@ const wait = (milliseconds) => new Promise((resolve) => setTimeout(resolve, mill
 
 export const validateConfig = (config) => {
 	if (
-		config?.schema !== 1 ||
+		config?.schema !== 2 ||
 		!Number.isFinite(config.minimumScore) ||
 		!Number.isInteger(config.concurrency) ||
 		config.concurrency < 1 ||
 		config.concurrency > 4 ||
-		!Array.isArray(config.targets) ||
-		!config.targets.length
+		!Array.isArray(config.layouts) ||
+		!config.layouts.length
 	) throw new Error('PAGESPEED_CONFIG_INVALIDA');
-	const ids = new Set();
-	for (const target of config.targets) {
-		if (!target.id || !String(target.path).startsWith('/') || ids.has(target.id)) {
-			throw new Error(`PAGESPEED_TARGET_INVALIDO:${target.id || ''}`);
+	const layoutIds = new Set();
+	const sampleIds = new Set();
+	for (const layout of config.layouts) {
+		if (!layout.id || layoutIds.has(layout.id) || !Array.isArray(layout.samples) || layout.samples.length < 2) {
+			throw new Error(`PAGESPEED_LAYOUT_INVALIDO:${layout.id || ''}`);
 		}
-		if (target.categories && (
-			!Array.isArray(target.categories) ||
-			!target.categories.length ||
-			target.categories.some((category) => !config.categories.includes(category))
-		)) throw new Error(`PAGESPEED_CATEGORIAS_INVALIDAS:${target.id}`);
-		ids.add(target.id);
+		if (layout.categories && (
+			!Array.isArray(layout.categories) ||
+			!layout.categories.length ||
+			layout.categories.some((category) => !config.categories.includes(category))
+		)) throw new Error(`PAGESPEED_CATEGORIAS_INVALIDAS:${layout.id}`);
+		layoutIds.add(layout.id);
+		for (const sample of layout.samples) {
+			if (!sample.id || !String(sample.path).startsWith('/') || sampleIds.has(sample.id)) {
+				throw new Error(`PAGESPEED_AMOSTRA_INVALIDA:${sample.id || ''}`);
+			}
+			sampleIds.add(sample.id);
+		}
 	}
 	return config;
+};
+
+const median = (values) => {
+	const sorted = [...values].sort((left, right) => left - right);
+	const middle = Math.floor(sorted.length / 2);
+	return sorted.length % 2 ? sorted[middle] : (sorted[middle - 1] + sorted[middle]) / 2;
+};
+
+export const aggregateLayouts = (results, minimumScore) => {
+	const groups = new Map();
+	for (const result of results) {
+		const key = `${result.layout}\0${result.strategy}`;
+		if (!groups.has(key)) groups.set(key, []);
+		groups.get(key).push(result);
+	}
+	return [...groups.values()].map((samples) => {
+		const categories = Object.fromEntries(
+			Object.keys(samples[0].categories).map((category) => [
+				category,
+				Math.round(median(samples.map((sample) => sample.categories[category])) * 10) / 10,
+			]),
+		);
+		const failing = Object.entries(categories)
+			.filter(([, score]) => score < minimumScore)
+			.map(([category]) => category);
+		return {
+			layout: samples[0].layout,
+			strategy: samples[0].strategy,
+			categories,
+			samples: samples.map(({ target, url, categories: sampleCategories }) => ({
+				target,
+				url,
+				categories: sampleCategories,
+			})),
+			failing,
+			ok: failing.length === 0,
+		};
+	});
 };
 
 const cacheFile = (url, strategy, categories) => {
@@ -137,6 +182,7 @@ export const summarize = (payload, target, strategy, minimumScore) => {
 		.filter(([, score]) => score < minimumScore)
 		.map(([id]) => id);
 	return {
+		layout: target.layout,
 		target: target.id,
 		url: target.url,
 		strategy,
@@ -184,9 +230,14 @@ export const run = async (argv = process.argv.slice(2)) => {
 	const only = argv.find((value) => value.startsWith('--target='))?.slice(9);
 	const force = argv.includes('--force');
 	const apiKey = process.env.PAGESPEED_API_KEY?.trim() || '';
-	const targets = config.targets
-		.filter((target) => !only || target.id === only)
-		.map((target) => ({ ...target, url: new URL(target.path, baseUrl).href }));
+	const targets = config.layouts.flatMap((layout) =>
+		layout.samples.map((sample) => ({
+			...sample,
+			layout: layout.id,
+			categories: layout.categories,
+			url: new URL(sample.path, baseUrl).href,
+		})),
+	).filter((target) => !only || target.layout === only || target.id === only);
 	if (!targets.length) throw new Error(`PAGESPEED_TARGET_AUSENTE:${only}`);
 	const maxAgeMs = config.cacheMaxAgeHours * 3600000;
 	const tasks = targets.flatMap((target) =>
@@ -218,8 +269,9 @@ export const run = async (argv = process.argv.slice(2)) => {
 	await Promise.all(
 		Array.from({ length: Math.min(config.concurrency, tasks.length) }, worker),
 	);
-	console.log(JSON.stringify({ schema: 1, minimumScore: config.minimumScore, results }));
-	if (results.some((result) => !result.ok)) process.exitCode = 1;
+	const layouts = aggregateLayouts(results, config.minimumScore);
+	console.log(JSON.stringify({ schema: 2, minimumScore: config.minimumScore, layouts, results }));
+	if (layouts.some((layout) => !layout.ok)) process.exitCode = 1;
 	return results;
 };
 

@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import json
+import hashlib
 from pathlib import Path
 
 from PIL import Image
@@ -21,6 +22,14 @@ def main() -> None:
         source = ROOT / definition["source"]
         if not source.is_file():
             raise FileNotFoundError(source)
+        source_bytes = source.read_bytes()
+        source_sha256 = hashlib.sha256(source_bytes).hexdigest()
+        if source_sha256 != definition.get("sourceSha256"):
+            raise RuntimeError(f"RESPONSIVE_SOURCE_HASH_DIVERGENTE:{definition['id']}")
+        if len(source_bytes) != int(definition.get("sourceBytes", -1)):
+            raise RuntimeError(f"RESPONSIVE_SOURCE_SIZE_DIVERGENTE:{definition['id']}")
+        if not definition.get("sourceCommit"):
+            raise RuntimeError(f"RESPONSIVE_SOURCE_COMMIT_AUSENTE:{definition['id']}")
         target_dir = OUTPUT_ROOT / definition["id"]
         target_dir.mkdir(parents=True, exist_ok=True)
         variants = []
@@ -37,14 +46,15 @@ def main() -> None:
                     Image.Resampling.LANCZOS,
                 )
                 target = target_dir / f"{definition['id']}-{variant_width}w.webp"
-                resized.save(
-                    target,
-                    "WEBP",
-                    quality=quality,
-                    method=6,
-                    lossless=False,
-                    exact=True,
-                )
+                if not target.is_file():
+                    resized.save(
+                        target,
+                        "WEBP",
+                        quality=quality,
+                        method=6,
+                        lossless=False,
+                        exact=True,
+                    )
                 variants.append(
                     {
                         "path": "/" + target.relative_to(ROOT).as_posix(),
@@ -56,6 +66,9 @@ def main() -> None:
                 )
         index[definition["canonical"]] = {
             "source": definition["source"],
+            "source_sha256": source_sha256,
+            "source_bytes": len(source_bytes),
+            "source_commit": definition["sourceCommit"],
             "variants": sorted(variants, key=lambda item: item["width"]),
         }
     DATA_OUTPUT.write_text(

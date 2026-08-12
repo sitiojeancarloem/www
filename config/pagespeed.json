@@ -1,17 +1,54 @@
 {
-	"schema": 1,
+	"schema": 2,
 	"minimumScore": 90,
 	"concurrency": 2,
 	"cacheMaxAgeHours": 24,
 	"strategies": ["mobile", "desktop"],
 	"categories": ["performance", "accessibility", "best-practices", "seo"],
-	"targets": [
-		{"id": "home", "path": "/"},
-		{"id": "article", "path": "/p/devaneios/"},
-		{"id": "map", "path": "/mapa/"},
-		{"id": "about", "path": "/sobre/"},
-		{"id": "categories", "path": "/c/"},
-		{"id": "tags", "path": "/t/"},
-		{"id": "not-found", "path": "/404.html", "categories": ["performance", "accessibility", "best-practices"]}
+	"layouts": [
+		{
+			"id": "home",
+			"samples": [
+				{"id": "home-latest", "path": "/"},
+				{"id": "home-page-2", "path": "/page-2/"}
+			]
+		},
+		{
+			"id": "article",
+			"samples": [
+				{"id": "article-current", "path": "/p/bate-papo:eventos-finais/a-heranca-dos-santos/"},
+				{"id": "article-standard", "path": "/p/como-identificar-falacias/"},
+				{"id": "article-heavy", "path": "/p/devaneios/"}
+			]
+		},
+		{
+			"id": "map",
+			"samples": [
+				{"id": "map-real", "path": "/mapa/"},
+				{"id": "map-fixture", "path": "/_fixtures/pagespeed/map/"}
+			]
+		},
+		{
+			"id": "about",
+			"samples": [
+				{"id": "about-real", "path": "/sobre/"},
+				{"id": "about-fixture", "path": "/_fixtures/pagespeed/about/"}
+			]
+		},
+		{
+			"id": "taxonomy",
+			"samples": [
+				{"id": "categories-real", "path": "/c/"},
+				{"id": "tags-real", "path": "/t/"}
+			]
+		},
+		{
+			"id": "not-found",
+			"categories": ["performance", "accessibility", "best-practices"],
+			"samples": [
+				{"id": "not-found-static", "path": "/404.html"},
+				{"id": "not-found-routing", "path": "/pagespeed-fixture-not-found/"}
+			]
+		}
 	]
 }
