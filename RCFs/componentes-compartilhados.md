@@ -7,6 +7,8 @@ Escopo: cabeçalho, masthead, `noscript`, rodapé, subpostbar, menus compartilha
 
 ## Regras Normativas
 
+- Flag de data sobreposta a card DEVE permanecer fora do clipping do teaser e integralmente visível acima da borda superior. Otimização de pintura, contenção, skeleton, stacking context ou ancestral do card NÃO PODE recortar a parcela sobreposta nem cobri-la; a ancoragem continua pertencendo ao card e não altera sua geometria interna.
+
 - Componentes estruturais compartilhados devem possuir uma única fonte editável.
 - O controle claro/escuro DEVE conservar aparência, teclado e semântica, e clique ou toque em qualquer ponto de seu contêiner interativo DEVE alternar para o tema oposto; os ícones internos não podem constituir a única área acionável.
 - A troca de tema DEVE preservar contraste suficiente durante todo o estado transitório; propriedades cuja interpolação atravesse cor ilegível DEVEM mudar atomicamente ou usar uma trajetória comprovadamente acessível.

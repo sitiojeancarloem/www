@@ -137,7 +137,7 @@ plano:
   - id: FT-028
     classe: implementacao_normativa_codigo
     criado_em: 2026-08-12T10:25:00-03:00
-    estado: planejado
+    estado: em_andamento
     depende_de: FT-027
     fonte: .ia.rules/state/requests/FT-028/prompt.md
     objetivo: Corrigir cirurgicamente as regressoes documentadas nas evidencias 6 a 9 sem afetar contratos consolidados.

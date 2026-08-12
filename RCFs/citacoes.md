@@ -47,6 +47,7 @@ Escopo: citação inline, subcitação e bloco semântico de citação em artigo
 - URL de ícone DEVE ser relativa segura ou HTTPS, sem esquema executável; imagem sem texto alternativo DEVE falhar. Na ausência de ícone, o registro PODE fornecer padrão contextual decorativo com `aria-hidden`.
 - Modelo tipado DEVE preservar `blockquote`, conteúdo, referências, contraste, foco e ordem de leitura; tema claro/escuro e viewport estreito DEVEM ajustar tokens e composição sem truncamento.
 - Impressão DEVE ignorar integralmente a aparência web dos modelos tipados e usar o estilo IEEE padrão, salvo exceção seletiva registrada exclusivamente na sub-RCF de impressão.
+- Ícone de modelo tipado DEVE ocupar somente a área necessária à sua própria apresentação e alinhar-se ao início do conteúdo. A composição NÃO PODE criar linha implícita, altura mínima ou vazio inferior artificial; o padding legítimo do contêiner permanece uniforme e independente da quantidade de conteúdo.
 
 ## Apresentação de citações inline e subcitações
 

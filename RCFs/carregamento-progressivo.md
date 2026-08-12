@@ -7,6 +7,8 @@ Escopo: carregamento inicial, loader global, recursos pesados, skeleton loading 
 
 ## Regras Normativas
 
+- Imagem destacada ampla limitada pela viewport DEVE preencher a altura visual calculada sem deformação: o contêiner e a caixa da imagem DEVEM compartilhar a mesma altura efetiva, enquanto a largura deriva da proporção intrínseca e permanece centralizada e limitada à viewport. `aspect-ratio` de reserva de carregamento NÃO PODE conservar altura excedente depois que esse limite passa a governar a imagem.
+
 - HTML e CSS devem produzir conteúdo legível imediatamente; JavaScript, consentimento e aprimoramentos progressivos NÃO PODEM ocultar ou bloquear a primeira renderização visível da página.
 - Recursos essenciais são HTML, CSS, JavaScript próprio necessário à inicialização e dependências leves do JavaScript, como JSON, XML ou formatos equivalentes.
 - Imagens, `background-image`, vídeos, áudios, iframes, fontes opcionais e demais assets pesados não devem bloquear a liberação inicial da página.
