@@ -984,6 +984,7 @@ Este marcador encerra a seção de governança e inicia exclusivamente as TO-DOs
 * [ ] Converter imagens raster para WebP com processamento único e rastreável
   - Sem regredir ajustes, recursos ou qualidade já consolidados, converter todo `.jpg`/`.jpeg`/`.png` para `.webp`, inclusive conteúdo editorial, usando otimização open source análoga à já definida em `Preservar otimização responsiva das imagens de cards e thumbnails`; NÃO aplicar a SVG ou formatos não abrangidos.
   - Preservar obrigatoriamente o original. Manter manifesto/estado rastreável contendo ao menos hash e timestamp/estado da origem; gerar/reprocessar WebP SOMENTE na criação ou alteração efetiva do original, vedando recompressão cumulativa e degradação progressiva.
+  - Substitui automaticamente a ligação nos artigos/códigos originais para os novos webp, sempre que houver efetiva necessidade.
 
 * [ ] Corrigir regressões dos cards conforme `.ia.rules\state\requests\evidencias\evidencia1.png`, `evidencia1a.png` e `evidencia1b.png`
   - Aplicar correções cirúrgicas, preservando toda evolução válida existente.
