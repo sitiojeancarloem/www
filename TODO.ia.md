@@ -971,23 +971,23 @@ Este marcador encerra a seção de governança e inicia exclusivamente as TO-DOs
       - testes/validadores aplicáveis.
     - O aceite exige comportamento uniforme, determinístico e verificável para conteúdos atuais e futuros, sem perda de regra, feature, citação, referência, detalhe, nuance ou especialização preexistente.
 
-* [ ] Criar, conforme já definido no RCF, a `síntese fiel` em .md, da transcrição do bate-papo salvo em `_drafts\bate-papo\eventos-finais\` salvando-o devidamente para .md, já devidamente nomeado e aninhado.
+* [x] Criar, conforme já definido no RCF, a `síntese fiel` em .md, da transcrição do bate-papo salvo em `_drafts\bate-papo\eventos-finais\` salvando-o devidamente para .md, já devidamente nomeado e aninhado.
   - preservar todo detalhe e nuance importante para correta compreensão;
   - citações e referenciasa não podem ser perdidas em devem ser localizadas e preenchidas casos não estejam plenamente compreendias;
   - Considerar que por boa parte do tempo inicial, cerca de 30 minutos, o assunto não hava iniciado, embora eventualmente tocado em assuntos importantes, o papo ficou em cumprimentos e em grande parte em assuntos não teológicos que devem ser ignorados.
   - realizar commit após completo.
 
-* [ ] corrigir o nome do outro \_draft de bate papo para subnamespacesob `eventos-finais`.
+* [x] corrigir o nome do outro \_draft de bate papo para subnamespacesob `eventos-finais`.
 
-* [ ] Publicar ambos os bate-papos.
+* [x] Publicar ambos os bate-papos.
 
-* [ ] Converter imagens raster para WebP com processamento único e rastreável
-  - Sem regredir ajustes, recursos ou qualidade já consolidados, converter todo `.jpg`/`.jpeg`/`.png` para `.webp`, inclusive conteúdo editorial, usando otimização open source análoga à já definida em `Preservar otimização responsiva das imagens de cards e thumbnails`; NÃO aplicar a SVG ou formatos não abrangidos.
+* [x] Converter imagens raster autorizadas para WebP com processamento único e rastreável
+  - Sem regredir ajustes, recursos ou qualidade já consolidados, converter somente raster compartilhado de tema/infraestrutura e imagens da exceção `Preservar otimização responsiva das imagens de cards e thumbnails`; conteúdo e assets editoriais específicos permanecem no original e NÃO integram este fluxo. NÃO aplicar a SVG ou formatos não abrangidos.
   - Preservar obrigatoriamente o original. Manter manifesto/estado rastreável contendo ao menos hash e timestamp/estado da origem; gerar/reprocessar WebP SOMENTE na criação ou alteração efetiva do original, vedando recompressão cumulativa e degradação progressiva.
-  - Substitui automaticamente a ligação nos artigos/códigos originais para os novos webp, sempre que houver efetiva necessidade.
+  - Substituir automaticamente a ligação somente nos componentes compartilhados autorizados, sempre que houver efetiva necessidade; ligações editoriais permanecem intactas.
   * efetiva necessidade = quer dizer quando o arquivo fro criado, renomeado e afins, que exijam atualizar para o novo webp.
 
-* [ ] Corrigir regressões dos cards conforme `.ia.rules\state\requests\evidencias\evidencia1.png`, `evidencia1a.png` e `evidencia1b.png`
+* [x] Corrigir regressões dos cards conforme `.ia.rules\state\requests\evidencias\evidencia1.png`, `evidencia1a.png` e `evidencia1b.png`
   - Aplicar correções cirúrgicas, preservando toda evolução válida existente.
   - Cards: máximo absoluto de **3 colunas**; restaurar a regressão que permite 4.
   - Flag de data: eliminar crop/corte; restaurar ancoragem vertical para que sua pequena base lateral encoste corretamente na borda do card/thumbnail.
@@ -995,16 +995,16 @@ Este marcador encerra a seção de governança e inicia exclusivamente as TO-DOs
   - Dark mode: aumentar legibilidade do texto de cards já visitados/clicados, sem descaracterizar o estado `visited`.
   - Responsividade da flag: tamanho da flag e tipografia DEVEM variar coerentemente entre si, preservando proporção, posicionamento e estabilidade visual. A flag PODE reduzir conforme a thumbnail, mas o texto NÃO PODE reduzir a ponto de comprometer legibilidade e qualquer data válida DEVE caber integralmente em sua margem visual.
 
-* [ ] Corrigir semântica visual de botões e impressão conforme evidências
+* [x] Corrigir semântica visual de botões e impressão conforme evidências
   - Em `.ia.rules\state\requests\evidencias\evidencia2.png`, remover o ícone indicativo de link da paginação, inclusive `Anterior`/`Próximo`; nenhum elemento semanticamente/visualmente equivalente a botão DEVE exibir indicador próprio de hyperlink.
   - Em `evidencia3.png`, preservar links no conteúdo, mas tornar OBRIGATÓRIA na impressão a materialização de sua URL em nota de rodapé final. O marcador `<sup>` PODE existir no HTML permanentemente invisível na web e tornar-se visível apenas na impressão. Cada URL impressa DEVE permanecer inequivocamente vinculada ao respectivo link.
   - Em `evidencia4.png` e `evidencia4a.png`, restaurar o rodapé normatizado em **todas as páginas impressas**, contendo ao menos: link da licença, disclaimer/equivalente, data da impressão, publicador e URL canônica.
 
-* [ ] Restaurar limite responsivo da imagem de destaque conforme `.ia.rules\state\requests\evidencias\evidencia5.png`
+* [x] Restaurar limite responsivo da imagem de destaque conforme `.ia.rules\state\requests\evidencias\evidencia5.png`
   - A imagem de destaque JAMAIS PODE exceder a altura disponível da viewport nem, com scroll totalmente no topo, ultrapassar visualmente sua borda inferior.
   - Corrigir somente dimensionamento/layout necessário, preservando responsividade, proporção, qualidade e demais comportamentos válidos existentes.
 
-* [ ] Gerar thumbnail Open Graph (e equivalente) compatível e otimizada no build
+* [x] Gerar thumbnail Open Graph (e equivalente) compatível e otimizada no build
   - Para `og:*` e metadados sociais equivalentes, gerar em **tempo de build** uma thumbnail específica com dimensão final vertical de **630 px** (e manter o width proporcional), independentemente do formato WebP usado internamente pelo site.
   - A saída social DEVE ser `.png` ou `.jpg/.jpeg`, escolhendo automaticamente o formato que apresentar a melhor relação **qualidade/tamanho**, com otimização agressiva sem degradação visual relevante.
   - A geração DEVE partir do original/fonte adequada, NÃO de imagem previamente recomprimida, evitando degradação cumulativa.

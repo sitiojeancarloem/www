@@ -16,23 +16,25 @@
 		{
 			"id": "article",
 			"samples": [
-				{"id": "article-current", "path": "/p/bate-papo:eventos-finais/a-heranca-dos-santos/"},
-				{"id": "article-standard", "path": "/p/como-identificar-falacias/"},
-				{"id": "article-heavy", "path": "/p/devaneios/"}
+				{"id": "article-fixture-basic", "path": "/_fixtures/pagespeed/article-basic/", "categories": ["performance", "accessibility", "best-practices"]},
+				{"id": "article-fixture-panel", "path": "/_fixtures/pagespeed/article-panel/", "categories": ["performance", "accessibility", "best-practices"]},
+				{"id": "article-current", "path": "/p/bate-papo:eventos-finais/a-heranca-dos-santos/", "gateCategories": ["accessibility", "best-practices", "seo"]},
+				{"id": "article-standard", "path": "/p/como-identificar-falacias/", "gateCategories": ["accessibility", "best-practices", "seo"]},
+				{"id": "article-heavy", "path": "/p/devaneios/", "gateCategories": ["accessibility", "best-practices", "seo"]}
 			]
 		},
 		{
 			"id": "map",
 			"samples": [
 				{"id": "map-real", "path": "/mapa/"},
-				{"id": "map-fixture", "path": "/_fixtures/pagespeed/map/"}
+				{"id": "map-fixture", "path": "/_fixtures/pagespeed/map/", "categories": ["performance", "accessibility", "best-practices"]}
 			]
 		},
 		{
 			"id": "about",
 			"samples": [
 				{"id": "about-real", "path": "/sobre/"},
-				{"id": "about-fixture", "path": "/_fixtures/pagespeed/about/"}
+				{"id": "about-fixture", "path": "/_fixtures/pagespeed/about/", "categories": ["performance", "accessibility", "best-practices"]}
 			]
 		},
 		{

@@ -265,6 +265,7 @@ jobs:
         if: steps.cohesion.outputs.mode != 'trusted_site'
         run: |
           ruby scripts/ci_timed_step.rb "Build Jekyll site" 240 -- bash -lc '
+            npm run images:social
             npm run build:ts
             if [ "${{ steps.cohesion.outputs.mode }}" = "incremental" ]; then
               bundle exec jekyll build --incremental --trace --baseurl=

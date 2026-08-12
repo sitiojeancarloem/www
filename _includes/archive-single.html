@@ -48,7 +48,7 @@
         <h2 class="archive__item-title no_toc p-name" itemprop="headline">{{ archive_title }}</h2>
       </header>
       <div class="archive__item-body">
-        {% include page__meta.html locale=locale type=include.type %}
+        {% include jcem/post-read-time.html locale=locale post=post %}
         {% if archive_excerpt != "" %}<p class="archive__item-excerpt p-summary" itemprop="description">{{ archive_excerpt | markdownify | strip_html | normalize_whitespace | truncate: 160 }}</p>{% endif %}
       </div>
     </a>

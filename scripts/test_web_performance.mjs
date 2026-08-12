@@ -1,5 +1,6 @@
 import assert from 'node:assert/strict';
-import { readFile } from 'node:fs/promises';
+import { createHash } from 'node:crypto';
+import { readFile, stat } from 'node:fs/promises';
 import {
 	createEndpoint,
 	aggregateLayouts,
@@ -18,8 +19,16 @@ const themeInputs = await readFile(new URL('../_includes/jcem/body/first.html', 
 const mainPage = await readFile(new URL('../_includes/main_page.html', import.meta.url), 'utf8');
 const featuredImage = await readFile(new URL('../_includes/jcem/post-featured-image.html', import.meta.url), 'utf8');
 const assetMetadataPlugin = await readFile(new URL('../_plugins/jcem_asset_metadata.rb', import.meta.url), 'utf8');
+const quoteSemanticsPlugin = await readFile(new URL('../_plugins/jcem_quote_semantics.rb', import.meta.url), 'utf8');
 const responsiveGenerator = await readFile(new URL('./generate-responsive-images.py', import.meta.url), 'utf8');
+const trackedWebpGenerator = await readFile(new URL('./generate-tracked-webp.py', import.meta.url), 'utf8');
+const socialImageGenerator = await readFile(new URL('./generate-social-images.mjs', import.meta.url), 'utf8');
+const socialImageConnector = await readFile(new URL('../_plugins/jcem_social_images.rb', import.meta.url), 'utf8');
+const trackedWebpManifest = JSON.parse(
+	await readFile(new URL('../config/tracked-webp.json', import.meta.url), 'utf8'),
+);
 const masthead = await readFile(new URL('../_includes/masthead.html', import.meta.url), 'utf8');
+const archiveReadTime = await readFile(new URL('../_includes/jcem/post-read-time.html', import.meta.url), 'utf8');
 const notFound = await readFile(new URL('../404.main.html', import.meta.url), 'utf8');
 const footer = await readFile(new URL('../_includes/footer/custom.html', import.meta.url), 'utf8');
 const head = await readFile(new URL('../_includes/head/custom.html', import.meta.url), 'utf8');
@@ -47,6 +56,7 @@ assert.deepEqual(
 );
 assert.equal(config.schema, 2);
 assert.ok(config.layouts.every(({ samples }) => samples.length >= 2));
+assert.ok(config.layouts.every(({ samples }) => samples.filter(({ gate }) => gate !== false).length >= 2));
 assert.equal(config.concurrency, 2);
 assert.deepEqual(config.layouts.find(({ id }) => id === 'not-found').categories, [
 	'performance',
@@ -62,9 +72,51 @@ assert.match(taxonomyCollection, /jcem_taxonomy_compact[\s\S]*jcem-taxonomy-post
 assert.match(featuredImage, /loading="eager" decoding="async" fetchpriority="high"/);
 assert.doesNotMatch(featuredImage, /srcset=/);
 assert.doesNotMatch(assetMetadataPlugin, /normalize_post_images|documents, :post_render/);
+assert.match(quoteSemanticsPlugin, /documents, :post_render/);
+assert.match(quoteSemanticsPlugin, /render_structural_quotes/);
 assert.match(responsiveGenerator, /RESPONSIVE_SOURCE_HASH_DIVERGENTE/);
 assert.match(responsiveGenerator, /if not target\.is_file\(\)/);
+assert.match(trackedWebpGenerator, /TRACKED_WEBP_SOURCE_DIVERGENTE/);
+assert.match(trackedWebpGenerator, /TRACKED_WEBP_TARGET_DIVERGENTE/);
+assert.match(trackedWebpGenerator, /sourceMtimeUtc/);
+assert.doesNotMatch(trackedWebpGenerator, /recover_partial|legacy_partial/);
+assert.equal(trackedWebpManifest.schema, 1);
+assert.deepEqual(trackedWebpManifest.encoder, {
+	name: 'Pillow',
+	format: 'WEBP',
+	quality: 82,
+	method: 6,
+});
+assert.equal(Object.keys(trackedWebpManifest.assets).length, 2);
+assert.match(trackedWebpGenerator, /AUTHORIZED_SHARED_SOURCES/);
+assert.doesNotMatch(trackedWebpGenerator, /\(ROOT \/ "assets"\)\.rglob/);
+for (const [sourcePath, record] of Object.entries(trackedWebpManifest.assets)) {
+	const sourceUrl = new URL(`../${sourcePath}`, import.meta.url);
+	const sourceBytes = await readFile(sourceUrl);
+	assert.equal((await stat(sourceUrl)).size, record.sourceBytes);
+	assert.equal(createHash('sha256').update(sourceBytes).digest('hex'), record.sourceSha256);
+	assert.ok(record.sourceMtimeUtc);
+	assert.ok(record.generatedAtUtc);
+	assert.match(record.target, /\.jcem\.webp$/);
+	const targetUrl = new URL(`../${record.target}`, import.meta.url);
+	const targetBytes = await readFile(targetUrl);
+	assert.equal((await stat(targetUrl)).size, record.targetBytes);
+	assert.equal(createHash('sha256').update(targetBytes).digest('hex'), record.targetSha256);
+}
+assert.match(socialImageGenerator, /height !== 630/);
+assert.match(socialImageGenerator, /sourceSha256/);
+assert.match(socialImageGenerator, /parametersSha256/);
+assert.match(socialImageGenerator, /jpeg\.length < png\.length/);
+assert.match(socialImageConnector, /header\["og_image"\]/);
+assert.match(socialImageConnector, /jcem_social_images/);
 assert.match(masthead, /width="630"[\s\S]*height="256"/);
+assert.match(archiveCard, /include jcem\/post-read-time\.html/);
+assert.doesNotMatch(archiveCard, /include page__meta\.html/);
+assert.match(archiveReadTime, /include\.post \| default/);
+assert.doesNotMatch(customVariables, /repeat\(4, minmax\(0, 1fr\)\)/);
+assert.match(customVariables, /archive__item-link:visited/);
+assert.match(customVariables, /pagination a::after/);
+assert.match(customVariables, /100dvh - var\(--jcem-masthead-h/);
 assert.match(notFound, /pagina-404-480w\.webp/);
 assert.match(notFound, /fetchpriority="low"/);
 assert.match(notFound, /pendingLines\.forEach\(\(line\) => line\.style\.setProperty\('visibility', 'hidden'\)\)/);
@@ -125,13 +177,15 @@ assert.deepEqual(summary.diagnostics['unused-css-rules'], {
 });
 
 const layoutSummary = aggregateLayouts([
-	{ layout: 'article', target: 'a', url: 'https://example.test/a', strategy: 'mobile', categories: { performance: 84, accessibility: 100 } },
+	{ layout: 'article', target: 'a', url: 'https://example.test/a', strategy: 'mobile', gateCategories: ['accessibility', 'seo'], categories: { performance: 44, accessibility: 100, seo: 100 } },
 	{ layout: 'article', target: 'b', url: 'https://example.test/b', strategy: 'mobile', categories: { performance: 94, accessibility: 98 } },
 	{ layout: 'article', target: 'c', url: 'https://example.test/c', strategy: 'mobile', categories: { performance: 96, accessibility: 99 } },
 ], 90);
-assert.equal(layoutSummary[0].categories.performance, 94);
+assert.equal(layoutSummary[0].categories.performance, 95);
 assert.equal(layoutSummary[0].ok, true);
 assert.equal(layoutSummary[0].samples.length, 3);
+assert.deepEqual(layoutSummary[0].samples[0].gateCategories, ['accessibility', 'seo']);
+assert.equal(layoutSummary[0].categories.seo, 100);
 
 const endpointWithoutKey = createEndpoint(
 	{ url: 'https://example.test/' },

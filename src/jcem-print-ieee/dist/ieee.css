@@ -2,7 +2,7 @@
 
 @page {
 	size: A4;
-	margin: 19.05mm 14.3225mm 43mm;
+	margin: 19.05mm 14.3225mm 25mm;
 }
 
 @media print {
@@ -159,6 +159,25 @@
 	}
 
 	:is(#print-isolation-specificity-guard, [data-print-article])
+		[data-print-link-note] {
+		display: inline !important;
+		font-size: 6.5pt !important;
+		line-height: 1 !important;
+		vertical-align: super !important;
+	}
+
+	:is(#print-isolation-specificity-guard, [data-print-article])
+		[data-print-link-references] {
+		display: block !important;
+		column-span: all !important;
+		margin-top: 5mm !important;
+		padding-top: 2mm !important;
+		border-top: 0.25pt solid #777 !important;
+		font-size: 7pt !important;
+		line-height: 8.4pt !important;
+	}
+
+	:is(#print-isolation-specificity-guard, [data-print-article])
 		:is(blockquote, [role="blockquote"]) {
 		display: block !important;
 		margin: 6pt 0 !important;
@@ -229,8 +248,6 @@
 	}
 
 	:is(#print-isolation-specificity-guard, [data-print-article])
-		[data-print-institutional],
-	:is(#print-isolation-specificity-guard, [data-print-article])
 		[data-print-metadata] {
 		display: block !important;
 		column-span: all !important;
@@ -299,11 +316,7 @@
 		text-align: justify !important;
 	}
 
-	:is(#print-isolation-specificity-guard, [data-print-article])
-		[data-print-institutional] {
-		margin: 3mm 0 0 !important;
-		padding: 2mm 0 0 !important;
-		border-top: 0.25pt solid #777 !important;
-		border-bottom: 0 !important;
+	body:has([data-print-article]) [data-print-institutional] {
+		display: none !important;
 	}
 }

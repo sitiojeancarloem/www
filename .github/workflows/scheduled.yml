@@ -104,6 +104,7 @@ jobs:
       - name: Build Jekyll site
         if: steps.posts.outputs.has_posts == 'true'
         run: |
+          npm run images:social
           npm run build:ts
           bundle exec jekyll build --trace --baseurl=
         env:

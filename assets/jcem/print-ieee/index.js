@@ -12,8 +12,8 @@ const stateOf = (article) => {
 const stampAcquisitionDate = (article, acquiredAt) => {
     const isoDate = acquiredAt.toISOString();
     article.dataset.printAcquiredAt = isoDate;
-    article
-        .querySelectorAll('[data-print-acquired-at]')
+    document
+        .querySelectorAll('[data-print-acquired-at]:not([data-print-article])')
         .forEach((element) => {
         element.textContent = acquiredAt.toLocaleString('pt-BR', {
             dateStyle: 'short',
@@ -21,6 +21,57 @@ const stampAcquisitionDate = (article, acquiredAt) => {
         });
         element.setAttribute('datetime', isoDate);
     });
+};
+const materializeInstitutionalPageFooter = () => {
+    const footer = document.querySelector('[data-print-institutional]');
+    if (!footer)
+        return;
+    const text = (footer.textContent || '').replace(/\s+/g, ' ').trim();
+    const escaped = text.replace(/\\/g, '\\\\').replace(/"/g, '\\"');
+    let style = document.querySelector('[data-print-page-footer-style]');
+    if (!style) {
+        style = document.createElement('style');
+        style.dataset.printPageFooterStyle = '';
+        style.media = 'print';
+        document.head.append(style);
+    }
+    style.textContent = `@page { @bottom-center { content: "${escaped}"; color: #000; font-family: "Noto Sans", Arial, sans-serif; font-size: 6.5pt; line-height: 8pt; border-top: 0.25pt solid #777; padding-top: 1.5mm; } }`;
+};
+const materializePrintLinks = (article) => {
+    article.querySelectorAll('[data-print-link-references]').forEach((node) => node.remove());
+    article.querySelectorAll('[data-print-link-note]').forEach((node) => node.remove());
+    const references = document.createElement('section');
+    references.dataset.printLinkReferences = '';
+    references.dataset.printOnly = '';
+    references.setAttribute('aria-label', 'URLs dos links do artigo');
+    const title = document.createElement('h2');
+    title.textContent = 'URLs dos links';
+    const list = document.createElement('ol');
+    references.append(title, list);
+    const seen = new Map();
+    article.querySelectorAll('[data-print-body] a[href]').forEach((link) => {
+        if (link.closest('.footnotes, [data-print-link-references]'))
+            return;
+        const url = new URL(link.href, document.baseURI).href;
+        if (!/^https?:/i.test(url))
+            return;
+        let index = seen.get(url);
+        if (!index) {
+            index = seen.size + 1;
+            seen.set(url, index);
+            const item = document.createElement('li');
+            item.textContent = `${index}. ${url}`;
+            list.append(item);
+        }
+        const marker = document.createElement('sup');
+        marker.dataset.printLinkNote = '';
+        marker.dataset.printOnly = '';
+        marker.textContent = `[${index}]`;
+        marker.setAttribute('aria-label', `URL ${index} na lista final`);
+        link.after(marker);
+    });
+    if (seen.size)
+        article.append(references);
 };
 export const getPrintState = (article) => stateOf(article);
 export const prepareArticle = (article, options = {}) => {
@@ -45,6 +96,8 @@ export const prepareArticle = (article, options = {}) => {
         if (disposed)
             return stateOf(article);
         stampAcquisitionDate(article, options.acquiredAt || new Date());
+        materializeInstitutionalPageFooter();
+        materializePrintLinks(article);
         article.querySelectorAll(fullWidthSelector).forEach((element) => {
             element.dataset.printSpan = 'all';
         });

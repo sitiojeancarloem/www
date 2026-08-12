@@ -1,0 +1,29 @@
+{
+	"schema": 1,
+	"encoder": {
+		"name": "Pillow",
+		"format": "WEBP",
+		"quality": 82,
+		"method": 6
+	},
+	"assets": {
+		"assets/jcem/img/e-o-fim-da-rosca-ccbysanc-jcem.png": {
+			"sourceSha256": "06c8b22342cc5b4680e738ea904a7fc2aa761cf04300d7b088767fe4c2c070f7",
+			"sourceBytes": 431401,
+			"sourceMtimeUtc": "2026-06-21T02:31:26Z",
+			"target": "assets/jcem/img/e-o-fim-da-rosca-ccbysanc-jcem.jcem.webp",
+			"targetSha256": "21fd704f9230351369f6f2d4f90a23fc42df6b7eb649160a53faffbb6cee84db",
+			"targetBytes": 29882,
+			"generatedAtUtc": "2026-08-12T03:52:25.147959Z"
+		},
+		"assets/jcem/img/sem-motor-nao-vai-jcem-ccbysanc.png": {
+			"sourceSha256": "fffbaa49a914d514c7747177256d83a289b8282d3e0ee41b95e3b673eb710d3a",
+			"sourceBytes": 282720,
+			"sourceMtimeUtc": "2026-06-21T04:35:38Z",
+			"target": "assets/jcem/img/sem-motor-nao-vai-jcem-ccbysanc.jcem.webp",
+			"targetSha256": "d7a8abc05777ce7f344bdf7ea0f07a790a770c37ebd59b54c3fc0cfdc601f0c7",
+			"targetBytes": 32874,
+			"generatedAtUtc": "2026-08-12T03:52:25.151936Z"
+		}
+	}
+}

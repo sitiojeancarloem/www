@@ -1,0 +1,53 @@
+{
+	"schema": 1,
+	"height": 630,
+	"jpegQuality": 88,
+	"pngCompressionLevel": 9,
+	"assets": [
+		{
+			"id": "devaneios-grande",
+			"canonical": "/assets/images/posts/devaneios/devaneios-grande.jcem.webp",
+			"source": "assets/images/posts/devaneios/devaneios-grande.png"
+		},
+		{
+			"id": "eventos-finais",
+			"canonical": "/assets/images/posts/eventos-finais/eventos-finais.svg",
+			"source": "assets/images/posts/eventos-finais/eventos-finais.svg"
+		},
+		{
+			"id": "tradicao-vs-biblia",
+			"canonical": "https://web.archive.org/web/20201006232837im_/https://blog.jeancarloem.com/wp-content/uploads/2020/04/COVER.png",
+			"source": "_drafts/_midias-recuperadas/blog.jeancarloem.com/wp-content/uploads/2020/04/COVER.png"
+		},
+		{
+			"id": "sola-scriptura",
+			"canonical": "https://web.archive.org/web/20201011094944im_/https://blog.jeancarloem.com/wp-content/uploads/2020/05/sola-scriptura-farol.png",
+			"source": "_drafts/_midias-recuperadas/blog.jeancarloem.com/wp-content/uploads/2020/05/sola-scriptura-farol.png"
+		},
+		{
+			"id": "nove-motivos-sabado",
+			"canonical": "https://web.archive.org/web/20201004084617im_/https://blog.jeancarloem.com/wp-content/uploads/2020/07/9-motivos-para-guardar-o-sabado.png",
+			"source": "_drafts/_midias-recuperadas/blog.jeancarloem.com/wp-content/uploads/2020/07/9-motivos-para-guardar-o-sabado.png"
+		},
+		{
+			"id": "cinco-verdades-genesis",
+			"canonical": "https://web.archive.org/web/20201005014559im_/https://blog.jeancarloem.com/wp-content/uploads/2020/07/5-verdades-de-genesis-2-7.png",
+			"source": "_drafts/_midias-recuperadas/blog.jeancarloem.com/wp-content/uploads/2020/07/5-verdades-de-genesis-2-7.png"
+		},
+		{
+			"id": "como-identificar-falacias",
+			"canonical": "https://web.archive.org/web/20201005013131im_/https://blog.jeancarloem.com/wp-content/uploads/2020/08/cover-como-identificar-falacias.png",
+			"source": "_drafts/_midias-recuperadas/blog.jeancarloem.com/wp-content/uploads/2020/08/cover-como-identificar-falacias.png"
+		},
+		{
+			"id": "salvacao-importa-ser-perfeito",
+			"canonical": "https://web.archive.org/web/20201004153207im_/https://blog.jeancarloem.com/wp-content/uploads/2020/08/importa-ser-perfeito.png",
+			"source": "_drafts/_midias-recuperadas/blog.jeancarloem.com/wp-content/uploads/2020/08/importa-ser-perfeito.png"
+		},
+		{
+			"id": "nenhum-alcool",
+			"canonical": "https://web.archive.org/web/20210207030211im_/https://blog.jeancarloem.com/wp-content/uploads/2021/02/Nenhum-nivel-de-alcool-faz-bem-a-saude.jpg",
+			"source": "_drafts/_midias-recuperadas/blog.jeancarloem.com/wp-content/uploads/2021/02/Nenhum-nivel-de-alcool-faz-bem-a-saude.jpg"
+		}
+	]
+}

@@ -27,11 +27,14 @@ markdown = <<~MARKDOWN
   > Aviso tipado.
   {: data-jcem-quote-model="alerta1" data-jcem-quote-icon="⚠️"}
 
+  > Painel pelo modelo padrão do artigo.
+
   Parágrafo com `fala citada`{:.jcem-inline-quote} e `codigo_preservado`.
 MARKDOWN
 
 html = Kramdown::Document.new(markdown, input: "GFM").to_html
 normalized = Jcem::QuoteSemantics.normalize_html(html, config)
+rendered = Jcem::QuoteSemantics.render_structural_quotes(normalized, "futuristic", config)
 
 assert(
   normalized.include?('data-jcem-quote-model="standard"'),
@@ -49,6 +52,10 @@ assert(
   normalized.include?("<code>codigo_preservado</code>"),
   "backtick comum deixou de representar código"
 )
+assert(rendered.include?('class="painel jcem-panel jcem-panel--blockquote'), "painel futurista não foi renderizado no build")
+assert(rendered.include?('data-jcem-quote-model="alerta1" data-jcem-quote-icon="⚠️"'), "modelo tipado perdeu atributos")
+assert(rendered.include?('<span class="jcem-quote__icon" aria-hidden="true">⚠️</span>'), "ícone tipado não foi renderizado no build")
+assert(!rendered.include?("<blockquote>Citação por ocorrência"), "blockquote futurista permaneceu para mutação client-side")
 
 begin
   Jcem::QuoteSemantics.normalize_html(

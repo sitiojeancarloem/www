@@ -1658,12 +1658,12 @@ const validatePage = async (page, url, theme, viewportName) => {
 
 		if (
 			result.archive.columnCount < 1 ||
-			result.archive.columnCount > 4 ||
-			(viewportName === 'wide' && result.archive.columnCount !== 4) ||
+			result.archive.columnCount > 3 ||
+			(viewportName === 'wide' && result.archive.columnCount !== 3) ||
 			(viewportName === 'desktop' && result.archive.columnCount !== 3) ||
 			(viewportName === 'mobile' && result.archive.columnCount !== 1)
 		) {
-			fail(`Grade de publicacoes fora do limite 1-4 colunas em ${url} ${theme} ${viewportName}`);
+			fail(`Grade de publicacoes fora do limite 1-3 colunas em ${url} ${theme} ${viewportName}`);
 		}
 
 		if (result.archive.maxImageTitleGap > 3) {
@@ -2726,7 +2726,7 @@ const validateNoScriptPage = async (page, url, viewportName) => {
 	if (
 		!result.hasFeatured ||
 		result.featuredHeight < 180 ||
-		!result.featuredImageSrc.includes('sem-motor-nao-vai-jcem-ccbysanc.png') ||
+		!result.featuredImageSrc.includes('sem-motor-nao-vai-jcem-ccbysanc.jcem.webp') ||
 		result.featuredImageObjectFit !== 'contain' ||
 		result.featuredBg !== 'rgb(1, 2, 3)'
 	) {

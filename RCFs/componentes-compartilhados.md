@@ -11,6 +11,8 @@ Escopo: cabeçalho, masthead, `noscript`, rodapé, subpostbar, menus compartilha
 - O controle claro/escuro DEVE conservar aparência, teclado e semântica, e clique ou toque em qualquer ponto de seu contêiner interativo DEVE alternar para o tema oposto; os ícones internos não podem constituir a única área acionável.
 - A troca de tema DEVE preservar contraste suficiente durante todo o estado transitório; propriedades cuja interpolação atravesse cor ilegível DEVEM mudar atomicamente ou usar uma trajetória comprovadamente acessível.
 - Controles internos de tema, paginação, compartilhamento e links de taxonomia DEVEM conservar nome acessível, ordem de títulos e alvo mínimo de toque; ocultação visual não autoriza remover rótulo semântico.
+- Link apresentado como botão, inclusive paginação anterior, numérica e próxima, NÃO DEVE exibir glifo ou indicador visual automático de hyperlink.
+- Grade de cards DEVE usar no máximo três colunas em qualquer viewport. A data de publicação/modificação DEVE existir exclusivamente na flag; metadado redundante abaixo do título é proibido. Flag e tipografia DEVEM escalar juntas, permanecer legíveis, sem crop, e sua base lateral DEVE ancorar na borda do card/thumbnail. Estado visitado em tema escuro DEVE continuar distinguível com contraste legível.
 - O botão de menu adjacente ao controle de tema DEVE usar o ícone Font Awesome `bars` de código `f0c9`, sem alterar iconizações não relacionadas.
 - Agrupamento e desagrupamento responsivo de navegação DEVEM preservar todos os links e controles, funcionar com redimensionamento e orientação e degradar sem JavaScript.
 - Cópias manuais de cabeçalho, masthead, `noscript`, rodapé, subpostbar, menus compartilhados e avisos institucionais são proibidas.

@@ -55,6 +55,10 @@ layout: default
 {% if jcem_blockquote_panels %}
   {% assign jcem_blockquote_model = "futuristic" %}
 {% endif %}
+{% assign jcem_is_article = false %}
+{% if page.collection == 'posts' or page.pagespeed_layout == 'article' %}
+  {% assign jcem_is_article = true %}
+{% endif %}
 
 {% if jcem_custom_featured and jcem_featured_style == "wide" %}
   {% include jcem/post-featured-image.html style="wide" %}
@@ -77,7 +81,7 @@ layout: default
 <div id="main" role="main">
   {% include sidebar.html locale=locale %}
 
-  <article class="page h-entry{% if page.collection == 'posts' %} jcem-post{% endif %}{% if jcem_featured_style != "" %} jcem-featured-style--{{ jcem_featured_style }}{% endif %}{% if jcem_blockquote_panels %} jcem-blockquote-panels{% endif %}" data-jcem-quote-default="{{ jcem_blockquote_model }}"{% if page.collection == 'posts' %} data-print-article data-print-profile="ieee-conference-a4-ieeetran-1.8b" data-print-state="legivel"{% endif %} itemscope itemtype="https://schema.org/CreativeWork"{% if page.locale %} lang="{{ page.locale }}"{% endif %}>
+  <article class="page h-entry{% if jcem_is_article %} jcem-post{% endif %}{% if jcem_featured_style != "" %} jcem-featured-style--{{ jcem_featured_style }}{% endif %}{% if jcem_blockquote_panels %} jcem-blockquote-panels{% endif %}" data-jcem-quote-default="{{ jcem_blockquote_model }}"{% if jcem_is_article %} data-print-article data-print-profile="ieee-conference-a4-ieeetran-1.8b" data-print-state="legivel"{% endif %} itemscope itemtype="https://schema.org/CreativeWork"{% if page.locale %} lang="{{ page.locale }}"{% endif %}>
     {% if page.title %}<meta itemprop="headline" content="{{ page.title | replace: '|', '&#124;' | markdownify | strip_html | strip_newlines | escape_once }}">{% endif %}
     {% if page.excerpt %}<meta itemprop="description" content="{{ page.excerpt | markdownify | strip_html | strip_newlines | escape_once }}">{% endif %}
     {% if page.date %}<meta itemprop="datePublished" content="{{ page.date | date_to_xmlschema }}">{% endif %}
@@ -85,7 +89,7 @@ layout: default
 
     <div class="page__inner-wrap">
       {% unless jcem_overlay_header %}
-        <header class="jcem-post-header"{% if page.collection == 'posts' %} data-print-span="all"{% endif %}>
+        <header class="jcem-post-header"{% if jcem_is_article %} data-print-span="all"{% endif %}>
           {% if jcem_content_featured %}
             {% include jcem/post-featured-image.html style="content" %}
           {% else %}
@@ -100,9 +104,9 @@ layout: default
         </header>
       {% endunless %}
 
-	  {% if page.collection == 'posts' %}{% include jcem/print-metadata.html %}{% endif %}
+	  {% if jcem_is_article %}{% include jcem/print-metadata.html %}{% endif %}
 
-      <section class="page__content e-content"{% if page.collection == 'posts' %} data-print-body{% endif %} itemprop="text">
+      <section class="page__content e-content"{% if jcem_is_article %} data-print-body{% endif %} itemprop="text">
         {% if page.toc %}
           <aside class="sidebar__right {% if page.toc_sticky %}sticky{% endif %}">
             <nav class="toc" aria-label="Table of contents">
@@ -115,7 +119,7 @@ layout: default
         {% if page.link %}<div><a href="{{ page.link }}" class="btn btn--primary">{{ site.data.ui-text[locale].ext_link_label | default: "Direct Link" }}</a></div>{% endif %}
       </section>
 
-      {% if page.collection == 'posts' %}{% include jcem/article-authors.html %}{% endif %}
+      {% if jcem_is_article %}{% include jcem/article-authors.html %}{% endif %}
 
       <footer class="page__meta">
         {% if site.data.ui-text[locale].meta_label %}
@@ -127,7 +131,6 @@ layout: default
       {% if page.share %}{% include social-share.html locale=locale %}{% endif %}
 
       {% include post_pagination.html locale=locale %}
-	  {% if page.collection == 'posts' %}{% include jcem/print-institutional.html %}{% endif %}
     </div>
 
     {% if site.comments.provider and page.comments %}
@@ -141,6 +144,8 @@ layout: default
       {% endif %}
     {% endif %}
   </article>
+
+  {% if jcem_is_article %}{% include jcem/print-institutional.html %}{% endif %}
 
   {% comment %}<!-- only show related on a post page when `related: true` -->{% endcomment %}
   {% if page.id and page.related and site.related_posts.size > 0 %}

@@ -1,5 +1,5 @@
 {% assign locale = include.locale | default: site.locale %}
-{% assign document = post | default: page %}
+{% assign document = include.post | default: post | default: page %}
 {% if document.read_time %}
   {% assign words_per_minute = document.words_per_minute | default: site.words_per_minute | default: 200 %}
   {% assign words = document.content | strip_html | number_of_words %}

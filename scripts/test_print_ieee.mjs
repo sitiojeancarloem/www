@@ -28,7 +28,7 @@ const headInclude = await readFile(
 	'utf8',
 );
 assert.match(css, /size:\s*A4/);
-assert.match(css, /margin:\s*19\.05mm 14\.3225mm 43mm/);
+assert.match(css, /margin:\s*19\.05mm 14\.3225mm 25mm/);
 assert.match(css, /column-gap:\s*4\.2175mm/);
 assert.match(css, /column-fill:\s*balance/);
 assert.match(css, /\[data-print-body\][^{]*:where\(p, li\)\s*\{[^}]*text-align:\s*justify\s*!important/s);
@@ -52,7 +52,7 @@ assert.match(
 );
 
 const dom = new JSDOM(
-	'<article data-print-article data-print-state="legivel"><time data-print-acquired-at></time><aside data-print-span="all"></aside></article>',
+	'<main><article data-print-article data-print-state="legivel"><div data-print-span="all"></div><section data-print-body><p><a href="https://example.test/fonte">Fonte</a></p></section></article><footer data-print-institutional><time data-print-acquired-at></time></footer></main>',
 	{ url: 'https://example.test/post/' },
 );
 Object.assign(globalThis, {
@@ -77,8 +77,13 @@ const controller = library.prepareArticle(article, {
 });
 assert.equal(controller.getState(), 'nativo-preparado');
 assert.equal(article.dataset.printProfile, profile.id);
-assert.equal(article.querySelector('time').getAttribute('datetime'), '2026-08-09T12:00:00.000Z');
-assert.equal(article.querySelector('aside').dataset.printSpan, 'all');
+assert.equal(document.querySelector('time').getAttribute('datetime'), '2026-08-09T12:00:00.000Z');
+assert.match(document.querySelector('[data-print-page-footer-style]').textContent, /@bottom-center/);
+assert.match(document.querySelector('[data-print-page-footer-style]').textContent, /09\/08\/2026/);
+assert.equal(article.querySelector('[data-print-span]').dataset.printSpan, 'all');
+assert.equal(article.querySelectorAll('[data-print-link-note]').length, 1);
+assert.equal(article.querySelectorAll('[data-print-link-references] li').length, 1);
+assert.match(article.querySelector('[data-print-link-references]').textContent, /https:\/\/example\.test\/fonte/);
 controller.dispose();
 
 const publicModule = await readFile(
@@ -96,6 +101,7 @@ const adapterCss = await readFile(
 assert.match(adapterCss, /\.jcem-quote__icon\s*\{[^}]*display:\s*none\s*!important/s);
 assert.match(adapterCss, /\.jcem-post-header,[^{]*\[data-print-metadata\]\s*\{[^}]*column-span:\s*all\s*!important/s);
 assert.match(adapterCss, /\.jcem-article-authors\s*\{[^}]*display:\s*none\s*!important/s);
+assert.match(adapterCss, /> :not\(\.main_jcem_wrapper, \[data-print-institutional\]\)/);
 for (const webOnlySelector of [
 	'.toc',
 	'.header-link',
@@ -128,6 +134,14 @@ assert.match(printMetadata, /data-print-summary[^>]*lang="pt-BR"/);
 assert.match(printMetadata, /data-print-abstract[^>]*lang="en"/);
 assert.match(printMetadata, /page\.description/);
 assert.match(printMetadata, /page\.abstract/);
+const printInstitutional = await readFile(
+	path.join(repositoryRoot, '_includes', 'jcem', 'print-institutional.html'),
+	'utf8',
+);
+assert.match(printInstitutional, /data-print-acquired-at/);
+assert.match(printInstitutional, /page\.url \| absolute_url/);
+assert.match(css, /body:has\(\[data-print-article\]\) \[data-print-institutional\][\s\S]*display:\s*none\s*!important/);
+assert.ok(layout.indexOf('{% include jcem/print-institutional.html %}') > layout.indexOf('</article>'));
 
 const postsRoot = path.join(repositoryRoot, '_posts');
 for (const name of (await readdir(postsRoot)).filter((entry) => entry.endsWith('.md'))) {

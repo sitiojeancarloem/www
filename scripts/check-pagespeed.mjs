@@ -43,7 +43,21 @@ export const validateConfig = (config) => {
 			if (!sample.id || !String(sample.path).startsWith('/') || sampleIds.has(sample.id)) {
 				throw new Error(`PAGESPEED_AMOSTRA_INVALIDA:${sample.id || ''}`);
 			}
+			if (sample.categories && (
+				!Array.isArray(sample.categories) ||
+				!sample.categories.length ||
+				sample.categories.some((category) => !config.categories.includes(category))
+			)) throw new Error(`PAGESPEED_CATEGORIAS_INVALIDAS:${sample.id}`);
+			if (sample.gateCategories && (
+				!Array.isArray(sample.gateCategories) ||
+				!sample.gateCategories.length ||
+				sample.gateCategories.some((category) => !(sample.categories || layout.categories || config.categories).includes(category))
+			)) throw new Error(`PAGESPEED_GATE_CATEGORIAS_INVALIDAS:${sample.id}`);
 			sampleIds.add(sample.id);
+		}
+		if (layout.samples.filter((sample) => sample.gate !== false).length < 2 ||
+			layout.samples.filter((sample) => sample.gate !== false && (!sample.gateCategories || sample.gateCategories.includes('performance'))).length < 2) {
+			throw new Error(`PAGESPEED_GATE_INSUFICIENTE:${layout.id}`);
 		}
 	}
 	return config;
@@ -63,10 +77,18 @@ export const aggregateLayouts = (results, minimumScore) => {
 		groups.get(key).push(result);
 	}
 	return [...groups.values()].map((samples) => {
+		const gateSamples = samples.filter((sample) => sample.gate !== false);
+		const categoryIds = [...new Set(gateSamples.flatMap((sample) =>
+			Object.keys(sample.categories).filter((category) => !sample.gateCategories || sample.gateCategories.includes(category)),
+		))];
 		const categories = Object.fromEntries(
-			Object.keys(samples[0].categories).map((category) => [
+			categoryIds.map((category) => [
 				category,
-				Math.round(median(samples.map((sample) => sample.categories[category])) * 10) / 10,
+				Math.round(median(
+					gateSamples
+						.filter((sample) => Object.hasOwn(sample.categories, category) && (!sample.gateCategories || sample.gateCategories.includes(category)))
+						.map((sample) => sample.categories[category]),
+				) * 10) / 10,
 			]),
 		);
 		const failing = Object.entries(categories)
@@ -76,10 +98,12 @@ export const aggregateLayouts = (results, minimumScore) => {
 			layout: samples[0].layout,
 			strategy: samples[0].strategy,
 			categories,
-			samples: samples.map(({ target, url, categories: sampleCategories }) => ({
+			samples: samples.map(({ target, url, categories: sampleCategories, gate, gateCategories }) => ({
 				target,
 				url,
 				categories: sampleCategories,
+				gate,
+				gateCategories,
 			})),
 			failing,
 			ok: failing.length === 0,
@@ -185,6 +209,8 @@ export const summarize = (payload, target, strategy, minimumScore) => {
 		layout: target.layout,
 		target: target.id,
 		url: target.url,
+		gate: target.gate !== false,
+		gateCategories: target.gateCategories,
 		strategy,
 		categories,
 		vitals,
@@ -234,7 +260,7 @@ export const run = async (argv = process.argv.slice(2)) => {
 		layout.samples.map((sample) => ({
 			...sample,
 			layout: layout.id,
-			categories: layout.categories,
+			categories: sample.categories || layout.categories,
 			url: new URL(sample.path, baseUrl).href,
 		})),
 	).filter((target) => !only || target.layout === only || target.id === only);
