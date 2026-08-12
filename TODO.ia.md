@@ -1,22 +1,30 @@
 # RCF — Governança da TO-DO
 
+Esta seção de governança DEVE permanecer no topo do arquivo, NÃO PODE ser removida nem editada e rege todas as TO-DOs posteriores até o marcador explícito de início das TO-DOs operacionais.
+
 ## 1. Estrutura normativa do arquivo
 
 Este arquivo constitui uma lista normativa e operacional de TO-DOs convergentes.
 
 Todo item de topo DEVE:
 
-- iniciar exatamente com `- [ ]`;
+- iniciar exatamente com `- [ ]` ou `- [x]`;
 - começar sem indentação;
 - representar uma frente autônoma subordinada às normas deste RCF.
 
-Todo conteúdo imediatamente posterior a um item de topo, enquanto não houver outro item iniciado exatamente por `- [ ]` sem indentação, DEVE ser interpretado como subordinado ao item de topo imediatamente anterior.
+Todo conteúdo imediatamente posterior a um item de topo, enquanto não houver outro item iniciado sem indentação por `- [ ]` ou `- [x]`, DEVE ser interpretado como subordinado ao item de topo imediatamente anterior.
 
 A forma interna dessa subordinação é livre: PODE conter subtítulos, subitens, regras em estilo RCF, ordens, critérios, listas de afazeres, etapas, notas ou estruturas equivalentes. A semântica hierárquica prevalece sobre a forma.
 
 A formatação do arquivo DEVE preservar indentação visual coerente e inequívoca de todo conteúdo subordinado. Títulos, listas, blocos e demais conteúdos pertencentes a um item de topo DEVEM permanecer visualmente aninhados a ele.
 
-## 2. Regra perene de convergência
+## 2. Status, andamento e conclusão
+
+A marcação `[x]` NÃO significa conclusão: indica apenas que o item foi lido, teve sua FT criada e encontra-se em andamento. Itens NÃO iniciados DEVEM permanecer como `[ ]`.
+
+TO-DOs integralmente concluídas DEVEM ser removidas, mantendo o arquivo limpo.
+
+## 3. Regra perene de convergência
 
 - [ ] Equalizar e executar as TO-DOs como frentes convergentes de um único objetivo
   - Este item rege todas as demais TO-DOs. Cada uma DEVE ser tratada como frente complementar de uma única execução, conciliada com as demais e convergente ao objetivo principal do projeto.
@@ -44,15 +52,17 @@ A formatação do arquivo DEVE preservar indentação visual coerente e inequív
     - dependências e ordem recomendada;
     - impedimentos materiais identificados.
 
-  - Toda alteração que modifique o modo de codificar Markdown DEVE ser documentada no respectivo modo de uso.
+  - Somente quando aplicável ao contexto do repositório, toda alteração que modifique o modo de codificar Markdown DEVE ser documentada no respectivo modo de uso.
 
-  - TO-DOs integralmente concluídas DEVEM ser removidas, mantendo o arquivo limpo.
+  - Este item e toda a seção `# RCF — Governança da TO-DO` são perenes: NÃO PODEM ser marcados como concluídos, removidos ou alterados. Sua contabilização somente é necessária enquanto existir ao menos uma TO-DO por eles regida.
 
-  - A marcação `[x]` NÃO significa conclusão: indica apenas que o item foi lido, teve sua FT criada e encontra-se em andamento. Itens NÃO iniciados DEVEM permanecer como `[ ]`.
+---
 
-  - Este item e "# RCF — Governança da TO-DO" é perene: NÃO PODE ser marcado como concluído, removido ou alterado. Sua contabilização somente é necessária enquanto existir ao menos uma TO-DO por ele regida.
+# TO-DOs
 
-* [x] RCF — Biblioteca agnóstica para impressão Web em formato IEEE
+Este marcador encerra a seção de governança e inicia exclusivamente as TO-DOs operacionais. Todo item de topo abaixo dele está sujeito integralmente ao RCF acima.
+
+- [x] RCF — Biblioteca agnóstica para impressão Web em formato IEEE
 
   ## 1. Objetivo
 
@@ -495,7 +505,7 @@ A formatação do arquivo DEVE preservar indentação visual coerente e inequív
 
   Similaridade visual em tela, dependência exclusiva de um motor, funcionamento apenas por fluxo controlado, correções específicas do primeiro site, recusa injustificada ao uso de tecnologias nativas da plataforma ou mera separação física de arquivos NÃO constituem conformidade.
 
-- [x] Issue 1 — RCF/FT: Normatizar e implementar citações inline em artigos/postagens
+* [x] Issue 1 — RCF/FT: Normatizar e implementar citações inline em artigos/postagens
 
   ### Contexto
 
@@ -534,9 +544,9 @@ A formatação do arquivo DEVE preservar indentação visual coerente e inequív
   - Testes demonstram comportamento correto nos diferentes contextos suportados.
   - A implementação permanece compatível com impressão e com a issue `RCF — Biblioteca agnóstica para impressão Web em formato IEEE`.
 
-  ***
+  ---
 
-- [x] Issue 2 — RCF/FT: Normatizar subcitações e sua diferenciação visual dinâmica
+* [x] Issue 2 — RCF/FT: Normatizar subcitações e sua diferenciação visual dinâmica
 
   ### Contexto
 
@@ -580,7 +590,7 @@ A formatação do arquivo DEVE preservar indentação visual coerente e inequív
   - Nenhum modelo de citação existente perde sua estilização.
   - Testes cobrem aninhamento, temas, modelos estruturais e impressão.
 
-  ***
+  ---
 
   # Issue 3 — RCF/FT: Unificar e normatizar `blockquote` como conceito semântico e permitir estilos/modelos por ocorrência
 
@@ -647,7 +657,7 @@ A formatação do arquivo DEVE preservar indentação visual coerente e inequív
   - Novos modelos podem ser incorporados sem reestruturar a norma.
   - Testes comprovam os comportamentos acima.
 
-  ***
+  ---
 
   # Dependências e integração
 
@@ -660,7 +670,7 @@ A formatação do arquivo DEVE preservar indentação visual coerente e inequív
 
   Nenhuma FT DEVE assumir estrutura, arquivo, pipeline, biblioteca, hook ou mecanismo que não seja comprovado pela inspeção do estado real do projeto.
 
-- [x] Consolidar namespaces editoriais, roteamento em sub-RCFs e publicação determinística
+* [x] Consolidar namespaces editoriais, roteamento em sub-RCFs e publicação determinística
   - INSPECIONE integralmente o estado real do repositório, RCF principal, `AGENTS.md`, `agents.local.md` equivalente, configuração Jekyll/GitHub Pages, plugins, layouts, conteúdos e normas existentes antes de alterar qualquer artefato.
   - Toda edição normativa DEVE preservar integralmente regras, recursos, contratos, especializações e melhorias já existentes, inclusive não relacionadas diretamente a esta tarefa. É PROIBIDO enfraquecer, degradar ou remover gradualmente comportamento normatizado sob pretexto de reorganização.
   - Preserve e consolide a semântica já estabelecida de namespace: identificador de classe editorial anteposto ao título lógico, análogo aos namespaces da Wikipédia, sem equivalê-lo a diretório-fonte ou taxonomia ordinária. :contentReference[oaicite:0]{index=0}
@@ -714,7 +724,7 @@ A formatação do arquivo DEVE preservar indentação visual coerente e inequív
     - Sub-RCF NÃO PODE redefinir normas gerais sem delegação explícita da RCF principal.
     - Antes de criar nova norma, procure regra equivalente e consolide-a; NÃO duplique contratos.
 
-- [x] Instituir desempenho web ≥90 como requisito permanente e corrigir gargalos reais
+* [x] Instituir desempenho web ≥90 como requisito permanente e corrigir gargalos reais
   - Normatize explicitamente, de forma permanente, que implementação, manutenção, refatoração e evolução do site DEVEM buscar e manter **90%+ em todas as métricas/categorias aplicáveis do PageSpeed Insights**, tanto em mobile quanto desktop, para cada modalidade real de página publicada.
   - Abranja, no mínimo, layouts reais existentes como:
     - home;
@@ -771,7 +781,7 @@ A formatação do arquivo DEVE preservar indentação visual coerente e inequív
       - alternativas menores igualmente compatíveis.
     - Substituição de dependência somente DEVE ocorrer se houver ganho comprovado sem regressão funcional ou normativa.
 
-- [x] Corrigir controles visuais e implementar sistema responsivo de blockquotes tipados
+* [x] Corrigir controles visuais e implementar sistema responsivo de blockquotes tipados
   - **Switch claro/escuro**
     - Preserve integralmente aparência e aderência visual atuais.
     - Corrija exclusivamente a área interativa: clique/tap em qualquer ponto do switch inteiro DEVE alternar o estado/tema.
@@ -805,7 +815,7 @@ A formatação do arquivo DEVE preservar indentação visual coerente e inequív
       ```
     - Normatize essa associação na sub-RCF de bate-papo.
 
-- [x] Preservar otimização responsiva das imagens de cards e thumbnails
+* [x] Preservar otimização responsiva das imagens de cards e thumbnails
   - Localize a TO-DO/regra já existente sobre variantes responsivas de imagem.
   - Se realmente existir, **some este requisito à norma existente**, NÃO crie contrato paralelo.
   - Cards, thumbnails e demais consumidores DEVEM carregar somente a menor imagem que satisfaça a resolução real necessária no contexto corrente.
@@ -819,7 +829,7 @@ A formatação do arquivo DEVE preservar indentação visual coerente e inequív
     - índice de medidas/proporções.
   - NÃO regredir para download da maior imagem por conveniência.
 
-- [x] Criar e aplicar sub-RCF especializada para sínteses `bate-papo`
+* [x] Criar e aplicar sub-RCF especializada para sínteses `bate-papo`
   - Criar sub-RCF compacta, autossuficiente em seu domínio e subordinada à RCF principal.
   - A RCF principal DEVE obrigatoriamente roteá-la e referenciá-la por link relativo real sob `./RCFs/`.
   - A norma especializada DEVE generalizar a classe editorial, NÃO um artigo particular.
@@ -957,12 +967,12 @@ A formatação do arquivo DEVE preservar indentação visual coerente e inequív
       - testes/validadores aplicáveis.
     - O aceite exige comportamento uniforme, determinístico e verificável para conteúdos atuais e futuros, sem perda de regra, feature, citação, referência, detalhe, nuance ou especialização preexistente.
 
-- [ ] Criar, conforme já definido no RCF, a `síntese fiel` em .md, da transcrição do bate-papo salvo em `_drafts\bate-papo\eventos-finais\` salvando-o devidamente para .md, já devidamente nomeado e aninhado.
+* [ ] Criar, conforme já definido no RCF, a `síntese fiel` em .md, da transcrição do bate-papo salvo em `_drafts\bate-papo\eventos-finais\` salvando-o devidamente para .md, já devidamente nomeado e aninhado.
   - preservar todo detalhe e nuance importante para correta compreensão;
   - citações e referenciasa não podem ser perdidas em devem ser localizadas e preenchidas casos não estejam plenamente compreendias;
   - Considerar que por boa parte do tempo inicial, cerca de 30 minutos, o assunto não hava iniciado, embora eventualmente tocado em assuntos importantes, o papo ficou em cumprimentos e em grande parte em assuntos não teológicos que devem ser ignorados.
   - realizar commit após completo.
 
-- [ ] corrigir o nome do outro \_draft de bate papo para subnamespacesob `eventos-finais`.
+* [ ] corrigir o nome do outro \_draft de bate papo para subnamespacesob `eventos-finais`.
 
-- [ ] Publicar ambos os bate-papos.
+* [ ] Publicar ambos os bate-papos.
