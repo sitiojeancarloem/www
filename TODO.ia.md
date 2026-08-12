@@ -1003,3 +1003,10 @@ Este marcador encerra a seção de governança e inicia exclusivamente as TO-DOs
 * [ ] Restaurar limite responsivo da imagem de destaque conforme `.ia.rules\state\requests\evidencias\evidencia5.png`
   - A imagem de destaque JAMAIS PODE exceder a altura disponível da viewport nem, com scroll totalmente no topo, ultrapassar visualmente sua borda inferior.
   - Corrigir somente dimensionamento/layout necessário, preservando responsividade, proporção, qualidade e demais comportamentos válidos existentes.
+
+* [ ] Gerar thumbnail Open Graph (e equivalente) compatível e otimizada no build
+  - Para `og:*` e metadados sociais equivalentes, gerar em **tempo de build** uma thumbnail específica com dimensão final de **630 px**, independentemente do formato WebP usado internamente pelo site.
+  - A saída social DEVE ser `.png` ou `.jpg/.jpeg`, escolhendo automaticamente o formato que apresentar a melhor relação **qualidade/tamanho**, com otimização agressiva sem degradação visual relevante.
+  - A geração DEVE partir do original/fonte adequada, NÃO de imagem previamente recomprimida, evitando degradação cumulativa.
+  - A variante OG DEVE ser determinística, cacheável/rastreável e regenerada somente quando sua fonte ou parâmetros efetivamente mudarem.
+  - Aplicar a mesma saída aos metadados sociais compatíveis pertinentes, preservando recursos e otimizações existentes e sem alterar o asset editorial original.
