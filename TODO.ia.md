@@ -1010,3 +1010,10 @@ Este marcador encerra a seção de governança e inicia exclusivamente as TO-DOs
   - A geração DEVE partir do original/fonte adequada, NÃO de imagem previamente recomprimida, evitando degradação cumulativa.
   - A variante OG DEVE ser determinística, cacheável/rastreável e regenerada somente quando sua fonte ou parâmetros efetivamente mudarem.
   - Aplicar a mesma saída aos metadados sociais compatíveis pertinentes, preservando recursos e otimizações existentes e sem alterar o asset editorial original.
+
+* [ ] Corrigir regressões visuais cirúrgicas conforme `evidencia6.png` a `evidencia9.png`
+  - Preservar proporção, limite de altura e preenchimento vertical da imagem destacada sem deformação.
+  - Manter flags de cards sobrepostas, integralmente visíveis e corretamente ancoradas, sem clipping.
+  - Permitir que citações extensas atravessem naturalmente colunas na impressão.
+  - Eliminar espaço inferior interno excedente de modelos tipados sem reduzir o padding legítimo.
+  - Validar cada evidência, claro, escuro, impressão e comportamentos adjacentes sem regressão.

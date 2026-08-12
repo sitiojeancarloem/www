@@ -134,6 +134,20 @@ plano:
       - regressao dos cards e limite da imagem destacada corrigidos
       - URLs de links e rodape institucional materializados exclusivamente na impressao
       - gates locais e matriz visual aprovados
+  - id: FT-028
+    classe: implementacao_normativa_codigo
+    criado_em: 2026-08-12T10:25:00-03:00
+    estado: planejado
+    depende_de: FT-027
+    fonte: .ia.rules/state/requests/FT-028/prompt.md
+    objetivo: Corrigir cirurgicamente as regressoes documentadas nas evidencias 6 a 9 sem afetar contratos consolidados.
+    escopo: RCF-JCEM-CARREGAMENTO-PROGRESSIVO-001, RCF-JCEM-COMPONENTES-COMPARTILHADOS-001, RCF-JCEM-CITACOES-001 e RCF-JCEM-IMPRESSAO-IEEE-001.
+    aceite:
+      - imagem destacada preserva proporcao, limite vertical e preenchimento sem deformacao
+      - flags de cards permanecem sobrepostas, ancoradas e integralmente visiveis
+      - citacoes extensas fragmentam naturalmente entre colunas impressas
+      - modelos tipados nao mantem vazio inferior artificial e preservam padding legitimo
+      - claro, escuro, impressao e matriz adjacente aprovados sem regressao
 lacunas:
   - id: GAP-AGENTS-CJS-ESM-001
     estado: isolada
