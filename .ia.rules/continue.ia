@@ -191,7 +191,7 @@ plano:
   - id: FT-031
     classe: integracao_publicacao
     criado_em: 2026-08-12T14:30:02-03:00
-    estado: em_andamento
+    estado: concluido
     depende_de: FT-030
     fonte: .ia.rules/state/requests/FT-029/prompt.md
     objetivo: Integrar, limpar TO-DOs concluidas, publicar e validar o resultado no GitHub Pages.
@@ -203,7 +203,9 @@ plano:
     progresso:
       - TO-DOs operacionais concluidas removidas e item equalizer perene preservado literalmente
       - implementacao, contrato, fonte da FT e validacoes separados em commits rastreaveis
-      - integracao e publicacao oficial preparadas para o commit final desta FT
+      - commit-fonte 918ac24b6add66556b8513c0a0a16278dece4de9 integrado por fast-forward em main e publicado pelo fluxo oficial
+      - gh-pages registrou source_sha exato, deploy serviu o novo conector e cleanup removeu branch temporario e gatilho publicar
+      - commit automatico b79df3a7f9c65624ced2ea34a292c42f47e39497 sincronizado localmente antes do encerramento
 lacunas:
   - id: GAP-AGENTS-CJS-ESM-001
     estado: isolada
