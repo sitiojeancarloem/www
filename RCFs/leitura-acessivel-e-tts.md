@@ -1,4 +1,5 @@
 <!-- AI-PROCESSED -->
+
 # RCF-JCEM-LEITURA-ACESSIVEL-TTS-001
 
 Status: vigente; implementação pendente nas FTs 035–037.
@@ -27,17 +28,17 @@ Escopo: representação acessível e falada de artigos, posts, páginas, navega�
 
 O normalizador DEVE gerar no máximo um marcador por fronteira semântica. Leitor de tela que já anuncia função nativa NÃO DEVE receber duplicação mecânica equivalente.
 
-| Finalidade | Contexto | Forma falada padrão | Não se aplica quando |
-|---|---|---|---|
-| início/fim de artigo | fluxo que agrega mais de uma publicação | `Início do artigo: <título>.` / `Fim do artigo: <título>.` | um único `article` já está isolado e seu limite é inequívoco |
-| bloco citado | citação semântica em bloco | `Início da citação.` / `Fim da citação.` | a tecnologia alvo já anuncia os limites sem ambiguidade comprovada |
-| citação inline | trecho citado dentro da frase | pausa breve e, havendo fonte real, `citação de <fonte curta>` | a indicação quebrar a unidade prosódica ou repetir fonte adjacente |
-| referência por ocorrência | nota ou citação vinculada | `<parcela usada> <edição/versão>` ou `<AUTOR>, <ano>[. <título>]` | vínculo inequívoco não puder ser provado; nesse caso preserva-se referência suficiente |
-| aviso tipado | entrada de aviso editorial/legal | rótulo humano do tipo uma única vez | o próprio heading/rótulo já for anunciado no ponto correto |
-| tabela | entrada de tabela de dados | `Tabela: <caption>.` | apresentação não tabular ou caption já anunciado sem ambiguidade |
-| imagem informativa | imagem que acrescenta conteúdo | alternativa breve focada na função | imagem decorativa com alternativa vazia |
-| gráfico | visualização de dados | `Gráfico: <síntese principal>.` seguido de acesso à descrição/dados | renderer apenas duplicar representação já anunciada e estiver oculto à árvore |
-| navegação | anterior/próximo, paginação, relacionados ou social | nome da região, função e destino | informação já compuser o nome acessível sem repetição |
+| Finalidade                | Contexto                                            | Forma falada padrão                                                 | Não se aplica quando                                                                   |
+| ------------------------- | --------------------------------------------------- | ------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
+| início/fim de artigo      | fluxo que agrega mais de uma publicação             | `Início do artigo: <título>.` / `Fim do artigo: <título>.`          | um único `article` já está isolado e seu limite é inequívoco                           |
+| bloco citado              | citação semântica em bloco                          | `Início da citação.` / `Fim da citação.`                            | a tecnologia alvo já anuncia os limites sem ambiguidade comprovada                     |
+| citação inline            | trecho citado dentro da frase                       | pausa breve e, havendo fonte real, `citação de <fonte curta>`       | a indicação quebrar a unidade prosódica ou repetir fonte adjacente                     |
+| referência por ocorrência | nota ou citação vinculada                           | `<parcela usada> <edição/versão>` ou `<AUTOR>, <ano>[. <título>]`   | vínculo inequívoco não puder ser provado; nesse caso preserva-se referência suficiente |
+| aviso tipado              | entrada de aviso editorial/legal                    | rótulo humano do tipo uma única vez                                 | o próprio heading/rótulo já for anunciado no ponto correto                             |
+| tabela                    | entrada de tabela de dados                          | `Tabela: <caption>.`                                                | apresentação não tabular ou caption já anunciado sem ambiguidade                       |
+| imagem informativa        | imagem que acrescenta conteúdo                      | alternativa breve focada na função                                  | imagem decorativa com alternativa vazia                                                |
+| gráfico                   | visualização de dados                               | `Gráfico: <síntese principal>.` seguido de acesso à descrição/dados | renderer apenas duplicar representação já anunciada e estiver oculto à árvore          |
+| navegação                 | anterior/próximo, paginação, relacionados ou social | nome da região, função e destino                                    | informação já compuser o nome acessível sem repetição                                  |
 
 - Personalização rara DEVE ser explícita, local, revisável e limitada ao prefixo, sufixo, pronúncia ou forma falada da ocorrência. Ela NÃO PODE alterar padrão global, HTML visual ou outras ocorrências.
 - Pausa, ênfase e entonação DEVEM decorrer primeiro de pontuação e estrutura. SSML NÃO PODE ser inserido no HTML nem assumido por leitores de tela; qualquer exportador SSML futuro exige adaptador separado e não altera a fonte.
@@ -79,7 +80,7 @@ O normalizador DEVE gerar no máximo um marcador por fronteira semântica. Leito
 
 ## 8. Renderer gráfico e dependências condicionais
 
-- A solução aprovada é **Chart.js 4.5.1**, licença MIT, somente como renderer client-side opcional. A versão efetiva DEVE ser fixada em manifesto/lock e qualquer atualização material reabre compatibilidade, licença, segurança, peso e acessibilidade.
+- A solução aprovada é **Chart.js 4.5.1+**, licença MIT, somente como renderer client-side opcional. A versão efetiva DEVE ser fixada em manifesto/lock e qualquer atualização material reabre compatibilidade, licença, segurança, peso e acessibilidade.
 - A escolha considera: Chart.js ativo, integração por script/ESM, componentes registráveis e suporte explícito a fallback/ARIA sob responsabilidade do autor; Apache ECharts oferece ARIA/decal e escopo visual mais amplo, porém maior superfície; Vega-Lite oferece gramática declarativa e leitura nativa de CSV/JSON, porém adiciona compilador/runtime mais abrangente. A fonte acessível independente reduz a vantagem de engines maiores neste projeto.
 - CSV/JSON DEVEM ser analisados no build pelo pipeline vigente e convertidos a uma projeção única validada. Chart.js não é parser nem autoridade de dados.
 - A implementação inicial NÃO PODE introduzir bundler novo apenas para gráficos. Deve usar distribuição local auditável compatível com o pipeline atual; otimização por componentes só pode acrescentar ferramenta após FT normativa própria e ganho líquido comprovado.
