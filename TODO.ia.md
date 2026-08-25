@@ -70,42 +70,84 @@ Este marcador encerra a seção de governança e inicia exclusivamente as TO-DOs
   - A FT destinada a corrigir `.ia.rules\state\requests\evidencias\evidencia1.png` NÃO resolveu o defeito, ao menos no GitHub Pages atualmente publicado.
   - Usar `evidencia1a.png` como referência do comportamento esperado e `evidencia1b.png` como estado efetivamente observado nas páginas 404.
   - Inspecionar causa, FT, fontes, build e artefato publicado conforme necessário; corrigir a causa real, NÃO apenas o caso local/visual.
-  - O logotipo da 404 DEVE reproduzir o mesmo comportamento normatizado das páginas corretas, extrapolando suavemente a barra sem crop indevido.
+  - O logotipo da 404 DEVE reproduzir o comportamento normatizado das páginas corretas, extrapolando suavemente a barra sem crop indevido.
   - Alteração estritamente cirúrgica: NÃO regredir nem contornar estilos, responsividade, sobreposição, clipping, navegação ou recursos já evoluídos. Validar também no resultado efetivamente publicado.
+
+- [ ] Normatizar e rotear o modus operandi especializado da IA (específico do projeto)
+  - Consolidar primeiramente no RCF e, após isso, refletir de forma semanticamente equivalente e ultraotimizada em `agents.local.md` e subarquivos roteados aplicáveis as regras de **modus operandi da IA** específicas do projeto.
+  - O RCF permanece como especificação detalhada/canônica subordinada ao `AGENTS.md`; `agents.local.md` e seus subarquivos DEVEM funcionar como representação operacional condensada para reduzir leitura, tokens e tempo de processamento, sem perda de força normativa, exceções, precedências ou significado.
+  - Roteamento DEVE permitir carregar somente regras pertinentes ao contexto/tarefa, sem duplicação divergente nem necessidade de leitura integral do RCF quando dispensável.
+  - Incluir, entre outras regras especializadas efetivamente existentes/aplicáveis:
+    - avaliação contínua da aderência das otimizações do site ao `pagespeed.web.dev`, segundo os critérios já normatizados;
+    - modus operandi para criação/edição de conteúdo editorial;
+    - modus operandi para síntese de bate-papos;
+    - padrões e decisões operacionais de TTS/acessibilidade definidos pelas TO-DOs correlatas;
+    - outros que existam no RCF.
+
+  - NÃO inventar taxonomia, caminhos, arquitetura ou fragmentação. Inspecionar o roteamento vigente e especializar somente onde produzir redução real de contexto sem romper precedência, persistência normativa ou compatibilidade.
 
 - [ ] Tornar todo conteúdo editorial e navegação essencial semanticamente compatíveis com TTS
   - Todo artigo existente e futuro DEVE possuir representação de leitura completa, natural e inequívoca, sem exigir alteração ou inserção de explicações no texto visual original.
-  - O escopo obrigatório compreende o conteúdo redacional e, ainda que não todo elemento visual do site, tudo que seja necessário à compreensão/navegação da leitura: títulos/subtítulos, enumerações, `Anterior`, `Próximo`, paginação, identificação da própria navegação, títulos e excertos dos artigos nela apresentados, links/botões sociais e separação verbal explícita entre fim de um artigo e início do seguinte.
+  - O escopo obrigatório compreende o conteúdo redacional e, ainda que não todo elemento visual do site, tudo necessário à compreensão/navegação da leitura: títulos/subtítulos, enumerações, `Anterior`, `Próximo`, paginação, identificação verbal da própria navegação, títulos e excertos dos artigos nela apresentados, links/botões sociais e separação verbal explícita entre fim de um artigo e início de outro.
   - Rodapé, avisos e alertas editoriais/legais também DEVEM ser integralmente legíveis, incluindo `IMPORTANTE`, `AVISO DE CONTEÚDO SENSÍVEL E PÚBLICO-ALVO`, `LIBERDADE DE EXPRESSÃO, LIMITES E INTERPRETAÇÃO DO CONTEÚDO`, `ATENÇÃO`, `Legal`, `Advertências`, `Privacidade`, `Licença` e equivalentes existentes.
-  - Elementos apenas visuais/iconográficos DEVEM possuir nome/função verbal inequívocos. Estrutura de página, headings, regiões e relações DEVEM continuar programaticamente determináveis; HTML semântico é prioritário e ARIA somente complementa onde necessário. W3C documenta que essa estrutura é exposta pelas APIs de acessibilidade e utilizada por tecnologias assistivas.
-  - Conteúdo adicional destinado exclusivamente à fala/acessibilidade PODE permanecer visualmente oculto, mas DEVE continuar disponível à representação acessível; NÃO usar mecanismo que o elimine também da leitura.
-  - NÃO vincular a solução desnecessariamente a motor, biblioteca ou API TTS específica. Maximizar interoperabilidade por semântica web padronizada e aplicar recursos específicos somente como aprimoramento quando a implementação real justificar.
+  - Elementos exclusivamente visuais/iconográficos essenciais DEVEM possuir nome/função verbal inequívocos. Estrutura, headings, regiões e relações DEVEM permanecer programaticamente determináveis; priorizar semântica web interoperável e usar mecanismos complementares somente quando necessários.
+  - Conteúdo exclusivamente auditivo/acessível PODE permanecer invisível visualmente, mas NÃO PODE ser removido da representação acessível.
+  - NÃO vincular desnecessariamente a solução a motor, biblioteca ou API TTS específica; maximizar compatibilidade entre navegadores e tecnologias assistivas tecnicamente viáveis.
+
+- [ ] Padronizar ligações, marcadores e prosódia exclusivos do TTS
+  - Palavras, expressões de ligação, identificadores de contexto e informações de entonação/prosódia adicionadas exclusivamente à leitura DEVEM, tanto quanto possível, ser padronizadas no RCF e roteadas para `agents.local.md`/subarquivos aplicáveis.
+  - Manter tabela normativa compacta indicando, para cada padrão: finalidade, contexto de uso, forma falada/prosódica e situações em que NÃO se aplica.
+  - Abranger transições relevantes, incluindo autoria↔citação, blocos, referências, tabelas, imagens, gráficos, navegação, avisos, fim/início de artigos e equivalentes.
+  - A padronização NÃO PODE produzir fala mecânica nem impedir, rara e justificadamente, expressão, entonação ou construção personalizada mais adequada ao contexto específico de uma publicação.
+  - Personalizações DEVEM complementar/substituir somente a ocorrência pertinente, sem alterar o texto visual nem descaracterizar o padrão global.
 
 - [ ] Diferenciar citações e referências na leitura TTS sem alterar o texto editorial
-  - Toda citação DEVE ser verbalmente distinguível da voz autoral, inclusive quando a marcação visual/HTML utilizada pelo projeto NÃO for `<blockquote>`. A classificação DEVE decorrer da semântica editorial existente, não do nome técnico da tag.
-  - Citação em bloco e citação inline DEVEM possuir tratamentos foneticamente distintos:
-    - **bloco:** delimitação verbal inequívoca de entrada/saída, com expressão humana e natural (`citação` ou equivalente), jamais jargão técnico;
-    - **inline:** indicação mais breve e integrada à frase, suficiente para distinguir fonte e autoria sem romper desnecessariamente a unidade prosódica pretendida pelo autor.
+  - Toda citação DEVE ser verbalmente distinguível da voz autoral, inclusive quando sua estrutura visual/HTML NÃO utilizar `<blockquote>`; a classificação DEVE decorrer da semântica editorial real, não do nome técnico da tag.
+  - Citação em bloco e inline DEVEM possuir tratamento fonético distinto:
+    - **bloco:** delimitação verbal inequívoca de entrada/saída, com expressão humana/natural (`citação` ou equivalente), jamais jargão técnico;
+    - **inline:** indicação mais breve e integrada à frase, distinguindo fonte/autoria sem destruir a unidade prosódica pretendida pelo autor.
 
-  - A camada falada PODE adicionar marcadores exclusivamente auditivos; NÃO PODE modificar, reescrever ou acrescentar adendos visíveis ao texto original.
-  - Preservar semântica própria de citações longas e curtas; W3C distingue estruturalmente citações em bloco e conteúdo citado inline e recomenda marcação semântica capaz de ser percebida por agentes de usuário.
-  - Toda citação vinculada a nota/referência por `<sup>` ou mecanismo equivalente DEVE verbalizar sua fonte no ponto da menção; a ausência visual de parênteses NÃO PODE tornar a origem incompreensível ao ouvinte.
-  - Em build, gerar para cada **ocorrência** uma referência falada mínima e fiel, separada da referência bibliográfica integral, sem alterá-la:
+  - A camada falada PODE adicionar marcadores exclusivamente auditivos; NÃO PODE modificar, reescrever nem inserir adendo visível no texto original.
+  - Toda citação vinculada a `<sup>`, nota ou mecanismo equivalente DEVE verbalizar a fonte no ponto da ocorrência; a ausência visual de parênteses NÃO PODE tornar sua origem incompreensível.
+  - Em build, gerar para cada **ocorrência** referência falada mínima e fiel, distinta da bibliografia integral:
     - `Bíblia, NVI, Isaías 53:22` → `Isaías 53:22 NVI`;
-    - referência agrupada contendo diversos versículos → verbalizar somente o(s) versículo(s) efetivamente citado(s) naquela ocorrência, por exemplo `Isaías 53:10 NVI`;
-    - `COELHO, Paulo. O Alquimista. 1. ed. Rio de Janeiro: Rocco, 2020` → `COELHO, 2020` ou, somente quando necessário à desambiguação/compreensão, `COELHO, 2020. O Alquimista.`.
+    - referência agrupada, como `Bíblia, NVI, Isaías 12:3,7;53:10,22;53:2`, quando a ocorrência usar somente `Isaías 53:10` → `Isaías 53:10 NVI`;
+    - `COELHO, Paulo. O Alquimista. 1. ed. Rio de Janeiro: Rocco, 2020` → `COELHO, 2020` ou, quando necessário à desambiguação/compreensão, `COELHO, 2020. O Alquimista.`.
 
-  - A redução DEVE derivar exclusivamente dos dados e da associação reais da citação. Se a ocorrência não puder ser relacionada inequivocamente à parcela correta da referência, NÃO inventar: preservar informação suficiente para fidelidade e sinalizar a insuficiência conforme os mecanismos normativos existentes.
+  - A redução DEVE derivar exclusivamente dos dados e associações reais. Se a ocorrência não puder ser vinculada inequivocamente à parcela correta da referência, NÃO inventar: preservar informação suficiente para fidelidade e tratar a insuficiência conforme mecanismos normativos existentes.
 
-- [ ] Tornar tabelas e imagens compreensíveis por leitura assistiva/TTS
-  - Antes da implementação, confrontar o estado real com práticas consolidadas de acessibilidade, críticas documentadas e comportamento de tecnologias assistivas; NÃO escolher solução por conveniência ou preferência arbitrária.
-  - **Tabelas:** preservar estrutura tabular real e relações entre células e cabeçalhos; fornecer identificação/caption quando necessária e garantir que cada dado possa ser relacionado aos respectivos cabeçalhos durante a leitura. Para estruturas complexas, representar explicitamente relações que não possam ser inferidas da estrutura simples. W3C destaca caption como mecanismo de identificação e associação de cabeçalhos como requisito para manutenção do contexto durante leitura por screen reader.
-  - A leitura linear de tabela NÃO DEVE resultar em sequência de valores sem contexto nem em repetição excessiva que destrua a compreensão; adaptar a representação falada à estrutura real preservando integralmente dados e relações.
-  - **Imagens:** fornecer alternativa textual conforme função e contexto, NÃO descrição literal indiscriminada. Imagem informativa DEVE comunicar seu significado; funcional, sua função; meramente decorativa NÃO DEVE gerar ruído; imagem complexa DEVE possuir identificação curta e descrição textual suficiente para transmitir a informação essencial. Essas distinções seguem a orientação WAI consolidada.
-  - Abranger retroativamente imagens editoriais já publicadas e normatizar o mesmo requisito para novas publicações, sem fabricar conteúdo descritivo quando não houver informação suficiente para descrevê-las fielmente.
+- [ ] Tratar corretamente idiomas e pronúncia no TTS
+  - Palavras/expressões em outros idiomas, inclusive grego koiné, línguas antigas e equivalentes, DEVEM receber, tanto quanto tecnicamente possível, representação fonética correta no TTS.
+  - A pronúncia NÃO DEVE ser inferida arbitrariamente quando houver dúvida material; pesquisar/derivar a forma adequada por mecanismos/fontes tecnicamente confiáveis.
+  - Avaliar e, quando necessário, integrar mecanismos inteligentes adequados à obtenção/representação de pronúncia, exigindo gratuidade para o projeto, manutenção ativa e preferindo soluções open source quando tecnicamente equivalentes.
+  - Preservar grafia visual original; adaptações fonéticas pertencem exclusivamente à camada de leitura.
+  - NÃO impor ferramenta antes de avaliar compatibilidade, cobertura linguística, peso, manutenção, licenciamento e integração com a arquitetura real.
+  - Todo artigo, post, página, ao ser publicada, deve ser efetivamente normalizada com o TTS.
+
+- [ ] Tornar tabelas, imagens e gráficos compreensíveis por TTS
+  - Antes da implementação, confrontar o estado real com práticas consolidadas de acessibilidade, experiência documentada de usuários e comportamento de tecnologias assistivas; NÃO escolher solução por conveniência.
+  - **Tabelas:** preservar estrutura tabular e relações entre dados/cabeçalhos; garantir leitura contextual, evitando tanto sequência de valores sem significado quanto repetição excessiva. Estruturas complexas DEVEM preservar relações que não possam ser inferidas de forma simples.
+  - **Imagens:** para TTS, priorizar a leitura de eventual texto legível existente na própria imagem quando pertinente ao conteúdo e, opcionalmente, uma descrição **breve e ultrasucinta** suficiente para contextualizá-la. NÃO transformar automaticamente toda imagem em descrição longa nem fabricar conteúdo ausente.
+  - A descrição DEVE considerar função/contexto: imagens meramente decorativas NÃO DEVEM gerar ruído; informação visual necessária à compreensão NÃO PODE ser perdida.
+  - Abranger retroativamente conteúdo editorial já publicado e normatizar o mesmo comportamento para futuras publicações, sem inventar texto ou significado quando não houver evidência suficiente.
+  - **Gráficos:** o TTS DEVE extrair e verbalizar, de forma sucinta, eloquente e contextual, a informação condensada realmente relevante — intenção, tendência, direção, relações, contrastes ou conclusão pertinente — em vez de simplesmente enumerar todos os dados.
+  - O requisito vale para gráficos rasterizados/imagens e gráficos construídos em runtime; preservar acesso aos dados necessários para derivar a síntese quando tecnicamente disponível.
+  - Pesquisar e normatizar no RCF uma solução/biblioteca para gráficos que seja open source, mantida, tecnicamente adequada, leve em tamanho/processamento, client-side quando aplicável, capaz de cobrir os tipos/formas necessários e trabalhar com dados como CSV/JSON.
+  - NÃO escolher biblioteca arbitrariamente: comparar alternativas reais quanto a capacidades, peso, manutenção, licenciamento, acessibilidade e aderência arquitetural.
+  - Assets da solução de gráficos que só sejam necessários a páginas com gráficos DEVEM ser incluídos/carregados somente nelas; essa decisão DEVE ser inferida automaticamente em build a partir do conteúdo/estado real da página.
+
+- [ ] Condicionar bibliotecas e assets auxiliares de TTS ao uso efetivo
+  - Bibliotecas adicionais que complementem/estendam TTS e sejam necessárias para cumprir requisitos DEVEM ser utilizadas quando justificadas tecnicamente; NÃO evitar dependência necessária apenas por preferência arquitetural.
+  - Para qualquer dependência que precise existir no client-side, seus assets DEVEM ser carregados **somente** nas páginas em que o recurso TTS específico dependente dela seja efetivamente utilizado.
+  - A decisão de inclusão DEVE ser automática por página e inferida em build, sem exigir manutenção manual redundante.
+  - Priorizar baixo custo de processamento e transferência, sem sacrificar correção, acessibilidade ou requisitos funcionais.
+  - NÃO consolidar dependências opcionais em bundle global quando tecnicamente separáveis e desnecessárias à maioria das páginas.
+  - Inspecionar o mecanismo de build/bundling vigente antes de definir a implementação; NÃO inventar pipeline, formato ou estratégia inexistente.
 
 - [ ] Validar TTS/acessibilidade como contrato permanente, sem regressões
-  - Validar artigos reais com citações em bloco/inline, `<sup>`/referências simples e agrupadas, tabelas simples/complexas, imagens informativas/decorativas/complexas, headings, listas, paginação, artigos anterior/próximo, redes sociais, avisos e rodapé.
-  - Testar leitura sequencial, navegação estrutural e compreensão auditiva, verificando explicitamente autoria versus citação, origem das referências, limites entre artigos, contexto de tabelas e finalidade das imagens.
-  - Maximizar compatibilidade entre navegadores e tecnologias assistivas tecnicamente viáveis sem inventar matriz de suporte: identificar os alvos efetivamente aplicáveis ao projeto, preferir padrões interoperáveis e degradar graciosamente quando um recurso complementar não existir.
-  - NÃO sacrificar texto visível, SEO, impressão, navegação, layout, desempenho ou recursos já normatizados para obter TTS; toda adaptação DEVE ser aditiva ou semanticamente equivalente e permanecer compatível com WCAG/semântica web aplicável.
+  - Validar artigos reais com citações em bloco/inline, `<sup>`/referências simples e agrupadas, termos estrangeiros, tabelas simples/complexas, imagens com/sem texto, gráficos em imagem/runtime, headings, listas, paginação, artigos anterior/próximo, redes sociais, avisos e rodapé.
+  - Testar leitura sequencial, navegação estrutural, compreensão auditiva e naturalidade, verificando explicitamente autoria versus citação, origem das referências, pronúncia, limites entre artigos, contexto de tabelas, conteúdo relevante de imagens e síntese de gráficos.
+  - Validar também a seleção/inclusão automática por página das dependências condicionais e a ausência delas onde não necessárias.
+  - Maximizar compatibilidade entre navegadores e tecnologias assistivas tecnicamente viáveis sem inventar matriz de suporte; identificar alvos aplicáveis, preferir padrões interoperáveis e degradar graciosamente quando recurso complementar não existir.
+  - NÃO sacrificar texto visível, SEO, impressão, navegação, layout, PageSpeed/desempenho, qualidade editorial ou recursos já normatizados para obter TTS.
+  - Toda adaptação DEVE ser aditiva ou semanticamente equivalente, aderente ao `AGENTS.md`/RCF vigentes e implementada sem regressão direta ou indireta de recursos já evoluídos.
