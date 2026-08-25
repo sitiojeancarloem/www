@@ -1,12 +1,13 @@
 schema: jcem-continue/v1
 machine_id: JEAN-DESKTOP
-data_ref: 2026-08-11T13:55:44.4157934-03:00
+data_ref: 2026-08-25T17:24:44.0679538-03:00
 fonte: TODO.ia.md
-objetivo: Concluir o equalizer vigente, publicar os dois bate-papos, corrigir a hierarquia visual de citacoes e fechar a afericao PageSpeed autenticada sem regressao.
+objetivo: Equalizar a correcao publicada da 404 e a leitura acessivel/TTS integral do blog, normatizar todas as frentes e interromper antes da implementacao para nova autorizacao expressa.
 autorizacao:
   origem: prompt humano
-  data: 2026-08-11T13:55:44.4157934-03:00
-  escopo: implementacao integral, commits, push e publicacao GitHub Pages
+  data: 2026-08-25T17:24:44.0679538-03:00
+  escopo: equalizacao, criacao das FTs, normatizacao RCF, validacao normativa e commits correspondentes
+  restricao: FTs de projecao local, conteudo, codigo, integracao e publicacao aguardam nova autorizacao humana apos a FT-032
 plano:
   - id: FT-020
     classe: implementacao_normativa
@@ -206,6 +207,78 @@ plano:
       - commit-fonte 918ac24b6add66556b8513c0a0a16278dece4de9 integrado por fast-forward em main e publicado pelo fluxo oficial
       - gh-pages registrou source_sha exato, deploy serviu o novo conector e cleanup removeu branch temporario e gatilho publicar
       - commit automatico b79df3a7f9c65624ced2ea34a292c42f47e39497 sincronizado localmente antes do encerramento
+  - id: FT-032
+    classe: implementacao_normativa
+    criado_em: 2026-08-25T17:24:44.0679538-03:00
+    estado: em_andamento
+    fonte: .ia.rules/state/requests/FT-032/prompt.md
+    contexto: .ia.rules/state/contexts/FT-032/master.md
+    objetivo: Equalizar integralmente as novas TO-DOs e consolidar os contratos de operacao especializada, 404 e leitura acessivel/TTS.
+    escopo: RCF.md, RCFs especializados aplicaveis e nova especializacao de leitura acessivel/TTS.
+    aceite:
+      - fonte integral, precedencias, sobreposicoes, lacunas e dependencias conciliadas
+      - regra vigente da 404 preservada sem duplicacao
+      - semantica, fala complementar, citacoes, referencias, idiomas, tabelas, imagens e graficos normatizados
+      - dependencia grafica comparada e decisao arquitetural rastreavel
+      - validacao normativa aprovada e interrupcao antes de qualquer implementacao
+  - id: FT-033
+    classe: implementacao_governanca_local
+    criado_em: 2026-08-25T17:24:45.0679538-03:00
+    estado: pendente_autorizacao
+    depende_de: FT-032
+    fonte: .ia.rules/state/requests/FT-032/prompt.md
+    objetivo: Projetar o modus operandi especializado no agents.local.md canônico e em subrotas mínimas compatíveis com a raiz vigente.
+    aceite:
+      - RCF permanece detalhada e autoritativa
+      - adaptador local apenas roteia ou condensa sem divergencia
+      - predecessor .agents nao e reintroduzido como fonte
+      - reducao real de contexto e cobertura semantica comprovadas
+  - id: FT-034
+    classe: implementacao_codigo
+    criado_em: 2026-08-25T17:24:46.0679538-03:00
+    estado: pendente_autorizacao
+    depende_de: FT-032
+    fonte: .ia.rules/state/requests/FT-032/prompt.md
+    objetivo: Corrigir a causa real da regressao do logotipo da 404 e validar o artefato efetivamente publicado.
+    aceite:
+      - referencias visuais autoritativas recuperadas ou substituidas por evidencia humana equivalente
+      - extrapolacao vertical do logotipo sem crop e com contencao horizontal preservada
+      - fonte, build local, matriz visual e GitHub Pages convergentes
+  - id: FT-035
+    classe: implementacao_conteudo
+    criado_em: 2026-08-25T17:24:47.0679538-03:00
+    estado: pendente_autorizacao
+    depende_de: FT-032
+    fonte: .ia.rules/state/requests/FT-032/prompt.md
+    objetivo: Classificar e completar metadados acessiveis do acervo editorial sem alterar texto visivel nem inventar significado.
+    aceite:
+      - idiomas, citacoes, referencias, imagens, tabelas e graficos do acervo classificados por evidencia
+      - casos ambiguos falham com diagnostico ou seguem revisao humana
+      - futuras publicacoes usam o mesmo contrato deterministico
+  - id: FT-036
+    classe: implementacao_codigo
+    criado_em: 2026-08-25T17:24:48.0679538-03:00
+    estado: pendente_autorizacao
+    depende_de: FT-032
+    fonte: .ia.rules/state/requests/FT-032/prompt.md
+    objetivo: Implementar semantica acessivel, fala complementar, referencias por ocorrencia, graficos e assets condicionais no pipeline vigente.
+    aceite:
+      - HTML essencial permanece completo sem JavaScript e sem motor TTS especifico
+      - marcadores falados nao duplicam nem ocultam texto editorial
+      - graficos possuem sintese, dados acessiveis e renderer opcional somente onde usado
+      - dependencias ausentes em paginas sem uso e carregamento fora do caminho critico
+  - id: FT-037
+    classe: integracao_validacao_publicacao
+    criado_em: 2026-08-25T17:24:49.0679538-03:00
+    estado: pendente_autorizacao
+    depende_de: FT-033, FT-034, FT-035, FT-036
+    fonte: .ia.rules/state/requests/FT-032/prompt.md
+    objetivo: Validar a matriz real de acessibilidade/TTS e 404, publicar e comprovar ausencia de regressao.
+    aceite:
+      - leitores de tela e sintese representativos exercitam fluxo sequencial e navegacao estrutural
+      - teclado, temas, viewports, SEO, impressao, PageSpeed e build aprovados separadamente
+      - artefato publicado corresponde ao commit-fonte validado
+      - TO-DOs concluidas removidas e equalizer perene preservado literal e desmarcado
 lacunas:
   - id: GAP-AGENTS-CJS-ESM-001
     estado: isolada

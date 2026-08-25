@@ -3,6 +3,16 @@ node_modules
 !/.ia.rules/
 /.ia.rules/*
 !/.ia.rules/continue.ia
+!/.ia.rules/state/
+/.ia.rules/state/*
+!/.ia.rules/state/contexts/
+/.ia.rules/state/contexts/*
+!/.ia.rules/state/contexts/FT-032/
+!/.ia.rules/state/contexts/FT-032/master.md
+!/.ia.rules/state/requests/
+/.ia.rules/state/requests/*
+!/.ia.rules/state/requests/FT-032/
+!/.ia.rules/state/requests/FT-032/prompt.md
 !.vscode
 src/__generated__
 *.psd
