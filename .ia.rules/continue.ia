@@ -1,13 +1,14 @@
 schema: jcem-continue/v1
 machine_id: JEAN-DESKTOP
-data_ref: 2026-08-25T17:35:38.5966233-03:00
+data_ref: 2026-08-25T17:58:10.7991835-03:00
 fonte: TODO.ia.md
-objetivo: Aguardar nova autorizacao expressa para executar, em ordem, a projecao local, a correcao 404, a normalizacao editorial, o runtime TTS/graficos e a integracao/publicacao ja normatizados.
+objetivo: Executar integralmente as FTs 033 a 037, validar, publicar no GitHub Pages e convergir dev/main sem alterar o equalizer perene nem o Chart.js 4.5.1+ intencional.
 autorizacao:
   origem: prompt humano
-  data: 2026-08-25T17:24:44.0679538-03:00
-  escopo: equalizacao, criacao das FTs, normatizacao RCF, validacao normativa e commits correspondentes
-  restricao: FTs de projecao local, conteudo, codigo, integracao e publicacao aguardam nova autorizacao humana apos a FT-032
+  data: 2026-08-25T17:58:10.7991835-03:00
+  fonte: .ia.rules/state/requests/FT-033/prompt.md
+  escopo: implementacao integral das FTs 033 a 037, validacao, commits, push, publicacao GitHub Pages e convergencia de branches
+  restricao: preservar literalmente o item equalizer perene e a notacao humana Chart.js 4.5.1+
 plano:
   - id: FT-020
     classe: implementacao_normativa
@@ -231,9 +232,10 @@ plano:
   - id: FT-033
     classe: implementacao_governanca_local
     criado_em: 2026-08-25T17:24:45.0679538-03:00
-    estado: pendente_autorizacao
+    estado: em_andamento
     depende_de: FT-032
     fonte: .ia.rules/state/requests/FT-032/prompt.md
+    fonte_autorizacao: .ia.rules/state/requests/FT-033/prompt.md
     objetivo: Projetar o modus operandi especializado no agents.local.md canônico e em subrotas mínimas compatíveis com a raiz vigente.
     aceite:
       - RCF permanece detalhada e autoritativa
@@ -246,6 +248,7 @@ plano:
     estado: pendente_autorizacao
     depende_de: FT-032
     fonte: .ia.rules/state/requests/FT-032/prompt.md
+    fonte_autorizacao: .ia.rules/state/requests/FT-033/prompt.md
     objetivo: Corrigir a causa real da regressao do logotipo da 404 e validar o artefato efetivamente publicado.
     aceite:
       - referencias visuais autoritativas recuperadas ou substituidas por evidencia humana equivalente
@@ -257,6 +260,7 @@ plano:
     estado: pendente_autorizacao
     depende_de: FT-032
     fonte: .ia.rules/state/requests/FT-032/prompt.md
+    fonte_autorizacao: .ia.rules/state/requests/FT-033/prompt.md
     objetivo: Classificar e completar metadados acessiveis do acervo editorial sem alterar texto visivel nem inventar significado.
     aceite:
       - idiomas, citacoes, referencias, imagens, tabelas e graficos do acervo classificados por evidencia
@@ -268,6 +272,7 @@ plano:
     estado: pendente_autorizacao
     depende_de: FT-032
     fonte: .ia.rules/state/requests/FT-032/prompt.md
+    fonte_autorizacao: .ia.rules/state/requests/FT-033/prompt.md
     objetivo: Implementar semantica acessivel, fala complementar, referencias por ocorrencia, graficos e assets condicionais no pipeline vigente.
     aceite:
       - HTML essencial permanece completo sem JavaScript e sem motor TTS especifico
@@ -280,6 +285,7 @@ plano:
     estado: pendente_autorizacao
     depende_de: FT-033, FT-034, FT-035, FT-036
     fonte: .ia.rules/state/requests/FT-032/prompt.md
+    fonte_autorizacao: .ia.rules/state/requests/FT-033/prompt.md
     objetivo: Validar a matriz real de acessibilidade/TTS e 404, publicar e comprovar ausencia de regressao.
     aceite:
       - leitores de tela e sintese representativos exercitam fluxo sequencial e navegacao estrutural

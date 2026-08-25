@@ -13,6 +13,8 @@ node_modules
 /.ia.rules/state/requests/*
 !/.ia.rules/state/requests/FT-032/
 !/.ia.rules/state/requests/FT-032/prompt.md
+!/.ia.rules/state/requests/FT-033/
+!/.ia.rules/state/requests/FT-033/prompt.md
 !.vscode
 src/__generated__
 *.psd
