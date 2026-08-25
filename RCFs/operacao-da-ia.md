@@ -1,7 +1,7 @@
 <!-- AI-PROCESSED -->
 # RCF-JCEM-OPERACAO-IA-001
 
-Status: vigente; projeção operacional pendente na FT-033.
+Status: vigente; projeção operacional materializada na FT-033.
 
 Escopo: modus operandi da IA específico deste produto, roteamento local e relação entre o RCF detalhado e o adaptador operacional `agents.local.md`.
 

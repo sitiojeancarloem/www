@@ -232,7 +232,7 @@ plano:
   - id: FT-033
     classe: implementacao_governanca_local
     criado_em: 2026-08-25T17:24:45.0679538-03:00
-    estado: em_andamento
+    estado: concluido
     depende_de: FT-032
     fonte: .ia.rules/state/requests/FT-032/prompt.md
     fonte_autorizacao: .ia.rules/state/requests/FT-033/prompt.md
@@ -242,10 +242,15 @@ plano:
       - adaptador local apenas roteia ou condensa sem divergencia
       - predecessor .agents nao e reintroduzido como fonte
       - reducao real de contexto e cobertura semantica comprovadas
+    resultado: agents.local.md raiz materializado como roteador compacto das sub-RCFs vigentes, sem subarquivo redundante e sem usar a arvore predecessora como fonte ou fallback.
+    progresso:
+      - precedencia, estado canonico, rotas cumulativas e invariantes de execucao projetados sem copiar os contratos detalhados
+      - rotas de editorial, bate-papo, citacoes, TTS, PageSpeed, 404, impressao e publicacao vinculadas a arquivos existentes
+      - subarquivo local dispensado porque a modularizacao RCF atual ja entrega a reducao de contexto exigida
   - id: FT-034
     classe: implementacao_codigo
     criado_em: 2026-08-25T17:24:46.0679538-03:00
-    estado: pendente_autorizacao
+    estado: em_andamento
     depende_de: FT-032
     fonte: .ia.rules/state/requests/FT-032/prompt.md
     fonte_autorizacao: .ia.rules/state/requests/FT-033/prompt.md
@@ -254,6 +259,10 @@ plano:
       - referencias visuais autoritativas recuperadas ou substituidas por evidencia humana equivalente
       - extrapolacao vertical do logotipo sem crop e com contencao horizontal preservada
       - fonte, build local, matriz visual e GitHub Pages convergentes
+    progresso:
+      - evidencia1a.png e evidencia1b.png recuperadas do commit 07282076f6 com objetos Git identicos
+      - inspecao confirmou que ambas documentam flags de cards, nao a masthead 404
+      - evidencia1.png permanece como defeito 404 observado; masthead normal renderizada sera a referencia normativa real
   - id: FT-035
     classe: implementacao_conteudo
     criado_em: 2026-08-25T17:24:47.0679538-03:00
