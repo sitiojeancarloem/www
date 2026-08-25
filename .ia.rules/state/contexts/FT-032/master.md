@@ -30,3 +30,12 @@
 - normatização conclui e interrompe antes das FTs 033–037;
 - implementação posterior cobre conteúdo real, teclado, leitor de tela/TTS, temas, viewports, impressão, PageSpeed, build e artefato publicado;
 - nenhum resultado parcial ou gate externo inconclusivo é apresentado como aprovação global.
+
+## Resultado normativo
+
+- `RCF-JCEM-OPERACAO-IA-001` centraliza o modus operandi detalhado e determina `agents.local.md` raiz como projeção fina futura, sem recuperar a árvore predecessora nem criar subarquivo sem ganho medido.
+- `RCF-JCEM-LEITURA-ACESSIVEL-TTS-001` estabelece HTML semântico estático como fonte, normalização única de legado/futuro, fala complementar não duplicada, referências por ocorrência, idioma BCP 47, pronúncia com evidência, tabelas estruturadas e descrição/dados para imagens e gráficos.
+- Chart.js 4.5.1 foi selecionado somente como renderer opcional, local e condicionado. ECharts e Vega-Lite foram comparados por acessibilidade, escopo, dados, manutenção e superfície; a representação acessível permanece independente da biblioteca.
+- `RCF-JCEM-COMPONENTES-COMPARTILHADOS-001` já normatiza a extrapolação da masthead 404. A FT-034 deve corrigir a divergência entre fonte/build/publicação sem criar nova regra visual.
+- Referências técnicas primárias: WCAG 2.2 e tutoriais WAI; documentação oficial de acessibilidade/integração do Chart.js; ARIA do ECharts; dados e ARIA do Vega-Lite.
+- Gates concluídos: `npm run agent:rcf` retornou `RCF_OK`; `npm run agent:rcf:trace -- validate` retornou zero entradas e zero divergências; verificação focada confirmou IDs únicos e links existentes.

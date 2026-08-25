@@ -1,8 +1,8 @@
 schema: jcem-continue/v1
 machine_id: JEAN-DESKTOP
-data_ref: 2026-08-25T17:24:44.0679538-03:00
+data_ref: 2026-08-25T17:35:38.5966233-03:00
 fonte: TODO.ia.md
-objetivo: Equalizar a correcao publicada da 404 e a leitura acessivel/TTS integral do blog, normatizar todas as frentes e interromper antes da implementacao para nova autorizacao expressa.
+objetivo: Aguardar nova autorizacao expressa para executar, em ordem, a projecao local, a correcao 404, a normalizacao editorial, o runtime TTS/graficos e a integracao/publicacao ja normatizados.
 autorizacao:
   origem: prompt humano
   data: 2026-08-25T17:24:44.0679538-03:00
@@ -210,7 +210,7 @@ plano:
   - id: FT-032
     classe: implementacao_normativa
     criado_em: 2026-08-25T17:24:44.0679538-03:00
-    estado: em_andamento
+    estado: concluido
     fonte: .ia.rules/state/requests/FT-032/prompt.md
     contexto: .ia.rules/state/contexts/FT-032/master.md
     objetivo: Equalizar integralmente as novas TO-DOs e consolidar os contratos de operacao especializada, 404 e leitura acessivel/TTS.
@@ -221,6 +221,13 @@ plano:
       - semantica, fala complementar, citacoes, referencias, idiomas, tabelas, imagens e graficos normatizados
       - dependencia grafica comparada e decisao arquitetural rastreavel
       - validacao normativa aprovada e interrupcao antes de qualquer implementacao
+    resultado: RCF-JCEM-OPERACAO-IA-001 e RCF-JCEM-LEITURA-ACESSIVEL-TTS-001 criadas e roteadas; contrato 404 vigente preservado; Chart.js 4.5.1 selecionado apenas como renderer condicional com HTML acessivel independente.
+    progresso:
+      - todas as nove TO-DOs operacionais foram lidas, vinculadas e marcadas em andamento sem alterar o equalizer perene
+      - modus operandi detalhado centralizado no RCF e projecao agents.local.md adiada para FT-033
+      - semantica estatica, fala complementar, citacoes, referencias, idiomas, pronuncia, tabelas, imagens e graficos normatizados
+      - Chart.js, ECharts e Vega-Lite comparados em fontes oficiais; dependencia maior rejeitada sem perda de capacidade acessivel
+      - npm run agent:rcf aprovou RCF_OK e rcf-trace validate retornou zero divergencias
   - id: FT-033
     classe: implementacao_governanca_local
     criado_em: 2026-08-25T17:24:45.0679538-03:00
