@@ -289,7 +289,7 @@ plano:
   - id: FT-036
     classe: implementacao_codigo
     criado_em: 2026-08-25T17:24:48.0679538-03:00
-    estado: em_andamento
+    estado: concluido
     depende_de: FT-032
     fonte: .ia.rules/state/requests/FT-032/prompt.md
     fonte_autorizacao: .ia.rules/state/requests/FT-033/prompt.md
@@ -299,10 +299,18 @@ plano:
       - marcadores falados nao duplicam nem ocultam texto editorial
       - graficos possuem sintese, dados acessiveis e renderer opcional somente onde usado
       - dependencias ausentes em paginas sem uso e carregamento fora do caminho critico
+    resultado: Pipeline deterministico de acessibilidade e leitura opcional implementado com HTML estatico autoritativo, manifesto por pagina e Chart.js 4.5.1 fixado como renderer estritamente condicional.
+    progresso:
+      - normalizador pos-render valida artigo, tabelas, imagens, idiomas, citacoes e referencias sem reescrever o texto editorial
+      - referencias reutilizadas sao resolvidas por ocorrencia antes da mutacao do DOM e preservam a definicao completa quando ambiguas
+      - controle de leitura usa Web Speech API apenas como aprimoramento e degrada para a estrutura acessivel sem ocultar conteudo
+      - grafico nasce de dataset canonico validado, conserva resumo, conclusao e tabela sem JavaScript e oculta o canvas duplicado da arvore acessivel
+      - Chart.js 4.5.1 e sincronizado localmente com versao e licenca verificadas e carregado somente na pagina elegivel
+      - fixture, testes estruturais, teste runtime em Chromium e modo de uso permanente foram adicionados ao pipeline oficial
   - id: FT-037
     classe: integracao_validacao_publicacao
     criado_em: 2026-08-25T17:24:49.0679538-03:00
-    estado: pendente_autorizacao
+    estado: em_andamento
     depende_de: FT-033, FT-034, FT-035, FT-036
     fonte: .ia.rules/state/requests/FT-032/prompt.md
     fonte_autorizacao: .ia.rules/state/requests/FT-033/prompt.md

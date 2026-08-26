@@ -1,0 +1,16 @@
+{% if page.previous or page.next %}
+  <nav class="pagination" aria-label="Navegação entre artigos">
+    {% if page.previous %}
+      {% assign previous_title = page.previous.title | markdownify | strip_html | strip %}
+      <a href="{{ page.previous.url | relative_url }}" class="pagination--pager" title="{{ previous_title }}" aria-label="Artigo anterior: {{ previous_title | escape }}">{{ site.data.ui-text[site.locale].pagination_previous | default: "Anterior" }}</a>
+    {% else %}
+      <span class="pagination--pager disabled" aria-disabled="true">{{ site.data.ui-text[site.locale].pagination_previous | default: "Anterior" }}</span>
+    {% endif %}
+    {% if page.next %}
+      {% assign next_title = page.next.title | markdownify | strip_html | strip %}
+      <a href="{{ page.next.url | relative_url }}" class="pagination--pager" title="{{ next_title }}" aria-label="Próximo artigo: {{ next_title | escape }}">{{ site.data.ui-text[site.locale].pagination_next | default: "Próximo" }}</a>
+    {% else %}
+      <span class="pagination--pager disabled" aria-disabled="true">{{ site.data.ui-text[site.locale].pagination_next | default: "Próximo" }}</span>
+    {% endif %}
+  </nav>
+{% endif %}

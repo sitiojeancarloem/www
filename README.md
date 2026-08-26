@@ -2,6 +2,8 @@
 
 Blog Jekyll com tema Minimal Mistakes e extensões customizadas em Liquid, SCSS e TypeScript.
 
+O contrato físico para idiomas, referências faladas, tabelas, imagens, TTS e gráficos está em [`MODO-DE-USO-LEITURA-ACESSIVEL-E-TTS.md`](MODO-DE-USO-LEITURA-ACESSIVEL-E-TTS.md).
+
 ## Build local
 
 ```bash
