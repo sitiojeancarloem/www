@@ -1,0 +1,1167 @@
+<!DOCTYPE html>
+<!--Minimal Mistake with Jekyll--><html lang="pt-BR" class="no-js">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<!-- begin _includes/seo.html --><title>Fixture estrutural de artigo - JeanCarloEM</title>
+<meta name="description" content="Amostra controlada do layout editorial sem mídia própria de publicação.">
+<meta name="author" content="Jean Carlo EM">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="JeanCarloEM">
+<meta property="og:title" content="Fixture estrutural de artigo">
+<meta property="og:url" content="https://www.jeancarloem.com/_fixtures/pagespeed/article-basic/">
+<meta property="og:description" content="Amostra controlada do layout editorial sem mídia própria de publicação.">
+<link rel="canonical" href="https://www.jeancarloem.com/_fixtures/pagespeed/article-basic/">
+<!-- end _includes/seo.html -->
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="JeanCarloEM Feed">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+  
+</script>
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css"></noscript>
+<meta name="apple-mobile-web-app-title" content="JeanCarloEM">
+<link rel="icon" type="image/png" href="https://jcem.pro/logo/favicon-96x96.png" sizes="96x96">
+<link type="image/svg+xml" href="https://jcem.pro/logo/favicon.svg" rel="icon">
+<link rel="shortcut icon" href="https://jcem.pro/logo/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="https://jcem.pro/logo/apple-touch-icon.png">
+<link rel="manifest" href="https://jcem.pro/logo/site.webmanifest">
+<meta name="robots" content="noindex, nofollow">
+<style>
+	@keyframes carregandoPagina {
+		0%,
+		10%,
+		100% {
+			width: 5em;
+			height: 5em;
+		}
+		65% {
+			width: 10em;
+			height: 10em;
+		}
+	}
+
+	@keyframes loaderBlock {
+		0%,
+		30% {
+			transform: rotate(0);
+		}
+		55% {
+			background-color: rgba(0, 0, 70, 0.9);
+		}
+		100% {
+			transform: rotate(90deg);
+		}
+	}
+
+	@keyframes loaderBlockInverse {
+		0%,
+		20% {
+			transform: rotate(0);
+		}
+		55% {
+			background-color: rgba(0, 0, 70, 0.9);
+		}
+		100% {
+			transform: rotate(-90deg);
+		}
+	}
+
+	body > .carregandoPagina {
+		position: fixed;
+		inset: 0;
+		z-index: 2147483600;
+		pointer-events: none;
+		transition:
+			opacity 0.22s ease,
+			visibility 0.22s ease;
+	}
+
+	body > .carregandoPagina .jcem-load-progress {
+		--jcem-load-progress: 8%;
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 0.5rem;
+		overflow: hidden;
+		background: rgba(4, 10, 18, 0.88);
+		box-shadow:
+			0 0.08rem 0 #f4d400,
+			0 0.22rem 0.75rem rgba(0, 0, 0, 0.5);
+	}
+
+	body > .carregandoPagina .jcem-load-progress > span {
+		position: absolute;
+		top: 0;
+		left: 0;
+		display: block;
+		width: var(--jcem-load-progress);
+		height: 100%;
+		background: linear-gradient(90deg, #f4d400 0%, #7bc8ff 52%, #ffffff 100%);
+		box-shadow:
+			0 0 0.8rem rgba(123, 200, 255, 0.72),
+			0 0 0.18rem rgba(255, 255, 255, 0.9);
+		transition: width 0.18s ease;
+	}
+
+	body > .carregandoPagina .carregandoPagina__mark {
+		position: fixed;
+		top: 50%;
+		left: 50%;
+		width: 6rem;
+		height: 6rem;
+		transform: translate(-50%, -50%) rotate(45deg) translate3d(0, 0, 0);
+		animation: carregandoPagina 1.2s infinite ease-in-out;
+	}
+
+	html:not(.jcem-page-loaded) body > .carregandoPagina,
+	html:not(.jcem-page-loaded) body > .carregandoPagina * {
+		visibility: visible !important;
+	}
+
+	html.jcem-page-loaded body > .carregandoPagina {
+		visibility: hidden;
+		opacity: 0;
+	}
+
+	body > .carregandoPagina .carregandoPagina__mark span {
+		position: absolute;
+		display: block;
+		width: 2.7rem;
+		height: 2.7rem;
+		background-color: #2b92db;
+		animation: loaderBlock 1.2s infinite ease-in-out both;
+	}
+
+	body > .carregandoPagina .carregandoPagina__mark span:nth-child(1) {
+		top: 0;
+		left: 0;
+	}
+
+	body > .carregandoPagina .carregandoPagina__mark span:nth-child(2) {
+		top: 0;
+		right: 0;
+		animation: loaderBlockInverse 1.2s infinite ease-in-out both;
+	}
+
+	body > .carregandoPagina .carregandoPagina__mark span:nth-child(3) {
+		bottom: 0;
+		left: 0;
+		animation: loaderBlockInverse 1.2s infinite ease-in-out both;
+	}
+
+	body > .carregandoPagina .carregandoPagina__mark span:nth-child(4) {
+		right: 0;
+		bottom: 0;
+	}
+</style>
+<noscript data-jcem-fragment="noscript-style">
+<style>
+	html,
+	body {
+		min-height: 100%;
+		overflow-x: hidden;
+		overflow-y: auto;
+		background: var(--dark--bg-solid) !important;
+	}
+
+	html:not(.jcem-page-loaded) body {
+		overflow-x: hidden !important;
+		overflow-y: auto !important;
+	}
+
+	body > .main_jcem_wrapper,
+	body > .loader-bar,
+	body > .carregandoPagina {
+		/* PROTECAO: sem JavaScript, somente o shell noscript deve aparecer. */
+		display: none !important;
+	}
+
+	body > noscript {
+		position: static;
+		z-index: 2147483647;
+		display: block;
+		width: 100%;
+		max-width: 100%;
+		min-height: 100vh;
+		overflow: visible;
+		background: var(--dark--bg);
+		background-color: var(--dark--bg-solid);
+	}
+
+	body > noscript,
+	body > noscript * {
+		visibility: visible !important;
+		box-sizing: border-box;
+	}
+
+	body > noscript .jcem-noscript-page {
+		--tblb: var(--dark--tblb);
+		--bg: var(--dark--bg);
+		--bg-solid: var(--dark--bg-solid);
+		--tc: var(--dark--tc);
+		--mtc: var(--dark--mtc);
+		--pri: var(--dark--pri);
+		--bc: var(--dark--bc);
+		--cbg: var(--dark--cbg);
+		--cbgd: var(--dark--cbgd);
+		--fbg: var(--dark--fbg);
+		--ftbg: var(--dark--ftbg);
+		--foc: var(--dark--foc);
+		--act: var(--dark--act);
+		--link: var(--dark--link);
+		--link-h: var(--dark--link-h);
+		--link-v: var(--dark--link-v);
+		--mlink: var(--dark--mlink);
+		--mlink-h: var(--dark--mlink-h);
+		--nav-h: var(--dark--nav-h);
+		--jcem-panel-bg: var(--dark--jcem-panel-bg);
+		--jcem-panel-title-bg: var(--dark--jcem-panel-title-bg);
+		--jcem-panel-border: var(--dark--jcem-panel-border);
+		--jcem-panel-shadow: var(--dark--jcem-panel-shadow);
+		--jcem-panel-accent-hot: var(--dark--jcem-panel-accent-hot);
+		--jcem-rule-color: var(--dark--jcem-rule-color);
+		--jcem-rule-shadow: var(--dark--jcem-rule-shadow);
+		--jcem-masthead-shadow: rgba(0, 0, 0, 0.22);
+		width: 100%;
+		min-width: 0;
+		min-height: 100vh;
+		overflow-x: hidden;
+		background: var(--bg);
+		background-color: var(--bg-solid);
+		background-repeat: no-repeat;
+		background-size: cover;
+		color: var(--tc);
+	}
+
+	body > noscript .jcem-theme-toggle,
+	body > noscript .search__toggle,
+	body > noscript .greedy-nav__toggle,
+	body > noscript .hidden-links {
+		display: none !important;
+	}
+
+	body > noscript .jcem-noscript-masthead {
+		position: sticky;
+		top: 0;
+		z-index: 10;
+		height: auto;
+		overflow: visible;
+	}
+
+	body > noscript .jcem-noscript-masthead .masthead__inner-wrap {
+		min-height: 2.65rem;
+		padding-top: 0.3rem;
+		padding-bottom: 0.3rem;
+		overflow: visible;
+	}
+
+	body > noscript .jcem-noscript-masthead .greedy-nav {
+		min-height: 2.05rem;
+		overflow: visible;
+	}
+
+	body > noscript .jcem-noscript-masthead .site-logo {
+		height: 2.05rem;
+		overflow: visible;
+	}
+
+	body > noscript .jcem-noscript-masthead .site-logo img {
+		position: absolute;
+		top: 50%;
+		left: 0;
+		height: 3.9rem;
+		max-height: none !important;
+		transform: translateY(-37%);
+		margin-top: -0.8rem;
+	}
+
+	body > noscript .jcem-noscript-featured {
+		width: 100%;
+		max-width: 100%;
+		height: clamp(14rem, 32vh, 24rem);
+		margin: 0;
+		overflow: hidden;
+		background: #010203;
+		box-shadow: 0 0.15rem 0 var(--jcem-rule-shadow);
+		text-align: center;
+	}
+
+	body > noscript .jcem-noscript-featured .jcem-featured-image__img {
+		display: inline-block;
+		width: auto;
+		max-width: none;
+		height: 100%;
+		min-height: 100%;
+		margin: 0 auto;
+		object-fit: contain;
+		object-position: center;
+		background: #010203;
+	}
+
+	body > noscript .jcem-noscript-content {
+		width: min(100% - 2rem, 42rem);
+		margin: 0 auto;
+		padding: clamp(0.85rem, 2.55vw, 1.7rem) 0;
+	}
+
+	body > noscript .jcem-noscript__panel {
+		padding: clamp(0.85rem, 2vw, 1.32rem);
+		border: 1px solid var(--jcem-panel-border);
+		border-radius: 0.4rem;
+		background: color-mix(
+			in srgb,
+			var(--jcem-panel-bg) 38%,
+			transparent
+		);
+		box-shadow: 0 0 1rem var(--jcem-panel-shadow);
+	}
+
+	body > noscript .jcem-noscript__panel h1 {
+		margin: 0 0 0.72rem;
+		padding-bottom: 0.42rem;
+		border-bottom: 1px solid var(--jcem-rule-color);
+		color: var(--jcem-panel-accent-hot);
+		font-size: clamp(1.06rem, 2.9vw, 1.49rem);
+		line-height: 1.1;
+	}
+
+	body > noscript .jcem-noscript__lang {
+		margin-top: 0.64rem;
+		padding-top: 0.64rem;
+		border-top: 1px solid
+			color-mix(in srgb, var(--jcem-panel-border) 62%, transparent);
+	}
+
+	body > noscript .jcem-noscript__lang:first-of-type {
+		border-top: 0;
+	}
+
+	body > noscript .jcem-noscript__lang h2 {
+		margin: 0 0 0.22rem;
+		color: var(--link);
+		font-size: 0.78rem;
+		line-height: 1.2;
+	}
+
+	body > noscript .jcem-noscript__lang p {
+		margin: 0;
+		color: var(--tc);
+		font-size: 0.78rem;
+		line-height: 1.36;
+	}
+
+	body > noscript .jcem-noscript__lang strong {
+		color: var(--tc);
+		font-style: normal;
+	}
+
+	@supports not (
+		background: color-mix(in srgb, #000 50%, transparent)
+	) {
+		body > noscript .jcem-noscript__panel {
+			background: var(--jcem-panel-bg);
+		}
+	}
+</style>
+</noscript>
+<link rel="stylesheet" href="/assets/jcem/print-ieee/ieee.css" media="print">
+<link rel="stylesheet" href="/assets/jcem/print-ieee/jekyll-blog.css" media="print">
+<script src="/assets/jcem/js/site.js" type="module"></script>
+<script src="/assets/jcem/consent-manager/silktide.js" defer></script>
+<script src="/assets/jcem/consent-manager/start.js" defer></script>
+</head>
+<body class="layout--single" dir="ltr">
+<div id="carregandoPagina" class="carregandoPagina" aria-hidden="true">
+<div class="jcem-load-progress" role="progressbar" aria-label="Carregamento da página" aria-valuemin="0" aria-valuemax="100" aria-valuenow="8"><span></span></div>
+<div class="carregandoPagina__mark">
+<span></span><span></span><span></span><span></span>
+</div>
+</div>
+<input class="radio jcem-theme-radio" type="radio" name="jcem-theme" id="jcem-theme-light" value="light" aria-label="Tema claro">
+<input class="radio jcem-theme-radio" type="radio" name="jcem-theme" id="jcem-theme-dark" value="dark" aria-label="Tema escuro" checked>
+<div class="main_jcem_wrapper">
+<p class="copy">
+Copyright © 2012 - 2026 JeanCarloEM. Todos
+os direitos reservados.
+<span>Feito com
+<a href="https://mmistakes.github.io/minimal-mistakes/" target="_blank">
+Minimal Mistakes</a>.
+</span>
+</p>
+<div class="sobpostbar">
+<ul id="menu-topo-2" class="menu">
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1871">
+<a href="/sobre/">Sobre</a>
+</li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1869">
+<a href="https://jeancarloem.com/termos-de-uso">Legal</a>
+</li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1875">
+<a href="https://jeancarloem.com/avisos-gerais/">Advertências</a>
+</li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1875">
+<a href="https://jeancarloem.com/privacidade/">Privacidade</a>
+</li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1872">
+<a title="Licença" href="https://jeancarloem.com/licenca/">Licença</a>
+</li>
+</ul>
+</div>
+<nav class="skip-links" aria-label="Atalhos de navegação">
+<ul>
+<li><a href="#site-nav" class="screen-reader-shortcut">Ir para a navegação principal</a></li>
+<li><a href="#main" class="screen-reader-shortcut">Ir para o conteúdo</a></li>
+<li><a href="#footer" class="screen-reader-shortcut">Ir para o rodapé</a></li>
+</ul>
+</nav>
+<div class="masthead">
+<div class="masthead__inner-wrap">
+<div class="masthead__menu">
+<input class="jcem-nav-state" type="checkbox" id="jcem-nav-state" aria-label="Alternar menu">
+<nav id="site-nav" class="greedy-nav" aria-label="">
+<a class="site-logo" href="/"><img src="https://jcem.pro/logo/logo-animado.gif" alt="JeanCarloEM" width="630" height="256"></a>
+<a class="site-title" href="/">
+JeanCarloEM
+</a>
+<ul class="visible-links">
+<li class="masthead__menu-item">
+<a href="/">Início</a>
+</li>
+<li class="masthead__menu-item">
+<a href="/Sobre/">Sobre</a>
+</li>
+<li class="masthead__menu-item">
+<a href="/mapa">Mapa do Site</a>
+</li>
+<li class="masthead__menu-item">
+<a href="/feed.xml">Feds RSS</a>
+</li>
+<li class="masthead__menu-item">
+<a href="/recent-posts.json">Feed JSON</a>
+</li>
+<li class="masthead__menu-item">
+<a href="https://github.com/jeancarloem">GitHub</a>
+</li>
+</ul>
+<button class="jcem-theme-toggle" type="button" role="switch" aria-checked="true" aria-label="Alternar tema">
+<span class="jcem-theme-toggle__option jcem-theme-toggle__option--light" title="Tema claro">
+<span class="visually-hidden">Tema claro</span>
+<i class="fas fa-sun" aria-hidden="true"></i>
+</span>
+<span class="jcem-theme-toggle__option jcem-theme-toggle__option--dark" title="Tema escuro">
+<span class="visually-hidden">Tema escuro</span>
+<i class="fas fa-moon" aria-hidden="true"></i>
+</span>
+</button>
+<label class="jcem-nav-toggle" for="jcem-nav-state" aria-label="Alternar menu">
+<span class="visually-hidden">Chavear menu</span>
+<i class="fas fa-bars" aria-hidden="true"></i>
+</label>
+<button class="greedy-nav__toggle hidden" type="button">
+<span class="visually-hidden">Chavear menu</span>
+<div class="navicon"></div>
+</button>
+<ul class="hidden-links hidden"></ul>
+</nav>
+<label class="jcem-nav-backdrop" for="jcem-nav-state" aria-hidden="true"></label>
+</div>
+</div>
+</div>
+<div class="initial-content">
+<div id="main" role="main">
+<article class="page h-entry jcem-post" data-jcem-quote-default="standard" data-print-article data-print-profile="ieee-conference-a4-ieeetran-1.8b" data-print-state="legivel" itemscope itemtype="https://schema.org/CreativeWork" aria-labelledby="page-title" lang="pt-BR" data-jcem-accessible-document="1">
+<meta itemprop="headline" content="Fixture estrutural de artigo">
+<div class="page__inner-wrap">
+<header class="jcem-post-header" data-print-span="all">
+<h1 id="page-title" class="page__title p-name" itemprop="headline">
+<a href="https://www.jeancarloem.com/_fixtures/pagespeed/article-basic/" itemprop="url">Fixture estrutural de artigo
+</a>
+</h1>
+</header>
+<aside class="jcem-print-metadata" data-print-only data-print-metadata data-print-span="all" aria-label="Cabeçalho acadêmico da impressão">
+<section class="jcem-print-authors" data-print-authors aria-label="Autoria">
+<div class="jcem-print-author" itemprop="author" itemscope itemtype="https://schema.org/Person">
+<strong itemprop="name">Autor de controle</strong>
+<span itemprop="description">Metadado fictício para exercitar a estrutura compartilhada de autoria.</span>
+</div>
+</section>
+<div class="jcem-print-publication" data-print-publication>
+<strong>JeanCarloEM</strong>
+<span>URL canônica: https://www.jeancarloem.com/_fixtures/pagespeed/article-basic/</span>
+<span>Obtido para impressão: <time data-print-acquired-at>não preparado</time></span>
+</div>
+<section class="jcem-print-summary" data-print-summary lang="pt-BR" aria-labelledby="jcem-print-summary-title">
+<h2 id="jcem-print-summary-title">Resumo</h2>
+<p>Amostra controlada do layout editorial sem mídia própria de publicação.</p>
+</section>
+<section class="jcem-print-summary" data-print-abstract lang="en" aria-labelledby="jcem-print-abstract-title">
+<h2 id="jcem-print-abstract-title">Abstract</h2>
+<p></p>
+</section>
+</aside>
+<section class="jcem-read-aloud" data-jcem-read-aloud aria-label="Leitura em voz alta">
+<p class="jcem-read-aloud__label">Ouvir este artigo</p>
+<div class="jcem-read-aloud__controls">
+<button type="button" data-jcem-read-action="play">Ler</button>
+<button type="button" data-jcem-read-action="pause" disabled>Pausar</button>
+<button type="button" data-jcem-read-action="stop" disabled>Parar</button>
+</div>
+<p class="visually-hidden" data-jcem-read-status role="status" aria-live="polite">Leitura pronta.</p>
+</section>
+<script src="/assets/jcem/js/read-aloud.js" defer data-jcem-read-aloud-runtime></script>
+<section class="page__content e-content" data-print-body data-jcem-readable-root itemprop="text">
+<h2 id="seção-representativa">Seção representativa</h2>
+<p>Este texto controlado exercita título, metadados, parágrafos, listas e a composição editorial compartilhada sem atribuir ao template o custo de um asset específico de publicação.</p>
+<ul>
+<li>Primeiro item estrutural.</li>
+<li>Segundo item estrutural.</li>
+</ul>
+<blockquote data-jcem-quote-model="standard" data-jcem-blockquote="" data-jcem-quote-processed="true" class="jcem-quote-model--standard">
+<p>Citação estrutural curta em modelo IEEE padrão para impressão.</p>
+</blockquote>
+</section>
+<section class="jcem-article-authors" aria-labelledby="jcem-article-authors-title">
+<h2 id="jcem-article-authors-title" class="screen-reader-text">Autoria</h2>
+<div class="jcem-article-author jcem-article-author--primary" itemprop="author" itemscope itemtype="https://schema.org/Person">
+<div class="jcem-article-author__avatar jcem-article-author__avatar--fallback">
+<img src="/assets/jcem/img/author-placeholder.svg" alt="Retrato de Autor de controle" loading="lazy" decoding="async" itemprop="image">
+</div>
+<div class="jcem-article-author__body">
+<p class="jcem-article-author__heading">
+<span>Autor</span>
+<strong itemprop="name">Autor de controle</strong>
+</p>
+<p class="jcem-article-author__bio" itemprop="description">Metadado fictício para exercitar a estrutura compartilhada de autoria.</p>
+</div>
+</div>
+</section>
+<footer class="page__meta">
+</footer>
+</div>
+</article>
+<aside class="jcem-print-institutional" data-print-only data-print-institutional aria-label="Rodapé institucional de impressão">
+<strong>Publicador: Jean Carlo EM.</strong>
+<span>Licença e condições editoriais: <a href="https://jeancarloem.com/licenca/">jeancarloem.com/licenca/</a>.</span>
+<span>Avisos gerais: <a href="https://jeancarloem.com/avisos-gerais/">jeancarloem.com/avisos-gerais/</a>.</span>
+<span>Impresso em: <time data-print-acquired-at>não preparado</time>.</span>
+<span>URL canônica: <a href="https://www.jeancarloem.com/_fixtures/pagespeed/article-basic/">https://www.jeancarloem.com/_fixtures/pagespeed/article-basic/</a>.</span>
+</aside>
+</div>
+</div>
+<div id="footer" class="page__footer">
+<footer>
+<div class="jcem-foot">
+<!-- AI-PROCESSED: conteúdo legal do rodapé reestruturado semanticamente. -->
+<p>
+<b>IMPORTANTE:</b> O acesso, consulta, leitura, permanência,
+armazenamento, reprodução, transmissão, compartilhamento,
+distribuição, arquivamento, impressão, replicação ou qualquer uso,
+total ou parcial, de informações, textos, opiniões, análises,
+estudos, documentos, mídias, publicações e demais elementos
+intelectuais associados direta ou indiretamente a
+<b>jeancarloem.com</b> (em conjunto, os <b>Conteúdos</b>), por
+quaisquer meios, suportes, tecnologias, ambientes, formatos ou
+formas de acesso, armazenamento, reprodução, transmissão,
+distribuição ou compartilhamento, presentes ou futuros (em
+conjunto, os <b>Meios de Disponibilização</b>), implica ciência e
+concordância integral, prévia, inequívoca, irrevogável e
+irretratável com os
+<a href="https://jeancarloem.com/termos-e-condicoes-de-uso"><b>Termos e Políticas de Uso</b></a>. Quem não concordar integralmente com tais termos
+<b><u>NÃO</u></b> deverá acessar, permanecer, consumir, utilizar ou
+praticar qualquer ato sobre os Conteúdos e deverá cessar
+imediatamente qualquer interação com eles, independentemente do
+Meio de Disponibilização.
+</p>
+<p>
+<b>AVISO DE CONTEÚDO SENSÍVEL E PÚBLICO-ALVO:</b> Os
+<b>Conteúdos</b> podem conter, sem limitação,
+<b>informações, opiniões pessoais, sugestões, dicas, orientações,
+análises, referências, publicidade, propaganda, patrocínio,
+menções comerciais explícitas ou implícitas e materiais de
+natureza filosófica, técnica, acadêmica, jurídica, histórica,
+teológica, científica, cultural, social, política, moral,
+religiosa ou correlata</b>. São disponibilizados <b>como estão</b>, sem garantia expressa,
+implícita, direta, indireta, técnica, profissional, comercial,
+editorial, factual ou de adequação a finalidade específica, nos
+termos da
+<a href="https://jeancarloem.com/licenca"><b>licença</b></a>, não substituem aconselhamento profissional qualificado e são de
+<b>responsabilidade exclusiva de seus respectivos autores</b>,
+sem implicar concordância, validação, certificação, recomendação,
+representação, vínculo, responsabilidade solidária ou endosso de
+terceiros, titulares, operadores, mantenedores, anunciantes,
+patrocinadores ou quaisquer pessoas físicas ou jurídicas
+relacionadas ou não a <b>jeancarloem.com</b>. Os Conteúdos são
+destinados a <b>adultos, estudantes, pesquisadores, profissionais
+e demais interessados com discernimento compatível com a matéria
+consultada</b> e <b><i>não são concebidos, dirigidos, estruturados
+ou apresentados para atrair, entreter, engajar, orientar ou
+atender especificamente crianças ou público infantil</i></b>.
+Eventual acesso por menor de idade ocorre sob responsabilidade
+exclusiva dos pais, responsáveis legais ou de quem detenha dever
+de guarda, orientação e supervisão, conforme a legislação
+aplicável.
+</p>
+<p>
+<b>LIBERDADE DE EXPRESSÃO, LIMITES E INTERPRETAÇÃO DO CONTEÚDO:</b>
+Os <b>Conteúdos</b> podem conter teor
+<b>polêmico, controverso, crítico, religioso, filosófico,
+político, jurídico, científico, histórico, cultural, moral,
+social, ideológico, sensível, ofensivo ou incompatível</b>
+com determinadas crenças, convicções, valores pessoais, culturas,
+faixas etárias, localidades ou interpretações. Tais Conteúdos
+devem ser lidos no contexto integral em que foram apresentados e
+consistem estritamente em
+<b>ideias, opiniões, análises, estudos, críticas, reflexões,
+hipóteses, interpretações, conceitos, abstrações e exercícios
+de livre expressão intelectual</b>,
+<b><i>NÃO configurando, em nenhuma hipótese, instrução operacional,
+recomendação prática, convocação, autorização, incentivo,
+promoção ou apologia a ódio, discriminação, perseguição,
+violência, agressão, violação de direitos, violação de leis,
+racismo, intolerância ou qualquer conduta ilícita, abusiva ou
+análoga</i></b>. Qualquer interpretação isolada, descontextualizada, ampliativa,
+restritiva, adversarial ou incompatível com este aviso, com os
+Termos e Políticas de Uso e com a íntegra do respectivo Conteúdo é
+expressamente rejeitada. Ao prosseguir, o usuário assume
+responsabilidade integral pela continuidade do acesso, pelo
+sentido atribuído ao material consultado e por eventual
+desconforto, discordância ou ofensa decorrente do livre
+intercâmbio de ideias em sociedade plural. Eventual ambiguidade
+deve ser comunicada com indicação precisa do trecho, termo ou
+combinação de palavras, sem prejuízo do
+<b>direito à livre expressão</b> assegurado pela
+<a href="http://www.senado.leg.br/atividade/const/con1988/con1988_15.12.2016/art_5_.asp" target="_blank" rel="noopener">
+<b>Constituição Federal do Brasil</b>, artigo 5º, incisos IV,
+VI, VIII e IX </a>, e pela
+<a href="http://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/L13709.htm" target="_blank" rel="noopener">
+<b>Lei Geral de Proteção de Dados Pessoais</b>, artigo 2º,
+inciso III </a>.
+</p>
+<p class="atencao">
+<b>ATENÇÃO:</b> É expressamente <b><u>PROIBIDO</u></b> acessar,
+permanecer, consultar, visualizar, salvar, armazenar, reproduzir,
+compartilhar, transmitir, distribuir, arquivar, imprimir, replicar
+ou utilizar, total ou parcialmente, quaisquer <b>Conteúdos</b> sem
+concordância integral com <b><u>TODOS</u></b> os
+<a href="https://jeancarloem.com/termos-e-condicoes-de-uso"><b>Termos e Políticas de Uso</b></a>
+e com este <b>AVISO DE CONTEÚDO SENSÍVEL</b>.
+</p>
+<!-- end custom footer snippets -->
+</div>
+<section class="jcem-footer-region" aria-label="Navegação complementar do rodapé">
+<div class="jcem-footer-region__brand">
+<a class="jcem-footer-region__logo" href="/" aria-label="JeanCarloEM">
+<img src="https://jcem.pro/logo/logo-animado.gif" alt="JeanCarloEM">
+</a>
+<div class="page__footer-follow jcem-footer-region__social">
+<ul class="social-icons">
+<li><strong>Siga:</strong></li>
+<li>
+<a href="https://x.com/jeancarloem" rel="nofollow noopener noreferrer">
+<i class="fab fa-fw fa-twitter-square" aria-hidden="true"></i>
+<span>Twitter</span>
+</a>
+</li>
+<li>
+<a href="https://www.facebook.com/JeanCarloEM/" rel="nofollow noopener noreferrer">
+<i class="fab fa-fw fa-facebook-square" aria-hidden="true"></i>
+<span>Facebook</span>
+</a>
+</li>
+<li>
+<a href="https://github.com/jeanCarloEM" rel="nofollow noopener noreferrer">
+<i class="fab fa-fw fa-github" aria-hidden="true"></i>
+<span>GitHub</span>
+</a>
+</li>
+<li>
+<a href="https://www.instagram.com/jeancarlo.em/" rel="nofollow noopener noreferrer">
+<i class="fab fa-fw fa-instagram" aria-hidden="true"></i>
+<span>Instagram</span>
+</a>
+</li>
+<li>
+<a href="/feed.xml">
+<i class="fas fa-fw fa-square-rss" aria-hidden="true"></i>
+<span>Feed</span>
+</a>
+</li>
+</ul>
+</div>
+<nav class="jcem-footer-region__links" aria-label="Links do rodapé">
+<a href="/sobre/">Sobre</a>
+<a href="/feed.xml">Feed RSS</a>
+<a href="/recent-posts.json">Feed JSON</a>
+<a href="/mapa/">Todos os Artigos</a>
+</nav>
+</div>
+<nav class="jcem-footer-region__taxonomies" aria-label="Taxonomias do rodapé">
+<section class="jcem-footer-region__taxonomy" aria-labelledby="jcem-footer-categories">
+<h2 id="jcem-footer-categories">Categorias</h2>
+<ul>
+<li>
+<a href="/c/#destaque">Destaque</a>
+</li>
+<li>
+<a href="/c/#divagando">Divagando</a>
+</li>
+<li>
+<a href="/c/#ci%C3%AAncia">ciência</a>
+</li>
+<li>
+<a href="/c/#filosofia">filosofia</a>
+</li>
+<li>
+<a href="/c/#religi%C3%A3o">religião</a>
+</li>
+</ul>
+</section>
+<section class="jcem-footer-region__taxonomy" aria-labelledby="jcem-footer-tags">
+<h2 id="jcem-footer-tags">Assuntos</h2>
+<ul>
+<li>
+<a href="/t/#a-b%C3%ADblia-est%C3%A1-certa">A bíblia está certa</a>
+</li>
+<li>
+<a href="/t/#deus-est%C3%A1-certo">Deus está certo</a>
+</li>
+<li>
+<a href="/t/#esp%C3%ADrito-santo">Espírito Santo</a>
+</li>
+<li>
+<a href="/t/#absolutismo">absolutismo</a>
+</li>
+<li>
+<a href="/t/#alma">alma</a>
+</li>
+<li>
+<a href="/t/#b%C3%ADblia">bíblia</a>
+</li>
+<li>
+<a href="/t/#ci%C3%AAncia">ciência</a>
+</li>
+<li>
+<a href="/t/#convergencialismo">convergencialismo</a>
+</li>
+<li>
+<a href="/t/#cria%C3%A7%C3%A3o">criação</a>
+</li>
+<li>
+<a href="/t/#dez-mandamentos">dez mandamentos</a>
+</li>
+<li>
+<a href="/t/#ensinamento">ensinamento</a>
+</li>
+<li>
+<a href="/t/#esfor%C3%A7o-humano">esforço humano</a>
+</li>
+<li>
+<a href="/t/#espiritismo">espiritismo</a>
+</li>
+<li>
+<a href="/t/#espiritualismo">espiritualismo</a>
+</li>
+<li>
+<a href="/t/#esp%C3%ADrito">espírito</a>
+</li>
+</ul>
+</section>
+</nav>
+</section>
+</footer>
+<p class="copy">
+Copyright © 2012 - 2026 JeanCarloEM. Todos
+os direitos reservados.
+<span>Feito com
+<a href="https://mmistakes.github.io/minimal-mistakes/" target="_blank">
+Minimal Mistakes</a>.
+</span>
+</p>
+<div class="sobpostbar">
+<ul id="menu-topo-2" class="menu">
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1871">
+<a href="/sobre/">Sobre</a>
+</li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1869">
+<a href="https://jeancarloem.com/termos-de-uso">Legal</a>
+</li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1875">
+<a href="https://jeancarloem.com/avisos-gerais/">Advertências</a>
+</li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1875">
+<a href="https://jeancarloem.com/privacidade/">Privacidade</a>
+</li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1872">
+<a title="Licença" href="https://jeancarloem.com/licenca/">Licença</a>
+</li>
+</ul>
+</div>
+</div>
+<a class="jcem-scroll-top" href="#" aria-label="Voltar ao topo" title="Voltar ao topo" aria-hidden="true" tabindex="-1">
+<i class="fas fa-arrow-up" aria-hidden="true"></i>
+</a>
+</div>
+<noscript>
+<div class="main_jcem_wrapper jcem-noscript-page">
+<p class="copy">
+Copyright © 2012 - 2026 JeanCarloEM. Todos
+os direitos reservados.
+<span>Feito com
+<a href="https://mmistakes.github.io/minimal-mistakes/" target="_blank">
+Minimal Mistakes</a>.
+</span>
+</p>
+<div class="sobpostbar">
+<ul id="menu-topo-2" class="menu">
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1871">
+<a href="/sobre/">Sobre</a>
+</li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1869">
+<a href="https://jeancarloem.com/termos-de-uso">Legal</a>
+</li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1875">
+<a href="https://jeancarloem.com/avisos-gerais/">Advertências</a>
+</li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1875">
+<a href="https://jeancarloem.com/privacidade/">Privacidade</a>
+</li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1872">
+<a title="Licença" href="https://jeancarloem.com/licenca/">Licença</a>
+</li>
+</ul>
+</div>
+<div class="masthead jcem-noscript-masthead" data-jcem-static-fragment="masthead">
+<div class="masthead__inner-wrap">
+<div class="masthead__menu">
+<nav id="site-nav" class="greedy-nav" aria-label="Navegação sem JavaScript">
+<a class="site-logo" href="/"><img src="https://jcem.pro/logo/logo-animado.gif" alt="JeanCarloEM" width="630" height="256"></a>
+<a class="site-title" href="/">
+JeanCarloEM
+</a>
+<ul class="visible-links">
+<li class="masthead__menu-item">
+<a href="/">Início</a>
+</li>
+<li class="masthead__menu-item">
+<a href="/Sobre/">Sobre</a>
+</li>
+<li class="masthead__menu-item">
+<a href="/mapa">Mapa do Site</a>
+</li>
+<li class="masthead__menu-item">
+<a href="/feed.xml">Feds RSS</a>
+</li>
+<li class="masthead__menu-item">
+<a href="/recent-posts.json">Feed JSON</a>
+</li>
+<li class="masthead__menu-item">
+<a href="https://github.com/jeancarloem">GitHub</a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<figure class="jcem-featured-image jcem-featured-image--wide jcem-noscript-featured" aria-label="Imagem destacada da página sem JavaScript">
+<img class="jcem-featured-image__img" src="/assets/jcem/img/sem-motor-nao-vai-jcem-ccbysanc.jcem.webp" alt="Sem motor, não vai" decoding="async">
+</figure>
+<div class="initial-content jcem-noscript-initial">
+<main class="jcem-noscript-content">
+<section class="jcem-noscript__panel" aria-labelledby="jcem-noscript-title">
+<h1 id="jcem-noscript-title">Problema / Problem / 问题</h1>
+<div class="jcem-noscript__lang">
+<h2>PT-BR</h2>
+<p>
+<strong>O JavaScript está desativado.</strong><br>
+O JavaScript é necessário para gerenciar a adesão aos
+Termos de Uso, ao Aviso de Privacidade e às preferências
+de consentimento.
+</p>
+</div>
+<div class="jcem-noscript__lang">
+<h2>EN-US</h2>
+<p>
+<strong>JavaScript is disabled.</strong><br>
+JavaScript is required to manage your agreement with the
+Terms of Use, Privacy Notice and consent preferences.
+</p>
+</div>
+<div class="jcem-noscript__lang">
+<h2>ES-ES</h2>
+<p>
+<strong>JavaScript está deshabilitado.</strong><br>
+JavaScript es necesario para gestionar su aceptación de
+los Términos de Uso, el Aviso de Privacidad y las
+preferencias de consentimiento.
+</p>
+</div>
+<div class="jcem-noscript__lang">
+<h2>中文（普通话）</h2>
+<p>
+<strong>JavaScript 已被禁用。</strong><br>
+需要启用
+JavaScript，以管理您对使用条款、隐私声明和同意偏好的确认。
+</p>
+</div>
+</section>
+</main>
+</div>
+<div id="footer" class="page__footer jcem-noscript-footer" data-jcem-static-fragment="footer">
+<footer>
+<div class="jcem-foot">
+<!-- AI-PROCESSED: conteúdo legal do rodapé reestruturado semanticamente. -->
+<p>
+<b>IMPORTANTE:</b> O acesso, consulta, leitura, permanência,
+armazenamento, reprodução, transmissão, compartilhamento,
+distribuição, arquivamento, impressão, replicação ou qualquer uso,
+total ou parcial, de informações, textos, opiniões, análises,
+estudos, documentos, mídias, publicações e demais elementos
+intelectuais associados direta ou indiretamente a
+<b>jeancarloem.com</b> (em conjunto, os <b>Conteúdos</b>), por
+quaisquer meios, suportes, tecnologias, ambientes, formatos ou
+formas de acesso, armazenamento, reprodução, transmissão,
+distribuição ou compartilhamento, presentes ou futuros (em
+conjunto, os <b>Meios de Disponibilização</b>), implica ciência e
+concordância integral, prévia, inequívoca, irrevogável e
+irretratável com os
+<a href="https://jeancarloem.com/termos-e-condicoes-de-uso"><b>Termos e Políticas de Uso</b></a>. Quem não concordar integralmente com tais termos
+<b><u>NÃO</u></b> deverá acessar, permanecer, consumir, utilizar ou
+praticar qualquer ato sobre os Conteúdos e deverá cessar
+imediatamente qualquer interação com eles, independentemente do
+Meio de Disponibilização.
+</p>
+<p>
+<b>AVISO DE CONTEÚDO SENSÍVEL E PÚBLICO-ALVO:</b> Os
+<b>Conteúdos</b> podem conter, sem limitação,
+<b>informações, opiniões pessoais, sugestões, dicas, orientações,
+análises, referências, publicidade, propaganda, patrocínio,
+menções comerciais explícitas ou implícitas e materiais de
+natureza filosófica, técnica, acadêmica, jurídica, histórica,
+teológica, científica, cultural, social, política, moral,
+religiosa ou correlata</b>. São disponibilizados <b>como estão</b>, sem garantia expressa,
+implícita, direta, indireta, técnica, profissional, comercial,
+editorial, factual ou de adequação a finalidade específica, nos
+termos da
+<a href="https://jeancarloem.com/licenca"><b>licença</b></a>, não substituem aconselhamento profissional qualificado e são de
+<b>responsabilidade exclusiva de seus respectivos autores</b>,
+sem implicar concordância, validação, certificação, recomendação,
+representação, vínculo, responsabilidade solidária ou endosso de
+terceiros, titulares, operadores, mantenedores, anunciantes,
+patrocinadores ou quaisquer pessoas físicas ou jurídicas
+relacionadas ou não a <b>jeancarloem.com</b>. Os Conteúdos são
+destinados a <b>adultos, estudantes, pesquisadores, profissionais
+e demais interessados com discernimento compatível com a matéria
+consultada</b> e <b><i>não são concebidos, dirigidos, estruturados
+ou apresentados para atrair, entreter, engajar, orientar ou
+atender especificamente crianças ou público infantil</i></b>.
+Eventual acesso por menor de idade ocorre sob responsabilidade
+exclusiva dos pais, responsáveis legais ou de quem detenha dever
+de guarda, orientação e supervisão, conforme a legislação
+aplicável.
+</p>
+<p>
+<b>LIBERDADE DE EXPRESSÃO, LIMITES E INTERPRETAÇÃO DO CONTEÚDO:</b>
+Os <b>Conteúdos</b> podem conter teor
+<b>polêmico, controverso, crítico, religioso, filosófico,
+político, jurídico, científico, histórico, cultural, moral,
+social, ideológico, sensível, ofensivo ou incompatível</b>
+com determinadas crenças, convicções, valores pessoais, culturas,
+faixas etárias, localidades ou interpretações. Tais Conteúdos
+devem ser lidos no contexto integral em que foram apresentados e
+consistem estritamente em
+<b>ideias, opiniões, análises, estudos, críticas, reflexões,
+hipóteses, interpretações, conceitos, abstrações e exercícios
+de livre expressão intelectual</b>,
+<b><i>NÃO configurando, em nenhuma hipótese, instrução operacional,
+recomendação prática, convocação, autorização, incentivo,
+promoção ou apologia a ódio, discriminação, perseguição,
+violência, agressão, violação de direitos, violação de leis,
+racismo, intolerância ou qualquer conduta ilícita, abusiva ou
+análoga</i></b>. Qualquer interpretação isolada, descontextualizada, ampliativa,
+restritiva, adversarial ou incompatível com este aviso, com os
+Termos e Políticas de Uso e com a íntegra do respectivo Conteúdo é
+expressamente rejeitada. Ao prosseguir, o usuário assume
+responsabilidade integral pela continuidade do acesso, pelo
+sentido atribuído ao material consultado e por eventual
+desconforto, discordância ou ofensa decorrente do livre
+intercâmbio de ideias em sociedade plural. Eventual ambiguidade
+deve ser comunicada com indicação precisa do trecho, termo ou
+combinação de palavras, sem prejuízo do
+<b>direito à livre expressão</b> assegurado pela
+<a href="http://www.senado.leg.br/atividade/const/con1988/con1988_15.12.2016/art_5_.asp" target="_blank" rel="noopener">
+<b>Constituição Federal do Brasil</b>, artigo 5º, incisos IV,
+VI, VIII e IX </a>, e pela
+<a href="http://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/L13709.htm" target="_blank" rel="noopener">
+<b>Lei Geral de Proteção de Dados Pessoais</b>, artigo 2º,
+inciso III </a>.
+</p>
+<p class="atencao">
+<b>ATENÇÃO:</b> É expressamente <b><u>PROIBIDO</u></b> acessar,
+permanecer, consultar, visualizar, salvar, armazenar, reproduzir,
+compartilhar, transmitir, distribuir, arquivar, imprimir, replicar
+ou utilizar, total ou parcialmente, quaisquer <b>Conteúdos</b> sem
+concordância integral com <b><u>TODOS</u></b> os
+<a href="https://jeancarloem.com/termos-e-condicoes-de-uso"><b>Termos e Políticas de Uso</b></a>
+e com este <b>AVISO DE CONTEÚDO SENSÍVEL</b>.
+</p>
+<!-- end custom footer snippets -->
+</div>
+<section class="jcem-footer-region" aria-label="Navegação complementar do rodapé">
+<div class="jcem-footer-region__brand">
+<a class="jcem-footer-region__logo" href="/" aria-label="JeanCarloEM">
+<img src="https://jcem.pro/logo/logo-animado.gif" alt="JeanCarloEM">
+</a>
+<div class="page__footer-follow jcem-footer-region__social">
+<ul class="social-icons">
+<li><strong>Siga:</strong></li>
+<li>
+<a href="https://x.com/jeancarloem" rel="nofollow noopener noreferrer">
+<i class="fab fa-fw fa-twitter-square" aria-hidden="true"></i>
+<span>Twitter</span>
+</a>
+</li>
+<li>
+<a href="https://www.facebook.com/JeanCarloEM/" rel="nofollow noopener noreferrer">
+<i class="fab fa-fw fa-facebook-square" aria-hidden="true"></i>
+<span>Facebook</span>
+</a>
+</li>
+<li>
+<a href="https://github.com/jeanCarloEM" rel="nofollow noopener noreferrer">
+<i class="fab fa-fw fa-github" aria-hidden="true"></i>
+<span>GitHub</span>
+</a>
+</li>
+<li>
+<a href="https://www.instagram.com/jeancarlo.em/" rel="nofollow noopener noreferrer">
+<i class="fab fa-fw fa-instagram" aria-hidden="true"></i>
+<span>Instagram</span>
+</a>
+</li>
+<li>
+<a href="/feed.xml">
+<i class="fas fa-fw fa-square-rss" aria-hidden="true"></i>
+<span>Feed</span>
+</a>
+</li>
+</ul>
+</div>
+<nav class="jcem-footer-region__links" aria-label="Links do rodapé">
+<a href="/sobre/">Sobre</a>
+<a href="/feed.xml">Feed RSS</a>
+<a href="/recent-posts.json">Feed JSON</a>
+<a href="/mapa/">Todos os Artigos</a>
+</nav>
+</div>
+<nav class="jcem-footer-region__taxonomies" aria-label="Taxonomias do rodapé">
+<section class="jcem-footer-region__taxonomy" aria-labelledby="jcem-footer-categories">
+<h2 id="jcem-footer-categories">Categorias</h2>
+<ul>
+<li>
+<a href="/c/#destaque">Destaque</a>
+</li>
+<li>
+<a href="/c/#divagando">Divagando</a>
+</li>
+<li>
+<a href="/c/#ci%C3%AAncia">ciência</a>
+</li>
+<li>
+<a href="/c/#filosofia">filosofia</a>
+</li>
+<li>
+<a href="/c/#religi%C3%A3o">religião</a>
+</li>
+</ul>
+</section>
+<section class="jcem-footer-region__taxonomy" aria-labelledby="jcem-footer-tags">
+<h2 id="jcem-footer-tags">Assuntos</h2>
+<ul>
+<li>
+<a href="/t/#a-b%C3%ADblia-est%C3%A1-certa">A bíblia está certa</a>
+</li>
+<li>
+<a href="/t/#deus-est%C3%A1-certo">Deus está certo</a>
+</li>
+<li>
+<a href="/t/#esp%C3%ADrito-santo">Espírito Santo</a>
+</li>
+<li>
+<a href="/t/#absolutismo">absolutismo</a>
+</li>
+<li>
+<a href="/t/#alma">alma</a>
+</li>
+<li>
+<a href="/t/#b%C3%ADblia">bíblia</a>
+</li>
+<li>
+<a href="/t/#ci%C3%AAncia">ciência</a>
+</li>
+<li>
+<a href="/t/#convergencialismo">convergencialismo</a>
+</li>
+<li>
+<a href="/t/#cria%C3%A7%C3%A3o">criação</a>
+</li>
+<li>
+<a href="/t/#dez-mandamentos">dez mandamentos</a>
+</li>
+<li>
+<a href="/t/#ensinamento">ensinamento</a>
+</li>
+<li>
+<a href="/t/#esfor%C3%A7o-humano">esforço humano</a>
+</li>
+<li>
+<a href="/t/#espiritismo">espiritismo</a>
+</li>
+<li>
+<a href="/t/#espiritualismo">espiritualismo</a>
+</li>
+<li>
+<a href="/t/#esp%C3%ADrito">espírito</a>
+</li>
+</ul>
+</section>
+</nav>
+</section>
+</footer>
+<p class="copy">
+Copyright © 2012 - 2026 JeanCarloEM. Todos
+os direitos reservados.
+<span>Feito com
+<a href="https://mmistakes.github.io/minimal-mistakes/" target="_blank">
+Minimal Mistakes</a>.
+</span>
+</p>
+<div class="sobpostbar">
+<ul id="menu-topo-2" class="menu">
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1871">
+<a href="/sobre/">Sobre</a>
+</li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1869">
+<a href="https://jeancarloem.com/termos-de-uso">Legal</a>
+</li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1875">
+<a href="https://jeancarloem.com/avisos-gerais/">Advertências</a>
+</li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1875">
+<a href="https://jeancarloem.com/privacidade/">Privacidade</a>
+</li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1872">
+<a title="Licença" href="https://jeancarloem.com/licenca/">Licença</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</noscript>
+</body>
+</html>

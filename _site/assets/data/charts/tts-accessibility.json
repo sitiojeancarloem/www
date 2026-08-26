@@ -1,0 +1,16 @@
+{
+  "id": "leitura-mensal",
+  "type": "line",
+  "title": "Exemplo controlado de leituras mensais",
+  "summary": "As leituras aumentam de 12 para 31 entre janeiro e abril.",
+  "conclusion": "A série apresenta crescimento contínuo, com maior aumento entre março e abril.",
+  "source": "Fixture técnica JCEM, valores demonstrativos sem inferência editorial.",
+  "labels": ["Janeiro", "Fevereiro", "Março", "Abril"],
+  "datasets": [
+    {
+      "label": "Leituras",
+      "data": [12, 17, 22, 31],
+      "color": "#2b92db"
+    }
+  ]
+}

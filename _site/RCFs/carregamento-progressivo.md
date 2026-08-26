@@ -7,6 +7,12 @@ Escopo: carregamento inicial, loader global, recursos pesados, skeleton loading 
 
 ## Regras Normativas
 
+- Toda imagem editorial de conteúdo elegível em mídia de tela DEVE receber, por aprimoramento progressivo, um controle sutil de ampliação sem reflow. O controle DEVE ter alvo adequado a mouse e toque, nome acessível e acionamento por teclado; PODE surgir por `hover`, foco ou primeira interação de toque/clique, mas NÃO PODE depender exclusivamente de `hover`.
+- A visualização ampliada DEVE usar o asset de maior qualidade já disponível no elemento, preservar proporção, limitar-se à viewport, fornecer fechamento inequívoco por controle, `Escape` e retorno ao contexto/foco anterior. Fullscreen nativo PODE ser usado, com fallback modal local quando indisponível ou recusado.
+- Logo, ícone, avatar, imagem de controle, card/thumbnail e mídia pertencente a componente com contrato próprio NÃO são imagem editorial elegível. A exclusão DEVE decorrer do papel semântico/estrutural, não de exceção arbitrária por URL, página, formato ou dispositivo.
+- O aprimoramento de ampliação DEVE permanecer ausente da impressão e não PODE alterar o asset, suas dimensões no fluxo, `srcset`, `sizes`, skeleton, legenda, link editorial ou comportamento de carregamento.
+- Imagem destacada ampla limitada pela viewport DEVE preencher a altura visual calculada sem deformação: o contêiner e a caixa da imagem DEVEM compartilhar a mesma altura efetiva, enquanto a largura deriva da proporção intrínseca e permanece centralizada e limitada à viewport. `aspect-ratio` de reserva de carregamento NÃO PODE conservar altura excedente depois que esse limite passa a governar a imagem.
+
 - HTML e CSS devem produzir conteúdo legível imediatamente; JavaScript, consentimento e aprimoramentos progressivos NÃO PODEM ocultar ou bloquear a primeira renderização visível da página.
 - Recursos essenciais são HTML, CSS, JavaScript próprio necessário à inicialização e dependências leves do JavaScript, como JSON, XML ou formatos equivalentes.
 - Imagens, `background-image`, vídeos, áudios, iframes, fontes opcionais e demais assets pesados não devem bloquear a liberação inicial da página.
@@ -27,7 +33,9 @@ Escopo: carregamento inicial, loader global, recursos pesados, skeleton loading 
 - A geração deve ser incremental sempre que tecnicamente viável, evitando reprocessamento de assets não alterados.
 - O índice consolidado de metadados deve ser cacheável, possuir baixa latência e minimizar requisições HTTP.
 - O índice DEVE registrar variantes responsivas conhecidas por asset, com URL, largura, altura, proporção, formato e custo em bytes quando disponível.
-- Cards, thumbnails, destaques e consumidores equivalentes DEVEM emitir `srcset` e `sizes` ou contrato equivalente que permita ao navegador escolher a menor variante suficiente para largura renderizada, viewport e DPR; a maior imagem NÃO DEVE ser o default por conveniência.
+- Cards e thumbnails DEVEM emitir `srcset` e `sizes` ou contrato equivalente que permita ao navegador escolher a menor variante suficiente para largura renderizada, viewport e DPR; a maior imagem NÃO DEVE ser o default por conveniência. Imagem destacada ou interna do artigo preserva o original, salvo autorização editorial explícita diversa.
+- Imagem destacada wide de artigo DEVE preservar proporção e qualidade, porém sua caixa e a própria mídia NÃO PODEM exceder a altura útil da viewport com a rolagem no topo. A contenção aplica-se somente a artigo em mídia de tela e NÃO PODE alterar 404, `noscript`, cards, impressão ou o asset original.
+- Variantes de cards e thumbnails DEVEM nascer diretamente do original declarado uma única vez. Configuração e índice DEVEM registrar hash SHA-256, tamanho e commit do original; build subsequente apenas valida e reutiliza as saídas, sem recompressão cumulativa.
 - Variante incompatível em proporção ou finalidade NÃO DEVE integrar o mesmo conjunto. Ausência de variantes DEVE preservar a origem como fallback sem inventar arquivo ou URL.
 - Card criado no cliente DEVE consumir o mesmo índice e regra de seleção do HTML estático, sem duplicar heurística divergente.
 - Metadados incorporados diretamente ao arquivo original, como EXIF ou mecanismo equivalente, só devem ser gravados quando houver suporte seguro, preservação integral dos metadados existentes e ausência de impacto relevante no build.
@@ -38,19 +46,24 @@ Escopo: carregamento inicial, loader global, recursos pesados, skeleton loading 
 
 ## Implementação
 
+- `assets/jcem/ts/site.ts` acopla o controle de ampliação às imagens editoriais elegíveis depois da primeira pintura, reutiliza o contrato de fullscreen com fallback local e preserva o foco de origem. `_sass/minimal-mistakes/skins/_variables-custom.scss` contém somente a aparência de tela do controle e da superfície ampliada.
 - `_includes/head/custom.html` define o loader inicial e a barra superior com contraste próprio, independente do tema ativo; o loader sinaliza aprimoramento pendente sem encobrir o conteúdo já pintável.
+- Raster JPG, JPEG ou PNG compartilhado de tema/infraestrutura, ou abrangido pela exceção de cards e thumbnails, PODE possuir derivado WebP desde que o original permaneça versionado e intacto. Cada derivado DEVE ser criado uma única vez diretamente do original e vinculado em manifesto a hash SHA-256, tamanho, mtime de origem, hash/tamanho de destino e instante de geração; mudança de origem ou destino DEVE falhar até autorização/atualização explícita, vedada qualquer cadeia de recompressão.
+- A conversão automática DEVE operar somente sobre allowlist de fontes compartilhadas autorizadas. Asset ou ligação editorial específica NÃO PODE entrar nesse fluxo por mera existência sob `assets/`; acervos de `_drafts`, recuperação e legado também permanecem excluídos até autorização explícita aplicável.
 - `assets/jcem/ts/site.ts` libera a página após `DOMContentLoaded` e preparação leve dos fragmentos essenciais, sem aguardar `window.load`.
 - `assets/jcem/ts/site.ts` monitora imagens e backgrounds elegíveis, aplicando estados `loading`, `loaded` e `error` em `.jcem-skeleton`.
-- `_includes/archive-single.html` e `_includes/jcem/post-featured-image.html` marcam cards e imagens destacadas com skeleton server-side.
+- `_includes/archive-single.html` e `_includes/jcem/post-featured-image.html` marcam cards e imagens destacadas com skeleton server-side; somente o primeiro consome variantes responsivas editoriais.
 - `_plugins/jcem_asset_metadata.rb` gera metadados opcionais de imagens, mantém cache incremental em `.jekyll-cache/jcem-asset-metadata.json` e publica índice consolidado em `assets/jcem/asset-metadata.json`.
+- Metadados Open Graph e equivalentes DEVEM consumir variante social local gerada no build com altura final de 630 px e largura proporcional. O gerador DEVE partir da fonte original declarada, comparar JPEG e PNG produzidos com parâmetros estáveis, selecionar a menor saída visualmente compatível, registrar hashes, tamanho, estado temporal e parâmetros, e regenerar somente quando fonte ou parâmetros mudarem. `_plugins/jcem_social_images.rb` é o conector exclusivo entre esse manifesto e `header.og_image`; o asset editorial permanece inalterado.
 - `_includes/archive-single.html`, `_includes/jcem/post-featured-image.html` e `recent-posts.json` usam metadados disponíveis para emitir `width`, `height` e proporção sem criar dependência funcional.
-- Esses consumidores DEVEM também propagar variantes, `srcset` e `sizes` centralmente derivados; o JSON dinâmico DEVE transportar a mesma projeção sanitizada.
+- Os consumidores de card/thumbnail DEVEM propagar variantes, `srcset` e `sizes` centralmente derivados; o JSON dinâmico DEVE transportar a mesma projeção sanitizada. A página individual NÃO DEVE substituir a imagem editorial original por essas variantes.
 - `_sass/minimal-mistakes/skins/_variables-custom.scss` define tokens e animação de skeleton em CSS puro.
 - `404.main.html` mantém implementação local equivalente para loader, imagem destacada e cards recentes, gerando `/404.html` em tempo de build.
 - A implementação atual não grava EXIF nos arquivos originais porque a camada sidecar atende ao contrato com menor risco, sem nova dependência e sem mutação de assets autorais.
 
 ## Validação
 
+- A validação visual DEVE comprovar controle sem deslocamento de layout, revelação por hover/foco e primeira interação, acionamento por mouse e teclado, proporção/contain na viewport, fechamento por botão e `Escape`, restauração de foco e ausência em imagens excluídas e impressão.
 - A validação visual deve simular asset pesado pendente e confirmar que `.jcem-page-loaded` é aplicado antes de `document.readyState === "complete"`.
 - A validação visual deve confirmar que o conteúdo permanece visível antes, durante e após a inicialização dos aprimoramentos essenciais.
 - A validação visual deve confirmar presença, geometria, pseudo-elemento e estado final dos skeletons em componentes elegíveis.

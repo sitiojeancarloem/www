@@ -19,11 +19,11 @@
 				};
 				const bindSkeletonImage = img => {
 					if (!img || img.dataset.jcemSkeletonBound === 'true') return;
+					const container = img.closest('.jcem-skeleton');
+					// PROTECAO: midia sem contrato de skeleton, como o logo, nao pode ter o pai recortado.
+					if (!container) return;
 					img.dataset.jcemSkeletonBound = 'true';
 					img.classList.add('jcem-skeleton-asset');
-					const container = img.closest('.jcem-skeleton') || img.parentElement;
-					if (!container) return;
-					container.classList.add('jcem-skeleton');
 					const sync = () => {
 						container.dataset.jcemSkeletonState = img.complete
 							? (img.naturalWidth > 0 ? 'loaded' : 'error')
@@ -330,8 +330,13 @@
 </noscript>
 <style>
 			/* Cores: aliases do tema ativo. */
+			body.layout--404 {
+				overflow-x: clip;
+			}
+
 			.layout--404 .main_jcem_wrapper {
 				--jcem-404-featured-height: clamp(14rem, 40vh, 24rem);
+				overflow-x: visible;
 			}
 
 			.jcem-404-featured {
@@ -926,7 +931,7 @@ aria-label="Imagem destacada da página sem JavaScript"
 >
 <img
 class="jcem-featured-image__img"
-src="/assets/jcem/img/sem-motor-nao-vai-jcem-ccbysanc.png"
+src="/assets/jcem/img/sem-motor-nao-vai-jcem-ccbysanc.jcem.webp"
 alt="Sem motor, não vai"
 decoding="async"
 />

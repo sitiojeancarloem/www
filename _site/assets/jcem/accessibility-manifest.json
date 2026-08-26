@@ -1,0 +1,205 @@
+{
+  "schema": "jcem-accessibility/v1",
+  "generated_by": "jcem_zz_accessible_reading.rb",
+  "chartjs_effective_version": "4.5.1",
+  "pages": [
+    {
+      "url": "/_fixtures/pagespeed/article-basic/",
+      "sha256": "207023115838bf8fb39be8d3564502eae31443191064b8827fd0950459d1cadf",
+      "language": "pt-BR",
+      "capabilities": {
+        "block_quotes": 0,
+        "inline_quotes": 0,
+        "references": 0,
+        "tables": 0,
+        "images": 0,
+        "language_changes": 0,
+        "charts": 0
+      },
+      "assets": []
+    },
+    {
+      "url": "/_fixtures/pagespeed/article-panel/",
+      "sha256": "5924b5c2f7ba86530d8a2b82300a2c7c8962c1a3d38af3787e27646c4838f552",
+      "language": "pt-BR",
+      "capabilities": {
+        "block_quotes": 2,
+        "inline_quotes": 0,
+        "references": 0,
+        "tables": 0,
+        "images": 0,
+        "language_changes": 0,
+        "charts": 0
+      },
+      "assets": []
+    },
+    {
+      "url": "/_fixtures/tts-accessibility/",
+      "sha256": "0c1de73d61e32852b78de42aead428f354ca6435af84838cc258a1a0448babc9",
+      "language": "pt-BR",
+      "capabilities": {
+        "block_quotes": 1,
+        "inline_quotes": 1,
+        "references": 1,
+        "tables": 2,
+        "images": 1,
+        "language_changes": 2,
+        "charts": 1
+      },
+      "assets": [
+        "/assets/jcem/js/chart-adapter.js",
+        "/assets/jcem/lib/chartjs/chart.umd.min.js"
+      ]
+    },
+    {
+      "url": "/p/5-verdades-de-genesis-27/",
+      "sha256": "2b1e41c1c17954dec1d9a4a9b110b0625248eab262b10a3fa5aad7500077a8b4",
+      "language": "pt-BR",
+      "capabilities": {
+        "block_quotes": 14,
+        "inline_quotes": 0,
+        "references": 21,
+        "tables": 2,
+        "images": 0,
+        "language_changes": 37,
+        "charts": 0
+      },
+      "assets": []
+    },
+    {
+      "url": "/p/bate-papo/eventos-finais/a-heranca-dos-santos/",
+      "sha256": "d155e3b9cf97d37e04414fb4ae6596a7a5a174ad53075f4018e564fde6b7d190",
+      "language": "pt-BR",
+      "capabilities": {
+        "block_quotes": 29,
+        "inline_quotes": 0,
+        "references": 32,
+        "tables": 0,
+        "images": 0,
+        "language_changes": 0,
+        "charts": 0
+      },
+      "assets": []
+    },
+    {
+      "url": "/p/bate-papo/eventos-finais/rumo-ao-lar-viagem-dos-remidos-coroas-e-recompensa-celestial/",
+      "sha256": "a7be65713c7e2fc9bf828a3c21d44f11da533b57ca29d014e477f20f80faec03",
+      "language": "pt-BR",
+      "capabilities": {
+        "block_quotes": 46,
+        "inline_quotes": 0,
+        "references": 39,
+        "tables": 0,
+        "images": 0,
+        "language_changes": 0,
+        "charts": 0
+      },
+      "assets": []
+    },
+    {
+      "url": "/p/como-identificar-falacias/",
+      "sha256": "77b0193b249c7a48efdf09b4f20aed9f9371ba808f7d49dc8b1109dab7495dbf",
+      "language": "pt-BR",
+      "capabilities": {
+        "block_quotes": 0,
+        "inline_quotes": 0,
+        "references": 0,
+        "tables": 6,
+        "images": 5,
+        "language_changes": 0,
+        "charts": 0
+      },
+      "assets": []
+    },
+    {
+      "url": "/p/devaneios/",
+      "sha256": "c5d50d214a85127ab0a9867047b70097e8d680f59a0f3b328f7b86ec3be56edf",
+      "language": "pt-BR",
+      "capabilities": {
+        "block_quotes": 18,
+        "inline_quotes": 0,
+        "references": 57,
+        "tables": 0,
+        "images": 5,
+        "language_changes": 0,
+        "charts": 0
+      },
+      "assets": []
+    },
+    {
+      "url": "/p/nenhum-nivel-de-alcool-faz-bem-a-saude/",
+      "sha256": "437bc341545e4d0f89600fae9046920fbbd4f019d3f121b1f2aaa15536a2ec5e",
+      "language": "pt-BR",
+      "capabilities": {
+        "block_quotes": 9,
+        "inline_quotes": 0,
+        "references": 28,
+        "tables": 0,
+        "images": 0,
+        "language_changes": 0,
+        "charts": 0
+      },
+      "assets": []
+    },
+    {
+      "url": "/p/nove-motivos-para-guardar-o-sabado/",
+      "sha256": "a823e6881c1bcadc4783238e093b2cfe78fee1bb9be4951de176ed1a2723dbd1",
+      "language": "pt-BR",
+      "capabilities": {
+        "block_quotes": 16,
+        "inline_quotes": 0,
+        "references": 52,
+        "tables": 0,
+        "images": 0,
+        "language_changes": 0,
+        "charts": 0
+      },
+      "assets": []
+    },
+    {
+      "url": "/p/salvacao-importa-ser-perfeito/",
+      "sha256": "5d38a7204efb54ceedb47e01f0a7b75495fc25bb21bc811e2a3926883a46f632",
+      "language": "pt-BR",
+      "capabilities": {
+        "block_quotes": 19,
+        "inline_quotes": 0,
+        "references": 95,
+        "tables": 4,
+        "images": 1,
+        "language_changes": 0,
+        "charts": 0
+      },
+      "assets": []
+    },
+    {
+      "url": "/p/sola-scriptura/",
+      "sha256": "08795fde08cd649ed5ed5194030365286c76310865fe5f78d343a6354c950aa4",
+      "language": "pt-BR",
+      "capabilities": {
+        "block_quotes": 56,
+        "inline_quotes": 0,
+        "references": 80,
+        "tables": 0,
+        "images": 0,
+        "language_changes": 0,
+        "charts": 0
+      },
+      "assets": []
+    },
+    {
+      "url": "/p/tradicao-vs-biblia-tradicao-ou-biblia/",
+      "sha256": "f99cb3a48b25aea5f8cf8274f0f72c5f8cfecae9dd20cc2675e977dca899156e",
+      "language": "pt-BR",
+      "capabilities": {
+        "block_quotes": 12,
+        "inline_quotes": 0,
+        "references": 20,
+        "tables": 0,
+        "images": 0,
+        "language_changes": 0,
+        "charts": 0
+      },
+      "assets": []
+    }
+  ]
+}

@@ -1,7 +1,7 @@
 /*! Fonte: https://github.com/sitiojeancarloem/blog | Autor: Jean Carlo EM — https://www.jeancarloem.com | Licença: MPL-2.0 — https://mozilla.org/MPL/2.0/ — código aberto, sem garantia. */
 
 @media print {
-	body:has([data-print-article]) > :not(.main_jcem_wrapper),
+	body:has([data-print-article]) > :not(.main_jcem_wrapper, [data-print-institutional]),
 	body:has([data-print-article]) .masthead,
 	body:has([data-print-article]) .sidebar,
 	body:has([data-print-article]) .page__footer,

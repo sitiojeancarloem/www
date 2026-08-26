@@ -1038,6 +1038,102 @@ const bindJcemMathControls = () => {
     });
     document.addEventListener('fullscreenchange', syncJcemMathFullscreenState);
 };
+const jcemImageViewerSelector = 'article.jcem-post .page__content img';
+const jcemImageViewerExcludedSelector = '.jcem-panel, .jcem-math, .jcem-quote__icon, .author__avatar, [role="presentation"]';
+let jcemImageViewerOrigin = null;
+const closeJcemImageViewerFallback = () => {
+    const active = document.querySelector('.jcem-image-viewer.is-fullscreen-fallback');
+    if (!active)
+        return;
+    active.classList.remove('is-fullscreen-fallback');
+    document.documentElement.classList.remove('jcem-image-modal-open');
+    jcemImageViewerOrigin === null || jcemImageViewerOrigin === void 0 ? void 0 : jcemImageViewerOrigin.focus();
+    jcemImageViewerOrigin = null;
+};
+const syncJcemImageViewerControl = (viewer) => {
+    const button = viewer.querySelector(':scope > .jcem-image-viewer__control');
+    if (!button)
+        return;
+    const expanded = document.fullscreenElement === viewer ||
+        viewer.classList.contains('is-fullscreen-fallback');
+    const label = expanded ? 'Fechar imagem ampliada' : 'Ampliar imagem';
+    button.setAttribute('aria-label', label);
+    button.title = label;
+    button.setAttribute('aria-expanded', String(expanded));
+    const icon = button.querySelector('i');
+    if (icon)
+        icon.className = `fas ${expanded ? 'fa-compress' : 'fa-expand'}`;
+};
+const toggleJcemImageViewer = async (viewer, button) => {
+    if (document.fullscreenElement === viewer ||
+        viewer.classList.contains('is-fullscreen-fallback')) {
+        if (document.fullscreenElement === viewer)
+            await document.exitFullscreen();
+        else
+            closeJcemImageViewerFallback();
+        return;
+    }
+    jcemImageViewerOrigin = button;
+    if (viewer.requestFullscreen) {
+        try {
+            await viewer.requestFullscreen();
+            return;
+        }
+        catch (_error) {
+        }
+    }
+    viewer.classList.add('is-fullscreen-fallback');
+    document.documentElement.classList.add('jcem-image-modal-open');
+    syncJcemImageViewerControl(viewer);
+};
+const bindJcemImageViewers = () => {
+    const images = Array.from(document.querySelectorAll(jcemImageViewerSelector)).filter((image) => !image.closest(jcemImageViewerExcludedSelector) &&
+        !image.closest('.jcem-image-viewer'));
+    if (!images.length)
+        return;
+    images.forEach((image) => {
+        var _a;
+        const media = image.closest('picture') ||
+            (((_a = image.parentElement) === null || _a === void 0 ? void 0 : _a.matches('a')) &&
+                image.parentElement.childElementCount === 1
+                ? image.parentElement
+                : image);
+        const viewer = document.createElement('span');
+        const button = document.createElement('button');
+        const icon = document.createElement('i');
+        viewer.className = 'jcem-image-viewer';
+        button.type = 'button';
+        button.className = 'jcem-image-viewer__control';
+        button.setAttribute('aria-label', 'Ampliar imagem');
+        button.setAttribute('aria-expanded', 'false');
+        button.title = 'Ampliar imagem';
+        icon.className = 'fas fa-expand';
+        icon.setAttribute('aria-hidden', 'true');
+        button.append(icon);
+        media.before(viewer);
+        viewer.append(media, button);
+        button.addEventListener('click', () => {
+            void toggleJcemImageViewer(viewer, button);
+        });
+        viewer.addEventListener('pointerdown', (event) => {
+            if (event.pointerType !== 'mouse')
+                viewer.classList.add('is-controls-visible');
+        });
+    });
+    document.addEventListener('fullscreenchange', () => {
+        document
+            .querySelectorAll('.jcem-image-viewer')
+            .forEach(syncJcemImageViewerControl);
+        if (!document.fullscreenElement && jcemImageViewerOrigin) {
+            jcemImageViewerOrigin.focus();
+            jcemImageViewerOrigin = null;
+        }
+    });
+    document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape')
+            closeJcemImageViewerFallback();
+    });
+};
 let jcemNoScriptFragmentsReady = null;
 const jcemRecentMonths = [
     'JAN',
@@ -1346,6 +1442,7 @@ const bindJcemPostPaintEnhancements = () => {
     bindJcemEditorialFormatting();
     bindJcemFootnotes();
     bindJcemMathControls();
+    bindJcemImageViewers();
     bindJcemPrintPreparation();
 };
 const scheduleJcemPostPaintEnhancements = () => {
