@@ -24,11 +24,11 @@ jcem_context: 404
 				};
 				const bindSkeletonImage = img => {
 					if (!img || img.dataset.jcemSkeletonBound === 'true') return;
+					const container = img.closest('.jcem-skeleton');
+					// PROTECAO: midia sem contrato de skeleton, como o logo, nao pode ter o pai recortado.
+					if (!container) return;
 					img.dataset.jcemSkeletonBound = 'true';
 					img.classList.add('jcem-skeleton-asset');
-					const container = img.closest('.jcem-skeleton') || img.parentElement;
-					if (!container) return;
-					container.classList.add('jcem-skeleton');
 					const sync = () => {
 						container.dataset.jcemSkeletonState = img.complete
 							? (img.naturalWidth > 0 ? 'loaded' : 'error')

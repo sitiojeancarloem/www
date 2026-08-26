@@ -250,7 +250,7 @@ plano:
   - id: FT-034
     classe: implementacao_codigo
     criado_em: 2026-08-25T17:24:46.0679538-03:00
-    estado: em_andamento
+    estado: concluido
     depende_de: FT-032
     fonte: .ia.rules/state/requests/FT-032/prompt.md
     fonte_autorizacao: .ia.rules/state/requests/FT-033/prompt.md
@@ -263,10 +263,14 @@ plano:
       - evidencia1a.png e evidencia1b.png recuperadas do commit 07282076f6 com objetos Git identicos
       - inspecao confirmou que ambas documentam flags de cards, nao a masthead 404
       - evidencia1.png permanece como defeito 404 observado; masthead normal renderizada sera a referencia normativa real
+      - causa raiz confirmada no bootstrap exclusivo da 404: o fallback img.parentElement aplicava jcem-skeleton ao link site-logo e a regra mais especifica recortava sua extrapolacao
+      - binding limitado a imagens com conteiner de skeleton declarado, sem alterar masthead compartilhada nem a contencao horizontal da pagina
+      - build Jekyll de producao, check de performance e matriz visual dark/light em desktop/mobile aprovados
+    resultado: Logotipo da 404 voltou a extrapolar verticalmente a masthead; o contrato de skeleton passou a respeitar somente conteineres explicitamente marcados.
   - id: FT-035
     classe: implementacao_conteudo
     criado_em: 2026-08-25T17:24:47.0679538-03:00
-    estado: pendente_autorizacao
+    estado: em_andamento
     depende_de: FT-032
     fonte: .ia.rules/state/requests/FT-032/prompt.md
     fonte_autorizacao: .ia.rules/state/requests/FT-033/prompt.md

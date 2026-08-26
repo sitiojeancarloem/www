@@ -152,6 +152,8 @@ assert.match(notFound, /pagina-404-480w\.webp/);
 assert.match(notFound, /fetchpriority="low"/);
 assert.match(notFound, /body\.layout--404\s*\{[\s\S]*overflow-x:\s*clip/);
 assert.match(notFound, /\.layout--404 \.main_jcem_wrapper\s*\{[\s\S]*overflow-x:\s*visible/);
+assert.match(notFound, /const container = img\.closest\('\.jcem-skeleton'\);/);
+assert.doesNotMatch(notFound, /img\.closest\('\.jcem-skeleton'\) \|\| img\.parentElement/);
 assert.match(tableTheme, /border-bottom:\s*1px solid var\(--tblb\)/);
 assert.match(customVariables, /--dark--table-head:\s*#303640/);
 assert.match(customVariables, /table:not\(\.jcem-panel__table\)[\s\S]*var\(--table-head\)/);
