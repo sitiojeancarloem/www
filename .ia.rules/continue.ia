@@ -320,6 +320,14 @@ plano:
       - teclado, temas, viewports, SEO, impressao, PageSpeed e build aprovados separadamente
       - artefato publicado corresponde ao commit-fonte validado
       - TO-DOs concluidas removidas e equalizer perene preservado literal e desmarcado
+    progresso:
+      - gate agregado npm run check aprovado, incluindo HTML, footnotes, citacoes, acessibilidade, runtime, impressao, desempenho, imagens sociais e publicacao
+      - matriz estrita aprovada em cinco paginas, dois temas e seis viewports de 320 a 1920 px, alem da rota 404
+      - Chromium com Web Speech API controlada comprovou 21 unidades faladas, idiomas, citacoes, referencia, tabela, grafico e ausencia condicional de assets
+      - matriz detectou e bloqueou perfil de impressao ausente na fixture e classe visually-hidden sem implementacao; causas corrigidas com regressoes permanentes
+      - npm audit de producao aprovou zero vulnerabilidades; alerta alto em sharp permanece restrito ao desenvolvimento e sem correcao disponivel
+      - TO-DOs operacionais concluidas removidas; governanca e equalizer perene permaneceram literais e desmarcados
+      - publicacao, PageSpeed sobre a URL servida e convergencia final permanecem pendentes
 lacunas:
   - id: GAP-AGENTS-CJS-ESM-001
     estado: isolada

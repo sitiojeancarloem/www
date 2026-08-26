@@ -20,7 +20,7 @@ html = <<~HTML
   <table><caption>Valores</caption><thead><tr><th></th><th>Total</th></tr></thead><tbody><tr><th>A</th><td>2</td></tr></tbody></table>
   <img src="/informativa.svg" alt="Informação suficiente">
   <p>— Bíblia. NVI. Isaías 53:10<sup><a href="#fn:1" role="doc-noteref">1</a></sup> e reuso<sup><a href="#fn:1" role="doc-noteref">1</a></sup>.</p>
-  <div class="footnotes"><ol><li id="fn:1">Bíblia, NVI, Isaías 12:3; 53:10.</li></ol></div>
+  <div class="footnotes"><ol><li id="fn:1">Bíblia, NVI, Isaías 12:3; 53:10. <span class="jcem-footnote-backrefs"><a class="jcem-footnote-backref">a</a> <a class="jcem-footnote-backref">b</a></span></li></ol></div>
   </section></article></body></html>
 HTML
 
@@ -29,6 +29,7 @@ assert(normalized.include?('data-jcem-accessible-document="1"'), "artigo não fo
 assert(normalized.include?('aria-roledescription="citação"'), "citação perdeu distinção")
 assert(normalized.include?('data-jcem-spoken-reference="Isaías 53:10 NVI"'), "referência bíblica por ocorrência não foi reduzida")
 assert(!normalized.include?("Referência: Isaías 53:10 NVI Referência:"), "referências reutilizadas contaminaram a ocorrência seguinte")
+assert(!normalized.include?('data-jcem-spoken-reference="Bíblia, NVI, Isaías 12:3; 53:10. a b"'), "backlinks vazaram para a referência falada")
 assert(normalized.include?('scope="col"'), "cabeçalho de coluna sem scope")
 assert(normalized.include?('scope="row"'), "cabeçalho de linha sem scope")
 assert(normalized.include?('>Linha</span>'), "cabeçalho vazio não recebeu nome")

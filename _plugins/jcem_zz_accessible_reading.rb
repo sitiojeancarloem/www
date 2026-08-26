@@ -59,7 +59,7 @@ module Jcem
       fatal("nota_ausente id=#{target_id}") unless note
 
       clone = note.dup
-      clone.css('[role="doc-backlink"], .reversefootnote, .jcem-spoken-reference').remove
+      clone.css('[role="doc-backlink"], .reversefootnote, .jcem-footnote-backref, .jcem-footnote-backrefs, .jcem-spoken-reference').remove
       fallback = compact_text(clone).sub(/[.;,]+\z/, "")
       fatal("nota_vazia id=#{target_id}") if fallback.empty?
       [bible_reference(link) || fallback, target_id]

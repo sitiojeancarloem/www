@@ -185,7 +185,7 @@
 <link rel="stylesheet" href="{{ '/assets/jcem/css/math.css' | relative_url }}">
 {% endif %}
 
-{% if page.collection == 'posts' %}
+{% if page.collection == 'posts' or page.pagespeed_layout == 'article' %}
 <link rel="stylesheet" href="{{ '/assets/jcem/print-ieee/ieee.css' | relative_url }}" media="print">
 <link rel="stylesheet" href="{{ '/assets/jcem/print-ieee/jekyll-blog.css' | relative_url }}" media="print">
 {% endif %}

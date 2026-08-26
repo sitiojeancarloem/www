@@ -2,7 +2,7 @@
 
 # RCF-JCEM-LEITURA-ACESSIVEL-TTS-001
 
-Status: vigente; implementação concluída nas FTs 035–036; validação e publicação pendentes na FT-037.
+Status: vigente; implementação e validação local concluídas nas FTs 035–037; PageSpeed publicado e publicação final pendentes na FT-037.
 
 Escopo: representação acessível e falada de artigos, posts, páginas, navegação essencial, avisos, citações, referências, idiomas, tabelas, imagens e gráficos do JeanCarloEM Blog.
 

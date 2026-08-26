@@ -162,6 +162,7 @@ assert.match(notFound, /pendingLines\.forEach\(\(line\) => line\.style\.setPrope
 assert.match(notFound, /window\.setTimeout\(\(\) => \{[\s\S]*requestIdleCallback\(run[\s\S]*\}, 5000\)/);
 assert.match(footer, /\{% comment %\}[\s\S]*RFC-JCEM-FOOTER-001[\s\S]*\{% endcomment %\}/);
 assert.match(customVariables, /jcem-skeleton-asset\[fetchpriority='high'\]/);
+assert.match(customVariables, /\.visually-hidden\s*\{[\s\S]*clip-path:\s*inset\(50%\)[\s\S]*white-space:\s*nowrap/);
 assert.match(visualValidation, /text: document\.body\.textContent \|\| ''/);
 assert.match(visualValidation, /terminalTrackResetting[\s\S]*terminalTrackTransitionProperty !== 'none'/);
 assert.match(customVariables, /@media screen[\s\S]*content-visibility: auto/);
@@ -169,6 +170,7 @@ assert.doesNotMatch(customVariables, /\.archive > \.entries-grid > \.grid__item:
 assert.match(customVariables, /@media screen[\s\S]*\.jcem-taxonomy-posts/);
 assert.doesNotMatch(customVariables, /\.grid__wrapper > \.grid__item:nth-child\(n \+ 3\)/);
 assert.doesNotMatch(head, /body > :not\(\.carregandoPagina\)/);
+assert.match(head, /page\.collection == 'posts' or page\.pagespeed_layout == 'article'[\s\S]*print-ieee\/ieee\.css[\s\S]*print-ieee\/jekyll-blog\.css/);
 assert.match(head, /page\.layout == 'home' or page\.layout == 'categories' or page\.layout == 'tags'[\s\S]*imagesrcset=/);
 assert.match(head, /else[\s\S]*jcem_lcp_image \| relative_url[\s\S]*fetchpriority="high"/);
 assert.doesNotMatch(themeInputs, /<noscript>/);
