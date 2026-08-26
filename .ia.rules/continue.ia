@@ -310,7 +310,7 @@ plano:
   - id: FT-037
     classe: integracao_validacao_publicacao
     criado_em: 2026-08-25T17:24:49.0679538-03:00
-    estado: em_andamento
+    estado: concluido
     depende_de: FT-033, FT-034, FT-035, FT-036
     fonte: .ia.rules/state/requests/FT-032/prompt.md
     fonte_autorizacao: .ia.rules/state/requests/FT-033/prompt.md
@@ -320,6 +320,7 @@ plano:
       - teclado, temas, viewports, SEO, impressao, PageSpeed e build aprovados separadamente
       - artefato publicado corresponde ao commit-fonte validado
       - TO-DOs concluidas removidas e equalizer perene preservado literal e desmarcado
+    resultado: Commit-fonte bfbac5f71b008307aea8bf0b8cc80b1ebfaac004 publicado com build e deploy aprovados, PageSpeed focal aprovado e main/dev convergidos; gh-pages temporario removido.
     progresso:
       - gate agregado npm run check aprovado, incluindo HTML, footnotes, citacoes, acessibilidade, runtime, impressao, desempenho, imagens sociais e publicacao
       - matriz estrita aprovada em cinco paginas, dois temas e seis viewports de 320 a 1920 px, alem da rota 404
@@ -327,7 +328,10 @@ plano:
       - matriz detectou e bloqueou perfil de impressao ausente na fixture e classe visually-hidden sem implementacao; causas corrigidas com regressoes permanentes
       - npm audit de producao aprovou zero vulnerabilidades; alerta alto em sharp permanece restrito ao desenvolvimento e sem correcao disponivel
       - TO-DOs operacionais concluidas removidas; governanca e equalizer perene permaneceram literais e desmarcados
-      - publicacao, PageSpeed sobre a URL servida e convergencia final permanecem pendentes
+      - artefato 4db494ebb7335b4c9db9c1184d19d29e88235be7 publicou o commit-fonte exato e o workflow 32965069505 aprovou build, visual, deploy, limpeza e PageSpeed
+      - PageSpeed foi limitado a fixture TTS estritamente pertinente: mobile 95/93/100 e desktop 100/97/100 em desempenho/acessibilidade/boas praticas
+      - dominio servido respondeu 200 para fixture, manifesto e Chart.js; manifesto registrou um grafico e somente os dois assets condicionais, ausentes na home
+      - refs remotos main e dev convergiram em bfbac5f71b008307aea8bf0b8cc80b1ebfaac004 e gh-pages foi removido
 lacunas:
   - id: GAP-AGENTS-CJS-ESM-001
     estado: isolada
