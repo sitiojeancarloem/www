@@ -371,7 +371,7 @@ jobs:
       - name: Validate PageSpeed published sample
         env:
           PAGESPEED_API_KEY: ${{ secrets.PAGESPEED_API_KEY }}
-        run: npm run pagespeed -- --force
+        run: npm run pagespeed -- --force --target=article-tts-accessibility
 
   cleanup:
     if: needs.deploy.result == 'success'
