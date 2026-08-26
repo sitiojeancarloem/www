@@ -172,3 +172,9 @@ Este marcador encerra a seção de governança e inicia exclusivamente as TO-DOs
   - A variante gerada DEVE ser vinculada ao artigo por meio do mecanismo de metadados/front matter/social tags definido na TO-DO de Open Graph.
   - A geração DEVE observar os mecanismos já normatizados de preservação do original, processamento único, rastreabilidade e prevenção de degradação cumulativa.
   - Validar retroativamente drafts e posts já existentes e aplicar o mesmo contrato a futuras publicações.
+
+* [ ] Corrigir o **roteamento (`slug`/URL) de Bate-papo** evidenciado em `.\.ia.rules\state\evidencias\evidencia8.png` e `evidencia8b.png`, após confrontar as evidências com o estado real da implementação e identificar a causa efetiva.
+  - A correção DEVE obedecer integralmente `RCF.md`, `agends.md` e demais padrões já vigentes de arquitetura, rotas, URLs, layout, estilo, exibição, impressão, interação e modus operandi; NÃO inventar contratos, preencher lacunas por hipótese nem criar exceções arbitrárias.
+  - Restaurar o comportamento correto de geração, resolução e navegação dos `slug`s/URLs de Bate-papo **sem alterar semântica, estrutura ou convenções já estabelecidas além do necessário para eliminar a falha**.
+  - É PROIBIDO corrigir o sintoma mediante hardcode, rota paralela ou solução que elimine recursos, quebre compatibilidade, desadeque o módulo ao padrão existente ou provoque regressão direta, indireta ou em cascata.
+  - Validar os cenários demonstrados por `evidencia8.png`/`evidencia8b.png` e os fluxos diretamente afetados; somente concluir após confirmar o roteamento correto e ausência de regressões.
