@@ -222,7 +222,7 @@ plano:
       - semantica, fala complementar, citacoes, referencias, idiomas, tabelas, imagens e graficos normatizados
       - dependencia grafica comparada e decisao arquitetural rastreavel
       - validacao normativa aprovada e interrupcao antes de qualquer implementacao
-    resultado: RCF-JCEM-OPERACAO-IA-001 e RCF-JCEM-LEITURA-ACESSIVEL-TTS-001 criadas e roteadas; contrato 404 vigente preservado; Chart.js 4.5.1 selecionado apenas como renderer condicional com HTML acessivel independente.
+    resultado: RCF-JCEM-OPERACAO-IA-001 e RCF-JCEM-LEITURA-ACESSIVEL-TTS-001 criadas e roteadas; contrato 404 vigente preservado; Chart.js 4.5.1+ selecionado apenas como renderer condicional com HTML acessivel independente.
     progresso:
       - todas as nove TO-DOs operacionais foram lidas, vinculadas e marcadas em andamento sem alterar o equalizer perene
       - modus operandi detalhado centralizado no RCF e projecao agents.local.md adiada para FT-033
@@ -270,7 +270,7 @@ plano:
   - id: FT-035
     classe: implementacao_conteudo
     criado_em: 2026-08-25T17:24:47.0679538-03:00
-    estado: em_andamento
+    estado: concluido
     depende_de: FT-032
     fonte: .ia.rules/state/requests/FT-032/prompt.md
     fonte_autorizacao: .ia.rules/state/requests/FT-033/prompt.md
@@ -279,10 +279,17 @@ plano:
       - idiomas, citacoes, referencias, imagens, tabelas e graficos do acervo classificados por evidencia
       - casos ambiguos falham com diagnostico ou seguem revisao humana
       - futuras publicacoes usam o mesmo contrato deterministico
+    resultado: Acervo publicado normalizado sem reescrita editorial, com captions, alternativas informativas e idiomas antigos comprovados; ambiguidades de referência preservam o texto integral.
+    progresso:
+      - dez posts publicados auditados, incluindo 12 tabelas de dados, 11 imagens de corpo e 424 ocorrencias de footnote
+      - doze captions semanticamente suficientes adicionados sem alterar a composicao visual legada
+      - duas imagens logicas com alt vazio receberam alternativas derivadas das frases e nomes de asset adjacentes
+      - termos hebraicos e gregos da tabela de Genesis 2:7 receberam he e grc, respectivamente, sem transliteracao inventada
+      - referencias biblicas inequivocas usam passagem e versao por ocorrencia; demais casos preservam a definicao integral
   - id: FT-036
     classe: implementacao_codigo
     criado_em: 2026-08-25T17:24:48.0679538-03:00
-    estado: pendente_autorizacao
+    estado: em_andamento
     depende_de: FT-032
     fonte: .ia.rules/state/requests/FT-032/prompt.md
     fonte_autorizacao: .ia.rules/state/requests/FT-033/prompt.md

@@ -39,6 +39,7 @@ Portanto, tem-se 3 premissas para a salvação: **Espirito Santo**, **Esforço H
 (1)   ![\begin{equation*}  qLinhas = R^P \therefore qLinhas = 2^3 = 8 \end{equation*}](https://web.archive.org/web/20201004153207im_/https://blog.jeancarloem.com/wp-content/ql-cache/quicklatex.com-d9c96bf06e24f95918c3b3a790f4197a_l3.png "Rendered by QuickLaTeX.com")
 
 <table>
+<caption class="visually-hidden">Combinações iniciais de esforço humano, Espírito Santo e perfeição</caption>
 <thead>
 <tr><th></th><th>Esforço Humano</th><th>Espírito Santo</th><th>Perfeição</th><th>É possível?</th></tr>
 </thead>
@@ -188,6 +189,7 @@ Evidentemente, o espírito de profecia diz abertamente, esforço humano não sal
 Conforme visto, pode-se considerar todas as linhas que não consideram o Esforço Humano necessário como erradas. Atualizando, a tabela fica assim:
 
 <table>
+<caption class="visually-hidden">Combinações após avaliar a necessidade de esforço humano</caption>
 <thead>
 <tr><th></th><th>Esforço Humano</th><th>Espírito Santo</th><th>Perfeição</th><th>É possível?</th></tr>
 </thead>
@@ -262,6 +264,7 @@ Novamente, se você acredita no espírito de profecia conforme consta em _Apocal
 Conforme visto, pode-se considerar todas as linhas que não incluem o Espírito Santo como erradas, afinal, o que a bíblia e o espírito de profecia ensinam é que, **deve haver uma cooperação entre DEUS e homem**. Apenas um, sem o outro, não dará certo. Portanto, atualizando a tabela, fica assim:
 
 <table>
+<caption class="visually-hidden">Combinações após avaliar a necessidade do Espírito Santo</caption>
 <thead>
 <tr><th></th><th>Esforço Humano</th><th>Espírito Santo</th><th>Perfeição</th><th>É possível?</th></tr>
 </thead>
@@ -292,6 +295,7 @@ Qualquer pessoa, líder, pastor, ou irmão leigo que discuta este assunto, almej
 Veja como a Tabela Verdade termina:
 
 <table>
+<caption class="visually-hidden">Resultado das combinações sobre esforço humano, Espírito Santo e perfeição</caption>
 <thead>
 <tr><th></th><th>Esforço Humano</th><th>Espírito Santo</th><th>Perfeição</th><th>É possível?</th></tr>
 </thead>

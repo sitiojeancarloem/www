@@ -40,9 +40,9 @@ Estas frases são muito simples e, podem, com muita facilidade, ser identificada
 Ambas fazem uma conclusão baseando-se em uma premissa. A primeira conclui que está chovendo “**porque**” está nublado, ou seja, a primeira frase tem como argumentativa de que o simples fato de haver nuvens cobrindo todo o céu figura como premissa suficiente para concluir que está chovendo.
 Já a segunda, também faz uma conclusão baseando-se numa premissa. Ela conclui que está nublado “**porque**” está chovendo. Portanto, a segunda frase conclui que o simples fato haver chuva é por si mesmo, premissa suficiente para afirmar que está nublado.
 
-![](https://web.archive.org/web/20201005013131im_/https://blog.jeancarloem.com/wp-content/uploads/2020/08/tabela-verdade-exemplo-frase-1.svg)
+![Diagrama lógico da frase “Está chovendo pois está nublado”.](https://web.archive.org/web/20201005013131im_/https://blog.jeancarloem.com/wp-content/uploads/2020/08/tabela-verdade-exemplo-frase-1.svg)
 
-![](https://web.archive.org/web/20201005013131im_/https://blog.jeancarloem.com/wp-content/uploads/2020/08/tabela-verdade-exemplo-frase-2.svg)
+![Diagrama lógico da frase “Está nublado pois está chovendo”.](https://web.archive.org/web/20201005013131im_/https://blog.jeancarloem.com/wp-content/uploads/2020/08/tabela-verdade-exemplo-frase-2.svg)
 
 ## Construindo a Tabela
 Para construir a tabela primeiro tem-se que identificar que os valores são booleanos ou binários, o que significa que há apenas duas possibilidades: verdadeiro ou falso; ou então, 1 ou 0; Ambos estão corretos. A segunda necessidade é identificar quantas são as premissas.
@@ -54,6 +54,7 @@ Portanto, para o exemplo, tem-se:
 Assim, a tabela deve ter 4 (quatro) linhas e, uma coluna para cada premissa, ficando da seguinte forma:
 
 <table>
+<caption class="visually-hidden">Tabela inicial com quatro combinações de chuva e céu nublado</caption>
 <thead>
 <tr><th></th><th>Premissa 1 / Chuva</th><th>Premissa 2 / Nublado</th></tr>
 </thead>
@@ -69,6 +70,7 @@ Para preencher a tabela, independente de quantidade de linhas ou colunas é muit
 (3)   ![\begin{equation*}  qLinhas = R^P \therefore qLinhas = 2^4 = 16 \end{equation*}](https://web.archive.org/web/20201005013131im_/https://blog.jeancarloem.com/wp-content/ql-cache/quicklatex.com-9bc79ca69b9137092922fb3ae8b15dfa_l3.png "Rendered by QuickLaTeX.com")
 
 <table>
+<caption class="visually-hidden">Combinações binárias de quatro premissas</caption>
 <thead>
 <tr><th></th><th>Premissa 1 / Coluna 4 / <em>Intercala de oito em oito</em></th><th>Premissa 2 / Coluna 3 / <em>Intercala de quatro em quatro</em></th><th>Premissa 3 / Coluna 2 / <em>Intercala de dois em dois</em></th><th>Premissa 4 / Coluna 1 / <em>Intercala de um em um</em></th></tr>
 </thead>
@@ -98,6 +100,7 @@ Este preenchimento garante que **todas as possibilidades** de combinação foram
 Voltando, seguindo o exemplo anterior, o preenchimento da tabela para resolver a questão das nuvens e da chuva fica da seguinte forma:
 
 <table>
+<caption class="visually-hidden">Combinações numéricas de chuva e céu nublado</caption>
 <thead>
 <tr><th></th><th>Premissa 1 / Chuva</th><th>Premissa 2 / Nublado</th></tr>
 </thead>
@@ -111,6 +114,7 @@ Voltando, seguindo o exemplo anterior, o preenchimento da tabela para resolver a
 A tabela acima é a mesma que a tabela abaixo, apenas usa-se notação diferente:
 
 <table>
+<caption class="visually-hidden">Combinações booleanas de chuva e céu nublado</caption>
 <thead>
 <tr><th></th><th>Premissa 1 / Chuva</th><th>Premissa 2 / Nublado</th></tr>
 </thead>
@@ -135,6 +139,7 @@ Portanto, de forma simples, a combinação das possibilidades de cada linha é p
 Para aplicar este conceito, agora precisa-se adicionar uma coluna à tabela com a pergunta: “_isso é possível?_“:
 
 <table>
+<caption class="visually-hidden">Possibilidade das combinações de chuva e céu nublado</caption>
 <thead>
 <tr><th></th><th>Premissa 1 / Chuva</th><th>Premissa 2 / Nublado</th><th>Isso é Possível?</th></tr>
 </thead>
@@ -154,6 +159,7 @@ E para cada linha adicionar se a combinação a “**E**” das respostas à pre
 Assim, a tabela deve ficar assim:
 
 <table>
+<caption class="visually-hidden">Resultado lógico das combinações de chuva e céu nublado</caption>
 <thead>
 <tr><th></th><th>Premissa 1 / Chuva</th><th>Premissa 2 / Nublado</th><th>Isso é Possível?</th></tr>
 </thead>
