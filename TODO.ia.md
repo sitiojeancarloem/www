@@ -66,7 +66,7 @@ Este marcador encerra a seção de governança e inicia exclusivamente as TO-DOs
 
 ---
 
-- [ ] Refinar controles e leitura de referências do TTS sem regressão
+- [x] Refinar controles e leitura de referências do TTS sem regressão
   - Conforme `.ia.rules\state\requests\evidencias\evidencia4.png` e `evidencia4b.png`, reduzir a barra/controles de TTS de `play`, `pause` e `stop`: DEVEM ser mais compactos e discretos, porém manter área de acionamento adequada a toque.
   - Substituir textos por ícones inequívocos de `play`, `pause` e `stop`, preservando acessibilidade, hints e identificação funcional.
   - Posicionar os controles de forma facilmente encontrável, porém sem competir visualmente com o artigo. A aparência DEVE permanecer elegante, profissional, responsiva e coerente com o tema.
@@ -81,7 +81,7 @@ Este marcador encerra a seção de governança e inicia exclusivamente as TO-DOs
 
   - NÃO regredir navegação das referências, acessibilidade, modos existentes, TTS já funcional ou conteúdo editorial visível.
 
-- [ ] Corrigir posicionamento, altura e largura responsivos das covers
+- [x] Corrigir posicionamento, altura e largura responsivos das covers
   - Usar `.ia.rules\state\requests\evidencias\evidencia5.png`, `evidencia6.png`, `evidencia7.png` e `evidencia7b.png`.
   - `evidencia5.png`: corrigir a flag da cover que fica ocultada pela imagem no modo lado a lado; ela DEVE permanecer corretamente sobreposta e visível, conforme comportamento normatizado.
   - `evidencia6.png`: restaurar o cumprimento da **altura mínima em `vh`**, usando o valor centralizado/configurável já normatizado; NÃO duplicar configuração nem fixar valor arbitrário.
@@ -96,14 +96,14 @@ Este marcador encerra a seção de governança e inicia exclusivamente as TO-DOs
 
   - NÃO solucionar largura violando limite de altura, nem solucionar altura introduzindo espaços laterais, desalinhamento ou ocultação da flag.
 
-- [ ] Normalizar covers ao padrão 1200×630 sem perda de conteúdo
+- [x] Normalizar covers ao padrão 1200×630 sem perda de conteúdo
   - Identificar covers fora do padrão, inclusive as existentes em `1920×1080`, e adequá-las ao formato **1200×630** quando esse for o contrato aplicável.
   - O redimensionamento NÃO PODE distorcer, amputar/cortar ou degradar conteúdo relevante.
   - Quando simples redimensionamento proporcional não puder produzir `1200×630` sem crop, PODE ser empregado preenchimento/extensão generativa por IA para completar áreas faltantes e preservar composição, continuidade e qualidade.
   - A IA NÃO PODE alterar semanticamente o conteúdo original, inventar elementos centrais nem modificar aquilo que já está corretamente representado; sua atuação DEVE limitar-se à extensão necessária para compatibilização de proporção.
   - Preservar originais e obedecer aos mecanismos já normatizados de processamento único, rastreabilidade e prevenção de degradação cumulativa.
 
-- [ ] Restaurar e ampliar o modo de cover wide contínua
+- [x] Restaurar e ampliar o modo de cover wide contínua
   - Conforme `.ia.rules\state\requests\evidencias\evidencia6.png`, corrigir o modo em que uma única cover wide DEVE permanecer centralizada e preencher horizontalmente a janela com aparência contínua/infinita.
   - A cover DEVE:
     - permanecer centralizada;
@@ -126,7 +126,7 @@ Este marcador encerra a seção de governança e inicia exclusivamente as TO-DOs
   - `left` e `right` DEVEM repetir-se em suas respectivas direções de modo contínuo, sem costuras, gaps, deslocamentos ou quebra de alinhamento.
   - O mecanismo para declarar/associar essas três imagens DEVE aderir aos contratos, front matter e estruturas já existentes; NÃO inventar sintaxe paralela antes de inspecionar o estado real.
 
-- [ ] Eliminar dependências editoriais de `web.archive.org`
+- [x] Eliminar dependências editoriais de `web.archive.org`
   - Nenhum asset referenciado por draft ou publicação DEVE permanecer vinculado diretamente ao domínio `web.archive.org`.
   - Inspecionar todo conteúdo aplicável e relinkar para a cópia local relativa correspondente.
   - Presumir inicialmente que os assets já foram baixados; quando não houver correspondência imediata, investigar divergências de nome/path antes de concluir ausência.
@@ -134,7 +134,7 @@ Este marcador encerra a seção de governança e inicia exclusivamente as TO-DOs
   - Todo asset recuperado, relocalizado ou reassociado DEVE obedecer às diretivas já normatizadas de original, processamento único, hash, estado, rastreabilidade e prevenção de recompressão/degradação cumulativa.
   - NÃO alterar conteúdo editorial nem substituir asset por aproximado sem evidência inequívoca de equivalência.
 
-- [ ] Suportar imagens Open Graph wide e square por artigo, com build e metadados adequados
+- [x] Suportar imagens Open Graph wide e square por artigo, com build e metadados adequados
   - Permitir que cada artigo/post declare, conforme mecanismos existentes ou extensão aderente deles:
     - imagem OG **wide**: `1200×630` (padrão cover);
     - imagem OG **square** opcional: `1:1`, referência alvo **400×400**.
@@ -152,7 +152,7 @@ Este marcador encerra a seção de governança e inicia exclusivamente as TO-DOs
   - Geração e otimização DEVEM ocorrer em build conforme normas vigentes, preservando o original e escolhendo o formato social compatível já normatizado (`PNG` ou `JPG/JPEG`, conforme melhor relação qualidade/tamanho).
   - Validar o HTML final gerado, URLs canônicas/absolutas exigidas pelos metadados, dimensões declaradas, fallback e ausência de regressão nas tags sociais já existentes.
 
-- [ ] Gerar e vincular covers OG 1:1 para todo post draft ou publicado que já possua cover
+- [x] Gerar e vincular covers OG 1:1 para todo post draft ou publicado que já possua cover
   - Para cada post draft ou já publicado que **já possua cover de origem**, criar também sua variante OG **1:1** apropriada e vinculá-la ao respectivo artigo.
   - A variante 1:1 DEVE ser derivada da cover existente, preservando, tanto quanto tecnicamente possível:
     - mesmo estilo;
@@ -173,13 +173,13 @@ Este marcador encerra a seção de governança e inicia exclusivamente as TO-DOs
   - A geração DEVE observar os mecanismos já normatizados de preservação do original, processamento único, rastreabilidade e prevenção de degradação cumulativa.
   - Validar retroativamente drafts e posts já existentes e aplicar o mesmo contrato a futuras publicações.
 
-- [ ] Corrigir o **roteamento (`slug`/URL) de Bate-papo** evidenciado em `.\.ia.rules\state\evidencias\evidencia8.png` e `evidencia8b.png`, após confrontar as evidências com o estado real da implementação e identificar a causa efetiva.
+- [x] Corrigir o **roteamento (`slug`/URL) de Bate-papo** evidenciado em `.\.ia.rules\state\evidencias\evidencia8.png` e `evidencia8b.png`, após confrontar as evidências com o estado real da implementação e identificar a causa efetiva.
   - A correção DEVE obedecer integralmente `RCF.md`, `agends.md` e demais padrões já vigentes de arquitetura, rotas, URLs, layout, estilo, exibição, impressão, interação e modus operandi; NÃO inventar contratos, preencher lacunas por hipótese nem criar exceções arbitrárias.
   - Restaurar o comportamento correto de geração, resolução e navegação dos `slug`s/URLs de Bate-papo **sem alterar semântica, estrutura ou convenções já estabelecidas além do necessário para eliminar a falha**.
   - É PROIBIDO corrigir o sintoma mediante hardcode, rota paralela ou solução que elimine recursos, quebre compatibilidade, desadeque o módulo ao padrão existente ou provoque regressão direta, indireta ou em cascata.
   - Validar os cenários demonstrados por `evidencia8.png`/`evidencia8b.png` e os fluxos diretamente afetados; somente concluir após confirmar o roteamento correto e ausência de regressões.
 
-- [ ] Criar e publicar no **GitHub Pages** a página `/atribuicoes`, configurando Jekyll/build/roteamento/publicação **somente se necessário** para torná-la acessível e visível segundo os mecanismos já existentes do projeto.
+- [x] Criar e publicar no **GitHub Pages** a página `/atribuicoes`, configurando Jekyll/build/roteamento/publicação **somente se necessário** para torná-la acessível e visível segundo os mecanismos já existentes do projeto.
   - DEVE obedecer integralmente `RCF.md`, `agends.md` e demais normas vigentes, reutilizando **template, layout, tipografia, traços, componentes, paleta e estilo visual já adotados nas páginas/posts públicos**, sem criar padrão paralelo, inovar visualmente ou provocar regressões.
   - Inspecionar as dependências/recursos **efetivamente usados no repositório** e listar **somente aqueles cuja licença efetivamente exige atribuição**, sem presumir obrigações. Cada atribuição DEVE cumprir rigorosamente os termos específicos da respectiva licença.
   - Preferencialmente padronizar cada registro com **nome da biblioteca/recurso, repositório/origem, link oficial, autor primário e licença**, acrescentando qualquer informação/texto obrigatório que a licença exigir.
@@ -187,4 +187,4 @@ Este marcador encerra a seção de governança e inicia exclusivamente as TO-DOs
   - A apresentação PODE adotar composição elegante e legível, inclusive inspiração **ABNT** ou formato tabular, desde que compatível com os padrões existentes; estética alternativa NÃO justifica alterar o design global.
   - Validar `/atribuicoes` no fluxo real do GitHub Pages, inclusive navegação/roteamento, responsividade e impressão quando aplicável, sem alterar indevidamente páginas, posts, módulos ou recursos preexistentes.
 
-- [ ] imagem de cover do 404 e também do noscript devem ser convertidas e otimizadas, conforme RCF para webm, caso já não tenham sido, e relincadas corretamente.
+- [x] imagem de cover do 404 e também do noscript devem ser convertidas e otimizadas, conforme RCF para webm, caso já não tenham sido, e relincadas corretamente.

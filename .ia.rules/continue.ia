@@ -1,14 +1,14 @@
 schema: jcem-continue/v1
 machine_id: JEAN-DESKTOP
-data_ref: 2026-08-25T17:58:10.7991835-03:00
+data_ref: 2026-08-27T20:03:40.6307358-03:00
 fonte: TODO.ia.md
-objetivo: Executar integralmente as FTs 033 a 037, validar, publicar no GitHub Pages e convergir dev/main sem alterar o equalizer perene nem o Chart.js 4.5.1+ intencional.
+objetivo: Equalizar normativamente as novas TO-DOs em FTs segregadas, interromper antes da implementação e preservar o equalizer perene.
 autorizacao:
   origem: prompt humano
-  data: 2026-08-25T17:58:10.7991835-03:00
-  fonte: .ia.rules/state/requests/FT-033/prompt.md
-  escopo: implementacao integral das FTs 033 a 037, validacao, commits, push, publicacao GitHub Pages e convergencia de branches
-  restricao: preservar literalmente o item equalizer perene e a notacao humana Chart.js 4.5.1+
+  data: 2026-08-27T20:03:40.6307358-03:00
+  fonte: .ia.rules/state/requests/FT-038/prompt.md
+  escopo: reexecucao do equalizer e normatizacao RCF das novas TO-DOs
+  restricao: interromper antes da implementacao e preservar literalmente o item equalizer perene
 plano:
   - id: FT-020
     classe: implementacao_normativa
@@ -332,6 +332,91 @@ plano:
       - PageSpeed foi limitado a fixture TTS estritamente pertinente: mobile 95/93/100 e desktop 100/97/100 em desempenho/acessibilidade/boas praticas
       - dominio servido respondeu 200 para fixture, manifesto e Chart.js; manifesto registrou um grafico e somente os dois assets condicionais, ausentes na home
       - refs remotos main e dev convergiram em bfbac5f71b008307aea8bf0b8cc80b1ebfaac004 e gh-pages foi removido
+  - id: FT-038
+    classe: implementacao_normativa
+    criado_em: 2026-08-27T20:03:40.6307358-03:00
+    estado: em_andamento
+    fonte: .ia.rules/state/requests/FT-038/prompt.md
+    objetivo: Equalizar integralmente as novas TO-DOs de TTS, covers, assets, metadados sociais, namespaces, atribuicoes e paginas especiais.
+    escopo: RCFs vigentes de leitura acessivel, referencias, carregamento, componentes, namespaces, bate-papo e publicacao.
+    aceite:
+      - todas as TO-DOs lidas e conciliadas sem alterar o equalizer perene
+      - contradicoes de formato, rota, crawler e asset resolvidas por contrato verificavel
+      - FTs tecnicas segregadas por dependencia e rastreabilidade
+      - validacao normativa aprovada e interrupcao antes de codigo
+  - id: FT-039
+    classe: implementacao_codigo
+    criado_em: 2026-08-27T20:03:41.6307358-03:00
+    estado: pendente
+    depende_de: FT-038
+    fonte: .ia.rules/state/requests/FT-038/prompt.md
+    objetivo: Refinar controles e modos de leitura de referencias do TTS com fluxo continuo por padrao.
+    aceite:
+      - controles compactos por icones preservam alvo de toque, nome, dica, teclado e estados
+      - fluxo continuo sinaliza referencias por fronteira sem narracao integral automatica
+      - modos resumido e completo permanecem disponiveis sob demanda
+      - links, notas, leitores de tela e conteudo visivel permanecem integrais
+  - id: FT-040
+    classe: implementacao_codigo
+    criado_em: 2026-08-27T20:03:42.6307358-03:00
+    estado: pendente
+    depende_de: FT-038
+    fonte: .ia.rules/state/requests/FT-038/prompt.md
+    objetivo: Corrigir geometria responsiva e ampliar os modos de cover wide sem distorcao ou perda.
+    aceite:
+      - flag permanece sobreposta e visivel
+      - cover ocupa a zona integral e respeita limites de viewport e proporcao
+      - modo unico e composicao central-left-right mantem continuidade sem costuras
+      - tela, orientacao, tema e impressao preservam os contratos vigentes
+  - id: FT-041
+    classe: implementacao_codigo_conteudo
+    criado_em: 2026-08-27T20:03:43.6307358-03:00
+    estado: pendente
+    depende_de: FT-038, FT-040
+    fonte: .ia.rules/state/requests/FT-038/prompt.md
+    objetivo: Consolidar originais e derivados 1200x630 e 1x1, metadados sociais, assets locais e WebP de paginas especiais.
+    aceite:
+      - originais preservados e derivados gerados uma unica vez com rastreabilidade
+      - Open Graph expõe wide primaria e square adicional sem prometer selecao por crawler
+      - X usa card e imagem coerentes com o contrato declarado
+      - drafts e posts nao dependem de assets editoriais do web.archive.org
+      - covers da 404 e noscript usam derivados WebP autorizados e fallback valido
+  - id: FT-042
+    classe: implementacao_codigo
+    criado_em: 2026-08-27T20:03:44.6307358-03:00
+    estado: pendente
+    depende_de: FT-038
+    fonte: .ia.rules/state/requests/FT-038/prompt.md
+    objetivo: Corrigir a equivalencia entre URL logica e destino fisico dos namespaces Bate-papo.
+    aceite:
+      - URL canonica literal com dois-pontos resolve em desenvolvimento e GitHub Pages
+      - destino fisico portavel nao vaza para canonical, cards ou navegacao
+      - zero, um e multiplos subnamespaces permanecem deterministas
+      - nenhuma rota paralela ou hardcode por artigo e introduzida
+  - id: FT-043
+    classe: implementacao_conteudo
+    criado_em: 2026-08-27T20:03:45.6307358-03:00
+    estado: pendente
+    depende_de: FT-038
+    fonte: .ia.rules/state/requests/FT-038/prompt.md
+    objetivo: Criar a pagina publica de atribuicoes a partir de obrigacoes reais das dependencias efetivamente distribuidas.
+    aceite:
+      - somente recursos com obrigacao aplicavel sao listados
+      - cada entrada preserva texto, autor, origem e licenca exigidos
+      - pagina reutiliza layout vigente, e responsiva, acessivel e imprimivel
+      - rota /atribuicoes integra build e publicacao sem mecanismo paralelo
+  - id: FT-044
+    classe: integracao_validacao_publicacao
+    criado_em: 2026-08-27T20:03:46.6307358-03:00
+    estado: pendente
+    depende_de: FT-039, FT-040, FT-041, FT-042, FT-043
+    fonte: .ia.rules/state/requests/FT-038/prompt.md
+    objetivo: Validar, limpar TO-DOs concluidas, publicar no GitHub Pages e convergir dev/main.
+    aceite:
+      - gates estruturais, de assets, metadados, rotas, acessibilidade e visual aprovados
+      - PageSpeed limitado aos layouts diretamente afetados quando estritamente necessario
+      - artefato publicado corresponde ao commit-fonte validado
+      - TO-DOs concluidas removidas e equalizer perene preservado literal e desmarcado
 lacunas:
   - id: GAP-AGENTS-CJS-ESM-001
     estado: isolada
