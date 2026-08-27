@@ -179,7 +179,7 @@ Este marcador encerra a seção de governança e inicia exclusivamente as TO-DOs
   - É PROIBIDO corrigir o sintoma mediante hardcode, rota paralela ou solução que elimine recursos, quebre compatibilidade, desadeque o módulo ao padrão existente ou provoque regressão direta, indireta ou em cascata.
   - Validar os cenários demonstrados por `evidencia8.png`/`evidencia8b.png` e os fluxos diretamente afetados; somente concluir após confirmar o roteamento correto e ausência de regressões.
 
-* [ ] Criar e publicar no **GitHub Pages** a página `/atribuicoes`, configurando Jekyll/build/roteamento/publicação **somente se necessário** para torná-la acessível e visível segundo os mecanismos já existentes do projeto.
+- [ ] Criar e publicar no **GitHub Pages** a página `/atribuicoes`, configurando Jekyll/build/roteamento/publicação **somente se necessário** para torná-la acessível e visível segundo os mecanismos já existentes do projeto.
   - DEVE obedecer integralmente `RCF.md`, `agends.md` e demais normas vigentes, reutilizando **template, layout, tipografia, traços, componentes, paleta e estilo visual já adotados nas páginas/posts públicos**, sem criar padrão paralelo, inovar visualmente ou provocar regressões.
   - Inspecionar as dependências/recursos **efetivamente usados no repositório** e listar **somente aqueles cuja licença efetivamente exige atribuição**, sem presumir obrigações. Cada atribuição DEVE cumprir rigorosamente os termos específicos da respectiva licença.
   - Preferencialmente padronizar cada registro com **nome da biblioteca/recurso, repositório/origem, link oficial, autor primário e licença**, acrescentando qualquer informação/texto obrigatório que a licença exigir.
@@ -187,4 +187,4 @@ Este marcador encerra a seção de governança e inicia exclusivamente as TO-DOs
   - A apresentação PODE adotar composição elegante e legível, inclusive inspiração **ABNT** ou formato tabular, desde que compatível com os padrões existentes; estética alternativa NÃO justifica alterar o design global.
   - Validar `/atribuicoes` no fluxo real do GitHub Pages, inclusive navegação/roteamento, responsividade e impressão quando aplicável, sem alterar indevidamente páginas, posts, módulos ou recursos preexistentes.
 
-  - [ ] imagem de cover do 404 e também do noscript devem ser convertidas e otimizadas, conforme RCF para webm, caso já não tenham sido, e relincadas corretamente.
+- [ ] imagem de cover do 404 e também do noscript devem ser convertidas e otimizadas, conforme RCF para webm, caso já não tenham sido, e relincadas corretamente.
