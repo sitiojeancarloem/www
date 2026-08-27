@@ -6,13 +6,15 @@ content_namespace: bate-papo
 content_subnamespaces:
   - eventos-finais
 header:
-  image: '/assets/images/posts/eventos-finais/eventos-finais.svg'
+  image: '/assets/images/posts/eventos-finais/a-heranca-dos-santos.png'
   image_description: 'Cidade luminosa ao horizonte, sobre colinas e sob um céu estrelado'
 ---
 
 <!-- AI-PROCESSED:START -->
+
 > **Nota editorial:** Esta é uma síntese fiel de um bate-papo, editada apenas para tornar a leitura mais clara e agradável. O material foi produzido e processado de forma automatizada, inclusive com uso de inteligência artificial, e pode conter erros, imprecisões ou interpretações inadequadas. Nem tudo o que foi dito foi necessariamente aceito por todos: formulações coletivas não significam unanimidade, aprovação integral ou ausência de objeções; cada participante pode ter ponderado, discordado, preferido não se manifestar ou silenciado por razões distintas.
-{: data-jcem-quote-model="alerta1"}
+> {: data-jcem-quote-model="alerta1"}
+
 <!-- AI-PROCESSED:END -->
 
 ## 1. Um assunto preliminar: alimentação, sangue e consciência
