@@ -41,4 +41,5 @@ Dependências: [Namespaces editoriais](./namespaces-editoriais.md), [Citações]
 - Todas as chamadas e definições `[^id]` devem ser pareadas, reutilizar identificadores semanticamente equivalentes e renderizar pelo mecanismo Jekyll/Kramdown vigente.
 - O build com rascunhos deve confirmar hierarquia de títulos, blockquotes, linhas de referência, notas de rodapé e legibilidade da página renderizada.
 - A validação deve confirmar o título `Bate-papo:`, a URL pública literal `/p/bate-papo:`, o path físico local hifenizado, a conversão central e a resolução da rota sem erro, redirecionamento involuntário ou divergência canônica.
+- Os cenários com `eventos-finais` DEVEM comprovar que `/p/bate-papo:eventos-finais/<slug>/` responde pelo servidor local e pelo artefato publicável sem expor `/p/bate-papo-eventos-finais/` como canonical ou destino navegável.
 - A validação DEVE confirmar modelo `alerta1` somente no disclaimer, obra-base/subnamespace quando aplicável, notas editoriais identificadas, primeira citação integral, deduplicação sem perda, autoria intelectual e ausência de particularidade de artigo na norma geral.

@@ -2,7 +2,7 @@ schema: jcem-continue/v1
 machine_id: JEAN-DESKTOP
 data_ref: 2026-08-27T20:03:40.6307358-03:00
 fonte: TODO.ia.md
-objetivo: Equalizar normativamente as novas TO-DOs em FTs segregadas, interromper antes da implementação e preservar o equalizer perene.
+objetivo: Aguardar autorização humana pós-normatização para implementar as FTs 039 a 044 sem alterar o equalizer perene.
 autorizacao:
   origem: prompt humano
   data: 2026-08-27T20:03:40.6307358-03:00
@@ -335,7 +335,7 @@ plano:
   - id: FT-038
     classe: implementacao_normativa
     criado_em: 2026-08-27T20:03:40.6307358-03:00
-    estado: em_andamento
+    estado: concluido
     fonte: .ia.rules/state/requests/FT-038/prompt.md
     objetivo: Equalizar integralmente as novas TO-DOs de TTS, covers, assets, metadados sociais, namespaces, atribuicoes e paginas especiais.
     escopo: RCFs vigentes de leitura acessivel, referencias, carregamento, componentes, namespaces, bate-papo e publicacao.
@@ -344,6 +344,15 @@ plano:
       - contradicoes de formato, rota, crawler e asset resolvidas por contrato verificavel
       - FTs tecnicas segregadas por dependencia e rastreabilidade
       - validacao normativa aprovada e interrupcao antes de codigo
+    resultado: Novas TO-DOs equalizadas em contratos verificaveis e FTs 039 a 044 segregadas; nenhuma implementacao iniciada.
+    progresso:
+      - TTS continuo definido como padrao com modos resumido e completo sob demanda, sem achatamento automatico de nota estruturada
+      - covers conciliadas por superficie integral, conteudo central preservado, limites centralizados e composicao wide unica ou tripla
+      - WebP corrigiu a imprecisao WebM; _site foi excluido como origem e assets arquivados foram limitados a dependencias incorporadas
+      - Open Graph passou a ter wide primaria e square adicional sem promessa de selecao por plataforma; X recebeu contrato proprio coerente
+      - rota logica com dois-pontos foi preservada e a traducao para destino fisico ficou restrita ao servidor local
+      - pagina de atribuicoes recebeu contrato proprio limitado a obrigacoes reais do artefato distribuido
+      - npm run agent:rcf retornou RCF_OK e rcf-trace validate retornou zero divergencias
   - id: FT-039
     classe: implementacao_codigo
     criado_em: 2026-08-27T20:03:41.6307358-03:00

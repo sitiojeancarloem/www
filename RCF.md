@@ -34,6 +34,7 @@ Escopo: autoridade arquitetural superior, precedência e roteamento dos contrato
 | PageSpeed, dependências, reflow e orçamento client-side | [Desempenho e dependências](./RCFs/desempenho-e-dependencias.md) |
 | Loader, skeleton, recursos pesados e imagens responsivas | [Carregamento progressivo](./RCFs/carregamento-progressivo.md) |
 | Build, workflows, GitHub Pages e distribuição | [Publicação](./RCFs/publicacao.md) |
+| Atribuições obrigatórias de dependências e recursos distribuídos | [Atribuições](./RCFs/atribuicoes.md) |
 | Página `/mapa/` e taxonomias navegáveis | [Mapa HTML](./RCFs/mapa-html.md) |
 | Modus operandi especializado da IA e projeção local | [Operação especializada da IA](./RCFs/operacao-da-ia.md) |
 | Leitura acessível, TTS, pronúncia e gráficos semânticos | [Leitura acessível e TTS](./RCFs/leitura-acessivel-e-tts.md) |

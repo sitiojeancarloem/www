@@ -2,7 +2,7 @@
 
 # RCF-JCEM-LEITURA-ACESSIVEL-TTS-001
 
-Status: vigente; implementação, validação e publicação concluídas nas FTs 035–037.
+Status: vigente; implementação-base concluída nas FTs 035–037 e refinamento de fluidez normatizado na FT-038, com implementação pendente na FT-039.
 
 Escopo: representação acessível e falada de artigos, posts, páginas, navegação essencial, avisos, citações, referências, idiomas, tabelas, imagens e gráficos do JeanCarloEM Blog.
 
@@ -23,6 +23,8 @@ Escopo: representação acessível e falada de artigos, posts, páginas, navega�
 - Links e botões sociais DEVEM possuir nome que identifique ação e plataforma. Ícone decorativo fica fora da árvore acessível; ícone essencial sem texto recebe nome funcional equivalente.
 - Rodapé, avisos editoriais e legais, inclusive `IMPORTANTE`, `AVISO DE CONTEÚDO SENSÍVEL E PÚBLICO-ALVO`, `LIBERDADE DE EXPRESSÃO, LIMITES E INTERPRETAÇÃO DO CONTEÚDO`, `ATENÇÃO`, `Legal`, `Advertências`, `Privacidade` e `Licença`, DEVEM permanecer íntegros, alcançáveis e ordenados na leitura.
 - Conteúdo acessível exclusivo PODE ser visualmente oculto por técnica comprovada de `visually-hidden`, mas NÃO PODE usar `hidden`, `display:none`, `visibility:hidden`, dimensão nula impraticável ou outro mecanismo que o retire da árvore acessível.
+- O conjunto de controles do TTS DEVE ser compacto, discreto e adjacente ao início do artigo, sem competir com título, cover ou texto. A ação visível PODE usar ícone, mas cada botão DEVE conservar nome acessível, dica textual, estado e alvo mínimo de toque; `play`, `pause`/`resume` e `stop` DEVEM permanecer inequívocos por mouse, toque e teclado.
+- Preferência de modo de referências pertence ao TTS opcional e NÃO PODE alterar o HTML editorial, o destino das notas nem a configuração de verbosidade do leitor de tela do usuário.
 
 ## 3. Ligações, marcadores e prosódia
 
@@ -33,7 +35,7 @@ O normalizador DEVE gerar no máximo um marcador por fronteira semântica. Leito
 | início/fim de artigo      | fluxo que agrega mais de uma publicação             | `Início do artigo: <título>.` / `Fim do artigo: <título>.`          | um único `article` já está isolado e seu limite é inequívoco                           |
 | bloco citado              | citação semântica em bloco                          | `Início da citação.` / `Fim da citação.`                            | a tecnologia alvo já anuncia os limites sem ambiguidade comprovada                     |
 | citação inline            | trecho citado dentro da frase                       | pausa breve e, havendo fonte real, `citação de <fonte curta>`       | a indicação quebrar a unidade prosódica ou repetir fonte adjacente                     |
-| referência por ocorrência | nota ou citação vinculada                           | `<parcela usada> <edição/versão>` ou `<AUTOR>, <ano>[. <título>]`   | vínculo inequívoco não puder ser provado; nesse caso preserva-se referência suficiente |
+| referência por ocorrência | nota ou citação vinculada                           | no modo contínuo, um aviso agrupado ao fim da fronteira semântica   | a fronteira não contiver referência ou o aviso já tiver sido emitido para o mesmo grupo |
 | aviso tipado              | entrada de aviso editorial/legal                    | rótulo humano do tipo uma única vez                                 | o próprio heading/rótulo já for anunciado no ponto correto                             |
 | tabela                    | entrada de tabela de dados                          | `Tabela: <caption>.`                                                | apresentação não tabular ou caption já anunciado sem ambiguidade                       |
 | imagem informativa        | imagem que acrescenta conteúdo                      | alternativa breve focada na função                                  | imagem decorativa com alternativa vazia                                                |
@@ -44,14 +46,23 @@ O normalizador DEVE gerar no máximo um marcador por fronteira semântica. Leito
 - Pausa, ênfase e entonação DEVEM decorrer primeiro de pontuação e estrutura. SSML NÃO PODE ser inserido no HTML nem assumido por leitores de tela; qualquer exportador SSML futuro exige adaptador separado e não altera a fonte.
 - Texto exclusivamente falado DEVE usar frases humanas e curtas. Jargões como `blockquote`, `sup`, `aria`, `link node` ou nome de tag são proibidos na fala editorial.
 
+### 3.1 Modos de referências no TTS opcional
+
+- **Contínuo** é o modo inicial obrigatório. A unidade principal é pronunciada sem expansão das notas e recebe, no máximo uma vez ao final da frase, parágrafo ou outra fronteira semântica efetivamente usada pelo sintetizador, o aviso breve de que a passagem possui referência ou referências. Múltiplas chamadas na mesma unidade DEVEM ser agrupadas; número, backlink e conteúdo integral NÃO PODEM interromper a proposição.
+- **Resumido** é opt-in e pronuncia após a unidade cada fonte curta inequivocamente derivável, como `<SOBRENOME>, <ano>`, passagem/versão bíblica ou título mínimo necessário para desambiguação. Fonte repetida na mesma fronteira DEVE ser deduplicada sem apagar associações distintas.
+- **Completo** é opt-in e conserva a capacidade já existente de pronunciar a definição integral vinculada. O mecanismo NÃO PODE ser removido, mas DEVE permanecer desabilitado por padrão e executar a expansão somente depois da unidade principal.
+- A mudança de modo DEVE ser acessível durante a sessão e anunciada sem reiniciar silenciosamente, perder posição ou misturar unidades construídas sob modos diferentes. Ausência de escolha explícita sempre resolve para `contínuo`.
+- Referência ambígua conserva a nota integral como destino navegável. No modo resumido, ela recebe aviso de indisponibilidade de redução e acesso deliberado ao conteúdo completo; a ambiguidade NÃO autoriza inventar autor, ano, título ou passagem.
+
 ## 4. Citações e referências
 
 - A classificação semântica de `RCF-JCEM-CITACOES-001` prevalece sobre tag ou aparência. Bloco, inline, subcitação e voz autoral DEVEM permanecer distinguíveis na sequência falada.
 - Citação em bloco recebe fronteira de entrada/saída somente quando necessária à compreensão; inline usa indicação breve integrada. Subcitação preserva hierarquia sem repetir marcadores em cascata a cada nó.
-- Toda ocorrência ligada a nota, `<sup>` ou equivalente DEVE possuir associação estável com a definição e, quando aplicável, com a parcela exata da bibliografia. Número visual isolado NÃO constitui fonte falada suficiente.
+- Toda ocorrência ligada a nota, `<sup>` ou equivalente DEVE possuir associação estável com a definição e, quando aplicável, com a parcela exata da bibliografia. O marcador curto identifica a existência e o destino da nota; a projeção contínua agrupa essa indicação, e os modos resumido/completo fornecem o detalhamento deliberado.
 - Referência bíblica agrupada DEVE selecionar somente livro, capítulo, versículo e versão efetivamente usados na ocorrência. Referência autor-data usa sobrenome, ano e título apenas para desambiguar ou preservar compreensão.
 - A redução falada DEVE ser derivada de dados reais e manter vínculo com a referência integral. Se a parcela não puder ser resolvida inequivocamente, o build NÃO PODE inventar: preserva informação mais completa e emite diagnóstico rastreável.
 - Backlinks, letras de reuso e numeração visual continuam regidos por `RCF-JCEM-FOOTNOTES-001`; a projeção falada não pode expor glifo de retorno como conteúdo editorial.
+- Nota longa ou estruturada NÃO DEVE ser achatada automaticamente como descrição do marcador por `aria-describedby`. O link nativo bidirecional entre `doc-noteref` e `doc-footnote` permanece obrigatório; `aria-details` PODE complementar a relação quando suportado, mas não substitui link, foco, destino nem retorno operável.
 
 ## 5. Idiomas e pronúncia
 
@@ -102,6 +113,7 @@ O normalizador DEVE gerar no máximo um marcador por fronteira semântica. Leito
 - Validação estrutural DEVE inspecionar HTML estático e árvore de acessibilidade; validação auditiva DEVE exercitar leitura sequencial, navegação por headings/regiões/tabelas, fronteiras autorais e naturalidade em combinações reais de navegador/tecnologia assistiva identificadas no ambiente, sem inventar suporte não testado.
 - Teste automatizado NÃO substitui escuta humana para pronúncia, prosódia, distinção de vozes, síntese de gráfico ou ausência de repetição mecânica. Evidência manual registra ferramenta, versão, voz/idioma, página, sequência, resultado e limitação.
 - Matriz DEVE provar ausência de dependência opcional em página sem uso e presença somente na página elegível; falha do renderer, JavaScript desativado e voz ausente preservam conteúdo.
+- Testes do TTS DEVEM cobrir os três modos, agrupamento de chamadas múltiplas, referência repetida, nota ambígua, troca de modo em execução, pausa/retomada, acesso deliberado à nota completa e ausência de expansão integral no modo contínuo.
 - Web claro/escuro, teclado, foco, toque, 320 px, impressão/PDF, SEO, PageSpeed, build Windows/Linux e GitHub Pages permanecem gates independentes. Aprovação de um não encobre falha, bloqueio ou inconclusão de outro.
 - Publicação final exige correspondência entre commit-fonte, artefato renderizado, manifesto condicional e URL servida, seguida da remoção das TO-DOs concluídas sem alterar o equalizer perene.
 

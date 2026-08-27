@@ -13,6 +13,16 @@ Escopo: carregamento inicial, loader global, recursos pesados, skeleton loading 
 - O aprimoramento de ampliação DEVE permanecer ausente da impressão e não PODE alterar o asset, suas dimensões no fluxo, `srcset`, `sizes`, skeleton, legenda, link editorial ou comportamento de carregamento.
 - Imagem destacada ampla limitada pela viewport DEVE preencher a altura visual calculada sem deformação: o contêiner e a caixa da imagem DEVEM compartilhar a mesma altura efetiva, enquanto a largura deriva da proporção intrínseca e permanece centralizada e limitada à viewport. `aspect-ratio` de reserva de carregamento NÃO PODE conservar altura excedente depois que esse limite passa a governar a imagem.
 
+## Covers editoriais e composição wide
+
+- A superfície da cover DEVE ocupar integralmente a zona horizontal reservada pelo layout, sem vazio estrutural entre suas bordas e as bordas dessa zona. O conteúdo central permanece proporcional, sem distorção nem crop destrutivo; quando limite mínimo/máximo de altura tornar impossível preencher simultaneamente os dois eixos com uma única proporção, a superfície periférica DEVE completar a faixa sem amputar o conteúdo central.
+- Altura mínima e máxima de cover DEVEM derivar de uma única configuração/token vigente em unidades relativas à viewport. CSS, include, front matter e script NÃO PODEM duplicar valor numérico concorrente; rotação e resize DEVEM recalcular a mesma regra sem salto ou estado intermediário persistente.
+- Flag associada à publicação pertence à camada acima da cover e DEVE permanecer integralmente visível em composição wide e content. Cover, skeleton, contenção ou novo stacking context NÃO PODEM cobri-la nem recortá-la.
+- Cover canônica para compartilhamento wide usa `1200×630` quando o contrato editorial permitir. Fonte com outra proporção DEVE ser preservada como original e gerar derivado novo; simples redimensionamento só é válido quando não distorcer nem degradar. Extensão generativa autorizada DEVE limitar-se às bordas necessárias, conservar o conteúdo central e registrar ferramenta, entrada, hash, parâmetros, saída e revisão visual, sem sobrescrever o original.
+- O modo wide de uma imagem usa a cover central como conteúdo autoritativo e PODE completar periferias por camada derivada da mesma fonte, desde que a imagem integral continue perceptível e a composição não introduza faixa vazia, costura, deslocamento ou semântica visual nova.
+- O modo wide triplo usa `header.image` como `central`, `header.image_wide_left` como segmento repetível à esquerda e `header.image_wide_right` como segmento repetível à direita, ativado por `header.image_wide_mode: triptych`. Ausência de laterais resolve para o modo de uma imagem; combinação parcial, proporção incompatível ou bordas não conciliáveis DEVE falhar no build.
+- Segmentos laterais DEVEM compartilhar altura e escala efetivas com a central. A borda direita de `left` coincide pixel a pixel com a borda esquerda de `central`, e a borda esquerda de `right` com a borda direita de `central`; repetição externa respeita sua direção sem espelhamento implícito.
+
 - HTML e CSS devem produzir conteúdo legível imediatamente; JavaScript, consentimento e aprimoramentos progressivos NÃO PODEM ocultar ou bloquear a primeira renderização visível da página.
 - Recursos essenciais são HTML, CSS, JavaScript próprio necessário à inicialização e dependências leves do JavaScript, como JSON, XML ou formatos equivalentes.
 - Imagens, `background-image`, vídeos, áudios, iframes, fontes opcionais e demais assets pesados não devem bloquear a liberação inicial da página.
@@ -44,6 +54,17 @@ Escopo: carregamento inicial, loader global, recursos pesados, skeleton loading 
 - Indicadores de carregamento e progresso devem possuir contraste suficiente durante toda a exibição, inclusive em tema claro, tema escuro, telas de baixo brilho e conexões lentas.
 - Estas regras constituem o comportamento padrão para componentes atuais e futuros, salvo justificativa técnica explícita registrada no ponto de implementação.
 
+## Assets editoriais e metadados sociais
+
+- Draft ou publicação NÃO PODE depender diretamente de `web.archive.org` para entregar imagem, SVG, áudio, vídeo, PDF incorporado ou outro asset editorial. O pipeline DEVE resolver primeiro cópia local inequivocamente equivalente por origem, nome, conteúdo e hash; download só ocorre diante de ausência comprovada. URL de provenance em `source:` e hyperlink citacional para documento arquivado não constituem asset e permanecem preservados.
+- `_site/` é artefato gerado, nunca origem editorial. Asset encontrado somente nessa árvore DEVE ser promovido ao namespace-fonte aplicável com hash e vínculo documental antes de qualquer novo build; a cópia gerada isolada não satisfaz preservação nem rastreabilidade.
+- `header.image` é a fonte central visível e, por padrão, a fonte da OG wide. `header.image_square` declara fonte quadrada opcional. O build projeta derivados finais em `header.og_image` e `header.og_image_square`, sem exigir que autoria Markdown informe paths gerados.
+- A projeção Open Graph DEVE emitir primeiro a imagem wide `1200×630`, seguida opcionalmente da square `400×400`, cada qual com URL absoluta HTTPS, tipo, largura, altura e alternativa. O protocolo admite múltiplos `og:image` e prefere o primeiro em conflitos; portanto a presença da square amplia opções, mas NÃO PODE ser declarada como garantia de seleção específica por WhatsApp, Instagram, Threads, LinkedIn, Facebook ou outro consumidor.
+- X/Twitter DEVE receber `twitter:card` e `twitter:image` coerentes com o modo declarado. `summary_large_image` usa a wide; `summary` PODE usar a square quando existente e regride para a wide quando ausente. Tipo de card não PODE ser inferido por nome de plataforma nem divergir da imagem efetivamente emitida.
+- Imagem square DEVE preservar conteúdo essencial, identidade, paleta e legibilidade da cover. Crop simples só é permitido quando não remover elemento relevante; extensão assistida segue a mesma provenance e revisão da wide. Post sem cover não recebe imagem inventada por este contrato.
+- A imagem central do modo wide triplo é a única fonte wide de OG; segmentos laterais são composição de tela e NÃO PODEM ser concatenados ao metadado social.
+- Covers raster compartilhadas da 404 e do fallback `noscript` DEVEM usar derivado **WebP**, não WebM, gerado uma única vez pelo allowlist vigente e com original preservado. O HTML DEVE apontar corretamente ao derivado e conservar fallback funcional quando exigido pelo componente.
+
 ## Implementação
 
 - `assets/jcem/ts/site.ts` acopla o controle de ampliação às imagens editoriais elegíveis depois da primeira pintura, reutiliza o contrato de fullscreen com fallback local e preserva o foco de origem. `_sass/minimal-mistakes/skins/_variables-custom.scss` contém somente a aparência de tela do controle e da superfície ampliada.
@@ -73,3 +94,9 @@ Escopo: carregamento inicial, loader global, recursos pesados, skeleton loading 
 - `npm run check` deve validar o extrator de metadados em imagens reais do repositório.
 - O teste DEVE validar ordenação por largura, proporção homogênea, bytes, fallback, `srcset`/ `sizes` e seleção de variante menor em card estreito e DPR representativos.
 - Build Jekyll deve confirmar a geração de `assets/jcem/asset-metadata.json` e o uso opcional dos metadados no HTML renderizado.
+- A validação DEVE aferir covers em claro/escuro, orientações retrato/paisagem e viewports representativas; comprovar largura da zona, limites de altura, flag, proporção e continuidade dos modos único e triplo.
+- O build DEVE validar dimensões, tipo, hash/provenance e idempotência de derivados `1200×630`, `400×400` e WebP; segunda execução sem mudança de origem produz zero alteração de bytes e timestamp.
+- O HTML final DEVE comprovar ordem e propriedades estruturadas de cada `og:image`, fallback square→wide, coerência de `twitter:card`/`twitter:image` e ausência de promessa ou tag proprietária inexistente por plataforma.
+- Varredura de fontes publicáveis DEVE falhar diante de URL de asset em `web.archive.org`, sem reprovar `source:` histórico ou hyperlink citacional não incorporado.
+
+Referência técnica: [Open Graph protocol — imagens estruturadas e arrays](https://ogp.me/).

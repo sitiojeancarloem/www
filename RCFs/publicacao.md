@@ -37,6 +37,7 @@ Escopo: publicação do site Jekyll no GitHub Pages, comandos locais, workflows 
 - `scripts/jekyll_build_scope.rb` decide entre build completo e incremental por diff Git quando disponível, ou por estado de fonte cacheado quando o branch temporário foi recriado.
 - `scripts/jekyll_build_manifest.rb` grava manifesto de `_site`, estado de build e estado de fonte para preservar coesão entre cache, commit e artefato publicado.
 - O estado de fonte DEVE excluir `_site/`: a árvore é saída gerada, pode ser limpa durante o build e não constitui entrada estável para comparação de fontes.
+- Asset editorial adicionado diretamente a `_site/` NÃO constitui fonte publicada válida. Antes de integrar nova mídia, o arquivo original ou curado DEVE existir no namespace-fonte versionado; o build copia/deriva para `_site/` e o cache gerado jamais substitui essa origem.
 - `.github/workflows/scheduled.yml` prepara posts agendados, gera `gh-pages`, publica o artefato e só depois persiste a migração para `_posts`.
 
 ## Validação
