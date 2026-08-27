@@ -136,7 +136,7 @@ Este marcador encerra a seção de governança e inicia exclusivamente as TO-DOs
 
 - [ ] Suportar imagens Open Graph wide e square por artigo, com build e metadados adequados
   - Permitir que cada artigo/post declare, conforme mecanismos existentes ou extensão aderente deles:
-    - imagem OG **wide**: `1200×630`;
+    - imagem OG **wide**: `1200×630` (padrão cover);
     - imagem OG **square** opcional: `1:1`, referência alvo **400×400**.
 
   - Objetivo: disponibilizar proporção apropriada às plataformas sem crop lateral indevido da imagem wide.
@@ -173,7 +173,7 @@ Este marcador encerra a seção de governança e inicia exclusivamente as TO-DOs
   - A geração DEVE observar os mecanismos já normatizados de preservação do original, processamento único, rastreabilidade e prevenção de degradação cumulativa.
   - Validar retroativamente drafts e posts já existentes e aplicar o mesmo contrato a futuras publicações.
 
-* [ ] Corrigir o **roteamento (`slug`/URL) de Bate-papo** evidenciado em `.\.ia.rules\state\evidencias\evidencia8.png` e `evidencia8b.png`, após confrontar as evidências com o estado real da implementação e identificar a causa efetiva.
+- [ ] Corrigir o **roteamento (`slug`/URL) de Bate-papo** evidenciado em `.\.ia.rules\state\evidencias\evidencia8.png` e `evidencia8b.png`, após confrontar as evidências com o estado real da implementação e identificar a causa efetiva.
   - A correção DEVE obedecer integralmente `RCF.md`, `agends.md` e demais padrões já vigentes de arquitetura, rotas, URLs, layout, estilo, exibição, impressão, interação e modus operandi; NÃO inventar contratos, preencher lacunas por hipótese nem criar exceções arbitrárias.
   - Restaurar o comportamento correto de geração, resolução e navegação dos `slug`s/URLs de Bate-papo **sem alterar semântica, estrutura ou convenções já estabelecidas além do necessário para eliminar a falha**.
   - É PROIBIDO corrigir o sintoma mediante hardcode, rota paralela ou solução que elimine recursos, quebre compatibilidade, desadeque o módulo ao padrão existente ou provoque regressão direta, indireta ou em cascata.
