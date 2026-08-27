@@ -186,3 +186,5 @@ Este marcador encerra a seção de governança e inicia exclusivamente as TO-DOs
   - Incluir antes da relação apenas um **texto introdutório sucinto**, explicando a finalidade da página.
   - A apresentação PODE adotar composição elegante e legível, inclusive inspiração **ABNT** ou formato tabular, desde que compatível com os padrões existentes; estética alternativa NÃO justifica alterar o design global.
   - Validar `/atribuicoes` no fluxo real do GitHub Pages, inclusive navegação/roteamento, responsividade e impressão quando aplicável, sem alterar indevidamente páginas, posts, módulos ou recursos preexistentes.
+
+  - [ ] imagem de cover do 404 e também do noscript devem ser convertidas e otimizadas, conforme RCF para webm, caso já não tenham sido, e relincadas corretamente.
