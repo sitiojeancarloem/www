@@ -2,7 +2,7 @@
 
 # RCF-JCEM-LEITURA-ACESSIVEL-TTS-001
 
-Status: vigente; implementação-base concluída nas FTs 035–037 e refinamento de fluidez normatizado na FT-038, com implementação pendente na FT-039.
+Status: vigente; implementação-base concluída nas FTs 035–037 e refinamento de fluidez concluído na FT-039.
 
 Escopo: representação acessível e falada de artigos, posts, páginas, navegação essencial, avisos, citações, referências, idiomas, tabelas, imagens e gráficos do JeanCarloEM Blog.
 

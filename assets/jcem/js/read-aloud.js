@@ -20,22 +20,41 @@
 	const play = controls.querySelector('[data-jcem-read-action="play"]');
 	const pause = controls.querySelector('[data-jcem-read-action="pause"]');
 	const stop = controls.querySelector('[data-jcem-read-action="stop"]');
+	const referenceMode = controls.querySelector('[data-jcem-read-reference-mode]');
 	const status = controls.querySelector('[data-jcem-read-status]');
 	let units = [];
 	let index = 0;
 	let active = false;
 	let paused = false;
+	let generation = 0;
 
 	const normalize = (value) => String(value || '').replace(/\s+/g, ' ').trim();
 	const languageFor = (element) =>
 		element.closest('[lang]')?.getAttribute('lang') || document.documentElement.lang || 'pt-BR';
 
+	const referencesFor = (element) => [...element.querySelectorAll('[data-jcem-reference-full]')].map((link) => ({
+		summary: normalize(link.dataset.jcemReferenceSummary),
+		full: normalize(link.dataset.jcemReferenceFull),
+	}));
+
+	const referenceSuffix = (element) => {
+		const references = referencesFor(element);
+		if (!references.length) return '';
+		const mode = referenceMode?.value || 'continuous';
+		if (mode === 'continuous') return `Esta passagem possui ${references.length === 1 ? 'uma referência' : `${references.length} referências`}.`;
+		const missingSummary = mode === 'summary' && references.some((reference) => !reference.summary);
+		const values = references.map((reference) => mode === 'full' ? reference.full : reference.summary).filter(Boolean);
+		const unique = [...new Set(values)];
+		if (missingSummary) {
+			unique.push('Há referência sem resumo; consulte a nota completa');
+		}
+		return `${mode === 'full' ? 'Referências completas' : 'Referências'}: ${unique.join('; ')}.`;
+	};
+
 	const textFor = (element) => {
 		const clone = element.cloneNode(true);
 		clone.querySelectorAll('script, style, [aria-hidden="true"]').forEach((node) => node.remove());
-		clone.querySelectorAll('[data-jcem-spoken-reference]').forEach((reference) => {
-			reference.textContent = ` Referência: ${reference.dataset.jcemSpokenReference}. `;
-		});
+		clone.querySelectorAll('[role="doc-noteref"]').forEach((reference) => reference.remove());
 		clone.querySelectorAll('img[data-jcem-accessible-image="informative"]').forEach((image) => {
 			image.replaceWith(document.createTextNode(` Imagem: ${image.getAttribute('alt')}. `));
 		});
@@ -43,7 +62,7 @@
 	};
 
 	const add = (element, text, prefix = '', suffix = '') => {
-		const value = normalize(`${prefix} ${text} ${suffix}`);
+		const value = normalize(`${prefix} ${text} ${referenceSuffix(element)} ${suffix}`);
 		if (value) units.push({ text: value, lang: languageFor(element) });
 	};
 
@@ -103,7 +122,10 @@
 		play.disabled = active;
 		pause.disabled = !active;
 		stop.disabled = !active;
-		pause.textContent = paused ? 'Continuar' : 'Pausar';
+		pause.textContent = paused ? '▶' : '⏸';
+		pause.setAttribute('aria-label', paused ? 'Continuar leitura' : 'Pausar leitura');
+		pause.setAttribute('title', paused ? 'Continuar leitura' : 'Pausar leitura');
+		pause.setAttribute('aria-pressed', String(paused));
 	};
 
 	const voiceFor = (lang) => {
@@ -126,15 +148,21 @@
 			return;
 		}
 		const unit = units[index++];
+		const currentGeneration = generation;
 		const utterance = new Utterance(unit.text);
 		utterance.lang = unit.lang;
 		utterance.voice = voiceFor(unit.lang) || null;
-		utterance.addEventListener('end', speakNext, { once: true });
-		utterance.addEventListener('error', finish, { once: true });
+		utterance.addEventListener('end', () => {
+			if (currentGeneration === generation) speakNext();
+		}, { once: true });
+		utterance.addEventListener('error', () => {
+			if (currentGeneration === generation) finish();
+		}, { once: true });
 		synth.speak(utterance);
 	};
 
 	play.addEventListener('click', () => {
+		generation += 1;
 		synth.cancel();
 		buildUnits();
 		if (!units.length) return;
@@ -154,6 +182,7 @@
 	});
 
 	stop.addEventListener('click', () => {
+		generation += 1;
 		synth.cancel();
 		active = false;
 		paused = false;
@@ -161,6 +190,23 @@
 		setState('Leitura interrompida.');
 	});
 
-	window.addEventListener('pagehide', () => synth.cancel(), { once: true });
+	referenceMode?.addEventListener('change', () => {
+		const labels = { continuous: 'contínuo', summary: 'resumido', full: 'completo' };
+		const selected = labels[referenceMode.value] || labels.continuous;
+		if (active) {
+			generation += 1;
+			synth.cancel();
+			index = Math.max(0, index - 1);
+			buildUnits();
+			paused = false;
+			setState(`Modo de referências alterado para ${selected}. Leitura retomada.`);
+			speakNext();
+		} else setState(`Modo de referências alterado para ${selected}.`);
+	});
+
+	window.addEventListener('pagehide', () => {
+		generation += 1;
+		synth.cancel();
+	}, { once: true });
 	setState('Leitura pronta.');
 })();

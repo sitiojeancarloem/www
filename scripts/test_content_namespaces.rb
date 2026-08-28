@@ -1,7 +1,9 @@
 # frozen_string_literal: true
 
 require_relative "jekyll_compat"
+require "fileutils"
 require "jekyll"
+require "tmpdir"
 require_relative "../_plugins/jcem_content_namespaces"
 
 def assert(condition, message)
@@ -35,6 +37,21 @@ assert(
   repository_config.include?("Esta é uma síntese fiel de um bate-papo"),
   "disclaimer perdeu a declaração de fidelidade"
 )
+
+Dir.mktmpdir("jcem-namespaces") do |destination|
+  nested = File.join(destination, "p", "bate-papo", "eventos-finais", "tema")
+  FileUtils.mkdir_p(nested)
+  File.write(File.join(nested, "index.html"), "ok")
+  assert(
+    Jcem::ContentNamespaces.physical_request_path(
+      "/p/bate-papo:eventos-finais/tema/",
+      config,
+      destination: destination,
+      windows: true
+    ) == "/p/bate-papo/eventos-finais/tema/",
+    "servidor local não resolveu o destino físico de subnamespace"
+  )
+end
 assert(
   repository_config.include?("produzido e processado de forma automatizada"),
   "disclaimer perdeu a advertência de automação"

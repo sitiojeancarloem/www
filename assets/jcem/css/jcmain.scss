@@ -366,7 +366,7 @@ aside {
 }
 
 .jcem-date-flag {
-	z-index: 2;
+	z-index: 3;
 	aspect-ratio: 256 / 420;
 	background: url('/assets/jcem/img/flagCinza.svg') no-repeat top left;
 	background-size: 100% 100%;
@@ -430,6 +430,29 @@ aside {
 	border-radius: 0;
 }
 
+.jcem-featured-image__stage {
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	overflow: hidden;
+}
+
+.jcem-featured-image__surface {
+	position: absolute;
+	inset: 0;
+	z-index: 0;
+	display: block;
+	background: var(--jcem-cover-central) center / cover no-repeat;
+	filter: blur(12px) brightness(0.8);
+	transform: scale(1.04);
+}
+
+.jcem-featured-image__stage > .jcem-featured-image__img {
+	position: relative;
+	z-index: 1;
+}
+
 .jcem-featured-image--content {
 	margin-top: 0.85rem;
 
@@ -452,11 +475,45 @@ aside {
 	margin-right: calc(50% - 50vw);
 	margin-left: calc(50% - 50vw);
 
-	.jcem-featured-image__img {
+	.jcem-featured-image__stage {
 		height: var(--jcem-featured-height);
+		min-height: var(--jcem-featured-height);
+	}
+
+	.jcem-featured-image__img {
+		width: auto;
+		height: auto;
+		max-height: 100%;
+		margin-inline: auto;
 		object-fit: contain;
 		object-position: center;
 	}
+}
+
+.jcem-featured-image--triptych .jcem-featured-image__surface {
+	display: grid;
+	grid-template-columns: minmax(0, 1fr) min(100vw, calc(var(--jcem-featured-height) * 1200 / 630)) minmax(0, 1fr);
+	background: none;
+	filter: none;
+	transform: none;
+}
+
+.jcem-featured-image--triptych .jcem-featured-image__side,
+.jcem-featured-image--triptych .jcem-featured-image__center {
+	display: block;
+	height: 100%;
+}
+
+.jcem-featured-image--triptych .jcem-featured-image__side--left {
+	background: var(--jcem-cover-left) right center / auto 100% repeat-x;
+}
+
+.jcem-featured-image--triptych .jcem-featured-image__center {
+	background: var(--jcem-cover-central) center / 100% 100% no-repeat;
+}
+
+.jcem-featured-image--triptych .jcem-featured-image__side--right {
+	background: var(--jcem-cover-right) left center / auto 100% repeat-x;
 }
 
 .jcem-featured-image__caption {
@@ -1025,7 +1082,7 @@ footer ul.social-icons li i {
 		transform: translateY(-29%);
 	}
 
-	.jcem-featured-image--wide .jcem-featured-image__img {
+	.jcem-featured-image--wide {
 		--jcem-featured-height: clamp(10rem, 30vh, 18rem);
 	}
 

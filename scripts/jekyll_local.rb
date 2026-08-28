@@ -14,7 +14,11 @@ if Gem.win_platform?
     module NamespaceServlet
       def do_GET(request, response)
         original_path = request.path_info
-        physical_path = ContentNamespaces.physical_path_for(original_path, @jekyll_opts)
+        physical_path = ContentNamespaces.physical_request_path(
+          original_path,
+          @jekyll_opts,
+          destination: @jekyll_opts["destination"] || @jekyll_opts[:destination]
+        )
         request.path_info = physical_path if physical_path != original_path
         super
       ensure

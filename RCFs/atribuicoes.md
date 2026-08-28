@@ -2,7 +2,7 @@
 
 # RCF-JCEM-ATRIBUICOES-001
 
-Status: normatizado na FT-038; implementação pendente na FT-043.
+Status: vigente; implementação concluída na FT-043 e publicação pendente da FT-044.
 
 Escopo: página pública `/atribuicoes/` e inventário das obrigações de atribuição de dependências, bibliotecas, fontes, temas, ícones e demais recursos efetivamente distribuídos pelo JeanCarloEM Blog.
 

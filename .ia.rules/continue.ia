@@ -1,14 +1,14 @@
 schema: jcem-continue/v1
 machine_id: JEAN-DESKTOP
-data_ref: 2026-08-27T20:03:40.6307358-03:00
+data_ref: 2026-08-27T23:24:09.9972502-03:00
 fonte: TODO.ia.md
-objetivo: Aguardar autorização humana pós-normatização para implementar as FTs 039 a 044 sem alterar o equalizer perene.
+objetivo: Obter o asset editorial original ausente da FT-041 e, sem substituicao aproximada, concluir a FT-044 com publicacao e convergencia.
 autorizacao:
   origem: prompt humano
-  data: 2026-08-27T20:03:40.6307358-03:00
-  fonte: .ia.rules/state/requests/FT-038/prompt.md
-  escopo: reexecucao do equalizer e normatizacao RCF das novas TO-DOs
-  restricao: interromper antes da implementacao e preservar literalmente o item equalizer perene
+  data: 2026-08-27T21:31:21.3840168-03:00
+  fonte: .ia.rules/state/requests/FT-039/prompt.md
+  escopo: implementacao, validacao, integracao e publicacao das FTs 039 a 044
+  restricao: preservar literalmente o item equalizer perene e limitar PageSpeed ao estritamente necessario
 plano:
   - id: FT-020
     classe: implementacao_normativa
@@ -356,33 +356,48 @@ plano:
   - id: FT-039
     classe: implementacao_codigo
     criado_em: 2026-08-27T20:03:41.6307358-03:00
-    estado: pendente
+    estado: concluido
     depende_de: FT-038
     fonte: .ia.rules/state/requests/FT-038/prompt.md
+    fonte_autorizacao: .ia.rules/state/requests/FT-039/prompt.md
     objetivo: Refinar controles e modos de leitura de referencias do TTS com fluxo continuo por padrao.
     aceite:
       - controles compactos por icones preservam alvo de toque, nome, dica, teclado e estados
       - fluxo continuo sinaliza referencias por fronteira sem narracao integral automatica
       - modos resumido e completo permanecem disponiveis sob demanda
       - links, notas, leitores de tela e conteudo visivel permanecem integrais
+    resultado: Controles compactos e os modos continuo, resumido e completo foram implementados; referencias permanecem semanticamente navegaveis e a expansao integral ficou sob demanda.
+    progresso:
+      - marcadores visuais deixaram de achatar notas longas por aria-describedby e conservaram link, aria-details e destino operavel
+      - modo continuo agrupa multiplas referencias por unidade e emite um unico aviso breve apos a proposicao
+      - troca de modo invalida somente a fala corrente, reconstrói as unidades e retoma da fronteira preservada
+      - testes estrutural e runtime Chromium aprovaram 21 unidades, tres modos, icones e ausencia de Chart.js em pagina sem grafico
   - id: FT-040
     classe: implementacao_codigo
     criado_em: 2026-08-27T20:03:42.6307358-03:00
-    estado: pendente
+    estado: concluido
     depende_de: FT-038
     fonte: .ia.rules/state/requests/FT-038/prompt.md
+    fonte_autorizacao: .ia.rules/state/requests/FT-039/prompt.md
     objetivo: Corrigir geometria responsiva e ampliar os modos de cover wide sem distorcao ou perda.
     aceite:
       - flag permanece sobreposta e visivel
       - cover ocupa a zona integral e respeita limites de viewport e proporcao
       - modo unico e composicao central-left-right mantem continuidade sem costuras
       - tela, orientacao, tema e impressao preservam os contratos vigentes
+    resultado: Cover wide usa superficie periferica integral e imagem central proporcional no eixo limitante; o modo triplo ganhou contrato de fallback, dimensoes e costuras pixel a pixel.
+    progresso:
+      - token unico de altura governa stage responsivo e a flag permanece na camada 3 acima da superficie e da imagem
+      - desktop limita pela altura; viewport estreita limita pela largura; em ambos a razao natural e o centro sao preservados
+      - build falha para triptych parcial, alturas divergentes, juncoes divergentes ou segmentos laterais sem repeticao continua
+      - matriz visual focada aprovou desktop e mobile, claro e escuro, impressao e noscript
   - id: FT-041
     classe: implementacao_codigo_conteudo
     criado_em: 2026-08-27T20:03:43.6307358-03:00
-    estado: pendente
+    estado: em_andamento
     depende_de: FT-038, FT-040
     fonte: .ia.rules/state/requests/FT-038/prompt.md
+    fonte_autorizacao: .ia.rules/state/requests/FT-039/prompt.md
     objetivo: Consolidar originais e derivados 1200x630 e 1x1, metadados sociais, assets locais e WebP de paginas especiais.
     aceite:
       - originais preservados e derivados gerados uma unica vez com rastreabilidade
@@ -390,42 +405,77 @@ plano:
       - X usa card e imagem coerentes com o contrato declarado
       - drafts e posts nao dependem de assets editoriais do web.archive.org
       - covers da 404 e noscript usam derivados WebP autorizados e fallback valido
+    progresso:
+      - dez covers publicadas geram OG wide 1200x630 e square 400x400 diretamente dos originais; segunda execucao registrou changed=0
+      - duas novas covers originais foram versionadas em 16d55c4eb274bb1d6ef6a8c78b703ae3bc336d5f e integradas aos catalogos social e responsivo
+      - sete covers recuperadas, dois SVGs e quatro formulas publicadas foram promovidas byte a byte e relincadas localmente
+      - Open Graph final emite wide antes da square com URL absoluta, tipo, dimensoes e alt; X usa summary_large_image coerente
+      - 404 e noscript mantem os WebP rastreados e o visual focado confirmou seus fallbacks
+    impedimento:
+      codigo: ASSET_EDITORIAL_FONTE_AUSENTE
+      paths: _drafts/seja-radical-seja-extremista-seja-integro/convertido.md, _drafts/seja-radical-seja-extremista-seja-integro/reconstruido.md
+      asset: a-traicao-de-cypher.jpg
+      evidencia: ausente do workspace e dos objetos Git; Wayback, CDX, Common Crawl, Arquivo.pt e agregadores Memento consultados nao possuem captura recuperavel
+      restricao: o contrato proibe remover a incorporacao ou substituir por imagem aproximada sem equivalencia inequivoca
   - id: FT-042
     classe: implementacao_codigo
     criado_em: 2026-08-27T20:03:44.6307358-03:00
-    estado: pendente
+    estado: concluido
     depende_de: FT-038
     fonte: .ia.rules/state/requests/FT-038/prompt.md
+    fonte_autorizacao: .ia.rules/state/requests/FT-039/prompt.md
     objetivo: Corrigir a equivalencia entre URL logica e destino fisico dos namespaces Bate-papo.
     aceite:
       - URL canonica literal com dois-pontos resolve em desenvolvimento e GitHub Pages
       - destino fisico portavel nao vaza para canonical, cards ou navegacao
       - zero, um e multiplos subnamespaces permanecem deterministas
       - nenhuma rota paralela ou hardcode por artigo e introduzida
+    resultado: O servidor local resolve a URL logica por candidatos fisicos derivados da configuracao central, inclusive subnamespaces, sem alterar canonical ou artefato publicavel.
+    progresso:
+      - causa raiz removida do servlet generico que substituia somente o prefixo de topo e ignorava a arvore fisica de subnamespaces
+      - testes cobrem rota aninhada real, inexistencia, seguranca de destino e configuracao de namespace
+      - build produziu ambos os artigos sob p/bate-papo/eventos-finais com canonical logica preservada
   - id: FT-043
     classe: implementacao_conteudo
     criado_em: 2026-08-27T20:03:45.6307358-03:00
-    estado: pendente
+    estado: concluido
     depende_de: FT-038
     fonte: .ia.rules/state/requests/FT-038/prompt.md
+    fonte_autorizacao: .ia.rules/state/requests/FT-039/prompt.md
     objetivo: Criar a pagina publica de atribuicoes a partir de obrigacoes reais das dependencias efetivamente distribuidas.
     aceite:
       - somente recursos com obrigacao aplicavel sao listados
       - cada entrada preserva texto, autor, origem e licenca exigidos
       - pagina reutiliza layout vigente, e responsiva, acessivel e imprimivel
       - rota /atribuicoes integra build e publicacao sem mecanismo paralelo
+    resultado: Pagina /atribuicoes/ foi criada a partir de inventario estruturado das quatro obrigacoes efetivamente distribuidas e integrada ao rodape vigente.
+    progresso:
+      - Minimal Mistakes, Chart.js, Silktide Consent Manager e Font Awesome Free foram confrontados com locks, artefatos e textos oficiais
+      - texto MIT literal e avisos aplicaveis residem em dados versionados consumidos pelo Liquid, sem HTML duplicado
+      - gate de atribuicoes aprovou quatro entradas e build confirmou rota, link institucional, semantica e ausencia de JavaScript obrigatorio
+      - matriz visual focada aprovou responsividade, temas e impressao
   - id: FT-044
     classe: integracao_validacao_publicacao
     criado_em: 2026-08-27T20:03:46.6307358-03:00
     estado: pendente
     depende_de: FT-039, FT-040, FT-041, FT-042, FT-043
     fonte: .ia.rules/state/requests/FT-038/prompt.md
+    fonte_autorizacao: .ia.rules/state/requests/FT-039/prompt.md
     objetivo: Validar, limpar TO-DOs concluidas, publicar no GitHub Pages e convergir dev/main.
     aceite:
       - gates estruturais, de assets, metadados, rotas, acessibilidade e visual aprovados
       - PageSpeed limitado aos layouts diretamente afetados quando estritamente necessario
       - artefato publicado corresponde ao commit-fonte validado
       - TO-DOs concluidas removidas e equalizer perene preservado literal e desmarcado
+    progresso:
+      - build produtivo isolado em tmp/ft044-site aprovado sem sobrescrever o _site preexistente
+      - gates de TypeScript, HTML, footnotes, matematica, assets, autores, namespaces, citacoes, TTS, runtime, impressao, performance, social, covers, atribuicoes e publicacao aprovados
+      - matriz visual focada aprovou /atribuicoes/, artigo Eventos Finais e Devaneios em desktop/mobile, claro/escuro, impressao e noscript
+      - PageSpeed nao foi executado por ausencia de necessidade estrita
+      - auditoria de producao aprovou zero vulnerabilidades; auditoria completa registra sharp de desenvolvimento com correcao apenas por atualizacao breaking
+    impedimento:
+      codigo: DEPENDENCIA_FT_041_INCOMPLETA
+      detalhe: publicacao, limpeza de TO-DOs e convergencia aguardam o asset original a-traicao-de-cypher.jpg
 lacunas:
   - id: GAP-AGENTS-CJS-ESM-001
     estado: isolada

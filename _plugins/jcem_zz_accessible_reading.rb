@@ -52,6 +52,14 @@ module Jcem
       "#{reference} #{version}"
     end
 
+    def summarize_reference(full, link)
+      bible_reference(link) || begin
+        year = full.match(/\b(?:18|19|20)\d{2}[a-z]?\b/i)&.to_s
+        author = full.match(/\A(?:[^\p{L}]*)([\p{L}][\p{L}'’.-]+)(?:\s*,|\s+et\s+al\.?)/iu)&.captures&.first
+        author && year ? "#{author}, #{year}" : nil
+      end
+    end
+
     def reference_text(document, link)
       target_id = link["href"].to_s.sub(/\A#/, "")
       fatal("nota_sem_destino href=#{link['href']}") if target_id.empty?
@@ -62,24 +70,16 @@ module Jcem
       clone.css('[role="doc-backlink"], .reversefootnote, .jcem-footnote-backref, .jcem-footnote-backrefs, .jcem-spoken-reference').remove
       fallback = compact_text(clone).sub(/[.;,]+\z/, "")
       fatal("nota_vazia id=#{target_id}") if fallback.empty?
-      [bible_reference(link) || fallback, target_id]
+      [summarize_reference(fallback, link), fallback, target_id]
     end
 
-    def normalize_noteref(document, link, reference = nil, target_id = nil)
-      reference, target_id = reference_text(document, link) unless reference && target_id
-      visual_children = link.children.to_a
-      link.children.remove
-
-      spoken = Nokogiri::XML::Node.new("span", document)
-      spoken["class"] = "visually-hidden jcem-spoken-reference"
-      spoken.content = "Referência: #{reference}. "
-      visual = Nokogiri::XML::Node.new("span", document)
-      visual["aria-hidden"] = "true"
-      visual_children.each { |child| visual.add_child(child) }
-      link.add_child(spoken)
-      link.add_child(visual)
-      link["aria-describedby"] = target_id
-      link["data-jcem-spoken-reference"] = reference
+    def normalize_noteref(document, link, summary = nil, full = nil, target_id = nil)
+      summary, full, target_id = reference_text(document, link) unless full && target_id
+      link.remove_attribute("aria-describedby")
+      link["aria-details"] = target_id
+      link["data-jcem-spoken-reference"] = summary if summary
+      link["data-jcem-reference-summary"] = summary if summary
+      link["data-jcem-reference-full"] = full
     end
 
     def normalize_table(document, table)
@@ -131,10 +131,10 @@ module Jcem
       content.css('table').each { |table| normalize_table(document, table) }
       content.css('img').each { |image| normalize_image(image) }
       references = content.css('a[role="doc-noteref"]').map do |link|
-        reference, target_id = reference_text(document, link)
-        [link, reference, target_id]
+        summary, full, target_id = reference_text(document, link)
+        [link, summary, full, target_id]
       end
-      references.each { |link, reference, target_id| normalize_noteref(document, link, reference, target_id) }
+      references.each { |link, summary, full, target_id| normalize_noteref(document, link, summary, full, target_id) }
       content.css('[role="blockquote"]').each do |quote|
         quote["aria-roledescription"] ||= "citação"
         quote["data-jcem-spoken-kind"] = "block-quote"
@@ -181,7 +181,7 @@ module Jcem
         "capabilities" => {
           "block_quotes" => content.css('[data-jcem-spoken-kind="block-quote"]').length,
           "inline_quotes" => content.css('[data-jcem-spoken-kind="inline-quote"]').length,
-          "references" => content.css('[data-jcem-spoken-reference]').length,
+          "references" => content.css('[data-jcem-reference-full]').length,
           "tables" => content.css('[data-jcem-accessible-table="true"]').length,
           "images" => content.css('[data-jcem-accessible-image]').length,
           "language_changes" => content.css('[lang]').length,

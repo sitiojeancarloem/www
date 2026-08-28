@@ -1353,28 +1353,36 @@ body > input.radio#jcem-theme-dark:checked ~ .main_jcem_wrapper {
 }
 
 @media screen {
-	body:has([data-print-article]) .main_jcem_wrapper .jcem-featured-image--wide {
+	body:has([data-print-article]) > .main_jcem_wrapper .jcem-featured-image--wide {
 		aspect-ratio: auto;
 		height: auto;
-		max-height: min(
-			var(--jcem-featured-height),
-			calc(100dvh - var(--jcem-masthead-h, 7.25rem))
-		);
 		text-align: center;
 	}
 
 	body:has([data-print-article])
-		.main_jcem_wrapper
+		> .main_jcem_wrapper
+		.jcem-featured-image--wide
+		.jcem-featured-image__stage {
+		height: min(
+			var(--jcem-featured-height),
+			calc(100dvh - var(--jcem-masthead-h, 7.25rem))
+		);
+		min-height: min(
+			var(--jcem-featured-height),
+			calc(100dvh - var(--jcem-masthead-h, 7.25rem))
+		);
+	}
+
+	body:has([data-print-article])
+		> .main_jcem_wrapper
 		.jcem-featured-image--wide
 		.jcem-featured-image__img {
 		display: block;
 		width: auto;
 		height: auto;
+		max-width: 100%;
+		max-height: 100%;
 		margin-inline: auto;
-		max-height: min(
-			var(--jcem-featured-height),
-			calc(100dvh - var(--jcem-masthead-h, 7.25rem))
-		);
 		object-fit: contain;
 		object-position: center;
 	}
@@ -2631,9 +2639,9 @@ body
 	display: flex;
 	flex-wrap: wrap;
 	align-items: center;
-	gap: 0.55rem 0.8rem;
+	gap: 0.35rem 0.55rem;
 	margin: 1rem 0;
-	padding: 0.75rem;
+	padding: 0.45rem 0.55rem;
 	border: 1px solid var(--bc);
 	border-radius: 0.35rem;
 	background: color-mix(in srgb, var(--fbg) 92%, var(--pri));
@@ -2651,15 +2659,34 @@ body
 	gap: 0.4rem;
 }
 
-.main_jcem_wrapper .jcem-read-aloud button {
-	min-height: 2.25rem;
+.main_jcem_wrapper .jcem-read-aloud__mode {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.35rem;
 	margin: 0;
-	padding: 0.4rem 0.7rem;
+	font-size: 0.82rem;
+}
+
+.main_jcem_wrapper .jcem-read-aloud select {
+	min-height: 2.75rem;
+	padding: 0.25rem 1.7rem 0.25rem 0.45rem;
+	border: 1px solid var(--bc);
+	border-radius: 0.3rem;
+	background: var(--cbg);
+	color: var(--tc);
+}
+
+.main_jcem_wrapper .jcem-read-aloud button {
+	min-width: 2.75rem;
+	min-height: 2.75rem;
+	margin: 0;
+	padding: 0.35rem;
 	border: 1px solid var(--bc);
 	border-radius: 0.3rem;
 	background: var(--cbg);
 	color: var(--tc);
 	font: inherit;
+	font-size: 1rem;
 }
 
 .main_jcem_wrapper .jcem-read-aloud button:disabled {

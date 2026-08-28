@@ -8,7 +8,7 @@ abstract: 'Alcohol, regardless of the amount consumed, is a colossal health prob
 source: 'https://web.archive.org/web/20210207030211/https://blog.jeancarloem.com/nenhum-nivel-de-alcool-faz-bem-a-saude/'
 featured_image_style:
 header:
-  image: 'https://web.archive.org/web/20210207030211im_/https://blog.jeancarloem.com/wp-content/uploads/2021/02/Nenhum-nivel-de-alcool-faz-bem-a-saude.jpg'
+  image: '/assets/images/posts/recuperados/nenhum-nivel-de-alcool-faz-bem-a-saude.jpg'
   image_description: 'Nenhum nível de álcool faz bem à saúde'
 categories:
   - ciência

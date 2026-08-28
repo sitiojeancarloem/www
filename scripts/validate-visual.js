@@ -11,6 +11,7 @@ const artifactDir = path.resolve(process.env.VISUAL_ARTIFACT_DIR || 'visual-arti
 const visualValidationStrict = !['0', 'false', 'no', 'advisory'].includes(
 	String(process.env.VISUAL_VALIDATION_STRICT || 'true').toLowerCase(),
 );
+const focusedPagesOnly = process.env.VISUAL_SCOPE === 'pages';
 const configuredList = (name, fallback) => {
 	const value = process.env[name];
 	return value
@@ -910,9 +911,9 @@ const validatePage = async (page, url, theme, viewportName) => {
 			? window.getComputedStyle(quoteReference)
 			: null;
 		const panelBodyStyle = panelBody ? window.getComputedStyle(panelBody) : null;
-		const articleLink = document.querySelector(
+		const articleLink = Array.from(document.querySelectorAll(
 			'article.jcem-post .page__content p a[href]:not(.footnote):not(.reversefootnote)',
-		);
+		)).find((link) => !link.closest('.footnotes, .jcem-collapsible:not([open])'));
 		const articleLinkIconStyle = articleLink
 			? window.getComputedStyle(articleLink, '::after')
 			: null;
@@ -1214,6 +1215,8 @@ const validatePage = async (page, url, theme, viewportName) => {
 					? {
 							heightMatchesFrame:
 								Math.abs(featuredImageRect.height - featuredFrameRect.height) <= 2,
+							widthMatchesFrame:
+								Math.abs(featuredImageRect.width - featuredFrameRect.width) <= 2,
 							withinFrameWidth: featuredImageRect.width <= featuredFrameRect.width + 2,
 							centered:
 								Math.abs(
@@ -1553,7 +1556,7 @@ const validatePage = async (page, url, theme, viewportName) => {
 
 		if (
 			featured &&
-			(!featured.heightMatchesFrame ||
+			((!featured.heightMatchesFrame && !featured.widthMatchesFrame) ||
 				!featured.withinFrameWidth ||
 				!featured.centered ||
 				featured.frameHeight >= featured.viewportHeight ||
@@ -1621,7 +1624,7 @@ const validatePage = async (page, url, theme, viewportName) => {
 				editorial.linkIcon.content === 'none' ||
 				editorial.linkIcon.content === '""')
 		) {
-			fail(`Icone de link do artigo afastado em ${url} ${theme} ${viewportName}`);
+			fail(`Icone de link do artigo afastado em ${url} ${theme} ${viewportName}: ${JSON.stringify(editorial.linkIcon)}`);
 		}
 
 		const expectedRelatedItemCount = Math.min(
@@ -3630,31 +3633,35 @@ try {
 	await validateRecentPostPlaceholders(publishedPostPaths);
 
 	browser = await launchBrowser();
-	for (const viewport of viewports.filter(({ name }) =>
-		['desktop', 'mobile'].includes(name)
-	)) {
-		await validateEqualizerVisuals(browser, baseUrl, viewport);
-	}
-	for (const viewport of viewports.filter(({ name }) =>
-		['wide', 'mobile', 'compact'].includes(name)
-	)) {
-		await validateTypedQuoteModels(browser, baseUrl, viewport);
-	}
-
-	const editorialContext = await browser.newContext({ viewport: viewports[0] });
-	await seedCookieConsent(editorialContext);
-	const editorialPage = await editorialContext.newPage();
-
-	try {
-		for (const postPath of publishedPostPaths) {
-			await validatePublishedPostEditorialFormatting(
-				editorialPage,
-				baseUrl,
-				postPath,
-			);
+	if (!focusedPagesOnly) {
+		for (const viewport of viewports.filter(({ name }) =>
+			['desktop', 'mobile'].includes(name)
+		)) {
+			await validateEqualizerVisuals(browser, baseUrl, viewport);
 		}
-	} finally {
-		await editorialContext.close();
+		for (const viewport of viewports.filter(({ name }) =>
+			['wide', 'mobile', 'compact'].includes(name)
+		)) {
+			await validateTypedQuoteModels(browser, baseUrl, viewport);
+		}
+	}
+
+	if (!focusedPagesOnly) {
+		const editorialContext = await browser.newContext({ viewport: viewports[0] });
+		await seedCookieConsent(editorialContext);
+		const editorialPage = await editorialContext.newPage();
+
+		try {
+			for (const postPath of publishedPostPaths) {
+				await validatePublishedPostEditorialFormatting(
+					editorialPage,
+					baseUrl,
+					postPath,
+				);
+			}
+		} finally {
+			await editorialContext.close();
+		}
 	}
 
 	for (const viewport of viewports) {

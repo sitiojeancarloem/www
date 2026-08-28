@@ -8,7 +8,7 @@ abstract: 'Fallacies are statements delivered with an air of culture and eloquen
 source: 'https://web.archive.org/web/20201005013131/https://blog.jeancarloem.com/como-identificar-falacias/'
 featured_image_style: wide
 header:
-  image: 'https://web.archive.org/web/20201005013131im_/https://blog.jeancarloem.com/wp-content/uploads/2020/08/cover-como-identificar-falacias.png'
+  image: '/assets/images/posts/recuperados/como-identificar-falacias.png'
   image_description: 'Como identificar Falácias'
 categories:
   - ciência
@@ -40,17 +40,17 @@ Estas frases são muito simples e, podem, com muita facilidade, ser identificada
 Ambas fazem uma conclusão baseando-se em uma premissa. A primeira conclui que está chovendo “**porque**” está nublado, ou seja, a primeira frase tem como argumentativa de que o simples fato de haver nuvens cobrindo todo o céu figura como premissa suficiente para concluir que está chovendo.
 Já a segunda, também faz uma conclusão baseando-se numa premissa. Ela conclui que está nublado “**porque**” está chovendo. Portanto, a segunda frase conclui que o simples fato haver chuva é por si mesmo, premissa suficiente para afirmar que está nublado.
 
-![Diagrama lógico da frase “Está chovendo pois está nublado”.](https://web.archive.org/web/20201005013131im_/https://blog.jeancarloem.com/wp-content/uploads/2020/08/tabela-verdade-exemplo-frase-1.svg)
+![Diagrama lógico da frase “Está chovendo pois está nublado”.](/assets/images/posts/recuperados/como-identificar-falacias/tabela-verdade-exemplo-frase-1.svg)
 
-![Diagrama lógico da frase “Está nublado pois está chovendo”.](https://web.archive.org/web/20201005013131im_/https://blog.jeancarloem.com/wp-content/uploads/2020/08/tabela-verdade-exemplo-frase-2.svg)
+![Diagrama lógico da frase “Está nublado pois está chovendo”.](/assets/images/posts/recuperados/como-identificar-falacias/tabela-verdade-exemplo-frase-2.svg)
 
 ## Construindo a Tabela
 Para construir a tabela primeiro tem-se que identificar que os valores são booleanos ou binários, o que significa que há apenas duas possibilidades: verdadeiro ou falso; ou então, 1 ou 0; Ambos estão corretos. A segunda necessidade é identificar quantas são as premissas.
 Para saber quantas linhas a tabela deve ter, utilize a seguinte fórmula:
-(1)   ![\begin{equation*}  qLInhas = r^p \end{equation*}](https://web.archive.org/web/20201005013131im_/https://blog.jeancarloem.com/wp-content/ql-cache/quicklatex.com-1e60bef5846ab2e25e4b9e578c301e29_l3.png "Rendered by QuickLaTeX.com")
+(1)   ![\begin{equation*}  qLInhas = r^p \end{equation*}](/assets/images/posts/recuperados/como-identificar-falacias/quicklatex-1.png "Rendered by QuickLaTeX.com")
 Onde **_R_** é a quantidade de resposta possíveis (verdadeiro/falso ou 1/0) e, **_P_** é a quantidade de premissas.
 Portanto, para o exemplo, tem-se:
-(2)   ![\begin{equation*}  qLinhas = R^P \therefore qLinhas = 2^2 = 4 \end{equation*}](https://web.archive.org/web/20201005013131im_/https://blog.jeancarloem.com/wp-content/ql-cache/quicklatex.com-f4c308f8962ea758d92ace7c57350f13_l3.png "Rendered by QuickLaTeX.com")
+(2)   ![\begin{equation*}  qLinhas = R^P \therefore qLinhas = 2^2 = 4 \end{equation*}](/assets/images/posts/recuperados/como-identificar-falacias/quicklatex-2.png "Rendered by QuickLaTeX.com")
 Assim, a tabela deve ter 4 (quatro) linhas e, uma coluna para cada premissa, ficando da seguinte forma:
 
 <table>
@@ -67,7 +67,7 @@ Assim, a tabela deve ter 4 (quatro) linhas e, uma coluna para cada premissa, fic
 </table>
 ### Exemplo de preenchimento de Tabela com 4 premissas
 Para preencher a tabela, independente de quantidade de linhas ou colunas é muito simples. Se as respostas possíveis são duas, verdadeiro/falso ou 1/0, então, da direita para esquerda será intercalado na mesma quantidade (2) verticalmente as possibilidades. Veja um **exemplo** mais complexo, para o caso de duas respostas e 4 (quatro) premissas (note que “1” é verdadeiro e “0” é falso):
-(3)   ![\begin{equation*}  qLinhas = R^P \therefore qLinhas = 2^4 = 16 \end{equation*}](https://web.archive.org/web/20201005013131im_/https://blog.jeancarloem.com/wp-content/ql-cache/quicklatex.com-9bc79ca69b9137092922fb3ae8b15dfa_l3.png "Rendered by QuickLaTeX.com")
+(3)   ![\begin{equation*}  qLinhas = R^P \therefore qLinhas = 2^4 = 16 \end{equation*}](/assets/images/posts/recuperados/como-identificar-falacias/quicklatex-3.png "Rendered by QuickLaTeX.com")
 
 <table>
 <caption class="visually-hidden">Combinações binárias de quatro premissas</caption>

@@ -5,6 +5,7 @@ abstract: 'A synthesis of a conversation about Christ’s return, the journey of
 content_namespace: bate-papo
 content_subnamespaces:
   - eventos-finais
+featured_image_style: wide
 header:
   image: '/assets/images/posts/eventos-finais/rumo-ao-lar-viagem-dos-remidos.png'
   image_description: 'Cidade luminosa ao horizonte, sobre colinas e sob um céu estrelado'

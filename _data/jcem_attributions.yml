@@ -1,0 +1,47 @@
+- id: minimal-mistakes
+  name: Minimal Mistakes Jekyll Theme
+  resource: Tema, layouts e estilos incorporados ao site
+  version: 4.28.0
+  author: Michael Rose e contribuidores
+  origin: https://github.com/mmistakes/minimal-mistakes
+  license: MIT
+  license_url: https://github.com/mmistakes/minimal-mistakes/blob/4.28.0/LICENSE
+  copyright: Copyright (c) 2013-2024 Michael Rose and contributors
+  notice_ref: mit
+  evidence:
+    - Gemfile.lock
+- id: chartjs
+  name: Chart.js
+  resource: Renderer gráfico condicional distribuído localmente
+  version: 4.5.1
+  author: Chart.js Contributors
+  origin: https://github.com/chartjs/Chart.js
+  license: MIT
+  license_url: https://github.com/chartjs/Chart.js/blob/v4.5.1/LICENSE.md
+  copyright: Copyright (c) 2014-2024 Chart.js Contributors
+  notice_ref: mit
+  evidence:
+    - assets/jcem/lib/chartjs/chart.umd.min.js
+- id: silktide-consent-manager
+  name: Silktide Consent Manager
+  resource: Interface local de consentimento e preferências
+  author: Silktide
+  origin: https://github.com/silktide/consent-manager
+  license: MIT
+  license_url: https://github.com/silktide/consent-manager/blob/main/LICENSE
+  copyright: Copyright (c) 2025 Silktide
+  notice_ref: mit
+  evidence:
+    - assets/jcem/consent-manager/silktide.js
+    - assets/jcem/consent-manager/_silktide.scss
+- id: font-awesome-free
+  name: Font Awesome Free
+  resource: Ícones, fontes e CSS carregados pelo tema
+  author: Fonticons, Inc.
+  origin: https://github.com/FortAwesome/Font-Awesome
+  license: CC BY 4.0 (ícones), SIL OFL 1.1 (fontes) e MIT (código)
+  license_url: https://fontawesome.com/license/free
+  copyright: Copyright 2026 Fonticons, Inc.
+  embedded_notice: Os arquivos oficiais entregues pelo CDN conservam os avisos de atribuição incorporados pelo fornecedor.
+  evidence:
+    - 404.main.html

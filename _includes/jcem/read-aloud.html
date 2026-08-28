@@ -1,10 +1,17 @@
 <section class="jcem-read-aloud" data-jcem-read-aloud aria-label="Leitura em voz alta">
-  <p class="jcem-read-aloud__label">Ouvir este artigo</p>
+  <p class="jcem-read-aloud__label">Ouvir</p>
   <div class="jcem-read-aloud__controls">
-    <button type="button" data-jcem-read-action="play">Ler</button>
-    <button type="button" data-jcem-read-action="pause" disabled>Pausar</button>
-    <button type="button" data-jcem-read-action="stop" disabled>Parar</button>
+    <button type="button" data-jcem-read-action="play" aria-label="Ler artigo" title="Ler artigo"><span aria-hidden="true">▶</span></button>
+    <button type="button" data-jcem-read-action="pause" aria-label="Pausar leitura" title="Pausar leitura" aria-pressed="false" disabled><span aria-hidden="true">⏸</span></button>
+    <button type="button" data-jcem-read-action="stop" aria-label="Parar leitura" title="Parar leitura" disabled><span aria-hidden="true">■</span></button>
   </div>
+  <label class="jcem-read-aloud__mode">Referências
+    <select data-jcem-read-reference-mode aria-label="Modo de leitura das referências" title="Escolha quanto ouvir das referências">
+      <option value="continuous" selected>contínuo</option>
+      <option value="summary">resumido</option>
+      <option value="full">completo</option>
+    </select>
+  </label>
   <p class="visually-hidden" data-jcem-read-status role="status" aria-live="polite">Leitura pronta.</p>
 </section>
 <script src="{{ '/assets/jcem/js/read-aloud.js' | relative_url }}" defer data-jcem-read-aloud-runtime></script>

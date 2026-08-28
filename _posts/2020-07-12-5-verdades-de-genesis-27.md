@@ -8,7 +8,7 @@ abstract: 'This article draws five truths from Genesis 2:7, a biblical text rich
 source: 'https://web.archive.org/web/20201005014559/https://blog.jeancarloem.com/5-verdades-de-genesis-27/'
 featured_image_style: wide
 header:
-  image: 'https://web.archive.org/web/20201005014559im_/https://blog.jeancarloem.com/wp-content/uploads/2020/07/5-verdades-de-genesis-2-7.png'
+  image: '/assets/images/posts/recuperados/cinco-verdades-de-genesis-2-7.png'
   image_description: '5 verdades de Gênesis 2:7'
 categories:
   - Divagando

@@ -22,59 +22,75 @@
 		},
 		{
 			"id": "tradicao-vs-biblia",
-			"source": "_drafts/_midias-recuperadas/blog.jeancarloem.com/wp-content/uploads/2020/04/COVER.png",
-			"canonical": "https://web.archive.org/web/20201006232837im_/https://blog.jeancarloem.com/wp-content/uploads/2020/04/COVER.png",
+			"source": "assets/images/posts/recuperados/tradicao-vs-biblia.png",
+			"canonical": "/assets/images/posts/recuperados/tradicao-vs-biblia.png",
 			"sourceSha256": "9e529c1661c96d98da540ecfd57855b0d7dcb419637771fe62de80b594d2ac12",
 			"sourceBytes": 439922,
 			"sourceCommit": "ee47511bc7e056919c2b2d4cd01f69282a70e727"
 		},
 		{
 			"id": "sola-scriptura",
-			"source": "_drafts/_midias-recuperadas/blog.jeancarloem.com/wp-content/uploads/2020/05/sola-scriptura-farol.png",
-			"canonical": "https://web.archive.org/web/20201011094944im_/https://blog.jeancarloem.com/wp-content/uploads/2020/05/sola-scriptura-farol.png",
+			"source": "assets/images/posts/recuperados/sola-scriptura-farol.png",
+			"canonical": "/assets/images/posts/recuperados/sola-scriptura-farol.png",
 			"sourceSha256": "bd7ddaef26ebba60af30199839cc6f5915c70e5d527942ee596d6065fcb1f7f0",
 			"sourceBytes": 297703,
 			"sourceCommit": "ee47511bc7e056919c2b2d4cd01f69282a70e727"
 		},
 		{
 			"id": "nove-motivos-sabado",
-			"source": "_drafts/_midias-recuperadas/blog.jeancarloem.com/wp-content/uploads/2020/07/9-motivos-para-guardar-o-sabado.png",
-			"canonical": "https://web.archive.org/web/20201004084617im_/https://blog.jeancarloem.com/wp-content/uploads/2020/07/9-motivos-para-guardar-o-sabado.png",
+			"source": "assets/images/posts/recuperados/nove-motivos-para-guardar-o-sabado.png",
+			"canonical": "/assets/images/posts/recuperados/nove-motivos-para-guardar-o-sabado.png",
 			"sourceSha256": "3b4283c3866badb1b7f9a0bcc0129fe7db39606e80e27743d5c6114b76a79b23",
 			"sourceBytes": 373626,
 			"sourceCommit": "ee47511bc7e056919c2b2d4cd01f69282a70e727"
 		},
 		{
 			"id": "cinco-verdades-genesis",
-			"source": "_drafts/_midias-recuperadas/blog.jeancarloem.com/wp-content/uploads/2020/07/5-verdades-de-genesis-2-7.png",
-			"canonical": "https://web.archive.org/web/20201005014559im_/https://blog.jeancarloem.com/wp-content/uploads/2020/07/5-verdades-de-genesis-2-7.png",
+			"source": "assets/images/posts/recuperados/cinco-verdades-de-genesis-2-7.png",
+			"canonical": "/assets/images/posts/recuperados/cinco-verdades-de-genesis-2-7.png",
 			"sourceSha256": "ef8417e7fc8419e338aa956d5a0cc294f0e1fc1ac50902db80b9f3380eed9695",
 			"sourceBytes": 1665985,
 			"sourceCommit": "ee47511bc7e056919c2b2d4cd01f69282a70e727"
 		},
 		{
 			"id": "como-identificar-falacias",
-			"source": "_drafts/_midias-recuperadas/blog.jeancarloem.com/wp-content/uploads/2020/08/cover-como-identificar-falacias.png",
-			"canonical": "https://web.archive.org/web/20201005013131im_/https://blog.jeancarloem.com/wp-content/uploads/2020/08/cover-como-identificar-falacias.png",
+			"source": "assets/images/posts/recuperados/como-identificar-falacias.png",
+			"canonical": "/assets/images/posts/recuperados/como-identificar-falacias.png",
 			"sourceSha256": "c702494dc3c80dec443b9e4dcaec80764d222a562bd079949598fa89bb594a93",
 			"sourceBytes": 330361,
 			"sourceCommit": "ee47511bc7e056919c2b2d4cd01f69282a70e727"
 		},
 		{
 			"id": "salvacao-importa-ser-perfeito",
-			"source": "_drafts/_midias-recuperadas/blog.jeancarloem.com/wp-content/uploads/2020/08/importa-ser-perfeito.png",
-			"canonical": "https://web.archive.org/web/20201004153207im_/https://blog.jeancarloem.com/wp-content/uploads/2020/08/importa-ser-perfeito.png",
+			"source": "assets/images/posts/recuperados/salvacao-importa-ser-perfeito.png",
+			"canonical": "/assets/images/posts/recuperados/salvacao-importa-ser-perfeito.png",
 			"sourceSha256": "8b108e05c3368adb57e8f71633c1f5726acb683e25cfd6794cb7bc40272d2286",
 			"sourceBytes": 576492,
 			"sourceCommit": "dacab52f38268896d0b640154e547a5137b8e65c"
 		},
 		{
 			"id": "nenhum-alcool",
-			"source": "_drafts/_midias-recuperadas/blog.jeancarloem.com/wp-content/uploads/2021/02/Nenhum-nivel-de-alcool-faz-bem-a-saude.jpg",
-			"canonical": "https://web.archive.org/web/20210207030211im_/https://blog.jeancarloem.com/wp-content/uploads/2021/02/Nenhum-nivel-de-alcool-faz-bem-a-saude.jpg",
+			"source": "assets/images/posts/recuperados/nenhum-nivel-de-alcool-faz-bem-a-saude.jpg",
+			"canonical": "/assets/images/posts/recuperados/nenhum-nivel-de-alcool-faz-bem-a-saude.jpg",
 			"sourceSha256": "4a83e6bb211791963d897f4c1f8562407542b35f9fa8f46430ee654981dc896f",
 			"sourceBytes": 130801,
 			"sourceCommit": "dacab52f38268896d0b640154e547a5137b8e65c"
+		},
+		{
+			"id": "a-heranca-dos-santos",
+			"source": "assets/images/posts/eventos-finais/a-heranca-dos-santos.png",
+			"canonical": "/assets/images/posts/eventos-finais/a-heranca-dos-santos.png",
+			"sourceSha256": "ab6af2485d2242a079e4da9fa80c3ef5d07d37f3bfb05550cc4820692cdf3561",
+			"sourceBytes": 2118235,
+			"sourceCommit": "16d55c4eb274bb1d6ef6a8c78b703ae3bc336d5f"
+		},
+		{
+			"id": "rumo-ao-lar-viagem-dos-remidos",
+			"source": "assets/images/posts/eventos-finais/rumo-ao-lar-viagem-dos-remidos.png",
+			"canonical": "/assets/images/posts/eventos-finais/rumo-ao-lar-viagem-dos-remidos.png",
+			"sourceSha256": "67a033fc560a384a4d664cc061a0a67a5e3a2ad697673126374eda977494dc30",
+			"sourceBytes": 2226308,
+			"sourceCommit": "16d55c4eb274bb1d6ef6a8c78b703ae3bc336d5f"
 		},
 		{
 			"id": "pagina-404",

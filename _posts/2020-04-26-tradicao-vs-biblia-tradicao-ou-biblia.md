@@ -8,7 +8,7 @@ abstract: 'For millennia, theological debate has involved a dispute between trad
 source: 'https://web.archive.org/web/20201006232837/https://blog.jeancarloem.com/tradicao-vs-biblia-tradicao-ou-biblia/'
 featured_image_style: wide
 header:
-  image: 'https://web.archive.org/web/20201006232837im_/https://blog.jeancarloem.com/wp-content/uploads/2020/04/COVER.png'
+  image: '/assets/images/posts/recuperados/tradicao-vs-biblia.png'
   image_description: 'Tradição VS Bíblia – Tradição OU Bíblia'
 categories:
   - Divagando

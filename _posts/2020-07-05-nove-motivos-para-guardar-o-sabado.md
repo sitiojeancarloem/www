@@ -8,7 +8,7 @@ abstract: 'This article presents nine reasons for keeping the Sabbath.'
 source: 'https://web.archive.org/web/20201004084617/https://blog.jeancarloem.com/nove-motivos-para-guardar-o-sabado/'
 featured_image_style: wide
 header:
-  image: 'https://web.archive.org/web/20201004084617im_/https://blog.jeancarloem.com/wp-content/uploads/2020/07/9-motivos-para-guardar-o-sabado.png'
+  image: '/assets/images/posts/recuperados/nove-motivos-para-guardar-o-sabado.png'
   image_description: 'Nove motivos para guardar o sábado'
 categories:
   - Divagando

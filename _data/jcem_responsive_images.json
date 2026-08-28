@@ -65,8 +65,8 @@
         }
       ]
     },
-    "https://web.archive.org/web/20201006232837im_/https://blog.jeancarloem.com/wp-content/uploads/2020/04/COVER.png": {
-      "source": "_drafts/_midias-recuperadas/blog.jeancarloem.com/wp-content/uploads/2020/04/COVER.png",
+    "/assets/images/posts/recuperados/tradicao-vs-biblia.png": {
+      "source": "assets/images/posts/recuperados/tradicao-vs-biblia.png",
       "source_sha256": "9e529c1661c96d98da540ecfd57855b0d7dcb419637771fe62de80b594d2ac12",
       "source_bytes": 439922,
       "source_commit": "ee47511bc7e056919c2b2d4cd01f69282a70e727",
@@ -115,8 +115,8 @@
         }
       ]
     },
-    "https://web.archive.org/web/20201011094944im_/https://blog.jeancarloem.com/wp-content/uploads/2020/05/sola-scriptura-farol.png": {
-      "source": "_drafts/_midias-recuperadas/blog.jeancarloem.com/wp-content/uploads/2020/05/sola-scriptura-farol.png",
+    "/assets/images/posts/recuperados/sola-scriptura-farol.png": {
+      "source": "assets/images/posts/recuperados/sola-scriptura-farol.png",
       "source_sha256": "bd7ddaef26ebba60af30199839cc6f5915c70e5d527942ee596d6065fcb1f7f0",
       "source_bytes": 297703,
       "source_commit": "ee47511bc7e056919c2b2d4cd01f69282a70e727",
@@ -165,8 +165,8 @@
         }
       ]
     },
-    "https://web.archive.org/web/20201004084617im_/https://blog.jeancarloem.com/wp-content/uploads/2020/07/9-motivos-para-guardar-o-sabado.png": {
-      "source": "_drafts/_midias-recuperadas/blog.jeancarloem.com/wp-content/uploads/2020/07/9-motivos-para-guardar-o-sabado.png",
+    "/assets/images/posts/recuperados/nove-motivos-para-guardar-o-sabado.png": {
+      "source": "assets/images/posts/recuperados/nove-motivos-para-guardar-o-sabado.png",
       "source_sha256": "3b4283c3866badb1b7f9a0bcc0129fe7db39606e80e27743d5c6114b76a79b23",
       "source_bytes": 373626,
       "source_commit": "ee47511bc7e056919c2b2d4cd01f69282a70e727",
@@ -229,8 +229,8 @@
         }
       ]
     },
-    "https://web.archive.org/web/20201005014559im_/https://blog.jeancarloem.com/wp-content/uploads/2020/07/5-verdades-de-genesis-2-7.png": {
-      "source": "_drafts/_midias-recuperadas/blog.jeancarloem.com/wp-content/uploads/2020/07/5-verdades-de-genesis-2-7.png",
+    "/assets/images/posts/recuperados/cinco-verdades-de-genesis-2-7.png": {
+      "source": "assets/images/posts/recuperados/cinco-verdades-de-genesis-2-7.png",
       "source_sha256": "ef8417e7fc8419e338aa956d5a0cc294f0e1fc1ac50902db80b9f3380eed9695",
       "source_bytes": 1665985,
       "source_commit": "ee47511bc7e056919c2b2d4cd01f69282a70e727",
@@ -293,8 +293,8 @@
         }
       ]
     },
-    "https://web.archive.org/web/20201005013131im_/https://blog.jeancarloem.com/wp-content/uploads/2020/08/cover-como-identificar-falacias.png": {
-      "source": "_drafts/_midias-recuperadas/blog.jeancarloem.com/wp-content/uploads/2020/08/cover-como-identificar-falacias.png",
+    "/assets/images/posts/recuperados/como-identificar-falacias.png": {
+      "source": "assets/images/posts/recuperados/como-identificar-falacias.png",
       "source_sha256": "c702494dc3c80dec443b9e4dcaec80764d222a562bd079949598fa89bb594a93",
       "source_bytes": 330361,
       "source_commit": "ee47511bc7e056919c2b2d4cd01f69282a70e727",
@@ -357,8 +357,8 @@
         }
       ]
     },
-    "https://web.archive.org/web/20201004153207im_/https://blog.jeancarloem.com/wp-content/uploads/2020/08/importa-ser-perfeito.png": {
-      "source": "_drafts/_midias-recuperadas/blog.jeancarloem.com/wp-content/uploads/2020/08/importa-ser-perfeito.png",
+    "/assets/images/posts/recuperados/salvacao-importa-ser-perfeito.png": {
+      "source": "assets/images/posts/recuperados/salvacao-importa-ser-perfeito.png",
       "source_sha256": "8b108e05c3368adb57e8f71633c1f5726acb683e25cfd6794cb7bc40272d2286",
       "source_bytes": 576492,
       "source_commit": "dacab52f38268896d0b640154e547a5137b8e65c",
@@ -421,8 +421,8 @@
         }
       ]
     },
-    "https://web.archive.org/web/20210207030211im_/https://blog.jeancarloem.com/wp-content/uploads/2021/02/Nenhum-nivel-de-alcool-faz-bem-a-saude.jpg": {
-      "source": "_drafts/_midias-recuperadas/blog.jeancarloem.com/wp-content/uploads/2021/02/Nenhum-nivel-de-alcool-faz-bem-a-saude.jpg",
+    "/assets/images/posts/recuperados/nenhum-nivel-de-alcool-faz-bem-a-saude.jpg": {
+      "source": "assets/images/posts/recuperados/nenhum-nivel-de-alcool-faz-bem-a-saude.jpg",
       "source_sha256": "4a83e6bb211791963d897f4c1f8562407542b35f9fa8f46430ee654981dc896f",
       "source_bytes": 130801,
       "source_commit": "dacab52f38268896d0b640154e547a5137b8e65c",
@@ -467,6 +467,134 @@
           "width": 1200,
           "height": 628,
           "byte_size": 63374,
+          "media_type": "image/webp"
+        }
+      ]
+    },
+    "/assets/images/posts/eventos-finais/a-heranca-dos-santos.png": {
+      "source": "assets/images/posts/eventos-finais/a-heranca-dos-santos.png",
+      "source_sha256": "ab6af2485d2242a079e4da9fa80c3ef5d07d37f3bfb05550cc4820692cdf3561",
+      "source_bytes": 2118235,
+      "source_commit": "16d55c4eb274bb1d6ef6a8c78b703ae3bc336d5f",
+      "variants": [
+        {
+          "path": "/assets/images/responsive/a-heranca-dos-santos/a-heranca-dos-santos-320w.webp",
+          "width": 320,
+          "height": 168,
+          "byte_size": 12298,
+          "media_type": "image/webp"
+        },
+        {
+          "path": "/assets/images/responsive/a-heranca-dos-santos/a-heranca-dos-santos-480w.webp",
+          "width": 480,
+          "height": 252,
+          "byte_size": 23214,
+          "media_type": "image/webp"
+        },
+        {
+          "path": "/assets/images/responsive/a-heranca-dos-santos/a-heranca-dos-santos-640w.webp",
+          "width": 640,
+          "height": 336,
+          "byte_size": 36824,
+          "media_type": "image/webp"
+        },
+        {
+          "path": "/assets/images/responsive/a-heranca-dos-santos/a-heranca-dos-santos-800w.webp",
+          "width": 800,
+          "height": 420,
+          "byte_size": 52508,
+          "media_type": "image/webp"
+        },
+        {
+          "path": "/assets/images/responsive/a-heranca-dos-santos/a-heranca-dos-santos-960w.webp",
+          "width": 960,
+          "height": 504,
+          "byte_size": 69360,
+          "media_type": "image/webp"
+        },
+        {
+          "path": "/assets/images/responsive/a-heranca-dos-santos/a-heranca-dos-santos-1200w.webp",
+          "width": 1200,
+          "height": 630,
+          "byte_size": 97146,
+          "media_type": "image/webp"
+        },
+        {
+          "path": "/assets/images/responsive/a-heranca-dos-santos/a-heranca-dos-santos-1280w.webp",
+          "width": 1280,
+          "height": 672,
+          "byte_size": 105494,
+          "media_type": "image/webp"
+        },
+        {
+          "path": "/assets/images/responsive/a-heranca-dos-santos/a-heranca-dos-santos-1731w.webp",
+          "width": 1731,
+          "height": 909,
+          "byte_size": 157016,
+          "media_type": "image/webp"
+        }
+      ]
+    },
+    "/assets/images/posts/eventos-finais/rumo-ao-lar-viagem-dos-remidos.png": {
+      "source": "assets/images/posts/eventos-finais/rumo-ao-lar-viagem-dos-remidos.png",
+      "source_sha256": "67a033fc560a384a4d664cc061a0a67a5e3a2ad697673126374eda977494dc30",
+      "source_bytes": 2226308,
+      "source_commit": "16d55c4eb274bb1d6ef6a8c78b703ae3bc336d5f",
+      "variants": [
+        {
+          "path": "/assets/images/responsive/rumo-ao-lar-viagem-dos-remidos/rumo-ao-lar-viagem-dos-remidos-320w.webp",
+          "width": 320,
+          "height": 168,
+          "byte_size": 14556,
+          "media_type": "image/webp"
+        },
+        {
+          "path": "/assets/images/responsive/rumo-ao-lar-viagem-dos-remidos/rumo-ao-lar-viagem-dos-remidos-480w.webp",
+          "width": 480,
+          "height": 252,
+          "byte_size": 28164,
+          "media_type": "image/webp"
+        },
+        {
+          "path": "/assets/images/responsive/rumo-ao-lar-viagem-dos-remidos/rumo-ao-lar-viagem-dos-remidos-640w.webp",
+          "width": 640,
+          "height": 336,
+          "byte_size": 44358,
+          "media_type": "image/webp"
+        },
+        {
+          "path": "/assets/images/responsive/rumo-ao-lar-viagem-dos-remidos/rumo-ao-lar-viagem-dos-remidos-800w.webp",
+          "width": 800,
+          "height": 420,
+          "byte_size": 64560,
+          "media_type": "image/webp"
+        },
+        {
+          "path": "/assets/images/responsive/rumo-ao-lar-viagem-dos-remidos/rumo-ao-lar-viagem-dos-remidos-960w.webp",
+          "width": 960,
+          "height": 504,
+          "byte_size": 84926,
+          "media_type": "image/webp"
+        },
+        {
+          "path": "/assets/images/responsive/rumo-ao-lar-viagem-dos-remidos/rumo-ao-lar-viagem-dos-remidos-1200w.webp",
+          "width": 1200,
+          "height": 630,
+          "byte_size": 115050,
+          "media_type": "image/webp"
+        },
+        {
+          "path": "/assets/images/responsive/rumo-ao-lar-viagem-dos-remidos/rumo-ao-lar-viagem-dos-remidos-1280w.webp",
+          "width": 1280,
+          "height": 672,
+          "byte_size": 126380,
+          "media_type": "image/webp"
+        },
+        {
+          "path": "/assets/images/responsive/rumo-ao-lar-viagem-dos-remidos/rumo-ao-lar-viagem-dos-remidos-1731w.webp",
+          "width": 1731,
+          "height": 909,
+          "byte_size": 185858,
           "media_type": "image/webp"
         }
       ]

@@ -85,6 +85,31 @@ module Jcem
       path
     end
 
+    def physical_request_path(path, config, destination: nil, windows: Gem.win_platform?)
+      return path unless windows
+
+      definitions(config).each_value do |definition|
+        logical = definition.fetch("url_prefix")
+        next unless path.include?(logical)
+
+        physical = definition.fetch("physical_prefix")
+        candidates = [
+          path.sub(logical, physical),
+          path.sub(logical, "#{physical.sub(/[-_:]+\z/, '')}/")
+        ].uniq
+        return candidates.first unless destination
+
+        match = candidates.find do |candidate|
+          relative = candidate.sub(%r{\A/+}, "")
+          target = File.expand_path(relative, destination)
+          base = File.expand_path(destination)
+          target.start_with?("#{base}#{File::SEPARATOR}") && (File.file?(target) || File.file?(File.join(target, "index.html")))
+        end
+        return match || candidates.first
+      end
+      path
+    end
+
     module DocumentDestination
       def destination(base_directory)
         logical_path = super

@@ -8,7 +8,7 @@ abstract: 'Throughout history, the Bible has prompted reforms that led an aposta
 source: 'https://web.archive.org/web/20201011094944/https://blog.jeancarloem.com/sola-scriptura/'
 featured_image_style: wide
 header:
-  image: 'https://web.archive.org/web/20201011094944im_/https://blog.jeancarloem.com/wp-content/uploads/2020/05/sola-scriptura-farol.png'
+  image: '/assets/images/posts/recuperados/sola-scriptura-farol.png'
   image_description: 'Sola Scriptura'
 categories:
   - Divagando

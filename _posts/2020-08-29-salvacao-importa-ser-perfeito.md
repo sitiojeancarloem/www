@@ -8,7 +8,7 @@ abstract: 'The question of being perfect has led the church into decades of disc
 source: 'https://web.archive.org/web/20201004153207/https://blog.jeancarloem.com/salvacao-importa-ser-perfeito/'
 featured_image_style: wide
 header:
-  image: 'https://web.archive.org/web/20201004153207im_/https://blog.jeancarloem.com/wp-content/uploads/2020/08/importa-ser-perfeito.png'
+  image: '/assets/images/posts/recuperados/salvacao-importa-ser-perfeito.png'
   image_description: 'Salvação: Importa ser Perfeito?'
 categories:
   - Divagando
@@ -36,7 +36,7 @@ O assunto de ser perfeito tem levado a igreja à décadas de discussão e é tã
 Explicando melhor, existe um conceito de lógica matemática que permite validar afirmações, identificando se tais afirmações são lógicas e coerentes. Por meio da [tabela verdade](/p/como-identificar-falacias/), um método de verificação lógica da matemática, é possível **comprovar** que o assunto não importa. Para entender o que é a tabela verdade, como funciona e como usá-la acesse este [artigo](/p/como-identificar-falacias/), pois aqui será apenas aplicado seu conceito.
 Para o presente problema há uma premissa notória, que é a **perfeição**. É ou não possível ser perfeito? É isso que se deseja responder. Mas há outras premissas inerentes ao problema. Por exemplo, é necessário a atuação de Deus, mediante o Espírito Santo? Provavelmente a maioria, senão todos, crendo ou não no perfeccionismo, responderão que sim. Mas independentemente de crer ou não na necessidade do Espírito Santo este é um ponto importante; para atingir a perfeição é necessário o **Espírito Santo**? Outra premissa extremamente importante é o oposto: há necessidade de **esforço** humano ou atuação do ser humano?
 Portanto, tem-se 3 premissas para a salvação: **Espirito Santo**, **Esforço Humano** e **Perfeição**. Montando a tabela verdade, tem-se:
-(1)   ![\begin{equation*}  qLinhas = R^P \therefore qLinhas = 2^3 = 8 \end{equation*}](https://web.archive.org/web/20201004153207im_/https://blog.jeancarloem.com/wp-content/ql-cache/quicklatex.com-d9c96bf06e24f95918c3b3a790f4197a_l3.png "Rendered by QuickLaTeX.com")
+(1)   ![\begin{equation*}  qLinhas = R^P \therefore qLinhas = 2^3 = 8 \end{equation*}](/assets/images/posts/recuperados/salvacao-importa-ser-perfeito/quicklatex-1.png "Rendered by QuickLaTeX.com")
 
 <table>
 <caption class="visually-hidden">Combinações iniciais de esforço humano, Espírito Santo e perfeição</caption>

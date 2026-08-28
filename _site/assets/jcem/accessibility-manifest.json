@@ -53,7 +53,7 @@
     },
     {
       "url": "/p/5-verdades-de-genesis-27/",
-      "sha256": "2b1e41c1c17954dec1d9a4a9b110b0625248eab262b10a3fa5aad7500077a8b4",
+      "sha256": "7e7b6448f5c950a3cf29627ddacdd67d095657dc3400b76b296af9e76de737e9",
       "language": "pt-BR",
       "capabilities": {
         "block_quotes": 14,
@@ -68,10 +68,10 @@
     },
     {
       "url": "/p/bate-papo/eventos-finais/a-heranca-dos-santos/",
-      "sha256": "d155e3b9cf97d37e04414fb4ae6596a7a5a174ad53075f4018e564fde6b7d190",
+      "sha256": "318729e33de5ebd28cfeb8dbbb44b61aff69ed0a96df4b679e94a6da0fa03f16",
       "language": "pt-BR",
       "capabilities": {
-        "block_quotes": 29,
+        "block_quotes": 30,
         "inline_quotes": 0,
         "references": 32,
         "tables": 0,
@@ -83,10 +83,10 @@
     },
     {
       "url": "/p/bate-papo/eventos-finais/rumo-ao-lar-viagem-dos-remidos-coroas-e-recompensa-celestial/",
-      "sha256": "a7be65713c7e2fc9bf828a3c21d44f11da533b57ca29d014e477f20f80faec03",
+      "sha256": "57ef7a78364977a0c2585d5e263050b1c5f3c0ef4e92a44248c9281b0c265010",
       "language": "pt-BR",
       "capabilities": {
-        "block_quotes": 46,
+        "block_quotes": 47,
         "inline_quotes": 0,
         "references": 39,
         "tables": 0,
@@ -98,7 +98,7 @@
     },
     {
       "url": "/p/como-identificar-falacias/",
-      "sha256": "77b0193b249c7a48efdf09b4f20aed9f9371ba808f7d49dc8b1109dab7495dbf",
+      "sha256": "1ccfa55442db893b5a2cefed023f5f824a5c15e8409ea75fb33e05c1a7eaf323",
       "language": "pt-BR",
       "capabilities": {
         "block_quotes": 0,
@@ -113,7 +113,7 @@
     },
     {
       "url": "/p/devaneios/",
-      "sha256": "c5d50d214a85127ab0a9867047b70097e8d680f59a0f3b328f7b86ec3be56edf",
+      "sha256": "1a89349ca5b08ea924ffa6a2cecfc8edc9bbbae6a1e3a92315c67e8aab328cde",
       "language": "pt-BR",
       "capabilities": {
         "block_quotes": 18,
@@ -128,7 +128,7 @@
     },
     {
       "url": "/p/nenhum-nivel-de-alcool-faz-bem-a-saude/",
-      "sha256": "437bc341545e4d0f89600fae9046920fbbd4f019d3f121b1f2aaa15536a2ec5e",
+      "sha256": "755943831965b9e9d8c268322fcfce502db6b6dfe35e3b07f8cc6a274d9ddac0",
       "language": "pt-BR",
       "capabilities": {
         "block_quotes": 9,
@@ -143,7 +143,7 @@
     },
     {
       "url": "/p/nove-motivos-para-guardar-o-sabado/",
-      "sha256": "a823e6881c1bcadc4783238e093b2cfe78fee1bb9be4951de176ed1a2723dbd1",
+      "sha256": "61e5ecee8221246a01376e843f43a0165637dcc7973c54de5e4fe204b0da4769",
       "language": "pt-BR",
       "capabilities": {
         "block_quotes": 16,
@@ -158,7 +158,7 @@
     },
     {
       "url": "/p/salvacao-importa-ser-perfeito/",
-      "sha256": "5d38a7204efb54ceedb47e01f0a7b75495fc25bb21bc811e2a3926883a46f632",
+      "sha256": "5ee109b247d128d659eb3f1221a8a4d7f4ab3d20e4761ac80e2268cf3b2ca9ed",
       "language": "pt-BR",
       "capabilities": {
         "block_quotes": 19,
@@ -173,7 +173,7 @@
     },
     {
       "url": "/p/sola-scriptura/",
-      "sha256": "08795fde08cd649ed5ed5194030365286c76310865fe5f78d343a6354c950aa4",
+      "sha256": "2bae5bdbb8770fc4222f68f41eda035fd57d69339d6b9b01b0542abaf4cd4a20",
       "language": "pt-BR",
       "capabilities": {
         "block_quotes": 56,
@@ -188,7 +188,7 @@
     },
     {
       "url": "/p/tradicao-vs-biblia-tradicao-ou-biblia/",
-      "sha256": "f99cb3a48b25aea5f8cf8274f0f72c5f8cfecae9dd20cc2675e977dca899156e",
+      "sha256": "e0196757c02a9b2e5fdc53334978c7d213e664b96083acb469120a66f2fe263d",
       "language": "pt-BR",
       "capabilities": {
         "block_quotes": 12,

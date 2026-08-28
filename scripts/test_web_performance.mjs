@@ -24,6 +24,7 @@ const responsiveGenerator = await readFile(new URL('./generate-responsive-images
 const trackedWebpGenerator = await readFile(new URL('./generate-tracked-webp.py', import.meta.url), 'utf8');
 const socialImageGenerator = await readFile(new URL('./generate-social-images.mjs', import.meta.url), 'utf8');
 const socialImageConnector = await readFile(new URL('../_plugins/jcem_social_images.rb', import.meta.url), 'utf8');
+const coverContract = await readFile(new URL('../_plugins/jcem_cover_contract.rb', import.meta.url), 'utf8');
 const trackedWebpManifest = JSON.parse(
 	await readFile(new URL('../config/tracked-webp.json', import.meta.url), 'utf8'),
 );
@@ -89,16 +90,19 @@ assert.doesNotMatch(
 	customVariables,
 	/\.archive\s*>\s*\.entries-grid\s*>\s*\.grid__item:nth-child\(n \+ 3\)[^{]*\{[^}]*content-visibility:\s*auto/s,
 );
-assert.match(
-	customVariables,
-	/\.jcem-featured-image--wide\s*\{[^}]*aspect-ratio:\s*auto;[^}]*height:\s*auto;[^}]*max-height:\s*min\(\s*var\(--jcem-featured-height\)/s,
-);
+assert.match(featuredImage, /featured_style == "wide" and page\.header\.og_image/);
 assert.match(customTheme, /--jcem-featured-height:\s*clamp\(12rem, 32vh, 24rem\)/);
 assert.match(customTheme, /--jcem-featured-height:\s*clamp\(10rem, 30vh, 18rem\)/);
 assert.match(
-	customVariables,
-	/\.jcem-featured-image--wide\s+\.jcem-featured-image__img\s*\{[^}]*width:\s*auto;[^}]*height:\s*auto;[^}]*margin-inline:\s*auto;[^}]*max-height:\s*min\(/s,
+	customTheme,
+	/\.jcem-featured-image--wide\s*\{[\s\S]*?\.jcem-featured-image__stage\s*\{[^}]*height:\s*var\(--jcem-featured-height\);[^}]*min-height:\s*var\(--jcem-featured-height\);[\s\S]*?\.jcem-featured-image__img\s*\{[^}]*width:\s*auto;[^}]*height:\s*auto;[^}]*max-height:\s*100%;[^}]*margin-inline:\s*auto;[^}]*object-fit:\s*contain;/,
 );
+assert.match(customTheme, /\.jcem-date-flag\s*\{[^}]*z-index:\s*3;/s);
+assert.match(customTheme, /\.jcem-featured-image__surface\s*\{[^}]*z-index:\s*0;/s);
+assert.match(customTheme, /\.jcem-featured-image__stage > \.jcem-featured-image__img\s*\{[^}]*z-index:\s*1;/s);
+assert.match(customTheme, /\.jcem-featured-image--triptych \.jcem-featured-image__surface/);
+assert.match(coverContract, /triptych_incompleto/);
+assert.match(coverContract, /alturas_incompativeis/);
 assert.match(
 	customTheme,
 	/\.jcem-quote__icon\s*\{[^}]*grid-row:\s*1;[^}]*align-self:\s*start;/s,
