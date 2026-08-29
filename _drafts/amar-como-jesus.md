@@ -282,7 +282,11 @@ Sabe o que está escrito sobre estes que lutam para combater a sacudidura?
 > ⁵ Aquele que calunia o seu próximo **secretamente**, eu o cortarei;
 > -- Salmos 101:5 | BKJ
 
-E o que acontece a estes?
+E o que acontece a tais pessoas, sejam líveres ou não? Afinal, por um curto período de tempo pode parecer que eles estão vencendo não é?
+
+> ³ Pois eu invejava os arrogantes, ao ver a prosperidade dos perversos.
+> ¹⁷ até que entrei no santuário de Deus e atinei com o fim deles.
+> Salmos 73:3,17 | ARA
 
 > ¹⁵ Pelo que a sua destruição virá repentinamente; subitamente, será quebrantado, sem que haja cura.
 > -- Provérbios 6:15 | ARA
