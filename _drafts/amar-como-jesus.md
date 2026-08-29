@@ -235,7 +235,7 @@ Em que multiverso ou realidade chamar outra pessoa de **filho do diabo** não é
 > A maior necessidade do mundo é a de homens — homens que se não comprem nem se vendam; homens que no íntimo da alma sejam verdadeiros e honestos; homens que NÃO temam CHAMAR o pecado pelo seu NOME EXATO; homens, cuja consciência seja tão fiel ao dever como a bússola o é ao pólo; homens que permaneçam firmes pelo que é reto, ainda que caiam os céus.
 > — Educação, p. 57 [[procurar citação exatada e precisa com base no PDF disponívei publicamente]]
 
-Falar e afir com amor e compaixão, NÃO significa ser **brando** e **suave**, pelo contrário, é orientado severidade.
+Falar e agir com amor e compaixão, NÃO significa ser **brando** e **suave**, pelo contrário, é orientado severidade.
 
 Pedro também chingava:
 
@@ -250,35 +250,35 @@ Aquele texto inicial de Caminho a Cristo é comumente citado, e não há quem n�
 
 ## Uma Reflexão aos Pastores, Anciãos e Líderes Adventistas
 
-Agora, à todos os líderes adventistas, incluindo pastores e ancisãos adventistas. Talvez, nem todos se apliquem, mas a reflexão ainda é válida e é necessária.
+Agora, de forma mais **especial** à todos os líderes, incluindo pastores e ancisãos adventistas, não para acusá-los mas justamente por causa causa de sua alta resposabilidade e sob os qual a _" culpa é tanto maior do que a dos outros quanto sua posição é de maior responsabilidade"_ (O Lar Adventista, p. 354, citando Patriarcas e Profetas, p. 579.).
 
-Existe um pequeno porém, e muitos membros e queridos irmãos não estãoi sabendo, ou se sabem não se importa. Cada vez mais, líderes da igreja, sejam, pastores, ancião, ou outro tipo qualquer de líder, tenta calar igual acontecia na idade média os "Alatalias" (<citar referencia biblica>) que anuncia a destruição iminente de Israel.
+Muitos membros e queridos irmãos talvez não estejam cientes, ou se estão, não se importam, mas, cada vez mais, líderes da igreja, sejam, pastores, anciãos, tentam silenciar, em semelhança ao que acontecia nos tempos Romanos da idade média, os "Alatalias" (<citar referencia biblica dos atalias de Deus chamados a proclamar a verdade e que não podem ser calar>) que anuncia a destruição iminente de Israel.
 
-Eles alegam, palavras duras, e que ferem, e todas estas correções não poderiam vir de Deus, pois Deus é amor. Elas ferem as pessoas e elas acam se afastando da Igrejas. Mas eles são tolos. E para fazer como Jesus e Paulo, e usar palavras modernas, eu vou falar, eles são **imbecis**. O diabos tomou a mente deles, tanto quanto tomou a mente de pedro momentos após ter sido tomado do Espírito Santo - uma vez esperimentaram a salvação, mas agora, lutam contra ela.
+Eles alegam que são palavras duras, difíceis e que ferem entre tantos outros argumentos; e todas estas correções não poderiam vir de Deus, pois Deus é amor. Elas ferem as pessoas e elas acam se afastando da Igreja. Mas estes líderes são tolos. E para fazer como Jesus e Paulo, e usar palavras modernas, eu vou falar, eles são **imbecis**. O diabos tomou a mente deles, tanto quanto tomou a mente de pedro momentos após ter sido tomado do Espírito Santo - uma vez eles esperimentaram o poder da salvação, mas agora, lutam contra ela.
 
-Eles tem se reunido em segredo como Caifáz, sem reunião de comissão, sem ata pública, se transparência, e decidido em segredo, quem vai e quem não vai mais poder pregar, falar. Objetivo? Silenciar as testemunhas de apocalipse 14:12. Igual Roma inutilmente tentou fazer na idade média. Não há pecado publico (pois pecado todos tem) que justifique disciplina ou proibição de pregar, mas eles em segredo discipliam, passam por cima da comissão, e sorriem com tapinhas nas costas. Não há necessidade de nomes, pois isso ocorre em quase toda, se não em todas as igrejas adventistas. Lomge dos olhos e ouvidos da multidão, estes Acabes modernos chamam os atuais Elias de pertubadores de Israel, e o motivo? Eles dizem a verdade e a verdade doi.
+Eles tem se reunido em segredo como Caifáz, sem reunião de comissão, sem ata pública, se transparência, e decidido em segredo, quem vai e quem não vai mais poder pregar, falar. Objetivo? Silenciar as testemunhas de apocalipse 14:12. Igual Roma inutilmente tentou fazer na idade média. Não há justificativa aceitável na bíblia ou nas normas da igreja. Não há pecado **publico** (pois pecado todos tem) que justifique disciplina ou proibição de pregar, mas eles em segredo discipliam, passam por cima da comissão, e sorriem com tapinhas nas costas. Isso ocorre em quase toda, se não em todas as igrejas adventistas. Longe dos olhos e ouvidos da multidão, estes Acabes modernos chamam os atuais Elias de pertubadores de Israel, e o motivo? Eles dizem a verdade e a verdade doi, a verdade de Deus agita as mentes, assim como agitava as mentes nos tempos de Jesus.
 
-Eles estão lutando contra Deus. Provas?
+Não é contra homens que eles estão lutando, e sim contra Deus. Provas?
 
 > <critar bíblico texto sacudidura>
 
 > <critar EGW explicito texto sacudidura>
 
-Está claro que tudo que tiver que ser sacudido será sacudido. A bíblia e o Espírito de Profecia já havia dito que Jesus já deveria ter voltado, portanto, a sacudidura já deveria ter ocorrido. E se você luta contra a pregação e anúncio de verdades que ferem, de verdade que doem, você luta contra Deus.
+Está claro que tudo que tiver que ser sacudido será sacudido. A bíblia e o Espírito de Profecia já havia dito que Jesus já deveria ter voltado e isso já tem 120 anos. Portanto, a sacudidura já deveria ter ocorrido. E se você luta contra a pregação e anúncio de verdades que ferem, contra chamar o pecado pelo nome, contra verdade que doem, contra verdade que não acomodam e que não levam as pessoas a se conformarem, você luta contra Deus.
 
-> <citar trecho da visão de 1904 explicito que fala que jesus já deveria ter voltado ou outro ainda mais explicito>
+> <citar trecho da visão de 1904 explicito que fala que Jesus já deveria ter voltado ou outro ainda mais explicito>
 
-Os Acabes atuais que são grande parte dos líderes das igrejas adventistas em todos os lugares do mundo, **lutam contra a sacudidura** que não vem de mãos humanos, mas de Deus. A sacudidura **não é ação humana, é ação divida**. O Elias **são meros carteiros**, mas estes líderes insistem em perseguir Elias, mas não é contra homens que estão lutando é contra Deus. Os Elias atuais são meros carteiros, não adianta tentar calá-los, silenciá-los, ou criar planos secretos em suas salas de reuniões. Mihões tentaram, e quando um é calado, 2 surgem no lugar: não há como vencer, eles são como semente: _"³⁰ Não há sabedoria, nem inteligência, nem mesmo conselho contra o Senhor…"_ (Provérbios 21:30a | ARA).
+Os "Acabes" atuais que são grande parte, mas não todos, os líderes das igrejas adventistas em todos os lugares do mundo, **lutam contra a sacudidura** que não vem de mãos humanos, mas do próprio Deus. A sacudidura **não é ação humana, é ação divida**. Os Elias modernos, assim como o Elias do passado, **são meros carteiros**, mas estes líderes insistem em perseguir, silenciar, e acusar falsamente; não é contra homens que estão lutando é contra Deus. Não adianta tentar calá-los, silenciá-los, ou criar planos secretos em suas salas de reuniões. Mihões tentaram, e quando um é calado, 2 dois ou mais surgem no lugar: não há como vencer, eles são como semente. Está escrito: _"³⁰ Não há sabedoria, nem inteligência, nem mesmo conselho contra o Senhor…"_ (Provérbios 21:30a | ARA).
 
 Sabe o que está escrito sobre estes que lutam para combater a sacudidura?
 
-> ⁶ "Não preguem", dizem os seus profetas [líderes]. "Não preguem acerca dessas coisas;…
+> ⁶ "**Não preguem**", dizem os seus profetas [líderes]. "Não preguem **acerca dessas coisas**;…
 > Miquéias 2:6a | NVI
 
 > ¹⁰ Eles dizem aos videntes: "Não tenham mais visões!", e aos profetas: "**Não** nos revelem o que é **certo**! Falem-nos coisas **agradáveis**, profetizem **ilusões**.
 > Isaías 30:10 | NVI
 
-> ¹² Mas vós aos nazireus [líderes e pastores] destes vinho a beber, e aos profetas ordenastes, dizendo: Não profetizareis.
+> ¹² Mas vós aos nazireus _[o ungido do tempo biblico, análogo a líder ou pastor atual]_ destes vinho a beber, e aos profetas ordenastes, dizendo: Não profetizareis.
 > Amós 2:12 | ACF
 
 > ²⁰ Ai dos que ao mal chamam bem e ao bem, mal; que fazem da escuridade luz e da luz, escuridade; põem o amargo por doce e o doce, por amargo!
