@@ -78,7 +78,7 @@ No início deste, compreendeu-se como claro e evidente as atitudes e ordem que i
 
 Comparativamente, este problema é similar, a pegar a toxina buolinica em quantidade equivalente ao tamanho de apenas 01 (um) gãozinho de sal de zoinha, e colocar em (um) litro de água pura; esta pequeníssima dosagem, dificilmente visível, tornaria toda aquela água fatal para um homem adulto[^1]. Veja como o que é considerado desprezível ou insignificante (toxinina do graozinha do sal) pode ser completamente letal, estragando todo o resto que era bom (ããgua). Para se ter uma idea, um gão de sal de cozinha tem cerca de 70 à 100 nanogramas, que é equivalente a 0,000000070g - sãs sete zeros após a vírcula!
 
-Uma verdade contaminada com um aerrinho minúsculo,provavelmente imperceptível, deixa de ser verdada. O "quase" pode facilmente ser uma das palavras mais extremistas existentes. Quase empregado, é 100% desempregado. Quase novo, é velho. Quase ganhar na mega da virada, é perder! Quase verdade indica que faltou muito pouco, para ser verdade, as vezes faltou apenas 0.001%, mas ainda é mentira. Pense, por exempo, numa pessoa 99,99% viva: náo existe isso, e seria no máximo um eufemismo. Uma pessoa quase viva, está 100% morta.
+Uma verdade contaminada com um errinho minúsculo, provavelmente imperceptível, deixa de ser verdada. O "quase" pode facilmente ser uma das palavras mais extremistas existentes. Quase empregado, é 100% desempregado. Quase novo, é velho. Quase ganhar na mega da virada, é perder! Quase verdade indica que faltou muito pouco, para ser verdade, as vezes faltou apenas 0.001%, mas ainda é mentira. Pense, por exempo, numa pessoa 99,99% viva: náo existe isso, e seria no máximo um eufemismo. Uma pessoa quase viva, está 100% morta.
 
 Havia um rei chamado Herodes Agria II (o título mais próximo nos dias atuais, seria governador) que teve que fazer um julgamento do apóstolo Paulo. E o relato está em Atos capítulo 26. Neste julgamento Paulo teve direito a defesa e, pode explicar seu caso que foi praticamente um testemunho de sua conversão ao cristianismo - até então denominado de ceita do nazareno. Paulo ao contar sua história rica em milagres e evidência bíblias e argumentação racional, foi interpelado pelo rei, que disse _"Por **pouco** me persuades a me fazer cristão"_[^13]. Percebe o "peso" disso? ... Faltou um pouquinho apenas, para que o terrível rei Agripa se tornasse o primeiro governador romano cristão. Por um pouquinho, ele teria aceitado Jesus, e seria salvo. Mas 99% salvo, ainda é 100% perdido! Na vida espiritual, quase ao lado de Jesus, é 100% ao lado do diabo.[^11]
 
@@ -232,9 +232,17 @@ Em que multiverso ou realidade chamar outra pessoa de **filho do diabo** não é
 > ³ Tal testemunho é exato. Portanto, repreende-os SEVERAMENTE, para que sejam sadios na fé
 > -- Tito 1:13 | ARA
 
+> A maior necessidade do mundo é a de homens — homens que se não comprem nem se vendam; homens que no íntimo da alma sejam verdadeiros e honestos; homens que NÃO temam CHAMAR o pecado pelo seu NOME EXATO; homens, cuja consciência seja tão fiel ao dever como a bússola o é ao pólo; homens que permaneçam firmes pelo que é reto, ainda que caiam os céus.
+> — Educação, p. 57 [[procurar citação exatada e precisa com base no PDF disponívei publicamente]]
+
 Falar e afir com amor e compaixão, NÃO significa ser **brando** e **suave**, pelo contrário, é orientado severidade.
 
-<!-- TABELA EVOLUTIVA DE COMPARAÇãO: item não é brando e suavidade; é falar na cara; é (reforçar) (chingar / ofender) abertamente; ser severo.-->
+Pedro também chingava:
+
+> ¹² No entanto, estes difamam o que não entendem: são como **ANIMAIS irracionais**, guiados pelo instinto, nascidos para serem capturados e destruídos; eles serão corrompidos pela sua própria corrupção!
+> 2 Pedro 2:12 | NVI
+
+<!-- TABELA EVOLUTIVA DE COMPARAÇãO: item não é brando e suavidade; é falar na cara; é (reforçar) (chingar / ofender) abertamente e publicamente; ser severo.-->
 
 Aquele texto inicial de Caminho a Cristo é comumente citado, e não há quem não goste dele, mas como sempre, é fácil esquecem que ele não termina alí.
 
@@ -246,7 +254,7 @@ Agora, à todos os líderes adventistas, incluindo pastores e ancisãos adventis
 
 Existe um pequeno porém, e muitos membros e queridos irmãos não estãoi sabendo, ou se sabem não se importa. Cada vez mais, líderes da igreja, sejam, pastores, ancião, ou outro tipo qualquer de líder, tenta calar igual acontecia na idade média os "Alatalias" (<citar referencia biblica>) que anuncia a destruição iminente de Israel.
 
-Eles alegam, palavras duras, palavras que ferem e todas estas correções não poderiam vir de Deus, pois Deus amor. Elas ferem as pessoas e elas acam se afastando da Igrejas. Mas eles são tolos. E para fazer como Jesus e Paulo, e usar palavras modernas, eu vou falar, eles são **imbecis**. O diabos tomou a mente deles, tanto quanto tomou a mente de pedro momentos após ter sido tomado do espírito santo.
+Eles alegam, palavras duras, e que ferem, e todas estas correções não poderiam vir de Deus, pois Deus é amor. Elas ferem as pessoas e elas acam se afastando da Igrejas. Mas eles são tolos. E para fazer como Jesus e Paulo, e usar palavras modernas, eu vou falar, eles são **imbecis**. O diabos tomou a mente deles, tanto quanto tomou a mente de pedro momentos após ter sido tomado do Espírito Santo - uma vez esperimentaram a salvação, mas agora, lutam contra ela.
 
 Eles tem se reunido em segredo como Caifáz, sem reunião de comissão, sem ata pública, se transparência, e decidido em segredo, quem vai e quem não vai mais poder pregar, falar. Objetivo? Silenciar as testemunhas de apocalipse 14:12. Igual Roma inutilmente tentou fazer na idade média. Não há pecado publico (pois pecado todos tem) que justifique disciplina ou proibição de pregar, mas eles em segredo discipliam, passam por cima da comissão, e sorriem com tapinhas nas costas. Não há necessidade de nomes, pois isso ocorre em quase toda, se não em todas as igrejas adventistas. Lomge dos olhos e ouvidos da multidão, estes Acabes modernos chamam os atuais Elias de pertubadores de Israel, e o motivo? Eles dizem a verdade e a verdade doi.
 
