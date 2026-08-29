@@ -1,6 +1,6 @@
 schema: jcem-continue/v1
 machine_id: JEAN-DESKTOP
-data_ref: 2026-08-29T19:38:25.6675170-03:00
+data_ref: 2026-08-29T19:41:07.9949220-03:00
 fonte: TODO.ia.md
 objetivo: Equalizar e implementar a nova normalizacao Markdown, concluir a FT-041 sem substituicao editorial indevida e encerrar a FT-044 com publicacao e convergencia.
 autorizacao:
@@ -479,7 +479,7 @@ plano:
   - id: FT-045
     classe: implementacao_normativa
     criado_em: 2026-08-29T19:38:25.6675170-03:00
-    estado: em_andamento
+    estado: concluido
     fonte: TODO.ia.md
     fonte_autorizacao: .ia.rules/state/requests/FT-045/prompt.md
     objetivo: Equalizar e normatizar a conversao automatica de marcador ASCII de autoria em inicio de fala de blockquote Markdown.
@@ -489,10 +489,14 @@ plano:
       - conteudo subsequente, aninhamento, EOL e demais estruturas Markdown permanecem integrais
       - dois hifens fora desse contexto nao sao alterados
       - contrato, validacao normativa e rastreabilidade aprovados
+    resultado: RCF-JCEM-CITACOES-001 passou a definir o prefixo elegivel, a ordem pre-conversao, a idempotencia e as exclusoes que preservam Markdown nao relacionado.
+    progresso:
+      - modo de uso documenta o travessao canonico e as tres formas legadas equivalentes
+      - horizontal rule, bloco aninhado, codigo, front matter e dois hifens fora do prefixo foram explicitamente excluidos
   - id: FT-046
     classe: implementacao_codigo
     criado_em: 2026-08-29T19:38:25.6675171-03:00
-    estado: pendente
+    estado: em_andamento
     depende_de: FT-045
     fonte: TODO.ia.md
     fonte_autorizacao: .ia.rules/state/requests/FT-045/prompt.md

@@ -16,6 +16,8 @@ Escopo: citação inline, subcitação e bloco semântico de citação em artigo
 ## Contrato de autoria Markdown e HTML
 
 - Bloco Markdown comum DEVE continuar sendo escrito com `>` e DEVE receber o modelo padrão quando não houver marcação específica.
+- Linha Markdown iniciada exatamente por `>`, seguida de zero ou mais espaços ou tabs e de `--` como token de autoria, DEVE convergir para `> —` antes da conversão Markdown. A normalização DEVE substituir somente esse prefixo, conservar byte a byte o conteúdo subsequente e as terminações de linha e ser idempotente.
+- A normalização de autoria NÃO DEVE alcançar `--` fora do início direto do bloco, conteúdo inline, bloco aninhado com outro marcador entre `>` e `--`, código, front matter ou sequência de três ou mais hifens. O pipeline PODE normalizar o conteúdo em memória, mas o acervo controlado DEVE usar diretamente o travessão canônico.
 - Modelo por ocorrência DEVE ser declarado por Kramdown Inline Attribute List imediatamente após o bloco, usando `data-jcem-quote-model` com identificador registrado, por exemplo:
 
   ```markdown
@@ -69,6 +71,7 @@ Escopo: citação inline, subcitação e bloco semântico de citação em artigo
 
 - Testes DEVEM cobrir aspas retas e tipográficas, backtick explicitamente classificado, código preservado, delimitadores sem par, apóstrofos, ênfase preexistente, nós divididos, links, notas, referências, conteúdo positivo, negativo, aninhado e ambíguo.
 - Matriz de bloco DEVE cobrir `<blockquote>`, `div`, `table`, elemento customizado efetivamente suportado, `standard`, `futuristic`, default global, default de artigo, contexto, override por ocorrência, identificador inválido e fallback sem JavaScript.
+- A matriz Markdown DEVE cobrir zero, um e múltiplos espaços, tab, CRLF, conteúdo posterior, idempotência, `--` fora de bloco, `---`, bloco aninhado e texto sem separador após `--`, comprovando que somente o prefixo autorizado muda.
 - A matriz DEVE cobrir também os quatro modelos tipados, ícone padrão, emoji, imagem válida/inválida, temas, 320 px e isolamento impresso.
 - Matriz de subcitação DEVE cobrir texto comum, profundidade um, duas ou mais profundidades, cada modelo estrutural registrado, ausência de bordas internas, temas claro e escuro, impressão com e sem fundos e ausência de marcador confiável.
 - Validação DEVE comparar Markdown fonte, HTML estático, DOM preparado e saída impressa, comprovando preservação textual e semântica, precedência determinística, acessibilidade, ausência de regressão visual e compatibilidade com `RCF-JCEM-IMPRESSAO-IEEE-001`.

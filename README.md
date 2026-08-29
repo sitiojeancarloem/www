@@ -182,7 +182,15 @@ jcem:
   blockquote_panels: false
 ```
 
-Com o recurso ativo, `assets/jcem/js/site.js` transforma cada `blockquote` normalizado dentro de `.page__content` em `div.jcem-panel.jcem-panel--futuristic`, preservando conteúdo, atributos e semântica acessível.
+Com o recurso ativo, o pipeline estático transforma cada `blockquote` normalizado dentro de `.page__content` em `div.jcem-panel.jcem-panel--futuristic`, preservando conteúdo, atributos e semântica acessível.
+
+No início direto de uma linha de `blockquote`, `--` seguido de espaço ou tab representa autoria legada e é normalizado automaticamente para travessão antes da conversão Markdown. O formato canônico de autoria é:
+
+```markdown
+> — Autor ou referência
+```
+
+Entradas legadas como `> -- texto`, `>    -- texto` e `>` seguido de tab e `-- texto` produzem o mesmo resultado. Dois hifens fora desse prefixo, `---`, código e blocos aninhados não são alterados.
 
 O contrato por ocorrência do `RCF-JCEM-CITACOES-001` está implementado. Um bloco pode selecionar `standard`, `futuristic`, `notice`, `info`, `alerta1`, `alerta2` ou outro modelo registrado por Kramdown IAL:
 
