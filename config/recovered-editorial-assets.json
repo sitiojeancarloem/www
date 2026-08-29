@@ -1,0 +1,21 @@
+{
+	"schema": 1,
+	"assets": [
+		{
+			"local": "assets/images/posts/recuperados/seja-radical-seja-extremista-seja-integro/a-traicao-de-cypher.jpg",
+			"original": "https://blog.jeancarloem.com/wp-content/uploads/2021/05/a-traicao-de-cypher.jpg",
+			"originalDeclaredWidth": 1600,
+			"originalDeclaredHeight": 663,
+			"recoverySource": "https://vimeo.com/631075956",
+			"recoveryAsset": "https://i.vimeocdn.com/video/1273351536-e1a95b45e7e52f94163adfd24b26419014e05287ee22fa8e6_1280x720?region=us",
+			"linkedVideo": "https://www.youtube.com/watch?v=pMedbZ6stF4",
+			"evidence": "Frame não generativo da mesma cena Ignorance is Bliss citada pelo texto e pelo vídeo originalmente vinculado; equivalência semântica revisada visualmente.",
+			"retrievedAt": "2026-08-29T19:50:32-03:00",
+			"format": "jpeg",
+			"width": 1280,
+			"height": 720,
+			"bytes": 66371,
+			"sha256": "bfd9055ad664d827a185cf0f044adfa65e5cab7c3fb8f8684327163f5f8028fb"
+		}
+	]
+}

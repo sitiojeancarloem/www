@@ -165,7 +165,7 @@ Quando porém o assunto é a conversão, o paradoxo se torna muito mais surreal!
 
 Não se trata de recomendação de filme, mas há uma cena no filme Matrix, de 1999, estralado por Keanu Reeves, e dirigido por Lilly e Lana Wachowski, que apesar de se tratar de algo secular, completamente fora da bíblia, diz algo que faz sentido. Você pode ver um quadro da cena abaixo ou assistir um pedaço dela [aqui](https://web.archive.org/web/20210522212748/https://www.youtube.com/watch?v=pMedbZ6stF4).
 
-![](https://web.archive.org/web/20210522212748im_/https://blog.jeancarloem.com/wp-content/uploads/2021/05/a-traicao-de-cypher.jpg)
+![Quadro da cena de Cypher em Matrix.](/assets/images/posts/recuperados/seja-radical-seja-extremista-seja-integro/a-traicao-de-cypher.jpg)
 
 Nesta cena ele diz assim: “_A ignorância é uma benção_!” ou “_A ignorância é maravilhosa_“. Isso, sem dúvida alguma contraria todo o senso de certo e errado que aprendemos da bíblia, afinal o próprio Jesus diz: “e conhecereis a verdade, e a verdade vos libertará”[^17]. Mas, apesar de ser totalmente errada ela faz todo sentido, quando se lembra o que está escrito em Atos:
 

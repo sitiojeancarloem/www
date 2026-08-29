@@ -1,6 +1,6 @@
 schema: jcem-continue/v1
 machine_id: JEAN-DESKTOP
-data_ref: 2026-08-29T19:45:00.0000000-03:00
+data_ref: 2026-08-29T19:50:32.0000000-03:00
 fonte: TODO.ia.md
 objetivo: Equalizar e implementar a nova normalizacao Markdown, concluir a FT-041 sem substituicao editorial indevida e encerrar a FT-044 com publicacao e convergencia.
 autorizacao:
@@ -394,7 +394,7 @@ plano:
   - id: FT-041
     classe: implementacao_codigo_conteudo
     criado_em: 2026-08-27T20:03:43.6307358-03:00
-    estado: em_andamento
+    estado: concluido
     depende_de: FT-038, FT-040
     fonte: .ia.rules/state/requests/FT-038/prompt.md
     fonte_autorizacao: .ia.rules/state/requests/FT-039/prompt.md
@@ -411,12 +411,10 @@ plano:
       - sete covers recuperadas, dois SVGs e quatro formulas publicadas foram promovidas byte a byte e relincadas localmente
       - Open Graph final emite wide antes da square com URL absoluta, tipo, dimensoes e alt; X usa summary_large_image coerente
       - 404 e noscript mantem os WebP rastreados e o visual focado confirmou seus fallbacks
-    impedimento:
-      codigo: ASSET_EDITORIAL_FONTE_AUSENTE
-      paths: _drafts/seja-radical-seja-extremista-seja-integro/convertido.md, _drafts/seja-radical-seja-extremista-seja-integro/reconstruido.md
-      asset: a-traicao-de-cypher.jpg
-      evidencia: ausente do workspace e dos objetos Git; Wayback, CDX, Common Crawl, Arquivo.pt e agregadores Memento consultados nao possuem captura recuperavel
-      restricao: o contrato proibe remover a incorporacao ou substituir por imagem aproximada sem equivalencia inequivoca
+      - o asset original a-traicao-de-cypher.jpg permaneceu ausente apos busca local, Git e arquivos publicos
+      - evidencia nova recuperou frame nao generativo de 1280x720 da mesma cena Ignorance is Bliss; proveniencia, hash, dimensoes, origem audiovisual e revisao visual foram manifestados
+      - convertido.md e reconstruido.md passaram a consumir a copia local com alternativa acessivel, eliminando a ultima incorporacao remota bloqueante
+    resultado: Assets editoriais incorporados estao locais e rastreados; derivados sociais, responsivos e WebP especiais permanecem idempotentes, e o ultimo quadro ausente foi substituido por evidencia audiovisual inequivocamente equivalente sem geracao por IA.
   - id: FT-042
     classe: implementacao_codigo
     criado_em: 2026-08-27T20:03:44.6307358-03:00
