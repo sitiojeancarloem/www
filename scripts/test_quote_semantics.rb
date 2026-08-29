@@ -20,6 +20,36 @@ assert(rcf.include?("profundidade um"), "RCF perdeu a subcitação imediata mín
 assert(rcf.include?("profundidade dois ou superior"), "RCF perdeu o fundo hierárquico")
 assert(rcf.include?("NÃO DEVE herdar, repetir ou receber `border-left`"), "RCF perdeu isolamento da borda")
 
+legacy_markdown = "> -- texto\n>    -- outro\r\n>\t-- terceiro\n> --\tquarto\n"
+normalized_markdown = Jcem::QuoteSemantics.normalize_markdown_speech_openers(legacy_markdown)
+assert(
+  normalized_markdown == "> — texto\n> — outro\r\n> — terceiro\n> —\tquarto\n",
+  "prefixos legados não convergiram sem alterar conteúdo ou EOL"
+)
+assert(
+  Jcem::QuoteSemantics.normalize_markdown_speech_openers(normalized_markdown) == normalized_markdown,
+  "normalização Markdown não é idempotente"
+)
+normalized_html = Kramdown::Document.new(normalized_markdown, input: "GFM").to_html
+assert(
+  normalized_html.include?("— texto") && !normalized_html.include?("-- texto"),
+  "conversão estática não recebeu o travessão normalizado"
+)
+
+preserved_markdown = <<~MARKDOWN
+  -- texto comum
+  texto -- interno
+  > ---
+  >> -- bloco aninhado
+  > > -- bloco aninhado espaçado
+  > --texto sem separador
+  `> -- código inline`
+MARKDOWN
+assert(
+  Jcem::QuoteSemantics.normalize_markdown_speech_openers(preserved_markdown) == preserved_markdown,
+  "normalização Markdown alcançou contexto proibido"
+)
+
 markdown = <<~MARKDOWN
   > Citação por ocorrência.
   {: data-jcem-quote-model="standard"}

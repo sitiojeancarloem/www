@@ -16,6 +16,7 @@ module Jcem
     CLASS_ATTRIBUTE = /\sclass=(?<quote>['"])(?<classes>.*?)\k<quote>/mi
     ICON_SOURCE_ATTRIBUTE = /\bdata-jcem-quote-icon-src=(?<quote>['"])(?<source>.*?)\k<quote>/i
     ICON_ALT_ATTRIBUTE = /\bdata-jcem-quote-icon-alt=(?<quote>['"])(?<alt>.*?)\k<quote>/i
+	MARKDOWN_SPEECH_OPENER = /^>[ \t]*--(?=[ \t]|\r?$)/
 	BLOCKQUOTE_TAG = /<\/?blockquote\b[^>]*>/i
 
     module_function
@@ -47,6 +48,11 @@ module Jcem
       validate_icons!(html)
       promote_explicit_inline_quotes(html)
     end
+
+	# Converte somente o marcador legado de autoria no início direto do blockquote.
+	def normalize_markdown_speech_openers(markdown)
+	  markdown.to_s.gsub(MARKDOWN_SPEECH_OPENER, "> —")
+	end
 
 	def attribute_value(tag, name)
 	  match = tag.match(/\b#{Regexp.escape(name)}=(['"])(.*?)\1/i)
@@ -191,11 +197,26 @@ module Jcem
 	  config = document.site.config.fetch("jcem_quote_semantics")
 	  document.output = render_structural_quotes(document.output.to_s, default_model_for(document), config)
     end
+
+	# Normaliza a fonte em memória antes que Kramdown interprete sua estrutura.
+	def normalize_source!(document)
+	  return unless article?(document)
+
+	  document.content = normalize_markdown_speech_openers(document.content)
+	end
   end
 end
 
 Jekyll::Hooks.register :site, :after_init do |site|
   site.config["jcem_quote_semantics"] = Jcem::QuoteSemantics.load_config(site.source)
+end
+
+Jekyll::Hooks.register :documents, :pre_render do |document|
+  Jcem::QuoteSemantics.normalize_source!(document)
+end
+
+Jekyll::Hooks.register :pages, :pre_render do |document|
+  Jcem::QuoteSemantics.normalize_source!(document)
 end
 
 Jekyll::Hooks.register :documents, :post_convert do |document|

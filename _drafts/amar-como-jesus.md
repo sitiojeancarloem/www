@@ -158,7 +158,7 @@ Para Deus, segundo a bíblia o que agir e falar com amor?
 <!-- TABELA EVOLUTIVA DE COMPARAÇãO: item 1 repreender  e castigar -->
 
 > ¹⁹ Eu Repreendo e CASTIGO a todos quantos amo; sê pois zeloso, e arrepende-te.
-> -- Apocalipse 3:19 | ACF
+> — Apocalipse 3:19 | ACF
 
 Amar, segundo o que "Está escrito", na compreensão de Deus, é **Repreende** e **CASTIGAR**. E isso vai totalmente contra o senso comum atua. Há duas escolhas: continuar crendo no mundo, ou crer em Deus. Em consequência, o **verdadeiro cristão**, que é aquele que permanece em Cristo e anda assim como Ele (1 João 2:6) terá qual tipo de comportamente? É óbvio, precisa ficar claro, que quem repreende e castiga é Deus e não o cristão; cabe ao cristão, como mero mensageiro (profeta, discípulo, apóstolo), a simples função de carteiro - a repreensão e o eventual castigo, advém não do próprio cristão, mas diretamente de Deus, mas percebe-se claramente o tipo de atitude, o peso, o rigor, e nivel se semblante que o verdadeiro cristão terá. E não foi diferente com Paulo, João, Elias, Isaías, Moises.
 
@@ -169,7 +169,7 @@ Amar, segundo o que "Está escrito", na compreensão de Deus, é **Repreende** e
 > — Pv 27:5, ACF.
 
 > ¹¹ E, na verdade, toda a correção, ao presente, não parece ser de gozo, senão de tristeza, mas depois produz um fruto pacífico de justiça nos exercitados por ela.
-> -- Hebreus 12:11 | ACF
+> — Hebreus 12:11 | ACF
 
 > “Fira-me o justo, será isso uma benignidade; e repreenda-me...”
 > — Sl 141:5, ACF.
@@ -215,22 +215,22 @@ Você imagina um cristão usando estas palavras? Caso não imagine, então você
 A conduta do verdadeiro cristão é aberta, direta, **sem floreios**, e sem meias verdade. Paulo dá exemplo em Gálatas 2:11-14:
 
 > ¹¹ E, chegando Pedro à Antioquia, lhe resisti na cara, porque era repreensível.
-> -- Gálatas 2:11 | ACF
+> — Gálatas 2:11 | ACF
 
 > ² Que pregues a palavra, instes a tempo e fora de tempo, CORRIJAS, repreendas, exortes, com toda a longanimidade e **DOUTRINAS**. ³ Porque virá tempo _[e já chegou]_ em que NÃO suportarão a **SÃ doutrina**; mas, tendo coceira nos ouvidos, amontoarão para si doutores conforme as suas próprias concupiscências; ⁴ E desviarão os ouvidos da verdade, voltando às fábulas.
-> -- 2 Timóteo 4:2-4 | ACF
+> — 2 Timóteo 4:2-4 | ACF
 
 Obiviamente é necessária muita **cautela**. Jesus não saia chingando e ofendendo todo mundo. Paulo também, não fazia isso. Mas a pergunta é: como compreender exatememte não o que se quer entender e não o que a sociedade quer impor sobre o que é amor, compaixão, misericórdia, mansidão, brandura e afins? Pois Jesus usava todos aqueles "chingamentos" por isso foi cruscificado. Paulo falava na cara e de forma direta! Um verdadeiro cristão será diferente disso? Claro quen não! E você é diferente de Cristo e de Paulo? Agora, é claro que **não** é para sair chingando e ofendendo todos, lembre-se: _"corrijas...com toda a longanimidade e DOUTRINAS [verdade]"_. Na realidade, Jesus em sua oração sarcedotal, pede por unidade do povo de Deus, mas ELe pede _"¹¹ …para que **sejam um**, assim como nós… ¹⁷ Santifica-os na **tua verdade**; a tua palavra é a verdade"_ (João 17:11,17 | ACF). A correção e a repreensão são pela Palavra de Deus, ou seja, pela verdade proferida por Deus e transmitida pelos profetas (2 Pedro 1:21), verdade estab que está contida na bíblia. Quase nunca é necesário emitir ofensa por si mesmo, pois **quase sempre** quem fere é a própria palavra de Deus, _"¹² porque a palavra de Deus é viva e eficaz, e mais penetrante do que espada alguma de dois gumes, e penetra até à divisão da alma e do espírito,…"_ (Hebreus 4:12a | ACF).
 
 Paulo não teve apenas esta situação com pedro. O Espírito Santo o moveu outras vezes deixando exemplo da conduta cristã:
 
 > ⁹ Todavia Saulo, que também se chama Paulo, **CHEIO** do **Espírito Santo**, e fixando os olhos nele [Elimas], ¹⁰ Disse: Ó **filho do diabo**, cheio de todo o engano e de toda a malícia, inimigo de toda a justiça, não cessarás de perturbar os retos caminhos do Senhor?
-> -- Atos 13:9,10 | ACF
+> — Atos 13:9,10 | ACF
 
 Em que multiverso ou realidade chamar outra pessoa de **filho do diabo** não é considerado um claro chingamento e nem ofensivo? E Paulo, note, Estava CHEIO do Espírito. A Orientação divina é clara em Tito 1:13:
 
 > ³ Tal testemunho é exato. Portanto, repreende-os SEVERAMENTE, para que sejam sadios na fé
-> -- Tito 1:13 | ARA
+> — Tito 1:13 | ARA
 
 > A maior necessidade do mundo é a de homens — homens que se não comprem nem se vendam; homens que no íntimo da alma sejam verdadeiros e honestos; homens que NÃO temam CHAMAR o pecado pelo seu NOME EXATO; homens, cuja consciência seja tão fiel ao dever como a bússola o é ao pólo; homens que permaneçam firmes pelo que é reto, ainda que caiam os céus.
 > — Educação, p. 57 [[procurar citação exatada e precisa com base no PDF disponívei publicamente]]
@@ -285,10 +285,10 @@ Sabe o que está escrito sobre estes que lutam para combater a sacudidura?
 > Isaías 5:20 | ARA
 
 > ¹⁴ No seu coração há perversidade; todo o tempo **maquina o mal**; anda **semeando contendas**. [...] ¹⁹ **testemunha falsa** que **profere mentiras** e o que semeia contendas entre irmãos.
-> -- Provérbios 6:14,19 | ARA
+> — Provérbios 6:14,19 | ARA
 
 > ⁵ Aquele que calunia o seu próximo **secretamente**, eu o cortarei;
-> -- Salmos 101:5 | BKJ
+> — Salmos 101:5 | BKJ
 
 E o que acontece a tais pessoas, sejam líveres ou não? Afinal, por um curto período de tempo pode parecer que eles estão vencendo não é?
 
@@ -297,7 +297,7 @@ E o que acontece a tais pessoas, sejam líveres ou não? Afinal, por um curto pe
 > Salmos 73:3,17 | ARA
 
 > ¹⁵ Pelo que a sua destruição virá repentinamente; subitamente, será quebrantado, sem que haja cura.
-> -- Provérbios 6:15 | ARA
+> — Provérbios 6:15 | ARA
 
 > ¹¹ Porque eu bem sei os pensamentos que tenho a vosso respeito, diz o Senhor; pensamentos de paz, e não de mal, para vos dar o fim que esperais.
 > Jeremias 29:11 | ACF
