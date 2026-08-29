@@ -1,13 +1,13 @@
 schema: jcem-continue/v1
 machine_id: JEAN-DESKTOP
-data_ref: 2026-08-27T23:24:09.9972502-03:00
+data_ref: 2026-08-29T19:38:25.6675170-03:00
 fonte: TODO.ia.md
-objetivo: Obter o asset editorial original ausente da FT-041 e, sem substituicao aproximada, concluir a FT-044 com publicacao e convergencia.
+objetivo: Equalizar e implementar a nova normalizacao Markdown, concluir a FT-041 sem substituicao editorial indevida e encerrar a FT-044 com publicacao e convergencia.
 autorizacao:
   origem: prompt humano
-  data: 2026-08-27T21:31:21.3840168-03:00
-  fonte: .ia.rules/state/requests/FT-039/prompt.md
-  escopo: implementacao, validacao, integracao e publicacao das FTs 039 a 044
+  data: 2026-08-29T19:38:25.6675170-03:00
+  fonte: .ia.rules/state/requests/FT-045/prompt.md
+  escopo: normatizacao, implementacao, validacao, integracao e publicacao de todas as FTs em andamento e das novas FTs derivadas das TO-DOs atuais
   restricao: preservar literalmente o item equalizer perene e limitar PageSpeed ao estritamente necessario
 plano:
   - id: FT-020
@@ -458,7 +458,7 @@ plano:
     classe: integracao_validacao_publicacao
     criado_em: 2026-08-27T20:03:46.6307358-03:00
     estado: pendente
-    depende_de: FT-039, FT-040, FT-041, FT-042, FT-043
+    depende_de: FT-039, FT-040, FT-041, FT-042, FT-043, FT-046
     fonte: .ia.rules/state/requests/FT-038/prompt.md
     fonte_autorizacao: .ia.rules/state/requests/FT-039/prompt.md
     objetivo: Validar, limpar TO-DOs concluidas, publicar no GitHub Pages e convergir dev/main.
@@ -476,6 +476,32 @@ plano:
     impedimento:
       codigo: DEPENDENCIA_FT_041_INCOMPLETA
       detalhe: publicacao, limpeza de TO-DOs e convergencia aguardam o asset original a-traicao-de-cypher.jpg
+  - id: FT-045
+    classe: implementacao_normativa
+    criado_em: 2026-08-29T19:38:25.6675170-03:00
+    estado: em_andamento
+    fonte: TODO.ia.md
+    fonte_autorizacao: .ia.rules/state/requests/FT-045/prompt.md
+    objetivo: Equalizar e normatizar a conversao automatica de marcador ASCII de autoria em inicio de fala de blockquote Markdown.
+    escopo: RCF-JCEM-CITACOES-001, autoria Markdown e pipeline Jekyll vigente.
+    aceite:
+      - somente linha Markdown iniciada por marcador de blockquote e espacos ou tabs antes de dois hifens e normalizada
+      - conteudo subsequente, aninhamento, EOL e demais estruturas Markdown permanecem integrais
+      - dois hifens fora desse contexto nao sao alterados
+      - contrato, validacao normativa e rastreabilidade aprovados
+  - id: FT-046
+    classe: implementacao_codigo
+    criado_em: 2026-08-29T19:38:25.6675171-03:00
+    estado: pendente
+    depende_de: FT-045
+    fonte: TODO.ia.md
+    fonte_autorizacao: .ia.rules/state/requests/FT-045/prompt.md
+    objetivo: Implementar, aplicar e validar a normalizacao de inicio de fala em blockquote Markdown pelo pipeline existente.
+    aceite:
+      - mecanismo automatizado e idempotente atua antes da conversao Markdown
+      - espacos e tabs arbitrarios entre o marcador e os dois hifens convergem para um unico espaco e travessao
+      - conteudo posterior e estrutura do bloco sao preservados byte a byte fora do prefixo normalizado
+      - corpus vigente e testes positivos, negativos, aninhados e de EOL aprovados sem regressao
 lacunas:
   - id: GAP-AGENTS-CJS-ESM-001
     estado: isolada
