@@ -1,8 +1,8 @@
 schema: jcem-continue/v1
 machine_id: JEAN-DESKTOP
-data_ref: 2026-08-29T20:00:00.0000000-03:00
+data_ref: 2026-08-29T20:38:00.0000000-03:00
 fonte: TODO.ia.md
-objetivo: Equalizar e implementar a nova normalizacao Markdown, concluir a FT-041 sem substituicao editorial indevida e encerrar a FT-044 com publicacao e convergencia.
+objetivo: Ciclo integralmente concluido: novas TO-DOs equalizadas, FTs 039 a 046 implementadas e validadas, publicacao aprovada e dev/main convergidos.
 autorizacao:
   origem: prompt humano
   data: 2026-08-29T19:38:25.6675170-03:00
@@ -455,7 +455,7 @@ plano:
   - id: FT-044
     classe: integracao_validacao_publicacao
     criado_em: 2026-08-27T20:03:46.6307358-03:00
-    estado: em_andamento
+    estado: concluido
     depende_de: FT-039, FT-040, FT-041, FT-042, FT-043, FT-046
     fonte: .ia.rules/state/requests/FT-038/prompt.md
     fonte_autorizacao: .ia.rules/state/requests/FT-039/prompt.md
@@ -465,16 +465,23 @@ plano:
       - PageSpeed limitado aos layouts diretamente afetados quando estritamente necessario
       - artefato publicado corresponde ao commit-fonte validado
       - TO-DOs concluidas removidas e equalizer perene preservado literal e desmarcado
+    resultado: Commit-fonte b4d2d16dd2cbf7f63a89e73debd71ca1ae45bdcd publicado pelo workflow 33281062881 com build, matriz visual, deploy, PageSpeed focal e limpeza aprovados; gh-pages temporario removido e dev/main convergidos.
     progresso:
       - build produtivo isolado em tmp/ft044-site aprovado sem sobrescrever o _site preexistente
       - gates de TypeScript, HTML, footnotes, matematica, assets, autores, namespaces, citacoes, TTS, runtime, impressao, performance, social, covers, atribuicoes e publicacao aprovados
       - matriz visual focada aprovou /atribuicoes/, artigo Eventos Finais e Devaneios em desktop/mobile, claro/escuro, impressao e noscript
-      - PageSpeed nao foi executado por ausencia de necessidade estrita
-      - auditoria de producao aprovou zero vulnerabilidades; auditoria completa registra sharp de desenvolvimento com correcao apenas por atualizacao breaking
+      - PageSpeed nao foi executado manualmente nem por pagina; o workflow oficial aferiu somente a fixture TTS diretamente afetada
+      - auditoria de producao aprovou zero vulnerabilidades; auditoria completa registra sharp restrito ao desenvolvimento e sem correcao disponivel
       - FT-041 e FT-046 concluidas removeram todas as dependencias funcionais pendentes
       - gate agregado aprovado contra build produtivo isolado atual; runtime confirmou 21 unidades faladas e Chart.js 4.5.1
       - matriz visual focada aprovou tres paginas, dois temas e desktop/mobile no artefato atual
       - TO-DOs operacionais concluidas removidas; governanca e equalizer perene preservados literalmente
+      - primeira tentativa de publicacao revelou dois cards sem excerto porque post.excerpt era semanticamente vazio; o include compartilhado passou a usar description ou conteudo somente nesse caso
+      - check de performance e matriz visual integral local aprovaram a regressao; workflow de main 33280838710 confirmou build, visual e caminhos de implantacao no mesmo SHA
+      - publicacao oficial gerou o artefato 08773049666d318a563e8c9f85ac93faa6dcfe52 e implantou o commit-fonte exato
+      - primeira afericao focal em cache frio marcou 89 no mobile; a unica repeticao necessaria aprovou mobile 95 e desktop 100, sem ampliar a amostra
+      - dominio publicado respondeu 200 na home, em /atribuicoes/, /p/devaneios/ e na rota canonica com subnamespace Eventos Finais
+      - cleanup removeu gh-pages e refs locais e remotos dev/main convergiram no commit-fonte validado
   - id: FT-045
     classe: implementacao_normativa
     criado_em: 2026-08-29T19:38:25.6675170-03:00
