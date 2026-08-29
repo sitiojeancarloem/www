@@ -239,3 +239,33 @@ Falar e afir com amor e compaixão, NÃO significa ser **brando** e **suave**, p
 Aquele texto inicial de Caminho a Cristo é comumente citado, e não há quem não goste dele, mas como sempre, é fácil esquecem que ele não termina alí.
 
 > <citar continuar-suprimida1>
+
+## Uma Reflexão aos Pastores, Anciãos e Líderes Adventistas
+
+Agora, à todos os líderes adventistas, incluindo pastores e ancisãos adventistas. Talvez, nem todos se apliquem, mas a reflexão ainda é válida e é necessária.
+
+Existe um pequeno porém, e muitos membros e queridos irmãos não estãoi sabendo, ou se sabem não se importa. Cada vez mais, líderes da igreja, sejam, pastores, ancião, ou outro tipo qualquer de líder, tenta calar igual acontecia na idade média os "Alatalias" (<citar referencia biblica>) que anuncia a destruição iminente de Israel.
+
+Eles alegam, palavras duras, palavras que ferem e todas estas correções não poderiam vir de Deus, pois Deus amor. Elas ferem as pessoas e elas acam se afastando da Igrejas. Mas eles são tolos. E para fazer como Jesus e Paulo, e usar palavras modernas, eu vou falar, eles são **imbecis**. O diabos tomou a mente deles, tanto quanto tomou a mente de pedro momentos após ter sido tomado do espírito santo.
+
+Eles tem se reunido em segredo como Caifáz, sem reunião de comissão, sem ata pública, se transparência, e decidido em segredo, quem vai e quem não vai mais poder pregar, falar. Objetivo? Silenciar as testemunhas de apocalipse 14:12. Igual Roma inutilmente tentou fazer na idade média. Não há pecado publico (pois pecado todos tem) que justifique disciplina ou proibição de pregar, mas eles em segredo discipliam, passam por cima da comissão, e sorriem com tapinhas nas costas. Não há necessidade de nomes, pois isso ocorre em quase toda, se não em todas as igrejas adventistas. Lomge dos olhos e ouvidos da multidão, estes Acabes modernos chamam os atuais Elias de pertubadores de Israel, e o motivo? Eles dizem a verdade e a verdade doi.
+
+Eles estão lutando contra Deus. Provas?
+
+> <critar bíblico texto sacudidura>
+
+> <critar EGW explicito texto sacudidura>
+
+Está claro que tudo que tiver que ser sacudido será sacudido. A bíblia e o Espírito de Profecia já havia dito que Jesus já deveria ter voltado, portanto, a sacudidura já deveria ter ocorrido. E se você luta contra a pregação e anúncio de verdades que ferem, de verdade que doem, você luta contra Deus.
+
+> <citar trecho da visão de 1904 explicito que fala que jesus já deveria ter voltado ou outro ainda mais explicito>
+
+Os Acabes atuais que são grande parte dos líderes das igrejas adventistas em todos os lugares do mundo, **lutam contra a sacudidura** que não vem de mãos humanos, mas de Deus. A sacudidura **não é ação humana, é ação divida**. O Elias **são meros carteiros**, mas estes líderes insistem em perseguir Elias, mas não é contra homens que estão lutando é contra Deus. Os Elias atuais são meros carteiros, não adianta tentar calá-los, silenciá-los, ou criar planos secretos em suas salas de reuniões. Mihões tentaram, e quando um é calado, 2 surgem no lugar: não há como vencer, eles são como semente: _"³⁰ Não há sabedoria, nem inteligência, nem mesmo conselho contra o Senhor…"_ (Provérbios 21:30a | ARA).
+
+Sabe o que está escrito sobre estes que lutam para combater a sacudidura?
+
+> ²⁰ Ai dos que ao mal chamam bem e ao bem, mal; que fazem da escuridade luz e da luz, escuridade; põem o amargo por doce e o doce, por amargo!
+> Isaías 5:20 | ARA
+
+> ¹⁴ No seu coração há perversidade; todo o tempo maquina o mal; anda semeando contendas... ¹⁹ testemunha falsa que profere mentiras e o que semeia contendas entre irmãos.
+> -- Provérbios 6:14,19 | ARA
