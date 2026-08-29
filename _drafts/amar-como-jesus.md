@@ -264,8 +264,28 @@ Os Acabes atuais que são grande parte dos líderes das igrejas adventistas em t
 
 Sabe o que está escrito sobre estes que lutam para combater a sacudidura?
 
+> ⁶ "Não preguem", dizem os seus profetas [líderes]. "Não preguem acerca dessas coisas;…
+> Miquéias 2:6a | NVI
+
+> ¹⁰ Eles dizem aos videntes: "Não tenham mais visões!", e aos profetas: "**Não** nos revelem o que é **certo**! Falem-nos coisas **agradáveis**, profetizem **ilusões**.
+> Isaías 30:10 | NVI
+
+> ¹² Mas vós aos nazireus [líderes e pastores] destes vinho a beber, e aos profetas ordenastes, dizendo: Não profetizareis.
+> Amós 2:12 | ACF
+
 > ²⁰ Ai dos que ao mal chamam bem e ao bem, mal; que fazem da escuridade luz e da luz, escuridade; põem o amargo por doce e o doce, por amargo!
 > Isaías 5:20 | ARA
 
-> ¹⁴ No seu coração há perversidade; todo o tempo maquina o mal; anda semeando contendas... ¹⁹ testemunha falsa que profere mentiras e o que semeia contendas entre irmãos.
+> ¹⁴ No seu coração há perversidade; todo o tempo **maquina o mal**; anda **semeando contendas**. [...] ¹⁹ **testemunha falsa** que **profere mentiras** e o que semeia contendas entre irmãos.
 > -- Provérbios 6:14,19 | ARA
+
+> ⁵ Aquele que calunia o seu próximo **secretamente**, eu o cortarei;
+> -- Salmos 101:5 | BKJ
+
+E o que acontece a estes?
+
+> ¹⁵ Pelo que a sua destruição virá repentinamente; subitamente, será quebrantado, sem que haja cura.
+> -- Provérbios 6:15 | ARA
+
+> ¹¹ Porque eu bem sei os pensamentos que tenho a vosso respeito, diz o Senhor; pensamentos de paz, e não de mal, para vos dar o fim que esperais.
+> Jeremias 29:11 | ACF
