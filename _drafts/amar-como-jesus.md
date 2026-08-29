@@ -227,11 +227,14 @@ Paulo não teve apenas esta situação com pedro. O Espírito Santo o moveu outr
 > ⁹ Todavia Saulo, que também se chama Paulo, **CHEIO** do **Espírito Santo**, e fixando os olhos nele [Elimas], ¹⁰ Disse: Ó **filho do diabo**, cheio de todo o engano e de toda a malícia, inimigo de toda a justiça, não cessarás de perturbar os retos caminhos do Senhor?
 > -- Atos 13:9,10 | ACF
 
-Em que multiverso ou realidade chamar outra pessoa de **filho do diabo** não é considerado um claro chingamento e nem ofensivo? E Paulo, note, Estava CHEIO do Espírito.
+Em que multiverso ou realidade chamar outra pessoa de **filho do diabo** não é considerado um claro chingamento e nem ofensivo? E Paulo, note, Estava CHEIO do Espírito. A Orientação divina é clara em Tito 1:13:
 
-Falar e afir com amor e compaixão, NÃO significa ser **brando** e **suave**.
+> ³ Tal testemunho é exato. Portanto, repreende-os SEVERAMENTE, para que sejam sadios na fé
+> -- Tito 1:13 | ARA
 
-<!-- TABELA EVOLUTIVA DE COMPARAÇãO: item não é brando e suavidade; é falar na cara; é (reforçar) (chingar / ofender) abertamente -->
+Falar e afir com amor e compaixão, NÃO significa ser **brando** e **suave**, pelo contrário, é orientado severidade.
+
+<!-- TABELA EVOLUTIVA DE COMPARAÇãO: item não é brando e suavidade; é falar na cara; é (reforçar) (chingar / ofender) abertamente; ser severo.-->
 
 Aquele texto inicial de Caminho a Cristo é comumente citado, e não há quem não goste dele, mas como sempre, é fácil esquecem que ele não termina alí.
 
