@@ -147,6 +147,8 @@ assert.match(socialImageConnector, /jcem_social_images/);
 assert.match(masthead, /width="630"[\s\S]*height="256"/);
 assert.match(archiveCard, /include jcem\/post-read-time\.html/);
 assert.doesNotMatch(archiveCard, /include page__meta\.html/);
+assert.match(archiveCard, /archive_excerpt_text = post\.description \| default: post\.content/);
+assert.match(archiveCard, /if archive_excerpt_text != ""/);
 assert.match(archiveReadTime, /include\.post \| default/);
 assert.doesNotMatch(customVariables, /repeat\(4, minmax\(0, 1fr\)\)/);
 assert.match(customVariables, /archive__item-link:visited/);
