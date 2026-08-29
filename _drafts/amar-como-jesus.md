@@ -208,6 +208,8 @@ Jesus claramente falava e agia com amor e compaixão, mas ao fazê-lo **chingava
 | **Serpentes**         | Astúcia maligna, perigo, traição, veneno moral                | **Cobras**, **traíras**, **canalhas**, **gente venenosa**                                               |
 | **Raça de víboras**   | Acusação coletiva de perversidade e perigo moral              | **Bando de cobras**, **bando de canalhas**, **gente venenosa**, **bando de desgraçados**                |
 
+Você imagina um cristão usando estas palavras? Caso não imagine, então você não sabe o que é um cristão, pois Cristo usou estas palavras, as equivalentes no seu tempo! Você precisa aprender mais o que é Cristo e como isso não contradiz amor, compaixão e mansidão, viola apenas sua ideia imagijária e errda do que do que é amor, compaixão e mansidão.
+
 <!-- TABELA EVOLUTIVA DE COMPARAÇãO: é (chingar e ofender) / anmálogo-->
 
 A conduta do verdadeiro cristão é aberta, direta, **sem floreios**, e sem meias verdade. Paulo dá exemplo em Gálatas 2:11-14:
@@ -215,12 +217,14 @@ A conduta do verdadeiro cristão é aberta, direta, **sem floreios**, e sem meia
 > ¹¹ E, chegando Pedro à Antioquia, lhe resisti na cara, porque era repreensível.
 > -- Gálatas 2:11 | ACF
 
-> ² Que pregues a palavra, instes a tempo e fora de tempo, CORRIJAS, repreendas, exortes, com toda a longanimidade e DOUTRINAS. ³ Porque virá tempo _[e já chegou]_ em que NÃO suportarão a SÃ doutrina; mas, tendo coceira nos ouvidos, amontoarão para si doutores conforme as suas próprias concupiscências; ⁴ E desviarão os ouvidos da verdade, voltando às fábulas.
+> ² Que pregues a palavra, instes a tempo e fora de tempo, CORRIJAS, repreendas, exortes, com toda a longanimidade e **DOUTRINAS**. ³ Porque virá tempo _[e já chegou]_ em que NÃO suportarão a **SÃ doutrina**; mas, tendo coceira nos ouvidos, amontoarão para si doutores conforme as suas próprias concupiscências; ⁴ E desviarão os ouvidos da verdade, voltando às fábulas.
 > -- 2 Timóteo 4:2-4 | ACF
 
-E esta não foi a única vez que Paulo, movido pelo Espírito Santo, deu exempo da conduta cristã:
+Obiviamente é necessária muita **cautela**. Jesus não saia chingando e ofendendo todo mundo. Paulo também, não fazia isso. Mas a pergunta é: como compreender exatememte não o que se quer entender e não o que a sociedade quer impor sobre o que é amor, compaixão, misericórdia, mansidão, brandura e afins? Pois Jesus usava todos aqueles "chingamentos" por isso foi cruscificado. Paulo falava na cara e de forma direta! Um verdadeiro cristão será diferente disso? Claro quen não! E você é diferente de Cristo e de Paulo? Agora, é claro que **não** é para sair chingando e ofendendo todos, lembre-se: _"corrijas...com toda a longanimidade e DOUTRINAS [verdade]"_. Na realidade, Jesus em sua oração sarcedotal, pede por unidade do povo de Deus, mas ELe pede _"¹¹ …para que **sejam um**, assim como nós… ¹⁷ Santifica-os na **tua verdade**; a tua palavra é a verdade"_ (João 17:11,17 | ACF). A correção e a repreensão são pela Palavra de Deus, ou seja, pela verdade proferida por Deus e transmitida pelos profetas (2 Pedro 1:21), verdade estab que está contida na bíblia. Não é para ofender ninguém por si mesmo, pois **quase sempre** quem fere é a própria palavra de Deus, _"¹² porque a palavra de Deus é viva e eficaz, e mais penetrante do que espada alguma de dois gumes, e penetra até à divisão da alma e do espírito,…"_ (Hebreus 4:12a | ACF).
 
-> ⁹ Todavia Saulo, que também se chama Paulo, **CHEIO** do Espírito Santo, e fixando os olhos nele [Elimas], ¹⁰ Disse: Ó **filho do diabo**, cheio de todo o engano e de toda a malícia, inimigo de toda a justiça, não cessarás de perturbar os retos caminhos do Senhor?
+Paulo não teve apenas esta situação com pedro. O Espírito Santo o moveu outras vezes deixando exemplo da conduta cristã:
+
+> ⁹ Todavia Saulo, que também se chama Paulo, **CHEIO** do **Espírito Santo**, e fixando os olhos nele [Elimas], ¹⁰ Disse: Ó **filho do diabo**, cheio de todo o engano e de toda a malícia, inimigo de toda a justiça, não cessarás de perturbar os retos caminhos do Senhor?
 > -- Atos 13:9,10 | ACF
 
 Em que multiverso ou realidade chamar outra pessoa de **filho do diabo** não é considerado um claro chingamento e nem ofensivo? E Paulo, note, Estava CHEIO do Espírito.
