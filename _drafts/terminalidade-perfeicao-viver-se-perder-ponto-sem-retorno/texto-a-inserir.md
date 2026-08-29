@@ -1,0 +1,31 @@
+> Ele é um PERFEITO e santo Exemplo, dado a nós para imitação. NÃO podemos nos IGUALAR ao Modelo; mas NÃO seremos APROVADO por Deus se não O IMITARMO e nos ASSEMELHARMO a Ele, de acordo com a CAPACIDADE que o Senhor nos dá.
+ > — Testemunhos para a Igreja II - Censura ao Egoímo, p.486/549
+
+> Se está no coração obedecer a Deus, SE são feitos ESFORÇOS nesse sentido, Jesus ACEITA esta disposição e ESFORÇO como o melhor serviço do homem, e SUPRE a DEFICIÊNCIA, com Seu próprio mérito divino. Ele NÃO aceitará os que ALEGAM ter fé nEle e no entanto são DESLEAI ao mandamento de Seu Pai. Muito ouvimos acerca de fé, mas precisamos ouvir MUITO MAIS acerca de OBRAS. Muitos estão a enganar a própria alma, vivendo uma religião FÁCIL, ACOMODATÍCIA, sem cruz. Mas diz Jesus: "Se alguém quiser vir após Mim, renuncie-se a si mesmo, tome sobre si a sua cruz, e siga-Me.”
+> — Mensagens Escolhidas - Relação da fé com as obras, p. 361/382 e 362'.
+
+> Devemos lembrar que nossos próprios caminhos não são perfeitos. Cometemos repetidamente erros. ... Ninguém, senão Jesus, é perfeito. Pensai nEle, e sede atraídos para fora de vós mesmos e de tudo quanto é desagradável; pois contemplando nossos defeitos a fé se enfraquece. Deus e Suas promessas são perdidos de vista.
+> — Meditação Matinal Para Conhecê-lo, 10 de Maio.
+> — Manuscrito 24, 1892
+
+> Os cultos, as orações, o louvor, a penitente confissão do pecado, sobem dos crentes fiéis, qual incenso ao santuário celestial, MAS passando através dos corruptos canais da humanidade, FICAM TÃO maculados que, a menos que sejam purificados por SANGUE, JAMAIS podem ser de valor perante Deus. NÃO ASCENDEM em imaculada PUREZA, e A MENOS que O intercessor, que está à mão direita de Deus, apresente e APRESENTE tudo por SUA JUSTIÇA, NÃO SERÁ ACEITÁVEL a Deus. TODO o incenso dos tabernáculos terrestres têm de umedecer-se com as purificadoras GOTAS do SANGUE de Cristo. Ele segura perante o Pai o incensário de SEUS próprios MÉRITOS [enquanto Ele ainda está no santuário], nos quais não há mancha de corrupção terrestre. Nesse incensário reúne Ele as orações, o louvor e as confissões de Seu povo, juntando-lhes SUA própria JUCSTIÇA imaculada. ENTÃO, perfumado com os méritos da propiciação de Cristo, o incenso ASCENDE perante Deus completa e inteiramente ACEITÁVEL. Voltam então graciosas respostas.
+> Oxalá vissem TODOS que quanto a obediência, penitência, louvor e ações de graças, tudo TEM que ser COLOCADO sobre o ardente fogo da JUSTIÇA de Cristo! A fragrância desta JUSTIÇA ascende qual nuvem em torno do propiciatório.
+> — Mensagens Escolhidas - Cristo, nosso sumo sacerdote, p. 326/344 e 327.
+
+> Sentimo-nos tristes quando vemos professos cristãos desviarem-se pela falsa e fascinante teoria de que são perfeitos, porque é muito difícil desenganá-los e levá-los ao caminho reto. Eles procuram tornar lindo e aprazível o exterior, ao passo que o adorno interior a mansidão e humildade de Cristo — lhes está faltando.
+> — Santificação - A verdadeira e afalsa teoria comparadas, p. 10/11 e 11
+
+> Mas aquele que está verdadeiramente procurando a santidade de coração e de vida, deleita-se na lei de Deus, e lamenta unicamente o fato de que fica muito aquém de satisfazer a suas reivindicações.
+> — Santificação - O caráter cristão, p. 59/91
+
+> Era possível a Adão, antes da queda, formar um caráter justo pela obediência à lei de Deus. Mas deixou de o fazer e, devido ao seu pecado, nossa natureza se acha decaída, e não podemos tornar-nos justos. Visto como somos pecaminosos, profanos, não podemos obedecer perfeitamente a uma lei santa. Não possuímos justiça em nós mesmos com a qual pudéssemos satisfazer às exigências da lei de Deus. Mas Cristo nos proveu um meio de escape. Viveu na Terra em meio de provas e tentações como as que nos sobrevêm a nós. Viveu uma vida sem pecado. Morreu por nós, e agora Se oferece para nos tirar os pecados e dar-nos Sua justiça. Se vos entregardes a Ele e O aceitardes como vosso Salvador, sereis então, por pecaminosa que tenha sido vossa vida, considerados justos por Sua causa. O caráter de Cristo substituirá o vosso caráter, e sereis aceitos diante de Deus exatamente como se não houvésseis pecado.
+> — Caminho a Cristo - A obediência é um privilégio, 40/62 e 41.
+
+> A salvação, nesse caso, consiste em parte numa dívida, que pode ser quitada com o pagamento. Se o homem não pode, por qualquer de suas boas obras, merecer a salvação, então ela tem de ser inteiramente pela graça, recebida pelo homem como pecador, porque ele aceita a Jesus e crê nEle. A salvação é inteiramente um dom gratuito. A justificação pela fé está fora de controvérsia. E toda essa discussão estará terminada logo que seja estabelecida a questão de que os méritos do homem caído, em suas boas obras, jamais poderão obter a vida eterna para ele.
+> — Fé e obras - Ellen G. White esclarece as questões, p. 15.
+
+> NÃO devemos estar ansiosos acerca do que Cristo e Deus PENSAM de nós, mas do que Deus PENSA de Cristo, nosso Substituto. Vós sois aceitos no Amado. O Senhor mostra, aos contritos, crentes, que Cristo aceita a entrega da alma, para ser moldada e afeiçoada segundo a Sua imagem.
+> — Menságens Escohidas - A doutrina da "carne santa", p. 36/33.
+
+> O caráter se revela, não por boas ou más ações ocasionais, mas pela tendência das palavras e atos costumeiros.
+> — Caminho a Cristo - A obediência é um privilégio, p. 56/57.

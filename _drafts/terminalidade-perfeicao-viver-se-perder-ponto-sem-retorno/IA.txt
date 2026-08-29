@@ -1,0 +1,18 @@
+
+Leia todo o texto antes de começar a processar. Corrija o artigo abaixo, considerando:
+- Náo altere estilo linguístico original;
+- Não perca/exclua nenhum detalhe por menor que seja;
+- Reorganize os parágrafos para uma progressão lógica fluída crescente (argumento → evidência → clímax);
+- Preserve palavras MAIÚSCULAS de ênfase;
+- Reforçar e Inserir citações exatas de Bíblia/EGW (itálico + referência) onde o argumento carecer de base;
+- Náo invente referências (confira);
+- Mantenha um estilo de artigos rico em referências;
+- Mantenha e aprimore formatação Markdown;
+- Citações Bíblia/EGW (itálico + referência);
+- Se pertinente, sugira como comentário (na posição exata) citações reais e verificáveis de Bíblia/EGW (itálico + referência), precedida ou não de texto argumentativo sugestivo;
+- Preservar e aprimorar recurso retórico forte: hipérbole teológica deliberada.
+- Preservar e aprimorar contraste Radical (ex: viver sem pecar × vitória sobre o pecado; COM Cristo × EM Cristo...);
+- Preservar e aprimorar repetições retóricas (sermão);
+- Manter o tom de sermão - mas garanta boa boa como artigo;
+- Manter e melhore de impacto argumentativo;
+Tudo isso objetivando a eloquência argumentativa. Devolva em código de bloco. Segue:
