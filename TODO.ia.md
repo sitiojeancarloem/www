@@ -188,3 +188,5 @@ Este marcador encerra a seção de governança e inicia exclusivamente as TO-DOs
   - Validar `/atribuicoes` no fluxo real do GitHub Pages, inclusive navegação/roteamento, responsividade e impressão quando aplicável, sem alterar indevidamente páginas, posts, módulos ou recursos preexistentes.
 
 - [x] imagem de cover do 404 e também do noscript devem ser convertidas e otimizadas, conforme RCF para webm, caso já não tenham sido, e relincadas corretamente.
+
+- [ ] Em `blockquote` Markdown, implementar mecanismo automatizado de normalização de início de fala: converter qualquer ocorrência iniciada por `>` seguida de quantidade arbitrária de espaços/tabs e `--` em `> —`, preservando integralmente o conteúdo subsequente e a estrutura do bloco. Exemplos equivalentes: `> -- texto`, `>    -- texto`, `>\t-- texto` → `> — texto`. A transformação DEVE restringir-se estritamente a esse contexto, NÃO alterar `--` fora de `blockquote` e NÃO causar regressões em parsing, renderização, formatação ou demais regras Markdown existentes.
