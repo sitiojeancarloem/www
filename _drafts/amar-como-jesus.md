@@ -196,6 +196,20 @@ Quais seriam o termos atuais e modernos equivalentes? É possível claramente, e
 
 **Não foi sem motivo**, que tentaram matar Jesus. Não foi por Ele ser efetuoso, generoso, amável, ou dócil que decidiram matálo. Embora o exato ponto em que o texto bíblico afirme que decidiram, em segredo, procurar matá-lo não esteja assossiado à uma ocasião cujas palavras tenha sido dirigidas aos líderes (João 11), é inegável e óbivio, que a aberta, clara e direta opsição feita por Jesus aos líderes da época, de forma inequivocamente **ofensiva**, criou o espírito de **richa**, que somado ao milagres que atraíam as massas, despertou o espirito de **partidarismo** comum na geopolítica que nunca foi o objetivo de Jesus. Enquanto Jesus visa conversão e arrependimento espiritual, os líderes buscavam poder e O viam como **concorrente** forte e desejavam eliminá-O por representar isso.
 
+Jesus claramente falava e agia com amor e compaixão, mas ao fazê-lo **chingava e ofendia**, chamando as pessoas de Hipócritas, Insensatos, Serpentes, víboras, cegos, Sepulcros caiados, entre outros. Quais seriam os temos atuais e cotidianos por pessoas comuns de origem humilde?
+
+| Termo bíblico         | Sentido / carga original                                      | Equivalente cotidiano no Brasil                                                                         |
+| --------------------- | ------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
+| **Hipócritas**        | Falsidade moral e religiosa; aparência diferente da realidade | **Falsos**, **duas-caras**, **fingidos**, **safados**                                                   |
+| **Insensatos**        | Falta grave de discernimento e juízo                          | **Idiotas**, **imbecis**, **burros**, **sem noção**                                                     |
+| **Cegos**             | Incapacidade de perceber a verdade espiritual ou moral        | **Tapados**, **cegos**, **não enxergam o óbvio**                                                        |
+| **Guias cegos**       | Pessoas sem discernimento que ainda pretendem orientar outras | **Perdidos querendo ensinar os outros**, **cego guiando cego**, **não sabem de nada e querem dar aula** |
+| **Sepulcros caiados** | Aparência bonita e limpa escondendo corrupção interior        | **Bonitos por fora e podres por dentro**, **santos de fachada**, **gente podre por dentro**             |
+| **Serpentes**         | Astúcia maligna, perigo, traição, veneno moral                | **Cobras**, **traíras**, **canalhas**, **gente venenosa**                                               |
+| **Raça de víboras**   | Acusação coletiva de perversidade e perigo moral              | **Bando de cobras**, **bando de canalhas**, **gente venenosa**, **bando de desgraçados**                |
+
+<!-- TABELA EVOLUTIVA DE COMPARAÇãO: é (chingar e ofender) / anmálogo-->
+
 A conduta do verdadeiro cristão é aberta, direta, **sem floreios**, e sem meias verdade. Paulo dá exemplo em Gálatas 2:11-14:
 
 > ¹¹ E, chegando Pedro à Antioquia, lhe resisti na cara, porque era repreensível.
@@ -210,6 +224,10 @@ E esta não foi a única vez que Paulo, movido pelo Espírito Santo, deu exempo 
 > -- Atos 13:9,10 | ACF
 
 Em que multiverso ou realidade chamar outra pessoa de **filho do diabo** não é considerado um claro chingamento e nem ofensivo? E Paulo, note, Estava CHEIO do Espírito.
+
+Falar e afir com amor e compaixão, NÃO significa ser **brando** e **suave**.
+
+<!-- TABELA EVOLUTIVA DE COMPARAÇãO: item não é brando e suavidade; é falar na cara; é (reforçar) (chingar / ofender) abertamente -->
 
 Aquele texto inicial de Caminho a Cristo é comumente citado, e não há quem não goste dele, mas como sempre, é fácil esquecem que ele não termina alí.
 

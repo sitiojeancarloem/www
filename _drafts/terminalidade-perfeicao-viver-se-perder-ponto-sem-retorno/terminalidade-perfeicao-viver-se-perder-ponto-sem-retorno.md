@@ -214,4 +214,4 @@ E náo se pode esquecer ainda de Romanos 12:2 "E não vos conformeis com este s�
 
 A graça é Salvadora e Transformadora. Se a graça NÃO está tranformando, então é impossível ela estar salvando e a esperança do pecador na salvação é fútil.
 
-### Amor e Docilidade
+### Amor e Docilidade, diplomacia e o politicamente correto
