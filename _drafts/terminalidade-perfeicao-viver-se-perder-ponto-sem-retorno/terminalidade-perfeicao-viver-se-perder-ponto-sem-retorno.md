@@ -210,4 +210,8 @@ E náo se pode esquecer ainda de Romanos 12:2 "E não vos conformeis com este s�
 
 > "Pode haver marcados defeitos na vida de um indivíduo; contudo, quando ele se torna um verdadeiro discípulo de Cristo, o poder da divina graça TRANSFORMA-O e SANTIFICA-O. Contemplando como num espelho a glória do Senhor, é transformado de glória em glória, até alcançar a semelhança dAquele a quem adora."— (Atos dos Apóstolos, Cap. 55, p. 567) [procurar citação exatada e precisa com base no PDF disponívei publicamente]
 
-A graça é Salvadora e Transformadora. Se a graça NÃO está tranformando, então é impossível ela estar salvando e a esperança na salvação se torna vã.
+> "Como o fermento, misturado à farinha, opera do interior para o exterior, assim é pela renovação do coração, que a graça de Deus atua para TRANSFORMAR a vida..." (O texto integral está disponível em Parábolas de Jesus, Cap. 7, p. 95) [procurar citação exatada e precisa com base no PDF disponívei publicamente]
+
+A graça é Salvadora e Transformadora. Se a graça NÃO está tranformando, então é impossível ela estar salvando e a esperança do pecador na salvação é fútil.
+
+### Amor e Docilidade

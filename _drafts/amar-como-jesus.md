@@ -8,16 +8,16 @@ A princípio, o que se tira deste texto é é que o amor de Jesus significa acei
 
 > "Não julgueis, para que não sejais julgados. Pois, com o julgamento com que julgardes, sereis julgados; e com a medida com que tiverdes medido, vos medirão também." Mateus 5:1-5
 
-Este é mais um dos versículosque pode passar a ideia de que devemos ser pacientes e tolerantes com os erros dos outros, sem julgar de forma precipitada, pois todos somos falhos. E mais uma vez, isso também é verdade. Mas é apenas assim?
+Este é mais um dos versículos que pode passar a ideia de que devemos ser pacientes e tolerantes com os erros dos outros, sem julgar de forma precipitada, pois todos somos falhos. E mais uma vez, isso também é verdade. Mas é apenas assim?
 
 > "Mas a vós que ouvistes, digo: Amai os vossos inimigos, fazei bem aos que vos odeiam; abençoai os que vos amaldiçoam, orai pelos que vos caluniam." Mateus 6:27-31
 
-Este texto é extremamente importante, e vital. Ele é um mandamento divino direto. E não tem nada a contraria aqui. Mas ele pode passar a ideia como se o amor de Jesus fosse uma forma de condescendência, onde se faz o bem ao inimigo e se evita confrontar erros diretamenteçã, para justificar uma conduta  "diplomática" ou "não confrontacional" no trato com as falhas dos outros. Essa percepção estaria correta?
+Este texto é extremamente importante, e vital. Ele é um mandamento divino direto. E não tem nada a contraria aqui. Mas ele pode passar a ideia como se o amor de Jesus fosse uma forma de condescendência, onde se faz o bem ao inimigo e se evita confrontar erros diretamenteçã, para justificar uma conduta "diplomática" ou "não confrontacional" no trato com as falhas dos outros. Essa percepção estaria correta?
 
 Pode-se ainda, ver cartas e apelos tanto de Jesus quanto dos apóstolos quanto à amar uns aos aoutros e suporta-se mutamente. Veja alguns exemplos:
 
 > "Ouvistes que foi dito: Olho por olho, dente por dente.
-³⁹ Eu, porém, vos digo: não resistais ao perverso; mas, a qualquer que te ferir na face direita, volta-lhe também a outra;[^4]
+> ³⁹ Eu, porém, vos digo: não resistais ao perverso; mas, a qualquer que te ferir na face direita, volta-lhe também a outra;[^4]
 
 Este texto parece sugerir que o amor de Jesus implica **passividade** diante da **injustiça**, do **erro** e do **pecado**, não é? Seria um amor de total benevolência e tolerância?
 
@@ -25,7 +25,7 @@ Este texto parece sugerir que o amor de Jesus implica **passividade** diante da 
 
 A visita de Jesus a Zaqueu, um publicano considerado pecador, parece indicar aceitação ou uma espécie de complascência e diplomacia por parte DEle quanto a qualquer **comportamento** ou **pecado**, desde que o objetivo seja salvar pessoas. Ou seja, supostamente, deve-se atrair as pessoas, deve-se ter uma conduta que não cause ruptura, estranhesa ou respulsa, pois jesus veio salvar pecadores e é isso que deve ser feito, amar apesar do erro, pecados e falha. É realmente, muito bonito isso, mas é no todo verdade?
 
->Tenham uma mesma atitude uns para com os outros. Não sejam orgulhosos, mas estejam dispostos a associar-se a pessoas de posição inferior. Não sejam sábios aos seus próprios olhos. ¹⁷ Não retribuam a ninguém mal por mal. Procurem fazer o que é correto aos olhos de todos. ¹⁸ Façam todo o possível para viver em paz com todos. ¹⁹ Amados, nunca procurem vingar-se, mas deixem com Deus a ira, pois está escrito: "Minha é a vingança; eu retribuirei", diz o Senhor. ²⁰ Pelo contrário: "Se o seu inimigo tiver fome, dê-lhe de comer; se tiver sede, dê-lhe de beber. Fazendo isso, você amontoará brasas vivas sobre a cabeça dele". ²¹ Não se deixem vencer pelo mal, mas vençam o mal com o bem. [^6]
+> Tenham uma mesma atitude uns para com os outros. Não sejam orgulhosos, mas estejam dispostos a associar-se a pessoas de posição inferior. Não sejam sábios aos seus próprios olhos. ¹⁷ Não retribuam a ninguém mal por mal. Procurem fazer o que é correto aos olhos de todos. ¹⁸ Façam todo o possível para viver em paz com todos. ¹⁹ Amados, nunca procurem vingar-se, mas deixem com Deus a ira, pois está escrito: "Minha é a vingança; eu retribuirei", diz o Senhor. ²⁰ Pelo contrário: "Se o seu inimigo tiver fome, dê-lhe de comer; se tiver sede, dê-lhe de beber. Fazendo isso, você amontoará brasas vivas sobre a cabeça dele". ²¹ Não se deixem vencer pelo mal, mas vençam o mal com o bem. [^6]
 
 > Quanto ao mais, tenham todos o mesmo modo de pensar, sejam compassivos, amem-se fraternalmente, sejam misericordiosos e humildes. ⁹ Não retribuam mal com mal nem insulto com insulto; pelo contrário, bendigam; pois para isso vocês foram chamados, para receberem bênção por herança. ¹⁰ Pois, "quem quiser amar a vida e ver dias felizes, guarde a sua língua do mal e os seus lábios da falsidade. ¹¹ Afaste-se do mal e faça o bem; busque a paz com perseverança. [^9]
 
@@ -37,9 +37,10 @@ Talvez o mais expícito texto que, em sua versão Nova versão Internacional (NV
 
 > Portanto, como povo escolhido de Deus, santo e amado, revistam-se de profunda compaixão, bondade, humildade, mansidão e paciência. [^8]
 
-Já este talvez indica justamente o conceito de ser tolerante e  suportar os outros **sem confrontar** e perdoar **sem repreensão**, como uma postura onde o amor é entendido como um perdão irrestrito e incondincional, e que deve sere manifesto como uma "vista grossa" (gíria) ou docilidade. A ídeia de não tocar em pontos sensíveis, que fastem. Não é?
+Já este talvez indica justamente o conceito de ser tolerante e suportar os outros **sem confrontar** e perdoar **sem repreensão**, como uma postura onde o amor é entendido como um perdão irrestrito e incondincional, e que deve sere manifesto como uma "vista grossa" (gíria) ou docilidade. A ídeia de não tocar em pontos sensíveis, que fastem. Não é?
 
 Que deve-se amar o próximo, e neste conceito entra tudo aquilo que os texto mencional, incluindo aquele maior de I Coríntios 13 (que não foi reproduzido aqui), como:
+
 - Mansidão;
 - Suportar os outros;
 - Parciência;
@@ -49,7 +50,7 @@ Que deve-se amar o próximo, e neste conceito entra tudo aquilo que os texto men
 - Humildade;
 - Compreensão (empatia)
 
-Difícil imaginar algué na sociedae moder que afirme que os atributos acimas são indesejáveis. Pelo contrário! E principalmente, entre aqueles que professam o cristinismo, seria ainda mais difícil - supostamente. 
+Difícil imaginar algué na sociedae moder que afirme que os atributos acimas são indesejáveis. Pelo contrário! E principalmente, entre aqueles que professam o cristinismo, seria ainda mais difícil - supostamente.
 
 E é inegável: todos estes atributos devem ser vivenciados pelo critão! Sem exceção, e aqui há 100% de aprovação e endossa quanto a esta última sentença.
 
@@ -59,10 +60,9 @@ Porém, o artigo acaba aqui? Não!
 
 As orientações de bíblicas devem ser seguidas, e são normativas. Porém, é de fato a compreensão atual compatível com o que a bíblia ensina? Esta questão de docilidade, tolerância, conformismo e complascência e até passividade representa a ideia que os escritores desejam transmitir? Ou há um enviesamento [leitura de uma vidência por perpectiva (cultural e social) que pode ser bem diferente daquela das evidências]?
 
-Talvez uma das maiores dificuldades humanos esteja em compreender racionamente, e absorver de fato isso para além de uma convicão, filosofia, ideologia ou crença que há "coisas" que sáo 0 "8 (oito) ou 80 (oitenta)", que significa, _"ou é ou não é"_, inclusive este é um ensinamento claro de Jesus[^11]. E que há outras "coisas"  que são conciliáveis entre si - até parecem opostas entre si, por cauda da finitude e limitação fisica e mental humana, aliado a cultura, tradição entre outros fatoes que fazem a percepção se de que são distintos, "coisas" aprarentemente contraditórias. E reforço o "aparentemente". Jesus sabe que o homem teria dificuldade de compreender conceitos muito acima dele. Por isso ele também afirma que para as situações em há aprente contradição, e portanto são excessão, ele afirma: _"Vocês devem praticar estas coisas, **sem omitir** aquelas"_[^12]. Percebe, quando duas coisas parecem opostos entre si, que era o caso da situaçao com os fariseu, faça as duas, e não apenas uma - pois as duas estão corretas. Os líderes da época tinham dificuldade em ensinar e praticar normas detalhadas ao mesmo tempo que deviam ter compaixão e empatia pelo próprio - assim, quando elas aparentemente entravam em choque (por causa de más percepções da realidade, reforço), ele deixavam o amor de lado. Neste cotexto Jesus afirma que são estas sem esquecer aquelas!
+Talvez uma das maiores dificuldades humanos esteja em compreender racionamente, e absorver de fato isso para além de uma convicão, filosofia, ideologia ou crença que há "coisas" que sáo 0 "8 (oito) ou 80 (oitenta)", que significa, _"ou é ou não é"_, inclusive este é um ensinamento claro de Jesus[^11]. E que há outras "coisas" que são conciliáveis entre si - até parecem opostas entre si, por cauda da finitude e limitação fisica e mental humana, aliado a cultura, tradição entre outros fatoes que fazem a percepção se de que são distintos, "coisas" aprarentemente contraditórias. E reforço o "aparentemente". Jesus sabe que o homem teria dificuldade de compreender conceitos muito acima dele. Por isso ele também afirma que para as situações em há aprente contradição, e portanto são excessão, ele afirma: _"Vocês devem praticar estas coisas, **sem omitir** aquelas"_[^12]. Percebe, quando duas coisas parecem opostos entre si, que era o caso da situaçao com os fariseu, faça as duas, e não apenas uma - pois as duas estão corretas. Os líderes da época tinham dificuldade em ensinar e praticar normas detalhadas ao mesmo tempo que deviam ter compaixão e empatia pelo próprio - assim, quando elas aparentemente entravam em choque (por causa de más percepções da realidade, reforço), ele deixavam o amor de lado. Neste cotexto Jesus afirma que são estas sem esquecer aquelas!
 
 Diante disto, compreende-se que a bíblia é muito grande e tenta transmitir conceitos que estão muito acima da capacidade humana! E ela ensina praticamente tudo que é necessário ao homem!
-
 
 # Jesus é amor, mas era dócil?
 
@@ -72,29 +72,27 @@ Jesus se compartava de forma dócil? Confira um dos compartamentos DELE:
 
 > "Ai de vós, escribas e fariseus, hipócritas! Pois fechais o Reino dos céus diante dos homens; vós mesmos não entrais, nem os que estão entrando deixais entrar... **Serpentes, raça de víboras**, como escapareis da condenação do inferno?" [^10]
 
-
 # A falsa verdade
 
 No início deste, compreendeu-se como claro e evidente as atitudes e ordem que indicavam docilidade, entretanto, a percepção inicial era muito superficial e desconsiderava diversos ensinamentos e contextos. Ou seja, o texto é verdadeiro no que diz, mas a lição que se extrai dele, pode ser uma cilada: uma verdade parcial. E parcialidade é um perígo!
 
 Comparativamente, este problema é similar, a pegar a toxina buolinica em quantidade equivalente ao tamanho de apenas 01 (um) gãozinho de sal de zoinha, e colocar em (um) litro de água pura; esta pequeníssima dosagem, dificilmente visível, tornaria toda aquela água fatal para um homem adulto[^1]. Veja como o que é considerado desprezível ou insignificante (toxinina do graozinha do sal) pode ser completamente letal, estragando todo o resto que era bom (ããgua). Para se ter uma idea, um gão de sal de cozinha tem cerca de 70 à 100 nanogramas, que é equivalente a 0,000000070g - sãs sete zeros após a vírcula!
 
-Uma verdade contaminada com um aerrinho minúsculo,provavelmente imperceptível, deixa de ser verdada. O "quase" pode facilmente ser uma das palavras mais extremistas existentes. Quase empregado, é 100% desempregado. Quase novo, é velho. Quase ganhar na mega da virada, é perder! Quase verdade indica que faltou muito pouco, para ser verdade, as vezes faltou apenas 0.001%, mas ainda é mentira. Pense, por exempo, numa pessoa 99,99% viva: náo existe isso, e seria no máximo um eufemismo. Uma pessoa quase viva, está 100% morta. 
+Uma verdade contaminada com um aerrinho minúsculo,provavelmente imperceptível, deixa de ser verdada. O "quase" pode facilmente ser uma das palavras mais extremistas existentes. Quase empregado, é 100% desempregado. Quase novo, é velho. Quase ganhar na mega da virada, é perder! Quase verdade indica que faltou muito pouco, para ser verdade, as vezes faltou apenas 0.001%, mas ainda é mentira. Pense, por exempo, numa pessoa 99,99% viva: náo existe isso, e seria no máximo um eufemismo. Uma pessoa quase viva, está 100% morta.
 
-Havia um rei chamado Herodes Agria II (o título mais próximo nos dias atuais, seria governador) que teve que fazer um julgamento do apóstolo Paulo. E o relato está em Atos capítulo 26. Neste julgamento Paulo teve direito a defesa e, pode explicar seu caso que foi praticamente um testemunho de sua conversão ao cristianismo - até então denominado de ceita do nazareno. Paulo ao contar sua história rica em milagres e evidência bíblias e argumentação racional, foi interpelado pelo rei, que disse _"Por **pouco** me persuades a me fazer cristão"_[^13]. Percebe o "peso" disso? ... Faltou um pouquinho apenas, para que o terrível rei Agripa se tornasse o primeiro governador romano cristão. Por um pouquinho, ele teria aceitado Jesus, e seria salvo. Mas 99% salvo, ainda é 100% perdido! Na vida espiritual, quase ao lado de Jesus, é 100% ao lado do diabo.[^11] 
-
+Havia um rei chamado Herodes Agria II (o título mais próximo nos dias atuais, seria governador) que teve que fazer um julgamento do apóstolo Paulo. E o relato está em Atos capítulo 26. Neste julgamento Paulo teve direito a defesa e, pode explicar seu caso que foi praticamente um testemunho de sua conversão ao cristianismo - até então denominado de ceita do nazareno. Paulo ao contar sua história rica em milagres e evidência bíblias e argumentação racional, foi interpelado pelo rei, que disse _"Por **pouco** me persuades a me fazer cristão"_[^13]. Percebe o "peso" disso? ... Faltou um pouquinho apenas, para que o terrível rei Agripa se tornasse o primeiro governador romano cristão. Por um pouquinho, ele teria aceitado Jesus, e seria salvo. Mas 99% salvo, ainda é 100% perdido! Na vida espiritual, quase ao lado de Jesus, é 100% ao lado do diabo.[^11]
 
 # Bibliografia
 
-* WHITE, Ellen G. O Desejado de Todas as Nações. 2. ed. Tatuí: Casa Publicadora Brasileira, 2011.
+- WHITE, Ellen G. O Desejado de Todas as Nações. 2. ed. Tatuí: Casa Publicadora Brasileira, 2011.
 
-* GILL, D. M. Bacterial Toxins: A Table of Lethal Amounts. Microbiological Reviews, v. 46, n. 1, p. 86–94, 1982. Disponível em: https://journals.asm.org/doi/pdf/10.1128/mr.46.1.86-94.1982 . Acesso em: 18/10/2025.
+- GILL, D. M. Bacterial Toxins: A Table of Lethal Amounts. Microbiological Reviews, v. 46, n. 1, p. 86–94, 1982. Disponível em: https://journals.asm.org/doi/pdf/10.1128/mr.46.1.86-94.1982 . Acesso em: 18/10/2025.
 
 # Referências
 
 [^1]: Gill, 1982. Nota: A DL50 (Dose Letal Mediana) para humanos (estimada) é de aproximadamente 1 nanograma por quilograma de peso corporal (via intravenosa/inalação). Nunca use esta informação de forma não autorizada.
 
-[^2]: ARA, 1 João 4:8: "Aquele que não ama não conhece a Deus, pois **Deus é amor**".  Veja também João 15:13; Romanos 5:8; II Coríntios 5:14-15; I João 4:9-10
+[^2]: ARA, 1 João 4:8: "Aquele que não ama não conhece a Deus, pois **Deus é amor**". Veja também João 15:13; Romanos 5:8; II Coríntios 5:14-15; I João 4:9-10
 
 [^3]: ARA, Mateus 11:29: "²⁹ Tomai sobre vós o meu jugo e aprendei de mim, porque sou **manso** e **humilde** de coração; e achareis descanso para a vossa alma."
 
@@ -111,8 +109,108 @@ Havia um rei chamado Herodes Agria II (o título mais próximo nos dias atuais, 
 [^9]: NVI, I Pedro 3:8-11.
 
 [^10]: NVI, Mateus 23:13-33.
-[^11]: Várias evidências: **(1ª) NVI, Mateus 5:37**:_"Seja o seu ‘sim’, ‘sim’, e o seu ‘não’, ‘não’"_  ; **(2ª) NVI, Lucas 11:23**: _"Aquele que não está comigo é contra mim, e aquele que comigo não ajunta, espalha"_ <small>[denota que não precisa ser contra, simplemente não ser a favor, é o mesmo que ser contra]</small>; **(3ª) NVI, Mateus 6:24**: "Ninguém pode servir a dois senhores;..."; **(4ª) NVI, Mateus 7:13-14** - há apenas dois caminhos, sem meio termos, sem uma terceira opção; **(4ª)** Josué 24:15; **(5ª)** 1 Reis 18:21; **(6ª)** Lucas 14:26.
+
+[^11]: Várias evidências: **(1ª) NVI, Mateus 5:37**:_"Seja o seu ‘sim’, ‘sim’, e o seu ‘não’, ‘não’"_ ; **(2ª) NVI, Lucas 11:23**: _"Aquele que não está comigo é contra mim, e aquele que comigo não ajunta, espalha"_ <small>[denota que não precisa ser contra, simplemente não ser a favor, é o mesmo que ser contra]</small>; **(3ª) NVI, Mateus 6:24**: "Ninguém pode servir a dois senhores;..."; **(4ª) NVI, Mateus 7:13-14** - há apenas dois caminhos, sem meio termos, sem uma terceira opção; **(4ª)** Josué 24:15; **(5ª)** 1 Reis 18:21; **(6ª)** Lucas 14:26.
 
 [^12]: NVI, Mateus 23:23.
 
 [^13]: ARA, Atos 26:28.
+
+# Retóricas e argumentos e a serem adicionados
+
+"Cada ato" da vida de Jesus era de amor, mas o que significa de fato amor é que não é compreendido. Se lê em Caminho a Cristo:
+
+> <citar integralmente trecho de EGW de caminho a cristo em que é dito `“Amor, misericórdia e compaixão estavam presentes em cada ato de Sua vida`, omitindo intencionamente, imediantamente antes de `Jesus não suprimia sequer uma palavra da verdade, mas falava sempre com amor`, para que se contunue posterimente na citação marcada com <citar continuar-suprimida1> >
+
+Mas o que as pessoas entendem hoje como "Amor"?
+
+- Docura;
+- afeto;
+- carinho;
+- tato;
+
+Entretanto, o que Deus quer dizer, quando afirma que diz que faz tudo com amor? Será que quando Deus diz "amor" ELe, e quando ele faz algo, ou fala algo com "amor", ele está agindo ou se comportando da forma como nós compreendemos que agir e se comportar com amor seria?
+
+Falar e se comportar e tratar as pessoas com amr, misericórida e compaixão, segundo a bíblia, NÃO é ser dócio, afetuoso, poclicamente correto, nem mesmo ter tato. Especificamente quanto ao "tato", isto não quer dizer que Deus não lide de forma especializada com cada pessoa, com habilidade, ou jeito diferentes, que é o que chamaría-se de "tato", mas não é o "tato" que normalmente a sociedade entende e espera em geral.
+
+Criou-se no imaginário uma figura de Jesus que nunca existiu. Um ser dócil, afábil e fofo. Esse ser mítico criado no imaginário **nunca** existiu. De fato, Jesus era e é amor, mas as definiões atuais estão totalmente deturpardas e o senso de realidade se perdeu em meio a fições, contos, e meias verdades.
+
+Em S. João 2:13-16, ao pegar o chicote, Jesus agiu com Amor, misericordia e compaixão, entretanto, embora seus Atos fossem com amor, o que as pessoas percebiam e viam? Elam sairám de lá por ver um homem fofo, meigo e dócil? Elas sairam de lá por ver um homem calmo e manso? Note que, O espíriyo de profecia É CATEGÓRICO, todos os atos foram com amor, misericórdia e compaixão, mas a percepção das perssoas não. O que as pessoas viam e percebiam não eram isso. Elas viam outra coisa. Elas viam um homem enfurecido, possivelmente irado, esbravejando, potencialmente pergigoso.
+
+> <citar EGW, trecho que diz `“Olhando para Cristo, vêem a divindade irradiando através do invólucro humano. A Majestade do Céu está como o Juiz há de estar no último dia`> [procurar citação exatada e precisa com base no PDF disponívei publicamente]
+
+> <citar EGW, trecho que diz “Quando a divindade irradiou através da humanidade, não viram APENAS INDIGNAÇÃO na fisionomia de Cristo; perceberam o significado de Suas palavras. Sentiram-se como perante o trono do eterno Juiz, tendo sobre si Sua sentença para este século e a eternidade."> [procurar citação exatada e precisa com base no PDF disponívei publicamente]
+
+Note que, eles _"não viram APENAS INDIGNAÇÃO na fisionomia"_, portanto, Jesus estava claramente com um **sembrante PESADO**, demonstrando **indignação**.
+
+> <citar EGW, trecho que diz “Um PÂNICO percorre pela multidão, que se sente ofuscada por Sua divindade. [...] Os próprios discípulos TREMEM. São abalados pelas palavras e maneiras de Jesus, tão diversas de Sua atitude habitual."> [procurar citação exatada e precisa com base no PDF disponívei publicamente]
+
+> <citar EGW trecho que diz "Sua atitude severa e divina enchera de TERROR o coração dos astutos comerciantes"> [procurar citação exatada e precisa com base no PDF disponívei publicamente]
+
+Não foi meramente medo, foi PÂNICO e **TERROR**. Percebe? A **feição de Jesus mudou**, para algo **carregado** e PESADO, e ainda assim, cada ato de Sua vida, inclusive este, foi de amor, misericórdia e compaixão, denotando claramente, que a compreensão atual do que é agir com amor, copaixão e misericórdia, foge totalmente da compreensão divina.
+
+É esperado que, alguns julge este caso algo pontual, que de fato foi, mas isso não muda o incontestável: a afirmação divina, de "todos os atos", inclusive este terem sido com amor, misericórdia e compaixão.
+
+Quando se olha a bíblia com maior profundidade, se entende que amor, misericórdia e compaixão, NÃO tem relação alguma com doçura, amabilidade, cordialidade, tato, afeto, fofura, carinho, ou outra coisa análogo, que hoje é considerado como agir e falar com amor.
+
+Para Deus, segundo a bíblia o que agir e falar com amor?
+
+<!-- TABELA EVOLUTIVA DE COMPARAÇãO: item 1 repreender  e castigar -->
+
+> ¹⁹ Eu Repreendo e CASTIGO a todos quantos amo; sê pois zeloso, e arrepende-te.
+> -- Apocalipse 3:19 | ACF
+
+Amar, segundo o que "Está escrito", na compreensão de Deus, é **Repreende** e **CASTIGAR**. E isso vai totalmente contra o senso comum atua. Há duas escolhas: continuar crendo no mundo, ou crer em Deus. Em consequência, o **verdadeiro cristão**, que é aquele que permanece em Cristo e anda assim como Ele (1 João 2:6) terá qual tipo de comportamente? É óbvio, precisa ficar claro, que quem repreende e castiga é Deus e não o cristão; cabe ao cristão, como mero mensageiro (profeta, discípulo, apóstolo), a simples função de carteiro - a repreensão e o eventual castigo, advém não do próprio cristão, mas diretamente de Deus, mas percebe-se claramente o tipo de atitude, o peso, o rigor, e nivel se semblante que o verdadeiro cristão terá. E não foi diferente com Paulo, João, Elias, Isaías, Moises.
+
+> “Não odiarás a teu irmão no teu coração; _[mas]_ não deixarás de repreender o teu próximo [...]”
+> — Lv 19:17, ACF.
+
+> “Melhor é a repreensão franca do que o amor encoberto.”
+> — Pv 27:5, ACF.
+
+> ¹¹ E, na verdade, toda a correção, ao presente, não parece ser de gozo, senão de tristeza, mas depois produz um fruto pacífico de justiça nos exercitados por ela.
+> -- Hebreus 12:11 | ACF
+
+> “Fira-me o justo, será isso uma benignidade; e repreenda-me...”
+> — Sl 141:5, ACF.
+
+O quer fica eivente é que:
+
+- repreensão ≠ ausência de amor
+- agrado ≠ necessariamente amor
+
+<!-- TABELA EVOLUTIVA DE COMPARAÇãO: item 1 repreender  e castigar -->
+
+Mateus 23 é riquíssimo em exemplos reais de comportamente de Jesus, que quebram totalmente a ideia atual de amor e compativel. O que ocorre, por usar termos pouco comuns nos dias usuais, um jogo de palavras bonito, a impressão que se tem é que Jesus soava poético, talvez douto, e erutido. Mas importante notas que ELE era de origem humilde (Mateus 13:55;Lucas 2:24;Lucas 9:58;2 Coríntios 8:9), Ele não possui aparência ou elegância, nem comportamente distinto (Isaías 53:2); Jesus se passaria por invisível nas ruas, normalmente. ELe poderia ser chamado facilmente _"do povo"_, portanto, seus modos, não eram como de Reis, príncepes, ou ricos, mas como aqueles que vivem no surbúbios da sociedade.
+
+Assim, sabendo dessa origem humilde, popular, e simples, quando se lê que Ele claramente se referiu aos outros como:
+
+- Hipócritas — Mateus 23:13, 14, 15, 23, 25, 27 e 29.
+- Guias/condutores cegos — Mateus 23:16 e 24.
+- Insensatos e cegos — Mateus 23:17 e 19.
+- Sepulcros caiados — Mateus 23:27.
+- Serpentes — Mateus 23:33.
+- Raça de víboras — Mateus 23:33.
+
+Quais seriam o termos atuais e modernos equivalentes? É possível claramente, e de forma incontestável, afirmar que Jesus chingava as pessoas, sim, Ele era na, visão atual, **rude** com as pessoas. Mas isso em momento algum, significava que seus atos eram **falta** de amor, misericórdia ou compaixão. Mas note, tal "grosseria" era e é ainda hoje, **potencialmente** considerado grosseria (não é uma defesa da grosseria); ainda mais hoje, pois se perdeu totalmente a noção e senso de realidade e do conceito de amor e compaixão. A percepção de "grosseria", "agressividade" ou "ofensa" tem **muito mais** (mas não unicamente) relação com o ditato: _"se a carapuça serviu, enfia na cabeça"_, pois quanto mais aquela verdade serve para o ouvinte, mais doi nele próprio, e quanto mais doi nele, mais soa como grosseira e ápera, enquanto para outro em quem não serve, apenas foi algo lógico dito de forma direta, objetiva e sem rodeios. Portanto, a grosseria está **mais** nos ouvidos de quem ouve do que na boca de quem fala.
+
+**Não foi sem motivo**, que tentaram matar Jesus. Não foi por Ele ser efetuoso, generoso, amável, ou dócil que decidiram matálo. Embora o exato ponto em que o texto bíblico afirme que decidiram, em segredo, procurar matá-lo não esteja assossiado à uma ocasião cujas palavras tenha sido dirigidas aos líderes (João 11), é inegável e óbivio, que a aberta, clara e direta opsição feita por Jesus aos líderes da época, de forma inequivocamente **ofensiva**, criou o espírito de **richa**, que somado ao milagres que atraíam as massas, despertou o espirito de **partidarismo** comum na geopolítica que nunca foi o objetivo de Jesus. Enquanto Jesus visa conversão e arrependimento espiritual, os líderes buscavam poder e O viam como **concorrente** forte e desejavam eliminá-O por representar isso.
+
+A conduta do verdadeiro cristão é aberta, direta, **sem floreios**, e sem meias verdade. Paulo dá exemplo em Gálatas 2:11-14:
+
+> ¹¹ E, chegando Pedro à Antioquia, lhe resisti na cara, porque era repreensível.
+> -- Gálatas 2:11 | ACF
+
+> ² Que pregues a palavra, instes a tempo e fora de tempo, CORRIJAS, repreendas, exortes, com toda a longanimidade e DOUTRINAS. ³ Porque virá tempo _[e já chegou]_ em que NÃO suportarão a SÃ doutrina; mas, tendo coceira nos ouvidos, amontoarão para si doutores conforme as suas próprias concupiscências; ⁴ E desviarão os ouvidos da verdade, voltando às fábulas.
+> -- 2 Timóteo 4:2-4 | ACF
+
+E esta não foi a única vez que Paulo, movido pelo Espírito Santo, deu exempo da conduta cristã:
+
+> ⁹ Todavia Saulo, que também se chama Paulo, **CHEIO** do Espírito Santo, e fixando os olhos nele [Elimas], ¹⁰ Disse: Ó **filho do diabo**, cheio de todo o engano e de toda a malícia, inimigo de toda a justiça, não cessarás de perturbar os retos caminhos do Senhor?
+> -- Atos 13:9,10 | ACF
+
+Em que multiverso ou realidade chamar outra pessoa de **filho do diabo** não é considerado um claro chingamento e nem ofensivo? E Paulo, note, Estava CHEIO do Espírito.
+
+Aquele texto inicial de Caminho a Cristo é comumente citado, e não há quem não goste dele, mas como sempre, é fácil esquecem que ele não termina alí.
+
+> <citar continuar-suprimida1>
