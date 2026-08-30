@@ -6,7 +6,7 @@
 - frentes: `FT-050`, `FT-051`, `FT-052`
 - rcf_destino: `RCFs/carregamento-progressivo.md`
 - evidencias: `evidencia7b.png`, `evidencia9.png`, `evidencia10.png`, `evidencia11.png`, `evidencia12.png`
-- estado_incorporacao: pendente
+- estado_incorporacao: incorporado em `RCFs/carregamento-progressivo.md`
 
 ## Conteúdo integral
 

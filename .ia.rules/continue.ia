@@ -587,7 +587,7 @@ plano:
   - id: FT-050
     classe: implementacao_normativa
     criado_em: 2026-08-30T18:35:25.5019155-03:00
-    estado: em_andamento
+    estado: concluida
     fonte: .ia.rules/state/requests/FT-050/prompt.md
     objetivo: Corrigir o contrato de cover a partir das evidencias 7b, 9, 10, 11 e 12 e do comportamento anterior comprovado no Git.
     escopo: RCF-JCEM-CARREGAMENTO-PROGRESSIVO-001, modalidades content, wide single, wide triptych e hero legado adaptativo.
@@ -598,6 +598,12 @@ plano:
       - wide triptych preserva central, left e right sem fundir-se ao single
       - hero legado integral alterna para geometria content somente quando sua altura natural excederia o primeiro viewport util
       - contrato proibe scroll, flicker, oscilacao, reflow frequente e recalculo continuo
+    conclusao:
+      - pedido original, evidencias, RCF vigente, historico Git e implementacao atual foram confrontados
+      - contrato content foi limitado a zona do artigo e desacoplado de blur, superficie duplicada e recorte da flag
+      - wide single recuperou altura governante, centro no viewport e crop horizontal natural sem fit de largura
+      - wide triptych permaneceu modalidade propria e separada do single
+      - hero legado recebeu decisao adaptativa deterministica entre largura integral e geometria do artigo, sem scroll ou oscilacao
   - id: FT-051
     classe: implementacao_codigo
     criado_em: 2026-08-30T18:35:25.5019156-03:00
