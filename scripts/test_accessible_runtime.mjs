@@ -43,7 +43,7 @@ const executablePath = [
 const browser = await chromium.launch(executablePath ? { executablePath } : {});
 
 try {
-	const page = await browser.newPage({ viewport: { width: 390, height: 844 } });
+	const page = await browser.newPage({ viewport: { width: 320, height: 800 } });
 	await page.addInitScript(() => {
 		localStorage.setItem('silktideCookieBanner_InitialChoice', '1');
 		localStorage.setItem('silktideCookieChoice_obrigat_rios', 'true');
@@ -67,6 +67,7 @@ try {
 				getVoices() { return []; },
 				speak(utterance) {
 					spoken.push({ text: utterance.text, lang: utterance.lang });
+					if (window.__jcemHoldSpeech) return;
 					setTimeout(() => utterance.dispatchEvent(new Event('end')), 0);
 				},
 			},
@@ -76,13 +77,65 @@ try {
 
 	await page.goto(`http://127.0.0.1:${port}/_fixtures/tts-accessibility/`, { waitUntil: 'load' });
 	const controls = await page.evaluate(() => ({
-		play: document.querySelector('[data-jcem-read-action="play"]')?.textContent.trim(),
-		pause: document.querySelector('[data-jcem-read-action="pause"]')?.textContent.trim(),
-		stop: document.querySelector('[data-jcem-read-action="stop"]')?.textContent.trim(),
+		playIcon: document.querySelector('[data-jcem-read-action="play"] i')?.className,
+		pauseIcon: document.querySelector('[data-jcem-read-action="pause"] i')?.className,
+		stopIcon: document.querySelector('[data-jcem-read-action="stop"] i')?.className,
 		mode: document.querySelector('[data-jcem-read-reference-mode]')?.value,
+		modeIcon: document.querySelector('.jcem-read-aloud__mode > i')?.className,
 	}));
-	if (controls.play !== '▶' || controls.pause !== '⏸' || controls.stop !== '■' || controls.mode !== 'continuous') {
+	if (
+		!controls.playIcon?.includes('fa-play') ||
+		!controls.pauseIcon?.includes('fa-pause') ||
+		!controls.stopIcon?.includes('fa-stop') ||
+		!controls.modeIcon?.includes('fa-book-open') ||
+		controls.mode !== 'continuous'
+	) {
 		throw new Error(`CONTROLES_TTS_INVALIDOS ${JSON.stringify(controls)}`);
+	}
+	const compactLayout = await page.evaluate(() => {
+		const toolbar = document.querySelector('[data-jcem-read-aloud]');
+		const controlGroup = toolbar?.querySelector('.jcem-read-aloud__controls');
+		const mode = toolbar?.querySelector('.jcem-read-aloud__mode');
+		const select = toolbar?.querySelector('[data-jcem-read-reference-mode]');
+		const parent = toolbar?.parentElement;
+		if (!(toolbar instanceof HTMLElement) || !(controlGroup instanceof HTMLElement) || !(mode instanceof HTMLElement) || !(select instanceof HTMLSelectElement) || !(parent instanceof HTMLElement)) return null;
+		const toolbarRect = toolbar.getBoundingClientRect();
+		const parentRect = parent.getBoundingClientRect();
+		const targets = [...toolbar.querySelectorAll('button'), mode].map((target) => {
+			const rect = target.getBoundingClientRect();
+			return { width: rect.width, height: rect.height };
+		});
+		return {
+			toolbar: { left: toolbarRect.left, right: toolbarRect.right, width: toolbarRect.width, height: toolbarRect.height },
+			parent: { left: parentRect.left, right: parentRect.right },
+			display: getComputedStyle(toolbar).display,
+			flexWrap: getComputedStyle(toolbar).flexWrap,
+			controlsWrap: getComputedStyle(controlGroup).flexWrap,
+			selectOpacity: getComputedStyle(select).opacity,
+			visibleLabelPresent: Boolean(toolbar.querySelector('.jcem-read-aloud__label')),
+			buttonText: [...toolbar.querySelectorAll('button')].map((button) => button.textContent.trim()),
+			targets,
+			labels: [...toolbar.querySelectorAll('button, select')].map((target) => target.getAttribute('aria-label')),
+			titles: [...toolbar.querySelectorAll('button, select')].map((target) => target.getAttribute('title')),
+		};
+	});
+	if (
+		!compactLayout ||
+		compactLayout.display !== 'flex' ||
+		compactLayout.flexWrap !== 'nowrap' ||
+		compactLayout.controlsWrap !== 'nowrap' ||
+		compactLayout.selectOpacity !== '0' ||
+		compactLayout.visibleLabelPresent ||
+		compactLayout.buttonText.some(Boolean) ||
+		compactLayout.toolbar.width > 176 ||
+		compactLayout.toolbar.height > 41 ||
+		Math.abs(compactLayout.parent.right - compactLayout.toolbar.right) > 1 ||
+		compactLayout.toolbar.left < compactLayout.parent.left - 1 ||
+		compactLayout.targets.some(({ width, height }) => width < 40 || height < 40 || width > 41 || height > 41) ||
+		compactLayout.labels.some((label) => !label) ||
+		compactLayout.titles.some((title) => !title)
+	) {
+		throw new Error(`BARRA_TTS_NAO_COMPACTA ${JSON.stringify(compactLayout)}`);
 	}
 	await page.waitForFunction(() => document.querySelector('[data-jcem-chart]')?.dataset.jcemChartState === 'rendered');
 	await page.click('[data-jcem-read-action="play"]');
@@ -111,10 +164,44 @@ try {
 		throw new Error('REFERENCIA_COMPLETA_INTERROMPEU_MODO_CONTINUO');
 	}
 	await page.selectOption('[data-jcem-read-reference-mode]', 'full');
+	const fullModeHint = await page.getAttribute('[data-jcem-read-reference-mode]', 'title');
+	if (fullModeHint !== 'Modo de referências: completo') throw new Error(`HINT_MODO_TTS_INVALIDO ${fullModeHint}`);
 	await page.click('[data-jcem-read-action="play"]');
 	await page.waitForFunction(() => document.querySelector('[data-jcem-read-status]')?.textContent === 'Leitura concluída.');
 	const fullSpeech = await page.evaluate(() => window.__jcemSpokenFixture.map(({ text }) => text).join(' '));
 	if (!fullSpeech.includes('Referências completas:')) throw new Error('MODO_REFERENCIA_COMPLETA_AUSENTE');
+
+	await page.evaluate(() => { window.__jcemHoldSpeech = true; });
+	await page.click('[data-jcem-read-action="play"]');
+	await page.click('[data-jcem-read-action="pause"]');
+	const pausedState = await page.evaluate(() => ({
+		label: document.querySelector('[data-jcem-read-action="pause"]')?.getAttribute('aria-label'),
+		pressed: document.querySelector('[data-jcem-read-action="pause"]')?.getAttribute('aria-pressed'),
+		icon: document.querySelector('[data-jcem-read-pause-icon]')?.className,
+		status: document.querySelector('[data-jcem-read-status]')?.textContent,
+	}));
+	if (pausedState.label !== 'Continuar leitura' || pausedState.pressed !== 'true' || !pausedState.icon?.includes('fa-play') || pausedState.status !== 'Leitura pausada.') {
+		throw new Error(`ESTADO_PAUSA_TTS_INVALIDO ${JSON.stringify(pausedState)}`);
+	}
+	await page.click('[data-jcem-read-action="pause"]');
+	const resumedState = await page.evaluate(() => ({
+		label: document.querySelector('[data-jcem-read-action="pause"]')?.getAttribute('aria-label'),
+		pressed: document.querySelector('[data-jcem-read-action="pause"]')?.getAttribute('aria-pressed'),
+		icon: document.querySelector('[data-jcem-read-pause-icon]')?.className,
+		status: document.querySelector('[data-jcem-read-status]')?.textContent,
+	}));
+	if (resumedState.label !== 'Pausar leitura' || resumedState.pressed !== 'false' || !resumedState.icon?.includes('fa-pause') || resumedState.status !== 'Leitura retomada.') {
+		throw new Error(`ESTADO_RETORNADA_TTS_INVALIDO ${JSON.stringify(resumedState)}`);
+	}
+	await page.click('[data-jcem-read-action="stop"]');
+	const stoppedState = await page.evaluate(() => ({
+		pauseDisabled: document.querySelector('[data-jcem-read-action="pause"]')?.disabled,
+		stopDisabled: document.querySelector('[data-jcem-read-action="stop"]')?.disabled,
+		status: document.querySelector('[data-jcem-read-status]')?.textContent,
+	}));
+	if (!stoppedState.pauseDisabled || !stoppedState.stopDisabled || stoppedState.status !== 'Leitura interrompida.') {
+		throw new Error(`ESTADO_PARADA_TTS_INVALIDO ${JSON.stringify(stoppedState)}`);
+	}
 
 	await page.goto(`http://127.0.0.1:${port}/p/devaneios/`, { waitUntil: 'load' });
 	if (await page.locator('[data-jcem-chart-renderer], [data-jcem-chart-adapter]').count()) {

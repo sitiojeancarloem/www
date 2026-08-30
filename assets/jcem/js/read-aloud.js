@@ -19,6 +19,7 @@
 
 	const play = controls.querySelector('[data-jcem-read-action="play"]');
 	const pause = controls.querySelector('[data-jcem-read-action="pause"]');
+	const pauseIcon = controls.querySelector('[data-jcem-read-pause-icon]');
 	const stop = controls.querySelector('[data-jcem-read-action="stop"]');
 	const referenceMode = controls.querySelector('[data-jcem-read-reference-mode]');
 	const status = controls.querySelector('[data-jcem-read-status]');
@@ -117,12 +118,18 @@
 		[...root.children].forEach(walk);
 	};
 
+	/**
+	 * Sincroniza estado funcional e pistas acessíveis sem introduzir texto visível nos controles.
+	 * @param {string} message Estado anunciado pela região viva.
+	 * @returns {void}
+	 */
 	const setState = (message) => {
 		if (status) status.textContent = message;
 		play.disabled = active;
 		pause.disabled = !active;
 		stop.disabled = !active;
-		pause.textContent = paused ? '▶' : '⏸';
+		pauseIcon?.classList.toggle('fa-play', paused);
+		pauseIcon?.classList.toggle('fa-pause', !paused);
 		pause.setAttribute('aria-label', paused ? 'Continuar leitura' : 'Pausar leitura');
 		pause.setAttribute('title', paused ? 'Continuar leitura' : 'Pausar leitura');
 		pause.setAttribute('aria-pressed', String(paused));
@@ -193,6 +200,9 @@
 	referenceMode?.addEventListener('change', () => {
 		const labels = { continuous: 'contínuo', summary: 'resumido', full: 'completo' };
 		const selected = labels[referenceMode.value] || labels.continuous;
+		const hint = `Modo de referências: ${selected}`;
+		referenceMode.setAttribute('aria-label', hint);
+		referenceMode.setAttribute('title', hint);
 		if (active) {
 			generation += 1;
 			synth.cancel();

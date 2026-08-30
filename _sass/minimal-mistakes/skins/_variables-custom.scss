@@ -2637,60 +2637,87 @@ body
 
 .main_jcem_wrapper .jcem-read-aloud {
 	display: flex;
-	flex-wrap: wrap;
+	flex-wrap: nowrap;
 	align-items: center;
-	gap: 0.35rem 0.55rem;
-	margin: 1rem 0;
-	padding: 0.45rem 0.55rem;
-	border: 1px solid var(--bc);
-	border-radius: 0.35rem;
-	background: color-mix(in srgb, var(--fbg) 92%, var(--pri));
-}
-
-.main_jcem_wrapper .jcem-read-aloud__label {
-	margin: 0;
-	font-weight: 700;
-	text-indent: 0;
+	justify-content: flex-end;
+	width: max-content;
+	max-width: 100%;
+	margin: 0.35rem 0 0.65rem auto;
+	padding: 0;
+	border: 0;
+	background: transparent;
 }
 
 .main_jcem_wrapper .jcem-read-aloud__controls {
-	display: flex;
-	flex-wrap: wrap;
-	gap: 0.4rem;
+	display: inline-flex;
+	flex-wrap: nowrap;
+	align-items: center;
+	gap: 0.2rem;
 }
 
 .main_jcem_wrapper .jcem-read-aloud__mode {
-	display: inline-flex;
-	align-items: center;
-	gap: 0.35rem;
+	position: relative;
+	display: inline-grid;
+	place-items: center;
+	width: 2.5rem;
+	height: 2.5rem;
 	margin: 0;
+	border: 1px solid color-mix(in srgb, var(--bc) 72%, transparent);
+	border-radius: 0.25rem;
+	background: color-mix(in srgb, var(--cbg) 96%, var(--pri));
+	color: var(--mtc);
 	font-size: 0.82rem;
+	cursor: pointer;
 }
 
-.main_jcem_wrapper .jcem-read-aloud select {
-	min-height: 2.75rem;
-	padding: 0.25rem 1.7rem 0.25rem 0.45rem;
-	border: 1px solid var(--bc);
-	border-radius: 0.3rem;
+.main_jcem_wrapper .jcem-read-aloud__mode select {
+	position: absolute;
+	inset: 0;
+	width: 100%;
+	height: 100%;
+	min-height: 0;
+	margin: 0;
+	padding: 0;
+	border: 0;
+	opacity: 0;
+	cursor: pointer;
+}
+
+.main_jcem_wrapper .jcem-read-aloud__mode option {
 	background: var(--cbg);
 	color: var(--tc);
 }
 
 .main_jcem_wrapper .jcem-read-aloud button {
-	min-width: 2.75rem;
-	min-height: 2.75rem;
+	display: inline-grid;
+	place-items: center;
+	width: 2.5rem;
+	height: 2.5rem;
+	min-width: 2.5rem;
+	min-height: 2.5rem;
 	margin: 0;
-	padding: 0.35rem;
-	border: 1px solid var(--bc);
-	border-radius: 0.3rem;
-	background: var(--cbg);
-	color: var(--tc);
+	padding: 0;
+	border: 1px solid color-mix(in srgb, var(--bc) 72%, transparent);
+	border-radius: 0.25rem;
+	background: color-mix(in srgb, var(--cbg) 96%, var(--pri));
+	color: var(--mtc);
 	font: inherit;
-	font-size: 1rem;
+	font-size: 0.78rem;
+	line-height: 1;
+}
+
+.main_jcem_wrapper .jcem-read-aloud button:hover,
+.main_jcem_wrapper .jcem-read-aloud button:focus-visible,
+.main_jcem_wrapper .jcem-read-aloud__mode:hover,
+.main_jcem_wrapper .jcem-read-aloud__mode:focus-within {
+	border-color: var(--pri);
+	color: var(--tc);
+	outline: 2px solid color-mix(in srgb, var(--pri) 55%, transparent);
+	outline-offset: 1px;
 }
 
 .main_jcem_wrapper .jcem-read-aloud button:disabled {
-	opacity: 0.55;
+	opacity: 0.42;
 	cursor: not-allowed;
 }
 
