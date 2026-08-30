@@ -1,0 +1,18 @@
+---
+layout: single
+permalink: /_fixtures/covers/wide-single/
+title: Fixture de cover wide simples
+description: Valida a modalidade wide de uma imagem.
+pagespeed_layout: article
+author_profile: false
+sidebar: false
+sitemap: false
+robots: noindex, nofollow
+featured_image_style: wide
+header:
+  image: /assets/images/posts/eventos-finais/a-heranca-dos-santos.png
+  image_description: Cidade luminosa usada como fixture da cover wide simples
+  image_wide_mode: single
+---
+
+Conteúdo técnico para aferir centralização e superfície horizontal infinita de uma imagem.

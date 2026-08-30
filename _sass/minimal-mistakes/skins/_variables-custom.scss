@@ -1361,6 +1361,10 @@ body > input.radio#jcem-theme-dark:checked ~ .main_jcem_wrapper {
 
 	body:has([data-print-article])
 		> .main_jcem_wrapper
+		.jcem-featured-image--content
+		.jcem-featured-image__stage,
+	body:has([data-print-article])
+		> .main_jcem_wrapper
 		.jcem-featured-image--wide
 		.jcem-featured-image__stage {
 		height: min(
@@ -1373,6 +1377,10 @@ body > input.radio#jcem-theme-dark:checked ~ .main_jcem_wrapper {
 		);
 	}
 
+	body:has([data-print-article])
+		> .main_jcem_wrapper
+		.jcem-featured-image--content
+		.jcem-featured-image__img,
 	body:has([data-print-article])
 		> .main_jcem_wrapper
 		.jcem-featured-image--wide

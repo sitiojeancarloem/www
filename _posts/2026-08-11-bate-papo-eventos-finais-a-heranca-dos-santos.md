@@ -5,7 +5,6 @@ abstract: 'A synthesis of a conversation about the inheritance of the saints, th
 content_namespace: bate-papo
 content_subnamespaces:
   - eventos-finais
-featured_image_style: wide
 header:
   image: '/assets/images/posts/eventos-finais/a-heranca-dos-santos.png'
   image_description: 'Cidade luminosa ao horizonte, sobre colinas e sob um céu estrelado'

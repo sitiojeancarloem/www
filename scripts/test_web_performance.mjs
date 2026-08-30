@@ -18,6 +18,7 @@ const tagsPage = await readFile(new URL('../assuntos.md', import.meta.url), 'utf
 const themeInputs = await readFile(new URL('../_includes/jcem/body/first.html', import.meta.url), 'utf8');
 const mainPage = await readFile(new URL('../_includes/main_page.html', import.meta.url), 'utf8');
 const featuredImage = await readFile(new URL('../_includes/jcem/post-featured-image.html', import.meta.url), 'utf8');
+const singleLayout = await readFile(new URL('../_layouts/single.html', import.meta.url), 'utf8');
 const assetMetadataPlugin = await readFile(new URL('../_plugins/jcem_asset_metadata.rb', import.meta.url), 'utf8');
 const quoteSemanticsPlugin = await readFile(new URL('../_plugins/jcem_quote_semantics.rb', import.meta.url), 'utf8');
 const responsiveGenerator = await readFile(new URL('./generate-responsive-images.py', import.meta.url), 'utf8');
@@ -90,19 +91,40 @@ assert.doesNotMatch(
 	customVariables,
 	/\.archive\s*>\s*\.entries-grid\s*>\s*\.grid__item:nth-child\(n \+ 3\)[^{]*\{[^}]*content-visibility:\s*auto/s,
 );
-assert.match(featuredImage, /featured_style == "wide" and page\.header\.og_image/);
+assert.doesNotMatch(featuredImage, /featured_style == "wide" and page\.header\.og_image/);
+assert.match(
+	featuredImage,
+	/{% if featured_style == "wide" or featured_style == "content" %}[\s\S]*?jcem-featured-image__surface--{{ featured_style }}[\s\S]*?{% endif %}/,
+);
+assert.match(
+	singleLayout,
+	/{% if jcem_custom_featured and jcem_featured_style == "wide" %}[\s\S]*?{% elsif jcem_custom_featured %}[\s\S]*?{% elsif page\.header/,
+);
 assert.match(customTheme, /--jcem-featured-height:\s*clamp\(12rem, 32vh, 24rem\)/);
 assert.match(customTheme, /--jcem-featured-height:\s*clamp\(10rem, 30vh, 18rem\)/);
 assert.match(
 	customTheme,
 	/\.jcem-featured-image--wide\s*\{[\s\S]*?\.jcem-featured-image__stage\s*\{[^}]*height:\s*var\(--jcem-featured-height\);[^}]*min-height:\s*var\(--jcem-featured-height\);[\s\S]*?\.jcem-featured-image__img\s*\{[^}]*width:\s*auto;[^}]*height:\s*auto;[^}]*max-height:\s*100%;[^}]*margin-inline:\s*auto;[^}]*object-fit:\s*contain;/,
 );
+assert.match(
+	customTheme,
+	/\.jcem-featured-image--content\s*\{[^}]*width:\s*100%;[^}]*max-width:\s*100%;[\s\S]*?\.jcem-featured-image__stage\s*\{[^}]*width:\s*100%;[^}]*height:\s*var\(--jcem-featured-height\);[^}]*max-height:\s*var\(--jcem-featured-height\);/,
+);
+assert.doesNotMatch(
+	customTheme.match(/\.jcem-featured-image--content\s*\{[\s\S]*?\n\}/)?.[0] || '',
+	/100vw|50vw/,
+);
 assert.match(customTheme, /\.jcem-date-flag\s*\{[^}]*z-index:\s*3;/s);
-assert.match(customTheme, /\.jcem-featured-image__surface\s*\{[^}]*z-index:\s*0;/s);
+assert.match(
+	customTheme,
+	/\.jcem-featured-image--content \.jcem-featured-image__surface,\s*\.jcem-featured-image--wide \.jcem-featured-image__surface\s*\{[^}]*z-index:\s*0;/s,
+);
+assert.doesNotMatch(customTheme, /(?:^|\n)\.jcem-featured-image__surface\s*\{/);
 assert.match(customTheme, /\.jcem-featured-image__stage > \.jcem-featured-image__img\s*\{[^}]*z-index:\s*1;/s);
 assert.match(customTheme, /\.jcem-featured-image--triptych \.jcem-featured-image__surface/);
 assert.match(coverContract, /triptych_incompleto/);
 assert.match(coverContract, /alturas_incompativeis/);
+assert.match(coverContract, /wide_requer_estilo_wide/);
 assert.match(
 	customTheme,
 	/\.jcem-quote__icon\s*\{[^}]*grid-row:\s*1;[^}]*align-self:\s*start;/s,

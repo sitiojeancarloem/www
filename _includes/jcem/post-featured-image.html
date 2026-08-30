@@ -15,10 +15,6 @@
 {% elsif page.header.overlay_image %}
   {% assign image_path = page.header.overlay_image %}
 {% endif %}
-{% if featured_style == "wide" and page.header.og_image %}
-  {% assign image_path = page.header.og_image %}
-{% endif %}
-
 {% if image_path != "" %}
   {% assign image_alt = page.featured_image.alt | default: page.header.image_description | default: page.title | markdownify | strip_html | strip_newlines | escape_once %}
   {% assign image_caption = page.featured_image.caption | default: page.header.caption %}
@@ -30,10 +26,12 @@
     {% if featured_style == "content" %}
       {% include jcem/post-date-flag.html placement="image" %}
     {% endif %}
-    <div class="jcem-featured-image__stage" style="--jcem-cover-central: url('{{ image_path | relative_url }}');{% if wide_mode == 'triptych' %} --jcem-cover-left: url('{{ wide_left | relative_url }}'); --jcem-cover-right: url('{{ wide_right | relative_url }}');{% endif %}">
-      <span class="jcem-featured-image__surface" aria-hidden="true">
-        {% if wide_mode == "triptych" %}<i class="jcem-featured-image__side jcem-featured-image__side--left"></i><i class="jcem-featured-image__center"></i><i class="jcem-featured-image__side jcem-featured-image__side--right"></i>{% endif %}
-      </span>
+    <div class="jcem-featured-image__stage"{% if featured_style == "wide" %} style="--jcem-cover-central: url('{{ image_path | relative_url }}');{% if wide_mode == 'triptych' %} --jcem-cover-left: url('{{ wide_left | relative_url }}'); --jcem-cover-right: url('{{ wide_right | relative_url }}');{% endif %}"{% endif %}>
+      {% if featured_style == "wide" or featured_style == "content" %}
+        <span class="jcem-featured-image__surface jcem-featured-image__surface--{{ featured_style }}"{% if featured_style == "content" %} style="--jcem-cover-central: url('{{ image_path | relative_url }}');"{% endif %} aria-hidden="true">
+          {% if wide_mode == "triptych" %}<i class="jcem-featured-image__side jcem-featured-image__side--left"></i><i class="jcem-featured-image__center"></i><i class="jcem-featured-image__side jcem-featured-image__side--right"></i>{% endif %}
+        </span>
+      {% endif %}
       <img class="jcem-featured-image__img u-photo jcem-skeleton-asset" src="{{ image_path | relative_url }}" alt="{{ image_alt }}" loading="eager" decoding="async" fetchpriority="high"{% if image_meta.width and image_meta.height %} width="{{ image_meta.width }}" height="{{ image_meta.height }}"{% endif %}>
     </div>
     {% if image_caption %}

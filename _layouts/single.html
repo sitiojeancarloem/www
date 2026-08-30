@@ -62,6 +62,8 @@ layout: default
 
 {% if jcem_custom_featured and jcem_featured_style == "wide" %}
   {% include jcem/post-featured-image.html style="wide" %}
+{% elsif jcem_custom_featured %}
+  {% comment %}A modalidade content é renderizada dentro da zona do artigo.{% endcomment %}
 {% elsif page.header.overlay_color or page.header.overlay_image or page.header.image %}
   {% include page__hero.html locale=locale %}
 {% elsif page.header.video.id and page.header.video.provider %}
