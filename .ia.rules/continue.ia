@@ -1,14 +1,14 @@
 schema: jcem-continue/v1
 machine_id: JEAN-DESKTOP
-data_ref: 2026-08-29T20:38:00.0000000-03:00
-fonte: TODO.ia.md
-objetivo: Ciclo integralmente concluido: novas TO-DOs equalizadas, FTs 039 a 046 implementadas e validadas, publicacao aprovada e dev/main convergidos.
+data_ref: 2026-08-29T23:52:17.1266947-03:00
+fonte: .ia.rules/state/requests/FT-047/prompt.md
+objetivo: Corrigir a conformidade visual e dimensional da barra de TTS sem regredir funcionalidade, estado ou acessibilidade.
 autorizacao:
   origem: prompt humano
-  data: 2026-08-29T19:38:25.6675170-03:00
-  fonte: .ia.rules/state/requests/FT-045/prompt.md
-  escopo: normatizacao, implementacao, validacao, integracao e publicacao de todas as FTs em andamento e das novas FTs derivadas das TO-DOs atuais
-  restricao: preservar literalmente o item equalizer perene e limitar PageSpeed ao estritamente necessario
+  data: 2026-08-29T23:52:17.1266947-03:00
+  fonte: .ia.rules/state/requests/FT-047/prompt.md
+  escopo: correcao da implementacao, validacao focada e integracao local da barra de TTS
+  restricao: preservar comportamento e acessibilidade; dispensar PageSpeed sem necessidade estrita
 plano:
   - id: FT-020
     classe: implementacao_normativa
@@ -517,6 +517,20 @@ plano:
       - nove ocorrencias reais em amar-como-jesus.md foram migradas sem reescrita editorial
       - teste cobre espacos, tabs, CRLF, sufixo, idempotencia, HTML estatico e contextos negativos
       - build global com drafts encontrou binarios legados tratados como texto e imagem sem alt fora do escopo; o gate unitario da transformacao aprovou integralmente
+  - id: FT-047
+    classe: correcao_conformidade_codigo
+    criado_em: 2026-08-29T23:52:17.1266947-03:00
+    estado: em_andamento
+    fonte: .ia.rules/state/requests/FT-047/prompt.md
+    objetivo: Tornar a barra de TTS efetivamente compacta, horizontal, alinhada a direita e visualmente secundaria.
+    escopo: Include, estilos, runtime e validacoes focadas dos controles TTS vigentes.
+    aceite:
+      - barra ocupa somente a largura e a altura necessarias aos controles e permanece alinhada a direita
+      - nenhum rotulo textual permanente aparece na composicao visual
+      - play, pause, resume, stop e modo de referencias conservam icones, hints, nomes acessiveis, foco, toque e estados
+      - layout permanece horizontal e sem overflow em 320 px, nos temas claro e escuro
+      - comportamento dos tres modos de referencias e leitura existente permanece integral
+      - build isolado e testes focados aprovados sem PageSpeed por pagina
 lacunas:
   - id: GAP-AGENTS-CJS-ESM-001
     estado: isolada
