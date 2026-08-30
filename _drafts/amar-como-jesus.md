@@ -192,11 +192,11 @@ Assim, sabendo dessa origem humilde, popular, e simples, quando se lê que Ele c
 - Serpentes — Mateus 23:33.
 - Raça de víboras — Mateus 23:33.
 
-Quais seriam o termos atuais e modernos equivalentes? É possível claramente, e de forma incontestável, afirmar que Jesus chingava as pessoas, sim, Ele era na, visão atual, **rude** com as pessoas. Mas isso em momento algum, significava que seus atos eram **falta** de amor, misericórdia ou compaixão. Mas note, tal "grosseria" era e é ainda hoje, **potencialmente** considerado grosseria (não é uma defesa da grosseria); ainda mais hoje, pois se perdeu totalmente a noção e senso de realidade e do conceito de amor e compaixão. A percepção de "grosseria", "agressividade" ou "ofensa" tem **muito mais** (mas não unicamente) relação com o ditato: _"se a carapuça serviu, enfia na cabeça"_, pois quanto mais aquela verdade serve para o ouvinte, mais doi nele próprio, e quanto mais doi nele, mais soa como grosseira e ápera, enquanto para outro em quem não serve, apenas foi algo lógico dito de forma direta, objetiva e sem rodeios. Portanto, a grosseria está **mais** nos ouvidos de quem ouve do que na boca de quem fala.
+Quais seriam o termos atuais e modernos equivalentes? É possível claramente, e de forma incontestável, afirmar que Jesus chingava as pessoas, sim, Ele era na, visão atual, **rude** com as pessoas. Mas isso em momento algum, significava que seus atos eram **falta** de amor, misericórdia ou compaixão. Mas note, tal "grosseria" era e é ainda hoje, **potencialmente** considerado grosseria (e isso não é defesa da grosseria); ainda mais hoje, pois se perdeu totalmente a noção e senso de realidade e do conceito de amor e compaixão. A percepção de "grosseria", "agressividade" ou "ofensa" tem **muito mais** (mas não unicamente) relação com o ditato: _"se a carapuça serviu, enfia na cabeça"_, pois quanto mais aquela verdade serve para o ouvinte, mais doi nele próprio, e quanto mais doi nele, mais soa como grosseira e ápera, enquanto para outro em quem não serve, apenas foi algo lógico dito de forma direta, objetiva e sem rodeios. Portanto, a grosseria está **mais** nos ouvidos de quem ouve do que na boca de quem fala. Jesus e os profetas e apóstolos poderiam **soar** rudes e grosseiros, mas eles **nunca** foram estúpidos ou grosseiros: **há diferença entre soar de tal forma, e ser assim**.
 
 **Não foi sem motivo**, que tentaram matar Jesus. Não foi por Ele ser efetuoso, generoso, amável, ou dócil que decidiram matálo. Embora o exato ponto em que o texto bíblico afirme que decidiram, em segredo, procurar matá-lo não esteja assossiado à uma ocasião cujas palavras tenha sido dirigidas aos líderes (João 11), é inegável e óbivio, que a aberta, clara e direta opsição feita por Jesus aos líderes da época, de forma inequivocamente **ofensiva**, criou o espírito de **richa**, que somado ao milagres que atraíam as massas, despertou o espirito de **partidarismo** comum na geopolítica que nunca foi o objetivo de Jesus. Enquanto Jesus visa conversão e arrependimento espiritual, os líderes buscavam poder e O viam como **concorrente** forte e desejavam eliminá-O por representar isso.
 
-Jesus claramente falava e agia com amor e compaixão, mas ao fazê-lo **chingava e ofendia**, chamando as pessoas de Hipócritas, Insensatos, Serpentes, víboras, cegos, Sepulcros caiados, entre outros. Quais seriam os temos atuais e cotidianos por pessoas comuns de origem humilde?
+Jesus claramente falava e agia com amor e compaixão, mas ao fazê-lo ele usava o seus adversários considerariam como **chingava e ofensivo**, chamando as pessoas de Hipócritas, Insensatos, Serpentes, víboras, cegos, Sepulcros caiados, entre outros. Quais seriam os temos atuais e cotidianos por pessoas comuns de origem humilde?
 
 | Termo bíblico         | Sentido / carga original                                      | Equivalente cotidiano no Brasil                                                                         |
 | --------------------- | ------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
@@ -247,6 +247,93 @@ Pedro também chingava:
 Aquele texto inicial de Caminho a Cristo é comumente citado, e não há quem não goste dele, mas como sempre, é fácil esquecem que ele não termina alí.
 
 > <citar continuar-suprimida1>
+
+## Um alerta
+
+Ser humilde, ter um palevreado comum, simples, e popular. que é considerado acessível aos mais humildes, **NÃO** é o mesmo que **vulgaridade**. É absolutamente certo, que tanto Jesus, os discípulos e os apóstolos **NÃO** eram em seus modos de agir, em suas palvras nem **vulgares**, nem **irreverentes**, nem intencionalmente agressivos (no sentido de violar e desejar ferir), e muito menos, de usar gíricas ou palavras de baixo calaão. Na realidade, percebe-se justamente o oposto ao estudar os evangelhos. Não que ser cristão leve à erudissão, de forma alguma. Ser cristão em si, não torna alguém mais inteligente, e é por isso que se vê diversdos níveis de escrita e linguajar diferentes na própria bíblia, entretanto, o verdadeiro crístão, por mais humilde que seja, e aínda que possa fazer uso de chingamento e ofensas como já vimos que o próprio Cristo fez, não é o caso de usar palavras de baixo níveis.
+
+O ponto aqui é justamente demonstrar que tudo gira em torno de **amor** e sempre girou em torno disso. Mas a compreensão atual do que é amor é qwue está incorreta. Amor não é doçura, não é ser politicamente correto, nem ser fofo, como sociedade e a maior parte da igreja deseja. Envolve corrigir, evolver repreender, e em muitos casos ofender e ferir, contudo, tudo é amor e compaixão. AS essência, a índole, o cerne é o amor, é a salvação, é o bem da pessoa, e **não** o mal. Há imensa diferença entre ser grosseiro, aspero e rude intencionalmente, pormdesejar ferir, ou agredir, e outra, totalmente diferente, é ser grosseiro, aspero e rude, por consequência de um gestão de salvação. Parece difícil compreender?
+
+> Deus, Jesus e as atitudes dos verdadeiros cristãos podem ser comparadas, nesta alegoria, a um bombeiro cuja própria casa está pegando fogo — e sua esposa está presa lá dentro.
+>
+> Ele corre para salvá-la com duas coisas ao mesmo tempo: **o conhecimento do bombeiro e o desespero do marido**.
+>
+> Ele sabe o que fazer. Conhece o fogo. Sabe onde está o perigo. Sabe que uma decisão errada pode matar. Mas também ama aquela mulher. Não está tentando vencer uma discussão. Está tentando salvar sua vida.
+>
+> Quando chega, não há tempo para longas explicações:
+>
+> — Saia daí!
+> — Abaixe-se!
+> — Não vá por esse lado!
+> — Venha agora!
+> — Faça exatamente o que estou dizendo!
+>
+> Ele fala rápido. Fala firme. Dá ordens.
+>
+> Não porque deixou de amá-la, mas **porque a ama e sabe que cada segundo conta**.
+>
+> Agora imagine uma situação absurda: em vez de perceber o incêndio, a esposa começa a discutir a maneira como ele fala.
+>
+> “Por que você está me dando ordens?”
+> “Não fale assim comigo.”
+> “Eu sou sua esposa, não um dos bombeiros que você comanda.”
+> “Você deveria falar comigo com mais delicadeza.”
+> “Tenho direito de ser tratada de outra forma.”
+>
+> O problema é que **a casa está pegando fogo**.
+>
+> Ela está discutindo o tom de voz enquanto as chamas se aproximam.
+>
+> Ele conhece o perigo.
+> Ela não percebe o tamanho do perigo.
+>
+> Ele sabe que segundos separam a vida da morte.
+> Ela pensa que ainda há tempo para discutir direitos, sentimentos, formas e maneiras.
+>
+> Nesse momento, seu maior inimigo já não é apenas o fogo. É a incapacidade de reconhecer **a urgência da situação**.
+>
+> Ela olha para a firmeza do marido e vê aspereza e grosseria.
+> Ele olha para as chamas e vê morte.
+>
+> Ela pensa: “Ele está querendo mandar em mim.”
+>
+> Ele pensa: **“Eu estou tentando salvar você.”**
+>
+> É exatamente aí que está a tragédia.
+>
+> O problema não é que o bombeiro não tenha amor. É que a esposa passou a medir o amor dele pela suavidade de suas palavras, quando deveria medi-lo pelo esforço desesperado que ele está fazendo para tirá-la do fogo.
+>
+> Assim também acontece entre Deus e o ser humano.
+>
+> Muitas vezes queremos um Deus que apenas console, prometa, acaricie e confirme nossos desejos. Quando Ele adverte, repreende, ordena ou diz claramente que determinado caminho leva à morte, podemos interpretar sua firmeza como dureza.
+>
+> Mas talvez o problema não esteja na falta de amor de Deus.
+>
+> Talvez esteja em **não percebermos o incêndio**.
+>
+> Foi assim nos dias de Noé. As pessoas comiam, bebiam, casavam, trabalhavam e faziam planos. A vida parecia normal — até que deixou de ser.
+>
+> Foi assim com as virgens loucas. Elas sabiam que o noivo viria, mas viveram como se ainda houvesse tempo de sobra. Quando finalmente compreenderam a urgência, era tarde.
+>
+> E pode ser assim conosco.
+>
+> Cristo está para voltar, e nós continuamos construindo castelos como se este mundo fosse permanente. Discutimos nossos direitos, cobramos promessas, exigimos conforto e até questionamos o modo como Deus nos adverte.
+>
+> Enquanto isso, Ele diz:
+>
+> **“Acorde.”
+> “Saia daí.”
+> “Abandone isso.”
+> “Venha comigo.”
+> “Agora.”**
+>
+> Não porque seja um tirano.
+>
+> Mas porque **a casa está pegando fogo**.
+>
+> E, quando segundos separam a vida da morte, a voz do amor nem sempre soa como um sussurro.
+>
+> Às vezes, **o amor grita**.
 
 ## Uma Reflexão aos Pastores, Anciãos e Líderes Adventistas
 
