@@ -1,8 +1,8 @@
 schema: jcem-continue/v1
 machine_id: JEAN-DESKTOP
-data_ref: 2026-08-29T23:52:17.1266947-03:00
+data_ref: 2026-08-30T00:16:00.4598557-03:00
 fonte: .ia.rules/state/requests/FT-047/prompt.md
-objetivo: Corrigir a conformidade visual e dimensional da barra de TTS sem regredir funcionalidade, estado ou acessibilidade.
+objetivo: FT-047 concluida: barra de TTS efetivamente compacta, horizontal, alinhada a direita e visualmente secundaria, sem regressao funcional ou acessivel.
 autorizacao:
   origem: prompt humano
   data: 2026-08-29T23:52:17.1266947-03:00
@@ -520,7 +520,7 @@ plano:
   - id: FT-047
     classe: correcao_conformidade_codigo
     criado_em: 2026-08-29T23:52:17.1266947-03:00
-    estado: em_andamento
+    estado: concluido
     fonte: .ia.rules/state/requests/FT-047/prompt.md
     objetivo: Tornar a barra de TTS efetivamente compacta, horizontal, alinhada a direita e visualmente secundaria.
     escopo: Include, estilos, runtime e validacoes focadas dos controles TTS vigentes.
@@ -531,6 +531,16 @@ plano:
       - layout permanece horizontal e sem overflow em 320 px, nos temas claro e escuro
       - comportamento dos tres modos de referencias e leitura existente permanece integral
       - build isolado e testes focados aprovados sem PageSpeed por pagina
+    resultado: Commit material 377936875a37d5f2fac84011e8fa4ff8daec567c removeu o cartao e os rotulos visiveis, reduziu a barra a quatro alvos iconograficos de 40 px em 169,6 x 40 px e preservou seletor nativo, hints, nomes acessiveis e estados.
+    progresso:
+      - include passou a renderizar somente icones Font Awesome para play, pause ou resume, stop e modo de referencias
+      - seletor nativo permanece sobre o icone de referencias, e seu title e aria-label acompanham continuo, resumido e completo
+      - CSS usa uma unica linha sem wrap, largura max-content, margem automatica a direita, fundo transparente e nenhum padding ou borda no conteiner
+      - regressao automatizada em 320 px bloqueia texto permanente, overflow, desalinhamento, barra acima de 176 x 41 px e alvo abaixo ou acima de 40 x 40 px
+      - runtime confirmou 21 unidades faladas e preservou play, pausa, retomada, parada, aria-pressed, status e os tres modos
+      - build produtivo isolado, acessibilidade estrutural, compactacao HTML e matriz visual focada em desktop e 320 px, claro e escuro, foram aprovados
+      - inspecao visual real confirmou barra de 169,6 x 40 px, fundo transparente, borda ausente e zero overflow horizontal
+      - PageSpeed nao foi executado porque a correcao possui prova estrutural, funcional e visual direta e nao altera o layout medido de forma material
 lacunas:
   - id: GAP-AGENTS-CJS-ESM-001
     estado: isolada
