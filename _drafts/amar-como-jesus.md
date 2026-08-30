@@ -128,10 +128,11 @@ Mas o que as pessoas entendem hoje como "Amor"?
 - afeto;
 - carinho;
 - tato;
+- politicamente correto;
 
-Entretanto, o que Deus quer dizer, quando afirma que diz que faz tudo com amor? Será que quando Deus diz "amor" ELe, e quando ele faz algo, ou fala algo com "amor", ele está agindo ou se comportando da forma como nós compreendemos que agir e se comportar com amor seria?
+Entretanto, o que Deus quer dizer, quando afirma que diz que faz tudo com amor? Será que quando Deus diz "amor" e, quando Ele age ou fala com "amor", Ele está agindo ou falando da forma como nós compreendemos que é agir e falar com amor?
 
-Falar e se comportar e tratar as pessoas com amr, misericórida e compaixão, segundo a bíblia, NÃO é ser dócio, afetuoso, poclicamente correto, nem mesmo ter tato. Especificamente quanto ao "tato", isto não quer dizer que Deus não lide de forma especializada com cada pessoa, com habilidade, ou jeito diferentes, que é o que chamaría-se de "tato", mas não é o "tato" que normalmente a sociedade entende e espera em geral.
+Falar e se comportar e tratar as pessoas com amor, misericórida e compaixão, segundo a bíblia, NÃO é ser docio, afetuoso, policamente correto, nem mesmo ter tato. Especificamente quanto ao "tato", isto não quer dizer que Deus não lide de forma especializada com cada pessoa, com habilidade, ou jeito diferentes, que é o que chamaría-se de "tato", mas não é o "tato" que normalmente a sociedade entende e espera em geral.
 
 Criou-se no imaginário uma figura de Jesus que nunca existiu. Um ser dócil, afábil e fofo. Esse ser mítico criado no imaginário **nunca** existiu. De fato, Jesus era e é amor, mas as definiões atuais estão totalmente deturpardas e o senso de realidade se perdeu em meio a fições, contos, e meias verdades.
 
@@ -252,7 +253,7 @@ Aquele texto inicial de Caminho a Cristo é comumente citado, e não há quem n�
 
 Ser humilde, ter um palevreado comum, simples, e popular. que é considerado acessível aos mais humildes, **NÃO** é o mesmo que **vulgaridade**. É absolutamente certo, que tanto Jesus, os discípulos e os apóstolos **NÃO** eram em seus modos de agir, em suas palvras nem **vulgares**, nem **irreverentes**, nem intencionalmente agressivos (no sentido de violar e desejar ferir), e muito menos, de usar gíricas ou palavras de baixo calaão. Na realidade, percebe-se justamente o oposto ao estudar os evangelhos. Não que ser cristão leve à erudissão, de forma alguma. Ser cristão em si, não torna alguém mais inteligente, e é por isso que se vê diversdos níveis de escrita e linguajar diferentes na própria bíblia, entretanto, o verdadeiro crístão, por mais humilde que seja, e aínda que possa fazer uso de chingamento e ofensas como já vimos que o próprio Cristo fez, não é o caso de usar palavras de baixo níveis.
 
-O ponto aqui é justamente demonstrar que tudo gira em torno de **amor** e sempre girou em torno disso. Mas a compreensão atual do que é amor é qwue está incorreta. Amor não é doçura, não é ser politicamente correto, nem ser fofo, como sociedade e a maior parte da igreja deseja. Envolve corrigir, evolver repreender, e em muitos casos ofender e ferir, contudo, tudo é amor e compaixão. AS essência, a índole, o cerne é o amor, é a salvação, é o bem da pessoa, e **não** o mal. Há imensa diferença entre ser grosseiro, aspero e rude intencionalmente, pormdesejar ferir, ou agredir, e outra, totalmente diferente, é ser grosseiro, aspero e rude, por consequência de um gestão de salvação. Parece difícil compreender?
+O ponto aqui é justamente demonstrar que tudo gira em torno de **amor** e sempre girou em torno disso. Mas a compreensão atual do que é amor é qwue está incorreta. Amor não é doçura, não é ser politicamente correto, nem ser fofo, como sociedade e a maior parte da igreja deseja. Envolve corrigir, evolver repreender, e em muitos casos ofender e ferir, contudo, tudo é amor e compaixão. AS essência, a índole, o cerne é o amor, é a salvação, é o bem da pessoa, e **não** o mal. Há imensa diferença entre ser grosseiro, aspero e rude intencionalmente, pormdesejar ferir, ou agredir, e outra, totalmente diferente, é ser grosseiro, aspero e rude, por consequência de um gestão de salvação. Parece difícil compreender? Veja este exemplo:
 
 > Deus, Jesus e as atitudes dos verdadeiros cristãos podem ser comparadas, nesta alegoria, a um bombeiro cuja própria casa está pegando fogo — e sua esposa está presa lá dentro.
 >
