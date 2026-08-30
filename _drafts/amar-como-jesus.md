@@ -120,7 +120,11 @@ Havia um rei chamado Herodes Agripa II (o título mais próximo nos dias atuais,
 
 "Cada ato" da vida de Jesus era de amor, mas o que significa de fato amor é que não é compreendido. Se lê em Caminho a Cristo:
 
-> <citar integralmente trecho de EGW de caminho a cristo em que é dito `“Amor, misericórdia e compaixão estavam presentes em cada ato de Sua vida`, omitindo intencionamente, imediantamente antes de `Jesus não suprimia sequer uma palavra da verdade, mas falava sempre com amor`, para que se contunue posterimente na citação marcada com <citar continuar-suprimida1> >
+> Sua obra era evidência da unção divina. Amor, misericórdia e compaixão estavam presentes em cada ato de Sua vida. Seu coração se comovia em meiga simpatia para com as pessoas. Ele assumiu a natureza humana para que pudesse ir ao encontro de cada necessidade do ser humano. Os mais pobres e humildes não temiam aproximar-se dEle. Até as criancinhas eram atraídas para Ele. Elas gostavam muito de sentar-se no Seu colo e olhar para aquele rosto sereno, bondoso, cheio de amor.
+>
+> [...]
+>
+> — Ellen G. White, _Caminho a Cristo_, p. 7.
 
 Mas o que as pessoas entendem hoje como "Amor"?
 
@@ -138,15 +142,19 @@ Criou-se no imaginário uma figura de Jesus que nunca existiu. Um ser dócil, af
 
 Em S. João 2:13-16, ao pegar o chicote, Jesus agiu com Amor, misericórdia e compaixão, entretanto, embora seus Atos fossem com amor, o que as pessoas percebiam e viam? Elas saíram de lá por ver um homem fofo, meigo e dócil? Elas saíram de lá por ver um homem calmo e manso? Note que, O Espírito de profecia É CATEGÓRICO, todos os atos foram com amor, misericórdia e compaixão, mas a percepção das pessoas não. O que as pessoas viam e percebiam não eram isso. Elas viam outra coisa. Elas viam um homem enfurecido, possivelmente irado, esbravejando, potencialmente perigoso.
 
-> <citar EGW, trecho que diz `“Olhando para Cristo, vêem a divindade irradiando através do invólucro humano. A Majestade do Céu está como o Juiz há de estar no último dia`> [procurar citação exatada e precisa com base no PDF disponívei publicamente]
+> Silencia o tumulto. O som do tráfico e dos ajustes cessa. O silêncio torna-se penoso. Apodera-se da assembléia um sentimento de respeito. É como se estivessem citados perante o tribunal de Deus, para responder por seus atos. Olhando para Cristo, vêem a divindade irradiando através do invólucro humano. A Majestade do Céu está como o Juiz há de estar no último dia — não circundado agora da glória que O acompanhará então, mas com o mesmo poder de ler a mente.
+> — Ellen G. White, _O Desejado de Todas as Nações_, p. 123.
 
-> <citar EGW, trecho que diz “Quando a divindade irradiou através da humanidade, não viram APENAS INDIGNAÇÃO na fisionomia de Cristo; perceberam o significado de Suas palavras. Sentiram-se como perante o trono do eterno Juiz, tendo sobre si Sua sentença para este século e a eternidade."> [procurar citação exatada e precisa com base no PDF disponívei publicamente]
+> Cristo falava com a autoridade de um rei, e em Seu aspecto, e no tom de Sua voz havia alguma coisa a que eles não podiam resistir. À voz de comando compreenderam, como nunca dantes, sua verdadeira posição de hipócritas e roubadores. Quando a divindade irradiou através da humanidade, não viram **APENAS indignação** na <u>**fisionomia**</u> de Cristo; perceberam o significado de Suas palavras. Sentiram-se como perante o trono do eterno Juiz, tendo sobre si Sua sentença para este século e a eternidade.
+> — Ellen G. White, _O Desejado de Todas as Nações_, p. 125.
 
 Note que, eles _"não viram APENAS INDIGNAÇÃO na fisionomia"_, portanto, Jesus estava claramente com um **semblante PESADO**, demonstrando **indignação**.
 
-> <citar EGW, trecho que diz “Um PÂNICO percorre pela multidão, que se sente ofuscada por Sua divindade. [...] Os próprios discípulos TREMEM. São abalados pelas palavras e maneiras de Jesus, tão diversas de Sua atitude habitual."> [procurar citação exatada e precisa com base no PDF disponívei publicamente]
+> Um PÂNICO percorre pela multidão, que se sente ofuscada por Sua divindade. Gritos de terror escapam-se de centenas de lábios desmaiados. Os próprios discípulos TREMEM. São abalados pelas palavras e maneiras de Jesus, tão diversas de Sua atitude habitual.
+> — Ellen G. White, _O Desejado de Todas as Nações_, p. 123.
 
-> <citar EGW trecho que diz "Sua atitude severa e divina enchera de TERROR o coração dos astutos comerciantes"> [procurar citação exatada e precisa com base no PDF disponívei publicamente]
+> No princípio de Seu ministério, Cristo expulsara do templo os que o manchavam por seu profano tráfico; e Sua atitude **SEVERA** e divina enchera de **TERROR** o coração dos astutos comerciantes.
+> — Ellen G. White, _O Desejado de Todas as Nações_, p. 510.
 
 Não foi meramente medo, foi PÂNICO e **TERROR**. Percebe? A **feição de Jesus mudou**, para algo **carregado** e PESADO, e ainda assim, cada ato de Sua vida, inclusive este, foi de amor, misericórdia e compaixão, denotando claramente, que a compreensão atual do que é agir com amor, compaixão e misericórdia, foge totalmente da compreensão divina.
 
@@ -234,7 +242,7 @@ Em que multiverso ou realidade chamar outra pessoa de **filho do diabo** não é
 > — Tito 1:13 | ARA
 
 > A maior necessidade do mundo é a de homens — homens que se não comprem nem se vendam; homens que no íntimo da alma sejam verdadeiros e honestos; homens que NÃO temam CHAMAR o pecado pelo seu NOME EXATO; homens, cuja consciência seja tão fiel ao dever como a bússola o é ao pólo; homens que permaneçam firmes pelo que é reto, ainda que caiam os céus.
-> — Educação, p. 57 [[procurar citação exatada e precisa com base no PDF disponívei publicamente]]
+> — Ellen G. White, _Educação_, p. 57.
 
 Falar e agir com amor e compaixão, NÃO significa ser **brando** e **suave**, pelo contrário, é orientada à severidade.
 
@@ -247,7 +255,8 @@ Pedro também xingava:
 
 Aquele texto inicial de Caminho a Cristo é comumente citado, e não há quem não goste dele, mas como sempre, é fácil esquecer que ele não termina ali.
 
-> <citar continuar-suprimida1>
+> Jesus **NÃO suprimia** sequer uma **palavra da verdade**, mas falava sempre com amor. Ele tinha tato e prestava bondosa atenção ao interagir com as pessoas. Nunca Se mostrava rude, jamais pronunciava uma palavra severa **sem necessidade** e evitava causar dor desnecessária a uma pessoa sensível. Ele **não censurava a fraqueza** humana. **Falava a verdade**, mas sempre com amor. **Denunciava a hipocrisia, a incredulidade e a iniqüidade**; mas Suas **repreensões RIGOROSAS** eram sempre proferidas com **lágrimas** e **tristeza**.
+> — Ellen G. White, _Caminho a Cristo_, p. 7.
 
 ## Um alerta
 
@@ -283,7 +292,7 @@ O ponto aqui é justamente demonstrar que tudo gira em torno de **amor** e sempr
 >
 > O problema é que **a casa está pegando fogo**.
 >
-> Ela está discutindo o tom de voz enquanto as chamas se aproximam.
+> Ela está discutindo o tom de voz e as palavras usadas, enquanto as chamas se aproximam.
 >
 > Ele conhece o perigo.
 > Ela não percebe o tamanho do perigo.
@@ -340,7 +349,7 @@ O ponto aqui é justamente demonstrar que tudo gira em torno de **amor** e sempr
 
 Agora, de forma mais **especial** a todos os líderes, incluindo pastores e anciãos adventistas, não para acusá-los mas justamente por causa de sua alta responsabilidade e sobre os quais a _" culpa é tanto maior do que a dos outros quanto sua posição é de maior responsabilidade"_ (O Lar Adventista, p. 354, citando Patriarcas e Profetas, p. 579.).
 
-Muitos membros e queridos irmãos talvez não estejam cientes, ou se estão, não se importam, mas, cada vez mais, líderes da igreja, sejam, pastores, anciãos, tentam silenciar, em semelhança ao que acontecia nos tempos romanos da Idade Média, os "Atalaias" (<citar referencia biblica dos atalias de Deus chamados a proclamar a verdade e que não podem ser calar>) que anunciam a destruição iminente de Israel.
+Muitos membros e queridos irmãos talvez não estejam cientes, ou se estão, não se importam, mas, cada vez mais, líderes da igreja, sejam, pastores, anciãos, tentam silenciar, em semelhança ao que acontecia nos tempos romanos da Idade Média, os "Atalaias" (Ezequiel 33:7; Isaías 62:6) que anunciam a destruição iminente de Israel.
 
 Eles alegam que são palavras duras, difíceis e que ferem entre tantos outros argumentos; e todas estas correções não poderiam vir de Deus, pois Deus é amor. Elas ferem as pessoas e elas acabam se afastando da Igreja. Mas estes líderes são tolos. E para fazer como Jesus e Paulo, e usar palavras modernas, eu vou falar, eles são **imbecis**. O diabo tomou a mente deles, tanto quanto tomou a mente de Pedro momentos após ter sido tomado do Espírito Santo - uma vez eles experimentaram o poder da salvação, mas agora, lutam contra ela.
 
@@ -349,12 +358,16 @@ Eles têm se reunido em segredo como Caifás, sem reunião de comissão, sem ata
 Não é contra homens que eles estão lutando, e sim contra Deus. Provas?
 
 > <critar bíblico texto sacudidura>
+> ²⁶ Aquele, cuja voz abalou, então, a terra; agora, porém, Ele promete, dizendo: Ainda uma vez por todas, farei abalar não só a terra, mas também o céu. ²⁷ Ora, esta palavra, ainda uma vez, significa a remoção dessas coisas abaladas, como tinham sido feitas, para que as coisas que não são abaladas permaneçam.
+> — Hebreus 12:26b-27 | ARA
 
-> <critar EGW explicito texto sacudidura>
+> Começou a forte sacudidura e continuará, e todos os que NÃO estiverem **dispostos** a assumir uma posição **ousada** e tenaz em prol da verdade, e a sacrificar-se por Deus e por Sua causa, serão joeirados.
+> — Ellen G. White, _Primeiros Escritos_, p. 50.
 
 Está claro que tudo que tiver que ser sacudido será sacudido. A bíblia e o Espírito de Profecia já haviam dito que Jesus já deveria ter voltado e isso já tem 120 anos. Portanto, a sacudidura já deveria ter ocorrido. E se você luta contra a pregação e anúncio de verdades que ferem, contra chamar o pecado pelo nome, contra verdades que doem, contra verdades que não acomodam e que não levam as pessoas a se conformarem, você luta contra Deus.
 
-> <citar trecho da visão de 1904 explicito que fala que Jesus já deveria ter voltado ou outro ainda mais explicito>
+> **SE** todos os que trabalharam unidos na obra em 1844 tivessem recebido a mensagem do terceiro anjo, proclamando-a no poder do Espírito Santo, o Senhor teria poderosamente operado por seus esforços. Caudais de luz ter-se-iam derramado sobre o mundo. Haveria anos que os habitantes da Terra teriam sido avisados, a obra final estaria consumada, **e Cristo teria vindo para a redenção de Seu povo**.
+> — Ellen G. White, _O Grande Conflito_, p. 399.
 
 Os "Acabes" atuais que são grande parte, mas não todos, os líderes das igrejas adventistas em todos os lugares do mundo, **lutam contra a sacudidura** que não vem de mãos humanas, mas do próprio Deus. A sacudidura **não é ação humana, é ação divina**. Os Elias modernos, assim como o Elias do passado, **são meros carteiros**, mas estes líderes insistem em perseguir, silenciar, e acusar falsamente; não é contra homens que estão lutando, é contra Deus. Não adianta tentar calá-los, silenciá-los, ou criar planos secretos em suas salas de reuniões. Milhões tentaram, e quando um é calado, dois ou mais surgem no lugar: não há como vencer, eles são como semente. Está escrito: _"³⁰ Não há sabedoria, nem inteligência, nem mesmo conselho contra o Senhor…"_ (Provérbios 21:30a | ARA).
 
