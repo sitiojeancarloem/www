@@ -563,7 +563,7 @@ plano:
   - id: FT-049
     classe: implementacao_codigo
     criado_em: 2026-08-30T00:30:29.0901117-03:00
-    estado: pendente
+    estado: concluido
     depende_de: FT-048
     fonte: .ia.rules/state/requests/FT-048/prompt.md
     fonte_autorizacao: .ia.rules/state/requests/FT-048/prompt.md
@@ -574,6 +574,16 @@ plano:
       - posts alterados indevidamente recuperam a modalidade anterior ou comum aplicavel sem reclassificar os demais
       - testes cobrem default legado, content, wide single e wide triptych separadamente em tela, responsividade e impressao
       - build isolado e matriz visual focada aprovam sem PageSpeed por pagina
+    resultado: Commit material 1f22349b2f020859dcf88ad7b537e504658dcdd5 restaurou hero legado, content, wide single e wide triptych, eliminou a duplicacao de hero e impediu que campos especializados reclassifiquem outras modalidades.
+    progresso:
+      - markup deixou de trocar a imagem editorial por og_image e passou a emitir superficie somente em content local ou wide
+      - content ocupa 100% da zona do artigo com altura responsiva compartilhada, sem 100vw, sangria ou distorcao; wide preserva viewport e centralizacao
+      - dois posts reclassificados pela regressao recuperaram o hero legado sem alterar os posts wide preexistentes
+      - contrato rejeita campos wide fora de estilo wide, modo invalido, triptych parcial, dimensoes ou bordas incompativeis
+      - fixtures renderizadas aprovaram as quatro modalidades com leakage=0, sem hero duplicado nem derivado social visivel
+      - build produtivo isolado e gates agregado, HTML, performance, impressao, covers e runtime acessivel foram aprovados
+      - inspecao visual direta no navegador interno foi bloqueada pela politica de permissao do ambiente; nenhuma superficie alternativa foi usada
+      - PageSpeed nao foi executado por nao haver necessidade estrita diante das provas estruturais, renderizadas e funcionais focadas
 lacunas:
   - id: GAP-AGENTS-CJS-ESM-001
     estado: isolada

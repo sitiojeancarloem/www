@@ -5,7 +5,7 @@
 - sha256: `AFA57951DAE212750A43CB25693B8D21691F9A2A9E6405B14BDB5EB35379A957`
 - frentes: `FT-048`, `FT-049`
 - rcf_destino: `RCFs/carregamento-progressivo.md`
-- estado_incorporacao: pendente
+- estado_incorporacao: incorporado
 
 ## Conteúdo integral
 
