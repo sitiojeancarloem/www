@@ -1,14 +1,14 @@
 schema: jcem-continue/v1
 machine_id: JEAN-DESKTOP
-data_ref: 2026-08-30T00:16:00.4598557-03:00
-fonte: .ia.rules/state/requests/FT-047/prompt.md
-objetivo: FT-047 concluida: barra de TTS efetivamente compacta, horizontal, alinhada a direita e visualmente secundaria, sem regressao funcional ou acessivel.
+data_ref: 2026-08-30T18:35:25.5019155-03:00
+fonte: .ia.rules/state/requests/FT-050/prompt.md
+objetivo: Restaurar integralmente os contratos visuais e responsivos de cover demonstrados pelas evidencias 7b, 9, 10, 11 e 12, sem blur, fit indevido, flag recortada ou overflow do viewport inicial.
 autorizacao:
   origem: prompt humano
-  data: 2026-08-29T23:52:17.1266947-03:00
-  fonte: .ia.rules/state/requests/FT-047/prompt.md
-  escopo: correcao da implementacao, validacao focada e integracao local da barra de TTS
-  restricao: preservar comportamento e acessibilidade; dispensar PageSpeed sem necessidade estrita
+  data: 2026-08-30T18:35:25.5019155-03:00
+  fonte: .ia.rules/state/requests/FT-050/prompt.md
+  escopo: auditoria, normatizacao, correcao integral, validacao e integracao das regressões de cover descritas
+  restricao: preservar todos os modos e features; nao redesenhar, generalizar, fundir, comprimir, desfocar nem manipular scroll
 plano:
   - id: FT-020
     classe: implementacao_normativa
@@ -584,6 +584,49 @@ plano:
       - build produtivo isolado e gates agregado, HTML, performance, impressao, covers e runtime acessivel foram aprovados
       - inspecao visual direta no navegador interno foi bloqueada pela politica de permissao do ambiente; nenhuma superficie alternativa foi usada
       - PageSpeed nao foi executado por nao haver necessidade estrita diante das provas estruturais, renderizadas e funcionais focadas
+  - id: FT-050
+    classe: implementacao_normativa
+    criado_em: 2026-08-30T18:35:25.5019155-03:00
+    estado: em_andamento
+    fonte: .ia.rules/state/requests/FT-050/prompt.md
+    objetivo: Corrigir o contrato de cover a partir das evidencias 7b, 9, 10, 11 e 12 e do comportamento anterior comprovado no Git.
+    escopo: RCF-JCEM-CARREGAMENTO-PROGRESSIVO-001, modalidades content, wide single, wide triptych e hero legado adaptativo.
+    aceite:
+      - content termina nas bordas da zona do artigo sem sangria, blur ou superficie artificial
+      - flag permanece integralmente visivel fora de qualquer recorte de stage ou skeleton
+      - wide single restaura altura governante, centro no viewport e crop horizontal natural sem fit width
+      - wide triptych preserva central, left e right sem fundir-se ao single
+      - hero legado integral alterna para geometria content somente quando sua altura natural excederia o primeiro viewport util
+      - contrato proibe scroll, flicker, oscilacao, reflow frequente e recalculo continuo
+  - id: FT-051
+    classe: implementacao_codigo
+    criado_em: 2026-08-30T18:35:25.5019156-03:00
+    estado: pendente
+    depende_de: FT-050
+    fonte: .ia.rules/state/requests/FT-050/prompt.md
+    fonte_autorizacao: .ia.rules/state/requests/FT-050/prompt.md
+    objetivo: Restaurar markup, enquadramento, camadas, classificacao editorial e fallback responsivo dos modos de cover.
+    aceite:
+      - evidencia7b e evidencia10 convergem para content contido na zona do artigo
+      - evidencia9 perde blur e recupera flag integral
+      - evidencia11 recupera crop horizontal centralizado com altura minima e maxima
+      - variante triptych conserva repeticao e juncoes
+      - evidencia12 alterna sem scroll, jank, flicker ou cover parcialmente invisivel
+      - outros posts, temas, orientacoes, impressao, noscript e acessibilidade permanecem conformes
+  - id: FT-052
+    classe: integracao_validacao
+    criado_em: 2026-08-30T18:35:25.5019157-03:00
+    estado: pendente
+    depende_de: FT-051
+    fonte: .ia.rules/state/requests/FT-050/prompt.md
+    fonte_autorizacao: .ia.rules/state/requests/FT-050/prompt.md
+    objetivo: Demonstrar cada evidencia, estabilidade de resize, custo controlado e ausencia de regressao antes de convergir e publicar.
+    aceite:
+      - fixtures e paginas reais cobrem content, wide single, wide triptych e hero adaptativo nos dois estados
+      - teste mede limites, centros, crop, flag, ausencia de blur, estabilidade e scroll invariavel
+      - build isolado, gates estruturais, runtime, impressao e matriz visual focada aprovados
+      - PageSpeed somente se surgir necessidade estrita nao coberta por prova direta
+      - dev e main convergem apenas com todas as frentes concluidas
 lacunas:
   - id: GAP-AGENTS-CJS-ESM-001
     estado: isolada
