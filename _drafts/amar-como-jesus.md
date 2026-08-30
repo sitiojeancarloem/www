@@ -262,10 +262,10 @@ O ponto aqui é justamente demonstrar que tudo gira em torno de **amor** e sempr
 >
 > Quando chega, não há tempo para longas explicações:
 >
-> — Saia daí!
-> — Abaixe-se!
-> — Não vá por esse lado!
-> — Venha agora!
+> — Saia daí!  
+> — Abaixe-se!  
+> — Não vá por esse lado!  
+> — Venha agora!  
 > — Faça exatamente o que estou dizendo!
 >
 > Ele fala rápido. Fala firme. Dá ordens.
@@ -274,11 +274,11 @@ O ponto aqui é justamente demonstrar que tudo gira em torno de **amor** e sempr
 >
 > Agora imagine uma situação absurda: em vez de perceber o incêndio, a esposa começa a discutir a maneira como ele fala.
 >
-> “Por que você está me dando ordens?”
-> “Não fale assim comigo.”
-> “Eu sou sua esposa, não um dos bombeiros que você comanda.”
-> “Você deveria falar comigo com mais delicadeza.”
-> “Tenho direito de ser tratada de outra forma.”
+> — “Por que você está me dando ordens?”  
+> — “Não fale assim comigo.”  
+> — “Eu sou sua esposa, não um dos bombeiros que você comanda.”  
+> — “Você deveria falar comigo com mais delicadeza.”  
+> — “Tenho direito de ser tratada de outra forma.”
 >
 > O problema é que **a casa está pegando fogo**.
 >
@@ -321,11 +321,11 @@ O ponto aqui é justamente demonstrar que tudo gira em torno de **amor** e sempr
 >
 > Enquanto isso, Ele diz:
 >
-> **“Acorde.”
-> “Saia daí.”
-> “Abandone isso.”
-> “Venha comigo.”
-> “Agora.”**
+> — **“Acorde.”  
+> — “Saia daí.”  
+> — “Abandone isso.”  
+> — “Venha comigo.”  
+> — “Agora.”**
 >
 > Não porque seja um tirano.
 >
