@@ -541,6 +541,33 @@ plano:
       - build produtivo isolado, acessibilidade estrutural, compactacao HTML e matriz visual focada em desktop e 320 px, claro e escuro, foram aprovados
       - inspecao visual real confirmou barra de 169,6 x 40 px, fundo transparente, borda ausente e zero overflow horizontal
       - PageSpeed nao foi executado porque a correcao possui prova estrutural, funcional e visual direta e nao altera o layout medido de forma material
+  - id: FT-048
+    classe: implementacao_normativa
+    criado_em: 2026-08-30T00:30:29.0901116-03:00
+    estado: em_andamento
+    fonte: .ia.rules/state/requests/FT-048/prompt.md
+    objetivo: Restaurar no RCF a separacao inequivoca entre cover comum alinhada ao artigo e os modos wide infinito simples e triplo.
+    escopo: RCF-JCEM-CARREGAMENTO-PROGRESSIVO-001 e rastreabilidade da regressao introduzida pela FT-040.
+    aceite:
+      - contrato comum/content preserva zona do artigo, proporcao, enquadramento e limites responsivos proprios
+      - wide single permanece infinito, centralizado e limitado por altura sem contaminar outros modos
+      - wide triptych permanece variante opcional de single com central, left e right coordenados
+      - default legado, aliases, tela, responsividade e impressao permanecem explicitamente distintos
+      - auditoria confronta solicitacao, RCF, historico, comportamento anterior e estado atual
+  - id: FT-049
+    classe: implementacao_codigo
+    criado_em: 2026-08-30T00:30:29.0901117-03:00
+    estado: pendente
+    depende_de: FT-048
+    fonte: .ia.rules/state/requests/FT-048/prompt.md
+    fonte_autorizacao: .ia.rules/state/requests/FT-048/prompt.md
+    objetivo: Corrigir somente a selecao e o vazamento de estilos que generalizaram o cover infinito, preservando os fixes legitimos da FT-040.
+    aceite:
+      - markup e CSS aplicam superficie periferica somente a wide single ou triptych
+      - content ocupa exatamente a zona visivel do artigo e respeita o token responsivo de altura sem distorcao
+      - posts alterados indevidamente recuperam a modalidade anterior ou comum aplicavel sem reclassificar os demais
+      - testes cobrem default legado, content, wide single e wide triptych separadamente em tela, responsividade e impressao
+      - build isolado e matriz visual focada aprovam sem PageSpeed por pagina
 lacunas:
   - id: GAP-AGENTS-CJS-ESM-001
     estado: isolada

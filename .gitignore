@@ -23,6 +23,8 @@ node_modules
 !/.ia.rules/state/requests/FT-045/prompt.md
 !/.ia.rules/state/requests/FT-047/
 !/.ia.rules/state/requests/FT-047/prompt.md
+!/.ia.rules/state/requests/FT-048/
+!/.ia.rules/state/requests/FT-048/prompt.md
 !.vscode
 src/__generated__
 *.psd
