@@ -544,7 +544,7 @@ plano:
   - id: FT-048
     classe: implementacao_normativa
     criado_em: 2026-08-30T00:30:29.0901116-03:00
-    estado: em_andamento
+    estado: concluido
     fonte: .ia.rules/state/requests/FT-048/prompt.md
     objetivo: Restaurar no RCF a separacao inequivoca entre cover comum alinhada ao artigo e os modos wide infinito simples e triplo.
     escopo: RCF-JCEM-CARREGAMENTO-PROGRESSIVO-001 e rastreabilidade da regressao introduzida pela FT-040.
@@ -554,6 +554,12 @@ plano:
       - wide triptych permanece variante opcional de single com central, left e right coordenados
       - default legado, aliases, tela, responsividade e impressao permanecem explicitamente distintos
       - auditoria confronta solicitacao, RCF, historico, comportamento anterior e estado atual
+    resultado: O RCF voltou a separar hero legado, content, wide single e wide triptych, restringiu sangria e superficie periferica a wide e proibiu reclassificacao de posts por fix localizado.
+    progresso:
+      - historico confirmou que a FT-040 adicionou a superficie wide ao markup comum, substituiu header.image por og_image na exibicao e reclassificou dois posts novos como wide
+      - content ficou vinculado a zona visivel do artigo e ao token responsivo de altura sem 100vw ou sangria
+      - wide single preserva centralizacao e periferia de uma fonte; triptych continua opcional e especializado
+      - hero sem estilo, aliases legados, metadados sociais e impressao receberam limites explicitos contra vazamento
   - id: FT-049
     classe: implementacao_codigo
     criado_em: 2026-08-30T00:30:29.0901117-03:00
