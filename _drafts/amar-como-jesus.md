@@ -205,7 +205,7 @@ Paulo não teve apenas esta situação com Pedro. O Espírito Santo o moveu outr
 > ⁹ Todavia Saulo, que também se chama Paulo, **CHEIO** do **Espírito Santo**, e fixando os olhos nele [Elimas], ¹⁰ Disse: Ó **filho do diabo**, cheio de todo o engano e de toda a malícia, inimigo de toda a justiça, não cessarás de perturbar os retos caminhos do Senhor?
 > — Atos 13:9,10 | ACF
 
-Em que multiverso ou realidade chamar outra pessoa de **filho do diabo** não é considerado um claro xingamento e nem ofensivo? E Paulo, note, estava CHEIO do Espírito. A orientação divina é clara em Tito 1:13:
+Em que multiverso ou realidade chamar outra pessoa de **filho do diabo** não é considerado um claro xingamento e nem ofensivo? E Paulo, note, estava **CHEIO do Espírito**. A orientação divina é clara em Tito 1:13:
 
 > ³ Tal testemunho é exato. Portanto, repreende-os SEVERAMENTE, para que sejam sadios na fé
 > — Tito 1:13 | ARA
@@ -227,7 +227,9 @@ Aquele texto inicial de Caminho a Cristo é comumente citado, e não há quem n�
 > Jesus **NÃO suprimia** sequer uma **palavra da verdade**, mas falava sempre com amor. Ele tinha tato e prestava bondosa atenção ao interagir com as pessoas. Nunca Se mostrava rude, jamais pronunciava uma palavra severa **sem necessidade** e evitava causar dor desnecessária a uma pessoa sensível. Ele **não censurava a fraqueza** humana. **Falava a verdade**, mas sempre com amor. **Denunciava a hipocrisia, a incredulidade e a iniqüidade**; mas Suas **repreensões RIGOROSAS** eram sempre proferidas com **lágrimas** e **tristeza**.
 > — Ellen G. White, _Caminho a Cristo_, p. 7.
 
-1. Testemunhos, v. 1, pp. 73–74 — Ellen suaviza as mensagens e é repreendida por Cristo.
+> Quando o Senhor no início me deu mensagens para levar ao Seu povo, foi-me difícil apresentar-lhas, e muitas vezes eu as **AMENIZEI** e as **tornei** mais **SUAVES** pelo **temor** de **FERIR** a alguém. Foi uma grande prova declarar-lhes as mensagens **COMO** o Senhor mas entregou. Eu não compreendia que **estava** sendo **INFIEL** e não via o pecado e o perigo de tal procedimento até que fui levada em visão à presença de Jesus. Ele me olhou com o cenho carregado _[olhar severo e crítico]_ e **desviou** de mim o Seu rosto. **NÃO** é possível descrever o **TERROR** e **agonia** que senti.
+> -- Primeiros Escritos - O tempo do ajuntamento, pg. 96/77.
+
 2. Testemunhos, v. 5, pp. 19–20 / 656–657 — “se errei”, foi por não repreender com suficiente firmeza; não se deve diminuir a força das repreensões.
 3. Testemunhos, v. 3, pp. 329–330 — a repreensão fere a natureza humana, e chamar o mensageiro de “severo demais” pode neutralizar a correção que Deus enviou.
 
@@ -416,3 +418,11 @@ E o que acontece a tais pessoas, sejam líderes ou não? Afinal, por um curto pe
 [^13]: ARA, Atos 26:28.
 
 <!-- AI-PROCESSED:END -->
+
+# A adicionar futuramente
+
+> Correções, admoestações e repreensões da parte do Senhor têm sido dirigidas a Sua igreja em todas as épocas. Essas advertências foram desprezadas e rejeitadas nos dias de Cristo, pelos fariseus, que eram justos a seus próprios olhos e pretendiam não necessitar de semelhantes admoestações, considerando-se por isso injustamente tratados. Recusaram também receber a Palavra do Senhor, anunciada por Seus servos, por não satisfazer as suas inclinações.
+> -- Testemunhos para a Igreja, v. 5 - Natureza e influência dos testemunhos, p. 656/690.
+
+> Alguns que professam a justiça hão de, como Judas, entregar seu Senhor nas mãos de seus mais duros adversários. Esses que CONFIAM em si mesmos, resolvidos, como estão, a seguir seu **PRÓPRIO CAMINHO** e a **DEFENDER <u>suas próprias</u> idéias**, irão de mal a pior, até estarem prontos a **ACEITAR qualquer** proposta, **MENOS** a de **RENUNCIAR à sua própria vontade**. <u>Cegamente</u> prosseguirão no caminho do mal e tão **enganados** a respeito de **si mesmos**, que, como os fariseus <u>iludidos</u>, **IMAGINAM** estar fazendo a obra de Deus.
+> -- Testemunhos para a Igreja, v. 5 - Natureza e influência dos testemunhos, p. 657/691.
