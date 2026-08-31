@@ -360,10 +360,10 @@ Os "Acabes" atuais que são grande parte, mas não todos, os líderes das igreja
 
 Sabe o que está escrito sobre estes que lutam para combater a sacudidura?
 
-> ⁶ "**Não preguem**", dizem os seus profetas [líderes]. "Não preguem **acerca dessas coisas**;…
+> ⁶ "**NÃO preguem**", dizem os seus profetas [líderes]. "NÃO preguem **ACERCA dessas coisas**;…
 > Miquéias 2:6a | NVI
 
-> ¹⁰ Eles dizem aos videntes: "Não tenham mais visões!", e aos profetas: "**Não** nos revelem o que é **certo**! Falem-nos coisas **agradáveis**, profetizem **ilusões**.
+> ¹⁰ Eles dizem aos videntes: "**NÃO** tenham mais visões!", e aos profetas: "**NÃO** nos **revelem** o que é **certo**! Falem-nos coisas **agradáveis**, profetizem **ilusões**.
 > Isaías 30:10 | NVI
 
 > ¹² Mas vós aos nazireus _[o ungido do tempo biblico, análogo a líder ou pastor atual]_ destes vinho a beber, e aos profetas ordenastes, dizendo: Não profetizareis.
@@ -372,7 +372,7 @@ Sabe o que está escrito sobre estes que lutam para combater a sacudidura?
 > Alguns que professam a justiça hão de, como Judas, entregar seu Senhor nas mãos de seus mais duros adversários. Esses que CONFIAM em si mesmos, resolvidos, como estão, a seguir seu **PRÓPRIO CAMINHO** e a **DEFENDER <u>suas próprias</u> idéias**, irão de mal a pior, até estarem prontos a **ACEITAR qualquer** proposta, **MENOS** a de **RENUNCIAR à sua própria vontade**. <u>Cegamente</u> prosseguirão no caminho do mal e tão **enganados** a respeito de **si mesmos**, que, como os fariseus <u>iludidos</u>, **IMAGINAM** estar fazendo a obra de Deus.
 > -- Testemunhos para a Igreja, v. 5 - Natureza e influência dos testemunhos, p. 657/691.
 
-> **Correções, admoestações e repreensões** da parte do Senhor têm sido dirigidas a Sua igreja em **TODAS** as épocas. Essas advertências **foram desprezadas e rejeitadas** nos dias de Cristo, pelos fariseus, que eram justos a seus próprios olhos e **pretendiam NÃO necessitar** de semelhantes **admoestações**, **considerando-se** por isso **INJUSTAMENTE tratados**. Recusaram também receber a **Palavra do Senhor** _[testemunhos]_, anunciada por Seus servos, por **NÃO satisfazer as suas INCLINAÇÕES**. [...] **A MENOS** que essas pessoas **humilhem** o coração **diante de Deus**, deixando de acolher as sugestões de Satanás, a dúvida e **a incredulidade delas se apoderarão**, começando a **ver tudo** por um prisma **FALSO**. [...] **CHEGARÃO a ponto** de <u>desconfiar e **DESCRER** de **VERDADES** que são **INTUITIVAS**</u> e cheias de beleza para os que NÃO se educaram na incredulidade.
+> **Correções, admoestações e repreensões** da parte do Senhor têm sido dirigidas a Sua igreja em **TODAS** as épocas. Essas advertências **foram desprezadas e rejeitadas** nos dias de Cristo, pelos fariseus, que eram justos a seus próprios olhos e <u>**pretendiam NÃO necessitar**</u> de semelhantes **admoestações** _[correções]_, <u>**considerando-se**</u> por isso <u>**INJUSTAMENTE tratados**</u>. Recusaram também receber a **Palavra do Senhor** _[testemunhos]_, anunciada por Seus servos, por <u>**NÃO satisfazer as suas INCLINAÇÕES**</u>. [...] **A MENOS** que essas pessoas **humilhem** o coração **diante de Deus**, deixando de acolher as sugestões de Satanás, a dúvida e **a incredulidade delas se apoderarão**, começando a **ver tudo** por um prisma **FALSO**. [...] **CHEGARÃO a ponto** de <u>desconfiar e **DESCRER** de **VERDADES** que são **INTUITIVAS**</u> e cheias de beleza para os que NÃO se educaram na incredulidade.
 > -- Testemunhos para a Igreja, v. 5 - Natureza e influência dos testemunhos, p. 656/690.
 
 > ²⁰ Ai dos que ao mal chamam bem e ao bem, mal; que fazem da escuridade luz e da luz, escuridade; põem o amargo por doce e o doce, por amargo!
