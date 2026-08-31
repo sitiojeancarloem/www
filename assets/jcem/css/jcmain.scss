@@ -483,6 +483,8 @@ aside {
 	margin-left: calc(50% - 50vw);
 
 	.jcem-featured-image__stage {
+		width: 100%;
+		max-width: 100%;
 		height: var(--jcem-featured-height);
 		min-height: var(--jcem-featured-height);
 		max-height: var(--jcem-featured-height);

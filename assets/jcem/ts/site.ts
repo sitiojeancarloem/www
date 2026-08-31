@@ -421,7 +421,7 @@ const bindJcemLegacyHeroLayout = (): void => {
 };
 
 const jcemSkeletonMediaSelector =
-	'img, video, iframe, .jcem-featured-image, .archive__item-teaser, .page__hero, .page__hero--overlay, [data-jcem-skeleton]';
+	'img, video, iframe, .jcem-featured-image__stage, .jcem-featured-image, .archive__item-teaser, .page__hero, .page__hero--overlay, [data-jcem-skeleton]';
 const jcemSkeletonMinVisibleMs = 520;
 
 const findJcemSkeletonContainer = (element: Element): HTMLElement | null => {
@@ -431,7 +431,7 @@ const findJcemSkeletonContainer = (element: Element): HTMLElement | null => {
 
 	if (element instanceof HTMLImageElement) {
 		return element.closest<HTMLElement>(
-			'.jcem-featured-image, .archive__item-teaser, .page__hero, .page__hero--overlay, [data-jcem-skeleton]',
+			'.jcem-featured-image__stage, .jcem-featured-image, .archive__item-teaser, .page__hero, .page__hero--overlay, [data-jcem-skeleton]',
 		);
 	}
 

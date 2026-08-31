@@ -92,10 +92,8 @@ assert.doesNotMatch(
 	/\.archive\s*>\s*\.entries-grid\s*>\s*\.grid__item:nth-child\(n \+ 3\)[^{]*\{[^}]*content-visibility:\s*auto/s,
 );
 assert.doesNotMatch(featuredImage, /featured_style == "wide" and page\.header\.og_image/);
-assert.match(
-	featuredImage,
-	/{% if featured_style == "wide" or featured_style == "content" %}[\s\S]*?jcem-featured-image__surface--{{ featured_style }}[\s\S]*?{% endif %}/,
-);
+assert.doesNotMatch(featuredImage, /jcem-featured-image__surface--content/);
+assert.match(featuredImage, /featured_style == "wide" and wide_mode == "triptych"/);
 assert.match(
 	singleLayout,
 	/{% if jcem_custom_featured and jcem_featured_style == "wide" %}[\s\S]*?{% elsif jcem_custom_featured %}[\s\S]*?{% elsif page\.header/,
@@ -104,7 +102,7 @@ assert.match(customTheme, /--jcem-featured-height:\s*clamp\(12rem, 32vh, 24rem\)
 assert.match(customTheme, /--jcem-featured-height:\s*clamp\(10rem, 30vh, 18rem\)/);
 assert.match(
 	customTheme,
-	/\.jcem-featured-image--wide\s*\{[\s\S]*?\.jcem-featured-image__stage\s*\{[^}]*height:\s*var\(--jcem-featured-height\);[^}]*min-height:\s*var\(--jcem-featured-height\);[\s\S]*?\.jcem-featured-image__img\s*\{[^}]*width:\s*auto;[^}]*height:\s*auto;[^}]*max-height:\s*100%;[^}]*margin-inline:\s*auto;[^}]*object-fit:\s*contain;/,
+	/\.jcem-featured-image--wide\s*\{[\s\S]*?\.jcem-featured-image__stage\s*\{[^}]*height:\s*var\(--jcem-featured-height\);[^}]*min-height:\s*var\(--jcem-featured-height\);[^}]*max-height:\s*var\(--jcem-featured-height\);[\s\S]*?&\.jcem-featured-image--single \.jcem-featured-image__img\s*\{[^}]*width:\s*auto;[^}]*height:\s*100%;[^}]*max-width:\s*none;[^}]*max-height:\s*none;/,
 );
 assert.match(
 	customTheme,
@@ -115,13 +113,19 @@ assert.doesNotMatch(
 	/100vw|50vw/,
 );
 assert.match(customTheme, /\.jcem-date-flag\s*\{[^}]*z-index:\s*3;/s);
-assert.match(
-	customTheme,
-	/\.jcem-featured-image--content \.jcem-featured-image__surface,\s*\.jcem-featured-image--wide \.jcem-featured-image__surface\s*\{[^}]*z-index:\s*0;/s,
+assert.doesNotMatch(
+	customTheme.match(/\.jcem-featured-image,\s*\.jcem-legacy-hero[\s\S]*?\.jcem-featured-image__caption\s*\{/)?.[0] || '',
+	/filter:\s*blur\(/,
 );
-assert.doesNotMatch(customTheme, /(?:^|\n)\.jcem-featured-image__surface\s*\{/);
+assert.doesNotMatch(customTheme, /\.jcem-featured-image--content \.jcem-featured-image__surface/);
 assert.match(customTheme, /\.jcem-featured-image__stage > \.jcem-featured-image__img\s*\{[^}]*z-index:\s*1;/s);
 assert.match(customTheme, /\.jcem-featured-image--triptych \.jcem-featured-image__surface/);
+assert.match(singleLayout, /data-jcem-legacy-hero-mode="full"/);
+assert.match(site, /const bindJcemLegacyHeroLayout/);
+assert.doesNotMatch(site.match(/const bindJcemLegacyHeroLayout[\s\S]*?^};/m)?.[0] || '', /addEventListener\('scroll'/);
+assert.match(site, /\.jcem-featured-image__stage, \.jcem-featured-image, \.archive__item-teaser/);
+assert.match(visualValidation, /const coverProfile = visualProfile === 'covers'/);
+assert.match(visualValidation, /Hero legado reagiu a rolagem/);
 assert.match(coverContract, /triptych_incompleto/);
 assert.match(coverContract, /alturas_incompativeis/);
 assert.match(coverContract, /wide_requer_estilo_wide/);
@@ -175,7 +179,8 @@ assert.match(archiveReadTime, /include\.post \| default/);
 assert.doesNotMatch(customVariables, /repeat\(4, minmax\(0, 1fr\)\)/);
 assert.match(customVariables, /archive__item-link:visited/);
 assert.match(customVariables, /pagination a::after/);
-assert.match(customVariables, /100dvh - var\(--jcem-masthead-h/);
+assert.doesNotMatch(customVariables, /100dvh - var\(--jcem-masthead-h/);
+assert.match(site, /viewportHeight - measurement\.heroTopAtScrollZero|resolveJcemLegacyHeroMode/);
 assert.match(notFound, /pagina-404-480w\.webp/);
 assert.match(notFound, /fetchpriority="low"/);
 assert.match(notFound, /body\.layout--404\s*\{[\s\S]*overflow-x:\s*clip/);

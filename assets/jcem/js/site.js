@@ -326,14 +326,14 @@ const bindJcemLegacyHeroLayout = () => {
         image.addEventListener('load', schedule, { once: true });
     schedule();
 };
-const jcemSkeletonMediaSelector = 'img, video, iframe, .jcem-featured-image, .archive__item-teaser, .page__hero, .page__hero--overlay, [data-jcem-skeleton]';
+const jcemSkeletonMediaSelector = 'img, video, iframe, .jcem-featured-image__stage, .jcem-featured-image, .archive__item-teaser, .page__hero, .page__hero--overlay, [data-jcem-skeleton]';
 const jcemSkeletonMinVisibleMs = 520;
 const findJcemSkeletonContainer = (element) => {
     if (element instanceof HTMLElement && element.matches('[data-jcem-skeleton]')) {
         return element;
     }
     if (element instanceof HTMLImageElement) {
-        return element.closest('.jcem-featured-image, .archive__item-teaser, .page__hero, .page__hero--overlay, [data-jcem-skeleton]');
+        return element.closest('.jcem-featured-image__stage, .jcem-featured-image, .archive__item-teaser, .page__hero, .page__hero--overlay, [data-jcem-skeleton]');
     }
     return element instanceof HTMLElement ? element : null;
 };

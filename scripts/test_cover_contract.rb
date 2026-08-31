@@ -101,4 +101,7 @@ restored_posts.each do |relative_path|
   raise "post ainda reclassificado como wide: #{relative_path}" if source.match?(/^featured_image_style:\s*wide\s*$/)
 end
 
+sola_scriptura = File.read(File.join(ROOT, "_posts/2020-05-22-sola-scriptura.md"), encoding: "UTF-8")
+raise "Sola Scriptura fora da zona do artigo" unless sola_scriptura.match?(/^featured_image_style:\s*content\s*$/)
+
 puts "cover_contract=ok modes=4 fallback=single partial=rejected leak=rejected"

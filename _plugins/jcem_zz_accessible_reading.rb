@@ -192,8 +192,9 @@ module Jcem
     end
 
     def write_manifest(site)
-      pages = Dir.glob(File.join(site.dest, "**", "*.html")).sort.filter_map do |path|
-        page_manifest(path, site.dest)
+      relative_paths = Dir.glob(File.join("**", "*.html"), base: site.dest).sort
+      pages = relative_paths.filter_map do |relative_path|
+        page_manifest(File.join(site.dest, relative_path), site.dest)
       end.sort_by { |entry| entry["url"] }
       fatal("manifesto_sem_publicacoes") if pages.empty?
 

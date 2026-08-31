@@ -629,7 +629,7 @@ plano:
   - id: FT-052
     classe: integracao_validacao
     criado_em: 2026-08-30T18:35:25.5019157-03:00
-    estado: pendente
+    estado: concluida
     depende_de: FT-051
     fonte: .ia.rules/state/requests/FT-050/prompt.md
     fonte_autorizacao: .ia.rules/state/requests/FT-050/prompt.md
@@ -640,6 +640,19 @@ plano:
       - build isolado, gates estruturais, runtime, impressao e matriz visual focada aprovados
       - PageSpeed somente se surgir necessidade estrita nao coberta por prova direta
       - dev e main convergem apenas com todas as frentes concluidas
+    resultado: As quatro modalidades foram comprovadas em build isolado, contratos renderizados, runtime deterministico e matriz visual focada, sem PageSpeed e sem convergencia prematura de branches.
+    conclusao:
+      - build Jekyll isolado aprovou e gerou manifesto acessivel valido no Windows
+      - fixtures e paginas reais cobriram content, wide single, wide triptych e hero legado adaptativo
+      - matriz visual aprovou 56 combinacoes em ultrawide, wide, desktop e mobile, nos temas claro e escuro
+      - wide single preservou proporcao, altura governante, recorte horizontal central e zero overflow inclusive em 2560 px
+      - content permaneceu na zona do artigo, sem superficie ou blur, com flag fora do stage recortado
+      - skeleton permaneceu no stage interno durante o runtime e nao voltou a recortar o figure externo
+      - hero legado confirmou os estados full e content, limite do primeiro viewport, decisao estavel e invariancia a scroll
+      - gate agregado, TypeScript, HTML, performance, impressao, covers, acessibilidade e publicacao foram aprovados
+      - PageSpeed nao foi executado porque as provas diretas cobriram integralmente a mudanca
+      - navegador interno permaneceu indisponivel por falha de inicializacao dos assets do kernel; a prova visual foi executada pelo gate Playwright canonico do repositorio
+      - dev e main nao foram alterados ou convergidos durante a validacao, preservando o limite da autorizacao vigente
 lacunas:
   - id: GAP-AGENTS-CJS-ESM-001
     estado: isolada

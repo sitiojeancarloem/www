@@ -11,6 +11,8 @@ const artifactDir = path.resolve(process.env.VISUAL_ARTIFACT_DIR || 'visual-arti
 const visualValidationStrict = !['0', 'false', 'no', 'advisory'].includes(
 	String(process.env.VISUAL_VALIDATION_STRICT || 'true').toLowerCase(),
 );
+const visualProfile = String(process.env.VISUAL_PROFILE || 'full').toLowerCase();
+const coverProfile = visualProfile === 'covers';
 const focusedPagesOnly = process.env.VISUAL_SCOPE === 'pages';
 const configuredList = (name, fallback) => {
 	const value = process.env[name];
@@ -22,6 +24,7 @@ const pages = configuredList('VISUAL_PAGES', ['/', '/sobre/', '/p/devaneios/', '
 const themes = configuredList('VISUAL_THEMES', ['dark', 'light']);
 const notFoundPage = '/rota-inexistente-codex/';
 const allViewports = [
+	{ name: 'ultrawide', width: 2560, height: 1080 },
 	{ name: 'wide', width: 1920, height: 1080 },
 	{ name: 'desktop', width: 1366, height: 768 },
 	{ name: 'reduced', width: 900, height: 700 },
@@ -787,7 +790,7 @@ const validatePage = async (page, url, theme, viewportName) => {
 					}
 				: null;
 		};
-		const flag = document.querySelector('.jcem-post-header > .jcem-date-flag');
+		const flag = document.querySelector('.jcem-post-header .jcem-date-flag');
 		const titleAnchor = document.querySelector('.jcem-post-header .page__title a');
 		const titleAnchorRect = titleAnchor?.getBoundingClientRect();
 		const titleAnchorStyle = titleAnchor
@@ -816,6 +819,11 @@ const validatePage = async (page, url, theme, viewportName) => {
 		const featuredImage = featuredFrame?.querySelector('.jcem-featured-image__img');
 		const featuredFrameRect = featuredFrame?.getBoundingClientRect();
 		const featuredImageRect = featuredImage?.getBoundingClientRect();
+		const featuredMode = featuredFrame?.classList.contains('jcem-featured-image--single')
+			? 'single'
+			: featuredFrame?.classList.contains('jcem-featured-image--triptych')
+				? 'triptych'
+				: '';
 		const blockquotes = Array.from(
 			document.querySelectorAll('.page__content blockquote'),
 		);
@@ -1209,10 +1217,12 @@ const validatePage = async (page, url, theme, viewportName) => {
 				titleTextStart,
 				readtime: boxInfo('.jcem-post-header .page__meta-readtime'),
 				firstPanel: boxInfo('.page__content .jcem-panel--blockquote'),
-				flag: boxInfo('.jcem-post-header > .jcem-date-flag'),
+				flag: boxInfo('.jcem-post-header .jcem-date-flag'),
 				flagTextMaxOffset,
 				featured: featuredFrameRect && featuredImageRect
 					? {
+							mode: featuredMode,
+							surfaceCount: featuredFrame.querySelectorAll('.jcem-featured-image__surface').length,
 							heightMatchesFrame:
 								Math.abs(featuredImageRect.height - featuredFrameRect.height) <= 2,
 							widthMatchesFrame:
@@ -1556,8 +1566,9 @@ const validatePage = async (page, url, theme, viewportName) => {
 
 		if (
 			featured &&
-			((!featured.heightMatchesFrame && !featured.widthMatchesFrame) ||
-				!featured.withinFrameWidth ||
+			((featured.mode === 'single' && !featured.heightMatchesFrame) ||
+				(featured.mode === 'triptych' && featured.surfaceCount !== 1) ||
+				(featured.mode === 'single' && featured.surfaceCount !== 0) ||
 				!featured.centered ||
 				featured.frameHeight >= featured.viewportHeight ||
 				featured.naturalRatio <= 0 ||
@@ -1790,7 +1801,7 @@ const validatePage = async (page, url, theme, viewportName) => {
 		fail(`Botao de retorno ao topo visivel no topo em ${url} ${theme} ${viewportName}`);
 	}
 
-	if (viewportName !== 'desktop' && viewportName !== 'wide') {
+	if (!['ultrawide', 'wide', 'desktop'].includes(viewportName)) {
 		const header = result.headerControls;
 
 		if (!header.logo || !header.logoImg || !header.theme || !header.navToggle) {
@@ -2024,6 +2035,265 @@ const validatePage = async (page, url, theme, viewportName) => {
 	});
 
 	await validateCompactMenu(page, url, theme, viewportName);
+};
+
+const validateCoverPage = async (page, url, theme, viewportName) => {
+	await page.goto(url, { waitUntil: 'domcontentloaded' });
+	await page.waitForLoadState('load', { timeout: 15000 }).catch(() => {});
+	await page.evaluate((selectedTheme) => {
+		const input = document.querySelector(`#jcem-theme-${selectedTheme}`);
+		if (!(input instanceof HTMLInputElement)) return;
+		input.checked = true;
+		input.dispatchEvent(new Event('input', { bubbles: true }));
+		input.dispatchEvent(new Event('change', { bubbles: true }));
+	}, theme);
+	await page.waitForFunction(
+		() =>
+			Array.from(
+				document.querySelectorAll(
+					'.jcem-featured-image__img, [data-jcem-legacy-hero] .page__hero-image',
+				),
+			).every((image) => image.complete && image.naturalWidth > 0),
+		null,
+		{ timeout: 15000 },
+	);
+	await page.waitForTimeout(700);
+
+	const result = await page.evaluate(() => {
+		const rect = (element) => {
+			const box = element?.getBoundingClientRect();
+			return box
+				? {
+						left: box.left,
+						top: box.top,
+						right: box.right,
+						bottom: box.bottom,
+						width: box.width,
+						height: box.height,
+					}
+				: null;
+		};
+		const custom = document.querySelector('.jcem-featured-image');
+		const legacy = document.querySelector('[data-jcem-legacy-hero]');
+		const article = document.querySelector('article.page .page__inner-wrap');
+		const articleRect = rect(article);
+
+		if (custom) {
+			const stage = custom.querySelector('.jcem-featured-image__stage');
+			const image = custom.querySelector('.jcem-featured-image__img');
+			const flag = custom.querySelector('.jcem-date-flag');
+			const frameRect = rect(custom);
+			const stageRect = rect(stage);
+			const imageRect = rect(image);
+			const flagRect = rect(flag);
+			const frameStyle = window.getComputedStyle(custom);
+			const stageStyle = stage ? window.getComputedStyle(stage) : null;
+			const imageStyle = image ? window.getComputedStyle(image) : null;
+			const surfaces = Array.from(
+				custom.querySelectorAll('.jcem-featured-image__surface'),
+			);
+			const mode = custom.classList.contains('jcem-featured-image--content')
+				? 'content'
+				: custom.classList.contains('jcem-featured-image--triptych')
+					? 'triptych'
+					: custom.classList.contains('jcem-featured-image--single')
+						? 'single'
+						: '';
+
+			return {
+				type: 'custom',
+				mode,
+				articleRect,
+				frameRect,
+				stageRect,
+				imageRect,
+				flagRect,
+				frameOverflowX: frameStyle.overflowX,
+				frameOverflowY: frameStyle.overflowY,
+				stageOverflowX: stageStyle?.overflowX || '',
+				stageOverflowY: stageStyle?.overflowY || '',
+				imageObjectFit: imageStyle?.objectFit || '',
+				imageLoaded: Boolean(image?.complete && image.naturalWidth > 0),
+				naturalRatio:
+					image?.naturalHeight > 0 ? image.naturalWidth / image.naturalHeight : 0,
+				renderedRatio:
+					imageRect?.height > 0 ? imageRect.width / imageRect.height : 0,
+				surfaceCount: surfaces.length,
+				blurredSurfaceCount: surfaces.filter(
+					(surface) => window.getComputedStyle(surface).filter !== 'none',
+				).length,
+				leftCount: custom.querySelectorAll('.jcem-featured-image__side--left').length,
+				centerCount: custom.querySelectorAll('.jcem-featured-image__center').length,
+				rightCount: custom.querySelectorAll('.jcem-featured-image__side--right').length,
+				outerSkeleton: custom.classList.contains('jcem-skeleton'),
+				stageSkeleton: Boolean(stage?.classList.contains('jcem-skeleton')),
+				stageState: stage?.dataset.jcemSkeletonState || '',
+				viewportWidth: document.documentElement.clientWidth,
+				viewportHeight: window.innerHeight,
+				horizontalOverflow:
+					document.documentElement.scrollWidth - document.documentElement.clientWidth,
+			};
+		}
+
+		if (legacy) {
+			const image = legacy.querySelector('.page__hero-image, img');
+			const legacyRect = rect(legacy);
+			const imageRect = rect(image);
+			const imageStyle = image ? window.getComputedStyle(image) : null;
+			const imageWidth = Number(legacy.dataset.jcemImageWidth) || image?.naturalWidth || 0;
+			const imageHeight = Number(legacy.dataset.jcemImageHeight) || image?.naturalHeight || 0;
+			const topAtScrollZero = (legacyRect?.top || 0) + window.scrollY;
+			const availableHeight = Math.max(0, window.innerHeight - topAtScrollZero);
+			const projectedFullHeight =
+				imageWidth > 0 ? document.documentElement.clientWidth * imageHeight / imageWidth : 0;
+
+			return {
+				type: 'legacy',
+				mode: legacy.dataset.jcemLegacyHeroMode || '',
+				expectedMode: projectedFullHeight <= availableHeight + 0.5 ? 'full' : 'content',
+				decisions: Number(legacy.dataset.jcemLegacyHeroDecisions || 0),
+				articleRect,
+				legacyRect,
+				imageRect,
+				imageObjectFit: imageStyle?.objectFit || '',
+				imageLoaded: Boolean(image?.complete && image.naturalWidth > 0),
+				viewportWidth: document.documentElement.clientWidth,
+				viewportHeight: window.innerHeight,
+				horizontalOverflow:
+					document.documentElement.scrollWidth - document.documentElement.clientWidth,
+			};
+		}
+
+		return { type: 'missing' };
+	});
+
+	const tolerance = 3;
+	if (result.type === 'missing') {
+		fail(`Cover ausente em ${url} ${theme} ${viewportName}`);
+	}
+	if (result.horizontalOverflow > tolerance) {
+		fail(`Cover criou overflow horizontal em ${url} ${theme} ${viewportName}: ${JSON.stringify(result)}`);
+	}
+
+	if (result.type === 'custom') {
+		if (
+			!result.imageLoaded ||
+			!result.frameRect ||
+			!result.stageRect ||
+			!result.imageRect ||
+			result.outerSkeleton ||
+			!result.stageSkeleton ||
+			result.stageState !== 'loaded' ||
+			result.stageOverflowX !== 'hidden' ||
+			result.stageOverflowY !== 'hidden' ||
+			result.stageRect.height >= result.viewportHeight ||
+			result.naturalRatio <= 0 ||
+			(result.mode !== 'content' &&
+				Math.abs(result.renderedRatio - result.naturalRatio) > 0.02)
+		) {
+			fail(`Estrutura da cover invalida em ${url} ${theme} ${viewportName}: ${JSON.stringify(result)}`);
+		}
+
+		if (result.mode === 'content') {
+			if (
+				result.surfaceCount !== 0 ||
+				(url.includes('/p/') && !result.flagRect) ||
+				!result.articleRect ||
+				result.frameOverflowX !== 'visible' ||
+				result.frameOverflowY !== 'visible' ||
+				result.imageObjectFit !== 'contain' ||
+				Math.abs(result.frameRect.left - result.articleRect.left) > tolerance ||
+				Math.abs(result.frameRect.right - result.articleRect.right) > tolerance
+			) {
+				fail(`Cover content fora da zona do artigo em ${url} ${theme} ${viewportName}: ${JSON.stringify(result)}`);
+			}
+		} else if (result.mode === 'single') {
+			const imageCenter = (result.imageRect.left + result.imageRect.right) / 2;
+			const frameCenter = (result.frameRect.left + result.frameRect.right) / 2;
+			if (
+				result.surfaceCount !== 0 ||
+				Math.abs(result.imageRect.height - result.stageRect.height) > tolerance ||
+				Math.abs(imageCenter - frameCenter) > tolerance ||
+				Math.abs(result.frameRect.width - result.viewportWidth) > tolerance
+			) {
+				fail(`Cover wide single fora do contrato em ${url} ${theme} ${viewportName}: ${JSON.stringify(result)}`);
+			}
+		} else if (result.mode === 'triptych') {
+			if (
+				result.surfaceCount !== 1 ||
+				result.blurredSurfaceCount !== 0 ||
+				result.leftCount !== 1 ||
+				result.centerCount !== 1 ||
+				result.rightCount !== 1 ||
+				Math.abs(result.frameRect.width - result.viewportWidth) > tolerance
+			) {
+				fail(`Cover wide tripla fora do contrato em ${url} ${theme} ${viewportName}: ${JSON.stringify(result)}`);
+			}
+		} else {
+			fail(`Modalidade de cover desconhecida em ${url} ${theme} ${viewportName}`);
+		}
+	}
+
+	if (result.type === 'legacy') {
+		if (
+			!result.imageLoaded ||
+			!result.legacyRect ||
+			!result.imageRect ||
+			result.mode !== result.expectedMode ||
+			result.decisions < 1 ||
+			result.decisions > 2 ||
+			result.legacyRect.bottom > result.viewportHeight + tolerance
+		) {
+			fail(`Hero legado nao se adaptou ao primeiro viewport em ${url} ${theme} ${viewportName}: ${JSON.stringify(result)}`);
+		}
+		if (
+			result.mode === 'content' &&
+			(!result.articleRect ||
+				result.imageObjectFit !== 'contain' ||
+				Math.abs(result.legacyRect.left - result.articleRect.left) > tolerance ||
+				Math.abs(result.legacyRect.right - result.articleRect.right) > tolerance)
+		) {
+			fail(`Hero legado content fora da zona do artigo em ${url} ${theme} ${viewportName}: ${JSON.stringify(result)}`);
+		}
+		if (
+			result.mode === 'full' &&
+			Math.abs(result.legacyRect.width - result.viewportWidth) > tolerance
+		) {
+			fail(`Hero legado full fora do viewport em ${url} ${theme} ${viewportName}: ${JSON.stringify(result)}`);
+		}
+
+		const beforeScroll = await page.evaluate(() => {
+			const hero = document.querySelector('[data-jcem-legacy-hero]');
+			return {
+				mode: hero?.dataset.jcemLegacyHeroMode || '',
+				decisions: hero?.dataset.jcemLegacyHeroDecisions || '',
+			};
+		});
+		await page.evaluate(() => window.scrollTo(0, Math.min(600, document.body.scrollHeight)));
+		await page.waitForTimeout(150);
+		const afterScroll = await page.evaluate(() => {
+			const hero = document.querySelector('[data-jcem-legacy-hero]');
+			return {
+				mode: hero?.dataset.jcemLegacyHeroMode || '',
+				decisions: hero?.dataset.jcemLegacyHeroDecisions || '',
+			};
+		});
+		if (
+			beforeScroll.mode !== afterScroll.mode ||
+			beforeScroll.decisions !== afterScroll.decisions
+		) {
+			fail(`Hero legado reagiu a rolagem em ${url} ${theme} ${viewportName}`);
+		}
+		await page.evaluate(() => window.scrollTo(0, 0));
+	}
+
+	await page.screenshot({
+		path: path.join(
+			artifactDir,
+			`cover-${url.replace(/\W+/g, '-') || 'home'}-${theme}-${viewportName}.png`,
+		),
+		fullPage: true,
+	});
 };
 
 const validatePrintTheme = async (page, url, viewportName) => {
@@ -3665,8 +3935,10 @@ try {
 	}
 
 	for (const viewport of viewports) {
-		await validateLoadingGate(browser, baseUrl, '/', viewport);
-		await validateLoadingGate(browser, baseUrl, notFoundPage, viewport);
+		if (!coverProfile) {
+			await validateLoadingGate(browser, baseUrl, '/', viewport);
+			await validateLoadingGate(browser, baseUrl, notFoundPage, viewport);
+		}
 
 		const context = await browser.newContext({ viewport });
 		await seedCookieConsent(context);
@@ -3674,15 +3946,24 @@ try {
 
 		for (const pagePath of pages) {
 			for (const theme of themes) {
-				await validatePage(page, `${baseUrl}${pagePath}`, theme, viewport.name);
+				if (coverProfile) {
+					await validateCoverPage(page, `${baseUrl}${pagePath}`, theme, viewport.name);
+				} else {
+					await validatePage(page, `${baseUrl}${pagePath}`, theme, viewport.name);
+				}
 			}
 
-			await validatePrintTheme(page, `${baseUrl}${pagePath}`, viewport.name);
+			if (!coverProfile) {
+				await validatePrintTheme(page, `${baseUrl}${pagePath}`, viewport.name);
+			}
 		}
 
-		await validate404Page(page, `${baseUrl}${notFoundPage}`, viewport.name);
+		if (!coverProfile) {
+			await validate404Page(page, `${baseUrl}${notFoundPage}`, viewport.name);
+		}
 
 		await context.close();
+		if (coverProfile) continue;
 
 		const noScriptContext = await browser.newContext({
 			javaScriptEnabled: false,

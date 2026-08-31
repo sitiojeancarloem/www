@@ -6,6 +6,8 @@
 
 require_relative "jekyll_compat"
 require "jekyll"
+require "json"
+require "tmpdir"
 require_relative "../_plugins/jcem_charts"
 require_relative "../_plugins/jcem_zz_accessible_reading"
 
@@ -57,5 +59,15 @@ chart = Jcem::Charts.render(dataset, emit_assets: true)
 assert(chart.include?('data-jcem-chart-renderer="4.5.1"'), "versão efetiva do renderer ausente")
 assert(chart.include?("<caption>Exemplo controlado de leituras mensais — dados</caption>"), "gráfico sem tabela estática")
 assert(chart.include?('aria-hidden="true"'), "canvas duplicado permaneceu na árvore acessível")
+
+Dir.mktmpdir("jcem-accessibility-manifest-") do |destination|
+  article_path = File.join(destination, "p", "fixture", "index.html")
+  FileUtils.mkdir_p(File.dirname(article_path))
+  File.binwrite(article_path, normalized)
+  Jcem::AccessibleReading.write_manifest(Struct.new(:dest).new(destination))
+  manifest = JSON.parse(File.binread(File.join(destination, "assets", "jcem", "accessibility-manifest.json")))
+  assert(manifest.fetch("pages").length == 1, "glob absoluto do manifesto perdeu publicação")
+  assert(manifest.dig("pages", 0, "url") == "/p/fixture/", "URL do manifesto ficou incorreta")
+end
 
 puts "accessible_reading=ok"

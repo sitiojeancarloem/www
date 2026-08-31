@@ -15,22 +15,25 @@ const single = await html('wide-single');
 const triptych = await html('wide-triptych');
 
 assert.equal(count(legacy, /<div class="page__hero"/g), 1, 'hero legado ausente ou duplicado');
+assert.equal(count(legacy, /\sdata-jcem-legacy-hero(?:\s|>)/g), 1, 'controle adaptativo do hero legado ausente');
 assert.equal(count(legacy, /jcem-featured-image--(?:content|single|triptych)/g), 0, 'hero legado reclassificado');
 
 assert.equal(count(content, /<div class="page__hero"/g), 0, 'content duplicou hero legado');
 assert.equal(count(content, /jcem-featured-image--content/g), 1, 'content ausente ou duplicado');
-assert.equal(count(content, /jcem-featured-image__surface--content/g), 1, 'superficie local content ausente');
+assert.equal(count(content, /jcem-featured-image__surface/g), 0, 'content manteve superficie artificial');
+assert.equal(count(content, /jcem-featured-image__stage jcem-skeleton/g), 1, 'skeleton do content nao esta no stage');
 assert.equal(count(content, /jcem-featured-image--(?:single|triptych)/g), 0, 'wide vazou para content');
 
 assert.equal(
-	count(single, /<figure class="jcem-featured-image jcem-featured-image--wide jcem-featured-image--single /g),
+	count(single, /<figure class="jcem-featured-image jcem-featured-image--wide jcem-featured-image--single"/g),
 	1,
 	'wide single ausente ou duplicado',
 );
-assert.equal(count(single, /jcem-featured-image__surface--wide/g), 1, 'superficie wide single ausente');
+assert.equal(count(single, /jcem-featured-image__surface/g), 0, 'wide single manteve superficie artificial');
 assert.equal(count(single, /jcem-featured-image__side--/g), 0, 'segmentos triplos vazaram para single');
 
 assert.equal(count(triptych, /jcem-featured-image--triptych/g), 1, 'wide triptych ausente');
+assert.equal(count(triptych, /jcem-featured-image__surface--wide/g), 1, 'superficie tripla ausente');
 assert.equal(count(triptych, /jcem-featured-image__side--left/g), 1, 'segmento left ausente');
 assert.equal(count(triptych, /jcem-featured-image__center/g), 1, 'segmento central ausente');
 assert.equal(count(triptych, /jcem-featured-image__side--right/g), 1, 'segmento right ausente');
