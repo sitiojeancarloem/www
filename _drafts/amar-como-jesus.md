@@ -107,12 +107,12 @@ Falar e se comportar e tratar as pessoas com amor, misericórdia e compaixão, s
 
 Criou-se no imaginário uma figura de Jesus que nunca existiu. Um ser dócil, afável e fofo. Esse ser mítico criado no imaginário **nunca** existiu. De fato, Jesus era e é amor, mas as definições atuais estão totalmente deturpadas e o senso de realidade se perdeu em meio a ficções, contos, e meias verdades.
 
-Em S. João 2:13-16, ao pegar o chicote, Jesus agiu com Amor, misericórdia e compaixão, entretanto, embora seus Atos fossem com amor, o que as pessoas percebiam e viam? Elas saíram de lá por ver um homem fofo, meigo e dócil? Elas saíram de lá por ver um homem calmo e manso? Note que, O Espírito de profecia É CATEGÓRICO, todos os atos foram com amor, misericórdia e compaixão, mas a percepção das pessoas não. O que as pessoas viam e percebiam não eram isso. Elas viam outra coisa. Elas viam um homem enfurecido, possivelmente irado, esbravejando, potencialmente perigoso.
+Em S. João 2:13-16, ao pegar o chicote, Jesus agiu com Amor, misericórdia e compaixão, entretanto, embora seus Atos fossem com amor, o que as pessoas percebiam e viam? Elas saíram de lá por ver um homem fofo, meigo e dócil? Elas saíram de lá por ver um homem calmo e manso? Note que, O Espírito de profecia É CATEGÓRICO, todos os atos foram com amor, misericórdia e compaixão, mas a percepção das pessoas não. O que as pessoas viam e percebiam não eram isso. Elas viam outra coisa. Elas viam um homem enfurecido, possivelmente irado, esbravejando, potencialmente perigoso e por isso fugiram!
 
-> Silencia o tumulto. O som do tráfico e dos ajustes cessa. O silêncio torna-se penoso. Apodera-se da assembléia um sentimento de respeito. É como se estivessem citados perante o tribunal de Deus, para responder por seus atos. Olhando para Cristo, vêem a divindade irradiando através do invólucro humano. A Majestade do Céu está como o Juiz há de estar no último dia — não circundado agora da glória que O acompanhará então, mas com o mesmo poder de ler a mente.
+> Silencia o tumulto. O som do tráfico e dos ajustes cessa. O silêncio torna-se **PENOSO**. Apodera-se da assembléia um sentimento de respeito. É como se estivessem citados perante o tribunal de Deus, para responder por seus atos. Olhando para Cristo, vêem a divindade irradiando através do invólucro humano. A Majestade do Céu está como o Juiz há de estar no último dia — NÃO circundado agora da glória que O acompanhará então, mas com o mesmo poder de ler a mente.
 > — Ellen G. White, _O Desejado de Todas as Nações_, p. 123.
 
-> Cristo falava com a autoridade de um rei, e em Seu aspecto, e no tom de Sua voz havia alguma coisa a que eles não podiam resistir. À voz de comando compreenderam, como nunca dantes, sua verdadeira posição de hipócritas e roubadores. Quando a divindade irradiou através da humanidade, não viram **APENAS indignação** na <u>**fisionomia**</u> de Cristo; perceberam o significado de Suas palavras. Sentiram-se como perante o trono do eterno Juiz, tendo sobre si Sua sentença para este século e a eternidade.
+> Cristo falava com a **AUTORIDADE** de um rei, e em Seu aspecto, e no **TOM** de Sua voz havia alguma coisa a que eles não podiam resistir. À voz de **COMANDO** compreenderam, como nunca dantes, sua verdadeira posição de hipócritas e roubadores. Quando a divindade irradiou através da humanidade, não viram **APENAS indignação** na <u>**fisionomia**</u> de Cristo; perceberam o significado de Suas palavras. Sentiram-se como perante o trono do eterno Juiz, tendo sobre si Sua sentença para este século e a eternidade.
 > — Ellen G. White, _O Desejado de Todas as Nações_, p. 125.
 
 Note que, eles _"não viram APENAS INDIGNAÇÃO na fisionomia"_, portanto, Jesus estava claramente com um **semblante PESADO**, demonstrando **indignação**.
@@ -120,10 +120,10 @@ Note que, eles _"não viram APENAS INDIGNAÇÃO na fisionomia"_, portanto, Jesus
 > Um PÂNICO percorre pela multidão, que se sente ofuscada por Sua divindade. Gritos de terror escapam-se de centenas de lábios desmaiados. Os próprios discípulos TREMEM. São abalados pelas palavras e maneiras de Jesus, tão diversas de Sua atitude habitual.
 > — Ellen G. White, _O Desejado de Todas as Nações_, p. 123.
 
-> No princípio de Seu ministério, Cristo expulsara do templo os que o manchavam por seu profano tráfico; e Sua atitude **SEVERA** e divina enchera de **TERROR** o coração dos astutos comerciantes.
+> No princípio de Seu ministério, Cristo **expulsara** do templo os que o manchavam por seu profano tráfico; e Sua atitude **SEVERA** e divina enchera de **TERROR** o coração dos astutos comerciantes.
 > — Ellen G. White, _O Desejado de Todas as Nações_, p. 510.
 
-Não foi meramente medo, foi PÂNICO e **TERROR**. Percebe? A **feição de Jesus mudou**, para algo **carregado** e PESADO, e ainda assim, cada ato de Sua vida, inclusive este, foi de amor, misericórdia e compaixão, denotando claramente, que a compreensão atual do que é agir com amor, compaixão e misericórdia, foge totalmente da compreensão divina.
+Não foi meramente medo, foi PÂNICO e **TERROR**. Percebe? A **feição de Jesus mudou**, para algo **carregado** e PESADO, e ainda assim, cada ato de Sua vida, inclusive este, **foi de amor**, misericórdia e compaixão, **denotando claramente**, que a compreensão atual do que é agir com amor, compaixão e misericórdia, foge totalmente da compreensão divina.
 
 É esperado que, alguns julguem este caso algo pontual, que de fato foi, mas isso não muda o incontestável: a afirmação divina, de "todos os atos", inclusive este terem sido com amor, misericórdia e compaixão.
 
@@ -138,16 +138,16 @@ Para Deus, segundo a bíblia, o que é agir e falar com amor?
 
 Amar, segundo o que "Está escrito", na compreensão de Deus, é **repreender** e **CASTIGAR**. E isso vai totalmente contra o senso comum atual. Há duas escolhas: continuar crendo no mundo, ou crer em Deus. Em consequência, o **verdadeiro cristão**, que é aquele que permanece em Cristo e anda assim como Ele (1 João 2:6) terá qual tipo de comportamento? É óbvio, precisa ficar claro, que quem repreende e castiga é Deus e não o cristão; cabe ao cristão, como mero mensageiro (profeta, discípulo, apóstolo), a simples função de carteiro - a repreensão e o eventual castigo, advêm não do próprio cristão, mas diretamente de Deus, mas percebe-se claramente o tipo de atitude, o peso, o rigor, e nível de semblante que o verdadeiro cristão terá. E não foi diferente com Paulo, João, Elias, Isaías, Moisés.
 
-> “Não odiarás a teu irmão no teu coração; _[mas]_ não deixarás de repreender o teu próximo [...]”
+> “Não odiarás a teu irmão no teu coração; _[mas]_ **NÃO** deixarás de **repreender** o teu próximo [...]”
 > — Lv 19:17, ACF.
 
-> “Melhor é a repreensão franca do que o amor encoberto.”
+> “**Melhor** é a repreensão franca do que o amor encoberto.”
 > — Pv 27:5, ACF.
 
-> ¹¹ E, na verdade, toda a correção, ao presente, não parece ser de gozo, senão de tristeza, mas depois produz um fruto pacífico de justiça nos exercitados por ela.
+> ¹¹ E, na verdade, toda a **CORREÇÃO**, ao presente, não parece ser de gozo, senão de tristeza, mas depois produz um fruto **pacífico** de justiça nos **exercitados** por ela.
 > — Hebreus 12:11 | ACF
 
-> “Fira-me o justo, será isso uma benignidade; e repreenda-me...”
+> “<u>**FIRA-ME</u> o justo**, <u>será isso uma benignidade</u>; e **repreenda-me**...”
 > — Sl 141:5, ACF.
 
 O que fica evidente é que:
@@ -161,14 +161,16 @@ Mateus 23 é riquíssimo em exemplos reais de comportamento de Jesus, que quebra
 
 Assim, sabendo dessa origem humilde, popular, e simples, quando se lê que Ele claramente se referiu aos outros como:
 
-- Hipócritas — Mateus 23:13, 14, 15, 23, 25, 27 e 29.
-- Guias/condutores cegos — Mateus 23:16 e 24.
-- Insensatos e cegos — Mateus 23:17 e 19.
-- Sepulcros caiados — Mateus 23:27.
-- Serpentes — Mateus 23:33.
-- Raça de víboras — Mateus 23:33.
+| Expressão                  | Referência bíblica                    |
+| -------------------------- | ------------------------------------- |
+| **Hipócritas**             | Mateus 23:13, 14, 15, 23, 25, 27 e 29 |
+| **Guias/condutores cegos** | Mateus 23:16 e 24                     |
+| **Insensatos e cegos**     | Mateus 23:17 e 19                     |
+| **Sepulcros caiados**      | Mateus 23:27                          |
+| **Serpentes**              | Mateus 23:33                          |
+| **Raça de víboras**        | Mateus 23:33                          |
 
-Quais seriam os termos atuais e modernos equivalentes? É possível claramente, e de forma incontestável, afirmar que Jesus xingava as pessoas, sim, Ele era na visão atual, **rude** com as pessoas. Mas isso em momento algum, significava que seus atos eram **falta** de amor, misericórdia ou compaixão. Mas note, tal "grosseria" era e é ainda hoje, **potencialmente** considerada grosseria (e isso não é defesa da grosseria); ainda mais hoje, pois se perdeu totalmente a noção e senso de realidade e do conceito de amor e compaixão. A percepção de "grosseria", "agressividade" ou "ofensa" tem **muito mais** (mas não unicamente) relação com o ditado: _"se a carapuça serviu, enfia na cabeça"_, pois quanto mais aquela verdade serve para o ouvinte, mais dói nele próprio, e quanto mais dói nele, mais soa como grosseira e áspera, enquanto para outro em quem não serve, apenas foi algo lógico dito de forma direta, objetiva e sem rodeios. Portanto, a grosseria está **mais** nos ouvidos de quem ouve do que na boca de quem fala. Jesus e os profetas e apóstolos poderiam **soar** rudes e grosseiros, mas eles **nunca** foram estúpidos ou grosseiros: **há diferença entre soar de tal forma, e ser assim**.
+Quais seriam os termos atuais e modernos equivalentes!? É possível claramente, e de forma incontestável, afirmar que Jesus xingava as pessoas, sim, Ele era na visão atual, **rude** com as pessoas. Mas isso em momento algum, significava que seus atos eram **falta** de amor, misericórdia ou compaixão. Mas note, tal "grosseria" era e é ainda hoje, **potencialmente** considerada grosseria (e isso não é defesa da grosseria); ainda mais hoje, pois se perdeu totalmente a noção e senso de realidade e do conceito de amor e compaixão. A percepção de "grosseria", "agressividade" ou "ofensa" tem **muito mais** (mas não unicamente) relação com o ditado: _"se a carapuça serviu, enfia na cabeça"_, pois quanto mais aquela verdade serve para o ouvinte, mais dói nele próprio, e quanto mais dói nele, mais soa como grosseira e áspera, enquanto para outro em quem não serve, apenas foi algo lógico dito de forma direta, objetiva e sem rodeios. Portanto, a grosseria está **mais** nos ouvidos de quem ouve do que na boca de quem fala. Jesus e os profetas e apóstolos poderiam **soar** rudes e grosseiros, mas eles **nunca** foram estúpidos ou grosseiros: **há diferença entre soar de tal forma, e ser assim**.
 
 **Não foi sem motivo**, que tentaram matar Jesus. Não foi por Ele curar, ser afetuoso, generoso, amável, ou dócil que decidiram matá-lo. Embora o exato ponto em que o texto bíblico afirme que decidiram, em segredo, procurar matá-lo não esteja associado a uma ocasião cujas palavras tenham sido dirigidas aos líderes (João 11), é inegável e óbvio, que a aberta, clara e direta oposição feita por Jesus aos líderes da época, de forma inequivocamente **ofensiva**, criou o espírito de **rixa**, que somado aos milagres que atraíam as massas, despertou o espírito de **partidarismo** comum na geopolítica que nunca foi o objetivo de Jesus. Enquanto Jesus visa conversão e arrependimento espiritual, os líderes buscavam poder e O viam como **concorrente** forte e desejavam eliminá-O por representar isso.
 
@@ -378,6 +380,7 @@ E o que acontece a tais pessoas, sejam líderes ou não? Afinal, por um curto pe
 > Jeremias 29:11 | ACF
 
 <!-- AI-PROCESSED:START -->
+
 # Bibliografia
 
 - WHITE, Ellen G. O Desejado de Todas as Nações. 2. ed. Tatuí: Casa Publicadora Brasileira, 2011.
@@ -411,4 +414,5 @@ E o que acontece a tais pessoas, sejam líderes ou não? Afinal, por um curto pe
 [^12]: NVI, Mateus 23:23.
 
 [^13]: ARA, Atos 26:28.
+
 <!-- AI-PROCESSED:END -->
