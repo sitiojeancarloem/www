@@ -361,7 +361,7 @@ Não é sobre acomodar-se, nem sobre conforme-se (Romanos 12:2) que o texto acim
 > **SE** todos os que trabalharam unidos na obra em 1844 **tivessem RECEBIDO a mensagem do <u>TERCEIRO anjo</u>**, proclamando-a no poder do Espírito Santo, o Senhor teria poderosamente operado por seus esforços. Caudais de luz ter-se-iam derramado sobre o mundo. **Haveria ANOS** que os habitantes da Terra teriam sido avisados, a obra final estaria consumada, **e Cristo TERIA VINDO para a RENDENÇãO de Seu povo**.
 > — Ellen G. White, _O Grande Conflito_, p. 399.
 
-Que mensagem é, para o povo RECEBER e proclamar? A mensagem do "amor"? A mensagem da cruz? A mensagem de ternura ou de caridade? A mensagem de o Cristo morto e Ressureto? **NÃO!** Não há margem nenhuma para dúvidas. O texto é explicito, claro e direto. Dizer qualquer outra coisa é inserir texto que NÃO existe. A única mensagem que DEVE ser proclamada segundo o Apocalipse e segundo este texto não é a mensagem do TERCEIRO ANJO. E ela não é uma mensagem de amor, da Cruz, da caridade, de ternura ou qualquer outra coisa, **mas de JUIZO**. É esta a missão da igreja atual. A igreja tem um chamado especial, pois ela é o bombeiro para a casa em chamas, não há tempo, não há sequer um segundo para perder; o fogo está tão alto, e casa está prestes a ruim, as pessoas estão morrendo, e muitos estão querendo falar da Cruz e de AMor! Páre que com isso! Mais importa ofender e salvar, que agradar e matar! Este é o cerne da igreja, está é a missão da igreja.
+Que mensagem é, para o povo RECEBER e proclamar? A mensagem do "amor"? A mensagem da cruz? A mensagem de ternura ou de caridade? A mensagem de o Cristo morto e Ressureto? **NÃO!** Não há margem nenhuma para dúvidas. O texto é explicito, claro e direto. Dizer qualquer outra coisa é inserir texto que NÃO existe. A única mensagem que DEVE ser proclamada segundo o Apocalipse e segundo este texto é APENAS a mensagem do TERCEIRO ANJO. E ela não é uma mensagem de amor, da Cruz, da caridade, de ternura ou qualquer outra coisa, **mas de JUIZO**. Esta a missão da igreja atual! Amor, cruz e perdão estão embutido dentro do tema do Juizo pois compem ele, mas eles estão numa camada secundária, o tema principal, é JUÍZO. A igreja tem um chamado especial, pois **ela é o bombeiro para a casa em chamas**, não há tempo, não há sequer um segundo para perder com floreios; o fogo está tão alto e casa está prestes a desmoronar. As pessoas estão morrendo, e muitos estão querendo falar da Cruz, Amor e caridade! Páre que com isso! O sangue de cada vítima será cobrado. Mais importa ofender e salvar, que agradar e matar! Este é o cerne da igreja, está é a missão da igreja: ir e pregar, o resto é com Deus.
 
 <i>
 Um homem sofreu um grave acidente. Chegou ao hospital consciente, assustado e com muita dor. Os médicos descobriram uma hemorragia interna: por fora, ainda falava; por dentro, estava morrendo.
@@ -370,7 +370,7 @@ A cirurgia seria dolorosa, invasiva e arriscada. O paciente tinha medo. Preferia
 
 Mas o médico conhecia o diagnóstico.
 
-Não havia tempo para fingir que conforto era cura. Cada minuto gasto apenas amenizando a dor permitia que a hemorragia continuasse. O remédio podia fazê-lo sentir-se melhor enquanto sua condição, de fato, piorava.
+Não havia tempo para fingir que conforto era cura. O risco de morte era iminente, e cada minuto gasto apenas amenizando a dor permitia que a hemorragia continuasse. O remédio podia fazê-lo sentir-se melhor enquanto sua condição, de fato, piorava.
 
 Por isso o médico não chamou alguém para convencê-lo de que estava tudo bem. Chamou quem lhe dissesse a verdade: **“Você precisa ser operado. Agora.”**
 
@@ -378,20 +378,20 @@ A mensagem poderia assustá-lo. Poderia contrariá-lo. Poderia até fazê-lo rej
 
 Assim é com Deus e aqueles que Ele envia.
 
-**As pessoas estão morrendo.** O pecado não é um incômodo a ser administrado, mas uma enfermidade mortal. Deus conhece o diagnóstico e envia Seus mensageiros — em última análise, todo aquele que recebeu a verdade — não para anestesiar uma consciência que precisa despertar, mas para anunciar a cura enquanto ainda há tempo.
+**As pessoas estão morrendo.** O pecado não é um incômodo a ser administrado, mas uma enfermidade mortal. Deus conhece o diagnóstico e envia Seus mensageiros — em última análise, todo aquele que recebeu a verdade — não para **ACALENTAR** e **anestesiar** uma consciência que precisa despertar, mas para anunciar a cura enquanto ainda há tempo.
 
 Isso não autoriza crueldade, arrogância ou prazer em ferir. O bisturi não é usado porque cortar seja bom, mas porque há algo pior acontecendo por dentro. A verdade pode doer; a advertência pode assustar; a repreensão pode ser desconfortável. **Esses riscos são reais.**
 
-Mas existe um risco infinitamente maior: transformar o evangelho em tratamento paliativo, amenizar sintomas, evitar toda palavra difícil e deixar o homem sentir-se seguro enquanto caminha para a morte.
+Mas existe um risco infinitamente maior: transformar o evangelho em tratamento paliativo, amenizar sintomas, evitar toda palavra difícil e deixar o homem sentir-se seguro e esperançoso enquanto caminha para a morte.
 
-Há momentos em que suavizar indefinidamente não é misericórdia. **É trocar a dor momentânea da cirurgia pela tranquilidade momentânea de quem está morrendo.**
+Há momentos em que suavizar não é misericórdia. **É trocar a dor momentânea da cirurgia pela tranquilidade momentânea de quem está morrendo.**
 
 O mensageiro fiel não fere por gosto, nem silencia por medo. Ele fala porque conhece a urgência.
 
-**Quando a doença é mortal, a verdade que corta para salvar é misericórdia; a mentira que consola enquanto mata é CRUELDADE.**
+**Quando a doença é mortal, a verdade QUE CORTA para salvar É MISERICÓRDIA; a mentira que consola enquanto mata é CRUELDADE.**
 </i>
 
-Os "Acabes" atuais que são grande parte, mas não todos, os líderes das igrejas adventistas em todos os lugares do mundo, **lutam contra a sacudidura** que não vem de mãos humanas, mas do próprio Deus. A sacudidura **não é ação humana, é ação divina**. Os Elias modernos, assim como o Elias do passado, **são meros carteiros**, mas estes líderes insistem em perseguir, silenciar, e acusar falsamente; não é contra homens que estão lutando, é contra Deus. Não adianta tentar calá-los, silenciá-los, ou criar planos secretos em suas salas de reuniões. Milhões tentaram, e quando um é calado, dois ou mais surgem no lugar: não há como vencer, eles são como semente. Está escrito: _"³⁰ Não há sabedoria, nem inteligência, nem mesmo conselho contra o Senhor…"_ (Provérbios 21:30a | ARA).
+Os "Acabes" atuais que, infelizmente são a grande parte (mas não todos), os líderes das igrejas adventistas em todos os lugares do mundo, **lutam contra a sacudidura**, que não vem de mãos humanas, mas do próprio Deus. A sacudidura **não é ação humana, é ação divina**. Os Elias modernos, assim como o Elias do passado, **são meros carteiros**, mas estes líderes insistem em perseguir, silenciar, e acusar falsamente; não é contra homens que estão lutando, é contra Deus. Não adianta tentar calá-los, silenciá-los, ou criar planos secretos em suas salas de reuniões. Milhões tentaram, e quando um é calado, dois ou mais surgem no lugar: não há como vencer, eles são como semente. Está escrito: _"³⁰ Não há sabedoria, nem inteligência, nem mesmo conselho contra o Senhor…"_ (Provérbios 21:30a | ARA).
 
 > A luz é enviada para desfazer as trevas; porém, em seu excessivo orgulho, a rejeitam, preferindo continuar às escuras. **DESPREZAM os conselhos divinos**, <u>**porque NÃO** correspondem</u> aos **seus pontos de vista e INTENÇÕES**, e **NÃO aprovam** seus **maus traços** de caráter. A operação do **Espírito** de Deus, que os **poderia** ajudar a entrar no bom caminho, **SE a aceitassem**, **NÃO se faz** de modo a **comprazê-los e lisonjear sua justiça própria**.
 > -- Testemunhos para a Igreja, v. 5 - Natureza e influência dos testemunhos, p. 655-656/689.
