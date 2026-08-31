@@ -11,6 +11,22 @@
 
 ---
 
+> Não sou dotada de nenhuma sabedoria especial; sou apenas um instrumento nas mãos de Deus para fazer a obra que me designou. As instruções que tenho dado pela pena e de viva voz são uma expressão da luz que Deus Se dignou conceder-me. Tentei expor-lhes os princípios que o Espírito de Deus, durante anos, tem estado a imprimir em meu espírito e a escrever em meu coração.
+> -- Testemunhos para a Igreja, v. 5 - Natureza e influência dos testemunhos, p. 657/691.
+
+---
+
+> Não comprometam, pela crítica, a força, a virtude e a importância dos Testemunhos. Nem imaginem que são capazes de analisá-los de modo a acomodá-los às suas idéias, pretendendo que Deus lhes tenha dado habilidade para discernir o que é luz do Céu e o que é mera sabedoria humana. Se os Testemunhos não falarem de acordo com a Palavra de Deus, podem rejeitá-los. Cristo e Belial não se unem. Por amor de Cristo, parem de confundir o espírito do povo com sofismas e ceticismo, tornando de nenhum efeito a obra que Deus deseja fazer.
+> -- Testemunhos para a Igreja, v. 5 - Natureza e influência dos testemunhos, p. 657-658/691.
+
+> Alguns que professam a justiça hão de, como Judas, entregar seu Senhor nas mãos de seus mais duros adversários. Esses que CONFIAM em si mesmos, resolvidos, como estão, a seguir seu **PRÓPRIO CAMINHO** e a **DEFENDER <u>suas próprias</u> idéias**, irão de mal a pior, até estarem prontos a aceitar **qualquer** proposta, **MENOS** a de **RENUNCIAR à sua própria vontade**. Cegamente prosseguirão no caminho do mal e tão enganados a respeito de si mesmos, que, como os fariseus iludidos, **IMAGINAM** estar fazendo a obra de Deus.
+> -- Testemunhos para a Igreja, v. 5 - Natureza e influência dos testemunhos, p. 657/691.
+
+> Que ninguém entretenha o pensamento de que eu lastimo ou me retrate de qualquer claro testemunho dado a indivíduos ou povo. **SE eu errei** de alguma forma, **foi em <u>NÃO repreender MAIS firme</u> e decididamente** o pecado. Alguns irmãos assumiram a responsabilidade de criticar meu trabalho e **propor um meio mais FÁCIL** _[dócil?]_ de corrigir os erros. Gostaria de dizer a essas pessoas que <u>PREFIRO</u> o **caminho de Deus** e **NÃO** o delas. [...] Deus me deu uma obra da qual devo <u>prestar contas</u> no Juízo. Aqueles que têm escolhido **seu próprio caminho** e se têm erguido **CONTRA** os **CLAROS** testemunhos a eles dados, **procurando abalar** a fé dos demais nessas mensagens, devem decidir a questão com Deus. <u>NÃO</u> **amenizarei mensagem** alguma **para acompanhar suas idéias** ou relevar seus defeitos de caráter. [...] Os que querem, de algum modo, **AMENIZAR a <u>força das AGUDAS</u> reprovações** que <u>**Deus me deu**</u> para transmitir **HAVERÃO** de **enfrentar** sua obra no **JUIZO**.
+> -- Testemunhos para a Igreja, v. 5 - A reunião campal de Michigan, p. 22-23/19.
+
+---
+
 > É plano de Satanás enfraquecer a fé do povo de Deus nos Testemunhos. Em seguida vem o ceticismo no tocante aos pontos vitais de nossa fé, as colunas de nossa posição, depois as dúvidas acerca das Escrituras Sagradas, e então a caminhada descendente para a perdição. Quando os Testemunhos, nos quais se acreditava anteriormente, são postos em dúvida e rejeitados, Satanás sabe que as pessoas enganadas não pararão aí; e ele redobra seus esforços até lançá-las em rebelião aberta, a qual se torna irremediável e termina em destruição. T4 210.5 – T4 211.1
 
 ---
