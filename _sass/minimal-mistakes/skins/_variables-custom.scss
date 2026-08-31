@@ -774,7 +774,9 @@ body > input.radio#jcem-theme-dark:checked ~ .main_jcem_wrapper {
 	will-change: transform;
 }
 
-.main_jcem_wrapper .jcem-skeleton > * {
+.main_jcem_wrapper
+	.jcem-skeleton
+	> :not(.jcem-featured-image__surface) {
 	position: relative;
 	z-index: 4;
 }
@@ -1353,48 +1355,6 @@ body > input.radio#jcem-theme-dark:checked ~ .main_jcem_wrapper {
 }
 
 @media screen {
-	body:has([data-print-article]) > .main_jcem_wrapper .jcem-featured-image--wide {
-		aspect-ratio: auto;
-		height: auto;
-		text-align: center;
-	}
-
-	body:has([data-print-article])
-		> .main_jcem_wrapper
-		.jcem-featured-image--content
-		.jcem-featured-image__stage,
-	body:has([data-print-article])
-		> .main_jcem_wrapper
-		.jcem-featured-image--wide
-		.jcem-featured-image__stage {
-		height: min(
-			var(--jcem-featured-height),
-			calc(100dvh - var(--jcem-masthead-h, 7.25rem))
-		);
-		min-height: min(
-			var(--jcem-featured-height),
-			calc(100dvh - var(--jcem-masthead-h, 7.25rem))
-		);
-	}
-
-	body:has([data-print-article])
-		> .main_jcem_wrapper
-		.jcem-featured-image--content
-		.jcem-featured-image__img,
-	body:has([data-print-article])
-		> .main_jcem_wrapper
-		.jcem-featured-image--wide
-		.jcem-featured-image__img {
-		display: block;
-		width: auto;
-		height: auto;
-		max-width: 100%;
-		max-height: 100%;
-		margin-inline: auto;
-		object-fit: contain;
-		object-position: center;
-	}
-
 	.main_jcem_wrapper .pagination a::after,
 	.main_jcem_wrapper .pagination--pager::after,
 	.main_jcem_wrapper .jcem-mapa__pagination a::after {

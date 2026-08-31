@@ -22,14 +22,14 @@
   {% assign wide_mode = page.header.image_wide_mode | default: "single" | downcase %}
   {% assign wide_left = page.header.image_wide_left %}
   {% assign wide_right = page.header.image_wide_right %}
-  <figure class="jcem-featured-image jcem-featured-image--{{ featured_style }}{% if featured_style == 'wide' %} jcem-featured-image--{{ wide_mode }}{% endif %} jcem-skeleton" data-jcem-skeleton-state="loading"{% if image_meta.aspect_ratio_css %} data-jcem-asset-aspect-ratio="{{ image_meta.aspect_ratio_css }}" style="--jcem-asset-aspect-ratio: {{ image_meta.aspect_ratio_css }}"{% endif %}>
+  <figure class="jcem-featured-image jcem-featured-image--{{ featured_style }}{% if featured_style == 'wide' %} jcem-featured-image--{{ wide_mode }}{% endif %}">
     {% if featured_style == "content" %}
       {% include jcem/post-date-flag.html placement="image" %}
     {% endif %}
-    <div class="jcem-featured-image__stage"{% if featured_style == "wide" %} style="--jcem-cover-central: url('{{ image_path | relative_url }}');{% if wide_mode == 'triptych' %} --jcem-cover-left: url('{{ wide_left | relative_url }}'); --jcem-cover-right: url('{{ wide_right | relative_url }}');{% endif %}"{% endif %}>
-      {% if featured_style == "wide" or featured_style == "content" %}
-        <span class="jcem-featured-image__surface jcem-featured-image__surface--{{ featured_style }}"{% if featured_style == "content" %} style="--jcem-cover-central: url('{{ image_path | relative_url }}');"{% endif %} aria-hidden="true">
-          {% if wide_mode == "triptych" %}<i class="jcem-featured-image__side jcem-featured-image__side--left"></i><i class="jcem-featured-image__center"></i><i class="jcem-featured-image__side jcem-featured-image__side--right"></i>{% endif %}
+    <div class="jcem-featured-image__stage jcem-skeleton" data-jcem-skeleton-state="loading"{% if image_meta.aspect_ratio_css %} data-jcem-asset-aspect-ratio="{{ image_meta.aspect_ratio_css }}"{% endif %} style="{% if image_meta.aspect_ratio_css %}--jcem-asset-aspect-ratio: {{ image_meta.aspect_ratio_css }};{% endif %}{% if featured_style == 'wide' and wide_mode == 'triptych' %} --jcem-cover-central: url('{{ image_path | relative_url }}'); --jcem-cover-left: url('{{ wide_left | relative_url }}'); --jcem-cover-right: url('{{ wide_right | relative_url }}');{% endif %}">
+      {% if featured_style == "wide" and wide_mode == "triptych" %}
+        <span class="jcem-featured-image__surface jcem-featured-image__surface--wide" aria-hidden="true">
+          <i class="jcem-featured-image__side jcem-featured-image__side--left"></i><i class="jcem-featured-image__center"></i><i class="jcem-featured-image__side jcem-featured-image__side--right"></i>
         </span>
       {% endif %}
       <img class="jcem-featured-image__img u-photo jcem-skeleton-asset" src="{{ image_path | relative_url }}" alt="{{ image_alt }}" loading="eager" decoding="async" fetchpriority="high"{% if image_meta.width and image_meta.height %} width="{{ image_meta.width }}" height="{{ image_meta.height }}"{% endif %}>

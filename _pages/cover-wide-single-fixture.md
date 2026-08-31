@@ -10,8 +10,8 @@ sitemap: false
 robots: noindex, nofollow
 featured_image_style: wide
 header:
-  image: /assets/images/posts/eventos-finais/a-heranca-dos-santos.png
-  image_description: Cidade luminosa usada como fixture da cover wide simples
+  image: /assets/images/posts/devaneios/devaneios-grande.png
+  image_description: Imagem propositalmente extrema usada como fixture da cover wide simples
   image_wide_mode: single
 ---
 
