@@ -339,13 +339,19 @@ Não é contra homens que eles estão lutando, e sim contra Deus. Provas?
 > Que ninguém entretenha o pensamento de que eu lastimo ou me retrate de qualquer claro testemunho dado a indivíduos ou povo. **SE eu errei** de alguma forma, **foi em <u>NÃO repreender MAIS firme</u> e decididamente** o pecado. Alguns irmãos assumiram a responsabilidade de criticar meu trabalho e **propor um meio mais FÁCIL** _[dócil]_ de <u>corrigir os erros</u>. Gostaria de dizer a essas pessoas que <u>PREFIRO</u> o **caminho de Deus** e **NÃO** o delas. [...] Deus me deu uma obra da qual devo <u>prestar contas</u> no Juízo. Aqueles que têm escolhido **seu próprio caminho** e se têm erguido <u>**CONTRA** os **CLAROS**</u> testemunhos a eles dados, **procurando abalar** a fé dos demais nessas mensagens, devem decidir a questão com Deus. <u>NÃO</u> **amenizarei mensagem** alguma **para acompanhar suas idéias** ou relevar seus defeitos de caráter. [...] Os que querem, de algum modo, **AMENIZAR a <u>força das AGUDAS</u> reprovações** que <u>**Deus me deu**</u> para transmitir **HAVERÃO** de **enfrentar** sua obra no **JUIZO**.
 > -- Testemunhos para a Igreja, v. 5 - A reunião campal de Michigan, p. 22-23/19.
 
-> ²⁶ Aquele, cuja voz abalou, então, a terra; agora, porém, Ele promete, dizendo: Ainda uma vez por todas, farei abalar não só a terra, mas também o céu. ²⁷ Ora, esta palavra, ainda uma vez, significa a remoção dessas coisas abaladas, como tinham sido feitas, para que as coisas que não são abaladas permaneçam.
-> — Hebreus 12:26b-27 | ARA
+> ⁹ "Pois darei a ordem e sacudirei o povo de Israel entre todas as nações, tal como se sacode o trigo em uma peneira, sem que um só grão caia na terra.
+> -- Amós 9:9 | NVI
 
-> Começou a forte sacudidura e continuará, e todos os que NÃO estiverem **dispostos** a assumir uma posição **ousada** e tenaz em prol da verdade, e a sacrificar-se por Deus e por Sua causa, serão joeirados.
+> _[Jesus:]_ ³¹ — Simão, Simão, eis que Satanás pediu para peneirar vocês como se faz com o trigo.
+> -- Lucas 22:31 | NVI
+
+> ²⁶ A voz dele naquela ocasião abalou a terra, mas agora promete: "Uma vez mais, abalarei não apenas a terra, mas também o céu".
+> -- Hebreus 12:26 | NVI
+
+> **COMEÇOU** a <u>forte</u> **SACUDIDURA** e **continuará**, e todos os que NÃO estiverem **dispostos** a <u>assumir</u> uma **posição OUSADA** e tenaz **em prol da verdade**, e a **sacrificar-se** por Deus e por Sua causa, **serão joeirados**.
 > — Ellen G. White, _Primeiros Escritos_, p. 50.
 
-Está claro que tudo que tiver que ser sacudido será sacudido. A bíblia e o Espírito de Profecia já haviam dito que Jesus já deveria ter voltado e isso já tem 120 anos. Portanto, a sacudidura já deveria ter ocorrido. E se você luta contra a pregação e anúncio de verdades que ferem, contra chamar o pecado pelo nome, contra verdades que doem, contra verdades que não acomodam e que não levam as pessoas a se conformarem, você luta contra Deus.
+Está claro que tudo que tiver que ser sacudido será sacudido e que NÃO adianta NEM se deve amenizar a correção dos erros e pecados. A bíblia e o Espírito de Profecia já haviam dito que Jesus já deveria ter voltado e isso já tem 120 anos. Portanto, a sacudidura já deveria ter ocorrido. E se você luta contra a pregação e anúncio de verdades que ferem, contra chamar o pecado pelo nome, contra verdades que doem, contra verdades que não acomodam e que não levam as pessoas a se conformarem, você luta contra Deus.
 
 > **SE** todos os que trabalharam unidos na obra em 1844 tivessem recebido a mensagem do terceiro anjo, proclamando-a no poder do Espírito Santo, o Senhor teria poderosamente operado por seus esforços. Caudais de luz ter-se-iam derramado sobre o mundo. Haveria anos que os habitantes da Terra teriam sido avisados, a obra final estaria consumada, **e Cristo teria vindo para a redenção de Seu povo**.
 > — Ellen G. White, _O Grande Conflito_, p. 399.
