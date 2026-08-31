@@ -336,6 +336,9 @@ Eles têm se reunido em segredo como Caifás, sem reunião de comissão, sem ata
 
 Não é contra homens que eles estão lutando, e sim contra Deus. Provas?
 
+> Que ninguém entretenha o pensamento de que eu lastimo ou me retrate de qualquer claro testemunho dado a indivíduos ou povo. **SE eu errei** de alguma forma, **foi em <u>NÃO repreender MAIS firme</u> e decididamente** o pecado. Alguns irmãos assumiram a responsabilidade de criticar meu trabalho e **propor um meio mais FÁCIL** _[dócil]_ de <u>corrigir os erros</u>. Gostaria de dizer a essas pessoas que <u>PREFIRO</u> o **caminho de Deus** e **NÃO** o delas. [...] Deus me deu uma obra da qual devo <u>prestar contas</u> no Juízo. Aqueles que têm escolhido **seu próprio caminho** e se têm erguido <u>**CONTRA** os **CLAROS**</u> testemunhos a eles dados, **procurando abalar** a fé dos demais nessas mensagens, devem decidir a questão com Deus. <u>NÃO</u> **amenizarei mensagem** alguma **para acompanhar suas idéias** ou relevar seus defeitos de caráter. [...] Os que querem, de algum modo, **AMENIZAR a <u>força das AGUDAS</u> reprovações** que <u>**Deus me deu**</u> para transmitir **HAVERÃO** de **enfrentar** sua obra no **JUIZO**.
+> -- Testemunhos para a Igreja, v. 5 - A reunião campal de Michigan, p. 22-23/19.
+
 > ²⁶ Aquele, cuja voz abalou, então, a terra; agora, porém, Ele promete, dizendo: Ainda uma vez por todas, farei abalar não só a terra, mas também o céu. ²⁷ Ora, esta palavra, ainda uma vez, significa a remoção dessas coisas abaladas, como tinham sido feitas, para que as coisas que não são abaladas permaneçam.
 > — Hebreus 12:26b-27 | ARA
 
