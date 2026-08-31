@@ -243,86 +243,88 @@ Ser humilde, ter um palavreado comum, simples, e popular, que é considerado ace
 
 O ponto aqui é justamente demonstrar que tudo gira em torno de **amor** e sempre girou em torno disso. Mas a compreensão atual do que é amor é a que está incorreta. Amor não é doçura, não é ser politicamente correto, nem ser fofo, como sociedade e a maior parte da igreja deseja. Envolve corrigir, envolve repreender, e em muitos casos ofender e ferir, contudo, tudo é amor e compaixão. A essência, a índole, o cerne é o amor, é a salvação, é o bem da pessoa, e **não** o mal. Há imensa diferença entre ser grosseiro, áspero e rude intencionalmente, por desejar ferir, ou agredir, e outra, totalmente diferente, é **SOAR** aos ouvidos do ouvinte, como grosseiro, áspero e rude, por consequência de um gesto de salvação. Parece difícil compreender? Veja este exemplo:
 
-> Deus, Jesus e as atitudes dos verdadeiros cristãos podem ser comparadas, nesta alegoria, a um bombeiro cuja própria casa está pegando fogo — e sua esposa está presa lá dentro.
->
-> Ele corre para salvá-la com duas coisas ao mesmo tempo: **o conhecimento do bombeiro e o desespero do marido**.
->
-> Ele sabe o que fazer. Conhece o fogo. Sabe onde está o perigo. Sabe que uma decisão errada pode matar. Mas também ama aquela mulher. Não está tentando vencer uma discussão. Está tentando salvar sua vida.
->
-> Quando chega, não há tempo para longas explicações:
->
-> — Saia daí!  
-> — Abaixe-se!  
-> — Não vá por esse lado!  
-> — Venha agora!  
-> — Faça exatamente o que estou dizendo!
->
-> Ele fala rápido. Fala firme. Dá ordens.
->
-> Não porque deixou de amá-la, mas **porque a ama e sabe que cada segundo conta**.
->
-> Agora imagine uma situação absurda: em vez de perceber o incêndio, a esposa começa a discutir a maneira como ele fala.
->
-> — “Por que você está me dando ordens?”  
-> — “Não fale assim comigo.”  
-> — “Eu sou sua esposa, não um dos bombeiros que você comanda.”  
-> — “Você deveria falar comigo com mais delicadeza.”  
-> — “Tenho direito de ser tratada de outra forma.”
->
-> O problema é que **a casa está pegando fogo**.
->
-> Ela está discutindo o tom de voz e as palavras usadas, enquanto as chamas se aproximam.
->
-> Ele conhece o perigo.
-> Ela não percebe o tamanho do perigo.
->
-> Ele sabe que segundos separam a vida da morte.
-> Ela pensa que ainda há tempo para discutir direitos, sentimentos, formas e maneiras.
->
-> Nesse momento, seu maior inimigo já não é apenas o fogo. É a incapacidade de reconhecer **a urgência da situação**.
->
-> Ela olha para a firmeza do marido e vê aspereza e grosseria.
-> Ele olha para as chamas e vê morte.
->
-> Ela pensa: “Ele está querendo mandar em mim.”
->
-> Ele pensa: **“Eu estou tentando salvar você.”**
->
-> É exatamente aí que está a tragédia.
->
-> O problema não é que o bombeiro não tenha amor. É que a esposa passou a medir o amor dele pela suavidade de suas palavras, quando deveria medi-lo pelo esforço desesperado que ele está fazendo para tirá-la do fogo.
->
-> Assim também acontece entre Deus e o ser humano.
->
-> Muitas vezes queremos um Deus que apenas console, prometa, acaricie e confirme nossos desejos. Quando Ele adverte, repreende, ordena ou diz claramente que determinado caminho leva à morte, podemos interpretar sua firmeza como dureza.
->
-> Mas talvez o problema não esteja na falta de amor de Deus.
->
-> Talvez esteja em **não percebermos o incêndio**.
->
-> Foi assim nos dias de Noé. As pessoas comiam, bebiam, casavam, trabalhavam e faziam planos. A vida parecia normal — até que deixou de ser.
->
-> Foi assim com as virgens loucas. Elas sabiam que o noivo viria, mas viveram como se ainda houvesse tempo de sobra. Quando finalmente compreenderam a urgência, era tarde.
->
-> E pode ser assim conosco.
->
-> Cristo está para voltar, e nós continuamos construindo castelos como se este mundo fosse permanente. Discutimos nossos direitos, cobramos promessas, exigimos conforto e até questionamos o modo como Deus nos adverte.
->
-> Enquanto isso, Ele diz:
->
-> — **“Acorde.”  
-> — “Saia daí.”  
-> — “Abandone isso.”  
-> — “Venha comigo.”  
-> — “Agora.”**
->
-> Não porque seja um tirano.
->
-> Mas porque **a casa está pegando fogo**.
->
-> E, quando segundos separam a vida da morte, a voz do amor nem sempre soa como um sussurro.
->
-> Às vezes, **o amor grita**.
+<i>
+Deus, Jesus e as atitudes dos verdadeiros cristãos podem ser comparadas, nesta alegoria, a um bombeiro cuja própria casa está pegando fogo — e sua esposa está presa lá dentro.
+
+Ele corre para salvá-la com duas coisas ao mesmo tempo: **o conhecimento do bombeiro e o desespero do marido**.
+
+Ele sabe o que fazer. Conhece o fogo. Sabe onde está o perigo. Sabe que uma decisão errada pode matar. Mas também ama aquela mulher. Não está tentando vencer uma discussão. Está tentando salvar sua vida.
+
+Quando chega, não há tempo para longas explicações:
+
+— Saia daí!  
+— Abaixe-se!  
+— Não vá por esse lado!  
+— Venha agora!  
+— Faça exatamente o que estou dizendo!
+
+Ele fala rápido. Fala firme. Dá ordens.
+
+Não porque deixou de amá-la, mas **porque a ama e sabe que cada segundo conta**.
+
+Agora imagine uma situação absurda: em vez de perceber o incêndio, a esposa começa a discutir a maneira como ele fala.
+
+— “Por que você está me dando ordens?”  
+— “Não fale assim comigo.”  
+— “Eu sou sua esposa, não um dos bombeiros que você comanda.”  
+— “Você deveria falar comigo com mais delicadeza.”  
+— “Tenho direito de ser tratada de outra forma.”
+
+O problema é que **a casa está pegando fogo**.
+
+Ela está discutindo o tom de voz e as palavras usadas, enquanto as chamas se aproximam.
+
+Ele conhece o perigo.
+Ela não percebe o tamanho do perigo.
+
+Ele sabe que segundos separam a vida da morte.
+Ela pensa que ainda há tempo para discutir direitos, sentimentos, formas e maneiras.
+
+Nesse momento, seu maior inimigo já não é apenas o fogo. É a incapacidade de reconhecer **a urgência da situação**.
+
+Ela olha para a firmeza do marido e vê aspereza e grosseria.
+Ele olha para as chamas e vê morte.
+
+Ela pensa: “Ele está querendo mandar em mim.”
+
+Ele pensa: **“Eu estou tentando salvar você.”**
+
+É exatamente aí que está a tragédia.
+
+O problema não é que o bombeiro não tenha amor. É que a esposa passou a medir o amor dele pela suavidade de suas palavras, quando deveria medi-lo pelo esforço desesperado que ele está fazendo para tirá-la do fogo.
+
+Assim também acontece entre Deus e o ser humano.
+
+Muitas vezes queremos um Deus que apenas console, prometa, acaricie e confirme nossos desejos. Quando Ele adverte, repreende, ordena ou diz claramente que determinado caminho leva à morte, podemos interpretar sua firmeza como dureza.
+
+Mas talvez o problema não esteja na falta de amor de Deus.
+
+Talvez esteja em **não percebermos o incêndio**.
+
+Foi assim nos dias de Noé. As pessoas comiam, bebiam, casavam, trabalhavam e faziam planos. A vida parecia normal — até que deixou de ser.
+
+Foi assim com as virgens loucas. Elas sabiam que o noivo viria, mas viveram como se ainda houvesse tempo de sobra. Quando finalmente compreenderam a urgência, era tarde.
+
+E pode ser assim conosco.
+
+Cristo está para voltar, e nós continuamos construindo castelos como se este mundo fosse permanente. Discutimos nossos direitos, cobramos promessas, exigimos conforto e até questionamos o modo como Deus nos adverte.
+
+Enquanto isso, Ele diz:
+
+— **“Acorde.”  
+— “Saia daí.”  
+— “Abandone isso.”  
+— “Venha comigo.”  
+— “Agora.”**
+
+Não porque seja um tirano.
+
+Mas porque **a casa está pegando fogo**.
+
+E, quando segundos separam a vida da morte, a voz do amor nem sempre soa como um sussurro.
+
+Às vezes, **o amor grita**.
+</i>
 
 ## Uma Reflexão aos Pastores, Anciãos e Líderes Adventistas
 
