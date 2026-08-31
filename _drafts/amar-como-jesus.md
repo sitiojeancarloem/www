@@ -82,41 +82,8 @@ Uma verdade contaminada com um errinho minúsculo, provavelmente imperceptível,
 
 Havia um rei chamado Herodes Agripa II (o título mais próximo nos dias atuais, seria governador) que teve que fazer um julgamento do apóstolo Paulo. E o relato está em Atos capítulo 26. Neste julgamento Paulo teve direito à defesa e, pode explicar seu caso que foi praticamente um testemunho de sua conversão ao cristianismo - até então denominado de seita do nazareno. Paulo ao contar sua história rica em milagres e evidências bíblicas e argumentação racional, foi interpelado pelo rei, que disse _"Por **pouco** me persuades a me fazer cristão"_[^13]. Percebe o "peso" disso? ... Faltou um pouquinho apenas, para que o terrível rei Agripa se tornasse o primeiro governador romano cristão. Por um pouquinho, ele teria aceitado Jesus, e seria salvo. Mas 99% salvo, ainda é 100% perdido! Na vida espiritual, quase ao lado de Jesus, é 100% ao lado do diabo.[^11]
 
-# Bibliografia
-
-- WHITE, Ellen G. O Desejado de Todas as Nações. 2. ed. Tatuí: Casa Publicadora Brasileira, 2011.
-
-- GILL, D. M. Bacterial Toxins: A Table of Lethal Amounts. Microbiological Reviews, v. 46, n. 1, p. 86–94, 1982. Disponível em: https://journals.asm.org/doi/pdf/10.1128/mr.46.1.86-94.1982 . Acesso em: 18/10/2025.
-
-# Referências
-
-[^1]: Gill, 1982. Nota: A DL50 (Dose Letal Mediana) para humanos (estimada) é de aproximadamente 1 nanograma por quilograma de peso corporal (via intravenosa/inalação). Nunca use esta informação de forma não autorizada.
-
-[^2]: ARA, 1 João 4:8: "Aquele que não ama não conhece a Deus, pois **Deus é amor**". Veja também João 15:13; Romanos 5:8; II Coríntios 5:14-15; I João 4:9-10
-
-[^3]: ARA, Mateus 11:29: "²⁹ Tomai sobre vós o meu jugo e aprendei de mim, porque sou **manso** e **humilde** de coração; e achareis descanso para a vossa alma."
-
-[^4]: ARA, Mateus 5:38-39.
-
-[^5]: NVI, Lucas 19:8.
-
-[^6]: NVI, Romanos 12:16-21.
-
-[^7]: NVI, Efésios 4:2 _"Sejam completamente humildes {ταπεινοφροσύνης} e **dóceis** {πραΰτητος}, e sejam pacientes {μακροθυμίας}, suportando uns aos outros com amor."_, mas já na versão ARA _"com toda a humildade e mansidão {πραΰτητος}, com longanimidade, suportando-vos uns aos outros em amor"_ e o grego Textus Receptus: _"μετα πασης ταπεινοφροσυνης και πραοτητος μετα μακροθυμιας ανεχομενοι αλληλων εν αγαπη"_
-
-[^8]: NVI, Colossenses 3:12.
-
-[^9]: NVI, I Pedro 3:8-11.
-
-[^10]: NVI, Mateus 23:13-33.
-
-[^11]: Várias evidências: **(1ª) NVI, Mateus 5:37**:_"Seja o seu ‘sim’, ‘sim’, e o seu ‘não’, ‘não’"_ ; **(2ª) NVI, Lucas 11:23**: _"Aquele que não está comigo é contra mim, e aquele que comigo não ajunta, espalha"_ <small>[denota que não precisa ser contra, simplemente não ser a favor, é o mesmo que ser contra]</small>; **(3ª) NVI, Mateus 6:24**: "Ninguém pode servir a dois senhores;..."; **(4ª) NVI, Mateus 7:13-14** - há apenas dois caminhos, sem meio termos, sem uma terceira opção; **(4ª)** Josué 24:15; **(5ª)** 1 Reis 18:21; **(6ª)** Lucas 14:26.
-
-[^12]: NVI, Mateus 23:23.
-
-[^13]: ARA, Atos 26:28.
-
-# Retóricas e argumentos a serem adicionados
+<!-- AI-PROCESSED:START -->
+<!-- AI-PROCESSED:END -->
 
 "Cada ato" da vida de Jesus era de amor, mas o que significa de fato amor é que não é compreendido. Se lê em Caminho a Cristo:
 
@@ -365,7 +332,6 @@ Eles têm se reunido em segredo como Caifás, sem reunião de comissão, sem ata
 
 Não é contra homens que eles estão lutando, e sim contra Deus. Provas?
 
-> <critar bíblico texto sacudidura>
 > ²⁶ Aquele, cuja voz abalou, então, a terra; agora, porém, Ele promete, dizendo: Ainda uma vez por todas, farei abalar não só a terra, mas também o céu. ²⁷ Ora, esta palavra, ainda uma vez, significa a remoção dessas coisas abaladas, como tinham sido feitas, para que as coisas que não são abaladas permaneçam.
 > — Hebreus 12:26b-27 | ARA
 
@@ -410,3 +376,39 @@ E o que acontece a tais pessoas, sejam líderes ou não? Afinal, por um curto pe
 
 > ¹¹ Porque eu bem sei os pensamentos que tenho a vosso respeito, diz o Senhor; pensamentos de paz, e não de mal, para vos dar o fim que esperais.
 > Jeremias 29:11 | ACF
+
+<!-- AI-PROCESSED:START -->
+# Bibliografia
+
+- WHITE, Ellen G. O Desejado de Todas as Nações. 2. ed. Tatuí: Casa Publicadora Brasileira, 2011.
+
+- GILL, D. M. Bacterial Toxins: A Table of Lethal Amounts. Microbiological Reviews, v. 46, n. 1, p. 86–94, 1982. Disponível em: https://journals.asm.org/doi/pdf/10.1128/mr.46.1.86-94.1982 . Acesso em: 18/10/2025.
+
+# Referências
+
+[^1]: Gill, 1982. Nota: A DL50 (Dose Letal Mediana) para humanos (estimada) é de aproximadamente 1 nanograma por quilograma de peso corporal (via intravenosa/inalação). Nunca use esta informação de forma não autorizada.
+
+[^2]: ARA, 1 João 4:8: "Aquele que não ama não conhece a Deus, pois **Deus é amor**". Veja também João 15:13; Romanos 5:8; II Coríntios 5:14-15; I João 4:9-10
+
+[^3]: ARA, Mateus 11:29: "²⁹ Tomai sobre vós o meu jugo e aprendei de mim, porque sou **manso** e **humilde** de coração; e achareis descanso para a vossa alma."
+
+[^4]: ARA, Mateus 5:38-39.
+
+[^5]: NVI, Lucas 19:8.
+
+[^6]: NVI, Romanos 12:16-21.
+
+[^7]: NVI, Efésios 4:2 _"Sejam completamente humildes {ταπεινοφροσύνης} e **dóceis** {πραΰτητος}, e sejam pacientes {μακροθυμίας}, suportando uns aos outros com amor."_, mas já na versão ARA _"com toda a humildade e mansidão {πραΰτητος}, com longanimidade, suportando-vos uns aos outros em amor"_ e o grego Textus Receptus: _"μετα πασης ταπεινοφροσυνης και πραοτητος μετα μακροθυμιας ανεχομενοι αλληλων εν αγαπη"_
+
+[^8]: NVI, Colossenses 3:12.
+
+[^9]: NVI, I Pedro 3:8-11.
+
+[^10]: NVI, Mateus 23:13-33.
+
+[^11]: Várias evidências: **(1ª) NVI, Mateus 5:37**:_"Seja o seu ‘sim’, ‘sim’, e o seu ‘não’, ‘não’"_ ; **(2ª) NVI, Lucas 11:23**: _"Aquele que não está comigo é contra mim, e aquele que comigo não ajunta, espalha"_ <small>[denota que não precisa ser contra, simplemente não ser a favor, é o mesmo que ser contra]</small>; **(3ª) NVI, Mateus 6:24**: "Ninguém pode servir a dois senhores;..."; **(4ª) NVI, Mateus 7:13-14** - há apenas dois caminhos, sem meio termos, sem uma terceira opção; **(4ª)** Josué 24:15; **(5ª)** 1 Reis 18:21; **(6ª)** Lucas 14:26.
+
+[^12]: NVI, Mateus 23:23.
+
+[^13]: ARA, Atos 26:28.
+<!-- AI-PROCESSED:END -->
