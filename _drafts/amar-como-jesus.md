@@ -361,31 +361,33 @@ Não é sobre acomodar-se, nem sobre conforme-se (Romanos 12:2) que o texto acim
 
 Que mensagem é, para o povo RECEBER e proclamar? A mensagem do "amor"? A mensagem da cruz? A mensagem de ternura ou de caridade? A mensagem de o Cristo morto e Ressureto? **NÃO!** Não há margem nenhuma para dúvidas. O texto é explicito, claro e direto. Dizer qualquer outra coisa é inserir texto que NÃO existe. A única mensagem que DEVE ser proclamada segundo o Apocalipse e segundo este texto não é a mensagem do TERCEIRO ANJO. E ela não é uma mensagem de amor, da Cruz, da caridade, de ternura ou qualquer outra coisa, **mas de JUIZO**. É esta a missão da igreja atual. A igreja tem um chamado especial, pois ela é o bombeiro para a casa em chamas, não há tempo, não há sequer um segundo para perder; o fogo está tão alto, e casa está prestes a ruim, as pessoas estão morrendo, e muitos estão querendo falar da Cruz e de AMor! Páre que com isso! Mais importa ofender e salvar, que agradar e matar! Este é o cerne da igreja, está é a missão da igreja.
 
-> Um homem sofreu um grave acidente. Chegou ao hospital consciente, assustado e com muita dor. Os médicos descobriram uma hemorragia interna: por fora, ainda falava; por dentro, estava morrendo.
->
-> A cirurgia seria dolorosa, invasiva e arriscada. O paciente tinha medo. Preferia analgésicos, palavras tranquilizadoras e qualquer tratamento que lhe desse algum alívio sem precisar enfrentar a operação.
->
-> Mas o médico conhecia o diagnóstico.
->
-> Não havia tempo para fingir que conforto era cura. Cada minuto gasto apenas amenizando a dor permitia que a hemorragia continuasse. O remédio podia fazê-lo sentir-se melhor enquanto sua condição, de fato, piorava.
->
-> Por isso o médico não chamou alguém para convencê-lo de que estava tudo bem. Chamou quem lhe dissesse a verdade: **“Você precisa ser operado. Agora.”**
->
-> A mensagem poderia assustá-lo. Poderia contrariá-lo. Poderia até fazê-lo rejeitar o mensageiro. Mas esconder a gravidade para poupá-lo do medo seria deixá-lo morrer confortavelmente.
->
-> Assim é com Deus e aqueles que Ele envia.
->
-> **As pessoas estão morrendo.** O pecado não é um incômodo a ser administrado, mas uma enfermidade mortal. Deus conhece o diagnóstico e envia Seus mensageiros — em última análise, todo aquele que recebeu a verdade — não para anestesiar uma consciência que precisa despertar, mas para anunciar a cura enquanto ainda há tempo.
->
-> Isso não autoriza crueldade, arrogância ou prazer em ferir. O bisturi não é usado porque cortar seja bom, mas porque há algo pior acontecendo por dentro. A verdade pode doer; a advertência pode assustar; a repreensão pode ser desconfortável. **Esses riscos são reais.**
->
-> Mas existe um risco infinitamente maior: transformar o evangelho em tratamento paliativo, amenizar sintomas, evitar toda palavra difícil e deixar o homem sentir-se seguro enquanto caminha para a morte.
->
-> Há momentos em que suavizar indefinidamente não é misericórdia. **É trocar a dor momentânea da cirurgia pela tranquilidade momentânea de quem está morrendo.**
->
-> O mensageiro fiel não fere por gosto, nem silencia por medo. Ele fala porque conhece a urgência.
->
-> **Quando a doença é mortal, a verdade que corta para salvar é misericórdia; a mentira que consola enquanto mata é crueldade.**
+<i>
+Um homem sofreu um grave acidente. Chegou ao hospital consciente, assustado e com muita dor. Os médicos descobriram uma hemorragia interna: por fora, ainda falava; por dentro, estava morrendo.
+
+A cirurgia seria dolorosa, invasiva e arriscada. O paciente tinha medo. Preferia analgésicos, palavras tranquilizadoras e qualquer tratamento que lhe desse algum alívio sem precisar enfrentar a operação.
+
+Mas o médico conhecia o diagnóstico.
+
+Não havia tempo para fingir que conforto era cura. Cada minuto gasto apenas amenizando a dor permitia que a hemorragia continuasse. O remédio podia fazê-lo sentir-se melhor enquanto sua condição, de fato, piorava.
+
+Por isso o médico não chamou alguém para convencê-lo de que estava tudo bem. Chamou quem lhe dissesse a verdade: **“Você precisa ser operado. Agora.”**
+
+A mensagem poderia assustá-lo. Poderia contrariá-lo. Poderia até fazê-lo rejeitar o mensageiro. Mas esconder a gravidade para poupá-lo do medo seria deixá-lo morrer confortavelmente.
+
+Assim é com Deus e aqueles que Ele envia.
+
+**As pessoas estão morrendo.** O pecado não é um incômodo a ser administrado, mas uma enfermidade mortal. Deus conhece o diagnóstico e envia Seus mensageiros — em última análise, todo aquele que recebeu a verdade — não para anestesiar uma consciência que precisa despertar, mas para anunciar a cura enquanto ainda há tempo.
+
+Isso não autoriza crueldade, arrogância ou prazer em ferir. O bisturi não é usado porque cortar seja bom, mas porque há algo pior acontecendo por dentro. A verdade pode doer; a advertência pode assustar; a repreensão pode ser desconfortável. **Esses riscos são reais.**
+
+Mas existe um risco infinitamente maior: transformar o evangelho em tratamento paliativo, amenizar sintomas, evitar toda palavra difícil e deixar o homem sentir-se seguro enquanto caminha para a morte.
+
+Há momentos em que suavizar indefinidamente não é misericórdia. **É trocar a dor momentânea da cirurgia pela tranquilidade momentânea de quem está morrendo.**
+
+O mensageiro fiel não fere por gosto, nem silencia por medo. Ele fala porque conhece a urgência.
+
+**Quando a doença é mortal, a verdade que corta para salvar é misericórdia; a mentira que consola enquanto mata é CRUELDADE.**
+</i>
 
 Os "Acabes" atuais que são grande parte, mas não todos, os líderes das igrejas adventistas em todos os lugares do mundo, **lutam contra a sacudidura** que não vem de mãos humanas, mas do próprio Deus. A sacudidura **não é ação humana, é ação divina**. Os Elias modernos, assim como o Elias do passado, **são meros carteiros**, mas estes líderes insistem em perseguir, silenciar, e acusar falsamente; não é contra homens que estão lutando, é contra Deus. Não adianta tentar calá-los, silenciá-los, ou criar planos secretos em suas salas de reuniões. Milhões tentaram, e quando um é calado, dois ou mais surgem no lugar: não há como vencer, eles são como semente. Está escrito: _"³⁰ Não há sabedoria, nem inteligência, nem mesmo conselho contra o Senhor…"_ (Provérbios 21:30a | ARA).
 
