@@ -39,6 +39,11 @@
 
 ---
 
+> A luz é enviada para desfazer as trevas; porém, em seu excessivo orgulho, a rejeitam, preferindo continuar às escuras. **DESPREZAM os conselhos divinos**, <u>**porque NÃO** correspondem</u> aos **seus pontos de vista e INTENÇÕES**, e **NÃO aprovam** seus **maus traços** de caráter. A operação do **Espírito** de Deus, que os **poderia** ajudar a entrar no bom caminho, **SE a aceitassem**, **NÃO se faz** de modo a **comprazê-los e lisonjear sua justiça própria**.
+> -- Testemunhos para a Igreja, v. 5 - Natureza e influência dos testemunhos, p. 655-656/689.
+
+---
+
 > A declaração que citais do Testemunho 3 [Testemunhos para a Igreja 5:67] é correta: “Nestas cartas que escrevo, nos testemunhos que dou, estou vos apresentando aquilo que o Senhor me tem apresentado. Não escrevo nenhum artigo, expressando meramente minhas próprias idéias. Eles são o que Deus me tem exposto em visão — os preciosos raios de luz brilhando do trono.” Isto é verdade quanto aos artigos de nossas revistas e aos muitos volumes de meus livros. Tenho ME1 29.3
 > Em meus livros a verdade é declarada, fortalecida por um “Assim diz o Senhor”. O Espírito Santo traçou essas verdades sobre meu coração e mente de maneira tão indelével como a lei foi traçada pelo dedo de Deus nas tábuas de pedra, as quais estão agora na arca, para serem expostas naquele grande dia, quando a sentença será pronunciada contra toda má e sedutora ciência produzida pelo pai da mentira. — Carta 90, 1906. Cev 126.2
 

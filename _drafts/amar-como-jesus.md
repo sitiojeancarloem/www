@@ -336,6 +336,9 @@ Eles têm se reunido em segredo como Caifás, sem reunião de comissão, sem ata
 
 Não é contra homens que eles estão lutando, e sim contra Deus. Provas?
 
+> Relativamente aos que voltaram as costas à luz que lhes foi envi- ada, disse-me: “Ao **menosprezar e rejeitar o testemunho** que lhes fiz transmitir, **têm desprezado** NÃO a ti, <u>MAS</u> **a Mim, O Senhor**.”
+> -- Testemunhos para a Igreja, v. 5 - Natureza e influência dos testemunhos, p. 655/689.
+
 > Que ninguém entretenha o pensamento de que eu lastimo ou me retrate de qualquer claro testemunho dado a indivíduos ou povo. **SE eu errei** de alguma forma, **foi em <u>NÃO repreender MAIS firme</u> e decididamente** o pecado. Alguns irmãos assumiram a responsabilidade de criticar meu trabalho e **propor um meio mais FÁCIL** _[dócil]_ de <u>corrigir os erros</u>. Gostaria de dizer a essas pessoas que <u>PREFIRO</u> o **caminho de Deus** e **NÃO** o delas. [...] Deus me deu uma obra da qual devo <u>prestar contas</u> no Juízo. Aqueles que têm escolhido **seu próprio caminho** e se têm erguido <u>**CONTRA** os **CLAROS**</u> testemunhos a eles dados, **procurando abalar** a fé dos demais nessas mensagens, devem decidir a questão com Deus. <u>NÃO</u> **amenizarei mensagem** alguma **para acompanhar suas idéias** ou relevar seus defeitos de caráter. [...] Os que querem, de algum modo, **AMENIZAR a <u>força das AGUDAS</u> reprovações** que <u>**Deus me deu**</u> para transmitir **HAVERÃO** de **enfrentar** sua obra no **JUIZO**.
 > -- Testemunhos para a Igreja, v. 5 - A reunião campal de Michigan, p. 22-23/19.
 
@@ -350,6 +353,9 @@ Não é contra homens que eles estão lutando, e sim contra Deus. Provas?
 
 > **COMEÇOU** a <u>forte</u> **SACUDIDURA** e **continuará**, e todos os que NÃO estiverem **dispostos** a <u>assumir</u> uma **posição OUSADA** e tenaz **em prol da verdade**, e a **sacrificar-se** por Deus e por Sua causa, **serão joeirados**.
 > — Ellen G. White, _Primeiros Escritos_, p. 50.
+
+> A luz é enviada para desfazer as trevas; porém, em seu excessivo orgulho, a rejeitam, preferindo continuar às escuras. **DESPREZAM os conselhos divinos**, <u>**porque NÃO** correspondem</u> aos **seus pontos de vista e INTENÇÕES**, e **NÃO aprovam** seus **maus traços** de caráter. A operação do **Espírito** de Deus, que os **poderia** ajudar a entrar no bom caminho, **SE a aceitassem**, **NÃO se faz** de modo a **comprazê-los e lisonjear sua justiça própria**.
+> -- Testemunhos para a Igreja, v. 5 - Natureza e influência dos testemunhos, p. 655-656/689.
 
 Está claro que tudo que tiver que ser sacudido será sacudido e que NÃO adianta NEM se deve amenizar a correção dos erros e pecados. A bíblia e o Espírito de Profecia já haviam dito que Jesus já deveria ter voltado e isso já tem 120 anos. Portanto, a sacudidura já deveria ter ocorrido. E se você luta contra a pregação e anúncio de verdades que ferem, contra chamar o pecado pelo nome, contra verdades que doem, contra verdades que não acomodam e que não levam as pessoas a se conformarem, você luta contra Deus.
 
