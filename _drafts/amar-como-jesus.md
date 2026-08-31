@@ -328,13 +328,13 @@ E, quando segundos separam a vida da morte, a voz do amor nem sempre soa como um
 
 ## Uma Reflexão aos Pastores, Anciãos e Líderes Adventistas
 
-Agora, de forma mais **especial** a todos os líderes, incluindo pastores e anciãos adventistas, não para acusá-los mas justamente por causa de sua alta responsabilidade e sobre os quais a _" culpa é tanto maior do que a dos outros quanto sua posição é de maior responsabilidade"_ (O Lar Adventista, p. 354, citando Patriarcas e Profetas, p. 579.).
+A reflexão se aplica a tosos, entretant, de forma ainda mais **especial** aos líderes, incluindo pastores e anciãos adventistas, não para acusá-los mas justamenteporuqe para eles, a _" culpa é tanto maior do que a dos outros quanto sua posição é de maior responsabilidade"_ (O Lar Adventista, p. 354, citando Patriarcas e Profetas, p. 579.).
 
-Muitos membros e queridos irmãos talvez não estejam cientes, ou se estão, não se importam, mas, cada vez mais, líderes da igreja, sejam, pastores, anciãos, tentam silenciar, em semelhança ao que acontecia nos tempos romanos da Idade Média, os "Atalaias" (Ezequiel 33:7; Isaías 62:6) que anunciam a destruição iminente de Israel.
+Muitos irmãos adventistas talvez não estejam cientes, ou se estão, não se importam, mas, cada vez mais, líderes da igreja, sejam, pastores ou anciãos, tentam silenciar, em semelhança ao que acontecia nos tempos romanos da Idade Média, os "Atalaias" (Ezequiel 33:7; Isaías 62:6) que anunciam a destruição iminente de Israel.
 
-Eles alegam que são palavras duras, difíceis e que ferem entre tantos outros argumentos; e todas estas correções não poderiam vir de Deus, pois Deus é amor. Elas ferem as pessoas e elas acabam se afastando da Igreja. Mas estes líderes são tolos. E para fazer como Jesus e Paulo, e usar palavras modernas, eu vou falar, eles são **imbecis**. O diabo tomou a mente deles, tanto quanto tomou a mente de Pedro momentos após ter sido tomado do Espírito Santo - uma vez eles experimentaram o poder da salvação, mas agora, lutam contra ela.
+Eles alegam que são palavras duras, difíceis e que ferem entre tantos outros argumentos; e todas estas correções não poderiam vir de Deus, pois Deus é amor. Elas ferem as pessoas e elas acabam se afastando da Igreja. Mas estes líderes são tolos. E para fazer como Jesus e Paulo, e usar palavras modernas: eles são **imbecis**. O diabo tomou a mente deles, tanto quanto tomou a mente de Pedro momentos após ter sido tomado do Espírito Santo - uma vez eles experimentaram o poder da salvação, mas agora, lutam contra ela.
 
-Eles têm se reunido em segredo como Caifás, sem reunião de comissão, sem ata pública, sem transparência, e decidido em segredo, quem vai e quem não vai mais poder pregar, falar. Objetivo? Silenciar as testemunhas de Apocalipse 14:12. Igual Roma inutilmente tentou fazer na Idade Média. Não há justificativa aceitável na bíblia ou nas normas da igreja. Não há pecado **público** (pois pecado todos têm) que justifique disciplina ou proibição de pregar, mas eles em segredo disciplinam, passam por cima da comissão, e sorriem com tapinhas nas costas. Isso ocorre em quase toda, se não em todas as igrejas adventistas. Longe dos olhos e ouvidos da multidão, estes Acabes modernos chamam os atuais Elias de perturbadores de Israel, e o motivo? Eles dizem a verdade e a verdade dói, a verdade de Deus agita as mentes, assim como agitava as mentes nos tempos de Jesus.
+Eles têm se reunido em segredo como Caifás, sem reunião de comissão, sem ata pública, sem transparência, e decidido em segredo, quem vai e quem não vai mais poder pregar além de outros tipos de pseudo disciplina. Sim, uma disciplina velada: não está nos registros ofinais e em nenhuma ata da comissão, mas eles se consideram superiores a comissão. Objetivo? Silenciar as testemunhas de Apocalipse 14:12. Igual Roma inutilmente tentou fazer na Idade Média. Não há justificativa aceitável na bíblia ou nas normas da igreja. Não há pecado **público** (pois pecado todos têm) que **justifique disciplina ou proibição de pregar** ou de qualquer outro coisa, mas eles, **em segredo** disciplinam, e levantam suspeitas, passam por cima da comissão, mas sorriem com tapinhas nas costas. Isso ocorre em quase toda, se não em todas as igrejas adventistas. Longe dos olhos e ouvidos da multidão, estes Acabes modernos chamam os atuais Elias de perturbadores de Israel. São eles a causar a agitaçÃo, são eles a trazer a desgraça à Israel, mas atribuem seu próprios pecados à Elias. E o motivo? Eles dizem a verdade e a verdade dói, a verdade de Deus agita as mentes, assim como agitava as mentes nos tempos de Elias e de Jesus.
 
 Não é contra homens que eles estão lutando, e sim contra Deus. Provas?
 
@@ -388,7 +388,7 @@ Há momentos em que suavizar não é misericórdia. **É trocar a dor momentâne
 
 O mensageiro fiel não fere por gosto, nem silencia por medo. Ele fala porque conhece a urgência.
 
-**Quando a doença é mortal, a verdade QUE CORTA para salvar É MISERICÓRDIA; a mentira que consola enquanto mata é CRUELDADE.**
+**Quando a doença é mortal, a verdade QUE CORTA para salvar É MISERICÓRDIA; a mentira que CONSOLA enquanto mata é CRUELDADE.**
 </i>
 
 Os "Acabes" atuais que, infelizmente são a grande parte (mas não todos), os líderes das igrejas adventistas em todos os lugares do mundo, **lutam contra a sacudidura**, que não vem de mãos humanas, mas do próprio Deus. A sacudidura **não é ação humana, é ação divina**. Os Elias modernos, assim como o Elias do passado, **são meros carteiros**, mas estes líderes insistem em perseguir, silenciar, e acusar falsamente; não é contra homens que estão lutando, é contra Deus. Não adianta tentar calá-los, silenciá-los, ou criar planos secretos em suas salas de reuniões. Milhões tentaram, e quando um é calado, dois ou mais surgem no lugar: não há como vencer, eles são como semente. Está escrito: _"³⁰ Não há sabedoria, nem inteligência, nem mesmo conselho contra o Senhor…"_ (Provérbios 21:30a | ARA).
@@ -473,3 +473,12 @@ E o que acontece a tais pessoas, sejam líderes ou não? Afinal, por um curto pe
 <!-- AI-PROCESSED:END -->
 
 # A adicionar futuramente
+
+> “A paz e a harmonia das cortes celestiais não serão perturbadas pela presença de alguém que seja rude ou indelicado.”
+> — Ellen G. White, _Testemunhos para a Igreja_, v. 8, p. 140; reprodução oficial em _Eventos Finais_, EF 295.2.[^ti8-140]
+
+> A bondade, a misericórdia, a compaixão, a ternura, a amável bondade de Deus devem ser expressas nas palavras, comportamento, e caráter de todos os que dizem ser filhos de Deus, e especialmente naqueles que pretendem ser mensageiros enviados pelo Senhor Je- sus com a palavra da vida, para salvar ao que perece. Ordena-lhes a Bíblia que lancem fora tudo que é áspero, grosseiro e rude em seu caráter, e sejam enxertados em Cristo, a Videira viva. Devem produzir a mesma qualidade de frutos que a Videira. Somente assim poderá o ramo ser verdadeira epresentação da preciosidade da Videira.
+> -- Testemunhos para Ministros e Obreiros Evangélico - Um solene apelo a ministros, p. 135/151-152.
+
+> “A pessoa que está aprendendo de Jesus manifestará crescente desagrado pelas maneiras descuidadas, pela linguagem indecente e pensamentos vulgares.”
+> — Ellen G. White, _O Maior Discurso de Cristo_, MDC 24.[^mdc-24-25]
