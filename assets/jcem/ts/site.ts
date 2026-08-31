@@ -1,6 +1,7 @@
 /*! Fonte: https://github.com/sitiojeancarloem/blog | Autor: Jean Carlo EM — https://www.jeancarloem.com | Licença: MPL-2.0 — https://mozilla.org/MPL/2.0/ — código aberto, sem garantia. */
 
 import { formatJcemInlineQuotes } from './inline-quotes.js';
+import { resolveJcemLegacyHeroMode } from './cover-layout.js';
 
 declare global {
 	interface Element {
@@ -367,6 +368,57 @@ const bindJcemLoadingProgress = (): void => {
 };
 
 type JcemSkeletonState = 'loading' | 'loaded' | 'error';
+
+const bindJcemLegacyHeroLayout = (): void => {
+	const hero = document.querySelector<HTMLElement>('[data-jcem-legacy-hero]');
+	const image = hero?.querySelector<HTMLImageElement>('.page__hero-image, img');
+	const article = document.querySelector<HTMLElement>('article.page .page__inner-wrap');
+	if (!hero || !image || !article) return;
+
+	let frame = 0;
+	let decisions = 0;
+	let lastMode = '';
+
+	const decide = (): void => {
+		frame = 0;
+		const intrinsicWidth = Number(hero.dataset.jcemImageWidth) || image.naturalWidth;
+		const intrinsicHeight = Number(hero.dataset.jcemImageHeight) || image.naturalHeight;
+		if (!(intrinsicWidth > 0 && intrinsicHeight > 0)) return;
+
+		const viewportHeight = window.visualViewport?.height || window.innerHeight;
+		const viewportWidth = document.documentElement.clientWidth || window.innerWidth;
+		const topAtScrollZero = hero.getBoundingClientRect().top + window.scrollY;
+		const { mode } = resolveJcemLegacyHeroMode({
+			viewportWidth,
+			viewportHeight,
+			heroTopAtScrollZero: topAtScrollZero,
+			imageWidth: intrinsicWidth,
+			imageHeight: intrinsicHeight,
+		});
+		const articleRect = article.getBoundingClientRect();
+
+		hero.style.setProperty('--jcem-legacy-content-left', `${articleRect.left}px`);
+		hero.style.setProperty('--jcem-legacy-content-width', `${articleRect.width}px`);
+		if (mode !== lastMode) {
+			lastMode = mode;
+			decisions += 1;
+			hero.dataset.jcemLegacyHeroMode = mode;
+			hero.dataset.jcemLegacyHeroDecisions = String(decisions);
+		}
+	};
+
+	const schedule = (): void => {
+		if (frame) return;
+		frame = window.requestAnimationFrame(decide);
+	};
+
+	window.addEventListener('resize', schedule, { passive: true });
+	window.addEventListener('orientationchange', schedule, { passive: true });
+	window.visualViewport?.addEventListener('resize', schedule, { passive: true });
+	if (typeof ResizeObserver === 'function') new ResizeObserver(schedule).observe(article);
+	if (!image.complete) image.addEventListener('load', schedule, { once: true });
+	schedule();
+};
 
 const jcemSkeletonMediaSelector =
 	'img, video, iframe, .jcem-featured-image, .archive__item-teaser, .page__hero, .page__hero--overlay, [data-jcem-skeleton]';
@@ -1934,6 +1986,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	// Tema e fallback sao sincronizados antes da primeira pintura; os percursos
 	// amplos do DOM ficam para a oportunidade posterior.
 	bindJcemTheme();
+	bindJcemLegacyHeroLayout();
 	hideNoScript();
 	scheduleJcemPostPaintEnhancements();
 });

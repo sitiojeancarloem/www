@@ -1,5 +1,6 @@
 /*! Fonte: https://github.com/sitiojeancarloem/blog | Autor: Jean Carlo EM — https://www.jeancarloem.com | Licença: MPL-2.0 — https://mozilla.org/MPL/2.0/ — código aberto, sem garantia. */
 import { formatJcemInlineQuotes } from './inline-quotes.js';
+import { resolveJcemLegacyHeroMode } from './cover-layout.js';
 Element.prototype.on = function (type, listener) {
     this.addEventListener(type, listener);
 };
@@ -273,6 +274,57 @@ const bindJcemLoadingProgress = () => {
     else {
         completeDom();
     }
+};
+const bindJcemLegacyHeroLayout = () => {
+    var _a;
+    const hero = document.querySelector('[data-jcem-legacy-hero]');
+    const image = hero === null || hero === void 0 ? void 0 : hero.querySelector('.page__hero-image, img');
+    const article = document.querySelector('article.page .page__inner-wrap');
+    if (!hero || !image || !article)
+        return;
+    let frame = 0;
+    let decisions = 0;
+    let lastMode = '';
+    const decide = () => {
+        var _a;
+        frame = 0;
+        const intrinsicWidth = Number(hero.dataset.jcemImageWidth) || image.naturalWidth;
+        const intrinsicHeight = Number(hero.dataset.jcemImageHeight) || image.naturalHeight;
+        if (!(intrinsicWidth > 0 && intrinsicHeight > 0))
+            return;
+        const viewportHeight = ((_a = window.visualViewport) === null || _a === void 0 ? void 0 : _a.height) || window.innerHeight;
+        const viewportWidth = document.documentElement.clientWidth || window.innerWidth;
+        const topAtScrollZero = hero.getBoundingClientRect().top + window.scrollY;
+        const { mode } = resolveJcemLegacyHeroMode({
+            viewportWidth,
+            viewportHeight,
+            heroTopAtScrollZero: topAtScrollZero,
+            imageWidth: intrinsicWidth,
+            imageHeight: intrinsicHeight,
+        });
+        const articleRect = article.getBoundingClientRect();
+        hero.style.setProperty('--jcem-legacy-content-left', `${articleRect.left}px`);
+        hero.style.setProperty('--jcem-legacy-content-width', `${articleRect.width}px`);
+        if (mode !== lastMode) {
+            lastMode = mode;
+            decisions += 1;
+            hero.dataset.jcemLegacyHeroMode = mode;
+            hero.dataset.jcemLegacyHeroDecisions = String(decisions);
+        }
+    };
+    const schedule = () => {
+        if (frame)
+            return;
+        frame = window.requestAnimationFrame(decide);
+    };
+    window.addEventListener('resize', schedule, { passive: true });
+    window.addEventListener('orientationchange', schedule, { passive: true });
+    (_a = window.visualViewport) === null || _a === void 0 ? void 0 : _a.addEventListener('resize', schedule, { passive: true });
+    if (typeof ResizeObserver === 'function')
+        new ResizeObserver(schedule).observe(article);
+    if (!image.complete)
+        image.addEventListener('load', schedule, { once: true });
+    schedule();
 };
 const jcemSkeletonMediaSelector = 'img, video, iframe, .jcem-featured-image, .archive__item-teaser, .page__hero, .page__hero--overlay, [data-jcem-skeleton]';
 const jcemSkeletonMinVisibleMs = 520;
@@ -1458,6 +1510,7 @@ bindJcemLoadingProgress();
 scheduleJcemInitialReveal();
 document.addEventListener('DOMContentLoaded', () => {
     bindJcemTheme();
+    bindJcemLegacyHeroLayout();
     hideNoScript();
     scheduleJcemPostPaintEnhancements();
 });

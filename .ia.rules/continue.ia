@@ -5,9 +5,9 @@ fonte: .ia.rules/state/requests/FT-050/prompt.md
 objetivo: Restaurar integralmente os contratos visuais e responsivos de cover demonstrados pelas evidencias 7b, 9, 10, 11 e 12, sem blur, fit indevido, flag recortada ou overflow do viewport inicial.
 autorizacao:
   origem: prompt humano
-  data: 2026-08-30T18:35:25.5019155-03:00
+  data: 2026-08-30T19:17:00.1563285-03:00
   fonte: .ia.rules/state/requests/FT-050/prompt.md
-  escopo: auditoria, normatizacao, correcao integral, validacao e integracao das regressões de cover descritas
+  escopo: prosseguimento pos-normatizacao expresso para implementar FT-051 e validar FT-052
   restricao: preservar todos os modos e features; nao redesenhar, generalizar, fundir, comprimir, desfocar nem manipular scroll
 plano:
   - id: FT-020
@@ -607,7 +607,7 @@ plano:
   - id: FT-051
     classe: implementacao_codigo
     criado_em: 2026-08-30T18:35:25.5019156-03:00
-    estado: pendente
+    estado: concluida
     depende_de: FT-050
     fonte: .ia.rules/state/requests/FT-050/prompt.md
     fonte_autorizacao: .ia.rules/state/requests/FT-050/prompt.md
@@ -619,6 +619,13 @@ plano:
       - variante triptych conserva repeticao e juncoes
       - evidencia12 alterna sem scroll, jank, flicker ou cover parcialmente invisivel
       - outros posts, temas, orientacoes, impressao, noscript e acessibilidade permanecem conformes
+    conclusao:
+      - Sola Scriptura voltou ao modo content limitado a zona do artigo
+      - superficies artificiais e blur foram removidos de content e wide single
+      - skeleton foi transferido ao stage para preservar a flag fora do recorte
+      - wide single recuperou altura fixa, largura intrinseca, centro no viewport e crop horizontal natural
+      - wide triptych preservou superficie e segmentos exclusivos sem fundir-se ao single
+      - hero legado passou a alternar por medicao consolidada entre largura integral e geometria content
   - id: FT-052
     classe: integracao_validacao
     criado_em: 2026-08-30T18:35:25.5019157-03:00

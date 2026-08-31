@@ -64,7 +64,14 @@ layout: default
   {% include jcem/post-featured-image.html style="wide" %}
 {% elsif jcem_custom_featured %}
   {% comment %}A modalidade content é renderizada dentro da zona do artigo.{% endcomment %}
-{% elsif page.header.overlay_color or page.header.overlay_image or page.header.image %}
+{% elsif page.header.overlay_color or page.header.overlay_image %}
+  {% include page__hero.html locale=locale %}
+{% elsif page.header.image and jcem_is_article %}
+  {% assign jcem_legacy_image_meta = page.header.image | jcem_asset_metadata %}
+  <div class="jcem-legacy-hero" data-jcem-legacy-hero data-jcem-legacy-hero-mode="full"{% if jcem_legacy_image_meta.width and jcem_legacy_image_meta.height %} data-jcem-image-width="{{ jcem_legacy_image_meta.width }}" data-jcem-image-height="{{ jcem_legacy_image_meta.height }}"{% endif %}>
+    {% include page__hero.html locale=locale %}
+  </div>
+{% elsif page.header.image %}
   {% include page__hero.html locale=locale %}
 {% elsif page.header.video.id and page.header.video.provider %}
   {% include page__hero_video.html %}
