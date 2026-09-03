@@ -656,7 +656,7 @@ plano:
   - id: FT-053
     classe: implementacao_normativa
     criado_em: 2026-09-03T02:32:33.4097652-03:00
-    estado: pendente
+    estado: concluida
     fonte: .ia.rules/state/requests/FT-053/prompt.md
     objetivo: Normatizar TOC automatico de build e sua projecao seletiva nos modos TTS, sem alterar Markdown-fonte ou impressao IEEE.
     escopo: RCF-JCEM-LEITURA-ACESSIVEL-TTS-001, RCF-JCEM-IMPRESSAO-IEEE-001 e modo de uso editorial.
@@ -666,6 +666,10 @@ plano:
       - continuo preserva aviso quantitativo por paragrafo sem narrar marcadores individuais
       - resumido e completo prefixam cada referencia com marcador semantico; somente completo le o TOC
       - impressao omite TOC e nenhuma fonte Markdown e alterada
+    resultado:
+      - RCF de leitura define geração de build, posição, semântica e projeção seletiva do TOC
+      - modos TTS preservam contínuo e especializam marcadores falados em resumido/completo
+      - isolamento IEEE omite TOC e elementos visuais web sem exceção nova
   - id: FT-054
     classe: implementacao_codigo
     criado_em: 2026-09-03T02:32:33.4097653-03:00
@@ -683,7 +687,7 @@ plano:
   - id: FT-055
     classe: implementacao_normativa
     criado_em: 2026-09-03T02:32:33.4097654-03:00
-    estado: pendente
+    estado: concluida
     fonte: .ia.rules/state/requests/FT-053/prompt.md
     objetivo: Normatizar COVER responsivo, patterns, modos de viewport, barras/flag, OG independente e Hero editorial declarativo.
     escopo: RCF-JCEM-CARREGAMENTO-PROGRESSIVO-001, RCF-JCEM-COMPONENTES-COMPARTILHADOS-001 e evidencia projeto-cover.pdf.
@@ -694,6 +698,10 @@ plano:
       - triptych aceita pattern por imagem, hexadecimal ou linear-gradient sem gap ou overflow
       - Hero usa area util, seis zonas e propriedades ortogonais, com CTA e protecao de contraste acessiveis
       - barras/flag, header translucido, OG independente, impressao e fallback possuem precedencia explicita
+    resultado:
+      - schema, precedência, geometrias, aliases e seis modos de viewport foram normatizados cumulativamente
+      - patterns, OG independente, barras/flag e Hero de seis zonas possuem contratos explícitos
+      - modo de uso preserva todos os campos legados e documenta somente extensões opt-in
   - id: FT-056
     classe: implementacao_codigo
     criado_em: 2026-09-03T02:32:33.4097655-03:00

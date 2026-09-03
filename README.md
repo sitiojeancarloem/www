@@ -88,6 +88,8 @@ Valores suportados:
 
 Aliases aceitos: `inline` equivale a `content`; `full`, `full-width` e `bleed` equivalem a `wide`.
 
+Modos de viewport, patterns laterais, fontes Open Graph independentes e Hero declarativo usam o schema cumulativo descrito em [`MODO-DE-USO-COVER-E-HERO.md`](MODO-DE-USO-COVER-E-HERO.md). A configuração nova não substitui nem reclassifica os modos acima.
+
 ## Carregamento inicial
 
 <!-- AI-PROCESSED -->

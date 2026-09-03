@@ -31,6 +31,8 @@ node_modules
 !/.ia.rules/state/requests/FT-050/prompt.md
 !/.ia.rules/state/requests/FT-053/
 !/.ia.rules/state/requests/FT-053/prompt.md
+!/.ia.rules/state/traceability/
+!/.ia.rules/state/traceability/rcf-map.json
 !.vscode
 src/__generated__
 *.psd

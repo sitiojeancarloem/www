@@ -1,0 +1,3279 @@
+{
+  "format": "agents-rcf-trace/v1",
+  "schema": 1,
+  "entries": [
+    {
+      "artifacts": [
+        "RCFs/carregamento-progressivo.md"
+      ],
+      "commit": "dc501d1798b8ff3875d37b7d886170258c35b277",
+      "ft": "FT-053",
+      "id": "abc7ac8d401a07ca0280fd7c",
+      "line": 10,
+      "rcf": "RCFs/carregamento-progressivo.md",
+      "sentenceSha256": "eb4c4932cd24cacc6f4a09230164d8a47d7b3a222555966fcfed62dbee5aad54",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/carregamento-progressivo.md"
+      ],
+      "commit": "619ac8fa2e81b6e5f7106610e11a50660de992a9",
+      "ft": "FT-053",
+      "id": "7496e515ef4f8242f9161809",
+      "line": 11,
+      "rcf": "RCFs/carregamento-progressivo.md",
+      "sentenceSha256": "8e1b7fb7a8c6c4c0afa1ce13da7421252055ddfac422498fa659100dcd49b360",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/carregamento-progressivo.md"
+      ],
+      "commit": "619ac8fa2e81b6e5f7106610e11a50660de992a9",
+      "ft": "FT-053",
+      "id": "7d696c7d2ba0bf5e12d827cc",
+      "line": 12,
+      "rcf": "RCFs/carregamento-progressivo.md",
+      "sentenceSha256": "bcc1a3023308c58500427a9807ad7ce52113e2c0fcff342dd95c0f44bc97884a",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/carregamento-progressivo.md"
+      ],
+      "commit": "619ac8fa2e81b6e5f7106610e11a50660de992a9",
+      "ft": "FT-053",
+      "id": "90d9592482e8f1839fa4db0f",
+      "line": 13,
+      "rcf": "RCFs/carregamento-progressivo.md",
+      "sentenceSha256": "c3951f386a0c176a06d988dc47a882390313b849be5a0dc7032fc6ead6efadf1",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/carregamento-progressivo.md"
+      ],
+      "commit": "1a7226f6e31917e1d10104aedda4d323254a9a7d",
+      "ft": "FT-053",
+      "id": "bc0a0c7b08d3986b68e46ad8",
+      "line": 14,
+      "rcf": "RCFs/carregamento-progressivo.md",
+      "sentenceSha256": "f32b8da236a635362d3b44263628d57fb89aa9f70edd74ec57a05de19e1a5e87",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/carregamento-progressivo.md"
+      ],
+      "commit": "e61d9cdc828889a4f2a8b4018f4fa37f65db4d00",
+      "ft": "FT-053",
+      "id": "595f91496f4b08e1208b1dcf",
+      "line": 18,
+      "rcf": "RCFs/carregamento-progressivo.md",
+      "sentenceSha256": "227bf19c88e138e85a84ed340e4714b1bcecffa44cf1b1f7c07495a110dff149",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/carregamento-progressivo.md"
+      ],
+      "commit": "e61d9cdc828889a4f2a8b4018f4fa37f65db4d00",
+      "ft": "FT-053",
+      "id": "c59874bb01ac7f8e6ce55e0e",
+      "line": 19,
+      "rcf": "RCFs/carregamento-progressivo.md",
+      "sentenceSha256": "da550abc62d79a5146d4cee9ec598046d3db450612b9a0b9210184708ae2b09c",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/carregamento-progressivo.md"
+      ],
+      "commit": "7cc307176289dc64176988e5d734988f232cb5f8",
+      "ft": "FT-053",
+      "id": "fc4def3dc6dd9d39dd8f5c80",
+      "line": 20,
+      "rcf": "RCFs/carregamento-progressivo.md",
+      "sentenceSha256": "ccadbf58a681a2d56decbd1af4564bcd8f49e505ae2480fd620a04f539ef165c",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/carregamento-progressivo.md"
+      ],
+      "commit": "e61d9cdc828889a4f2a8b4018f4fa37f65db4d00",
+      "ft": "FT-053",
+      "id": "708dbd6f1f19ede003752a5d",
+      "line": 21,
+      "rcf": "RCFs/carregamento-progressivo.md",
+      "sentenceSha256": "032234ad20b017d34c390dc2b93b4410fb12295fb3bc11d8fa0bc3b10cbabb95",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/carregamento-progressivo.md"
+      ],
+      "commit": "7cc307176289dc64176988e5d734988f232cb5f8",
+      "ft": "FT-053",
+      "id": "958b838d5d1c69b48b0fe83a",
+      "line": 22,
+      "rcf": "RCFs/carregamento-progressivo.md",
+      "sentenceSha256": "5e8cfa0b1c71899edb3fa88796f344510a8dafe70ac09af6c0d8276407434067",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/carregamento-progressivo.md"
+      ],
+      "commit": "7cc307176289dc64176988e5d734988f232cb5f8",
+      "ft": "FT-053",
+      "id": "e14a0f9df5bbdf1fdbb43bf0",
+      "line": 23,
+      "rcf": "RCFs/carregamento-progressivo.md",
+      "sentenceSha256": "dbe848dc703405c503e1eb676138a617b330f9811e54eade7a376a4f11ffdbbe",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/carregamento-progressivo.md"
+      ],
+      "commit": "cf9a947ef0b643cb1ee7d3f47d10ecec2e983edf",
+      "ft": "FT-053",
+      "id": "6f69dec4f332f2cac92fed67",
+      "line": 24,
+      "rcf": "RCFs/carregamento-progressivo.md",
+      "sentenceSha256": "4a292c47acd99d85a007030763d3b8897a61fa4cd7556c9b1bbec4f44e6d76e7",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/carregamento-progressivo.md"
+      ],
+      "commit": "7cc307176289dc64176988e5d734988f232cb5f8",
+      "ft": "FT-053",
+      "id": "430cbb71d4c10c85c7dc7395",
+      "line": 25,
+      "rcf": "RCFs/carregamento-progressivo.md",
+      "sentenceSha256": "d5674cfcacb4b0a4d191861ed85c83eb21f2a812c144288b56c4347ac2ba5e6d",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/carregamento-progressivo.md"
+      ],
+      "commit": "e61d9cdc828889a4f2a8b4018f4fa37f65db4d00",
+      "ft": "FT-053",
+      "id": "833aa55eeca89551cededce8",
+      "line": 26,
+      "rcf": "RCFs/carregamento-progressivo.md",
+      "sentenceSha256": "8bdd3741a6d859677d259092256ac25f78d3ce4818220b26b14f5d827fb11e1a",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/carregamento-progressivo.md"
+      ],
+      "commit": "cf9a947ef0b643cb1ee7d3f47d10ecec2e983edf",
+      "ft": "FT-053",
+      "id": "7ec90e967464c6bda7ddd817",
+      "line": 27,
+      "rcf": "RCFs/carregamento-progressivo.md",
+      "sentenceSha256": "26bf51bfeb3eb3c790851c990acaf6ed7bd43491a45431a74fa9e42a707bd31f",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/carregamento-progressivo.md"
+      ],
+      "commit": "7cc307176289dc64176988e5d734988f232cb5f8",
+      "ft": "FT-053",
+      "id": "430f231509b71b03fedeb7c3",
+      "line": 28,
+      "rcf": "RCFs/carregamento-progressivo.md",
+      "sentenceSha256": "2637380e9c08741bb4f70a7f5ee55dc6ebdefbc1c630a37b669e2e9a29cedafb",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/carregamento-progressivo.md"
+      ],
+      "commit": "7cc307176289dc64176988e5d734988f232cb5f8",
+      "ft": "FT-053",
+      "id": "faba41d3c7b12fd63a302234",
+      "line": 29,
+      "rcf": "RCFs/carregamento-progressivo.md",
+      "sentenceSha256": "3531636ccd553a4a69a13b509605dd7f1f75fefd2b906f8c548f58bf3d103a0e",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/carregamento-progressivo.md"
+      ],
+      "commit": "e61d9cdc828889a4f2a8b4018f4fa37f65db4d00",
+      "ft": "FT-053",
+      "id": "efaffbd64542fa4f3e097e61",
+      "line": 31,
+      "rcf": "RCFs/carregamento-progressivo.md",
+      "sentenceSha256": "6c2b2db81e612bae807f6a5c5a1475ac1a43a77c3d3f0800ef0979aad30f9e40",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/carregamento-progressivo.md"
+      ],
+      "commit": "2c4a5259c6b4371ceb2dc6cbb2333631200251f5",
+      "ft": "FT-053",
+      "id": "dc95e2ef6a985fb524d4bf54",
+      "line": 33,
+      "rcf": "RCFs/carregamento-progressivo.md",
+      "sentenceSha256": "df1ff1cc65504c60784ba6c86b06a3c91ba30dd7a387b4ed92372ccb10bd5803",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/carregamento-progressivo.md"
+      ],
+      "commit": "363414fa45a4f60ab80f01e7ce56eea34860dfdf",
+      "ft": "FT-053",
+      "id": "0b9ecadef2edc1cd18fd87cd",
+      "line": 35,
+      "rcf": "RCFs/carregamento-progressivo.md",
+      "sentenceSha256": "95ad4d0457e10d369a1d82744e28c85f5bfa946a657f3bae2b9ac9929ba3cc62",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "_includes/jcem/post-featured-image.html",
+        "_plugins/jcem_cover_contract.rb",
+        "_plugins/jcem_social_images.rb",
+        "assets/jcem/css/jcmain.scss",
+        "assets/jcem/js/site.js",
+        "assets/jcem/ts/site.ts",
+        "config/cover-system.json",
+        "scripts/test_cover_contract.rb",
+        "scripts/test_cover_rendered.mjs",
+        "scripts/test_cover_runtime.mjs"
+      ],
+      "commit": "",
+      "ft": "FT-055",
+      "id": "c5dd966c1b20b270a323974f",
+      "line": 35,
+      "rcf": "RCFs/carregamento-progressivo.md",
+      "sentenceSha256": "8770762a11cdb29b70da76b9b4fe3ffa013cfd9a8fb8f27dfb8dc7749bbe5c08",
+      "state": "pending",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/carregamento-progressivo.md"
+      ],
+      "commit": "363414fa45a4f60ab80f01e7ce56eea34860dfdf",
+      "ft": "FT-053",
+      "id": "e91dfd7ab755f9ad4dd1f9fa",
+      "line": 36,
+      "rcf": "RCFs/carregamento-progressivo.md",
+      "sentenceSha256": "e9335a329cfbe1f1eaa5c5c8b314112f14242facfab7e48198ad2ff283e73eb1",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "_includes/jcem/post-featured-image.html",
+        "_plugins/jcem_cover_contract.rb",
+        "_plugins/jcem_social_images.rb",
+        "assets/jcem/css/jcmain.scss",
+        "assets/jcem/js/site.js",
+        "assets/jcem/ts/site.ts",
+        "config/cover-system.json",
+        "scripts/test_cover_contract.rb",
+        "scripts/test_cover_rendered.mjs",
+        "scripts/test_cover_runtime.mjs"
+      ],
+      "commit": "",
+      "ft": "FT-055",
+      "id": "15307520e3df07c3932460b8",
+      "line": 36,
+      "rcf": "RCFs/carregamento-progressivo.md",
+      "sentenceSha256": "c13efbb35e59ab2984e55dbb7834134c3e5e189cedfed694339d7f566ecedbc2",
+      "state": "pending",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/carregamento-progressivo.md"
+      ],
+      "commit": "363414fa45a4f60ab80f01e7ce56eea34860dfdf",
+      "ft": "FT-053",
+      "id": "35eb71e950e013aed0175efd",
+      "line": 37,
+      "rcf": "RCFs/carregamento-progressivo.md",
+      "sentenceSha256": "09981d0482a0164ef266941bff5320fece91e968573ee01c65116ee9d52e5d4b",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "_includes/jcem/post-featured-image.html",
+        "_plugins/jcem_cover_contract.rb",
+        "_plugins/jcem_social_images.rb",
+        "assets/jcem/css/jcmain.scss",
+        "assets/jcem/js/site.js",
+        "assets/jcem/ts/site.ts",
+        "config/cover-system.json",
+        "scripts/test_cover_contract.rb",
+        "scripts/test_cover_rendered.mjs",
+        "scripts/test_cover_runtime.mjs"
+      ],
+      "commit": "",
+      "ft": "FT-055",
+      "id": "317278857b4a9cdd33daa162",
+      "line": 37,
+      "rcf": "RCFs/carregamento-progressivo.md",
+      "sentenceSha256": "ea16e54452f9462668d0738ed1a8b43ffaec73eda54a04fb99ff1c4765818232",
+      "state": "pending",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "_includes/jcem/post-featured-image.html",
+        "_plugins/jcem_cover_contract.rb",
+        "_plugins/jcem_social_images.rb",
+        "assets/jcem/css/jcmain.scss",
+        "assets/jcem/js/site.js",
+        "assets/jcem/ts/site.ts",
+        "config/cover-system.json",
+        "scripts/test_cover_contract.rb",
+        "scripts/test_cover_rendered.mjs",
+        "scripts/test_cover_runtime.mjs"
+      ],
+      "commit": "",
+      "ft": "FT-055",
+      "id": "050baeacccea0fdd780fb6f2",
+      "line": 38,
+      "rcf": "RCFs/carregamento-progressivo.md",
+      "sentenceSha256": "17df8ff9a01ae9ad6f208046421bc29762243cd0f330816af6eda6c9bf4f0a96",
+      "state": "pending",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/carregamento-progressivo.md"
+      ],
+      "commit": "363414fa45a4f60ab80f01e7ce56eea34860dfdf",
+      "ft": "FT-053",
+      "id": "2da8358f095f00c474bcb339",
+      "line": 39,
+      "rcf": "RCFs/carregamento-progressivo.md",
+      "sentenceSha256": "9cacd8e6602d614054b7dcc0641457e1d35b3688a7afb76211c8e0b781f6f11e",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "_includes/jcem/post-featured-image.html",
+        "_plugins/jcem_cover_contract.rb",
+        "_plugins/jcem_social_images.rb",
+        "assets/jcem/css/jcmain.scss",
+        "assets/jcem/js/site.js",
+        "assets/jcem/ts/site.ts",
+        "config/cover-system.json",
+        "scripts/test_cover_contract.rb",
+        "scripts/test_cover_rendered.mjs",
+        "scripts/test_cover_runtime.mjs"
+      ],
+      "commit": "",
+      "ft": "FT-055",
+      "id": "d5ad21595b59a51557042799",
+      "line": 39,
+      "rcf": "RCFs/carregamento-progressivo.md",
+      "sentenceSha256": "6ed59b376773e3add3eed8748e4e3e987faeaba89b4b773b4248f2bdbe3af500",
+      "state": "pending",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/carregamento-progressivo.md"
+      ],
+      "commit": "363414fa45a4f60ab80f01e7ce56eea34860dfdf",
+      "ft": "FT-053",
+      "id": "7d13afa90ac2e413c8c278b9",
+      "line": 40,
+      "rcf": "RCFs/carregamento-progressivo.md",
+      "sentenceSha256": "54961959848305fda02dedf69ad6521fd373368a35a1e018542ba502df92f2d0",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "_includes/jcem/post-featured-image.html",
+        "_plugins/jcem_cover_contract.rb",
+        "_plugins/jcem_social_images.rb",
+        "assets/jcem/css/jcmain.scss",
+        "assets/jcem/js/site.js",
+        "assets/jcem/ts/site.ts",
+        "config/cover-system.json",
+        "scripts/test_cover_contract.rb",
+        "scripts/test_cover_rendered.mjs",
+        "scripts/test_cover_runtime.mjs"
+      ],
+      "commit": "",
+      "ft": "FT-055",
+      "id": "bbc016d1ea6f74dcd69ce676",
+      "line": 40,
+      "rcf": "RCFs/carregamento-progressivo.md",
+      "sentenceSha256": "19b12b65790e9da12699f2993065900a18d10c8540e2969d67e274459da8ad72",
+      "state": "pending",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/carregamento-progressivo.md"
+      ],
+      "commit": "363414fa45a4f60ab80f01e7ce56eea34860dfdf",
+      "ft": "FT-053",
+      "id": "dd1d413a9285439435dae4ab",
+      "line": 41,
+      "rcf": "RCFs/carregamento-progressivo.md",
+      "sentenceSha256": "f1ba52b0bb1d1b0590b2643b9ffbdb1eee11a30b9cc7915109ebda0f28c6c811",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "_includes/jcem/post-featured-image.html",
+        "_plugins/jcem_cover_contract.rb",
+        "_plugins/jcem_social_images.rb",
+        "assets/jcem/css/jcmain.scss",
+        "assets/jcem/js/site.js",
+        "assets/jcem/ts/site.ts",
+        "config/cover-system.json",
+        "scripts/test_cover_contract.rb",
+        "scripts/test_cover_rendered.mjs",
+        "scripts/test_cover_runtime.mjs"
+      ],
+      "commit": "",
+      "ft": "FT-055",
+      "id": "45db0d93287d4051c9fe2030",
+      "line": 41,
+      "rcf": "RCFs/carregamento-progressivo.md",
+      "sentenceSha256": "2377c14a694cb35582b2f2860c28dab9ab18d38979ef95f4a6b0714f7cc992d9",
+      "state": "pending",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/carregamento-progressivo.md"
+      ],
+      "commit": "363414fa45a4f60ab80f01e7ce56eea34860dfdf",
+      "ft": "FT-053",
+      "id": "388a56cb3fb121912913cd09",
+      "line": 42,
+      "rcf": "RCFs/carregamento-progressivo.md",
+      "sentenceSha256": "472348ead2ef437d45b15345c209be773bfa7f50bf6654458d6c534d62da60e5",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "_includes/jcem/post-featured-image.html",
+        "_plugins/jcem_cover_contract.rb",
+        "_plugins/jcem_social_images.rb",
+        "assets/jcem/css/jcmain.scss",
+        "assets/jcem/js/site.js",
+        "assets/jcem/ts/site.ts",
+        "config/cover-system.json",
+        "scripts/test_cover_contract.rb",
+        "scripts/test_cover_rendered.mjs",
+        "scripts/test_cover_runtime.mjs"
+      ],
+      "commit": "",
+      "ft": "FT-055",
+      "id": "97d7e3212fb8fe7bba16be53",
+      "line": 42,
+      "rcf": "RCFs/carregamento-progressivo.md",
+      "sentenceSha256": "6fb69bad2f45c1e749798aa0c7abb16a30a99a65ee4b251ea5067d6e762a956e",
+      "state": "pending",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/carregamento-progressivo.md"
+      ],
+      "commit": "363414fa45a4f60ab80f01e7ce56eea34860dfdf",
+      "ft": "FT-053",
+      "id": "76b52e2502d1384a68ded0bc",
+      "line": 43,
+      "rcf": "RCFs/carregamento-progressivo.md",
+      "sentenceSha256": "1c94fd4d2d8807465ab09270a463c208c29dfdf5e331a43d94723b95bf110be8",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "_includes/jcem/post-featured-image.html",
+        "_plugins/jcem_cover_contract.rb",
+        "_plugins/jcem_social_images.rb",
+        "assets/jcem/css/jcmain.scss",
+        "assets/jcem/js/site.js",
+        "assets/jcem/ts/site.ts",
+        "config/cover-system.json",
+        "scripts/test_cover_contract.rb",
+        "scripts/test_cover_rendered.mjs",
+        "scripts/test_cover_runtime.mjs"
+      ],
+      "commit": "",
+      "ft": "FT-055",
+      "id": "0b93bf82fd0e5437c423469d",
+      "line": 43,
+      "rcf": "RCFs/carregamento-progressivo.md",
+      "sentenceSha256": "91a73afb543a5b178e68ec33dc2cabc532e3f80098f29732e01c55801735bb8c",
+      "state": "pending",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/carregamento-progressivo.md"
+      ],
+      "commit": "363414fa45a4f60ab80f01e7ce56eea34860dfdf",
+      "ft": "FT-053",
+      "id": "6f256457fc23d24f25e31b86",
+      "line": 44,
+      "rcf": "RCFs/carregamento-progressivo.md",
+      "sentenceSha256": "8ba2e5315d3f97b8ab850c848bd3e84ab6f3a2fc3c8ca8fcd8bc5131232d7eb4",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "_includes/jcem/post-featured-image.html",
+        "_plugins/jcem_cover_contract.rb",
+        "_plugins/jcem_social_images.rb",
+        "assets/jcem/css/jcmain.scss",
+        "assets/jcem/js/site.js",
+        "assets/jcem/ts/site.ts",
+        "config/cover-system.json",
+        "scripts/test_cover_contract.rb",
+        "scripts/test_cover_rendered.mjs",
+        "scripts/test_cover_runtime.mjs"
+      ],
+      "commit": "",
+      "ft": "FT-055",
+      "id": "289c5d05a100ce67adb547b5",
+      "line": 44,
+      "rcf": "RCFs/carregamento-progressivo.md",
+      "sentenceSha256": "3b4ddd4f0bf663ceb51f585efa43034ba44e81b0141ba8e016f149ca807318a4",
+      "state": "pending",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/carregamento-progressivo.md"
+      ],
+      "commit": "363414fa45a4f60ab80f01e7ce56eea34860dfdf",
+      "ft": "FT-053",
+      "id": "19df51b28e897ed56f9b699b",
+      "line": 45,
+      "rcf": "RCFs/carregamento-progressivo.md",
+      "sentenceSha256": "7517f6f4a23b39283636cea6270522512fa21f14be51be11bc4434c2709fd4a0",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/carregamento-progressivo.md"
+      ],
+      "commit": "363414fa45a4f60ab80f01e7ce56eea34860dfdf",
+      "ft": "FT-053",
+      "id": "776dd4392fb674c5f6d132be",
+      "line": 46,
+      "rcf": "RCFs/carregamento-progressivo.md",
+      "sentenceSha256": "2375b36522e70475280aa8e6079467553759b0428db1cc45a439d1ea132ca6b6",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/carregamento-progressivo.md"
+      ],
+      "commit": "363414fa45a4f60ab80f01e7ce56eea34860dfdf",
+      "ft": "FT-053",
+      "id": "80488d4f8445c53c9a9fa3fd",
+      "line": 47,
+      "rcf": "RCFs/carregamento-progressivo.md",
+      "sentenceSha256": "eb8b0850eae21cdc8a844b5e0710d0278d8baf8f7ce7ae2dc73c19f402a6464a",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/carregamento-progressivo.md"
+      ],
+      "commit": "363414fa45a4f60ab80f01e7ce56eea34860dfdf",
+      "ft": "FT-053",
+      "id": "d6f4e351eb2c5d303d7d785e",
+      "line": 48,
+      "rcf": "RCFs/carregamento-progressivo.md",
+      "sentenceSha256": "acd9d315e4bd2f1a49431638dfce0875de1e10b1649687076d81073188eb1427",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/carregamento-progressivo.md"
+      ],
+      "commit": "363414fa45a4f60ab80f01e7ce56eea34860dfdf",
+      "ft": "FT-053",
+      "id": "963ce0cc4b106cbc44cce28b",
+      "line": 49,
+      "rcf": "RCFs/carregamento-progressivo.md",
+      "sentenceSha256": "6a16cf0c1f65c1d1a2acf6758c75396c77ddf9bcc9a8776f796f65ba9322cda7",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "_includes/jcem/post-featured-image.html",
+        "_plugins/jcem_cover_contract.rb",
+        "_plugins/jcem_social_images.rb",
+        "assets/jcem/css/jcmain.scss",
+        "assets/jcem/js/site.js",
+        "assets/jcem/ts/site.ts",
+        "config/cover-system.json",
+        "scripts/test_cover_contract.rb",
+        "scripts/test_cover_rendered.mjs",
+        "scripts/test_cover_runtime.mjs"
+      ],
+      "commit": "",
+      "ft": "FT-055",
+      "id": "d809aef42374961cc4c87ba7",
+      "line": 49,
+      "rcf": "RCFs/carregamento-progressivo.md",
+      "sentenceSha256": "d259dca925210bb6684ded5d9fdbf369e1eaaa6435261c14cf8a7de7093a450f",
+      "state": "pending",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/carregamento-progressivo.md"
+      ],
+      "commit": "363414fa45a4f60ab80f01e7ce56eea34860dfdf",
+      "ft": "FT-053",
+      "id": "8e32f47862672f0830c5ab67",
+      "line": 50,
+      "rcf": "RCFs/carregamento-progressivo.md",
+      "sentenceSha256": "b994fd45df92d2c39a3fb00a36c932ddb66af4bcc9d043fcb5c91846b8104177",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "_includes/jcem/post-featured-image.html",
+        "_plugins/jcem_cover_contract.rb",
+        "_plugins/jcem_social_images.rb",
+        "assets/jcem/css/jcmain.scss",
+        "assets/jcem/js/site.js",
+        "assets/jcem/ts/site.ts",
+        "config/cover-system.json",
+        "scripts/test_cover_contract.rb",
+        "scripts/test_cover_rendered.mjs",
+        "scripts/test_cover_runtime.mjs"
+      ],
+      "commit": "",
+      "ft": "FT-055",
+      "id": "41cb21e0b856e929e5150175",
+      "line": 50,
+      "rcf": "RCFs/carregamento-progressivo.md",
+      "sentenceSha256": "5a3169527997aaf7324b0156b34f79a8ae0ac6297a94e402a7e21a3225e8b196",
+      "state": "pending",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/carregamento-progressivo.md"
+      ],
+      "commit": "363414fa45a4f60ab80f01e7ce56eea34860dfdf",
+      "ft": "FT-053",
+      "id": "41ca57d04c7099aae3e06d3a",
+      "line": 51,
+      "rcf": "RCFs/carregamento-progressivo.md",
+      "sentenceSha256": "f0da626f78e70378048c050da5c2156a342e3a0786c43e37068ddce93a37efe3",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "_includes/jcem/post-featured-image.html",
+        "_plugins/jcem_cover_contract.rb",
+        "_plugins/jcem_social_images.rb",
+        "assets/jcem/css/jcmain.scss",
+        "assets/jcem/js/site.js",
+        "assets/jcem/ts/site.ts",
+        "config/cover-system.json",
+        "scripts/test_cover_contract.rb",
+        "scripts/test_cover_rendered.mjs",
+        "scripts/test_cover_runtime.mjs"
+      ],
+      "commit": "",
+      "ft": "FT-055",
+      "id": "13d45169efdadc2ec2afd8b6",
+      "line": 51,
+      "rcf": "RCFs/carregamento-progressivo.md",
+      "sentenceSha256": "2d2e53b536b16163ac1838cf477f4ea92d2d7b470cb0a71604d430482f323e5e",
+      "state": "pending",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/carregamento-progressivo.md"
+      ],
+      "commit": "363414fa45a4f60ab80f01e7ce56eea34860dfdf",
+      "ft": "FT-053",
+      "id": "1e967d93ad9bb0070d55b5f1",
+      "line": 52,
+      "rcf": "RCFs/carregamento-progressivo.md",
+      "sentenceSha256": "396954f600b2d6ba7a07c4e54048ca3eb68a0abe517dcb0c7434e98389d667c1",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "_includes/jcem/post-featured-image.html",
+        "_plugins/jcem_cover_contract.rb",
+        "_plugins/jcem_social_images.rb",
+        "assets/jcem/css/jcmain.scss",
+        "assets/jcem/js/site.js",
+        "assets/jcem/ts/site.ts",
+        "config/cover-system.json",
+        "scripts/test_cover_contract.rb",
+        "scripts/test_cover_rendered.mjs",
+        "scripts/test_cover_runtime.mjs"
+      ],
+      "commit": "",
+      "ft": "FT-055",
+      "id": "f32a90d7d0e1b90c850e118b",
+      "line": 52,
+      "rcf": "RCFs/carregamento-progressivo.md",
+      "sentenceSha256": "7727926f7516b4d132fe4ba81e8f93cfd6c23ca50aae21709e98a8258c1c9642",
+      "state": "pending",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/carregamento-progressivo.md"
+      ],
+      "commit": "f16b5682679680a1dd6d8a601a8d5fc422f061ba",
+      "ft": "FT-053",
+      "id": "6bd24e0ed4743cea72904d6e",
+      "line": 53,
+      "rcf": "RCFs/carregamento-progressivo.md",
+      "sentenceSha256": "641dc3ecd0056af943d1a7fb59250c91377de260559e5674f765de8ffbbb1736",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "_includes/jcem/post-featured-image.html",
+        "_plugins/jcem_cover_contract.rb",
+        "_plugins/jcem_social_images.rb",
+        "assets/jcem/css/jcmain.scss",
+        "assets/jcem/js/site.js",
+        "assets/jcem/ts/site.ts",
+        "config/cover-system.json",
+        "scripts/test_cover_contract.rb",
+        "scripts/test_cover_rendered.mjs",
+        "scripts/test_cover_runtime.mjs"
+      ],
+      "commit": "",
+      "ft": "FT-055",
+      "id": "9c4cbdbc2950d65d9ae0f030",
+      "line": 53,
+      "rcf": "RCFs/carregamento-progressivo.md",
+      "sentenceSha256": "52c0ce2d3c835a5001be55b3ee80863dd6c1c1cefa6485e3cb8e4868d6b0f0a9",
+      "state": "pending",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/carregamento-progressivo.md"
+      ],
+      "commit": "7cc307176289dc64176988e5d734988f232cb5f8",
+      "ft": "FT-053",
+      "id": "43df6f63eb6c1c195c9cf577",
+      "line": 54,
+      "rcf": "RCFs/carregamento-progressivo.md",
+      "sentenceSha256": "937b5d63368e1fba4dbe1387830a5a5cdafed4dda2cf14d0067bb8b96dfb89cc",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/carregamento-progressivo.md"
+      ],
+      "commit": "f16b5682679680a1dd6d8a601a8d5fc422f061ba",
+      "ft": "FT-053",
+      "id": "a8204a63cf85f8cd2a2edb2d",
+      "line": 55,
+      "rcf": "RCFs/carregamento-progressivo.md",
+      "sentenceSha256": "ebda34a66f5160941c29c88a681f83e9e5d93fc64813e2d80255dfed10c883ff",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/carregamento-progressivo.md"
+      ],
+      "commit": "363414fa45a4f60ab80f01e7ce56eea34860dfdf",
+      "ft": "FT-053",
+      "id": "f59a6fdcb8967daee3e7c0f2",
+      "line": 56,
+      "rcf": "RCFs/carregamento-progressivo.md",
+      "sentenceSha256": "02f97081b2fa2bbd489a0fe8d6d3c3e2752f234356988980c8bad48b5e505e5d",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/carregamento-progressivo.md"
+      ],
+      "commit": "363414fa45a4f60ab80f01e7ce56eea34860dfdf",
+      "ft": "FT-053",
+      "id": "65c45f9aa8255c415916b4d5",
+      "line": 57,
+      "rcf": "RCFs/carregamento-progressivo.md",
+      "sentenceSha256": "708f1a6dbd97dd4069a79a37502f387877a7932b76027c27fe373b133a9242d2",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/carregamento-progressivo.md"
+      ],
+      "commit": "363414fa45a4f60ab80f01e7ce56eea34860dfdf",
+      "ft": "FT-053",
+      "id": "d82d23bd86181df861b69f5f",
+      "line": 58,
+      "rcf": "RCFs/carregamento-progressivo.md",
+      "sentenceSha256": "a4a588c08e592a20fa0ece3011b7e9ad7a5c3d15a5428c3d6d0852a7bf50c1eb",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/carregamento-progressivo.md"
+      ],
+      "commit": "363414fa45a4f60ab80f01e7ce56eea34860dfdf",
+      "ft": "FT-053",
+      "id": "bece40d2216f7d388e48324b",
+      "line": 59,
+      "rcf": "RCFs/carregamento-progressivo.md",
+      "sentenceSha256": "89b1da494032556a27823a904e8fbe28463dedc14acccdd6d9010d5478599aa7",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/carregamento-progressivo.md"
+      ],
+      "commit": "363414fa45a4f60ab80f01e7ce56eea34860dfdf",
+      "ft": "FT-053",
+      "id": "646a277d2fcbb2d8212fbdc5",
+      "line": 60,
+      "rcf": "RCFs/carregamento-progressivo.md",
+      "sentenceSha256": "a0957948c0ae925008591a2c8bbbea9937912ec8b859eabbc617213683051084",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/carregamento-progressivo.md"
+      ],
+      "commit": "363414fa45a4f60ab80f01e7ce56eea34860dfdf",
+      "ft": "FT-053",
+      "id": "42d973033136f9633627d463",
+      "line": 61,
+      "rcf": "RCFs/carregamento-progressivo.md",
+      "sentenceSha256": "b124d1f7695676f034e9a1c689df99dd55aeae3897b5fe20aeb2373827967be3",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/carregamento-progressivo.md"
+      ],
+      "commit": "cf9a947ef0b643cb1ee7d3f47d10ecec2e983edf",
+      "ft": "FT-053",
+      "id": "c6ebe8be304f95138936f949",
+      "line": 66,
+      "rcf": "RCFs/carregamento-progressivo.md",
+      "sentenceSha256": "eb2cdafc5d0988346859056bb3124ab4478b8226382a2c987df6f9bc3a57feb2",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/carregamento-progressivo.md"
+      ],
+      "commit": "cf9a947ef0b643cb1ee7d3f47d10ecec2e983edf",
+      "ft": "FT-053",
+      "id": "d4ca842f4ec9f1c438891338",
+      "line": 67,
+      "rcf": "RCFs/carregamento-progressivo.md",
+      "sentenceSha256": "df18f1e2db55156e3acdd74f617bd9846e06ca945fb386e4bb31916b932f158d",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/carregamento-progressivo.md"
+      ],
+      "commit": "cf9a947ef0b643cb1ee7d3f47d10ecec2e983edf",
+      "ft": "FT-053",
+      "id": "09233acf0b50c12e503e73e2",
+      "line": 69,
+      "rcf": "RCFs/carregamento-progressivo.md",
+      "sentenceSha256": "e5914b277b2ac77e4a80e64bccf041a6a31c6df9b98085520c467f0b113a2700",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/carregamento-progressivo.md"
+      ],
+      "commit": "cf9a947ef0b643cb1ee7d3f47d10ecec2e983edf",
+      "ft": "FT-053",
+      "id": "4d1964e0e76b0e208fcbc7e5",
+      "line": 70,
+      "rcf": "RCFs/carregamento-progressivo.md",
+      "sentenceSha256": "b1087f0809ef98c99aa9ddd011b94dbb57d68a2b3c9fa247ff4ee30ea658b4a2",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/carregamento-progressivo.md"
+      ],
+      "commit": "cf9a947ef0b643cb1ee7d3f47d10ecec2e983edf",
+      "ft": "FT-053",
+      "id": "318069f91eb1b0eedb98d85f",
+      "line": 71,
+      "rcf": "RCFs/carregamento-progressivo.md",
+      "sentenceSha256": "8d9321fdca60294a643b8c25ca242de27b66a56193e1ecb61ed4c4f01776cb7d",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/carregamento-progressivo.md"
+      ],
+      "commit": "cf9a947ef0b643cb1ee7d3f47d10ecec2e983edf",
+      "ft": "FT-053",
+      "id": "c8dfc3e700489d4f5d8a45a7",
+      "line": 72,
+      "rcf": "RCFs/carregamento-progressivo.md",
+      "sentenceSha256": "30b0d4740339ad8c28fafc5129321d07fab520ca4503ef95207a92ad1b3e22f3",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/carregamento-progressivo.md"
+      ],
+      "commit": "cf9a947ef0b643cb1ee7d3f47d10ecec2e983edf",
+      "ft": "FT-053",
+      "id": "a232c80a5fbdc192d9ca5e0f",
+      "line": 73,
+      "rcf": "RCFs/carregamento-progressivo.md",
+      "sentenceSha256": "e4208d5b8b97410e12c6273395375eb7d684720d0530361cf02c07435b03a933",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/carregamento-progressivo.md"
+      ],
+      "commit": "98da33ea029605b1a3cfd6bec39c251e381772fa",
+      "ft": "FT-053",
+      "id": "73b9de36a40eb8616f69d846",
+      "line": 79,
+      "rcf": "RCFs/carregamento-progressivo.md",
+      "sentenceSha256": "495ab5642aa9b271d39034cdbbbc39220720c9d05b0d57a8f620968ef006542d",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/carregamento-progressivo.md"
+      ],
+      "commit": "98da33ea029605b1a3cfd6bec39c251e381772fa",
+      "ft": "FT-053",
+      "id": "875ec30a02ac709ab0d37291",
+      "line": 80,
+      "rcf": "RCFs/carregamento-progressivo.md",
+      "sentenceSha256": "95ef1896c12d49533ea3e63f31e93c192d0e4fb246fb8dc1edf5256f1894ba0a",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/carregamento-progressivo.md"
+      ],
+      "commit": "98da33ea029605b1a3cfd6bec39c251e381772fa",
+      "ft": "FT-053",
+      "id": "7543abd179bfb2e739c505e7",
+      "line": 86,
+      "rcf": "RCFs/carregamento-progressivo.md",
+      "sentenceSha256": "804173f429c5565af88952041bfbf50705ef63eefc690267f5e06392ec15dac6",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/carregamento-progressivo.md"
+      ],
+      "commit": "f16b5682679680a1dd6d8a601a8d5fc422f061ba",
+      "ft": "FT-053",
+      "id": "52bd5c0be788ff79d1b5ad30",
+      "line": 88,
+      "rcf": "RCFs/carregamento-progressivo.md",
+      "sentenceSha256": "8910f2e2ed7ff015f382cb84622c83667cfaa0c581ad735de1ceb7db35dd1ed7",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "_includes/jcem/post-featured-image.html",
+        "_plugins/jcem_cover_contract.rb",
+        "_plugins/jcem_social_images.rb",
+        "assets/jcem/css/jcmain.scss",
+        "assets/jcem/js/site.js",
+        "assets/jcem/ts/site.ts",
+        "config/cover-system.json",
+        "scripts/test_cover_contract.rb",
+        "scripts/test_cover_rendered.mjs",
+        "scripts/test_cover_runtime.mjs"
+      ],
+      "commit": "",
+      "ft": "FT-055",
+      "id": "767388cc3c32da5a6ebae53a",
+      "line": 90,
+      "rcf": "RCFs/carregamento-progressivo.md",
+      "sentenceSha256": "9720aeb956b25884127ee985a22a463b63984b603633c8422e7e8ef226cf12a9",
+      "state": "pending",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/carregamento-progressivo.md"
+      ],
+      "commit": "619ac8fa2e81b6e5f7106610e11a50660de992a9",
+      "ft": "FT-053",
+      "id": "1f58be0759880ecb6b94bbd7",
+      "line": 95,
+      "rcf": "RCFs/carregamento-progressivo.md",
+      "sentenceSha256": "78fb5ccf9ec2fb8ac660c221d689c4139681b99e4b09749314087d6de822786b",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/carregamento-progressivo.md"
+      ],
+      "commit": "363414fa45a4f60ab80f01e7ce56eea34860dfdf",
+      "ft": "FT-053",
+      "id": "ae3bb1fc26fd9215a2d82d7d",
+      "line": 96,
+      "rcf": "RCFs/carregamento-progressivo.md",
+      "sentenceSha256": "beaa61e21a9a5f357756698a733da28bf39f25bdb03ac4f39cf393ec5e75dc8f",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/carregamento-progressivo.md"
+      ],
+      "commit": "2c4a5259c6b4371ceb2dc6cbb2333631200251f5",
+      "ft": "FT-053",
+      "id": "206842c8ebd9427eb2c4ee1b",
+      "line": 97,
+      "rcf": "RCFs/carregamento-progressivo.md",
+      "sentenceSha256": "ccb35f6958f37fbe5f4066a18cbdeb5355b23c9750723276293a91b6bacc4bac",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/carregamento-progressivo.md"
+      ],
+      "commit": "363414fa45a4f60ab80f01e7ce56eea34860dfdf",
+      "ft": "FT-053",
+      "id": "d722bc4a31555cbfb5bf7993",
+      "line": 98,
+      "rcf": "RCFs/carregamento-progressivo.md",
+      "sentenceSha256": "fc71f37478d16324fa9256575fd32df97e4094c828acfe921a30d691a053b84b",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/carregamento-progressivo.md"
+      ],
+      "commit": "363414fa45a4f60ab80f01e7ce56eea34860dfdf",
+      "ft": "FT-053",
+      "id": "f4b6156f3b86e6d4f88e70d3",
+      "line": 99,
+      "rcf": "RCFs/carregamento-progressivo.md",
+      "sentenceSha256": "e7dc5ad38912b75885fd5fb7ee091cfb9f4c1d26d8b2eaa8534e5964216923ea",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/carregamento-progressivo.md"
+      ],
+      "commit": "363414fa45a4f60ab80f01e7ce56eea34860dfdf",
+      "ft": "FT-053",
+      "id": "853673b7ca0176adb0107304",
+      "line": 100,
+      "rcf": "RCFs/carregamento-progressivo.md",
+      "sentenceSha256": "4dbec9efd67c9abc961b987b95636684d2e9be35b7f1604624a95f88a71fb4f1",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/carregamento-progressivo.md"
+      ],
+      "commit": "363414fa45a4f60ab80f01e7ce56eea34860dfdf",
+      "ft": "FT-053",
+      "id": "d5d365ebb158d057dd96d496",
+      "line": 101,
+      "rcf": "RCFs/carregamento-progressivo.md",
+      "sentenceSha256": "53c6e045b09c32505ef01f6ce28c279e35683090fb3cec10e7d2d129c4d84182",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/carregamento-progressivo.md"
+      ],
+      "commit": "363414fa45a4f60ab80f01e7ce56eea34860dfdf",
+      "ft": "FT-053",
+      "id": "b700ea41823a79d208954f8b",
+      "line": 102,
+      "rcf": "RCFs/carregamento-progressivo.md",
+      "sentenceSha256": "84e9fdb29970d50235e022fba784af2086d27ce8eb17337b26c2c696627b742e",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/carregamento-progressivo.md"
+      ],
+      "commit": "363414fa45a4f60ab80f01e7ce56eea34860dfdf",
+      "ft": "FT-053",
+      "id": "71752c46a8e3e5d744360e2f",
+      "line": 103,
+      "rcf": "RCFs/carregamento-progressivo.md",
+      "sentenceSha256": "9a01f0c708835bd615c9dea78e7fe0b47bfcb28f6b7ee80564cd2bff2922c65b",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/carregamento-progressivo.md"
+      ],
+      "commit": "363414fa45a4f60ab80f01e7ce56eea34860dfdf",
+      "ft": "FT-053",
+      "id": "61342b7ca09d896b758fc385",
+      "line": 104,
+      "rcf": "RCFs/carregamento-progressivo.md",
+      "sentenceSha256": "95ae1883d4961c6d8fc1c7fbea20117a37bd3d15874e5fcd1e0142770cc9987d",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/carregamento-progressivo.md"
+      ],
+      "commit": "7cc307176289dc64176988e5d734988f232cb5f8",
+      "ft": "FT-053",
+      "id": "e6a69b75e760fc4d35b4c64a",
+      "line": 105,
+      "rcf": "RCFs/carregamento-progressivo.md",
+      "sentenceSha256": "1f254f162604b3635b151671484f7ae728d1aaf8dabae239ba08430cd739377a",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/carregamento-progressivo.md"
+      ],
+      "commit": "7cc307176289dc64176988e5d734988f232cb5f8",
+      "ft": "FT-053",
+      "id": "541f122cfdba4c50f710eb65",
+      "line": 106,
+      "rcf": "RCFs/carregamento-progressivo.md",
+      "sentenceSha256": "c1c9e554def4a11d468612d3220839ef033cf47b282b4e0ee76f95eacadbcf09",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/carregamento-progressivo.md"
+      ],
+      "commit": "e61d9cdc828889a4f2a8b4018f4fa37f65db4d00",
+      "ft": "FT-053",
+      "id": "3991d88d1dfbf3c019db34f0",
+      "line": 107,
+      "rcf": "RCFs/carregamento-progressivo.md",
+      "sentenceSha256": "f0e7c6de5c19f20cf9a33c91005252821b2f61cdc74dfc740adc692b4cf36428",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/carregamento-progressivo.md"
+      ],
+      "commit": "cf9a947ef0b643cb1ee7d3f47d10ecec2e983edf",
+      "ft": "FT-053",
+      "id": "c53ef9c0c67d1b12cf694287",
+      "line": 108,
+      "rcf": "RCFs/carregamento-progressivo.md",
+      "sentenceSha256": "e0c5ffd7640702aebf73ae111a500b1dd05c957d1b12e430105ef8e5caa242a3",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/carregamento-progressivo.md"
+      ],
+      "commit": "cf9a947ef0b643cb1ee7d3f47d10ecec2e983edf",
+      "ft": "FT-053",
+      "id": "8a9fb42704da4824101f744e",
+      "line": 109,
+      "rcf": "RCFs/carregamento-progressivo.md",
+      "sentenceSha256": "5eaf744ad41f63900173f77345b5c8a170004a6077d3be29983562b2cc22efba",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/carregamento-progressivo.md"
+      ],
+      "commit": "cf9a947ef0b643cb1ee7d3f47d10ecec2e983edf",
+      "ft": "FT-053",
+      "id": "58cffee8f8c296016def81b5",
+      "line": 110,
+      "rcf": "RCFs/carregamento-progressivo.md",
+      "sentenceSha256": "1a02d98f09a1af0ff084cb9ca2a431f01026c81d8091cb127fa9920fda3ef0ae",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/componentes-compartilhados.md"
+      ],
+      "commit": "619ac8fa2e81b6e5f7106610e11a50660de992a9",
+      "ft": "FT-053",
+      "id": "e2f56414974dd529243b46c6",
+      "line": 10,
+      "rcf": "RCFs/componentes-compartilhados.md",
+      "sentenceSha256": "eed7d61e09113dbd3a0df1c9f4a6fc7cc3f089bb7fad12ff2901f3584a042d10",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/componentes-compartilhados.md"
+      ],
+      "commit": "619ac8fa2e81b6e5f7106610e11a50660de992a9",
+      "ft": "FT-053",
+      "id": "5c17ddabe50ee56b45712aae",
+      "line": 11,
+      "rcf": "RCFs/componentes-compartilhados.md",
+      "sentenceSha256": "d2215d26bfba673d2896d6e4969891a5940fd7d351f1cca2da1bcade9a8e0619",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/componentes-compartilhados.md"
+      ],
+      "commit": "1a7226f6e31917e1d10104aedda4d323254a9a7d",
+      "ft": "FT-053",
+      "id": "7f81b20f0d7599eafb43d150",
+      "line": 12,
+      "rcf": "RCFs/componentes-compartilhados.md",
+      "sentenceSha256": "39c3f09af2d1e5a73294f179e18e88416b00860202d38f986c4de8947deec0a7",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "_includes/jcem/post-featured-image.html",
+        "_layouts/single.html",
+        "assets/jcem/css/jcmain.scss",
+        "assets/jcem/js/site.js",
+        "assets/jcem/ts/site.ts",
+        "scripts/test_cover_rendered.mjs",
+        "scripts/test_cover_runtime.mjs"
+      ],
+      "commit": "",
+      "ft": "FT-055",
+      "id": "ae58d0eb140d8fbee8a71760",
+      "line": 13,
+      "rcf": "RCFs/componentes-compartilhados.md",
+      "sentenceSha256": "ed9e0916f2d38186454352f4a3de66ef263b69b06a5829967388c65027377102",
+      "state": "pending",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/componentes-compartilhados.md"
+      ],
+      "commit": "363414fa45a4f60ab80f01e7ce56eea34860dfdf",
+      "ft": "FT-053",
+      "id": "49deb4544d8449a9a84cd8b2",
+      "line": 14,
+      "rcf": "RCFs/componentes-compartilhados.md",
+      "sentenceSha256": "9d19f6d9f8a05e5222a2cbe8bba4e443f4c76ed132aa0992285c3b55f77a24c2",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "_includes/jcem/post-featured-image.html",
+        "_layouts/single.html",
+        "assets/jcem/css/jcmain.scss",
+        "assets/jcem/js/site.js",
+        "assets/jcem/ts/site.ts",
+        "scripts/test_cover_rendered.mjs",
+        "scripts/test_cover_runtime.mjs"
+      ],
+      "commit": "",
+      "ft": "FT-055",
+      "id": "024cded5dfde59a9e337db18",
+      "line": 14,
+      "rcf": "RCFs/componentes-compartilhados.md",
+      "sentenceSha256": "7de0dbabf1b40b5281b9a18f6cadbe682afae507251f9503cf294e1b10de2c95",
+      "state": "pending",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/componentes-compartilhados.md"
+      ],
+      "commit": "363414fa45a4f60ab80f01e7ce56eea34860dfdf",
+      "ft": "FT-053",
+      "id": "bf1c34bae317b743f0a445e9",
+      "line": 15,
+      "rcf": "RCFs/componentes-compartilhados.md",
+      "sentenceSha256": "b92ba2d6a19239ce7f8bc1df1656768627b814cfd35e66d193f7e68248d6d4ab",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "_includes/jcem/post-featured-image.html",
+        "_layouts/single.html",
+        "assets/jcem/css/jcmain.scss",
+        "assets/jcem/js/site.js",
+        "assets/jcem/ts/site.ts",
+        "scripts/test_cover_rendered.mjs",
+        "scripts/test_cover_runtime.mjs"
+      ],
+      "commit": "",
+      "ft": "FT-055",
+      "id": "47693b87e5d0595db016c31e",
+      "line": 15,
+      "rcf": "RCFs/componentes-compartilhados.md",
+      "sentenceSha256": "7fc2aff6c41b11fb0ea02f47eb09c1b7d5fef16368b7a1ebea476ea389b1b865",
+      "state": "pending",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/componentes-compartilhados.md"
+      ],
+      "commit": "81e7bb206db73bbb2bf5230db24d066fb1898b7b",
+      "ft": "FT-053",
+      "id": "d4a0ef5653caddd0bfaed16d",
+      "line": 16,
+      "rcf": "RCFs/componentes-compartilhados.md",
+      "sentenceSha256": "b9f7e0c5527e6c9c3b04375ae193ea5c35e92447e7ad576ff218e27e0d486e39",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "_includes/jcem/post-featured-image.html",
+        "_layouts/single.html",
+        "assets/jcem/css/jcmain.scss",
+        "assets/jcem/js/site.js",
+        "assets/jcem/ts/site.ts",
+        "scripts/test_cover_rendered.mjs",
+        "scripts/test_cover_runtime.mjs"
+      ],
+      "commit": "",
+      "ft": "FT-055",
+      "id": "8818a5e2f37b894aeb5ecb08",
+      "line": 16,
+      "rcf": "RCFs/componentes-compartilhados.md",
+      "sentenceSha256": "ac6f2afb6280fdac330b859c79d9df9189fa92ef0a9d6bf90a49250089075295",
+      "state": "pending",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/componentes-compartilhados.md"
+      ],
+      "commit": "935fff040296ef6f1b52ba6ab73eabcfd99ebadb",
+      "ft": "FT-053",
+      "id": "cc0980c6b967cd15f6d73b86",
+      "line": 17,
+      "rcf": "RCFs/componentes-compartilhados.md",
+      "sentenceSha256": "d96e16f09d7c3118c27d816aede3515edc294529efdfd4133e599ec698d58dd2",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/componentes-compartilhados.md"
+      ],
+      "commit": "98da33ea029605b1a3cfd6bec39c251e381772fa",
+      "ft": "FT-053",
+      "id": "10842b92c8919acd56319256",
+      "line": 18,
+      "rcf": "RCFs/componentes-compartilhados.md",
+      "sentenceSha256": "6d33a436ed9b26018b1ab6734c3be2b88bbd299e719552a7bf29d81e976834fc",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/componentes-compartilhados.md"
+      ],
+      "commit": "98da33ea029605b1a3cfd6bec39c251e381772fa",
+      "ft": "FT-053",
+      "id": "dddf145f798ac2f5a60388f0",
+      "line": 19,
+      "rcf": "RCFs/componentes-compartilhados.md",
+      "sentenceSha256": "ca5cb549a82a0cab35f521563d1edfe25ebb25cbca67a94a49fafe216f662715",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/componentes-compartilhados.md"
+      ],
+      "commit": "363414fa45a4f60ab80f01e7ce56eea34860dfdf",
+      "ft": "FT-053",
+      "id": "f00068c86c405903785a4ad2",
+      "line": 20,
+      "rcf": "RCFs/componentes-compartilhados.md",
+      "sentenceSha256": "345cf0daef78a2386c36fb25e157840072372189fb6837177e021ee164acb1cf",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/componentes-compartilhados.md"
+      ],
+      "commit": "363414fa45a4f60ab80f01e7ce56eea34860dfdf",
+      "ft": "FT-053",
+      "id": "22793418c877c7590630f95f",
+      "line": 21,
+      "rcf": "RCFs/componentes-compartilhados.md",
+      "sentenceSha256": "ffd9daa433f1122b49d583ea452bbfb710614e82222884bb3aba9e8975529b32",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/componentes-compartilhados.md"
+      ],
+      "commit": "363414fa45a4f60ab80f01e7ce56eea34860dfdf",
+      "ft": "FT-053",
+      "id": "ffa20b33d1ae2ce004b38352",
+      "line": 22,
+      "rcf": "RCFs/componentes-compartilhados.md",
+      "sentenceSha256": "574c7281804581db3671f50eff91dd62ba4dc5dafe586247c361a71043eb1e07",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/componentes-compartilhados.md"
+      ],
+      "commit": "363414fa45a4f60ab80f01e7ce56eea34860dfdf",
+      "ft": "FT-053",
+      "id": "794ecec7b8d5d9ddfccad0c2",
+      "line": 23,
+      "rcf": "RCFs/componentes-compartilhados.md",
+      "sentenceSha256": "f95a290146b0ad6374e09b8248037b97ef8f851388269046e4e1b39aa500835f",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/componentes-compartilhados.md"
+      ],
+      "commit": "363414fa45a4f60ab80f01e7ce56eea34860dfdf",
+      "ft": "FT-053",
+      "id": "ea5e58bcdba6f24b63fbe62e",
+      "line": 24,
+      "rcf": "RCFs/componentes-compartilhados.md",
+      "sentenceSha256": "fdc3d70428bdce67a554903fd5f8ee6b5b357cf3bc25716795fc46b9d114dce8",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/componentes-compartilhados.md"
+      ],
+      "commit": "363414fa45a4f60ab80f01e7ce56eea34860dfdf",
+      "ft": "FT-053",
+      "id": "41254781c5a6e06b27c7cdc8",
+      "line": 25,
+      "rcf": "RCFs/componentes-compartilhados.md",
+      "sentenceSha256": "6349ee37c4fdf61318d7c39e756a5723145e4cab54e62f681d688d625d4903c0",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/componentes-compartilhados.md"
+      ],
+      "commit": "363414fa45a4f60ab80f01e7ce56eea34860dfdf",
+      "ft": "FT-053",
+      "id": "e39813e2057dc2506de0f2d7",
+      "line": 27,
+      "rcf": "RCFs/componentes-compartilhados.md",
+      "sentenceSha256": "eff1c9186bc1954c152835324e0c62fcf75a560a4b9b6e5031680068c4778803",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/componentes-compartilhados.md"
+      ],
+      "commit": "619ac8fa2e81b6e5f7106610e11a50660de992a9",
+      "ft": "FT-053",
+      "id": "dab79f64073568dc3a0bf69c",
+      "line": 40,
+      "rcf": "RCFs/componentes-compartilhados.md",
+      "sentenceSha256": "59848f6e28e12c612a142f46a2a943bf0e7904792477c00e4148d5cea4fd8acf",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/componentes-compartilhados.md"
+      ],
+      "commit": "619ac8fa2e81b6e5f7106610e11a50660de992a9",
+      "ft": "FT-053",
+      "id": "6c97f4c65be2e196ba28c390",
+      "line": 41,
+      "rcf": "RCFs/componentes-compartilhados.md",
+      "sentenceSha256": "fbb9de27466a38050a986275a6a6e0dd2e61baffd10afdc81a8dbb95dc326b5d",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/componentes-compartilhados.md"
+      ],
+      "commit": "363414fa45a4f60ab80f01e7ce56eea34860dfdf",
+      "ft": "FT-053",
+      "id": "2103c1a35b355fbd4316bcd7",
+      "line": 42,
+      "rcf": "RCFs/componentes-compartilhados.md",
+      "sentenceSha256": "58aba72aa42e788da294db84c4a1c357ab27e4c65e1ea15e158af440c14814a2",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/componentes-compartilhados.md"
+      ],
+      "commit": "363414fa45a4f60ab80f01e7ce56eea34860dfdf",
+      "ft": "FT-053",
+      "id": "35bd271b4c6d4d4c57fefd9a",
+      "line": 43,
+      "rcf": "RCFs/componentes-compartilhados.md",
+      "sentenceSha256": "f46829a01d0ae9f328f618ff328f56c81d32579c9eb8833f109145234ea7036e",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/componentes-compartilhados.md"
+      ],
+      "commit": "363414fa45a4f60ab80f01e7ce56eea34860dfdf",
+      "ft": "FT-053",
+      "id": "4d0c82311f73be74e22e748a",
+      "line": 44,
+      "rcf": "RCFs/componentes-compartilhados.md",
+      "sentenceSha256": "2c530a2899259f117aaa2dc7b0137013c2773d0753aa42561895538e3a83d47f",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/componentes-compartilhados.md"
+      ],
+      "commit": "363414fa45a4f60ab80f01e7ce56eea34860dfdf",
+      "ft": "FT-053",
+      "id": "13229ddc93d3c01203c6bae4",
+      "line": 45,
+      "rcf": "RCFs/componentes-compartilhados.md",
+      "sentenceSha256": "68e840fd39cceac305816d00f99b60347945358ed03a01d09cdcbff735e37f82",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/impressao-ieee.md"
+      ],
+      "commit": "363414fa45a4f60ab80f01e7ce56eea34860dfdf",
+      "ft": "FT-053",
+      "id": "6be04d9aa6206603165fd276",
+      "line": 10,
+      "rcf": "RCFs/impressao-ieee.md",
+      "sentenceSha256": "2c5d78b8566a980837ff888ddf55ad6f510066713e450812887cab49d1672e55",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/impressao-ieee.md"
+      ],
+      "commit": "363414fa45a4f60ab80f01e7ce56eea34860dfdf",
+      "ft": "FT-053",
+      "id": "e69b4e63ff0ffb4480105af6",
+      "line": 11,
+      "rcf": "RCFs/impressao-ieee.md",
+      "sentenceSha256": "f29373ec27fb9adf9fa966e1291d933eb06f94e9305af650fece43565a6a7895",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/impressao-ieee.md"
+      ],
+      "commit": "363414fa45a4f60ab80f01e7ce56eea34860dfdf",
+      "ft": "FT-053",
+      "id": "dbda97d5b6c03964a0af7084",
+      "line": 12,
+      "rcf": "RCFs/impressao-ieee.md",
+      "sentenceSha256": "81848865111ac8d2b1e4aaa75d13666d5211bd4cecbd3532f1913ea15f5268ee",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/impressao-ieee.md"
+      ],
+      "commit": "363414fa45a4f60ab80f01e7ce56eea34860dfdf",
+      "ft": "FT-053",
+      "id": "9b0f467578738c9ba30ca8b5",
+      "line": 13,
+      "rcf": "RCFs/impressao-ieee.md",
+      "sentenceSha256": "121b65ba0351533ddbca2bb8b4177c6920f0ee90563acbacc4dbc237e3fb69dd",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/impressao-ieee.md"
+      ],
+      "commit": "363414fa45a4f60ab80f01e7ce56eea34860dfdf",
+      "ft": "FT-053",
+      "id": "303e3d532b3d7173ac69127d",
+      "line": 14,
+      "rcf": "RCFs/impressao-ieee.md",
+      "sentenceSha256": "81bc436cafaaea38a024d23f65a8169bd1ccdc6762e7f496b98fd71fbd435d86",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/impressao-ieee.md"
+      ],
+      "commit": "363414fa45a4f60ab80f01e7ce56eea34860dfdf",
+      "ft": "FT-053",
+      "id": "78b281a0cc7829b22ec1f810",
+      "line": 18,
+      "rcf": "RCFs/impressao-ieee.md",
+      "sentenceSha256": "283e769154e4f17f89690e1b7fe34b2dc08b28eecce76531cc5e402d8474b0a2",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/impressao-ieee.md"
+      ],
+      "commit": "363414fa45a4f60ab80f01e7ce56eea34860dfdf",
+      "ft": "FT-053",
+      "id": "aea957337214cf2f47ea605a",
+      "line": 19,
+      "rcf": "RCFs/impressao-ieee.md",
+      "sentenceSha256": "4363f43b88dfdbca1ef3e46a31944c92525c06627a0844f78bf5c34eea830c6c",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/impressao-ieee.md"
+      ],
+      "commit": "363414fa45a4f60ab80f01e7ce56eea34860dfdf",
+      "ft": "FT-053",
+      "id": "c9f91706dec6b50056551667",
+      "line": 20,
+      "rcf": "RCFs/impressao-ieee.md",
+      "sentenceSha256": "5e0675046856b6d20c58c5fa910924593dd48258520c36e690c8f851ab7415e8",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/impressao-ieee.md"
+      ],
+      "commit": "363414fa45a4f60ab80f01e7ce56eea34860dfdf",
+      "ft": "FT-053",
+      "id": "6656523b5012064472bdacdb",
+      "line": 21,
+      "rcf": "RCFs/impressao-ieee.md",
+      "sentenceSha256": "ddbd78ccfcb5de2f52f4021f49e9359b9be44c8e1781603393b583bde820b36f",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/impressao-ieee.md"
+      ],
+      "commit": "363414fa45a4f60ab80f01e7ce56eea34860dfdf",
+      "ft": "FT-053",
+      "id": "cbea310e10562e7d0ce73d5c",
+      "line": 27,
+      "rcf": "RCFs/impressao-ieee.md",
+      "sentenceSha256": "2fcbe344b11ccba0d76b8e1096d60cdfb8e6b828abfda4c451919b33f92fdbcd",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/impressao-ieee.md"
+      ],
+      "commit": "058b4ce509499780d3d7ec6b7bf0c65d2b09b6e3",
+      "ft": "FT-053",
+      "id": "13f239d86dc420b42c3b22a3",
+      "line": 28,
+      "rcf": "RCFs/impressao-ieee.md",
+      "sentenceSha256": "7301b7a849dabcde0d4cbd90860cb6d9716d5b9002c7f52e517cdadb1bb0cb69",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/impressao-ieee.md"
+      ],
+      "commit": "363414fa45a4f60ab80f01e7ce56eea34860dfdf",
+      "ft": "FT-053",
+      "id": "13f7228f558f18b7e42c7831",
+      "line": 32,
+      "rcf": "RCFs/impressao-ieee.md",
+      "sentenceSha256": "15a985676df6c4635405b6fd5866bb52815bbfcdedab950a59783c5386d459f6",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/impressao-ieee.md"
+      ],
+      "commit": "363414fa45a4f60ab80f01e7ce56eea34860dfdf",
+      "ft": "FT-053",
+      "id": "7f4f802bcf8c58f819c7059b",
+      "line": 33,
+      "rcf": "RCFs/impressao-ieee.md",
+      "sentenceSha256": "1dea5b80038d8e5703ca213081587ab787065a9fa0c56e8d4704420a8c6234e4",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/impressao-ieee.md"
+      ],
+      "commit": "363414fa45a4f60ab80f01e7ce56eea34860dfdf",
+      "ft": "FT-053",
+      "id": "1bf0ff169319f4dd7ef2dbac",
+      "line": 34,
+      "rcf": "RCFs/impressao-ieee.md",
+      "sentenceSha256": "fca45602a14515da0612332023948baa9ba9a6a8aa79913973e935f5e71d4eba",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/impressao-ieee.md"
+      ],
+      "commit": "363414fa45a4f60ab80f01e7ce56eea34860dfdf",
+      "ft": "FT-053",
+      "id": "bda1eb0ca3913a85196fd6e9",
+      "line": 35,
+      "rcf": "RCFs/impressao-ieee.md",
+      "sentenceSha256": "7bf777ef3faee8379c6ece9b48ec31f8b5128d14c6f0c2cc99e0a7f8e3c570d5",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/impressao-ieee.md"
+      ],
+      "commit": "363414fa45a4f60ab80f01e7ce56eea34860dfdf",
+      "ft": "FT-053",
+      "id": "935b96c3023856a0f4656c49",
+      "line": 36,
+      "rcf": "RCFs/impressao-ieee.md",
+      "sentenceSha256": "479783a599da1c17a937789e0b7e64572e7da0a4e39c84fbcfc848ed4af425e5",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/impressao-ieee.md"
+      ],
+      "commit": "363414fa45a4f60ab80f01e7ce56eea34860dfdf",
+      "ft": "FT-053",
+      "id": "d9dc0a8c8e1f41fc5900c2da",
+      "line": 37,
+      "rcf": "RCFs/impressao-ieee.md",
+      "sentenceSha256": "e2697c0e1d0610d56d4114d927419b1a06a7720b74e58e6786b0a49246a5a04c",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/impressao-ieee.md"
+      ],
+      "commit": "363414fa45a4f60ab80f01e7ce56eea34860dfdf",
+      "ft": "FT-053",
+      "id": "1ce2420d67aa8b2eef0c307f",
+      "line": 38,
+      "rcf": "RCFs/impressao-ieee.md",
+      "sentenceSha256": "ec1902f36b1b04bb450a0909a39d88aa73408cf1ac3a514d9caa69388d0be830",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/impressao-ieee.md"
+      ],
+      "commit": "363414fa45a4f60ab80f01e7ce56eea34860dfdf",
+      "ft": "FT-053",
+      "id": "13336fcf2af5d627ac5b3864",
+      "line": 39,
+      "rcf": "RCFs/impressao-ieee.md",
+      "sentenceSha256": "3b3c1b7ecd0166af8f4ef28844cbe74839819c6b21b9d8fcd89c119d0027965d",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/impressao-ieee.md"
+      ],
+      "commit": "cd19a001737be8456d0f5a5eb05dfa979a6f052e",
+      "ft": "FT-053",
+      "id": "8a95160f3efda8eecd122d35",
+      "line": 40,
+      "rcf": "RCFs/impressao-ieee.md",
+      "sentenceSha256": "8e7e621a467c3f2ef2376cbad3a49ee113203ba0638e4d9b9eca15abd72d8d4d",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/impressao-ieee.md"
+      ],
+      "commit": "cd19a001737be8456d0f5a5eb05dfa979a6f052e",
+      "ft": "FT-053",
+      "id": "0fdaecdd0c856d460f97397b",
+      "line": 44,
+      "rcf": "RCFs/impressao-ieee.md",
+      "sentenceSha256": "6c2ba7f0e7c5ed794a4b9decc0c3a247d0b6c87ac2fb1be04b23646de352d488",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/impressao-ieee.md"
+      ],
+      "commit": "cd19a001737be8456d0f5a5eb05dfa979a6f052e",
+      "ft": "FT-053",
+      "id": "69011b2021fd77bbcc7aa98e",
+      "line": 45,
+      "rcf": "RCFs/impressao-ieee.md",
+      "sentenceSha256": "4646edc95309b19a1aeca59821964bf4c48bd2c4dabb6ddae036722104fcfa78",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/impressao-ieee.md"
+      ],
+      "commit": "cd19a001737be8456d0f5a5eb05dfa979a6f052e",
+      "ft": "FT-053",
+      "id": "804763931c83b80f65e395da",
+      "line": 46,
+      "rcf": "RCFs/impressao-ieee.md",
+      "sentenceSha256": "c9a1575908be3676db05c673066b8cf75d9ea05ba02dc375030c3807fd73b564",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/impressao-ieee.md"
+      ],
+      "commit": "cd19a001737be8456d0f5a5eb05dfa979a6f052e",
+      "ft": "FT-053",
+      "id": "c89f66fd53b32f5579175ad8",
+      "line": 47,
+      "rcf": "RCFs/impressao-ieee.md",
+      "sentenceSha256": "92fc3388e452f9bbe4b52bae61deed6c2f4e15991e95683df07f0c81804a161c",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/impressao-ieee.md"
+      ],
+      "commit": "cd19a001737be8456d0f5a5eb05dfa979a6f052e",
+      "ft": "FT-053",
+      "id": "f0e5d675c687f15a81b572fa",
+      "line": 48,
+      "rcf": "RCFs/impressao-ieee.md",
+      "sentenceSha256": "10b174253fdffdf37e048691f7ffd583d56352f25c257a0e6a9bc32aebcea125",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/impressao-ieee.md"
+      ],
+      "commit": "cd19a001737be8456d0f5a5eb05dfa979a6f052e",
+      "ft": "FT-053",
+      "id": "c3389bff5efc206b8d816fb4",
+      "line": 49,
+      "rcf": "RCFs/impressao-ieee.md",
+      "sentenceSha256": "d5af742d3e3b3aba37b09f87a49733ee0a07c37005d6248de155b8cbda8c3f6a",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "assets/jcem/print-ieee/jekyll-blog.css",
+        "scripts/test_cover_rendered.mjs",
+        "scripts/test_print_ieee_blog.rb"
+      ],
+      "commit": "",
+      "ft": "FT-053",
+      "id": "f8599a2b8658ce544fec97a5",
+      "line": 49,
+      "rcf": "RCFs/impressao-ieee.md",
+      "sentenceSha256": "1a500987155d5207dc87ead75e9fe7ad5a7ba4e8fa60211a41dd1afb1e243294",
+      "state": "pending",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/impressao-ieee.md"
+      ],
+      "commit": "cd19a001737be8456d0f5a5eb05dfa979a6f052e",
+      "ft": "FT-053",
+      "id": "bb7bbd8f7b36d8f42f4061e3",
+      "line": 50,
+      "rcf": "RCFs/impressao-ieee.md",
+      "sentenceSha256": "eac544619613c4ab66ad61bb52832f0ae0d40c14f2d03753e91ce88c99e0682e",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/impressao-ieee.md"
+      ],
+      "commit": "cd19a001737be8456d0f5a5eb05dfa979a6f052e",
+      "ft": "FT-053",
+      "id": "4533b23e2f5c98b34cab627f",
+      "line": 54,
+      "rcf": "RCFs/impressao-ieee.md",
+      "sentenceSha256": "a61ba1eaa3758cd612354dd4a6e2b6041e4f8c02532e91c04537f9db8df9f378",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/impressao-ieee.md"
+      ],
+      "commit": "cd19a001737be8456d0f5a5eb05dfa979a6f052e",
+      "ft": "FT-053",
+      "id": "c300ee938a2baf0109e5c816",
+      "line": 60,
+      "rcf": "RCFs/impressao-ieee.md",
+      "sentenceSha256": "3f4c8146cec510be6726f9df32ed94f61f45e3fc8facb3cc9d04b45ba6c0a74e",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/impressao-ieee.md"
+      ],
+      "commit": "cd19a001737be8456d0f5a5eb05dfa979a6f052e",
+      "ft": "FT-053",
+      "id": "b36281d1db603553a5cf4262",
+      "line": 61,
+      "rcf": "RCFs/impressao-ieee.md",
+      "sentenceSha256": "2cc15403e8da14881261a3dcc84e4d9a3f365c516336523047b2e8fd601f24f8",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/impressao-ieee.md"
+      ],
+      "commit": "cd19a001737be8456d0f5a5eb05dfa979a6f052e",
+      "ft": "FT-053",
+      "id": "c1dc5978c7ff17aeb613a566",
+      "line": 62,
+      "rcf": "RCFs/impressao-ieee.md",
+      "sentenceSha256": "bb68b81b9167d2e0acf2bdea0a29ea140f737c9512193523c38b82f3f094383a",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/impressao-ieee.md"
+      ],
+      "commit": "cd19a001737be8456d0f5a5eb05dfa979a6f052e",
+      "ft": "FT-053",
+      "id": "841dbdd62809be3fdc68d009",
+      "line": 63,
+      "rcf": "RCFs/impressao-ieee.md",
+      "sentenceSha256": "c09806b676ebc977bb7e50be967e9cb30303c1478159cb23041a76043260d7a0",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/impressao-ieee.md"
+      ],
+      "commit": "cd19a001737be8456d0f5a5eb05dfa979a6f052e",
+      "ft": "FT-053",
+      "id": "1918e041f9bc147921c2cbd3",
+      "line": 64,
+      "rcf": "RCFs/impressao-ieee.md",
+      "sentenceSha256": "54d9fd383310fec1e64b3858874fe8b4af2187afad423301408c67668396a9bd",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/impressao-ieee.md"
+      ],
+      "commit": "cd19a001737be8456d0f5a5eb05dfa979a6f052e",
+      "ft": "FT-053",
+      "id": "4f4b4c598298ca368938f21e",
+      "line": 65,
+      "rcf": "RCFs/impressao-ieee.md",
+      "sentenceSha256": "ff4bbdf52eb2e81197eac7ee5919d02c35990dd43db1336083a68aa1487a0c27",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/impressao-ieee.md"
+      ],
+      "commit": "cd19a001737be8456d0f5a5eb05dfa979a6f052e",
+      "ft": "FT-053",
+      "id": "668b6ce04a377a8d6921ddc3",
+      "line": 69,
+      "rcf": "RCFs/impressao-ieee.md",
+      "sentenceSha256": "01a09a1b62ad0b8a8c28ec98070d5d833c3a90f2e05d8e8ce00405dac907029e",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/impressao-ieee.md"
+      ],
+      "commit": "cd19a001737be8456d0f5a5eb05dfa979a6f052e",
+      "ft": "FT-053",
+      "id": "bb1a23f96a6bff7c2ee91ae8",
+      "line": 70,
+      "rcf": "RCFs/impressao-ieee.md",
+      "sentenceSha256": "ae9649da9113e43ed54a977d3f751082c56f8568964877788523a59da9489f22",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/impressao-ieee.md"
+      ],
+      "commit": "fd868deae6908264aaa6444c015bf8937cfb1409",
+      "ft": "FT-053",
+      "id": "38bd156d4660509b3fb1c4e2",
+      "line": 71,
+      "rcf": "RCFs/impressao-ieee.md",
+      "sentenceSha256": "3c56a23c290bc9eae7911946e3856956d659d39abdf442f586e8a8ee928ce04f",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/impressao-ieee.md"
+      ],
+      "commit": "fd868deae6908264aaa6444c015bf8937cfb1409",
+      "ft": "FT-053",
+      "id": "42cc04c4481db92b4bbbd626",
+      "line": 72,
+      "rcf": "RCFs/impressao-ieee.md",
+      "sentenceSha256": "c97ca61be0c6820111a7024b3b87e7258d7fb5821be9b740352e69876001acdb",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/impressao-ieee.md"
+      ],
+      "commit": "fd868deae6908264aaa6444c015bf8937cfb1409",
+      "ft": "FT-053",
+      "id": "e3fdb71dd79d0b61aecfc02c",
+      "line": 73,
+      "rcf": "RCFs/impressao-ieee.md",
+      "sentenceSha256": "99a55a212655d8f4d367ff84859b927260f1a973f9f5d8b73affdb424b58be21",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/impressao-ieee.md"
+      ],
+      "commit": "fd868deae6908264aaa6444c015bf8937cfb1409",
+      "ft": "FT-053",
+      "id": "04ccc4c94e92f5f5d6f62982",
+      "line": 74,
+      "rcf": "RCFs/impressao-ieee.md",
+      "sentenceSha256": "8b32b5559002e8767ec9dd25bca93b222f0dd10de2af864cbdd3ba6c0d426ee9",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/impressao-ieee.md"
+      ],
+      "commit": "cd19a001737be8456d0f5a5eb05dfa979a6f052e",
+      "ft": "FT-053",
+      "id": "225f279e09cdd57d6fb92042",
+      "line": 75,
+      "rcf": "RCFs/impressao-ieee.md",
+      "sentenceSha256": "bfa328b8cab376fa7a1c6bb512333f9aaaf6c97900f441c9b0a54bcf6c21285f",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/impressao-ieee.md"
+      ],
+      "commit": "cd19a001737be8456d0f5a5eb05dfa979a6f052e",
+      "ft": "FT-053",
+      "id": "24fc0a9bcb3b6e211e421684",
+      "line": 76,
+      "rcf": "RCFs/impressao-ieee.md",
+      "sentenceSha256": "7bebd9747e85ed62f98a764aa7b5ab1576afd8e96ef634fcbddb88aea8348a3d",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/impressao-ieee.md"
+      ],
+      "commit": "cd19a001737be8456d0f5a5eb05dfa979a6f052e",
+      "ft": "FT-053",
+      "id": "12ec417fcffeca0028b27164",
+      "line": 77,
+      "rcf": "RCFs/impressao-ieee.md",
+      "sentenceSha256": "74b2507f1b35aac8384a27230fadbe1cebff5e038bfcd6e8da42f4e47e2e2000",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/impressao-ieee.md"
+      ],
+      "commit": "cd19a001737be8456d0f5a5eb05dfa979a6f052e",
+      "ft": "FT-053",
+      "id": "0eea797fb7d8ec38a99989c3",
+      "line": 78,
+      "rcf": "RCFs/impressao-ieee.md",
+      "sentenceSha256": "79fafe671ac681fd0f9c7ace18018488789d4a76f52e9d61486a577eb50c1cbb",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/impressao-ieee.md"
+      ],
+      "commit": "98da33ea029605b1a3cfd6bec39c251e381772fa",
+      "ft": "FT-053",
+      "id": "181c1e7e64aef86a0d42bd89",
+      "line": 79,
+      "rcf": "RCFs/impressao-ieee.md",
+      "sentenceSha256": "79162c48f913599d75a33394c81777b9f2a6e659cc4063dd589ad18ff20f8a42",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/impressao-ieee.md"
+      ],
+      "commit": "98da33ea029605b1a3cfd6bec39c251e381772fa",
+      "ft": "FT-053",
+      "id": "0644408f9e86eca66507cc64",
+      "line": 80,
+      "rcf": "RCFs/impressao-ieee.md",
+      "sentenceSha256": "14b789e559ead80eec86a576bc04bccf9d91477122d40a8d8e89c7ba3bdf523a",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/impressao-ieee.md"
+      ],
+      "commit": "cd19a001737be8456d0f5a5eb05dfa979a6f052e",
+      "ft": "FT-053",
+      "id": "12c7e5d8ced7760cbfc0c744",
+      "line": 81,
+      "rcf": "RCFs/impressao-ieee.md",
+      "sentenceSha256": "55885bf51c885a94e1dcac4b2937fef880e636d093573baf9386caee216dc905",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/impressao-ieee.md"
+      ],
+      "commit": "cd19a001737be8456d0f5a5eb05dfa979a6f052e",
+      "ft": "FT-053",
+      "id": "6caecbe00d19d761033a9ffd",
+      "line": 82,
+      "rcf": "RCFs/impressao-ieee.md",
+      "sentenceSha256": "89e20d162512b3864c8587b9648b6409a42dcb0821fabae1926d9844c86ce108",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/impressao-ieee.md"
+      ],
+      "commit": "cd19a001737be8456d0f5a5eb05dfa979a6f052e",
+      "ft": "FT-053",
+      "id": "b831c62c9c3c7c07403803b1",
+      "line": 83,
+      "rcf": "RCFs/impressao-ieee.md",
+      "sentenceSha256": "651846a2c3d71dbca9d5791f4def3f04f2bef9bfedcc0a704c73186d541fb484",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/impressao-ieee.md"
+      ],
+      "commit": "1a7226f6e31917e1d10104aedda4d323254a9a7d",
+      "ft": "FT-053",
+      "id": "51fe7122809cfb2dbfdfd336",
+      "line": 84,
+      "rcf": "RCFs/impressao-ieee.md",
+      "sentenceSha256": "172d476d95468c834ac819bb579211feae144dcfe4f9999832e83cf877072227",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/impressao-ieee.md"
+      ],
+      "commit": "cd19a001737be8456d0f5a5eb05dfa979a6f052e",
+      "ft": "FT-053",
+      "id": "33209b2d46c6a72bbddf72c9",
+      "line": 85,
+      "rcf": "RCFs/impressao-ieee.md",
+      "sentenceSha256": "570d2af2d9b1c7e55a5a8d5f9d30eaabcb3ad07232ff826eca4f056c34649dca",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/impressao-ieee.md"
+      ],
+      "commit": "cd19a001737be8456d0f5a5eb05dfa979a6f052e",
+      "ft": "FT-053",
+      "id": "8d58cd3bd9f356a66c3a59fc",
+      "line": 86,
+      "rcf": "RCFs/impressao-ieee.md",
+      "sentenceSha256": "e0ebaa70cd38705e6a1a6e3d6f19601c4423e2e57ff58a03c9473cd50561a1de",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/impressao-ieee.md"
+      ],
+      "commit": "cd19a001737be8456d0f5a5eb05dfa979a6f052e",
+      "ft": "FT-053",
+      "id": "0ab2913d64009fb9ac980fab",
+      "line": 90,
+      "rcf": "RCFs/impressao-ieee.md",
+      "sentenceSha256": "51e98726f76eaa848392c9a003b4d7eac55a527f4282b946806130d39b347c51",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/impressao-ieee.md"
+      ],
+      "commit": "cd19a001737be8456d0f5a5eb05dfa979a6f052e",
+      "ft": "FT-053",
+      "id": "d9a8f99655f50643f610985d",
+      "line": 91,
+      "rcf": "RCFs/impressao-ieee.md",
+      "sentenceSha256": "209975168e39c6c81d035221b9d83446cfc680e3a6af4a4ac403244dc0be1d3d",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/impressao-ieee.md"
+      ],
+      "commit": "cd19a001737be8456d0f5a5eb05dfa979a6f052e",
+      "ft": "FT-053",
+      "id": "cd7c28403ae2b0af280f2e8d",
+      "line": 92,
+      "rcf": "RCFs/impressao-ieee.md",
+      "sentenceSha256": "b8e194b92014a242be6988b18bf93a866612e1d1f064b8939759a9d3618dbcbb",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/impressao-ieee.md"
+      ],
+      "commit": "cd19a001737be8456d0f5a5eb05dfa979a6f052e",
+      "ft": "FT-053",
+      "id": "293542bef26c4194fddd11b7",
+      "line": 93,
+      "rcf": "RCFs/impressao-ieee.md",
+      "sentenceSha256": "a0c7901ae14be8a6e4e18514af6b5e52fa31eda442342c88b0590a8a6e89fd06",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/impressao-ieee.md"
+      ],
+      "commit": "cd19a001737be8456d0f5a5eb05dfa979a6f052e",
+      "ft": "FT-053",
+      "id": "3d2a4f8602e5fcebee3e153c",
+      "line": 94,
+      "rcf": "RCFs/impressao-ieee.md",
+      "sentenceSha256": "e8d2b74154ca12e94396056fad5de8933c0c794fbac8e4617e7eb905d855dd11",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/impressao-ieee.md"
+      ],
+      "commit": "cd19a001737be8456d0f5a5eb05dfa979a6f052e",
+      "ft": "FT-053",
+      "id": "e79cbc035cc4bd2660888672",
+      "line": 95,
+      "rcf": "RCFs/impressao-ieee.md",
+      "sentenceSha256": "fdaaf168f7b72a7eb4156983777b746483c6257138f913bae939bc2676d05ddf",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/leitura-acessivel-e-tts.md"
+      ],
+      "commit": "57e473b7e3ce404552bac1d40ed281bc1e8e5b5f",
+      "ft": "FT-053",
+      "id": "ff1e5e89bf31daae7072d3d7",
+      "line": 11,
+      "rcf": "RCFs/leitura-acessivel-e-tts.md",
+      "sentenceSha256": "9c50c19cbf7d28dd147cc6548d206a345833412ac8768a9bbd342f2731296e04",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/leitura-acessivel-e-tts.md"
+      ],
+      "commit": "57e473b7e3ce404552bac1d40ed281bc1e8e5b5f",
+      "ft": "FT-053",
+      "id": "ab4f0c1c68e0a61b25f9d7ce",
+      "line": 12,
+      "rcf": "RCFs/leitura-acessivel-e-tts.md",
+      "sentenceSha256": "83eaaea7a590f2d5057d82b3b3577d42c0b63d39e730c6f37f105f199655c858",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/leitura-acessivel-e-tts.md"
+      ],
+      "commit": "57e473b7e3ce404552bac1d40ed281bc1e8e5b5f",
+      "ft": "FT-053",
+      "id": "5c487443218a87fd11540df6",
+      "line": 13,
+      "rcf": "RCFs/leitura-acessivel-e-tts.md",
+      "sentenceSha256": "4aeb64a70252897d21d0f90c8508bca61d63dc2bc9d36e03bc0dc6729a3f59fd",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/leitura-acessivel-e-tts.md"
+      ],
+      "commit": "57e473b7e3ce404552bac1d40ed281bc1e8e5b5f",
+      "ft": "FT-053",
+      "id": "3d572c5c48e3984002b82e80",
+      "line": 14,
+      "rcf": "RCFs/leitura-acessivel-e-tts.md",
+      "sentenceSha256": "a64c8164341716df78c4106a1f769140a4561e003ab60c9a81af5c10521d206e",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/leitura-acessivel-e-tts.md"
+      ],
+      "commit": "57e473b7e3ce404552bac1d40ed281bc1e8e5b5f",
+      "ft": "FT-053",
+      "id": "3395f34dc5e9feb5996458d9",
+      "line": 16,
+      "rcf": "RCFs/leitura-acessivel-e-tts.md",
+      "sentenceSha256": "bec0811ffad499e27719bcc6df8696e08bd220683029cb7dd7e125c45ac0ce67",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/leitura-acessivel-e-tts.md"
+      ],
+      "commit": "57e473b7e3ce404552bac1d40ed281bc1e8e5b5f",
+      "ft": "FT-053",
+      "id": "2a8a0482945e9f8c833ce6e5",
+      "line": 20,
+      "rcf": "RCFs/leitura-acessivel-e-tts.md",
+      "sentenceSha256": "35290be482432bb0838f30929b0d52a8e013652e3531a4749463820c6834bfc4",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/leitura-acessivel-e-tts.md"
+      ],
+      "commit": "57e473b7e3ce404552bac1d40ed281bc1e8e5b5f",
+      "ft": "FT-053",
+      "id": "86bcb256d3d9027fc18901e9",
+      "line": 21,
+      "rcf": "RCFs/leitura-acessivel-e-tts.md",
+      "sentenceSha256": "0dc0be36f7c041bf2029f2093a36c0924fcda6dd9b2f43a85992c053c22daa26",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/leitura-acessivel-e-tts.md"
+      ],
+      "commit": "57e473b7e3ce404552bac1d40ed281bc1e8e5b5f",
+      "ft": "FT-053",
+      "id": "cc75de71d94c1e8bac3d181b",
+      "line": 22,
+      "rcf": "RCFs/leitura-acessivel-e-tts.md",
+      "sentenceSha256": "6c589171ede53c585e449284fa3e331abc4dac67d141513c99fbd269951957f4",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/leitura-acessivel-e-tts.md"
+      ],
+      "commit": "57e473b7e3ce404552bac1d40ed281bc1e8e5b5f",
+      "ft": "FT-053",
+      "id": "e9069adc32c9ad66f200ef3d",
+      "line": 23,
+      "rcf": "RCFs/leitura-acessivel-e-tts.md",
+      "sentenceSha256": "7dc23aecdcd6efa10152c8e7e54dee644b3015dc29a17db348b5a9be4772f928",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/leitura-acessivel-e-tts.md"
+      ],
+      "commit": "57e473b7e3ce404552bac1d40ed281bc1e8e5b5f",
+      "ft": "FT-053",
+      "id": "f71a5c6d9ea064b4de7bba68",
+      "line": 24,
+      "rcf": "RCFs/leitura-acessivel-e-tts.md",
+      "sentenceSha256": "9643031d24eb67c45bc02b7c3deac8145786159c2dc4d7ee69d6d485f7afbfda",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/leitura-acessivel-e-tts.md"
+      ],
+      "commit": "57e473b7e3ce404552bac1d40ed281bc1e8e5b5f",
+      "ft": "FT-053",
+      "id": "d499ae74a3dd147ebe2ec370",
+      "line": 25,
+      "rcf": "RCFs/leitura-acessivel-e-tts.md",
+      "sentenceSha256": "2fd03cd8b8c3680ddb0382926d21c2a6eac8ad0513c43c77baa1f4110a5fc0d7",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/leitura-acessivel-e-tts.md"
+      ],
+      "commit": "cf9a947ef0b643cb1ee7d3f47d10ecec2e983edf",
+      "ft": "FT-053",
+      "id": "17e1d898b5fe3f1a91f4fb46",
+      "line": 26,
+      "rcf": "RCFs/leitura-acessivel-e-tts.md",
+      "sentenceSha256": "fb612d9881ee5ae6d64b64570239c33885799cf1a08a22adb757c693f9bd1fdb",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/leitura-acessivel-e-tts.md"
+      ],
+      "commit": "cf9a947ef0b643cb1ee7d3f47d10ecec2e983edf",
+      "ft": "FT-053",
+      "id": "02db9ea77b2ad72c0e3551f5",
+      "line": 27,
+      "rcf": "RCFs/leitura-acessivel-e-tts.md",
+      "sentenceSha256": "cd084a1461953c0e50aee98bdd4fe57921ccf3e86c74b8bde03d3360242e78e7",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/leitura-acessivel-e-tts.md"
+      ],
+      "commit": "57e473b7e3ce404552bac1d40ed281bc1e8e5b5f",
+      "ft": "FT-053",
+      "id": "147214a08b35956ca53596bc",
+      "line": 31,
+      "rcf": "RCFs/leitura-acessivel-e-tts.md",
+      "sentenceSha256": "6a75b565194dcb95336c4457af17b06357404bfefde60572108394b2571d341d",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "_layouts/single.html",
+        "_plugins/jcem_zz_accessible_reading.rb",
+        "assets/jcem/css/jcmain.scss",
+        "assets/jcem/js/read-aloud.js",
+        "assets/jcem/print-ieee/jekyll-blog.css",
+        "scripts/test_accessibility.rb",
+        "scripts/test_tts_runtime.mjs"
+      ],
+      "commit": "",
+      "ft": "FT-053",
+      "id": "cc5b8b4fe66d8d79a3cd82f0",
+      "line": 31,
+      "rcf": "RCFs/leitura-acessivel-e-tts.md",
+      "sentenceSha256": "54c538d1df13fca46f87ceb394fcddee9e3215d97ec4a8d3164d3315e69e3d17",
+      "state": "pending",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "_layouts/single.html",
+        "_plugins/jcem_zz_accessible_reading.rb",
+        "assets/jcem/css/jcmain.scss",
+        "assets/jcem/js/read-aloud.js",
+        "assets/jcem/print-ieee/jekyll-blog.css",
+        "scripts/test_accessibility.rb",
+        "scripts/test_tts_runtime.mjs"
+      ],
+      "commit": "",
+      "ft": "FT-053",
+      "id": "25ed190ed2f7803f7ddfc440",
+      "line": 32,
+      "rcf": "RCFs/leitura-acessivel-e-tts.md",
+      "sentenceSha256": "c916bdb3f37ee5ac5541e5213a4788755ec1d7677bf34c2972388f137318d293",
+      "state": "pending",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "_layouts/single.html",
+        "_plugins/jcem_zz_accessible_reading.rb",
+        "assets/jcem/css/jcmain.scss",
+        "assets/jcem/js/read-aloud.js",
+        "assets/jcem/print-ieee/jekyll-blog.css",
+        "scripts/test_accessibility.rb",
+        "scripts/test_tts_runtime.mjs"
+      ],
+      "commit": "",
+      "ft": "FT-053",
+      "id": "df1a079f818f4378d61ad5d6",
+      "line": 33,
+      "rcf": "RCFs/leitura-acessivel-e-tts.md",
+      "sentenceSha256": "eab8bddc748e5fc8f61f40a6272adae6a0118b0f904ca17d2a1e05a43265fb34",
+      "state": "pending",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "_layouts/single.html",
+        "_plugins/jcem_zz_accessible_reading.rb",
+        "assets/jcem/css/jcmain.scss",
+        "assets/jcem/js/read-aloud.js",
+        "assets/jcem/print-ieee/jekyll-blog.css",
+        "scripts/test_accessibility.rb",
+        "scripts/test_tts_runtime.mjs"
+      ],
+      "commit": "",
+      "ft": "FT-053",
+      "id": "352549715277c898a02aa78b",
+      "line": 34,
+      "rcf": "RCFs/leitura-acessivel-e-tts.md",
+      "sentenceSha256": "775b84a0e340e26130b308615de2bdd9f585ddbccb00073308f55aeb0cd4e94c",
+      "state": "pending",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "_layouts/single.html",
+        "_plugins/jcem_zz_accessible_reading.rb",
+        "assets/jcem/css/jcmain.scss",
+        "assets/jcem/js/read-aloud.js",
+        "assets/jcem/print-ieee/jekyll-blog.css",
+        "scripts/test_accessibility.rb",
+        "scripts/test_tts_runtime.mjs"
+      ],
+      "commit": "",
+      "ft": "FT-053",
+      "id": "3f64a9401f572079a92cf3e5",
+      "line": 35,
+      "rcf": "RCFs/leitura-acessivel-e-tts.md",
+      "sentenceSha256": "4e45c491991c25f19094f8253faf8eee2f9a7ee6dd53040e774902066e7395db",
+      "state": "pending",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "_layouts/single.html",
+        "_plugins/jcem_zz_accessible_reading.rb",
+        "assets/jcem/css/jcmain.scss",
+        "assets/jcem/js/read-aloud.js",
+        "assets/jcem/print-ieee/jekyll-blog.css",
+        "scripts/test_accessibility.rb",
+        "scripts/test_tts_runtime.mjs"
+      ],
+      "commit": "",
+      "ft": "FT-053",
+      "id": "c049a0058735686e89fc834b",
+      "line": 36,
+      "rcf": "RCFs/leitura-acessivel-e-tts.md",
+      "sentenceSha256": "d1c2d5c308984a7823452f39a2b82ca7ee324d965382d0e11bb50378820ebe55",
+      "state": "pending",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/leitura-acessivel-e-tts.md"
+      ],
+      "commit": "57e473b7e3ce404552bac1d40ed281bc1e8e5b5f",
+      "ft": "FT-053",
+      "id": "6925d2e85f58fa21a1f3054e",
+      "line": 45,
+      "rcf": "RCFs/leitura-acessivel-e-tts.md",
+      "sentenceSha256": "93c95c85d3a02176cadee816e6a005a6a75d9710ee0f4a49123bec7006c870b4",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/leitura-acessivel-e-tts.md"
+      ],
+      "commit": "57e473b7e3ce404552bac1d40ed281bc1e8e5b5f",
+      "ft": "FT-053",
+      "id": "1374a74a6ce203217c85c8dc",
+      "line": 46,
+      "rcf": "RCFs/leitura-acessivel-e-tts.md",
+      "sentenceSha256": "89bbea95c2d35891ab50318d3859908f0f81db418ab6ac854b06236c6e9e0d75",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/leitura-acessivel-e-tts.md"
+      ],
+      "commit": "57e473b7e3ce404552bac1d40ed281bc1e8e5b5f",
+      "ft": "FT-053",
+      "id": "c3fbff2afac2369f1c9f7ddf",
+      "line": 47,
+      "rcf": "RCFs/leitura-acessivel-e-tts.md",
+      "sentenceSha256": "1ede9d7309a9e9005a3e2fec83837bf0f065b3fb41c0deebea58b15ed95d82f1",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/leitura-acessivel-e-tts.md"
+      ],
+      "commit": "cf9a947ef0b643cb1ee7d3f47d10ecec2e983edf",
+      "ft": "FT-053",
+      "id": "726ee488e8b54621b68f2228",
+      "line": 51,
+      "rcf": "RCFs/leitura-acessivel-e-tts.md",
+      "sentenceSha256": "24cb1192a96ac4bcd690f8b895ce7f70d3074e88edabcc9aedddb041d9f2792a",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/leitura-acessivel-e-tts.md"
+      ],
+      "commit": "cf9a947ef0b643cb1ee7d3f47d10ecec2e983edf",
+      "ft": "FT-053",
+      "id": "59dfd75f4538c4555873a760",
+      "line": 52,
+      "rcf": "RCFs/leitura-acessivel-e-tts.md",
+      "sentenceSha256": "0de4faadc9de3c9cd28501274278264bf9c53c5aa5f6e6c72c0f31f553d46565",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/leitura-acessivel-e-tts.md"
+      ],
+      "commit": "cf9a947ef0b643cb1ee7d3f47d10ecec2e983edf",
+      "ft": "FT-053",
+      "id": "78af57d67e19ca05ff90d2c1",
+      "line": 53,
+      "rcf": "RCFs/leitura-acessivel-e-tts.md",
+      "sentenceSha256": "5fea80f2fbc456659d068d8d8f50c70b55fa93e1e426a9bd6c8c4f228c136258",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/leitura-acessivel-e-tts.md"
+      ],
+      "commit": "cf9a947ef0b643cb1ee7d3f47d10ecec2e983edf",
+      "ft": "FT-053",
+      "id": "3703c4a45fd250943f385063",
+      "line": 54,
+      "rcf": "RCFs/leitura-acessivel-e-tts.md",
+      "sentenceSha256": "8ed1ef20b1249365a98abc0f5b2cba48618e14b91668422ef1444627d8a5783c",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/leitura-acessivel-e-tts.md"
+      ],
+      "commit": "57e473b7e3ce404552bac1d40ed281bc1e8e5b5f",
+      "ft": "FT-053",
+      "id": "c77d922974af9d4e16d7ea41",
+      "line": 59,
+      "rcf": "RCFs/leitura-acessivel-e-tts.md",
+      "sentenceSha256": "ef8998be33e71c8fc8755627b395bb83c0b818df5aeef006fd581dd10303fbef",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/leitura-acessivel-e-tts.md"
+      ],
+      "commit": "cf9a947ef0b643cb1ee7d3f47d10ecec2e983edf",
+      "ft": "FT-053",
+      "id": "65f0384d13042a758b5ba5cd",
+      "line": 61,
+      "rcf": "RCFs/leitura-acessivel-e-tts.md",
+      "sentenceSha256": "c465718d4bf5f212e74117ef8390a66029aa774ee31d3de367d234f7ccd42583",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/leitura-acessivel-e-tts.md"
+      ],
+      "commit": "57e473b7e3ce404552bac1d40ed281bc1e8e5b5f",
+      "ft": "FT-053",
+      "id": "4abbd2f9a83dd5c300ba2e22",
+      "line": 62,
+      "rcf": "RCFs/leitura-acessivel-e-tts.md",
+      "sentenceSha256": "764b5d649fb10e7491e82fb8a53a35288d98bcf9ffd28166dcc6829cc5126e8f",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/leitura-acessivel-e-tts.md"
+      ],
+      "commit": "57e473b7e3ce404552bac1d40ed281bc1e8e5b5f",
+      "ft": "FT-053",
+      "id": "c37b5952fb4b16485c7d9e50",
+      "line": 63,
+      "rcf": "RCFs/leitura-acessivel-e-tts.md",
+      "sentenceSha256": "b5ed23215c4baa9209999de023aaff4d73d159caf00979dc1bc1b402d5dfb06a",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "_layouts/single.html",
+        "_plugins/jcem_zz_accessible_reading.rb",
+        "assets/jcem/css/jcmain.scss",
+        "assets/jcem/js/read-aloud.js",
+        "assets/jcem/print-ieee/jekyll-blog.css",
+        "scripts/test_accessibility.rb",
+        "scripts/test_tts_runtime.mjs"
+      ],
+      "commit": "",
+      "ft": "FT-053",
+      "id": "5dbf472e0ba945591cbf4a85",
+      "line": 63,
+      "rcf": "RCFs/leitura-acessivel-e-tts.md",
+      "sentenceSha256": "14cfab426a27826e52881c85dbf459c4f2310ea22b0ed0bfcb0aa837922cd70d",
+      "state": "pending",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/leitura-acessivel-e-tts.md"
+      ],
+      "commit": "57e473b7e3ce404552bac1d40ed281bc1e8e5b5f",
+      "ft": "FT-053",
+      "id": "ef3b99d2a6e885dbf1c6ec9f",
+      "line": 64,
+      "rcf": "RCFs/leitura-acessivel-e-tts.md",
+      "sentenceSha256": "1a91b06c7a53571423d149180c724578482fd0421274d19622ab34c7d275e29a",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "_layouts/single.html",
+        "_plugins/jcem_zz_accessible_reading.rb",
+        "assets/jcem/css/jcmain.scss",
+        "assets/jcem/js/read-aloud.js",
+        "assets/jcem/print-ieee/jekyll-blog.css",
+        "scripts/test_accessibility.rb",
+        "scripts/test_tts_runtime.mjs"
+      ],
+      "commit": "",
+      "ft": "FT-053",
+      "id": "ec5c40340c69999122b02887",
+      "line": 64,
+      "rcf": "RCFs/leitura-acessivel-e-tts.md",
+      "sentenceSha256": "96f91897a27e4e6be8b54c4f54e2f5fe15c2fb1f1750fb2af710ca6f5ef56d8a",
+      "state": "pending",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/leitura-acessivel-e-tts.md"
+      ],
+      "commit": "cf9a947ef0b643cb1ee7d3f47d10ecec2e983edf",
+      "ft": "FT-053",
+      "id": "d879bbbec0adfe00fdf7e171",
+      "line": 65,
+      "rcf": "RCFs/leitura-acessivel-e-tts.md",
+      "sentenceSha256": "592126709169a50aa3b16e765efe5daecc5279c89bdb9d04bba0572b32f57721",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/leitura-acessivel-e-tts.md"
+      ],
+      "commit": "57e473b7e3ce404552bac1d40ed281bc1e8e5b5f",
+      "ft": "FT-053",
+      "id": "27e0023e31d5aafca42b92e3",
+      "line": 69,
+      "rcf": "RCFs/leitura-acessivel-e-tts.md",
+      "sentenceSha256": "7ad969aae5e3c6808be4b93a55923481c661c6b164ee5026f7838eb5ca94380b",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/leitura-acessivel-e-tts.md"
+      ],
+      "commit": "57e473b7e3ce404552bac1d40ed281bc1e8e5b5f",
+      "ft": "FT-053",
+      "id": "25cd6d7ba51d9cf310e673d5",
+      "line": 70,
+      "rcf": "RCFs/leitura-acessivel-e-tts.md",
+      "sentenceSha256": "f909dc95e5c30d93a94da91718c6ee95d984638c549a7b85343cf2c7a2c9b858",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/leitura-acessivel-e-tts.md"
+      ],
+      "commit": "57e473b7e3ce404552bac1d40ed281bc1e8e5b5f",
+      "ft": "FT-053",
+      "id": "21a4498dc92236eff31d26c7",
+      "line": 71,
+      "rcf": "RCFs/leitura-acessivel-e-tts.md",
+      "sentenceSha256": "99f4d56261ab423c4f6e47646b136a642926bf3b986cc5d60490e2b9ccfd5081",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/leitura-acessivel-e-tts.md"
+      ],
+      "commit": "57e473b7e3ce404552bac1d40ed281bc1e8e5b5f",
+      "ft": "FT-053",
+      "id": "f0c30f033f3600345442e33e",
+      "line": 72,
+      "rcf": "RCFs/leitura-acessivel-e-tts.md",
+      "sentenceSha256": "2ccc856133c16b90239d4d44c1899ed5de0ad62283752801992df8fcda3c754c",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/leitura-acessivel-e-tts.md"
+      ],
+      "commit": "57e473b7e3ce404552bac1d40ed281bc1e8e5b5f",
+      "ft": "FT-053",
+      "id": "d327373f1e42ea08affacdf5",
+      "line": 73,
+      "rcf": "RCFs/leitura-acessivel-e-tts.md",
+      "sentenceSha256": "9c9421de74d7247e74afb63890326be58a8e2eaca5c2d8ff783958ea79ea7716",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/leitura-acessivel-e-tts.md"
+      ],
+      "commit": "57e473b7e3ce404552bac1d40ed281bc1e8e5b5f",
+      "ft": "FT-053",
+      "id": "b07df0802551ff8529c4385d",
+      "line": 74,
+      "rcf": "RCFs/leitura-acessivel-e-tts.md",
+      "sentenceSha256": "d28656dbd08e4368f12615a77feaa42062ab6e91eecc4d964f30523f3cc4b4e7",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/leitura-acessivel-e-tts.md"
+      ],
+      "commit": "57e473b7e3ce404552bac1d40ed281bc1e8e5b5f",
+      "ft": "FT-053",
+      "id": "61adf26948fd27573eef319e",
+      "line": 78,
+      "rcf": "RCFs/leitura-acessivel-e-tts.md",
+      "sentenceSha256": "96d59595eb1f644ad0b185cea49b3b2f9ccf41b21d73987bb7adb8e3536299b7",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/leitura-acessivel-e-tts.md"
+      ],
+      "commit": "57e473b7e3ce404552bac1d40ed281bc1e8e5b5f",
+      "ft": "FT-053",
+      "id": "abdbef408445c5932cf2778d",
+      "line": 79,
+      "rcf": "RCFs/leitura-acessivel-e-tts.md",
+      "sentenceSha256": "a038675d81646b009790d0d18c4329f7cf1ded8364689dc9d34495dceafbf93c",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/leitura-acessivel-e-tts.md"
+      ],
+      "commit": "57e473b7e3ce404552bac1d40ed281bc1e8e5b5f",
+      "ft": "FT-053",
+      "id": "5a91db11bb334d9f41794e07",
+      "line": 80,
+      "rcf": "RCFs/leitura-acessivel-e-tts.md",
+      "sentenceSha256": "b757f8c1538d980ed70063034f1dbafb1329f48b28eecdb223004df0c8c34b20",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/leitura-acessivel-e-tts.md"
+      ],
+      "commit": "57e473b7e3ce404552bac1d40ed281bc1e8e5b5f",
+      "ft": "FT-053",
+      "id": "7b1e8bc1e97244761e1b973b",
+      "line": 81,
+      "rcf": "RCFs/leitura-acessivel-e-tts.md",
+      "sentenceSha256": "ddc2e8dc5785597919387b5bf27f3b2eff21de99cfafa94a17654f1e21b62898",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/leitura-acessivel-e-tts.md"
+      ],
+      "commit": "57e473b7e3ce404552bac1d40ed281bc1e8e5b5f",
+      "ft": "FT-053",
+      "id": "7b2acb62d9e0e7211cb5a3fe",
+      "line": 85,
+      "rcf": "RCFs/leitura-acessivel-e-tts.md",
+      "sentenceSha256": "40e15530af0e81ccde4c04116f7da059f8484a66775c888728f51410f92543b6",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/leitura-acessivel-e-tts.md"
+      ],
+      "commit": "57e473b7e3ce404552bac1d40ed281bc1e8e5b5f",
+      "ft": "FT-053",
+      "id": "85856f361a97cc24e17753a5",
+      "line": 87,
+      "rcf": "RCFs/leitura-acessivel-e-tts.md",
+      "sentenceSha256": "36a0c3f1ec51a39dc1d0777a2e3576a67c6b67a06ea39be0a6c1099b92aaeef4",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/leitura-acessivel-e-tts.md"
+      ],
+      "commit": "57e473b7e3ce404552bac1d40ed281bc1e8e5b5f",
+      "ft": "FT-053",
+      "id": "000b76e6e7c32ced1c2c21da",
+      "line": 88,
+      "rcf": "RCFs/leitura-acessivel-e-tts.md",
+      "sentenceSha256": "eddde42ee77f5849b8bef5d1b3755ded3a07334d38cb9e5d190658c30cca8d90",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/leitura-acessivel-e-tts.md"
+      ],
+      "commit": "57e473b7e3ce404552bac1d40ed281bc1e8e5b5f",
+      "ft": "FT-053",
+      "id": "8d4272f01f6a8a9c9d1d07d5",
+      "line": 89,
+      "rcf": "RCFs/leitura-acessivel-e-tts.md",
+      "sentenceSha256": "b01b17945510766e64ba59d4bd31d556634f22b770a26747d68be5815ecd2049",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/leitura-acessivel-e-tts.md"
+      ],
+      "commit": "57e473b7e3ce404552bac1d40ed281bc1e8e5b5f",
+      "ft": "FT-053",
+      "id": "79e9aed1ea966ffe7f3f478e",
+      "line": 90,
+      "rcf": "RCFs/leitura-acessivel-e-tts.md",
+      "sentenceSha256": "64461da9ffc08b0dff8c68b872c4049b8b85f349d41886fe6db94935b6551964",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/leitura-acessivel-e-tts.md"
+      ],
+      "commit": "9b5644a42b0fa5818b18abda96012f81264e0ea2",
+      "ft": "FT-053",
+      "id": "6067bfb51679477d012bb8e5",
+      "line": 94,
+      "rcf": "RCFs/leitura-acessivel-e-tts.md",
+      "sentenceSha256": "58f700dd8cacafef9e5802487cf540cb6dd21ed2aa8286d8ee939028f06f1b53",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/leitura-acessivel-e-tts.md"
+      ],
+      "commit": "57e473b7e3ce404552bac1d40ed281bc1e8e5b5f",
+      "ft": "FT-053",
+      "id": "c02c42aba27fb00fa3a5a545",
+      "line": 96,
+      "rcf": "RCFs/leitura-acessivel-e-tts.md",
+      "sentenceSha256": "a6320debfa6fc256617361f41ff772dec072de6d54b1b904b918e83b65c1f30c",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/leitura-acessivel-e-tts.md"
+      ],
+      "commit": "57e473b7e3ce404552bac1d40ed281bc1e8e5b5f",
+      "ft": "FT-053",
+      "id": "853156793a85aebf5080de3d",
+      "line": 97,
+      "rcf": "RCFs/leitura-acessivel-e-tts.md",
+      "sentenceSha256": "c781e1eab2b5883cc47437d4275ebbafb9940246ee091d93636a3bf4d26b3315",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/leitura-acessivel-e-tts.md"
+      ],
+      "commit": "57e473b7e3ce404552bac1d40ed281bc1e8e5b5f",
+      "ft": "FT-053",
+      "id": "80f47d2c9793287328e8a843",
+      "line": 98,
+      "rcf": "RCFs/leitura-acessivel-e-tts.md",
+      "sentenceSha256": "1b38358ee1e020012a519ad4ab4d117d03dc9c0e851f73c1cbe84f2929e67911",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/leitura-acessivel-e-tts.md"
+      ],
+      "commit": "57e473b7e3ce404552bac1d40ed281bc1e8e5b5f",
+      "ft": "FT-053",
+      "id": "7008a9b5808d444fb85aae2b",
+      "line": 104,
+      "rcf": "RCFs/leitura-acessivel-e-tts.md",
+      "sentenceSha256": "1ad2c2b6f2c1b037516ef73b8e13b9b12861841bfba6a4630f47784deecb05ba",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/leitura-acessivel-e-tts.md"
+      ],
+      "commit": "57e473b7e3ce404552bac1d40ed281bc1e8e5b5f",
+      "ft": "FT-053",
+      "id": "b5daf07c7c17c244a510b669",
+      "line": 106,
+      "rcf": "RCFs/leitura-acessivel-e-tts.md",
+      "sentenceSha256": "5da27955d65bac7f893229d2bb015b5c64c6a11794b7b481688c6c2ab3496fa0",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/leitura-acessivel-e-tts.md"
+      ],
+      "commit": "57e473b7e3ce404552bac1d40ed281bc1e8e5b5f",
+      "ft": "FT-053",
+      "id": "1e6a5220b094b1339c07f382",
+      "line": 107,
+      "rcf": "RCFs/leitura-acessivel-e-tts.md",
+      "sentenceSha256": "af48b00462b5312dc148ca6e2e1eb84b03bb39193273cba8e21090f85b7d6d77",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/leitura-acessivel-e-tts.md"
+      ],
+      "commit": "57e473b7e3ce404552bac1d40ed281bc1e8e5b5f",
+      "ft": "FT-053",
+      "id": "b46dc75e3121828f6fa0057f",
+      "line": 108,
+      "rcf": "RCFs/leitura-acessivel-e-tts.md",
+      "sentenceSha256": "4d8da85a799c681a2d49e3d9d516f14b8f07bd1e3bd9c04ccdc7f92a60b961c0",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/leitura-acessivel-e-tts.md"
+      ],
+      "commit": "57e473b7e3ce404552bac1d40ed281bc1e8e5b5f",
+      "ft": "FT-053",
+      "id": "ed5a2d39cc1807c250fb68f9",
+      "line": 112,
+      "rcf": "RCFs/leitura-acessivel-e-tts.md",
+      "sentenceSha256": "55385c9316d0f78f241e2ef857854067db8fdf852679df984cb4ab02a461aba2",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/leitura-acessivel-e-tts.md"
+      ],
+      "commit": "57e473b7e3ce404552bac1d40ed281bc1e8e5b5f",
+      "ft": "FT-053",
+      "id": "6a84f07c8dbfa8bf8ce9791f",
+      "line": 113,
+      "rcf": "RCFs/leitura-acessivel-e-tts.md",
+      "sentenceSha256": "4d97dc9055b960772a830e36e460de9914a7ab1c04181f1572697e28eed92752",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/leitura-acessivel-e-tts.md"
+      ],
+      "commit": "57e473b7e3ce404552bac1d40ed281bc1e8e5b5f",
+      "ft": "FT-053",
+      "id": "71938c87370ff67dfb56101a",
+      "line": 115,
+      "rcf": "RCFs/leitura-acessivel-e-tts.md",
+      "sentenceSha256": "8860dfd2a32a6ef60b2b891922402b1df5ded5a3deecf402a2ebb2d278173a54",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/leitura-acessivel-e-tts.md"
+      ],
+      "commit": "cf9a947ef0b643cb1ee7d3f47d10ecec2e983edf",
+      "ft": "FT-053",
+      "id": "d496bfce3a0a6e499f8b9798",
+      "line": 116,
+      "rcf": "RCFs/leitura-acessivel-e-tts.md",
+      "sentenceSha256": "24b34d1d47d244fc718ef0336239ff737bbcb889be7d43252523b51398a41cb0",
+      "state": "synchronized",
+      "syncCommit": ""
+    }
+  ]
+}

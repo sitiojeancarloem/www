@@ -40,6 +40,12 @@ Uma forma falada excepcional exige todos os metadados abaixo na própria ocorrê
 
 Campo vazio, órfão ou sem revisão falha no build. A forma falada não substitui a grafia visual.
 
+## Sumário automático e modos TTS
+
+Defina `toc: true` no front matter para gerar o sumário exclusivamente no build. Não escreva nem replique o sumário no Markdown: o componente é inserido depois do primeiro parágrafo real, ignora citações iniciais, inicia retraído e não aparece na impressão.
+
+O modo contínuo lê o texto sem interrompê-lo por marcadores e informa a quantidade de referências ao fim de cada unidade. O resumido e o completo anunciam cada entrada como `Referência N:`; somente o completo inclui o sumário na sequência falada. O conteúdo e os links das notas continuam disponíveis em todos os modos.
+
 ## Gráfico runtime
 
 O dataset canônico fica em JSON ou CSV versionado. Para JSON, são obrigatórios `id`, `type`, `title`, `summary`, `conclusion`, `labels` e ao menos uma série com `label` e `data`; `source` e `color` são opcionais. As cardinalidades devem coincidir e os valores devem ser numéricos finitos.
