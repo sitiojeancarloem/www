@@ -2689,6 +2689,65 @@ body
 	cursor: not-allowed;
 }
 
+.main_jcem_wrapper .jcem-article-toc {
+	width: min(100%, 34rem);
+	margin: 1.15rem 0 1.4rem;
+	border-block: 1px solid color-mix(in srgb, var(--bc) 72%, transparent);
+	background: color-mix(in srgb, var(--cbg) 97%, var(--pri));
+	color: var(--tc);
+}
+
+.main_jcem_wrapper .jcem-article-toc > summary {
+	min-height: 2.5rem;
+	padding: 0.68rem 0.8rem;
+	color: var(--mtc);
+	font-size: 0.84rem;
+	font-weight: 700;
+	letter-spacing: 0.025em;
+	cursor: pointer;
+}
+
+.main_jcem_wrapper .jcem-article-toc > summary:hover,
+.main_jcem_wrapper .jcem-article-toc > summary:focus-visible {
+	color: var(--tc);
+	outline: 2px solid color-mix(in srgb, var(--pri) 55%, transparent);
+	outline-offset: 2px;
+}
+
+.main_jcem_wrapper .jcem-article-toc nav {
+	padding: 0 0.8rem 0.75rem;
+}
+
+.main_jcem_wrapper .jcem-article-toc ol {
+	display: grid;
+	gap: 0.28rem;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.main_jcem_wrapper .jcem-article-toc li {
+	margin: 0;
+	padding-inline-start: calc((var(--jcem-toc-level, 2) - 2) * 0.7rem);
+	font-size: 0.82rem;
+	line-height: 1.35;
+}
+
+.main_jcem_wrapper .jcem-article-toc li[data-jcem-toc-level='1'] { --jcem-toc-level: 2; }
+.main_jcem_wrapper .jcem-article-toc li[data-jcem-toc-level='2'] { --jcem-toc-level: 2; }
+.main_jcem_wrapper .jcem-article-toc li[data-jcem-toc-level='3'] { --jcem-toc-level: 3; }
+.main_jcem_wrapper .jcem-article-toc li[data-jcem-toc-level='4'] { --jcem-toc-level: 4; }
+.main_jcem_wrapper .jcem-article-toc li[data-jcem-toc-level='5'] { --jcem-toc-level: 5; }
+.main_jcem_wrapper .jcem-article-toc li[data-jcem-toc-level='6'] { --jcem-toc-level: 6; }
+
+.main_jcem_wrapper .jcem-article-toc a {
+	display: inline-block;
+	padding-block: 0.16rem;
+	color: var(--lc);
+	text-decoration-thickness: 0.08em;
+	text-underline-offset: 0.16em;
+}
+
 .main_jcem_wrapper .jcem-chart {
 	display: grid;
 	grid-template-columns: minmax(0, 1fr);
@@ -2734,6 +2793,7 @@ body
 
 @media print {
 	.main_jcem_wrapper .jcem-read-aloud,
+	.main_jcem_wrapper .jcem-article-toc,
 	.main_jcem_wrapper .jcem-chart__canvas {
 		display: none !important;
 	}

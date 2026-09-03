@@ -15,6 +15,7 @@ module Jcem
   module AccessibleReading
     ARTICLE_SELECTOR = "article.jcem-post"
     CONTENT_SELECTOR = "article.jcem-post .page__content"
+    TOC_SELECTOR = "[data-jcem-article-toc]"
 
     module_function
 
@@ -114,7 +115,62 @@ module Jcem
       fatal("fala_personalizada_incompleta campos=#{missing.join(',')}") unless missing.empty?
     end
 
-    def normalize_html(html, locale: "pt-BR")
+    def quoted_paragraph?(paragraph, content)
+      paragraph.ancestors.take_while { |ancestor| ancestor != content }.any? do |ancestor|
+        %w[blockquote q].include?(ancestor.name) ||
+          ancestor["role"] == "blockquote" ||
+          ancestor.key?("data-jcem-blockquote") ||
+          ancestor.key?("data-jcem-subquote")
+      end
+    end
+
+    def build_toc(document, content, label)
+      return if content.at_css(TOC_SELECTOR)
+
+      headings = content.css("h1[id], h2[id], h3[id], h4[id], h5[id], h6[id]").reject do |heading|
+        heading["id"].to_s.strip.empty? ||
+          heading.ancestors.any? { |ancestor| ancestor["data-jcem-article-toc"] == "true" }
+      end
+      return if headings.empty?
+
+      details = Nokogiri::XML::Node.new("details", document)
+      details["class"] = "jcem-article-toc"
+      details["data-jcem-article-toc"] = "true"
+      details["data-jcem-tts"] = "full-only"
+
+      summary = Nokogiri::XML::Node.new("summary", document)
+      summary.content = label
+      details.add_child(summary)
+
+      nav = Nokogiri::XML::Node.new("nav", document)
+      nav["aria-label"] = "Sumário do artigo"
+      list = Nokogiri::XML::Node.new("ol", document)
+      headings.each do |heading|
+        item = Nokogiri::XML::Node.new("li", document)
+        item["data-jcem-toc-level"] = heading.name.delete_prefix("h")
+        link = Nokogiri::XML::Node.new("a", document)
+        link["href"] = "##{heading['id']}"
+        link.content = compact_text(heading)
+        item.add_child(link)
+        list.add_child(item)
+      end
+      nav.add_child(list)
+      details.add_child(nav)
+
+      paragraph = content.css("p").find do |candidate|
+        !quoted_paragraph?(candidate, content) &&
+          candidate.ancestors.none? { |ancestor| %w[aside nav figure table li details].include?(ancestor.name) }
+      end
+      if paragraph
+        paragraph.add_next_sibling(details)
+      elsif content.element_children.first
+        content.element_children.first.add_previous_sibling(details)
+      else
+        content.add_child(details)
+      end
+    end
+
+    def normalize_html(html, locale: "pt-BR", toc: false, toc_label: "Sumário do artigo")
       document = Nokogiri::HTML.parse(html, nil, "UTF-8")
       article = document.at_css(ARTICLE_SELECTOR)
       return html unless article
@@ -141,6 +197,7 @@ module Jcem
       end
       content.css('.jcem-inline-quote').each { |quote| quote["data-jcem-spoken-kind"] = "inline-quote" }
       content.css('[data-jcem-spoken-form]').each { |element| normalize_custom_speech(element) }
+      build_toc(document, content, toc_label) if toc
 
       document.to_html
     end
@@ -150,7 +207,14 @@ module Jcem
       return unless document.output.to_s.include?("jcem-post")
 
       locale = document.data["locale"] || document.site.config["locale"] || "pt-BR"
-      document.output = normalize_html(document.output.to_s, locale: locale)
+      toc_label = document.data["toc_label"].to_s.strip
+      toc_label = "Sumário do artigo" if toc_label.empty?
+      document.output = normalize_html(
+        document.output.to_s,
+        locale: locale,
+        toc: document.data["toc"] == true,
+        toc_label: toc_label
+      )
     end
 
     def public_url(relative)
@@ -182,6 +246,7 @@ module Jcem
           "block_quotes" => content.css('[data-jcem-spoken-kind="block-quote"]').length,
           "inline_quotes" => content.css('[data-jcem-spoken-kind="inline-quote"]').length,
           "references" => content.css('[data-jcem-reference-full]').length,
+          "toc" => content.css(TOC_SELECTOR).length,
           "tables" => content.css('[data-jcem-accessible-table="true"]').length,
           "images" => content.css('[data-jcem-accessible-image]').length,
           "language_changes" => content.css('[lang]').length,

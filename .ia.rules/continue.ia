@@ -673,7 +673,7 @@ plano:
   - id: FT-054
     classe: implementacao_codigo
     criado_em: 2026-09-03T02:32:33.4097653-03:00
-    estado: pendente
+    estado: concluida
     depende_de: FT-053, FT-055
     fonte: .ia.rules/state/requests/FT-053/prompt.md
     fonte_autorizacao: .ia.rules/state/requests/FT-053/prompt.md
@@ -684,6 +684,11 @@ plano:
       - details/summary funciona sem JavaScript, com teclado, temas e 320 px
       - runtime TTS preserva estado e emite exatamente a fala prevista para cada modo
       - testes renderizados, acessiveis, de impressao e regressao aprovam
+    resultado:
+      - normalizador de build gera TOC idempotente depois do primeiro paragrafo real, com fallback deterministico e sem alterar Markdown-fonte
+      - details/summary tematico permanece retraido e funcional sem JavaScript; impressao o omite
+      - modos continuo, resumido e completo preservam estados e diferenciam aviso quantitativo, marcador falado e leitura seletiva do TOC
+      - testes unitario, TypeScript, build isolado e runtime Playwright aprovaram; PageSpeed nao foi necessario
   - id: FT-055
     classe: implementacao_normativa
     criado_em: 2026-09-03T02:32:33.4097654-03:00

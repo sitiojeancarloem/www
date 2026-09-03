@@ -22,11 +22,12 @@ html = <<~HTML
   <table><caption>Valores</caption><thead><tr><th></th><th>Total</th></tr></thead><tbody><tr><th>A</th><td>2</td></tr></tbody></table>
   <img src="/informativa.svg" alt="Informação suficiente">
   <p>— Bíblia. NVI. Isaías 53:10<sup><a href="#fn:1" role="doc-noteref">1</a></sup> e reuso<sup><a href="#fn:1" role="doc-noteref">1</a></sup>.</p>
+  <h2 id="primeira-secao">Primeira seção</h2>
   <div class="footnotes"><ol><li id="fn:1">Bíblia, NVI, Isaías 12:3; 53:10. <span class="jcem-footnote-backrefs"><a class="jcem-footnote-backref">a</a> <a class="jcem-footnote-backref">b</a></span></li></ol></div>
   </section></article></body></html>
 HTML
 
-normalized = Jcem::AccessibleReading.normalize_html(html)
+normalized = Jcem::AccessibleReading.normalize_html(html, toc: true)
 assert(normalized.include?('data-jcem-accessible-document="1"'), "artigo não foi marcado")
 assert(normalized.include?('aria-roledescription="citação"'), "citação perdeu distinção")
 assert(normalized.include?('data-jcem-spoken-reference="Isaías 53:10 NVI"'), "referência bíblica por ocorrência não foi reduzida")
@@ -39,6 +40,19 @@ assert(!normalized.include?('data-jcem-spoken-reference="Bíblia, NVI, Isaías 1
 assert(normalized.include?('scope="col"'), "cabeçalho de coluna sem scope")
 assert(normalized.include?('scope="row"'), "cabeçalho de linha sem scope")
 assert(normalized.include?('>Linha</span>'), "cabeçalho vazio não recebeu nome")
+parsed = Nokogiri::HTML.parse(normalized)
+toc = parsed.at_css('[data-jcem-article-toc="true"]')
+assert(toc, "sumário automático não foi gerado")
+assert(toc.at_css('summary')&.text == "Sumário do artigo", "sumário perdeu rótulo")
+assert(toc.at_css('nav[aria-label="Sumário do artigo"] a[href="#primeira-secao"]'), "heading não entrou no sumário")
+assert(toc.previous_element&.name == "p", "sumário não foi inserido após o primeiro parágrafo real")
+assert(toc.previous_element&.text&.include?("Isaías 53:10"), "blockquote inicial foi aceito como primeiro parágrafo")
+renormalized = Jcem::AccessibleReading.normalize_html(normalized, toc: true)
+assert(Nokogiri::HTML.parse(renormalized).css('[data-jcem-article-toc]').length == 1, "sumário não é idempotente")
+
+fallback_html = html.sub('<p>— Bíblia. NVI. Isaías 53:10<sup><a href="#fn:1" role="doc-noteref">1</a></sup> e reuso<sup><a href="#fn:1" role="doc-noteref">1</a></sup>.</p>', '')
+fallback = Nokogiri::HTML.parse(Jcem::AccessibleReading.normalize_html(fallback_html, toc: true))
+assert(fallback.at_css('.page__content')&.element_children&.first&.matches?('[data-jcem-article-toc]'), "fallback sem parágrafo não ficou determinístico")
 
 begin
   Jcem::AccessibleReading.normalize_html(html.sub(' alt="Informação suficiente"', ' alt=""'))
@@ -68,6 +82,7 @@ Dir.mktmpdir("jcem-accessibility-manifest-") do |destination|
   manifest = JSON.parse(File.binread(File.join(destination, "assets", "jcem", "accessibility-manifest.json")))
   assert(manifest.fetch("pages").length == 1, "glob absoluto do manifesto perdeu publicação")
   assert(manifest.dig("pages", 0, "url") == "/p/fixture/", "URL do manifesto ficou incorreta")
+  assert(manifest.dig("pages", 0, "capabilities", "toc") == 1, "manifesto não registrou o sumário")
 end
 
 puts "accessible_reading=ok"

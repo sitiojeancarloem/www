@@ -163,13 +163,39 @@ try {
 	if (speech.includes('Bíblia, NVI, Isaías 12:3; 53:10')) {
 		throw new Error('REFERENCIA_COMPLETA_INTERROMPEU_MODO_CONTINUO');
 	}
+	if (speech.includes('Sumário do artigo.')) throw new Error('TOC_INTERROMPEU_MODO_CONTINUO');
+	const tocStructure = await page.evaluate(() => {
+		const toc = document.querySelector('[data-jcem-article-toc]');
+		return {
+			present: Boolean(toc),
+			open: toc?.hasAttribute('open'),
+			previous: toc?.previousElementSibling?.tagName,
+			quoted: Boolean(toc?.previousElementSibling?.closest('blockquote, [role="blockquote"], [data-jcem-blockquote], [data-jcem-subquote]')),
+			label: toc?.querySelector('nav')?.getAttribute('aria-label'),
+		};
+	});
+	if (!tocStructure.present || tocStructure.open || tocStructure.previous !== 'P' || tocStructure.quoted || tocStructure.label !== 'Sumário do artigo') {
+		throw new Error(`TOC_ESTRUTURA_INVALIDA ${JSON.stringify(tocStructure)}`);
+	}
+
+	await page.evaluate(() => { window.__jcemSpokenFixture.length = 0; });
+	await page.selectOption('[data-jcem-read-reference-mode]', 'summary');
+	await page.click('[data-jcem-read-action="play"]');
+	await page.waitForFunction(() => document.querySelector('[data-jcem-read-status]')?.textContent === 'Leitura concluída.');
+	const summarySpeech = await page.evaluate(() => window.__jcemSpokenFixture.map(({ text }) => text).join(' '));
+	if (!summarySpeech.includes('Referência 1:') || summarySpeech.includes('Sumário do artigo.')) {
+		throw new Error(`MODO_REFERENCIA_RESUMIDA_INVALIDO ${summarySpeech}`);
+	}
+
+	await page.evaluate(() => { window.__jcemSpokenFixture.length = 0; });
 	await page.selectOption('[data-jcem-read-reference-mode]', 'full');
 	const fullModeHint = await page.getAttribute('[data-jcem-read-reference-mode]', 'title');
 	if (fullModeHint !== 'Modo de referências: completo') throw new Error(`HINT_MODO_TTS_INVALIDO ${fullModeHint}`);
 	await page.click('[data-jcem-read-action="play"]');
 	await page.waitForFunction(() => document.querySelector('[data-jcem-read-status]')?.textContent === 'Leitura concluída.');
 	const fullSpeech = await page.evaluate(() => window.__jcemSpokenFixture.map(({ text }) => text).join(' '));
-	if (!fullSpeech.includes('Referências completas:')) throw new Error('MODO_REFERENCIA_COMPLETA_AUSENTE');
+	if (!fullSpeech.includes('Referência 1: JCEM. Fixture de leitura acessível. 2026.')) throw new Error(`MODO_REFERENCIA_COMPLETA_AUSENTE ${fullSpeech}`);
+	if (!fullSpeech.includes('Sumário do artigo.')) throw new Error('TOC_AUSENTE_NO_MODO_COMPLETO');
 
 	await page.evaluate(() => { window.__jcemHoldSpeech = true; });
 	await page.click('[data-jcem-read-action="play"]');

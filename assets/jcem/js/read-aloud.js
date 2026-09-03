@@ -34,6 +34,7 @@
 		element.closest('[lang]')?.getAttribute('lang') || document.documentElement.lang || 'pt-BR';
 
 	const referencesFor = (element) => [...element.querySelectorAll('[data-jcem-reference-full]')].map((link) => ({
+		marker: normalize(link.textContent).replace(/^[\s[\]()]+|[\s[\]()]+$/g, ''),
 		summary: normalize(link.dataset.jcemReferenceSummary),
 		full: normalize(link.dataset.jcemReferenceFull),
 	}));
@@ -43,13 +44,12 @@
 		if (!references.length) return '';
 		const mode = referenceMode?.value || 'continuous';
 		if (mode === 'continuous') return `Esta passagem possui ${references.length === 1 ? 'uma referência' : `${references.length} referências`}.`;
-		const missingSummary = mode === 'summary' && references.some((reference) => !reference.summary);
-		const values = references.map((reference) => mode === 'full' ? reference.full : reference.summary).filter(Boolean);
-		const unique = [...new Set(values)];
-		if (missingSummary) {
-			unique.push('Há referência sem resumo; consulte a nota completa');
-		}
-		return `${mode === 'full' ? 'Referências completas' : 'Referências'}: ${unique.join('; ')}.`;
+		const values = references.map((reference, referenceIndex) => {
+			const marker = reference.marker || String(referenceIndex + 1);
+			const value = mode === 'full' ? reference.full : reference.summary;
+			return `Referência ${marker}: ${value || 'resumo indisponível; consulte a nota completa'}`;
+		});
+		return `${[...new Set(values)].join('. ')}.`;
 	};
 
 	const textFor = (element) => {
@@ -84,6 +84,12 @@
 
 	const walk = (element) => {
 		if (!(element instanceof HTMLElement) || element.hidden || element.getAttribute('aria-hidden') === 'true') return;
+		if (element.matches('[data-jcem-article-toc]')) {
+			if ((referenceMode?.value || 'continuous') !== 'full') return;
+			add(element, 'Sumário do artigo.');
+			element.querySelectorAll('nav a').forEach((link) => add(link, textFor(link), 'Seção:'));
+			return;
+		}
 		if (element.matches('[data-jcem-chart]')) {
 			const title = normalize(element.querySelector('figcaption strong')?.textContent);
 			const summary = normalize(element.querySelector('.jcem-chart__summary')?.textContent);

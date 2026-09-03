@@ -8,4 +8,4 @@
 - dependências: preservação integral dos modos contínuo, resumido e completo.
 - entregáveis: contrato RCF, transformação HTML idempotente, componente retraído acessível, CSS responsivo/temático, fala seletiva e testes.
 - validações: posição com e sem blockquote inicial, Markdown inalterado, teclado, temas, 320 px, três modos TTS e impressão.
-- estado: normatizado; implementação autorizada em FT-054
+- estado: concluído em FT-054; testes unitário, TypeScript, build isolado e runtime Playwright aprovados
