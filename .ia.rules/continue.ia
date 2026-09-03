@@ -730,7 +730,7 @@ plano:
   - id: FT-057
     classe: integracao_validacao_publicacao
     criado_em: 2026-09-03T02:32:33.4097656-03:00
-    estado: pendente
+    estado: concluida
     depende_de: FT-054, FT-056
     fonte: .ia.rules/state/requests/FT-053/prompt.md
     fonte_autorizacao: .ia.rules/state/requests/FT-053/prompt.md
@@ -741,6 +741,17 @@ plano:
       - PageSpeed ocorre somente diante de necessidade estrita nao coberta por prova direta
       - TO-DOs operacionais concluidas sao removidas e equalizer perene permanece literal e desmarcado
       - commits, artefato publicado, dev e main convergem sem incluir _site preexistente
+    resultado: TOC/TTS e COVER/Hero foram aprovados local e remotamente, publicados pelo workflow 33810019978 a partir do commit-fonte e3d5975f66d3029bace1444014cc6089ade08ffe; PageSpeed ficou sob acionamento explicito, gh-pages foi removido e dev/main convergiram sem absorver _site.
+    conclusao:
+      - build Jekyll isolado e gate agregado npm run check aprovaram contratos, acessibilidade, impressao, performance estrutural, imagens sociais, atribuicoes e publicacao
+      - matriz visual estrita local aprovou todos os temas, sete viewports, impressao e noscript; matriz COVER cobriu modos legados e estendidos, seis zonas Hero, resize, orientacao e header scroll
+      - primeira tentativa remota revelou recuo duplicado do tempo de leitura; a causa foi corrigida e a expectativa ultrawide do mapa foi reconciliada com o CSS vigente sem relaxar o gate
+      - rastreabilidade RCF validou 280 sentencas materiais e a politica PageSpeed sob demanda foi normatizada, implementada e vinculada ao commit causal b2effbdc06bc4a2bdc5ffc255697cd729287137e
+      - workflow final 33810019978 aprovou build, visual, caminhos de raiz, deploy, URLs publicadas, distribuicao e cleanup; PageSpeed permaneceu skipped por ausencia de necessidade estrita
+      - artefato 7d1108a2e6cde5f07065a8f4687503ace583c102 registrou source_sha e3d5975f66d3029bace1444014cc6089ade08ffe e gh-pages temporario foi removido
+      - dev e main convergiram por fast-forward no commit-fonte publicado antes do fechamento operacional
+      - _site preexistente permaneceu integralmente fora de staging, commits, push e publicacao
+      - TO-DOs operacionais concluidas foram removidas e o equalizer perene permaneceu literal e desmarcado
 lacunas:
   - id: GAP-AGENTS-CJS-ESM-001
     estado: isolada

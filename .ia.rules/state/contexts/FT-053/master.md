@@ -42,3 +42,11 @@
 - todos os modos antigos e novos coexistem e degradam com segurança;
 - matriz real cobre tema, viewport, orientação, teclado, TTS, impressão, header/scroll, patterns, Hero e OG independente;
 - build isolado, testes agregados, publicação, commit-fonte e branches convergem sem absorver `_site/`.
+
+## Resultado final
+
+- FTs 053 a 057 concluídas sem alteração de Markdown-fonte ou remoção de modalidade vigente.
+- Build isolado, gate agregado, matriz visual estrita local e workflow remoto `33810019978` aprovados.
+- Publicação concluída a partir de `e3d5975f66d3029bace1444014cc6089ade08ffe`; `gh-pages` temporário removido.
+- PageSpeed passou a exigir acionamento explícito por necessidade estrita, preservando integralmente o medidor e a meta normativa por layout.
+- `dev` e `main` convergiram e `_site/` preexistente permaneceu fora do escopo Git.

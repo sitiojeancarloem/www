@@ -8,4 +8,14 @@
 - dependências: ambas as implementações concluídas.
 - entregáveis: testes unitários/renderizados/visuais, sincronização RCF, limpeza das TO-DOs operacionais, commits, push e convergência dev/main.
 - validações: `npm run check`, build produtivo isolado, matriz visual focada e verificação do artefato publicado; PageSpeed somente sob necessidade estrita.
-- estado: pendente
+- estado: concluído
+- resultado:
+  - build Jekyll isolado em `tmp/ft057-site` aprovado;
+  - `npm run check` aprovado integralmente contra o build isolado;
+  - `npm run validate:visual` estrito aprovado em todos os temas e sete viewports, incluindo impressão e no-script;
+  - matriz COVER aprovou modalidades legadas/estendidas, patterns, seis zonas Hero, resize/orientação e header scroll;
+  - regressão de recuo duplicado do tempo de leitura corrigida e expectativa ultrawide do mapa alinhada ao contrato CSS de três colunas;
+  - rastreabilidade aprovada com 280 sentenças materiais;
+  - política PageSpeed preservada com acionamento explícito `run_pagespeed`; a auditoria não foi repetida após provas diretas suficientes;
+  - workflow `33810019978` aprovou build, visual, deploy, URLs publicadas e cleanup a partir do source SHA `e3d5975f66d3029bace1444014cc6089ade08ffe`;
+  - `dev` e `main` convergiram por fast-forward, `gh-pages` foi removido e `_site/` concorrente permaneceu fora dos commits.
