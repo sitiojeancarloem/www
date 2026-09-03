@@ -1654,6 +1654,578 @@
     },
     {
       "artifacts": [
+        "RCFs/desempenho-e-dependencias.md"
+      ],
+      "commit": "f16b5682679680a1dd6d8a601a8d5fc422f061ba",
+      "ft": "FT-057",
+      "id": "1bac5f27376972a6205ef1fc",
+      "line": 10,
+      "rcf": "RCFs/desempenho-e-dependencias.md",
+      "sentenceSha256": "62665612804d55132f2730ee44255faf312bf966de4b84cb72a245dc4751c3b6",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/desempenho-e-dependencias.md"
+      ],
+      "commit": "f16b5682679680a1dd6d8a601a8d5fc422f061ba",
+      "ft": "FT-057",
+      "id": "dfb63f64da2c102a28698255",
+      "line": 11,
+      "rcf": "RCFs/desempenho-e-dependencias.md",
+      "sentenceSha256": "cfbdb1f63344b94a0dcc3275ff518e6e09a387f8f960f1fae3ca2e3c7a3c90ec",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/desempenho-e-dependencias.md"
+      ],
+      "commit": "f16b5682679680a1dd6d8a601a8d5fc422f061ba",
+      "ft": "FT-057",
+      "id": "878c723613f41f0e1aee23b3",
+      "line": 12,
+      "rcf": "RCFs/desempenho-e-dependencias.md",
+      "sentenceSha256": "170475b0d5d5a351b59c79a5150b4c83d6f727a70b661f335c73a2acf3b2e8b7",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/desempenho-e-dependencias.md"
+      ],
+      "commit": "363414fa45a4f60ab80f01e7ce56eea34860dfdf",
+      "ft": "FT-057",
+      "id": "8be204fe407b9c07faaa8bf3",
+      "line": 13,
+      "rcf": "RCFs/desempenho-e-dependencias.md",
+      "sentenceSha256": "61379f5d4843db1995c17af65b91144f250e8287bba0ff704aef601653493124",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/desempenho-e-dependencias.md"
+      ],
+      "commit": "f16b5682679680a1dd6d8a601a8d5fc422f061ba",
+      "ft": "FT-057",
+      "id": "c7a52fc6faa2ef87de9adde2",
+      "line": 14,
+      "rcf": "RCFs/desempenho-e-dependencias.md",
+      "sentenceSha256": "9e533e26fe6649c2b243c6e44e2f75f02f06b9cc6c29ecab4bef00408e28a9be",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/desempenho-e-dependencias.md"
+      ],
+      "commit": "98da33ea029605b1a3cfd6bec39c251e381772fa",
+      "ft": "FT-057",
+      "id": "b0de96365957bd66a0ca40df",
+      "line": 15,
+      "rcf": "RCFs/desempenho-e-dependencias.md",
+      "sentenceSha256": "f5e03b9648fdf1c07027576ee45d0a488e77ea9fb2179ae8668986532bb7574a",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/desempenho-e-dependencias.md"
+      ],
+      "commit": "f16b5682679680a1dd6d8a601a8d5fc422f061ba",
+      "ft": "FT-057",
+      "id": "4ac13a2377a69d4750b40d18",
+      "line": 16,
+      "rcf": "RCFs/desempenho-e-dependencias.md",
+      "sentenceSha256": "8cb0ef19176e7c63fb99e45bfac4d43f6687974d89ebe1c6083136af6131e50a",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/desempenho-e-dependencias.md"
+      ],
+      "commit": "f16b5682679680a1dd6d8a601a8d5fc422f061ba",
+      "ft": "FT-057",
+      "id": "5ddbf10171ce7f5b59177d69",
+      "line": 17,
+      "rcf": "RCFs/desempenho-e-dependencias.md",
+      "sentenceSha256": "53d35c2f01c6daaa3acafa7adbdea82171c7ed0aba310fe858d91dc1a378f5dd",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/desempenho-e-dependencias.md"
+      ],
+      "commit": "935fff040296ef6f1b52ba6ab73eabcfd99ebadb",
+      "ft": "FT-057",
+      "id": "a54fbdf5ac4e0cea03acf784",
+      "line": 18,
+      "rcf": "RCFs/desempenho-e-dependencias.md",
+      "sentenceSha256": "29a6be916c2a17c9d88e5b841121cbf09f585f4df773361544a6a2fa3d188072",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/desempenho-e-dependencias.md"
+      ],
+      "commit": "363414fa45a4f60ab80f01e7ce56eea34860dfdf",
+      "ft": "FT-057",
+      "id": "c7ac68a0279912c10c53d813",
+      "line": 19,
+      "rcf": "RCFs/desempenho-e-dependencias.md",
+      "sentenceSha256": "60ecb24515683cdf23860f98ea797784c62e94641fd29dc5981424a70376800a",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/desempenho-e-dependencias.md"
+      ],
+      "commit": "363414fa45a4f60ab80f01e7ce56eea34860dfdf",
+      "ft": "FT-057",
+      "id": "afcab79c5fa07257c130c54e",
+      "line": 23,
+      "rcf": "RCFs/desempenho-e-dependencias.md",
+      "sentenceSha256": "cbdf688421fb97a479dc7939d2070350c0951d4557dff393da8e06d83b398f67",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/desempenho-e-dependencias.md"
+      ],
+      "commit": "363414fa45a4f60ab80f01e7ce56eea34860dfdf",
+      "ft": "FT-057",
+      "id": "4bfe5e67ec0701681aa8a037",
+      "line": 24,
+      "rcf": "RCFs/desempenho-e-dependencias.md",
+      "sentenceSha256": "6181b932f8b34ceaa0c2acd1b566a592b5f31eb0330d82b4ec0d310615e1df57",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/desempenho-e-dependencias.md"
+      ],
+      "commit": "363414fa45a4f60ab80f01e7ce56eea34860dfdf",
+      "ft": "FT-057",
+      "id": "0c23b6ef7c51f3318c7fa796",
+      "line": 25,
+      "rcf": "RCFs/desempenho-e-dependencias.md",
+      "sentenceSha256": "8b85ceb83381b7fe1bffa4f9a83759b06e7bb0d4f14f8abd413b12d14213da6e",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/desempenho-e-dependencias.md"
+      ],
+      "commit": "363414fa45a4f60ab80f01e7ce56eea34860dfdf",
+      "ft": "FT-057",
+      "id": "5d0343cb9f1bdd3f01d03b64",
+      "line": 26,
+      "rcf": "RCFs/desempenho-e-dependencias.md",
+      "sentenceSha256": "9131124c1e321dd40850fe161fb34cbe8bcd7e24ac219448a97b18dbd5d51e37",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/desempenho-e-dependencias.md"
+      ],
+      "commit": "363414fa45a4f60ab80f01e7ce56eea34860dfdf",
+      "ft": "FT-057",
+      "id": "c8d5c4703f165d4576894944",
+      "line": 27,
+      "rcf": "RCFs/desempenho-e-dependencias.md",
+      "sentenceSha256": "52997dac931fb91c961d1b2c7ba49810220bed8ee5f35b219ef2e1adf9399358",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/desempenho-e-dependencias.md"
+      ],
+      "commit": "363414fa45a4f60ab80f01e7ce56eea34860dfdf",
+      "ft": "FT-057",
+      "id": "bf6ca1fa91edf145af3013dc",
+      "line": 28,
+      "rcf": "RCFs/desempenho-e-dependencias.md",
+      "sentenceSha256": "7dda0cd8d99f3e354012125689f43a3d585ed6caec06eb6ff75389b674025294",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/desempenho-e-dependencias.md"
+      ],
+      "commit": "363414fa45a4f60ab80f01e7ce56eea34860dfdf",
+      "ft": "FT-057",
+      "id": "a02e41da6bcf3fcadfc21b5f",
+      "line": 29,
+      "rcf": "RCFs/desempenho-e-dependencias.md",
+      "sentenceSha256": "7af9e447cb35cba53d15ba5d4bac6303945a04fc1a33d062aac0d8dc1eee853f",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/desempenho-e-dependencias.md"
+      ],
+      "commit": "363414fa45a4f60ab80f01e7ce56eea34860dfdf",
+      "ft": "FT-057",
+      "id": "2ae3e65cef614cfaccc68a4e",
+      "line": 31,
+      "rcf": "RCFs/desempenho-e-dependencias.md",
+      "sentenceSha256": "621f942684589d8b5b088ca8497058da28c04e9ecbbc981d46748f5994a0f17e",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/desempenho-e-dependencias.md"
+      ],
+      "commit": "363414fa45a4f60ab80f01e7ce56eea34860dfdf",
+      "ft": "FT-057",
+      "id": "e058c83ada386207389d720f",
+      "line": 32,
+      "rcf": "RCFs/desempenho-e-dependencias.md",
+      "sentenceSha256": "6d922c5f240e971350748b557a0ae800940511ff85f1e0d638160d7200ee3362",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/desempenho-e-dependencias.md"
+      ],
+      "commit": "363414fa45a4f60ab80f01e7ce56eea34860dfdf",
+      "ft": "FT-057",
+      "id": "5d785ea2fd3b5944d1367338",
+      "line": 33,
+      "rcf": "RCFs/desempenho-e-dependencias.md",
+      "sentenceSha256": "b606f27eaf1449c90faec9c4a2c2eab00c7fe5e53614f9a8b7232226fbae5b38",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/desempenho-e-dependencias.md"
+      ],
+      "commit": "363414fa45a4f60ab80f01e7ce56eea34860dfdf",
+      "ft": "FT-057",
+      "id": "876db99522ca8a5e46773577",
+      "line": 37,
+      "rcf": "RCFs/desempenho-e-dependencias.md",
+      "sentenceSha256": "f95350f9c5dfb8c2d9373df0211010bc80acf7db2a27ec8ee4c2427f4e8a2330",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/desempenho-e-dependencias.md"
+      ],
+      "commit": "363414fa45a4f60ab80f01e7ce56eea34860dfdf",
+      "ft": "FT-057",
+      "id": "53a9ab41da4848925c4a8311",
+      "line": 39,
+      "rcf": "RCFs/desempenho-e-dependencias.md",
+      "sentenceSha256": "7efdc194ca8504a1902fb668358f1799ab8dcb0e1f030fba4851dffa67ed3bf3",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/desempenho-e-dependencias.md"
+      ],
+      "commit": "363414fa45a4f60ab80f01e7ce56eea34860dfdf",
+      "ft": "FT-057",
+      "id": "7097da79e4c19dad9f04e9c6",
+      "line": 40,
+      "rcf": "RCFs/desempenho-e-dependencias.md",
+      "sentenceSha256": "e2ca5c8a9b060809661e572cfb90d35b95b1500f7a28349eed9db311fff63dc5",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/desempenho-e-dependencias.md"
+      ],
+      "commit": "363414fa45a4f60ab80f01e7ce56eea34860dfdf",
+      "ft": "FT-057",
+      "id": "90cf4819aaeb121b9be89d1d",
+      "line": 41,
+      "rcf": "RCFs/desempenho-e-dependencias.md",
+      "sentenceSha256": "b923ccbf430fd5c12f5a590d3301aff6713748bf94704c1d8b962d4d9cc9e10f",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/desempenho-e-dependencias.md"
+      ],
+      "commit": "980dbb20777858e7bf8177a5a7f1a8e2613d0040",
+      "ft": "FT-057",
+      "id": "c51856db01baf9750bb6d523",
+      "line": 42,
+      "rcf": "RCFs/desempenho-e-dependencias.md",
+      "sentenceSha256": "daf731ee0aa8b52b3a2acb2f994ac32e99e489aa30c9cbc2cb02c91c90c6855a",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/desempenho-e-dependencias.md"
+      ],
+      "commit": "2c4a5259c6b4371ceb2dc6cbb2333631200251f5",
+      "ft": "FT-057",
+      "id": "27f2f1c6dfe412151344942a",
+      "line": 43,
+      "rcf": "RCFs/desempenho-e-dependencias.md",
+      "sentenceSha256": "83cb195301593a55bffe25848439b9e51988d2dfd7032675badcebc5a00bc1aa",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/desempenho-e-dependencias.md"
+      ],
+      "commit": "fd868deae6908264aaa6444c015bf8937cfb1409",
+      "ft": "FT-057",
+      "id": "bbd37ff04c6745486d0fa5e1",
+      "line": 44,
+      "rcf": "RCFs/desempenho-e-dependencias.md",
+      "sentenceSha256": "f77b0391a022181d4edb73f3b38f7fe90b402cf3671d01a18dbc0793329aac8c",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/desempenho-e-dependencias.md"
+      ],
+      "commit": "fd868deae6908264aaa6444c015bf8937cfb1409",
+      "ft": "FT-057",
+      "id": "5f066c9759530d8f64a61669",
+      "line": 45,
+      "rcf": "RCFs/desempenho-e-dependencias.md",
+      "sentenceSha256": "0b7b13d4af0e522447ec5558485d4c844595e3eece9f8812749737c847eb59cc",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/desempenho-e-dependencias.md"
+      ],
+      "commit": "c30ee853b278eab08ddd3a0a53ccc94d8c2db821",
+      "ft": "FT-057",
+      "id": "1b63ff6c3caf031b9df36fa6",
+      "line": 46,
+      "rcf": "RCFs/desempenho-e-dependencias.md",
+      "sentenceSha256": "fea1a03f4c7eedd2ab82515b65585e82c04604eb4eddea5d06ac9c153d34d410",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/desempenho-e-dependencias.md"
+      ],
+      "commit": "fd868deae6908264aaa6444c015bf8937cfb1409",
+      "ft": "FT-057",
+      "id": "80ab1217ee93537a7bb525ac",
+      "line": 47,
+      "rcf": "RCFs/desempenho-e-dependencias.md",
+      "sentenceSha256": "e7bc25535ec968ff058a80ea6f2fc7915cd46c788f6efc7d282bd1b885b86b04",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/desempenho-e-dependencias.md"
+      ],
+      "commit": "363414fa45a4f60ab80f01e7ce56eea34860dfdf",
+      "ft": "FT-057",
+      "id": "bf60ca16965cc6f122b95d72",
+      "line": 48,
+      "rcf": "RCFs/desempenho-e-dependencias.md",
+      "sentenceSha256": "c85f1c6dbc31111e2ad46f786016caed88ddadfaf876777c8abae5703270233b",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/desempenho-e-dependencias.md"
+      ],
+      "commit": "2c4a5259c6b4371ceb2dc6cbb2333631200251f5",
+      "ft": "FT-057",
+      "id": "61e374bbd0c2d0d68c418ce8",
+      "line": 49,
+      "rcf": "RCFs/desempenho-e-dependencias.md",
+      "sentenceSha256": "f82eba71564a65953383fcedeb682c43930b1a40fc0621031ea7cc0178da49c0",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/desempenho-e-dependencias.md"
+      ],
+      "commit": "c30ee853b278eab08ddd3a0a53ccc94d8c2db821",
+      "ft": "FT-057",
+      "id": "26799ad7d18a21944e156d57",
+      "line": 50,
+      "rcf": "RCFs/desempenho-e-dependencias.md",
+      "sentenceSha256": "e22a96aeef89a1dbe0ebf151d8f06dfe0648ab984d44b699f0962190c7c38b9e",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/desempenho-e-dependencias.md"
+      ],
+      "commit": "14c5708045e9fe8f15f29a66b827424a74da7cbc",
+      "ft": "FT-057",
+      "id": "f3ae336e3f369ba1e384c3d9",
+      "line": 51,
+      "rcf": "RCFs/desempenho-e-dependencias.md",
+      "sentenceSha256": "c3b504cfb1e1b3ef1dc479c7f293e325a4f907b8b55338e26a364c4519972b17",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/desempenho-e-dependencias.md"
+      ],
+      "commit": "14c5708045e9fe8f15f29a66b827424a74da7cbc",
+      "ft": "FT-057",
+      "id": "449a64688489d962545c5988",
+      "line": 52,
+      "rcf": "RCFs/desempenho-e-dependencias.md",
+      "sentenceSha256": "3c4a5c424e7b55288e8e27120c4c45c386b806101e6481d746b550bd3957f07d",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/desempenho-e-dependencias.md"
+      ],
+      "commit": "f16b5682679680a1dd6d8a601a8d5fc422f061ba",
+      "ft": "FT-057",
+      "id": "dd3befab42a47d6c2a915ee3",
+      "line": 53,
+      "rcf": "RCFs/desempenho-e-dependencias.md",
+      "sentenceSha256": "e12da54e27c87dda12249cfd61a96cd8e57aefd0a346b5feab70be43b135103c",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/desempenho-e-dependencias.md"
+      ],
+      "commit": "3810ca80a1b8e24160e4a7e6832a22ad774afc28",
+      "ft": "FT-057",
+      "id": "52faf2f08f318f1b561cdfb6",
+      "line": 54,
+      "rcf": "RCFs/desempenho-e-dependencias.md",
+      "sentenceSha256": "22552033584468dd359e1597f3fb2e0f7e77526656b3800c0082a662c77893a5",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/desempenho-e-dependencias.md"
+      ],
+      "commit": "ce09a4071abf8de7a1787a4f8354d8d02d45a16e",
+      "ft": "FT-057",
+      "id": "a4120bb47e6de036ab09edef",
+      "line": 55,
+      "rcf": "RCFs/desempenho-e-dependencias.md",
+      "sentenceSha256": "30b61ed86dd15443ba7a5ee3fee9081a4957f502b59ffc2bea1d278519be5f85",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/desempenho-e-dependencias.md"
+      ],
+      "commit": "98da33ea029605b1a3cfd6bec39c251e381772fa",
+      "ft": "FT-057",
+      "id": "b68a2f447ebb67eeaa693db2",
+      "line": 56,
+      "rcf": "RCFs/desempenho-e-dependencias.md",
+      "sentenceSha256": "ea55a176ecdc4fb3fc6e8dbda4566954ece89399f65419a268d181e2ad914f36",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/desempenho-e-dependencias.md"
+      ],
+      "commit": "363414fa45a4f60ab80f01e7ce56eea34860dfdf",
+      "ft": "FT-057",
+      "id": "8adf4e97e78931f5f2b554c2",
+      "line": 60,
+      "rcf": "RCFs/desempenho-e-dependencias.md",
+      "sentenceSha256": "f762124e36707fd51036feef0c9dee8047e3ae80654df94f3f12e64bee748fc6",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/desempenho-e-dependencias.md"
+      ],
+      "commit": "363414fa45a4f60ab80f01e7ce56eea34860dfdf",
+      "ft": "FT-057",
+      "id": "7257a52b07f762febd8e9b69",
+      "line": 61,
+      "rcf": "RCFs/desempenho-e-dependencias.md",
+      "sentenceSha256": "ae22e3092f7f37e231ab50e8758690c5b2c978e26e608c2afd02a073abaf3783",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/desempenho-e-dependencias.md"
+      ],
+      "commit": "363414fa45a4f60ab80f01e7ce56eea34860dfdf",
+      "ft": "FT-057",
+      "id": "d4d7cda1c2d8c0bca53cbea6",
+      "line": 62,
+      "rcf": "RCFs/desempenho-e-dependencias.md",
+      "sentenceSha256": "96552c74e6730c4105924e14084451953dec64146616a2e3b3d5434d0d4e43c5",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/desempenho-e-dependencias.md"
+      ],
+      "commit": "363414fa45a4f60ab80f01e7ce56eea34860dfdf",
+      "ft": "FT-057",
+      "id": "84589a11aef7e2141f1bb550",
+      "line": 63,
+      "rcf": "RCFs/desempenho-e-dependencias.md",
+      "sentenceSha256": "cae9e91c1f7df711a99a231cc6099148f6ce6af5b47a909e9159faa62ef85c4d",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/desempenho-e-dependencias.md"
+      ],
+      "commit": "363414fa45a4f60ab80f01e7ce56eea34860dfdf",
+      "ft": "FT-057",
+      "id": "c360aa3149c2b4c98eb35497",
+      "line": 64,
+      "rcf": "RCFs/desempenho-e-dependencias.md",
+      "sentenceSha256": "2423082e7bbb27cae75e08ae42f704d35b51bcecc69555bf09775357b92536c1",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
         "RCFs/impressao-ieee.md"
       ],
       "commit": "363414fa45a4f60ab80f01e7ce56eea34860dfdf",
