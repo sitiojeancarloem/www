@@ -684,8 +684,10 @@ aside {
 	max-width: min(100%, var(--jcem-hero-max-width));
 	max-height: 100%;
 	padding: clamp(0.7rem, 1.8vw, 1.25rem);
-	overflow: auto;
+	overflow: visible;
 	color: #fff;
+	font-size: clamp(0.78rem, 1.5vw, 1rem);
+	line-height: 1.35;
 	text-align: left;
 	text-shadow: 0 1px 3px #000;
 	pointer-events: auto;
@@ -1341,6 +1343,31 @@ footer ul.social-icons li i {
 
 	.jcem-post-header__topbar > .jcem-date-flag {
 		left: 0.55rem;
+	}
+
+	.jcem-cover__hero {
+		padding: 0.65rem;
+	}
+
+	.jcem-cover__hero--center {
+		padding: 1.2rem;
+	}
+
+	.jcem-cover__hero-content {
+		padding: 0.55rem;
+		font-size: 0.72rem;
+		line-height: 1.2;
+	}
+
+	.jcem-cover__hero-content h2 {
+		margin-bottom: 0.25rem;
+		font-size: 1rem;
+	}
+
+	.jcem-cover__hero-cta {
+		min-height: 40px;
+		margin-top: 0.35rem;
+		padding: 0.35rem 0.55rem;
 	}
 
 	:root.jcem-at-page-end .jcem-scroll-top {

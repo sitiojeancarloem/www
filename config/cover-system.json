@@ -11,8 +11,8 @@
     "header_opacity": 0.3,
     "hero": {
       "zone": "center",
-      "align": "left",
-      "valign": "center",
+      "align": "auto",
+      "valign": "auto",
       "max_width": "42rem",
       "protection": "auto"
     }
@@ -44,8 +44,8 @@
   "patterns": ["image", "hex", "linear-gradient"],
   "hero": {
     "zones": ["top-left", "top-right", "bottom-left", "bottom-right", "center", "full"],
-    "alignments": ["left", "center", "right"],
-    "vertical_alignments": ["top", "center", "bottom"],
+    "alignments": ["auto", "left", "center", "right"],
+    "vertical_alignments": ["auto", "top", "center", "bottom"],
     "protections": ["auto", "soft", "strong", "none"]
   }
 }

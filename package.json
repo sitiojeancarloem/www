@@ -22,7 +22,7 @@
     "check:social-images": "node scripts/generate-social-images.mjs --check && bundle exec ruby scripts/test_social_metadata.rb",
     "check:attributions": "bundle exec ruby scripts/test_attributions.rb",
     "check:editorial-assets": "node scripts/test_editorial_assets.mjs",
-    "check:covers": "npm run build:ts && node scripts/check-cover-edges.mjs --self-test && bundle exec ruby scripts/test_cover_contract.rb && node scripts/test_cover_runtime.mjs",
+    "check:covers": "npm run build:ts && node scripts/check-cover-edges.mjs --self-test && bundle exec ruby scripts/test_cover_contract.rb && node scripts/test_cover_rendered.mjs && node scripts/test_cover_runtime.mjs",
     "check:publication": "bundle exec ruby scripts/test_jekyll_source_state.rb",
     "images:responsive": "python scripts/generate-responsive-images.py",
     "images:webp": "python scripts/generate-tracked-webp.py",

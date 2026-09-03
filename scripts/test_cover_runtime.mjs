@@ -75,6 +75,8 @@ try {
 				fit: [...(cover?.classList || [])].find((name) => name.startsWith('jcem-cover--fit-'))?.replace('jcem-cover--fit-', ''),
 				zone: hero?.getAttribute('data-jcem-hero-zone'),
 				cover: rect(cover), stage: rect(stage), useful: rect(useful), hero: rect(hero), masthead: rect(masthead),
+				heroContent: rect(cover?.querySelector('.jcem-cover__hero-content')),
+				heroOverflow: cover?.querySelector('.jcem-cover__hero-content') ? getComputedStyle(cover.querySelector('.jcem-cover__hero-content')).overflowY : '',
 				headerState: masthead?.getAttribute('data-jcem-cover-header-state'),
 				mastheadBackground: masthead ? getComputedStyle(masthead).backgroundColor : '',
 				usefulStyle: useful ? {
@@ -94,6 +96,8 @@ try {
 		assert.ok(state.stage.height > 0 && state.stage.width > 0, `stage vazio ${mode}`);
 		assert.ok(state.useful.left >= state.stage.left - 1 && state.useful.right <= state.stage.right + 1, `area util fora do stage ${mode}: ${JSON.stringify(state)}`);
 		assert.ok(state.hero.left >= state.useful.left - 1 && state.hero.right <= state.useful.right + 1, `Hero invadiu pattern ${mode}: ${JSON.stringify(state)}`);
+		assert.ok(!['auto', 'scroll'].includes(state.heroOverflow), `Hero criou scroll interno ${mode}`);
+		assert.ok(state.heroContent.top >= state.useful.top - 1 && state.heroContent.bottom <= state.useful.bottom + 1, `conteúdo Hero saiu da área útil ${mode}: ${JSON.stringify(state)}`);
 		assert.ok(state.overflow <= 1, `overflow horizontal ${mode}: ${state.overflow}`);
 		assert.equal(state.bars, 2, `barras editoriais divergentes ${mode}`);
 		assert.equal(state.flagInBar, true, `flag fora da estrutura compartilhada ${mode}`);
@@ -113,8 +117,33 @@ try {
 			assert.ok(state.stage.height <= 720 - state.masthead.height + 2, `viewport inner excedido ${mode}`);
 			assert.equal(state.headerState, null, `masthead inner contaminada ${mode}`);
 		}
+
+		const initialTheme = await page.evaluate(() => document.querySelector('input[name="jcem-theme"]:checked')?.value);
+		await page.click('[aria-label="Alternar tema"]');
+		await page.waitForFunction((previous) => document.querySelector('input[name="jcem-theme"]:checked')?.value !== previous, initialTheme);
+		const alternateTheme = await page.evaluate(() => ({
+			theme: document.querySelector('input[name="jcem-theme"]:checked')?.value,
+			cover: document.querySelector('[data-jcem-cover]')?.getBoundingClientRect().toJSON(),
+			overflow: document.documentElement.scrollWidth - document.documentElement.clientWidth,
+		}));
+		assert.deepEqual(new Set([initialTheme, alternateTheme.theme]), new Set(['light', 'dark']), `temas não alternaram ${mode}`);
+		assert.ok(Math.abs(alternateTheme.cover.width - state.cover.width) <= 1 && alternateTheme.overflow <= 1, `tema alterou geometria ${mode}`);
+		await page.click('[aria-label="Alternar tema"]');
 	}
 
+	await page.setViewportSize({ width: 1024, height: 768 });
+	await page.goto(`http://127.0.0.1:${port}/_fixtures/covers/inner-full-window/`, { waitUntil: 'load' });
+	await page.evaluate(() => window.scrollTo(0, 40));
+	const scrollBeforeResize = await page.evaluate(() => window.scrollY);
+	await page.setViewportSize({ width: 768, height: 1024 });
+	const portrait = await page.evaluate(() => ({
+		scroll: window.scrollY,
+		stage: document.querySelector('.jcem-featured-image__stage')?.getBoundingClientRect().toJSON(),
+		overflow: document.documentElement.scrollWidth - document.documentElement.clientWidth,
+	}));
+	assert.ok(Math.abs(portrait.scroll - scrollBeforeResize) <= 1 && portrait.stage.height <= 1024 && portrait.overflow <= 1, `resize/orientação inválido ${JSON.stringify(portrait)}`);
+
+	await page.setViewportSize({ width: 1280, height: 720 });
 	for (const mode of ['legacy', 'content', 'wide-single', 'wide-triptych']) {
 		await page.goto(`http://127.0.0.1:${port}/_fixtures/covers/${mode}/`, { waitUntil: 'load' });
 		const legacy = await page.evaluate(() => ({
@@ -124,6 +153,7 @@ try {
 			overflow: document.documentElement.scrollWidth - document.documentElement.clientWidth,
 		}));
 		assert.deepEqual(legacy, { coverExtension: false, heroExtension: false, featured: true, overflow: 0 }, `regressão na fixture ${mode}`);
+		assert.equal(await page.locator('.jcem-post-header__topbar, .jcem-post-header__bottombar').count(), 2, `estrutura de barras legada divergente ${mode}`);
 	}
 
 	await page.setViewportSize({ width: 320, height: 800 });
@@ -131,9 +161,13 @@ try {
 	const mobile = await page.evaluate(() => ({
 		width: document.querySelector('[data-jcem-cover]')?.getBoundingClientRect().width,
 		height: document.querySelector('.jcem-featured-image__stage')?.getBoundingClientRect().height,
+		useful: document.querySelector('[data-jcem-cover-useful]')?.getBoundingClientRect().toJSON(),
+		content: document.querySelector('.jcem-cover__hero-content')?.getBoundingClientRect().toJSON(),
+		overflowY: getComputedStyle(document.querySelector('.jcem-cover__hero-content')).overflowY,
 		overflow: document.documentElement.scrollWidth - document.documentElement.clientWidth,
 	}));
 	assert.ok(Math.abs(mobile.width - 320) <= 1 && Math.abs(mobile.height - 800) <= 2 && mobile.overflow <= 1, `mobile 320 inválido ${JSON.stringify(mobile)}`);
+	assert.ok(mobile.content.top >= mobile.useful.top - 1 && mobile.content.bottom <= mobile.useful.bottom + 1 && !['auto', 'scroll'].includes(mobile.overflowY), `Hero mobile inválido ${JSON.stringify(mobile)}`);
 } finally {
 	await browser.close();
 	await new Promise((resolve) => server.close(resolve));
