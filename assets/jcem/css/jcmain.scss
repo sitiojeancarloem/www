@@ -394,6 +394,12 @@ aside {
 	}
 }
 
+.main_jcem_wrapper .jcem-post-header .jcem-post-header__bottombar .page__meta {
+	// A barra ja reserva a largura da flag; nao duplique o recuo legado do metadado.
+	margin: 0;
+	padding-left: 0;
+}
+
 .jcem-post-header__topbar > .jcem-date-flag {
 	position: absolute;
 	top: -0.95rem;

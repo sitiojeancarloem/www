@@ -1662,7 +1662,7 @@ const validatePage = async (page, url, theme, viewportName) => {
 	} else if (new URL(url).pathname.startsWith('/mapa/')) {
 		const expectedMapCount = Math.min(50, publishedPostPaths.length);
 		const expectedColumns =
-			viewportName === 'wide' || viewportName === 'desktop'
+			['ultrawide', 'wide', 'desktop'].includes(viewportName)
 				? 3
 				: viewportName === 'reduced'
 					? 2
