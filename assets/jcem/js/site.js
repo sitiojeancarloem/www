@@ -75,13 +75,23 @@ const bindJcemNav = () => {
 };
 const bindJcemMasthead = () => {
     const masthead = select('.masthead');
+    const externalCover = select('[data-jcem-cover-external]');
     if (!masthead) {
         return;
+    }
+    if (externalCover) {
+        const opacity = externalCover.style.getPropertyValue('--jcem-cover-header-opacity');
+        if (opacity)
+            masthead.style.setProperty('--jcem-cover-header-opacity', opacity);
+        masthead.dataset.jcemCoverHeader = 'external';
     }
     let ticking = false;
     const syncState = () => {
         ticking = false;
         document.documentElement.classList.toggle('jcem-masthead-stuck', window.scrollY > 0);
+        if (externalCover) {
+            masthead.dataset.jcemCoverHeaderState = window.scrollY > 0 ? 'solid' : 'translucent';
+        }
     };
     const requestSync = () => {
         if (!ticking) {

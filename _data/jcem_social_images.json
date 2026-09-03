@@ -316,6 +316,66 @@
 				"height": 400,
 				"generatedAtUtc": "2026-08-28T01:19:39.017Z"
 			}
+		},
+		"/assets/images/fixtures/covers/triptych-central.svg": {
+			"wide": {
+				"source": "assets/images/fixtures/covers/triptych-central.svg",
+				"sourceSha256": "bdd01b758ff479fbefb53a53c6fdea890735dc7d0229b3ef3cdfb65bd270797a",
+				"sourceBytes": 567,
+				"sourceMtimeUtc": "2026-08-30T03:36:28.000Z",
+				"parametersSha256": "b627e73e90e5065f785e716921aa7e2332ccdb6da4d75be32eed0212ad1fb264",
+				"target": "/assets/images/social/cover-triptych-central-6bb3ecf5-og-wide.png",
+				"targetSha256": "27a77abf4baa68262b4d01052e4f628921d1ea43399d5dd336083a54e7e3fa6c",
+				"targetBytes": 12210,
+				"mediaType": "image/png",
+				"width": 1200,
+				"height": 630,
+				"generatedAtUtc": "2026-09-03T12:40:11.313Z"
+			},
+			"square": {
+				"source": "assets/images/fixtures/covers/triptych-central.svg",
+				"sourceSha256": "bdd01b758ff479fbefb53a53c6fdea890735dc7d0229b3ef3cdfb65bd270797a",
+				"sourceBytes": 567,
+				"sourceMtimeUtc": "2026-08-30T03:36:28.000Z",
+				"parametersSha256": "b627e73e90e5065f785e716921aa7e2332ccdb6da4d75be32eed0212ad1fb264",
+				"target": "/assets/images/social/cover-triptych-central-6bb3ecf5-og-square.jpg",
+				"targetSha256": "5969d53fd511b09ef8c03fc2a9f570464896327a0a816fd3e87cb84d6b1abdc1",
+				"targetBytes": 4635,
+				"mediaType": "image/jpeg",
+				"width": 400,
+				"height": 400,
+				"generatedAtUtc": "2026-09-03T12:40:11.478Z"
+			}
+		},
+		"/assets/images/fixtures/covers/triptych-right.svg": {
+			"wide": {
+				"source": "assets/images/fixtures/covers/triptych-right.svg",
+				"sourceSha256": "980f74339d92200b85fc71549d0dbeb75d1237262e2ba82d52e812f5269ee719",
+				"sourceBytes": 243,
+				"sourceMtimeUtc": "2026-08-30T03:36:38.000Z",
+				"parametersSha256": "b627e73e90e5065f785e716921aa7e2332ccdb6da4d75be32eed0212ad1fb264",
+				"target": "/assets/images/social/cover-triptych-right-1e6ed036-og-wide.jpg",
+				"targetSha256": "0ec5d88057f054ef601eb03b1f94c61b1694b5b057709436f4cd1f83313d8f88",
+				"targetBytes": 2576,
+				"mediaType": "image/jpeg",
+				"width": 1200,
+				"height": 630,
+				"generatedAtUtc": "2026-09-03T12:40:11.905Z"
+			},
+			"square": {
+				"source": "assets/images/fixtures/covers/triptych-right.svg",
+				"sourceSha256": "980f74339d92200b85fc71549d0dbeb75d1237262e2ba82d52e812f5269ee719",
+				"sourceBytes": 243,
+				"sourceMtimeUtc": "2026-08-30T03:36:38.000Z",
+				"parametersSha256": "b627e73e90e5065f785e716921aa7e2332ccdb6da4d75be32eed0212ad1fb264",
+				"target": "/assets/images/social/cover-triptych-right-1e6ed036-og-square.jpg",
+				"targetSha256": "0e27e3aa5f1e741cbf8d6a3f8249ce215a5c0547c70e6520d2d0875b16632c1b",
+				"targetBytes": 795,
+				"mediaType": "image/jpeg",
+				"width": 400,
+				"height": 400,
+				"generatedAtUtc": "2026-09-03T12:40:12.043Z"
+			}
 		}
 	}
 }

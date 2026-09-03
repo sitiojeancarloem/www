@@ -1,0 +1,13 @@
+{% assign hero = page.jcem_cover.hero %}
+{% if hero %}
+  <div class="jcem-cover__useful" data-jcem-cover-useful>
+    <div class="jcem-cover__hero jcem-cover__hero--{{ hero.zone }} jcem-cover__hero--align-{{ hero.align }} jcem-cover__hero--valign-{{ hero.valign }} jcem-cover__hero--protection-{{ hero.protection }}" data-jcem-cover-hero data-jcem-hero-zone="{{ hero.zone }}">
+      <div class="jcem-cover__hero-content" style="--jcem-hero-max-width: {{ hero.max_width }}">
+        {{ hero.html }}
+        {% if hero.cta %}
+          <a class="jcem-cover__hero-cta" href="{{ hero.cta.url | escape }}">{{ hero.cta.label | escape }}</a>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+{% endif %}

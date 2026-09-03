@@ -3,7 +3,7 @@ layout: default
 ---
 {% comment %}Fonte: https://github.com/sitiojeancarloem/blog | Autor: Jean Carlo EM — https://www.jeancarloem.com | Licença: MPL-2.0 — https://mozilla.org/MPL/2.0/ — código aberto, sem garantia.{% endcomment %}
 {%- assign locale = page.locale | default: layout.locale | default: site.locale %}
-{% assign jcem_featured_style = page.featured_image_style | default: page.featured_image.style | default: page.header.image_style | default: page.header.featured_style | default: "" | downcase %}
+{% assign jcem_featured_style = page.jcem_cover.style | default: page.featured_image_style | default: page.featured_image.style | default: page.header.image_style | default: page.header.featured_style | default: "" | downcase %}
 {% if jcem_featured_style == "inline" %}
   {% assign jcem_featured_style = "content" %}
 {% elsif jcem_featured_style == "full" or jcem_featured_style == "full-width" or jcem_featured_style == "bleed" %}
@@ -70,6 +70,7 @@ layout: default
   {% assign jcem_legacy_image_meta = page.header.image | jcem_asset_metadata %}
   <div class="jcem-legacy-hero" data-jcem-legacy-hero data-jcem-legacy-hero-mode="full"{% if jcem_legacy_image_meta.width and jcem_legacy_image_meta.height %} data-jcem-image-width="{{ jcem_legacy_image_meta.width }}" data-jcem-image-height="{{ jcem_legacy_image_meta.height }}"{% endif %}>
     {% include page__hero.html locale=locale %}
+    {% include jcem/cover-hero.html %}
   </div>
 {% elsif page.header.image %}
   {% include page__hero.html locale=locale %}
@@ -98,18 +99,23 @@ layout: default
 
     <div class="page__inner-wrap">
       {% unless jcem_overlay_header %}
-        <header class="jcem-post-header"{% if jcem_is_article %} data-print-span="all"{% endif %}>
+        <header class="jcem-post-header"{% if page.jcem_cover %} data-jcem-post-cover-mode="{{ page.jcem_cover.mode }}"{% endif %}{% if jcem_is_article %} data-print-span="all"{% endif %}>
           {% if jcem_content_featured %}
             {% include jcem/post-featured-image.html style="content" %}
-          {% else %}
-            {% include jcem/post-date-flag.html %}
           {% endif %}
-          {% if page.title -%}
-          <h1 id="page-title" class="page__title p-name" itemprop="headline">
-            <a href="{{ page.url | absolute_url }}" itemprop="url">{{ page.title | markdownify | remove: "<p>" | remove: "</p>" }}</a>
-          </h1>
-          {%- endif %}
-          {% include jcem/post-read-time.html locale=locale %}
+          <div class="jcem-post-header__deck">
+            <div class="jcem-post-header__topbar">
+              {% include jcem/post-date-flag.html placement="header" %}
+              {% if page.title -%}
+              <h1 id="page-title" class="page__title p-name" itemprop="headline">
+                <a href="{{ page.url | absolute_url }}" itemprop="url">{{ page.title | markdownify | remove: "<p>" | remove: "</p>" }}</a>
+              </h1>
+              {%- endif %}
+            </div>
+            <div class="jcem-post-header__bottombar">
+              {% include jcem/post-read-time.html locale=locale %}
+            </div>
+          </div>
         </header>
       {% endunless %}
 

@@ -1,0 +1,51 @@
+{
+  "schema": 1,
+  "aspect_ratio": {
+    "width": 1200,
+    "height": 630
+  },
+  "defaults": {
+    "mode": "content",
+    "composition": "single",
+    "fit": "auto",
+    "header_opacity": 0.3,
+    "hero": {
+      "zone": "center",
+      "align": "left",
+      "valign": "center",
+      "max_width": "42rem",
+      "protection": "auto"
+    }
+  },
+  "aliases": {
+    "inline": "content",
+    "full": "wide",
+    "full-width": "wide",
+    "bleed": "wide",
+    "fullwindow": "full-window",
+    "windowheight": "window-height",
+    "windowwidth": "window-width",
+    "innerfullwindow": "inner-full-window",
+    "innerwindowheight": "inner-window-height",
+    "innerwindowwidth": "inner-window-width"
+  },
+  "modes": {
+    "content": { "scope": "article", "axis": "contain" },
+    "wide": { "scope": "window", "axis": "height" },
+    "full-window": { "scope": "external", "axis": "auto" },
+    "window-height": { "scope": "external", "axis": "height" },
+    "window-width": { "scope": "external", "axis": "width" },
+    "inner-full-window": { "scope": "inner", "axis": "auto" },
+    "inner-window-height": { "scope": "inner", "axis": "height" },
+    "inner-window-width": { "scope": "inner", "axis": "width" }
+  },
+  "compositions": ["single", "triptych"],
+  "fits": ["auto", "contain", "cover"],
+  "patterns": ["image", "hex", "linear-gradient"],
+  "hero": {
+    "zones": ["top-left", "top-right", "bottom-left", "bottom-right", "center", "full"],
+    "alignments": ["left", "center", "right"],
+    "vertical_alignments": ["top", "center", "bottom"],
+    "protections": ["auto", "soft", "strong", "none"]
+  }
+}

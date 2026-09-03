@@ -7,15 +7,43 @@ module Jcem
   module SocialImages
     module_function
 
-    def record_for(document)
-      header = document.data["header"]
-      return unless header.is_a?(Hash)
+    def record_for_source(document, source)
+      assets = document.site.data.dig("jcem_social_images", "assets")
+      return unless assets.is_a?(Hash) && !source.to_s.empty?
 
+      normalized = source.to_s.sub(%r{\A/+}, "")
+      assets[source.to_s] || assets.find do |_canonical, record|
+        record.is_a?(Hash) && record.values.any? do |variant|
+          variant.is_a?(Hash) && variant["source"].to_s.sub(%r{\A/+}, "") == normalized
+        end
+      end&.last
+    end
+
+    def record_for(document)
+      header = document.data["header"].is_a?(Hash) ? document.data["header"] : {}
       canonical = header["image"] || header["overlay_image"]
-      document.site.data.dig("jcem_social_images", "assets", canonical.to_s)
+      base = record_for_source(document, canonical)
+      overrides = document.data.dig("jcem_cover", "og") || {}
+      wide_source = overrides["wide_source"]
+      square_source = overrides["square_source"]
+      wide_record = wide_source ? record_for_source(document, wide_source) : base
+      square_record = square_source ? record_for_source(document, square_source) : base
+      if wide_source && !wide_record
+        raise Jekyll::Errors::FatalException, "jcem_social=override_wide_ausente source=#{wide_source}"
+      end
+      if square_source && !square_record
+        raise Jekyll::Errors::FatalException, "jcem_social=override_square_ausente source=#{square_source}"
+      end
+      return unless wide_record || square_record
+
+      {
+        "wide" => wide_record && wide_record["wide"],
+        "square" => square_record && square_record["square"]
+      }
     end
 
     def connect(document)
+      document.data["header"] = {} unless document.data["header"].is_a?(Hash)
       header = document.data["header"]
       record = record_for(document)
       return unless header.is_a?(Hash) && record.is_a?(Hash)

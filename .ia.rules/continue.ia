@@ -710,7 +710,7 @@ plano:
   - id: FT-056
     classe: implementacao_codigo
     criado_em: 2026-09-03T02:32:33.4097655-03:00
-    estado: pendente
+    estado: concluida
     depende_de: FT-055
     fonte: .ia.rules/state/requests/FT-053/prompt.md
     fonte_autorizacao: .ia.rules/state/requests/FT-053/prompt.md
@@ -721,6 +721,12 @@ plano:
       - header externo alterna translucido para solido no scroll sem contaminar modos inner
       - Hero renderiza Markdown, CTA e seis zonas sem ocupar excedentes decorativos
       - fixtures e testes preservam os quatro comportamentos vigentes e cobrem todas as extensoes
+    resultado:
+      - schema central e resolver de build preservam os quatro comportamentos legados e materializam seis modos opt-in sem mutar Markdown
+      - single/triptych, patterns por imagem/cor/gradiente, viewport externo/inner e header translucido para solido possuem geometria CSS-first validada
+      - Hero sanitizado suporta Markdown, CTA, seis zonas e propriedades ortogonais somente na area util 1200:630
+      - estrutura editorial unica reúne duas barras e flag; impressão omite COVER/Hero e metadados sociais aceitam overrides descobertos automaticamente
+      - contratos Ruby, TypeScript, build isolado, matriz Playwright, impressão e pipeline social aprovaram; navegador interno foi impedido pela politica automatica de localhost, sem indicar falha do produto
   - id: FT-057
     classe: integracao_validacao_publicacao
     criado_em: 2026-09-03T02:32:33.4097656-03:00

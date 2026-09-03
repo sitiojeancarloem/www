@@ -8,4 +8,4 @@
 - dependências: preservar content, wide single, wide triptych e hero legado sem vazamento entre modalidades.
 - entregáveis: contrato RCF, schema central, validação de build, include único, CSS-first, aprimoramento TS mínimo, fixtures e modo de uso.
 - validações: zona artigo versus janela, patterns imagem/cor/gradient, seis zonas Hero, alinhamentos, CTA, header antes/depois do scroll, resize/orientação, impressão/noscript.
-- estado: normatizado; implementação autorizada em FT-056
+- estado: concluído em FT-056; schema, build, CSS-first, runtime mínimo, OG, Hero, barras/flag e matriz automatizada aprovados

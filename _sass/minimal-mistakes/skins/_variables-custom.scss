@@ -776,7 +776,7 @@ body > input.radio#jcem-theme-dark:checked ~ .main_jcem_wrapper {
 
 .main_jcem_wrapper
 	.jcem-skeleton
-	> :not(.jcem-featured-image__surface) {
+	> :not(.jcem-featured-image__surface, .jcem-cover__useful) {
 	position: relative;
 	z-index: 4;
 }

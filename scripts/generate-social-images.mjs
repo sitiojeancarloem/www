@@ -14,6 +14,67 @@ const sha256 = (bytes) => createHash('sha256').update(bytes).digest('hex');
 const toPublic = (filePath) => `/${path.relative(root, filePath).split(path.sep).join('/')}`;
 const stableJson = (value) => `${JSON.stringify(value, null, '\t')}\n`;
 
+const yamlScalar = (value) => {
+	const raw = value.trim();
+	if (!raw || raw === '|' || raw === '>') return '';
+	if ((raw.startsWith('"') && raw.endsWith('"')) || (raw.startsWith("'") && raw.endsWith("'"))) {
+		return raw.slice(1, -1);
+	}
+	return raw.replace(/\s+#.*$/, '').trim();
+};
+
+const coverOgSources = (frontMatter) => {
+	const result = [];
+	const lines = frontMatter.split(/\r?\n/);
+	let coverIndent = -1;
+	let ogIndent = -1;
+	for (const line of lines) {
+		if (!line.trim() || line.trimStart().startsWith('#')) continue;
+		const indent = line.match(/^\s*/)[0].length;
+		const content = line.trim();
+		if (coverIndent < 0) {
+			if (content === 'cover:') coverIndent = indent;
+			continue;
+		}
+		if (indent <= coverIndent) {
+			coverIndent = content === 'cover:' ? indent : -1;
+			ogIndent = -1;
+			continue;
+		}
+		if (ogIndent < 0) {
+			if (content === 'og:') ogIndent = indent;
+			continue;
+		}
+		if (indent <= ogIndent) {
+			ogIndent = content === 'og:' ? indent : -1;
+			continue;
+		}
+		const match = content.match(/^(wide_source|square_source):\s*(.+)$/);
+		if (match) result.push(yamlScalar(match[2]));
+	}
+	return result.filter(Boolean);
+};
+
+const discoverCoverOverrides = async () => {
+	const sources = new Set();
+	const visit = async (directory) => {
+		let entries = [];
+		try { entries = await readdir(directory, { withFileTypes: true }); }
+		catch (error) { if (error.code === 'ENOENT') return; throw error; }
+		for (const entry of entries) {
+			const target = path.join(directory, entry.name);
+			if (entry.isDirectory()) await visit(target);
+			else if (/\.md$/i.test(entry.name)) {
+				const raw = await readFile(target, 'utf8');
+				const frontMatter = raw.match(/^---\s*\r?\n([\s\S]*?)\r?\n---(?:\r?\n|$)/)?.[1];
+				if (frontMatter) coverOgSources(frontMatter).forEach((source) => sources.add(source));
+			}
+		}
+	};
+	for (const directory of ['_posts', '_pages', '_drafts']) await visit(path.join(root, directory));
+	return [...sources].sort();
+};
+
 const config = JSON.parse(await readFile(configPath, 'utf8'));
 if (
 	config.schema !== 2 ||
@@ -43,6 +104,20 @@ const parameters = {
 const parametersSha256 = sha256(Buffer.from(JSON.stringify(parameters)));
 const next = { schema: 2, parameters, assets: {} };
 let changed = 0;
+
+const definitions = [...config.assets];
+const knownSources = new Set(definitions.flatMap((definition) => [definition.source, definition.squareSource]).filter(Boolean));
+for (const publicSource of await discoverCoverOverrides()) {
+	const source = publicSource.replace(/^\/+/, '');
+	if (knownSources.has(source)) continue;
+	const basename = path.basename(source, path.extname(source)).replace(/[^a-z0-9]+/gi, '-').replace(/^-|-$/g, '').toLowerCase();
+	definitions.push({
+		id: `cover-${basename}-${sha256(Buffer.from(source)).slice(0, 8)}`,
+		canonical: `/${source}`,
+		source,
+	});
+	knownSources.add(source);
+}
 
 const renderVariant = async (sourceBytes, size) => {
 	const background = await sharp(sourceBytes, { density: 192 })
@@ -116,7 +191,7 @@ const buildVariant = async (kind, definition, sourceBytes, sourceStat, sourceSha
 	};
 };
 
-for (const definition of config.assets) {
+for (const definition of definitions) {
 	const wideDefinition = definition;
 	const squareDefinition = { ...definition, source: definition.squareSource || definition.source };
 	const wideSourcePath = path.join(root, wideDefinition.source);
@@ -134,9 +209,10 @@ for (const definition of config.assets) {
 	};
 }
 
-if (Object.keys(next.assets).length !== config.assets.length) throw new Error('SOCIAL_IMAGE_CARDINALIDADE_INVALIDA');
+if (Object.keys(next.assets).length !== definitions.length) throw new Error('SOCIAL_IMAGE_CARDINALIDADE_INVALIDA');
+const expectedTargets = new Set(Object.values(next.assets).flatMap((record) => [record.wide?.target, record.square?.target]).filter(Boolean).map((target) => path.basename(target)));
 for (const entry of await readdir(outputDirectory)) {
-	if (!/-og\.(?:jpe?g|png)$/i.test(entry)) continue;
+	if (!/-og(?:-(?:wide|square))?\.(?:jpe?g|png)$/i.test(entry) || expectedTargets.has(entry)) continue;
 	if (checkOnly) throw new Error(`SOCIAL_IMAGE_LEGADA:${entry}`);
 	await unlink(path.join(outputDirectory, entry));
 	changed += 1;

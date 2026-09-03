@@ -112,6 +112,10 @@ assert.match(adapterCss, /\.jcem-article-authors\s*\{[^}]*display:\s*none\s*!imp
 assert.match(adapterCss, /> :not\(\.main_jcem_wrapper, \[data-print-institutional\]\)/);
 for (const webOnlySelector of [
 	'.toc',
+	'.jcem-article-toc',
+	'.jcem-featured-image',
+	'.jcem-legacy-hero',
+	'.jcem-cover',
 	'.header-link',
 	'.jcem-date-flag',
 	'.pagination',

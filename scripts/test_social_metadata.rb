@@ -37,4 +37,15 @@ assert(!html.include?("antiga"), "metadado social legado permaneceu")
 document.data["header"]["twitter_card"] = "summary"
 summary = Nokogiri::HTML.parse(Jcem::SocialImages.normalize_metadata(html, document))
 assert(summary.at_css('meta[name="twitter:image"]')["content"] == images.last["content"], "X summary não usa square")
+
+canonicals = manifest.fetch("assets").keys.first(2)
+override_record = manifest.dig("assets", canonicals.last)
+override_source = "/#{override_record.dig('wide', 'source').sub(%r{\A/+}, '')}"
+document.data["jcem_cover"] = { "og" => { "wide_source" => override_source } }
+document.data["header"]["twitter_card"] = "summary_large_image"
+override_html = Jcem::SocialImages.normalize_metadata(html, document)
+override_meta = Nokogiri::HTML.parse(override_html)
+expected_override = Jcem::SocialImages.absolute_url(site, override_record.dig("wide", "target"))
+assert(override_meta.css('meta[property="og:image"]').first["content"] == expected_override, "override wide não foi projetado")
+assert(document.data.dig("header", "image") == canonical, "override social trocou imagem visível")
 puts "social_metadata=ok"
