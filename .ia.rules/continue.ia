@@ -755,7 +755,7 @@ plano:
   - id: FT-058
     classe: implementacao_normativa
     criado_em: 2026-09-03T20:08:22.3269933-03:00
-    estado: em_andamento
+    estado: concluida
     fonte: .ia.rules/state/requests/FT-058/prompt.md
     objetivo: Restabelecer no RCF as invariantes estruturais do COVER, flag e duas barras conforme projeto-cover.pdf e evidencias 13-16.
     escopo: RCF-JCEM-CARREGAMENTO-PROGRESSIVO-001 e RCF-JCEM-COMPONENTES-COMPARTILHADOS-001.
@@ -765,10 +765,15 @@ plano:
       - titulo pertence exclusivamente a barra inferior; barra superior forma gradiente vertical translucido para solido
       - triangulo da flag e topo da barra superior usam referencia geometrica comum
       - infinite single, triptych, viewport, inner, Hero, temas e impressao permanecem integrais
+    resultado:
+      - RCF distingue explicitamente article-zone e window-zone e faz a altura comum derivar de 1200:630
+      - fronteiras masthead, cover, barras e flag formam uma unica invariavel de fluxo sem offsets compensatorios
+      - titulo pertence a barra inferior e barra superior adota gradiente vertical vitral para a solidez comum
+      - modos viewport, inner, wide single, triptych, Hero, temas e impressao foram preservados por clausulas expressas
   - id: FT-059
     classe: implementacao_codigo
     criado_em: 2026-09-03T20:08:22.3269934-03:00
-    estado: pendente
+    estado: em_andamento
     depende_de: FT-058
     fonte: .ia.rules/state/requests/FT-058/prompt.md
     fonte_autorizacao: .ia.rules/state/requests/FT-058/prompt.md
