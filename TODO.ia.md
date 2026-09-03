@@ -92,3 +92,12 @@ Este marcador encerra a seção de governança e inicia exclusivamente as TO-DOs
   - em qualquer artigo, DEVE ser possível informar separadamene, e opcionalmente, as imagens OG 1,91:1 e 1:1, de forma separada do cover, ou seja, DEVE ser possível especificar imagens OGs diferentes das que serão cover.
   - cover formado por 3 imagens:
     - o uso da expressão "3 imagens" DEVE ser entendido de forma "não arbitrária". Na realidade, a central, é de fato uma imagem, entretanto, as outras duas, se referem a pattern, que podem ser imagem, ou cor (hex ou linear-gradient).
+  - a região do cover NÃO pode exibir scroll
+  - todo o cover e todo modo de cover DEVE ser compatível com "Hero Section" que permita exibir sobreposto sobre o cover, somente sobre a área útil, texto e botão.
+    - Textos e botões DEVEM ser configuráveis diretamente dentro do .md, incluindo o texto, label e link do botão.
+    - Posicionamento: DEVE existir 6 modos de posicionamento, sendo 4 cantos, considerando a divisão da área útil em 4; um única região central, como se houiver um padding maior (grosso), o modo talvez full, em que seria equivalente o central, mas com padding fino.
+      - cada zone/area deve aceitar parágrafos e alinhamentos e outros markdowns.
+      - Demais/outras forma de posicionamento e alinhamento comumente usados DEVEM ser incluídos, e DEVEM ser facilmente configuráveis diretamente no .md, utilize melhores práticas, boas formas de configurar, facilidade de uso, facilidade de customização, facilidade de construir layouts bonitos.
+      - DEVE ser totalmente responsível
+      - Melhores prátivas e, se houver bibliotecas open source e mantidas que já implementem, então, prefira usar se for tecnicamente viável, possível a compatível.
+  - Estratégia Puro CSS first DEVE sempre ser priorizado.
