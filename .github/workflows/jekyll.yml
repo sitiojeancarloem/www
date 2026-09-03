@@ -22,6 +22,11 @@ on:
         description: 'Branch temporário já preparado para publicação'
         required: false
         type: string
+      run_pagespeed:
+        description: 'Executar auditoria PageSpeed quando houver necessidade estrita'
+        required: false
+        default: false
+        type: boolean
 
 permissions:
   actions: write
@@ -351,7 +356,7 @@ jobs:
             });
 
   pagespeed:
-    if: needs.deploy.result == 'success'
+    if: needs.deploy.result == 'success' && inputs.run_pagespeed == true
     runs-on: ubuntu-latest
     needs:
       - prepare

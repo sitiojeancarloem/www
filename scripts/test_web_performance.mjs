@@ -286,6 +286,8 @@ assert.equal(isRetryablePageSpeedError({ name: 'AbortError' }), true);
 assert.equal(isRetryablePageSpeedError({ name: 'TypeError' }), false);
 assert.match(await readFile(new URL('./check-pagespeed.mjs', import.meta.url), 'utf8'), /Math\.min\(config\.concurrency, tasks\.length\)/);
 const publicationWorkflow = await readFile(new URL('../.github/workflows/jekyll.yml', import.meta.url), 'utf8');
+assert.match(publicationWorkflow, /run_pagespeed:[\s\S]*?default: false[\s\S]*?type: boolean/);
+assert.match(publicationWorkflow, /if: needs\.deploy\.result == 'success' && inputs\.run_pagespeed == true/);
 assert.match(publicationWorkflow, /npm run pagespeed -- --force --target=article-tts-accessibility/);
 
 console.log('web_performance=ok');
