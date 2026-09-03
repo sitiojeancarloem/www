@@ -28,12 +28,12 @@ Escopo: representação acessível e falada de artigos, posts, páginas, navega�
 
 ### 2.1 Sumário automático do artigo
 
-- Publicação elegível com `toc: true` DEVE receber no build um sumário derivado dos headings renderizados, sem inserir, remover ou reescrever bytes do Markdown-fonte. [PENDENTE-CODIGO]
-- O sumário DEVE ser inserido imediatamente depois do primeiro parágrafo real do corpo do artigo; parágrafo descendente de `blockquote`, `q`, `[data-jcem-blockquote]`, `[data-jcem-subquote]` ou estrutura semanticamente citacional NÃO PODE satisfazer essa posição. [PENDENTE-CODIGO]
-- Na ausência de parágrafo real, o build DEVE usar fallback determinístico antes do primeiro nó de conteúdo elegível; ausência de heading navegável omite o componente sem produzir caixa vazia. [PENDENTE-CODIGO]
-- O componente DEVE usar navegação e lista semânticas, links para identificadores estáveis dos headings e controle nativo retraível; permanece retraído por padrão, operável sem JavaScript e nomeado como `Sumário do artigo`. [PENDENTE-CODIGO]
-- A apresentação DEVE ser temática, responsiva e visualmente subordinada ao artigo, sem largura, altura, cor, sombra ou espaçamento que a convertam em banner; foco, contraste, teclado, toque e 320 px permanecem obrigatórios. [PENDENTE-CODIGO]
-- O sumário integra a representação acessível estática, mas sua projeção no TTS opcional DEVE ser seletiva: `continuous` e `summary` o omitem, e somente `full` o pronuncia antes de prosseguir para o restante do corpo. [PENDENTE-CODIGO]
+- Publicação elegível com `toc: true` DEVE receber no build um sumário derivado dos headings renderizados, sem inserir, remover ou reescrever bytes do Markdown-fonte. [86b8972]
+- O sumário DEVE ser inserido imediatamente depois do primeiro parágrafo real do corpo do artigo; parágrafo descendente de `blockquote`, `q`, `[data-jcem-blockquote]`, `[data-jcem-subquote]` ou estrutura semanticamente citacional NÃO PODE satisfazer essa posição. [86b8972]
+- Na ausência de parágrafo real, o build DEVE usar fallback determinístico antes do primeiro nó de conteúdo elegível; ausência de heading navegável omite o componente sem produzir caixa vazia. [86b8972]
+- O componente DEVE usar navegação e lista semânticas, links para identificadores estáveis dos headings e controle nativo retraível; permanece retraído por padrão, operável sem JavaScript e nomeado como `Sumário do artigo`. [86b8972]
+- A apresentação DEVE ser temática, responsiva e visualmente subordinada ao artigo, sem largura, altura, cor, sombra ou espaçamento que a convertam em banner; foco, contraste, teclado, toque e 320 px permanecem obrigatórios. [86b8972]
+- O sumário integra a representação acessível estática, mas sua projeção no TTS opcional DEVE ser seletiva: `continuous` e `summary` o omitem, e somente `full` o pronuncia antes de prosseguir para o restante do corpo. [86b8972]
 
 ## 3. Ligações, marcadores e prosódia
 
@@ -60,8 +60,8 @@ O normalizador DEVE gerar no máximo um marcador por fronteira semântica. Leito
 - **Contínuo** é o modo inicial obrigatório. A unidade principal é pronunciada sem expansão das notas e recebe, no máximo uma vez ao final da frase, parágrafo ou outra fronteira semântica efetivamente usada pelo sintetizador, o aviso breve de que a passagem possui referência ou referências. Múltiplas chamadas na mesma unidade DEVEM ser agrupadas; número, backlink e conteúdo integral NÃO PODEM interromper a proposição. [e983edf]
 - **Resumido** é opt-in e pronuncia após a unidade cada fonte curta inequivocamente derivável, como `<SOBRENOME>, <ano>`, passagem/versão bíblica ou título mínimo necessário para desambiguação. Fonte repetida na mesma fronteira DEVE ser deduplicada sem apagar associações distintas. [e983edf]
 - **Completo** é opt-in e conserva a capacidade já existente de pronunciar a definição integral vinculada. O mecanismo NÃO PODE ser removido, mas DEVE permanecer desabilitado por padrão e executar a expansão somente depois da unidade principal. [e983edf]
-- Nos modos `summary` e `full`, cada expansão DEVE começar por `Referência <marcador>:`; o marcador decorre da ocorrência visual real e NÃO PODE ser anunciado como número ou glifo solto. [PENDENTE-CODIGO]
-- No modo `continuous`, o aviso quantitativo DEVE ocorrer uma única vez ao fim de cada unidade, usar singular ou plural conforme as ocorrências distintas e NÃO PODE antecipar, intercalar ou repetir marcadores individuais. [PENDENTE-CODIGO]
+- Nos modos `summary` e `full`, cada expansão DEVE começar por `Referência <marcador>:`; o marcador decorre da ocorrência visual real e NÃO PODE ser anunciado como número ou glifo solto. [86b8972]
+- No modo `continuous`, o aviso quantitativo DEVE ocorrer uma única vez ao fim de cada unidade, usar singular ou plural conforme as ocorrências distintas e NÃO PODE antecipar, intercalar ou repetir marcadores individuais. [86b8972]
 - A mudança de modo DEVE ser acessível durante a sessão e anunciada sem reiniciar silenciosamente, perder posição ou misturar unidades construídas sob modos diferentes. Ausência de escolha explícita sempre resolve para `contínuo`. [e983edf]
 - Referência ambígua conserva a nota integral como destino navegável. No modo resumido, ela recebe aviso de indisponibilidade de redução e acesso deliberado ao conteúdo completo; a ambiguidade NÃO autoriza inventar autor, ano, título ou passagem.
 
