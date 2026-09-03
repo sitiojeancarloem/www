@@ -1982,13 +1982,13 @@
         ".github/workflows/jekyll.yml",
         "scripts/test_web_performance.mjs"
       ],
-      "commit": "",
+      "commit": "b2effbdc06bc4a2bdc5ffc255697cd729287137e",
       "ft": "FT-057",
       "id": "431d41f6199c5bba61a64a1e",
       "line": 42,
       "rcf": "RCFs/desempenho-e-dependencias.md",
       "sentenceSha256": "7e271954037fca7763ba22028f0035744a9ab953094e9a298e47b23c31bb5334",
-      "state": "pending",
+      "state": "synchronized",
       "syncCommit": ""
     },
     {
