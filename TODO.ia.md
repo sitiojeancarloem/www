@@ -66,41 +66,77 @@ Este marcador encerra a seção de governança e inicia exclusivamente as TO-DOs
 
 ---
 
-- [ ] AJustar o TTS:
-  - somente em modo completo DEVE ler o sumário/TOC.
-  - a referência, atualmene simplesmente lê o número, por mero exemplo, "vinte", ou "trinta e trêz". Mas isso pode gerar confusão quando na frase/parágrafo houver números, portanto, é importante que, embora seja breve e suscinto como está, exista alguma forma de dizer que o numero se refere a citação, sugiro algo como "citação trinta e um", "refeência trinta e um", "nota trinta e um" ou algo equivalente que seja melhor e mais suscinto.
+- [ ] Equalizar TTS e TOC automático sem alterar o Markdown-fonte
+  - INSPECIONE modos/nomenclaturas reais antes de editar; preserve contratos/FTs existentes e apenas especialize o comportamento abaixo.
+  - **TOC**: gerar exclusivamente no build, sem modificar `.md`; inserir imediatamente após o **primeiro parágrafo real do corpo**, desconsiderando `blockquote` e estruturas HTML semanticamente equivalentes a citação. Esta posição vale para renderização geral, não apenas TTS.
+  - TOC DEVE ser temático, responsivo, claro/escuro, retraível e **retraído por padrão**; visual acadêmico/elegante integrado ao tema atual, evitando aparência de banner/publicidade e consequente _banner blindness_. NÃO criar bloco visualmente concorrente com o artigo.
+  - **TTS**:
+    - somente o modo de leitura integral/completa DEVE ler o TOC;
+    - o modo mais simples/fluido/contínuo NÃO DEVE verbalizar individualmente notas/referências no fluxo; ao fim de cada parágrafo, preserve o comportamento existente de informar sinteticamente a quantidade de referências citadas;
+    - nos modos que verbalizam referências, NÃO leia somente o número (`"trinta e um"`): use marcador breve e semanticamente inequívoco, p.ex. `"referência trinta e um"`/equivalente ainda mais curto se comprovadamente claro, consistente com locale e natureza real da referência.
+  - **Impressão**: TOC NÃO DEVE ser impresso por padrão. Somente o inclua se a norma IEEE efetivamente aplicável o comportar; nesse caso, reposicione/reestilize especificamente para impressão conforme RCF, sem herdar automaticamente a apresentação web.
+  - Validar build, posição estrutural, conteúdo sem/ com `blockquote`, retração, claro/escuro, responsividade, teclado/acessibilidade, todos os modos TTS e impressão.
 
-  - O modo "resumido" ou o "contínuo", aquele que for o modo mais simpples, que equivalha ao mais fluido, não deve ler notas/rteferências citadas, apenas ao final do parágrafo deve citar, como já ocorre, de mencionar que foram citados x números de referências.
+- [ ] Consolidar COVER como sistema responsivo, extensível e compatível com Hero, preservando integralmente recursos existentes
+  - INSPECIONE RCF, implementação e FTs atuais; **equalize-as** com esta norma. Ela corrige/amplia COVER e NÃO autoriza remoção, regressão, simplificação ou redução de modo/feature existente.
+  - Use `.\.ia.rules\state\requests\evidencias\projeto-cover.pdf` como evidência normativa complementar. **Somente textos, medidas, zonas, setas e determinações explicitamente apresentadas nele são normativas**: as screenshots retratam estado atual parcialmente defeituoso e NÃO são referência visual integral. A própria evidência registra, por exemplo, barras/flag defeituosas em exemplo de cover infinito. Capturas exclusivamente escuras NÃO dispensam claro/escuro. :contentReference[oaicite:0]{index=0}
 
-  - o sumário/TOC deve existir apenas após o primeiro parágrafo, desconsiderando-se blockquotes, e isso, se aplica NÃO APENAS a TTS.
+  - **Geometria/base**
+    - cover comum: proporção útil obrigatória **1,91:1**;
+    - distinguir e nomear inequivocamente no RCF a **largura/zona do artigo** da **largura/zona da janela**; NÃO tratá-las como equivalentes. O cover comum deve ficar colinear às bordas da zona do artigo. :contentReference[oaicite:1]{index=1}
+    - a região COVER NÃO DEVE possuir scroll próprio/horizontal.
+    - OGs são independentes do cover: qualquer artigo DEVE poder informar opcionalmente OG `1,91:1` e OG `1:1` próprios, sem obrigá-las a reutilizar o cover - por padrão reutilizar se não informado a parte.
 
-- TOC/SUMÁRIO gerado automáticamente
-  - em tempo de compilação, um TOC/sunário, temátizado e com;átivel com o switch de modo claro/esculo, atranete, bonito e agradável, deve ser gerado, e DEVE estar localizado imediatamente após o primeiro parágrafo do texto, ignorando blockquotes.
-  - Não DEVE impactar ou alterar o conteúdo do .md origem;
-  - DEVE ser retrel, por padrão retratído, de tal forma a não atrapalhar ou distratir o usuário/leitor.
-  - TTS: não deve ser lido, exceto em modo completo ou o que vier a substituí-lo no futuro.
-  - Aparência: evitar apareência que sugira propagando ou a o problema de "cegueira de faixa" (https://en.wikipedia.org/wiki/Banner_blindness), independente se retraído ou não; usar melhores práticas para sites acadêmico, entretanto, considere o estilo e tematização arrojada atual.
-  - impressão, o TOC/simário NÃO DEVE ser impresso, exceto se for compatível com as regras do IEEE, e se for, a localização e estilização DEVEM ser devidamente ajustadas no momento da impressão em pdf ou nativa, conforme diretivas RCF e agents.md.
+  - **Infinite — imagem única**
+    - ocupa horizontalmente a zona total da janela;
+    - conteúdo centralizado e overflow horizontal oculto;
+    - altura determina a dimensão necessária; largura é automática, preservando a imagem e garantindo que sua **região central útil 1,91:1** ocupe integralmente a altura definida; excedente lateral fica oculto e produz continuidade horizontal. :contentReference[oaicite:2]{index=2}
 
-- [ ] COVERs: implementação e definição completa a ser integrada com a definição atualmente definida no RCF.
-  - As diretrizes aqui visam corrigir, aprimorar e incrementar o recurso de COVER e NÃO regredir nem eliminar recurso.
-  - toda cover DEVE seguir a proporção 1,91:1.
-  - excetua-se da proporção 1,91:1 imagens cover:
-    - cuja largura seja extrema, objetivando simular horizonte infinito, neste caso, apenas a região central,na proporção de 1,91:1 é que DEVE ser considerada útil, com base na altera da própria imagem.
-    - cover de horizonte infinito formado por 3 imagens, onde a central, obrigatoriamente DEVE seguir a proporção 1,91:1.
-  - as correção/FTs atualmente em andamento devem ser equalizadas e ajustadas para convergir com este.
-  - em qualquer artigo, DEVE ser possível informar separadamene, e opcionalmente, as imagens OG 1,91:1 e 1:1, de forma separada do cover, ou seja, DEVE ser possível especificar imagens OGs diferentes das que serão cover.
-  - cover formado por 3 imagens:
-    - o uso da expressão "3 imagens" DEVE ser entendido de forma "não arbitrária". Na realidade, a central, é de fato uma imagem, entretanto, as outras duas, se referem a pattern, que podem ser imagem, ou cor (hex ou linear-gradient).
-  - a região do cover NÃO pode exibir scroll
-  - todo o cover e todo modo de cover DEVE ser compatível com "Hero Section" que permita exibir sobreposto sobre o cover, somente sobre a área útil, texto e botão.
-    - Textos e botões DEVEM ser configuráveis diretamente dentro do .md, incluindo o texto, label e link do botão.
-    - Posicionamento: DEVE existir 6 modos de posicionamento, sendo 4 cantos, considerando a divisão da área útil em 4; um única região central, como se houiver um padding maior (grosso), o modo talvez full, em que seria equivalente o central, mas com padding fino.
-      - cada zone/area deve aceitar parágrafos e alinhamentos e outros markdowns.
-      - Demais/outras forma de posicionamento e alinhamento comumente usados DEVEM ser incluídos, e DEVEM ser facilmente configuráveis diretamente no .md, utilize melhores práticas, boas formas de configurar, facilidade de uso, facilidade de customização, facilidade de construir layouts bonitos.
-      - DEVE ser totalmente responsível
-      - Melhores prátivas e, se houver bibliotecas open source e mantidas que já implementem, então, prefira usar se for tecnicamente viável, possível a compatível.
-  - Estratégia Puro CSS first DEVE sempre ser priorizado.
-  - Um PDF é adicionado (`.\.ia.rules\state\requests\evidencias\projeto-cover.pdf`) como referência e diagramação com solicitações a apontamentos do que DEVE ser feitos, medidas, indicaçòes de áreas, zonas, o que pode e o que não pode, entretanto, ele utiliza captturas de telas do estado atual, que contem erro, isso signirifca que várias páginas dele conterão imagens com erros, por isso é necessário considerar APENAS as informações apresentadas em cada página.
-    - Note que no PDF de ilustração com as medidas e demonstrações, há diversos erros, incluindo por mero exemplo, a flag/bandeira e barras de títulos (superior e inferior) ocultada pelo cover. As capturas de tela para demonstrar como DEVE ser implementado o cover utilizam o estado atual, para explicar algo, mas o estado atual NÃO está plenamento funcional e correto. Por isso, considere que, APENAS o que de fato é explicado e apontado e usado como referÊncia, e não cada detalhe como uma fonte de norma.
-  - Todas as capturas foram feitas apenas no modo escuro, mas iso NÃO imlpica que ignorar aimplementação/ajuste/adaptação/adequação do modo claro.
+  - **Infinite — “3 imagens”**
+    - NÃO interpretar literalmente como três arquivos: composição = `pattern-left` + imagem central + `pattern-right`;
+    - cada pattern PODE ser imagem, cor hexadecimal ou `linear-gradient`;
+    - centro DEVE ser `1,91:1`, colinear à zona do artigo;
+    - `pattern-left` ocupa da borda esquerda da janela/zona infinita até a borda esquerda do centro; `pattern-right`, simetricamente, do centro até a borda direita; junções DEVEM ser contínuas, sem gap/scroll/overflow visível. :contentReference[oaicite:3]{index=3}
+
+  - **Barras/flag**
+    - cover/z-index NÃO PODE ocultar a flag nem as barras de título.
+    - As duas barras DEVEM aparentar uma estrutura única: inferior sólida; superior RGBA em degradê, do aspecto de vidro translúcido no topo até fusão visualmente perfeita/opaca com a inferior; a extremidade superior permanece minimamente perceptível para comunicar suporte à flag.
+    - O triângulo esquerdo da flag DEVE manter a base/extremidade colinear à extremidade da barra superior conforme diagrama. :contentReference[oaicite:4]{index=4} :contentReference[oaicite:5]{index=5}
+
+  - **Modos viewport/header**
+    - `FullWindow`: ocupar a janela responsivamente usando **uma única dimensão como referência (`height-fit` XOR `width-fit`)**, calculando a outra automaticamente, preservando proporção e preenchimento; priorizar CSS puro. Header inicialmente RGBA translúcido, opacidade central configurável (**30% padrão conforme evidência**) e override opcional por página/post no `.md`; ao scroll, retornar ao comportamento normal com fundo sólido.
+    - `windowHeight`: semântica de `FullWindow`, mas ajuste predeterminado pela altura. :contentReference[oaicite:6]{index=6}
+    - `windowWidth`:semântica de `FullWindow`, mas ajuste predeterminado pela largura. confronte RCF/implementação, preserve o modo equivalente existente como canônico/alias e garanta a semântica descrita — ajuste pela largura sem jamais ultrapassar a altura da janela. :contentReference[oaicite:7]{index=7}
+    - `innerFullWindow`: equivalente ao `FullWindow`, mas começa abaixo do header; área vertical = viewport menos **altura integral do header**; header NÃO usa opacidade/configuração específica desse modo. :contentReference[oaicite:8]{index=8}
+    - `innerWindowHeight`: equivalente ao modo por altura, porém abaixo do header e calculado sobre viewport menos sua altura integral, igualmente sem comportamento/configuração de opacidade. :contentReference[oaicite:9]{index=9}
+    - `innerWindowWidth`: equivalente ao modo WindowWidth, porém abaixo do header e calculado sobre viewport menos sua altura integral, igualmente sem comportamento/configuração de opacidade. :contentReference[oaicite:10]{index=10}
+    - Para o correspondente interno do comportamento _fit-by-width_, reconcilie a inconsistência nominal do PDF pela semântica e aliases reais; NÃO invente modo redundante nem elimine equivalente existente.
+
+  - **Hero Section — contrato comum a TODOS os covers**
+    - Hero é uma camada de conteúdo **sobre a área útil do cover**, nunca sobre excedentes/patterns decorativos, header, barras/flag ou área externa.
+    - Configuração DEVE ser declarativa no `.md` e permitir, separadamente: conteúdo textual Markdown (inclusive múltiplos parágrafos/inline Markdown), botão opcional (`label` + `link`) e posicionamento/alinhamento.
+    - Disponibilizar obrigatoriamente 6 zonas-base:
+      1. superior-esquerda;
+      2. superior-direita;
+      3. inferior-esquerda;
+      4. inferior-direita;
+      5. `center`: região central protegida por padding substancial;
+      6. `full`: mesma área central útil, porém com padding periférico reduzido.
+    - NÃO multiplique arbitrariamente presets para cobrir alinhamentos usuais: modele **zona + alinhamento horizontal/vertical + largura/limites de conteúdo** como propriedades ortogonais, quando isso atender melhor aos layouts existentes. Outras disposições usuais DEVEM ser expressáveis pelo `.md` sem CSS/HTML específico por artigo.
+    - O Hero DEVE seguir práticas profissionais: hierarquia tipográfica clara, largura de leitura controlada, contraste real sobre fundos variáveis, CTA inequívoco sem aparência publicitária gratuita, espaçamento consistente, ausência de colisões/cortes, foco/teclado e semântica acessíveis, links distinguíveis, adaptação automática a viewport/DPR/orientação e preservação da área visual relevante do cover.
+    - Contraste NÃO DEVE depender de uma imagem específica: disponibilize mecanismo temático/configurável de proteção de legibilidade (overlay/gradiente/text treatment ou equivalente), discreto e desacoplado da própria imagem.
+    - Conteúdo Hero NÃO DEVE provocar scroll dentro do cover; em viewport insuficiente, adapte tipografia/espaçamento/layout de forma responsiva, sem ocultar conteúdo essencial nem sobrepor regiões vedadas.
+    - **CSS-first obrigatório**: priorize layout, `object-fit`/`object-position`, Grid/Flex, custom properties, media/container queries e recursos nativos adequados. Biblioteca externa somente se mantida, open source, tecnicamente compatível e demonstradamente superior a solução nativa sem custo/desacoplamento desproporcional.
+
+  - **RCF/configuração**
+    - Centralize modelo, zonas, modos, aliases, defaults e precedências; NÃO espalhe regras equivalentes.
+    - O schema do `.md` DEVE ser simples para uso comum, extensível para composição avançada e validável no build; propriedades ausentes preservam defaults vigentes.
+    - Defina claramente precedência entre configuração global → modo → página/post, sem inferir valores inexistentes.
+    - Preserve os contratos já vigentes que não conflitarem materialmente com esta especialização.
+
+- [ ] Validar COVER/TOC/TTS visual, funcional e normativamente
+  - Criar/expandir testes reais para todos os modos COVER, 1/3-part infinite, patterns imagem/cor/gradient, OG independente, Hero nas 6 zonas e combinações usuais de alinhamento, textos curtos/longos, com/sem CTA, claro/escuro, mobile/desktop, resize/orientation, header antes/depois de scroll e integração com barras/flag.
+  - Validar geometricamente colinearidade artigo/cover, `1,91:1`, viewport × article zone, ausência de scroll/overflow/corte indevido e comportamento `inner*`; a evidência distingue expressamente zona do artigo da janela e define o infinite como full-width. :contentReference[oaicite:10]{index=10} :contentReference[oaicite:11]{index=11}
+  - Fazer **verificação visual**, não apenas DOM/unit tests; comparar somente contra as determinações anotadas no PDF, jamais reproduzir defeitos incidentais das screenshots.
+  - Validar Hero como composição editorial real — legibilidade, equilíbrio, hierarchy, responsive reflow, CTA, acessibilidade e ausência de aparência improvisada — e não apenas comprovar que campos foram renderizados.
+  - Executar/regredir TTS, TOC, impressão, cover/header, layouts existentes e FTs correlatas. Aceite somente com **zero perda de feature, zero regressão e nenhuma redução/enfraquecimento normativo**.
