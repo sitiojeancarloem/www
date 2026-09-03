@@ -752,6 +752,46 @@ plano:
       - dev e main convergiram por fast-forward no commit-fonte publicado antes do fechamento operacional
       - _site preexistente permaneceu integralmente fora de staging, commits, push e publicacao
       - TO-DOs operacionais concluidas foram removidas e o equalizer perene permaneceu literal e desmarcado
+  - id: FT-058
+    classe: implementacao_normativa
+    criado_em: 2026-09-03T20:08:22.3269933-03:00
+    estado: em_andamento
+    fonte: .ia.rules/state/requests/FT-058/prompt.md
+    objetivo: Restabelecer no RCF as invariantes estruturais do COVER, flag e duas barras conforme projeto-cover.pdf e evidencias 13-16.
+    escopo: RCF-JCEM-CARREGAMENTO-PROGRESSIVO-001 e RCF-JCEM-COMPONENTES-COMPARTILHADOS-001.
+    aceite:
+      - cover comum coincide com a zona do artigo e preserva area util 1,91:1 entre masthead e barras
+      - cover, flag e barras compartilham fronteiras sem gap, clip ou interpenetracao
+      - titulo pertence exclusivamente a barra inferior; barra superior forma gradiente vertical translucido para solido
+      - triangulo da flag e topo da barra superior usam referencia geometrica comum
+      - infinite single, triptych, viewport, inner, Hero, temas e impressao permanecem integrais
+  - id: FT-059
+    classe: implementacao_codigo
+    criado_em: 2026-09-03T20:08:22.3269934-03:00
+    estado: pendente
+    depende_de: FT-058
+    fonte: .ia.rules/state/requests/FT-058/prompt.md
+    fonte_autorizacao: .ia.rules/state/requests/FT-058/prompt.md
+    objetivo: Corrigir markup, fluxo, box model, enquadramento e ancoragem do sistema COVER sem remendos de viewport.
+    aceite:
+      - DOM restaura titulo na barra inferior e mantém leitura, link, icone e semantica
+      - layout calculado cumpre as invariantes de cover, article-zone, masthead, barras e flag
+      - todos os modos e aliases preservam geometria, fit, overflow e header previstos
+      - testes estruturais e geometricos bloqueiam a regressao das evidencias 13-16
+  - id: FT-060
+    classe: integracao_validacao_publicacao
+    criado_em: 2026-09-03T20:08:22.3269935-03:00
+    estado: pendente
+    depende_de: FT-059
+    fonte: .ia.rules/state/requests/FT-058/prompt.md
+    fonte_autorizacao: .ia.rules/state/requests/FT-058/prompt.md
+    objetivo: Validar renderizacao real, regressao global, rastreabilidade, publicacao e convergencia da correcao estrutural.
+    aceite:
+      - matriz cobre claro e escuro, desktop e mobile, DPR, resize, orientacao, titulos, Hero, scroll e todas as modalidades
+      - reproducoes equivalentes a evidencia13-16 nao exibem cover estreito, gap, sobreposicao, clip ou inversao de barras
+      - build isolado, gates agregados, acessibilidade, impressao e rastreabilidade aprovam
+      - PageSpeed somente se prova direta revelar necessidade estrita
+      - commits, push, workflow e dev/main convergem sem absorver _site
 lacunas:
   - id: GAP-AGENTS-CJS-ESM-001
     estado: isolada
