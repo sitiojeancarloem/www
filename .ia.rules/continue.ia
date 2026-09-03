@@ -1,14 +1,14 @@
 schema: jcem-continue/v1
 machine_id: JEAN-DESKTOP
-data_ref: 2026-08-30T18:35:25.5019155-03:00
-fonte: .ia.rules/state/requests/FT-050/prompt.md
-objetivo: Restaurar integralmente os contratos visuais e responsivos de cover demonstrados pelas evidencias 7b, 9, 10, 11 e 12, sem blur, fit indevido, flag recortada ou overflow do viewport inicial.
+data_ref: 2026-09-03T02:32:33.4097652-03:00
+fonte: .ia.rules/state/requests/FT-053/prompt.md
+objetivo: Equalizar, normatizar, implementar, validar e publicar TOC/TTS e COVER/Hero como frentes convergentes, preservando integralmente todas as features vigentes.
 autorizacao:
   origem: prompt humano
-  data: 2026-08-30T19:17:00.1563285-03:00
-  fonte: .ia.rules/state/requests/FT-050/prompt.md
-  escopo: prosseguimento pos-normatizacao expresso para implementar FT-051 e validar FT-052
-  restricao: preservar todos os modos e features; nao redesenhar, generalizar, fundir, comprimir, desfocar nem manipular scroll
+  data: 2026-09-03T02:32:33.4097652-03:00
+  fonte: .ia.rules/state/requests/FT-053/prompt.md
+  escopo: todas as fases de todas as FTs aplicaveis, incluindo inspecao, RCF, documentacao, implementacao, migracao, testes, correcoes, commits e push
+  restricao: zero regressao, zero remocao ou degradacao de feature, zero perda de compatibilidade e zero enfraquecimento normativo
 plano:
   - id: FT-020
     classe: implementacao_normativa
@@ -653,6 +653,75 @@ plano:
       - PageSpeed nao foi executado porque as provas diretas cobriram integralmente a mudanca
       - navegador interno permaneceu indisponivel por falha de inicializacao dos assets do kernel; a prova visual foi executada pelo gate Playwright canonico do repositorio
       - dev e main nao foram alterados ou convergidos durante a validacao, preservando o limite da autorizacao vigente
+  - id: FT-053
+    classe: implementacao_normativa
+    criado_em: 2026-09-03T02:32:33.4097652-03:00
+    estado: pendente
+    fonte: .ia.rules/state/requests/FT-053/prompt.md
+    objetivo: Normatizar TOC automatico de build e sua projecao seletiva nos modos TTS, sem alterar Markdown-fonte ou impressao IEEE.
+    escopo: RCF-JCEM-LEITURA-ACESSIVEL-TTS-001, RCF-JCEM-IMPRESSAO-IEEE-001 e modo de uso editorial.
+    aceite:
+      - TOC nasce somente no build e entra depois do primeiro paragrafo real fora de citacao
+      - componente e tematico, responsivo, retraido por padrao, acessivel e visualmente subordinado
+      - continuo preserva aviso quantitativo por paragrafo sem narrar marcadores individuais
+      - resumido e completo prefixam cada referencia com marcador semantico; somente completo le o TOC
+      - impressao omite TOC e nenhuma fonte Markdown e alterada
+  - id: FT-054
+    classe: implementacao_codigo
+    criado_em: 2026-09-03T02:32:33.4097653-03:00
+    estado: pendente
+    depende_de: FT-053, FT-055
+    fonte: .ia.rules/state/requests/FT-053/prompt.md
+    fonte_autorizacao: .ia.rules/state/requests/FT-053/prompt.md
+    objetivo: Implementar TOC automatico no pipeline vigente e equalizar sua leitura com todos os modos TTS.
+    aceite:
+      - transformacao HTML de build e idempotente e preserva o Markdown byte a byte
+      - posicao estrutural ignora blockquote inicial e trata ausencia de paragrafo com fallback deterministico
+      - details/summary funciona sem JavaScript, com teclado, temas e 320 px
+      - runtime TTS preserva estado e emite exatamente a fala prevista para cada modo
+      - testes renderizados, acessiveis, de impressao e regressao aprovam
+  - id: FT-055
+    classe: implementacao_normativa
+    criado_em: 2026-09-03T02:32:33.4097654-03:00
+    estado: pendente
+    fonte: .ia.rules/state/requests/FT-053/prompt.md
+    objetivo: Normatizar COVER responsivo, patterns, modos de viewport, barras/flag, OG independente e Hero editorial declarativo.
+    escopo: RCF-JCEM-CARREGAMENTO-PROGRESSIVO-001, RCF-JCEM-COMPONENTES-COMPARTILHADOS-001 e evidencia projeto-cover.pdf.
+    aceite:
+      - zona do artigo e zona da janela permanecem distintas e a area util central usa 1,91:1
+      - content, wide single, wide triptych e hero legado permanecem integralmente preservados
+      - FullWindow, windowHeight, windowWidth e variantes inner possuem semantica, aliases e limites deterministas
+      - triptych aceita pattern por imagem, hexadecimal ou linear-gradient sem gap ou overflow
+      - Hero usa area util, seis zonas e propriedades ortogonais, com CTA e protecao de contraste acessiveis
+      - barras/flag, header translucido, OG independente, impressao e fallback possuem precedencia explicita
+  - id: FT-056
+    classe: implementacao_codigo
+    criado_em: 2026-09-03T02:32:33.4097655-03:00
+    estado: pendente
+    depende_de: FT-055
+    fonte: .ia.rules/state/requests/FT-053/prompt.md
+    fonte_autorizacao: .ia.rules/state/requests/FT-053/prompt.md
+    objetivo: Implementar schema, build, markup, CSS e runtime minimo do sistema COVER/Hero sem remover modalidades existentes.
+    aceite:
+      - configuracao central valida modos, aliases, fit, patterns, OG e Hero antes de renderizar
+      - implementacao CSS-first cobre geometrias comuns, infinite e viewport/inner
+      - header externo alterna translucido para solido no scroll sem contaminar modos inner
+      - Hero renderiza Markdown, CTA e seis zonas sem ocupar excedentes decorativos
+      - fixtures e testes preservam os quatro comportamentos vigentes e cobrem todas as extensoes
+  - id: FT-057
+    classe: integracao_validacao_publicacao
+    criado_em: 2026-09-03T02:32:33.4097656-03:00
+    estado: pendente
+    depende_de: FT-054, FT-056
+    fonte: .ia.rules/state/requests/FT-053/prompt.md
+    fonte_autorizacao: .ia.rules/state/requests/FT-053/prompt.md
+    objetivo: Validar integralmente TOC/TTS e COVER/Hero, sincronizar rastreabilidade, publicar e convergir dev/main.
+    aceite:
+      - contratos unitarios, build, runtime, visual, acessibilidade, impressao e regressao agregada aprovam
+      - matriz visual cobre modos, patterns, zonas Hero, textos, CTA, temas, viewports, resize e header scroll
+      - PageSpeed ocorre somente diante de necessidade estrita nao coberta por prova direta
+      - TO-DOs operacionais concluidas sao removidas e equalizer perene permanece literal e desmarcado
+      - commits, artefato publicado, dev e main convergem sem incluir _site preexistente
 lacunas:
   - id: GAP-AGENTS-CJS-ESM-001
     estado: isolada

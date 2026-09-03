@@ -9,6 +9,8 @@ node_modules
 /.ia.rules/state/contexts/*
 !/.ia.rules/state/contexts/FT-032/
 !/.ia.rules/state/contexts/FT-032/master.md
+!/.ia.rules/state/contexts/FT-053/
+!/.ia.rules/state/contexts/FT-053/*.md
 !/.ia.rules/state/requests/
 /.ia.rules/state/requests/*
 !/.ia.rules/state/requests/FT-032/
@@ -27,6 +29,8 @@ node_modules
 !/.ia.rules/state/requests/FT-048/prompt.md
 !/.ia.rules/state/requests/FT-050/
 !/.ia.rules/state/requests/FT-050/prompt.md
+!/.ia.rules/state/requests/FT-053/
+!/.ia.rules/state/requests/FT-053/prompt.md
 !.vscode
 src/__generated__
 *.psd

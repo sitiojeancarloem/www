@@ -66,7 +66,7 @@ Este marcador encerra a seção de governança e inicia exclusivamente as TO-DOs
 
 ---
 
-- [ ] Equalizar TTS e TOC automático sem alterar o Markdown-fonte
+- [x] Equalizar TTS e TOC automático sem alterar o Markdown-fonte
   - INSPECIONE modos/nomenclaturas reais antes de editar; preserve contratos/FTs existentes e apenas especialize o comportamento abaixo.
   - **TOC**: gerar exclusivamente no build, sem modificar `.md`; inserir imediatamente após o **primeiro parágrafo real do corpo**, desconsiderando `blockquote` e estruturas HTML semanticamente equivalentes a citação. Esta posição vale para renderização geral, não apenas TTS.
   - TOC DEVE ser temático, responsivo, claro/escuro, retraível e **retraído por padrão**; visual acadêmico/elegante integrado ao tema atual, evitando aparência de banner/publicidade e consequente _banner blindness_. NÃO criar bloco visualmente concorrente com o artigo.
@@ -77,7 +77,7 @@ Este marcador encerra a seção de governança e inicia exclusivamente as TO-DOs
   - **Impressão**: TOC NÃO DEVE ser impresso por padrão. Somente o inclua se a norma IEEE efetivamente aplicável o comportar; nesse caso, reposicione/reestilize especificamente para impressão conforme RCF, sem herdar automaticamente a apresentação web.
   - Validar build, posição estrutural, conteúdo sem/ com `blockquote`, retração, claro/escuro, responsividade, teclado/acessibilidade, todos os modos TTS e impressão.
 
-- [ ] Consolidar COVER como sistema responsivo, extensível e compatível com Hero, preservando integralmente recursos existentes
+- [x] Consolidar COVER como sistema responsivo, extensível e compatível com Hero, preservando integralmente recursos existentes
   - INSPECIONE RCF, implementação e FTs atuais; **equalize-as** com esta norma. Ela corrige/amplia COVER e NÃO autoriza remoção, regressão, simplificação ou redução de modo/feature existente.
   - Use `.\.ia.rules\state\requests\evidencias\projeto-cover.pdf` como evidência normativa complementar. **Somente textos, medidas, zonas, setas e determinações explicitamente apresentadas nele são normativas**: as screenshots retratam estado atual parcialmente defeituoso e NÃO são referência visual integral. A própria evidência registra, por exemplo, barras/flag defeituosas em exemplo de cover infinito. Capturas exclusivamente escuras NÃO dispensam claro/escuro. :contentReference[oaicite:0]{index=0}
 
@@ -134,7 +134,7 @@ Este marcador encerra a seção de governança e inicia exclusivamente as TO-DOs
     - Defina claramente precedência entre configuração global → modo → página/post, sem inferir valores inexistentes.
     - Preserve os contratos já vigentes que não conflitarem materialmente com esta especialização.
 
-- [ ] Validar COVER/TOC/TTS visual, funcional e normativamente
+- [x] Validar COVER/TOC/TTS visual, funcional e normativamente
   - Criar/expandir testes reais para todos os modos COVER, 1/3-part infinite, patterns imagem/cor/gradient, OG independente, Hero nas 6 zonas e combinações usuais de alinhamento, textos curtos/longos, com/sem CTA, claro/escuro, mobile/desktop, resize/orientation, header antes/depois de scroll e integração com barras/flag.
   - Validar geometricamente colinearidade artigo/cover, `1,91:1`, viewport × article zone, ausência de scroll/overflow/corte indevido e comportamento `inner*`; a evidência distingue expressamente zona do artigo da janela e define o infinite como full-width. :contentReference[oaicite:10]{index=10} :contentReference[oaicite:11]{index=11}
   - Fazer **verificação visual**, não apenas DOM/unit tests; comparar somente contra as determinações anotadas no PDF, jamais reproduzir defeitos incidentais das screenshots.
