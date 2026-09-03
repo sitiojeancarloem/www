@@ -1979,6 +1979,20 @@
     },
     {
       "artifacts": [
+        ".github/workflows/jekyll.yml",
+        "scripts/test_web_performance.mjs"
+      ],
+      "commit": "",
+      "ft": "FT-057",
+      "id": "431d41f6199c5bba61a64a1e",
+      "line": 42,
+      "rcf": "RCFs/desempenho-e-dependencias.md",
+      "sentenceSha256": "7e271954037fca7763ba22028f0035744a9ab953094e9a298e47b23c31bb5334",
+      "state": "pending",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
         "RCFs/desempenho-e-dependencias.md"
       ],
       "commit": "2c4a5259c6b4371ceb2dc6cbb2333631200251f5",
