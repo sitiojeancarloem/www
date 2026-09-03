@@ -65,3 +65,30 @@ TO-DOs integralmente concluídas DEVEM ser removidas, mantendo o arquivo limpo.
 Este marcador encerra a seção de governança e inicia exclusivamente as TO-DOs operacionais. Todo item de topo abaixo dele está sujeito integralmente ao RCF acima.
 
 ---
+
+- [ ] AJustar o TTS:
+  - somente em modo completo DEVE ler o sumário/TOC.
+  - a referência, atualmene simplesmente lê o número, por mero exemplo, "vinte", ou "trinta e trêz". Mas isso pode gerar confusão quando na frase/parágrafo houver números, portanto, é importante que, embora seja breve e suscinto como está, exista alguma forma de dizer que o numero se refere a citação, sugiro algo como "citação trinta e um", "refeência trinta e um", "nota trinta e um" ou algo equivalente que seja melhor e mais suscinto.
+
+  - O modo "resumido" ou o "contínuo", aquele que for o modo mais simpples, que equivalha ao mais fluido, não deve ler notas/rteferências citadas, apenas ao final do parágrafo deve citar, como já ocorre, de mencionar que foram citados x números de referências.
+
+  - o sumário/TOC deve existir apenas após o primeiro parágrafo, desconsiderando-se blockquotes, e isso, se aplica NÃO APENAS a TTS.
+
+- TOC/SUMÁRIO gerado automáticamente
+  - em tempo de compilação, um TOC/sunário, temátizado e com;átivel com o switch de modo claro/esculo, atranete, bonito e agradável, deve ser gerado, e DEVE estar localizado imediatamente após o primeiro parágrafo do texto, ignorando blockquotes.
+  - Não DEVE impactar ou alterar o conteúdo do .md origem;
+  - DEVE ser retrel, por padrão retratído, de tal forma a não atrapalhar ou distratir o usuário/leitor.
+  - TTS: não deve ser lido, exceto em modo completo ou o que vier a substituí-lo no futuro.
+  - Aparência: evitar apareência que sugira propagando ou a o problema de "cegueira de faixa" (https://en.wikipedia.org/wiki/Banner_blindness), independente se retraído ou não; usar melhores práticas para sites acadêmico, entretanto, considere o estilo e tematização arrojada atual.
+  - impressão, o TOC/simário NÃO DEVE ser impresso, exceto se for compatível com as regras do IEEE, e se for, a localização e estilização DEVEM ser devidamente ajustadas no momento da impressão em pdf ou nativa, conforme diretivas RCF e agents.md.
+
+- [ ] COVERs: implementação e definição completa a ser integrada com a definição atualmente definida no RCF.
+  - As diretrizes aqui visam corrigir, aprimorar e incrementar o recurso de COVER e NÃO regredir nem eliminar recurso.
+  - toda cover DEVE seguir a proporção 1,91:1.
+  - excetua-se da proporção 1,91:1 imagens cover:
+    - cuja largura seja extrema, objetivando simular horizonte infinito, neste caso, apenas a região central,na proporção de 1,91:1 é que DEVE ser considerada útil, com base na altera da própria imagem.
+    - cover de horizonte infinito formado por 3 imagens, onde a central, obrigatoriamente DEVE seguir a proporção 1,91:1.
+  - as correção/FTs atualmente em andamento devem ser equalizadas e ajustadas para convergir com este.
+  - em qualquer artigo, DEVE ser possível informar separadamene, e opcionalmente, as imagens OG 1,91:1 e 1:1, de forma separada do cover, ou seja, DEVE ser possível especificar imagens OGs diferentes das que serão cover.
+  - cover formado por 3 imagens:
+    - o uso da expressão "3 imagens" DEVE ser entendido de forma "não arbitrária". Na realidade, a central, é de fato uma imagem, entretanto, as outras duas, se referem a pattern, que podem ser imagem, ou cor (hex ou linear-gradient).
