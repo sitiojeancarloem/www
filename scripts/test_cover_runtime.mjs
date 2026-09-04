@@ -130,7 +130,11 @@ try {
 			assert.ok(Math.abs(state.stage.top) <= 0.51 && Math.abs(state.stage.bottom - 720) <= 0.51, `viewport externo fora da janela ${mode}: ${JSON.stringify(state)}`);
 			assert.equal(state.headerState, 'translucent', `masthead inicial não translúcida ${mode}`);
 			await page.evaluate(() => window.scrollTo(0, 80));
-			await page.waitForFunction(() => document.querySelector('.masthead')?.getAttribute('data-jcem-cover-header-state') === 'solid');
+			await page.waitForFunction((initialBackground) => {
+				const masthead = document.querySelector('.masthead');
+				return masthead?.getAttribute('data-jcem-cover-header-state') === 'solid' &&
+					getComputedStyle(masthead).backgroundColor !== initialBackground;
+			}, state.mastheadBackground);
 			const scrolled = await page.evaluate(() => ({
 				scroll: window.scrollY,
 				background: getComputedStyle(document.querySelector('.masthead')).backgroundColor,

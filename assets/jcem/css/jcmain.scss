@@ -346,6 +346,7 @@ aside {
 	position: relative;
 	--jcem-date-flag-width: clamp(42px, 4.8vw, 48px);
 	--jcem-date-flag-height: calc(var(--jcem-date-flag-width) * 420 / 256);
+	--jcem-post-title-text-start: calc(var(--jcem-date-flag-width) + 1rem);
 }
 
 .main_jcem_wrapper:has(.jcem-post--with-cover) #main,
@@ -387,7 +388,7 @@ aside {
 .jcem-post-header__bottombar {
 	display: flex;
 	min-height: calc(var(--jcem-date-flag-height) * 0.73);
-	padding: 0.35rem 1rem 0.35rem calc(var(--jcem-date-flag-width) + 1rem);
+	padding: 0.35rem 1rem 0.35rem var(--jcem-post-title-text-start);
 	align-items: center;
 	border-top: 0;
 	border-bottom: 2px solid var(--pri);

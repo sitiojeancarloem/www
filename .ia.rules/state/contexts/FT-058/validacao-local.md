@@ -18,6 +18,9 @@ Data: 2026-09-03
 - Reproduções equivalentes às evidências 13–16: quatro páginas reais, desktop/mobile e claro/escuro no build produtivo, totalizando 16 combinações.
 - Validação visual geral e impressão em `Devaneios`, claro/escuro e desktop.
 - `git diff --check`, `npm run agent:rcf` e `rcf-trace validate` aprovados.
+- O primeiro gate remoto de cache identificou, em `Devaneios` ultrawide escuro, recuos independentes entre título e tempo de leitura. A causa foi eliminada por um único token geométrico compartilhado, sem alterar tolerâncias.
+- A reprodução focal `Devaneios` ultrawide em claro/escuro, `npm run check:performance`, `npm run check:covers` e a matriz oficial completa de `npm run validate:visual` aprovaram após a correção.
+- O teste de retorno sólido da masthead passou a aguardar simultaneamente o estado semântico e a mudança de cor computada após a transição, mantendo a asserção visual estrita e eliminando a condição de corrida.
 
 ## Invariantes verificadas
 

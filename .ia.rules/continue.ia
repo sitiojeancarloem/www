@@ -809,6 +809,8 @@ plano:
       - matriz estrita aprovou 140 combinacoes dos dez modos em sete viewports e dois temas
       - resize continuo, orientacao, DPR 2, Hero, header antes/depois de scroll e impressao foram validados
       - PageSpeed nao foi executado por ausencia de necessidade estrita diante das provas diretas
+      - primeiro gate remoto revelou divergencia de recuo entre titulo e tempo de leitura no ultrawide; ambos passaram a consumir o mesmo token geometrico
+      - reproducao focal claro/escuro, performance estrutural, runtime COVER e matriz visual oficial completa aprovaram apos a correcao, sem ampliar tolerancias
 lacunas:
   - id: GAP-AGENTS-CJS-ESM-001
     estado: isolada
