@@ -811,6 +811,7 @@ plano:
       - PageSpeed nao foi executado por ausencia de necessidade estrita diante das provas diretas
       - primeiro gate remoto revelou divergencia de recuo entre titulo e tempo de leitura no ultrawide; ambos passaram a consumir o mesmo token geometrico
       - reproducao focal claro/escuro, performance estrutural, runtime COVER e matriz visual oficial completa aprovaram apos a correcao, sem ampliar tolerancias
+      - duas tentativas remotas seguintes foram bloqueadas antes do build pelo teto de 120 segundos de npm ci; comando e criterios foram preservados e apenas os orcamentos passaram a 240 segundos para a etapa e 900 segundos para job/global
 lacunas:
   - id: GAP-AGENTS-CJS-ESM-001
     estado: isolada

@@ -21,6 +21,7 @@ Data: 2026-09-03
 - O primeiro gate remoto de cache identificou, em `Devaneios` ultrawide escuro, recuos independentes entre título e tempo de leitura. A causa foi eliminada por um único token geométrico compartilhado, sem alterar tolerâncias.
 - A reprodução focal `Devaneios` ultrawide em claro/escuro, `npm run check:performance`, `npm run check:covers` e a matriz oficial completa de `npm run validate:visual` aprovaram após a correção.
 - O teste de retorno sólido da masthead passou a aguardar simultaneamente o estado semântico e a mudança de cor computada após a transição, mantendo a asserção visual estrita e eliminando a condição de corrida.
+- Duas tentativas remotas consecutivas foram interrompidas antes do build porque `npm ci` atingiu exatamente o orçamento de 120 segundos. O comando e os gates foram preservados; o orçamento da etapa foi elevado para 240 segundos e o orçamento global/job para 900 segundos/15 minutos, compatível com a instalação fria observada e com a matriz visual integral bloqueante.
 
 ## Invariantes verificadas
 
