@@ -792,7 +792,7 @@ plano:
   - id: FT-060
     classe: integracao_validacao_publicacao
     criado_em: 2026-09-03T20:08:22.3269935-03:00
-    estado: em_andamento
+    estado: concluida
     depende_de: FT-059
     fonte: .ia.rules/state/requests/FT-058/prompt.md
     fonte_autorizacao: .ia.rules/state/requests/FT-058/prompt.md
@@ -803,7 +803,7 @@ plano:
       - build isolado, gates agregados, acessibilidade, impressao e rastreabilidade aprovam
       - PageSpeed somente se prova direta revelar necessidade estrita
       - commits, push, workflow e dev/main convergem sem absorver _site
-    progresso:
+    resultado:
       - gate agregado npm run check aprovado integralmente contra build isolado
       - build produtivo compactado, runtime e 16 reproducoes equivalentes as evidencias 13-16 aprovados
       - matriz estrita aprovou 140 combinacoes dos dez modos em sete viewports e dois temas
@@ -812,6 +812,12 @@ plano:
       - primeiro gate remoto revelou divergencia de recuo entre titulo e tempo de leitura no ultrawide; ambos passaram a consumir o mesmo token geometrico
       - reproducao focal claro/escuro, performance estrutural, runtime COVER e matriz visual oficial completa aprovaram apos a correcao, sem ampliar tolerancias
       - duas tentativas remotas seguintes foram bloqueadas antes do build pelo teto de 120 segundos de npm ci; comando e criterios foram preservados e apenas os orcamentos passaram a 240 segundos para a etapa e 900 segundos para job/global
+      - gate de cache 33833548278 aprovou instalacao fria de 179 segundos, build, matriz visual estrita e caminhos de raiz no commit 5a5736fdbb29cdca00432c0ad1593f9c50bc66ed
+      - artefato 31f45e5f2376dcb1f0865d08a1c90e8fc0fd9747 registrou o source_sha final e acionou o workflow de publicacao 33834178087
+      - workflow final aprovou build, regressao visual, caminhos, upload, deploy e cleanup; PageSpeed permaneceu skipped por ausencia de necessidade estrita
+      - HTML publicado respondeu 200, preservou o COVER comum e manteve titulo exclusivamente na barra inferior; gh-pages remoto foi removido
+      - dev, main, origin/dev e origin/main convergiram no commit-fonte publicado antes do fechamento operacional; _site permaneceu fora de staging e Git
+      - nova varredura do TODO encontrou somente o equalizer perene, literal e desmarcado, sem TO-DO operacional remanescente
 lacunas:
   - id: GAP-AGENTS-CJS-ESM-001
     estado: isolada
