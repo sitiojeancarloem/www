@@ -98,21 +98,23 @@ assert.match(
 	singleLayout,
 	/{% if jcem_custom_featured and jcem_featured_style == "wide" %}[\s\S]*?{% elsif jcem_custom_featured %}[\s\S]*?{% elsif page\.header/,
 );
-assert.match(customTheme, /--jcem-featured-height:\s*clamp\(12rem, 32vh, 24rem\)/);
-assert.match(customTheme, /--jcem-featured-height:\s*clamp\(10rem, 30vh, 18rem\)/);
+assert.match(customTheme, /--jcem-article-zone-width:\s*max\(0px, min\(calc\(100dvw - 4rem\), calc\(#\{\$max-width\} - 4rem\)\)\)/);
+assert.match(customTheme, /--jcem-standard-cover-height:\s*calc\(var\(--jcem-article-zone-width\) \* 630 \/ 1200\)/);
 assert.match(
 	customTheme,
-	/\.jcem-featured-image--wide\s*\{[\s\S]*?\.jcem-featured-image__stage\s*\{[^}]*height:\s*var\(--jcem-featured-height\);[^}]*min-height:\s*var\(--jcem-featured-height\);[^}]*max-height:\s*var\(--jcem-featured-height\);[\s\S]*?&\.jcem-featured-image--single \.jcem-featured-image__img\s*\{[^}]*width:\s*auto;[^}]*height:\s*100%;[^}]*max-width:\s*none;[^}]*max-height:\s*none;/,
+	/\.jcem-featured-image--wide\s*\{[\s\S]*?\.jcem-featured-image__stage\s*\{[^}]*height:\s*var\(--jcem-standard-cover-height\);[^}]*min-height:\s*var\(--jcem-standard-cover-height\);[^}]*max-height:\s*var\(--jcem-standard-cover-height\);[\s\S]*?&\.jcem-featured-image--single \.jcem-featured-image__img\s*\{[^}]*width:\s*auto;[^}]*height:\s*100%;[^}]*max-width:\s*none;[^}]*max-height:\s*none;/,
 );
 assert.match(
 	customTheme,
-	/\.jcem-featured-image--content\s*\{[^}]*width:\s*100%;[^}]*max-width:\s*100%;[\s\S]*?\.jcem-featured-image__stage\s*\{[^}]*width:\s*100%;[^}]*height:\s*var\(--jcem-featured-height\);[^}]*max-height:\s*var\(--jcem-featured-height\);/,
+	/\.jcem-featured-image--content\s*\{[^}]*width:\s*100%;[^}]*max-width:\s*100%;[\s\S]*?\.jcem-featured-image__stage\s*\{[^}]*width:\s*100%;[^}]*height:\s*auto;[^}]*aspect-ratio:\s*1200 \/ 630;/,
 );
 assert.doesNotMatch(
 	customTheme.match(/\.jcem-featured-image--content\s*\{[\s\S]*?\n\}/)?.[0] || '',
 	/100vw|50vw/,
 );
 assert.match(customTheme, /\.jcem-date-flag\s*\{[^}]*z-index:\s*3;/s);
+assert.match(singleLayout, /data-jcem-title-bar="lower"[\s\S]*?<h1 id="page-title"/);
+assert.doesNotMatch(singleLayout.match(/data-jcem-title-bar="upper"[\s\S]*?data-jcem-title-bar="lower"/)?.[0] || '', /<h1 id="page-title"/);
 assert.doesNotMatch(
 	customTheme.match(/\.jcem-featured-image,\s*\.jcem-legacy-hero[\s\S]*?\.jcem-featured-image__caption\s*\{/)?.[0] || '',
 	/filter:\s*blur\(/,

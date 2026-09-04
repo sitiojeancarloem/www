@@ -40,6 +40,12 @@ assert.equal(count(triptych, /jcem-featured-image__side--right/g), 1, 'segmento 
 
 for (const [mode, source] of Object.entries({ content, single, triptych })) {
 	assert.doesNotMatch(source, /jcem-featured-image[^>]*src="\/assets\/images\/social\//, `${mode} exibiu derivado social`);
+	assert.equal(count(source, /data-jcem-title-bar="upper"/g), 1, `${mode} sem barra superior única`);
+	assert.equal(count(source, /data-jcem-title-bar="lower"/g), 1, `${mode} sem barra inferior única`);
+	const upper = source.match(/data-jcem-title-bar="upper"[\s\S]*?data-jcem-title-bar="lower"/)?.[0] || '';
+	const lower = source.match(/data-jcem-title-bar="lower"[\s\S]*?<\/div>\s*<\/div>\s*<div class="jcem-post-header__meta">/)?.[0] || '';
+	assert.doesNotMatch(upper, /<h1 id="page-title"/, `${mode} manteve título na barra superior`);
+	assert.match(lower, /<h1 id="page-title"/, `${mode} não colocou título na barra inferior`);
 }
 
 console.log('cover_rendered=ok modes=4 leakage=0');

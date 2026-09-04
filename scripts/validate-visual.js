@@ -2077,21 +2077,46 @@ const validateCoverPage = async (page, url, theme, viewportName) => {
 		const legacy = document.querySelector('[data-jcem-legacy-hero]');
 		const article = document.querySelector('article.page .page__inner-wrap');
 		const articleRect = rect(article);
+		const mastheadRect = rect(document.querySelector('.masthead'));
+		const header = document.querySelector('.jcem-post-header');
+		const titleBars = header?.querySelector('[data-jcem-title-bars]');
+		const upperBar = header?.querySelector('[data-jcem-title-bar="upper"]');
+		const lowerBar = header?.querySelector('[data-jcem-title-bar="lower"]');
+		const title = header?.querySelector('.page__title');
+		const flag = header?.querySelector('.jcem-date-flag');
+		const triangleBase = flag?.querySelector('[data-jcem-flag-triangle-base]');
+		const titleBarsRect = rect(titleBars);
+		const upperBarRect = rect(upperBar);
+		const lowerBarRect = rect(lowerBar);
+		const flagRect = rect(flag);
+		const triangleBaseRect = rect(triangleBase);
+		const upperBarStyle = upperBar ? window.getComputedStyle(upperBar) : null;
+		const lowerBarStyle = lowerBar ? window.getComputedStyle(lowerBar) : null;
+		const sharedStructure = {
+			mastheadRect,
+			titleBarsRect,
+			upperBarRect,
+			lowerBarRect,
+			flagRect,
+			triangleBaseRect,
+			titleParent: title?.parentElement?.getAttribute('data-jcem-title-bar') || '',
+			upperBarBackground: upperBarStyle?.backgroundImage || '',
+			lowerBarBackground: lowerBarStyle?.backgroundColor || '',
+		};
 
 		if (custom) {
 			const stage = custom.querySelector('.jcem-featured-image__stage');
 			const image = custom.querySelector('.jcem-featured-image__img');
-			const flag = custom.querySelector('.jcem-date-flag');
 			const frameRect = rect(custom);
 			const stageRect = rect(stage);
 			const imageRect = rect(image);
-			const flagRect = rect(flag);
 			const frameStyle = window.getComputedStyle(custom);
 			const stageStyle = stage ? window.getComputedStyle(stage) : null;
 			const imageStyle = image ? window.getComputedStyle(image) : null;
 			const surfaces = Array.from(
 				custom.querySelectorAll('.jcem-featured-image__surface'),
 			);
+			const centerRect = rect(custom.querySelector('.jcem-featured-image__center'));
 			const mode = custom.classList.contains('jcem-featured-image--content')
 				? 'content'
 				: custom.classList.contains('jcem-featured-image--triptych')
@@ -2102,12 +2127,17 @@ const validateCoverPage = async (page, url, theme, viewportName) => {
 
 			return {
 				type: 'custom',
+				...sharedStructure,
 				mode,
+				coverMode: custom.getAttribute('data-jcem-cover-mode') || '',
+				coverScope: custom.getAttribute('data-jcem-cover-scope') || '',
+				coverAxis: Array.from(custom.classList).find((name) => name.startsWith('jcem-cover--axis-'))?.replace('jcem-cover--axis-', '') || '',
 				articleRect,
 				frameRect,
 				stageRect,
 				imageRect,
 				flagRect,
+				centerRect,
 				frameOverflowX: frameStyle.overflowX,
 				frameOverflowY: frameStyle.overflowY,
 				stageOverflowX: stageStyle?.overflowX || '',
@@ -2149,6 +2179,7 @@ const validateCoverPage = async (page, url, theme, viewportName) => {
 
 			return {
 				type: 'legacy',
+				...sharedStructure,
 				mode: legacy.dataset.jcemLegacyHeroMode || '',
 				expectedMode: projectedFullHeight <= availableHeight + 0.5 ? 'full' : 'content',
 				decisions: Number(legacy.dataset.jcemLegacyHeroDecisions || 0),
@@ -2168,11 +2199,33 @@ const validateCoverPage = async (page, url, theme, viewportName) => {
 	});
 
 	const tolerance = 3;
+	const geometryTolerance = 0.51;
 	if (result.type === 'missing') {
 		fail(`Cover ausente em ${url} ${theme} ${viewportName}`);
 	}
 	if (result.horizontalOverflow > tolerance) {
 		fail(`Cover criou overflow horizontal em ${url} ${theme} ${viewportName}: ${JSON.stringify(result)}`);
+	}
+	if (
+		!result.titleBarsRect ||
+		!result.upperBarRect ||
+		!result.lowerBarRect ||
+		result.titleParent !== 'lower' ||
+		Math.abs(result.upperBarRect.bottom - result.lowerBarRect.top) > geometryTolerance ||
+		!result.upperBarBackground.includes('linear-gradient') ||
+		result.upperBarBackground.includes('90deg') ||
+		result.lowerBarBackground === 'rgba(0, 0, 0, 0)'
+	) {
+		fail(`Estrutura integrada das barras invalida em ${url} ${theme} ${viewportName}: ${JSON.stringify(result)}`);
+	}
+	if (
+		result.flagRect &&
+		(!result.triangleBaseRect ||
+			Math.abs(result.triangleBaseRect.top - result.upperBarRect.top) > geometryTolerance ||
+			result.flagRect.top < result.upperBarRect.top - geometryTolerance ||
+			result.flagRect.bottom > result.titleBarsRect.bottom + geometryTolerance)
+	) {
+		fail(`Flag fora da geometria das barras em ${url} ${theme} ${viewportName}: ${JSON.stringify(result)}`);
 	}
 
 	if (result.type === 'custom') {
@@ -2186,12 +2239,42 @@ const validateCoverPage = async (page, url, theme, viewportName) => {
 			result.stageState !== 'loaded' ||
 			result.stageOverflowX !== 'hidden' ||
 			result.stageOverflowY !== 'hidden' ||
-			result.stageRect.height >= result.viewportHeight ||
 			result.naturalRatio <= 0 ||
-			(result.mode !== 'content' &&
+			(!result.coverMode && result.mode !== 'content' &&
 				Math.abs(result.renderedRatio - result.naturalRatio) > 0.02)
 		) {
 			fail(`Estrutura da cover invalida em ${url} ${theme} ${viewportName}: ${JSON.stringify(result)}`);
+		}
+		if (
+			Math.abs(result.stageRect.bottom - result.upperBarRect.top) > geometryTolerance ||
+			result.stageRect.bottom > result.upperBarRect.top + geometryTolerance ||
+			(result.flagRect && result.stageRect.bottom > result.flagRect.top + geometryTolerance)
+		) {
+			fail(`Fronteira COVER/barras sobreposta em ${url} ${theme} ${viewportName}: ${JSON.stringify(result)}`);
+		}
+		const isViewportMode = Boolean(result.coverMode);
+		if (
+			!isViewportMode &&
+			(Math.abs(result.stageRect.top - result.mastheadRect.bottom) > geometryTolerance ||
+				Math.abs(result.stageRect.height - result.articleRect.width * 630 / 1200) > geometryTolerance)
+		) {
+			fail(`Geometria vertical do COVER comum invalida em ${url} ${theme} ${viewportName}: ${JSON.stringify(result)}`);
+		}
+		if (
+			isViewportMode &&
+			result.coverScope === 'inner' &&
+			(Math.abs(result.stageRect.top - result.mastheadRect.bottom) > geometryTolerance ||
+				Math.abs(result.stageRect.bottom - result.viewportHeight) > geometryTolerance)
+		) {
+			fail(`COVER inner nao iniciou apos o cabecalho em ${url} ${theme} ${viewportName}: ${JSON.stringify(result)}`);
+		}
+		if (
+			isViewportMode &&
+			result.coverScope === 'external' &&
+			(Math.abs(result.stageRect.top) > geometryTolerance ||
+				Math.abs(result.stageRect.bottom - result.viewportHeight) > geometryTolerance)
+		) {
+			fail(`COVER externo nao ocupou a janela em ${url} ${theme} ${viewportName}: ${JSON.stringify(result)}`);
 		}
 
 		if (result.mode === 'content') {
@@ -2202,17 +2285,32 @@ const validateCoverPage = async (page, url, theme, viewportName) => {
 				result.frameOverflowX !== 'visible' ||
 				result.frameOverflowY !== 'visible' ||
 				result.imageObjectFit !== 'contain' ||
-				Math.abs(result.frameRect.left - result.articleRect.left) > tolerance ||
-				Math.abs(result.frameRect.right - result.articleRect.right) > tolerance
+				Math.abs(result.frameRect.left - result.articleRect.left) > geometryTolerance ||
+				Math.abs(result.frameRect.right - result.articleRect.right) > geometryTolerance ||
+				Math.abs(result.stageRect.width / result.stageRect.height - 1200 / 630) > 0.002
 			) {
 				fail(`Cover content fora da zona do artigo em ${url} ${theme} ${viewportName}: ${JSON.stringify(result)}`);
 			}
 		} else if (result.mode === 'single') {
 			const imageCenter = (result.imageRect.left + result.imageRect.right) / 2;
 			const frameCenter = (result.frameRect.left + result.frameRect.right) / 2;
+			const imageAreaTop = result.coverScope === 'external'
+				? result.mastheadRect.bottom
+				: result.stageRect.top;
+			const imageAreaHeight = result.stageRect.bottom - imageAreaTop;
 			if (
 				result.surfaceCount !== 0 ||
-				Math.abs(result.imageRect.height - result.stageRect.height) > tolerance ||
+				(!result.coverMode && Math.abs(result.imageRect.height - result.stageRect.height) > tolerance) ||
+				(result.coverMode &&
+					(result.imageRect.top < imageAreaTop - geometryTolerance ||
+						result.imageRect.bottom > result.stageRect.bottom + geometryTolerance)) ||
+				(result.coverMode && result.coverAxis === 'height' &&
+					Math.abs(result.imageRect.height - imageAreaHeight) > geometryTolerance) ||
+				(result.coverMode && result.coverAxis === 'width' &&
+					(result.imageRect.width > result.stageRect.width + geometryTolerance ||
+						result.imageRect.height > imageAreaHeight + geometryTolerance ||
+						(Math.abs(result.imageRect.width - result.stageRect.width) > geometryTolerance &&
+							Math.abs(result.imageRect.height - imageAreaHeight) > geometryTolerance))) ||
 				Math.abs(imageCenter - frameCenter) > tolerance ||
 				Math.abs(result.frameRect.width - result.viewportWidth) > tolerance
 			) {
@@ -2225,6 +2323,9 @@ const validateCoverPage = async (page, url, theme, viewportName) => {
 				result.leftCount !== 1 ||
 				result.centerCount !== 1 ||
 				result.rightCount !== 1 ||
+				!result.centerRect ||
+				Math.abs(result.centerRect.left - result.articleRect.left) > geometryTolerance ||
+				Math.abs(result.centerRect.right - result.articleRect.right) > geometryTolerance ||
 				Math.abs(result.frameRect.width - result.viewportWidth) > tolerance
 			) {
 				fail(`Cover wide tripla fora do contrato em ${url} ${theme} ${viewportName}: ${JSON.stringify(result)}`);
@@ -2247,11 +2348,20 @@ const validateCoverPage = async (page, url, theme, viewportName) => {
 			fail(`Hero legado nao se adaptou ao primeiro viewport em ${url} ${theme} ${viewportName}: ${JSON.stringify(result)}`);
 		}
 		if (
+			Math.abs(result.legacyRect.top - result.mastheadRect.bottom) > geometryTolerance ||
+			Math.abs(result.legacyRect.bottom - result.upperBarRect.top) > geometryTolerance ||
+			result.legacyRect.bottom > result.upperBarRect.top + geometryTolerance ||
+			(result.flagRect && result.legacyRect.bottom > result.flagRect.top + geometryTolerance)
+		) {
+			fail(`Fronteira do Hero legado invalida em ${url} ${theme} ${viewportName}: ${JSON.stringify(result)}`);
+		}
+		if (
 			result.mode === 'content' &&
 			(!result.articleRect ||
 				result.imageObjectFit !== 'contain' ||
-				Math.abs(result.legacyRect.left - result.articleRect.left) > tolerance ||
-				Math.abs(result.legacyRect.right - result.articleRect.right) > tolerance)
+				Math.abs(result.legacyRect.left - result.articleRect.left) > geometryTolerance ||
+				Math.abs(result.legacyRect.right - result.articleRect.right) > geometryTolerance ||
+				Math.abs(result.legacyRect.width / result.legacyRect.height - 1200 / 630) > 0.002)
 		) {
 			fail(`Hero legado content fora da zona do artigo em ${url} ${theme} ${viewportName}: ${JSON.stringify(result)}`);
 		}

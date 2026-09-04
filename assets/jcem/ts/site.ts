@@ -112,7 +112,9 @@ const bindJcemNav = (): void => {
 
 const bindJcemMasthead = (): void => {
 	const masthead = select<HTMLElement>('.masthead');
+	const cover = select<HTMLElement>('[data-jcem-cover]');
 	const externalCover = select<HTMLElement>('[data-jcem-cover-external]');
+	const upperNavigation = select<HTMLElement>('.main_jcem_wrapper > .sobpostbar');
 
 	if (!masthead) {
 		return;
@@ -123,6 +125,40 @@ const bindJcemMasthead = (): void => {
 		);
 		if (opacity) masthead.style.setProperty('--jcem-cover-header-opacity', opacity);
 		masthead.dataset.jcemCoverHeader = 'external';
+	}
+
+	let geometryFrame = 0;
+	const syncCoverGeometry = (): void => {
+		geometryFrame = 0;
+		if (!cover) return;
+		const outerBlockSize = (element: HTMLElement | null): number => {
+			if (!element) return 0;
+			const style = window.getComputedStyle(element);
+			const number = (value: string): number => Number.parseFloat(value) || 0;
+			let size = number(style.height);
+			if (style.boxSizing !== 'border-box') {
+				size += number(style.paddingTop) + number(style.paddingBottom);
+				size += number(style.borderTopWidth) + number(style.borderBottomWidth);
+			}
+			return size + number(style.marginTop) + number(style.marginBottom);
+		};
+		const siteHeaderHeight = outerBlockSize(upperNavigation) + outerBlockSize(masthead);
+		cover.style.setProperty('--jcem-site-header-height', `${siteHeaderHeight}px`);
+	};
+	const requestGeometrySync = (): void => {
+		if (geometryFrame) return;
+		geometryFrame = window.requestAnimationFrame(syncCoverGeometry);
+	};
+	if (cover) {
+		syncCoverGeometry();
+		requestGeometrySync();
+		void document.fonts?.ready.then(requestGeometrySync);
+		window.addEventListener('resize', requestGeometrySync, { passive: true });
+		if (typeof ResizeObserver === 'function') {
+			const geometryObserver = new ResizeObserver(requestGeometrySync);
+			geometryObserver.observe(masthead);
+			if (upperNavigation) geometryObserver.observe(upperNavigation);
+		}
 	}
 
 	let ticking = false;

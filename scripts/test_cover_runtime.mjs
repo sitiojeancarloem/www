@@ -60,6 +60,14 @@ try {
 		if (scope === 'external') {
 			await page.waitForFunction(() => document.querySelector('.masthead')?.getAttribute('data-jcem-cover-header-state') === 'translucent');
 		}
+		await page.waitForFunction((expectedScope) => {
+			const stage = document.querySelector('.jcem-featured-image__stage')?.getBoundingClientRect();
+			const masthead = document.querySelector('.masthead')?.getBoundingClientRect();
+			if (!stage || !masthead) return false;
+			return expectedScope === 'external'
+				? Math.abs(stage.top) <= 0.51 && Math.abs(stage.bottom - window.innerHeight) <= 0.51
+				: Math.abs(stage.top - masthead.bottom) <= 0.51 && Math.abs(stage.bottom - window.innerHeight) <= 0.51;
+		}, scope);
 		const state = await page.evaluate(() => {
 			const cover = document.querySelector('[data-jcem-cover]');
 			const stage = cover?.querySelector('.jcem-featured-image__stage');
@@ -67,6 +75,12 @@ try {
 			const hero = cover?.querySelector('[data-jcem-cover-hero]');
 			const masthead = document.querySelector('.masthead');
 			const header = document.querySelector('.jcem-post-header');
+			const articleZone = document.querySelector('article.page .page__inner-wrap');
+			const upperBar = header?.querySelector('[data-jcem-title-bar="upper"]');
+			const lowerBar = header?.querySelector('[data-jcem-title-bar="lower"]');
+			const flag = header?.querySelector('.jcem-date-flag');
+			const triangleBase = flag?.querySelector('[data-jcem-flag-triangle-base]');
+			const title = header?.querySelector('.page__title');
 			const rect = (node) => node?.getBoundingClientRect().toJSON();
 			return {
 				mode: cover?.getAttribute('data-jcem-cover-mode'),
@@ -75,6 +89,8 @@ try {
 				fit: [...(cover?.classList || [])].find((name) => name.startsWith('jcem-cover--fit-'))?.replace('jcem-cover--fit-', ''),
 				zone: hero?.getAttribute('data-jcem-hero-zone'),
 				cover: rect(cover), stage: rect(stage), useful: rect(useful), hero: rect(hero), masthead: rect(masthead),
+				articleZone: rect(articleZone), upperBar: rect(upperBar), lowerBar: rect(lowerBar), flag: rect(flag), triangleBase: rect(triangleBase),
+				titleParent: title?.parentElement?.getAttribute('data-jcem-title-bar') || '',
 				heroContent: rect(cover?.querySelector('.jcem-cover__hero-content')),
 				heroOverflow: cover?.querySelector('.jcem-cover__hero-content') ? getComputedStyle(cover.querySelector('.jcem-cover__hero-content')).overflowY : '',
 				headerState: masthead?.getAttribute('data-jcem-cover-header-state'),
@@ -101,9 +117,17 @@ try {
 		assert.ok(state.overflow <= 1, `overflow horizontal ${mode}: ${state.overflow}`);
 		assert.equal(state.bars, 2, `barras editoriais divergentes ${mode}`);
 		assert.equal(state.flagInBar, true, `flag fora da estrutura compartilhada ${mode}`);
+		assert.equal(state.titleParent, 'lower', `título fora da barra inferior ${mode}`);
+		assert.ok(Math.abs(state.stage.bottom - state.upperBar.top) <= 0.51, `fronteira cover/barras divergente ${mode}: ${JSON.stringify(state)}`);
+		assert.ok(state.stage.bottom <= state.upperBar.top + 0.51, `cover sobrepôs barras ${mode}: ${JSON.stringify(state)}`);
+		if (state.flag) {
+			assert.ok(state.stage.bottom <= state.flag.top + 0.51, `cover sobrepôs flag ${mode}: ${JSON.stringify(state)}`);
+			assert.ok(Math.abs(state.triangleBase.top - state.upperBar.top) <= 0.51, `base da flag não colinear ${mode}: ${JSON.stringify(state)}`);
+		}
 		if (mode === 'full-window') assert.equal(state.ctaName, 'Ir ao conteúdo');
 		if (scope === 'external') {
 			assert.ok(Math.abs(state.stage.height - 720) <= 2, `viewport externo divergente ${mode}`);
+			assert.ok(Math.abs(state.stage.top) <= 0.51 && Math.abs(state.stage.bottom - 720) <= 0.51, `viewport externo fora da janela ${mode}: ${JSON.stringify(state)}`);
 			assert.equal(state.headerState, 'translucent', `masthead inicial não translúcida ${mode}`);
 			await page.evaluate(() => window.scrollTo(0, 80));
 			await page.waitForFunction(() => document.querySelector('.masthead')?.getAttribute('data-jcem-cover-header-state') === 'solid');
@@ -114,7 +138,9 @@ try {
 			assert.ok(scrolled.scroll > 0, `scroll não preservado ${mode}`);
 			assert.notEqual(scrolled.background, state.mastheadBackground, `masthead não tornou sólida ${mode}`);
 		} else {
-			assert.ok(state.stage.height <= 720 - state.masthead.height + 2, `viewport inner excedido ${mode}`);
+			assert.ok(Math.abs(state.stage.height - (720 - state.masthead.bottom)) <= 0.51, `altura inner divergente ${mode}: ${JSON.stringify(state)}`);
+			assert.ok(Math.abs(state.stage.top - state.masthead.bottom) <= 0.51, `cover inner não iniciou após masthead ${mode}`);
+			assert.ok(Math.abs(state.stage.bottom - 720) <= 0.51, `cover inner não terminou na janela ${mode}: ${JSON.stringify(state)}`);
 			assert.equal(state.headerState, null, `masthead inner contaminada ${mode}`);
 		}
 
@@ -143,17 +169,76 @@ try {
 	}));
 	assert.ok(Math.abs(portrait.scroll - scrollBeforeResize) <= 1 && portrait.stage.height <= 1024 && portrait.overflow <= 1, `resize/orientação inválido ${JSON.stringify(portrait)}`);
 
+	await page.goto(`http://127.0.0.1:${port}/_fixtures/covers/content/`, { waitUntil: 'load' });
+	for (const [width, height] of [[360, 800], [480, 800], [768, 1024], [1024, 768], [1280, 720]]) {
+		await page.setViewportSize({ width, height });
+		const resized = await page.evaluate(() => {
+			const rect = (node) => node?.getBoundingClientRect().toJSON();
+			return {
+				stage: rect(document.querySelector('.jcem-featured-image__stage')),
+				article: rect(document.querySelector('article.page .page__inner-wrap')),
+				masthead: rect(document.querySelector('.masthead')),
+				upperBar: rect(document.querySelector('[data-jcem-title-bar="upper"]')),
+				overflow: document.documentElement.scrollWidth - document.documentElement.clientWidth,
+			};
+		});
+		assert.ok(
+			Math.abs(resized.stage.left - resized.article.left) <= 0.51 &&
+			Math.abs(resized.stage.right - resized.article.right) <= 0.51 &&
+			Math.abs(resized.stage.top - resized.masthead.bottom) <= 0.51 &&
+			Math.abs(resized.stage.bottom - resized.upperBar.top) <= 0.51 &&
+			Math.abs(resized.stage.width / resized.stage.height - 1200 / 630) <= 0.002 &&
+			resized.overflow <= 1,
+			`resize contínuo rompeu cover comum ${width}x${height}: ${JSON.stringify(resized)}`,
+		);
+	}
+
 	await page.setViewportSize({ width: 1280, height: 720 });
 	for (const mode of ['legacy', 'content', 'wide-single', 'wide-triptych']) {
 		await page.goto(`http://127.0.0.1:${port}/_fixtures/covers/${mode}/`, { waitUntil: 'load' });
-		const legacy = await page.evaluate(() => ({
-			coverExtension: Boolean(document.querySelector('[data-jcem-cover]')),
-			heroExtension: Boolean(document.querySelector('[data-jcem-cover-hero]')),
-			featured: Boolean(document.querySelector('.jcem-featured-image, .jcem-legacy-hero')),
-			overflow: document.documentElement.scrollWidth - document.documentElement.clientWidth,
-		}));
-		assert.deepEqual(legacy, { coverExtension: false, heroExtension: false, featured: true, overflow: 0 }, `regressão na fixture ${mode}`);
+		const legacy = await page.evaluate(() => {
+			const rect = (node) => node?.getBoundingClientRect().toJSON();
+			const featured = document.querySelector('.jcem-featured-image, .jcem-legacy-hero');
+			const stage = featured?.querySelector('.jcem-featured-image__stage, .page__hero');
+			const articleZone = document.querySelector('article.page .page__inner-wrap');
+			const upperBar = document.querySelector('[data-jcem-title-bar="upper"]');
+			const lowerBar = document.querySelector('[data-jcem-title-bar="lower"]');
+			const flag = document.querySelector('.jcem-post-header .jcem-date-flag');
+			const triangleBase = flag?.querySelector('[data-jcem-flag-triangle-base]');
+			const center = featured?.querySelector('.jcem-featured-image__center');
+			const masthead = document.querySelector('.masthead');
+			const title = document.querySelector('.jcem-post-header .page__title');
+			return {
+				coverExtension: Boolean(document.querySelector('[data-jcem-cover]')),
+				heroExtension: Boolean(document.querySelector('[data-jcem-cover-hero]')),
+				featured: Boolean(featured),
+				overflow: document.documentElement.scrollWidth - document.documentElement.clientWidth,
+				featuredRect: rect(featured), stage: rect(stage), articleZone: rect(articleZone), upperBar: rect(upperBar), lowerBar: rect(lowerBar),
+				flag: rect(flag), triangleBase: rect(triangleBase), center: rect(center), masthead: rect(masthead),
+				titleParent: title?.parentElement?.getAttribute('data-jcem-title-bar') || '',
+			};
+		});
+		assert.deepEqual(
+			{ coverExtension: legacy.coverExtension, heroExtension: legacy.heroExtension, featured: legacy.featured, overflow: legacy.overflow },
+			{ coverExtension: false, heroExtension: false, featured: true, overflow: 0 },
+			`regressão na fixture ${mode}`,
+		);
 		assert.equal(await page.locator('.jcem-post-header__topbar, .jcem-post-header__bottombar').count(), 2, `estrutura de barras legada divergente ${mode}`);
+		assert.equal(legacy.titleParent, 'lower', `título fora da barra inferior ${mode}`);
+		assert.ok(Math.abs(legacy.stage.top - legacy.masthead.bottom) <= 0.51, `cover não iniciou após masthead ${mode}: ${JSON.stringify(legacy)}`);
+		assert.ok(Math.abs(legacy.stage.bottom - legacy.upperBar.top) <= 0.51, `fronteira cover/barras divergente ${mode}: ${JSON.stringify(legacy)}`);
+		assert.ok(legacy.stage.bottom <= legacy.upperBar.top + 0.51, `cover sobrepôs barras ${mode}: ${JSON.stringify(legacy)}`);
+		if (legacy.flag) {
+			assert.ok(legacy.stage.bottom <= legacy.flag.top + 0.51, `cover sobrepôs flag ${mode}: ${JSON.stringify(legacy)}`);
+			assert.ok(Math.abs(legacy.triangleBase.top - legacy.upperBar.top) <= 0.51, `base da flag não colinear ${mode}: ${JSON.stringify(legacy)}`);
+		}
+		if (mode === 'content') {
+			assert.ok(Math.abs(legacy.stage.left - legacy.articleZone.left) <= 0.51 && Math.abs(legacy.stage.right - legacy.articleZone.right) <= 0.51, `cover comum fora da zona do artigo ${JSON.stringify(legacy)}`);
+			assert.ok(Math.abs(legacy.stage.width / legacy.stage.height - (1200 / 630)) <= 0.002, `proporção comum divergente ${JSON.stringify(legacy)}`);
+		}
+		if (mode === 'wide-triptych') {
+			assert.ok(Math.abs(legacy.center.left - legacy.articleZone.left) <= 0.51 && Math.abs(legacy.center.right - legacy.articleZone.right) <= 0.51, `centro triplo fora da zona do artigo ${JSON.stringify(legacy)}`);
+		}
 	}
 
 	await page.setViewportSize({ width: 320, height: 800 });
@@ -168,6 +253,29 @@ try {
 	}));
 	assert.ok(Math.abs(mobile.width - 320) <= 1 && Math.abs(mobile.height - 800) <= 2 && mobile.overflow <= 1, `mobile 320 inválido ${JSON.stringify(mobile)}`);
 	assert.ok(mobile.content.top >= mobile.useful.top - 1 && mobile.content.bottom <= mobile.useful.bottom + 1 && !['auto', 'scroll'].includes(mobile.overflowY), `Hero mobile inválido ${JSON.stringify(mobile)}`);
+
+	const dprPage = await browser.newPage({ viewport: { width: 390, height: 844 }, deviceScaleFactor: 2 });
+	await dprPage.goto(`http://127.0.0.1:${port}/_fixtures/covers/wide-triptych/`, { waitUntil: 'load' });
+	const dpr = await dprPage.evaluate(() => {
+		const rect = (node) => node?.getBoundingClientRect().toJSON();
+		return {
+			devicePixelRatio,
+			center: rect(document.querySelector('.jcem-featured-image__center')),
+			article: rect(document.querySelector('article.page .page__inner-wrap')),
+			stage: rect(document.querySelector('.jcem-featured-image__stage')),
+			upperBar: rect(document.querySelector('[data-jcem-title-bar="upper"]')),
+			overflow: document.documentElement.scrollWidth - document.documentElement.clientWidth,
+		};
+	});
+	assert.ok(
+		dpr.devicePixelRatio === 2 &&
+		Math.abs(dpr.center.left - dpr.article.left) <= 0.51 &&
+		Math.abs(dpr.center.right - dpr.article.right) <= 0.51 &&
+		Math.abs(dpr.stage.bottom - dpr.upperBar.top) <= 0.51 &&
+		dpr.overflow <= 1,
+		`DPR 2 rompeu geometria tripla: ${JSON.stringify(dpr)}`,
+	);
+	await dprPage.close();
 } finally {
 	await browser.close();
 	await new Promise((resolve) => server.close(resolve));

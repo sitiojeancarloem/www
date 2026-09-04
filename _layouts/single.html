@@ -59,6 +59,10 @@ layout: default
 {% if page.collection == 'posts' or page.pagespeed_layout == 'article' %}
   {% assign jcem_is_article = true %}
 {% endif %}
+{% assign jcem_has_structural_cover = false %}
+{% if jcem_custom_featured or page.header.image and jcem_is_article %}
+  {% assign jcem_has_structural_cover = true %}
+{% endif %}
 
 {% if jcem_custom_featured and jcem_featured_style == "wide" %}
   {% include jcem/post-featured-image.html style="wide" %}
@@ -91,33 +95,36 @@ layout: default
 <div id="main" role="main">
   {% include sidebar.html locale=locale %}
 
-  <article class="page h-entry{% if jcem_is_article %} jcem-post{% endif %}{% if jcem_featured_style != "" %} jcem-featured-style--{{ jcem_featured_style }}{% endif %}{% if jcem_blockquote_panels %} jcem-blockquote-panels{% endif %}" data-jcem-quote-default="{{ jcem_blockquote_model }}"{% if jcem_is_article %} data-print-article data-print-profile="ieee-conference-a4-ieeetran-1.8b" data-print-state="legivel"{% endif %} itemscope itemtype="https://schema.org/CreativeWork"{% if page.locale %} lang="{{ page.locale }}"{% endif %}>
+  <article class="page h-entry{% if jcem_is_article %} jcem-post{% endif %}{% if jcem_has_structural_cover %} jcem-post--with-cover{% endif %}{% if jcem_featured_style != "" %} jcem-featured-style--{{ jcem_featured_style }}{% endif %}{% if jcem_blockquote_panels %} jcem-blockquote-panels{% endif %}" data-jcem-quote-default="{{ jcem_blockquote_model }}"{% if jcem_is_article %} data-print-article data-print-profile="ieee-conference-a4-ieeetran-1.8b" data-print-state="legivel"{% endif %} itemscope itemtype="https://schema.org/CreativeWork"{% if page.locale %} lang="{{ page.locale }}"{% endif %}>
     {% if page.title %}<meta itemprop="headline" content="{{ page.title | replace: '|', '&#124;' | markdownify | strip_html | strip_newlines | escape_once }}">{% endif %}
     {% if page.excerpt %}<meta itemprop="description" content="{{ page.excerpt | markdownify | strip_html | strip_newlines | escape_once }}">{% endif %}
     {% if page.date %}<meta itemprop="datePublished" content="{{ page.date | date_to_xmlschema }}">{% endif %}
     {% if page.last_modified_at %}<meta itemprop="dateModified" content="{{ page.last_modified_at | date_to_xmlschema }}">{% endif %}
 
-    <div class="page__inner-wrap">
-      {% unless jcem_overlay_header %}
-        <header class="jcem-post-header"{% if page.jcem_cover %} data-jcem-post-cover-mode="{{ page.jcem_cover.mode }}"{% endif %}{% if jcem_is_article %} data-print-span="all"{% endif %}>
-          {% if jcem_content_featured %}
-            {% include jcem/post-featured-image.html style="content" %}
-          {% endif %}
-          <div class="jcem-post-header__deck">
-            <div class="jcem-post-header__topbar">
-              {% include jcem/post-date-flag.html placement="header" %}
-              {% if page.title -%}
-              <h1 id="page-title" class="page__title p-name" itemprop="headline">
-                <a href="{{ page.url | absolute_url }}" itemprop="url">{{ page.title | markdownify | remove: "<p>" | remove: "</p>" }}</a>
-              </h1>
-              {%- endif %}
-            </div>
-            <div class="jcem-post-header__bottombar">
-              {% include jcem/post-read-time.html locale=locale %}
-            </div>
+    {% unless jcem_overlay_header %}
+      <header class="jcem-post-header"{% if page.jcem_cover %} data-jcem-post-cover-mode="{{ page.jcem_cover.mode }}"{% endif %}{% if jcem_is_article %} data-print-span="all"{% endif %}>
+        {% if jcem_content_featured %}
+          {% include jcem/post-featured-image.html style="content" %}
+        {% endif %}
+        <div class="jcem-post-header__deck" data-jcem-title-bars>
+          <div class="jcem-post-header__topbar" data-jcem-title-bar="upper">
+            {% include jcem/post-date-flag.html placement="header" %}
           </div>
-        </header>
-      {% endunless %}
+          <div class="jcem-post-header__bottombar" data-jcem-title-bar="lower">
+            {% if page.title -%}
+            <h1 id="page-title" class="page__title p-name" itemprop="headline">
+              <a href="{{ page.url | absolute_url }}" itemprop="url">{{ page.title | markdownify | remove: "<p>" | remove: "</p>" }}</a>
+            </h1>
+            {%- endif %}
+          </div>
+        </div>
+        <div class="jcem-post-header__meta">
+          {% include jcem/post-read-time.html locale=locale %}
+        </div>
+      </header>
+    {% endunless %}
+
+    <div class="page__inner-wrap">
 
 	  {% if jcem_is_article %}{% include jcem/print-metadata.html %}{% endif %}
 	  {% if jcem_is_article %}{% include jcem/read-aloud.html %}{% endif %}

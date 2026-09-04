@@ -773,7 +773,7 @@ plano:
   - id: FT-059
     classe: implementacao_codigo
     criado_em: 2026-09-03T20:08:22.3269934-03:00
-    estado: em_andamento
+    estado: concluida
     depende_de: FT-058
     fonte: .ia.rules/state/requests/FT-058/prompt.md
     fonte_autorizacao: .ia.rules/state/requests/FT-058/prompt.md
@@ -783,10 +783,16 @@ plano:
       - layout calculado cumpre as invariantes de cover, article-zone, masthead, barras e flag
       - todos os modos e aliases preservam geometria, fit, overflow e header previstos
       - testes estruturais e geometricos bloqueiam a regressao das evidencias 13-16
+    resultado:
+      - cabecalho editorial passou a anteceder o corpo no fluxo do artigo, sem deslocamento negativo ou sobreposicao
+      - cover comum deriva altura da largura efetiva da zona do artigo em 1200:630 e os modos infinite preservam a window-zone
+      - titulo voltou exclusivamente a barra inferior; barra superior usa gradiente vertical translucido para solido e a flag compartilha sua fronteira
+      - altura integral do cabecalho passou a alimentar responsivamente os modos external e inner sem leitura geometrica de layout no scroll
+      - testes renderizados, runtime, resize continuo, orientacao, DPR 2 e matriz visual completa dos dez modos aprovaram
   - id: FT-060
     classe: integracao_validacao_publicacao
     criado_em: 2026-09-03T20:08:22.3269935-03:00
-    estado: pendente
+    estado: em_andamento
     depende_de: FT-059
     fonte: .ia.rules/state/requests/FT-058/prompt.md
     fonte_autorizacao: .ia.rules/state/requests/FT-058/prompt.md
