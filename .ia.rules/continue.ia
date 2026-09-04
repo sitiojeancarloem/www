@@ -803,6 +803,12 @@ plano:
       - build isolado, gates agregados, acessibilidade, impressao e rastreabilidade aprovam
       - PageSpeed somente se prova direta revelar necessidade estrita
       - commits, push, workflow e dev/main convergem sem absorver _site
+    progresso:
+      - gate agregado npm run check aprovado integralmente contra build isolado
+      - build produtivo compactado, runtime e 16 reproducoes equivalentes as evidencias 13-16 aprovados
+      - matriz estrita aprovou 140 combinacoes dos dez modos em sete viewports e dois temas
+      - resize continuo, orientacao, DPR 2, Hero, header antes/depois de scroll e impressao foram validados
+      - PageSpeed nao foi executado por ausencia de necessidade estrita diante das provas diretas
 lacunas:
   - id: GAP-AGENTS-CJS-ESM-001
     estado: isolada

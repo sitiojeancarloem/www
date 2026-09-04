@@ -126,13 +126,13 @@
         "scripts/test_cover_runtime.mjs",
         "scripts/validate-visual.js"
       ],
-      "commit": "",
+      "commit": "ecb4bd3ac0a3c4a6b5aecac820bde7f10104b218",
       "ft": "FT-059",
       "id": "59b6b00f7677d9e93b483aab",
       "line": 21,
       "rcf": "RCFs/carregamento-progressivo.md",
       "sentenceSha256": "7b2c107772ac36df8d555d2bbfe09aa9328638c19bfc04b79ce9cf89f0b698b4",
-      "state": "pending",
+      "state": "synchronized",
       "syncCommit": ""
     },
     {
@@ -155,13 +155,13 @@
         "scripts/test_cover_runtime.mjs",
         "scripts/validate-visual.js"
       ],
-      "commit": "",
+      "commit": "ecb4bd3ac0a3c4a6b5aecac820bde7f10104b218",
       "ft": "FT-059",
       "id": "d22d1034b04718c01b2ab880",
       "line": 22,
       "rcf": "RCFs/carregamento-progressivo.md",
       "sentenceSha256": "385df5797ef7f5d71d17ef75f0884466fba60384e539a8708a8de394bb57fbe3",
-      "state": "pending",
+      "state": "synchronized",
       "syncCommit": ""
     },
     {
@@ -184,13 +184,13 @@
         "scripts/test_cover_runtime.mjs",
         "scripts/validate-visual.js"
       ],
-      "commit": "",
+      "commit": "ecb4bd3ac0a3c4a6b5aecac820bde7f10104b218",
       "ft": "FT-059",
       "id": "d067ce746d2412dc614d1513",
       "line": 23,
       "rcf": "RCFs/carregamento-progressivo.md",
       "sentenceSha256": "28bf2439b399268d7be1ddfb66b25c48ba9d65a527a4871be40ec17a9ca3344a",
-      "state": "pending",
+      "state": "synchronized",
       "syncCommit": ""
     },
     {
@@ -213,13 +213,13 @@
         "scripts/test_cover_runtime.mjs",
         "scripts/validate-visual.js"
       ],
-      "commit": "",
+      "commit": "ecb4bd3ac0a3c4a6b5aecac820bde7f10104b218",
       "ft": "FT-059",
       "id": "f227b750577e1c1e634df326",
       "line": 24,
       "rcf": "RCFs/carregamento-progressivo.md",
       "sentenceSha256": "3b57092758ef11a8ddc3de578411ad6b1e68f908a3450d5fdf714b37f4175be4",
-      "state": "pending",
+      "state": "synchronized",
       "syncCommit": ""
     },
     {
@@ -255,13 +255,13 @@
         "scripts/test_cover_runtime.mjs",
         "scripts/validate-visual.js"
       ],
-      "commit": "",
+      "commit": "ecb4bd3ac0a3c4a6b5aecac820bde7f10104b218",
       "ft": "FT-059",
       "id": "abdb09bb96089d68e0a0ac21",
       "line": 26,
       "rcf": "RCFs/carregamento-progressivo.md",
       "sentenceSha256": "2da67bd225d979fc37a8d0325ef2dfa2914c5ff06b43de124e06189d3c4462e1",
-      "state": "pending",
+      "state": "synchronized",
       "syncCommit": ""
     },
     {
@@ -498,13 +498,13 @@
         "scripts/test_cover_runtime.mjs",
         "scripts/validate-visual.js"
       ],
-      "commit": "",
+      "commit": "ecb4bd3ac0a3c4a6b5aecac820bde7f10104b218",
       "ft": "FT-059",
       "id": "81ef10b5d22054ac35db03a4",
       "line": 39,
       "rcf": "RCFs/carregamento-progressivo.md",
       "sentenceSha256": "7f23c90e7986063b5ce20498f43e4704c8a5b228ca1646d984009f7f0befc882",
-      "state": "pending",
+      "state": "synchronized",
       "syncCommit": ""
     },
     {
@@ -1111,13 +1111,13 @@
         "scripts/test_cover_runtime.mjs",
         "scripts/validate-visual.js"
       ],
-      "commit": "",
+      "commit": "ecb4bd3ac0a3c4a6b5aecac820bde7f10104b218",
       "ft": "FT-059",
       "id": "f3705cc5317a855ed68439c1",
       "line": 78,
       "rcf": "RCFs/carregamento-progressivo.md",
       "sentenceSha256": "ae177f819ba389d8192642a45a29d3541b40fee1a1875bc9c92c60d75b79f6e9",
-      "state": "pending",
+      "state": "synchronized",
       "syncCommit": ""
     },
     {
@@ -1409,13 +1409,13 @@
         "scripts/test_cover_runtime.mjs",
         "scripts/validate-visual.js"
       ],
-      "commit": "",
+      "commit": "ecb4bd3ac0a3c4a6b5aecac820bde7f10104b218",
       "ft": "FT-059",
       "id": "667f9e84acbcb4a42f3647ff",
       "line": 130,
       "rcf": "RCFs/carregamento-progressivo.md",
       "sentenceSha256": "f6846980ff8da3e6132e8462579cb062801ef65eda7ecebf2d3390d3d7e4e414",
-      "state": "pending",
+      "state": "synchronized",
       "syncCommit": ""
     },
     {
@@ -1425,13 +1425,13 @@
         "scripts/test_cover_runtime.mjs",
         "scripts/validate-visual.js"
       ],
-      "commit": "",
+      "commit": "ecb4bd3ac0a3c4a6b5aecac820bde7f10104b218",
       "ft": "FT-059",
       "id": "d1f599baea314cb914095be6",
       "line": 131,
       "rcf": "RCFs/carregamento-progressivo.md",
       "sentenceSha256": "e108cd3d550c1eff4e81bf52e6de83fb658a1caf6a2f5a3038ce1a94002aafaa",
-      "state": "pending",
+      "state": "synchronized",
       "syncCommit": ""
     },
     {
@@ -1531,13 +1531,13 @@
         "scripts/test_cover_runtime.mjs",
         "scripts/validate-visual.js"
       ],
-      "commit": "",
+      "commit": "ecb4bd3ac0a3c4a6b5aecac820bde7f10104b218",
       "ft": "FT-059",
       "id": "37eab4f0e9ef87ac7b03e632",
       "line": 14,
       "rcf": "RCFs/componentes-compartilhados.md",
       "sentenceSha256": "65d2f56ac512185543df87621668a38addfbd1a8bb0e0c75ba8926fe867515c9",
-      "state": "pending",
+      "state": "synchronized",
       "syncCommit": ""
     },
     {
@@ -1579,13 +1579,13 @@
         "scripts/test_cover_runtime.mjs",
         "scripts/validate-visual.js"
       ],
-      "commit": "",
+      "commit": "ecb4bd3ac0a3c4a6b5aecac820bde7f10104b218",
       "ft": "FT-059",
       "id": "837a0596dc982b621cbeb012",
       "line": 15,
       "rcf": "RCFs/componentes-compartilhados.md",
       "sentenceSha256": "548ef267b047e1aa1c48bc5f37ec3dffdc874c7ce158fa6e50ee82edb1f1cd7c",
-      "state": "pending",
+      "state": "synchronized",
       "syncCommit": ""
     },
     {
@@ -1627,13 +1627,13 @@
         "scripts/test_cover_runtime.mjs",
         "scripts/validate-visual.js"
       ],
-      "commit": "",
+      "commit": "ecb4bd3ac0a3c4a6b5aecac820bde7f10104b218",
       "ft": "FT-059",
       "id": "6414096fc6b679127d45f93c",
       "line": 16,
       "rcf": "RCFs/componentes-compartilhados.md",
       "sentenceSha256": "b80739e3e55c6daceb52c3d87ea079de42b01bc8d116883a20b05724eff1dc27",
-      "state": "pending",
+      "state": "synchronized",
       "syncCommit": ""
     },
     {
@@ -1851,13 +1851,13 @@
         "scripts/test_cover_runtime.mjs",
         "scripts/validate-visual.js"
       ],
-      "commit": "",
+      "commit": "ecb4bd3ac0a3c4a6b5aecac820bde7f10104b218",
       "ft": "FT-059",
       "id": "977131561427e6cc569b2feb",
       "line": 45,
       "rcf": "RCFs/componentes-compartilhados.md",
       "sentenceSha256": "c3f2dfd114bc7e72fb1b0d9e4c71a7c41477e258d5950bc49511d251a29d56ae",
-      "state": "pending",
+      "state": "synchronized",
       "syncCommit": ""
     },
     {
