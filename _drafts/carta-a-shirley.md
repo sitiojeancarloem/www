@@ -330,23 +330,23 @@ Não importa a época do nosso casamento: era eu quem tinha que ir atrás de voc
 
 E, na grande maioria das vezes, eu ainda precisava me **desdobrar** para encontrar alguma forma de você conseguir fazer suas coisas lá, porque você **jamais** deixaria de fazer suas próprias coisas **apenas** para ficar comigo. Então, eu precisava tornar aquele lugar atraente o suficiente para você querer permanecer ali.
 
-**Eu sempre fui um mendigo neste casamento.**
+**Eu sempre fui um <u>mendigo</u> neste casamento.**
 
-E isso tem muito a **revelar** sobre o tipo de casamento que nós temos. É o que mais me entristece. Eu sempre passei por cima disso, mas, depois de outubro de 2025, simplesmente se tornou pesado demais.
+E isso tem muito a **revelar** sobre o tipo de casamento que nós temos. É o que mais me entristece. Eu sempre passei por cima disso, mas, depois de outubro de 2025, simplesmente se tornou pesado demais. Eu já era infeliz antes, mas apesar da infelicidade, eu ainda estava encantado, e esperançoso.
 
-Seja no carro ou em qualquer outro lugar, sou sempre eu quem procura manter contato, te acariciar, fazer um agrado. Para não ser injusto, existe uma exceção: quando caminhamos na rua. Por algum motivo, você faz muita questão de andarmos de mãos dadas. Eu também faço questão, embora, com o calor de Pirassununga, isso às vezes seja extremamente complicado.
+Seja no carro ou em qualquer outro lugar, sou sempre eu quem procura manter contato, te acariciar, fazer um agrado. Para não ser injusto, existe uma exceção: quando caminhamos na rua. Por algum motivo, você faz muita questão de andarmos de mãos dadas. Eu também faço questão, embora, com o calor de Pirassununga e também com minha ansiedade (agitação), isso às vezes seja extremamente complicado.
 
 Mas, fora isso, é assim: não há toques, não há carícias, não há esse tipo de interação, exceto quando parte de mim. E, muitas vezes, você demonstra publicamente não gostar quando eu faço isso.
 
 **Mas ai de mim se eu fizer a mesma coisa quando você quer andar de mãos dadas.**
 
-Um casamento em que apenas um realmente deseja o outro, em que apenas um está disposto a buscar o outro, não é um casamento. Você me possui. Eu sou meramente algo que você tem e que deve estar à sua disposição, atender às suas necessidades nos momentos em que você precisa, no exato momento em que você precisa e do jeito que você precisa. Isso é muito forte, mas é real. E é tão real que você facilmente desiste quando alguma coisa não atende ao mínimo do que você procura.
+Um casamento em que apenas um realmente deseja o outro, em que apenas um está disposto a buscar o outro, não é um casamento. Se eu não demonstro, você se sente sozinha, mas por 15 anos, eu me sinto rejeitado, me sinto um mero brinquedo, mas por ser homem pode né? Você me possui! Eu sou meramente algo que você tem e que deve estar à sua disposição, atender às suas necessidades nos momentos em que você precisa, no exato momento em que você precisa e do jeito que você precisa. Isso é muito forte, mas é real. E é tão real que você facilmente desiste quando alguma coisa não atende ao mínimo do que você procura.
 
-Em 2025, meus olhos se abriram e finalmente pude ver com mais clareza que estive cego pela paixão durante 16 anos. Eu via uma princesa encantada durante todos esses anos. Não porque não enxergasse os defeitos, mas porque, apesar deles, estava sempre encantado e fascinado por ela. Eu queria ver o que ela poderia ser, mas não o que ela era e o que ela se negava a ser.
+Em 2025, meus olhos se abriram e finalmente pude ver com mais clareza que estive cego pela paixão durante 16 anos. Eu via uma princesa encantada durante todos esses anos. Não porque não enxergasse os defeitos, mas porque, apesar deles, estava sempre encantado e fascinado por ela. Eu queria ver o que ela poderia ser, mas não o que ela era e o que ela **se** negava a ser.
 
-Eu acreditava que era recíproco, mas era apenas eu. Eu sempre fui sozinho no casamento. Sempre fui. Você também se achava sozinha né? Mas não é a única. Eu sempre me senti sozinho, abandonado, desprezado, ignorado e rejeitado, tanto sexual quanto emocionalmente, por aquela com quem eu havia escolhido me unir até o meu último suspiro. A diferença é que eu semre te disse isso, há mais de 10 anos falo isso.
+Eu acreditava que era recíproco, mas sempre foi apenas eu. Eu **sempre fui sozinho no casamento**. Sempre fui. Você também se achava sozinha né? Mas não é a única. Eu sempre me senti sozinho, abandonado, desprezado, ignorado e, principalmente, **rejeitado**, tanto sexual quanto emocionalmente, por aquela com quem eu havia escolhido me unir até o meu último suspiro. A diferença é que eu sempre te disse isso; há mais de 15 anos falo isso - sem nunca esconder.
 
-Mesmo assim, eu havia decidido com firmeza não deixar esses pensamentos tomarem conta de mim. Eu havia decidido que aquilo não poderia ser verdade. Só que eu estava enganado todo aquele tempo: eu estava sozinho **mesmo**. Sempre fui somente eu desejando, querendo ficar junto, grudado, querendo ser um. **Mas nunca existiu “nós”.**
+Mesmo assim, eu havia decidido com firmeza não deixar esses pensamentos tomarem conta de mim. Eu havia decidido que aquiles pensamentos não poderiam ser verdade. Só que eu estava enganado todo aquele tempo: eu estava sozinho **mesmo**. Sempre fui somente eu desejando, querendo ficar junto, grudado, querendo ser um. **Nunca existiu “nós”.**
 
 O brinquedo novo deixou de ser interessante. E, quando parou de atender aos desejos do usuário e de cumprir as vontades do usuário, como se apenas o usuário existisse, o brinquedo foi largado num quarto, sozinho. Porque o usuário não se daria ao trabalho de ir até lá, ficar com ele, fazer questão de demonstrar afeto, desejo, amor e apreço. Afinal, é o brinquedo que foi feito para o usuário, e não o usuário para o brinquedo.
 
