@@ -1,3 +1,131 @@
+# Revisão e refatoração de carta pessoal
+
+Revise e refatore integralmente o texto fornecido, preservando **conteúdo, intenção, intensidade, retórica, identidade pessoal e estilo linguístico característico do autor**, mas tornando a leitura acessível, fluida e logicamente progressiva mesmo para leitores com baixa capacidade de interpretação textual.
+
+## Objetivo
+
+Produzir uma carta:
+
+- simples, clara, objetiva, eloquente e argumentativamente forte;
+- compreensível por leitor com escolaridade aproximadamente equivalente ao 4º ano do Ensino Fundamental, inclusive com limitações de letramento funcional;
+- com encadeamento lógico explícito, progressivo e fácil de acompanhar;
+- fiel à voz, personalidade e maneira original de formular ideias do autor;
+- franca na exposição de fatos, argumentos e sentimentos, **sem artificialmente suavizá-los, intensificá-los ou reinterpretá-los**.
+
+**Simplicidade NÃO implica simplificação de conteúdo.** Nenhum detalhe, nuance, ressalva, argumento, contraste, implicação, intensidade ou recurso retórico relevante pode ser perdido.
+
+## Fidelidade
+
+NÃO reinvente, reimagine, complete, especule ou infira conteúdo não expresso.
+
+NÃO transforme a carta em texto acadêmico, terapêutico, jurídico, literário artificial ou excessivamente polido.
+
+NÃO substitua a voz do autor por uma voz genérica.
+
+Preserve:
+
+- fatos e argumentos;
+- sentimentos efetivamente expressos;
+- grau de intensidade de cada afirmação;
+- ironias, críticas e ofensas indiretas/latentes existentes;
+- destaques originalmente escritos em MAIÚSCULAS;
+- caráter pessoal e conjugal da carta.
+
+É PROIBIDO criar novas acusações, diagnósticos, intenções, motivações ou conclusões.
+
+## Clareza e linguagem
+
+Simplifique a **forma**, nunca o conteúdo:
+
+- substitua palavras rebuscadas por equivalentes comuns e precisos;
+- desfaça construções excessivamente abstratas;
+- evite sequências de palavras medianamente complexas que, em conjunto, elevem desnecessariamente a carga cognitiva;
+- prefira frases claras, relações causais explícitas e referentes inequívocos;
+- elimine ambiguidades sintáticas e semânticas;
+- reduza períodos excessivamente longos quando isso melhorar compreensão;
+- mantenha vocabulário natural ao autor sempre que já for suficientemente claro.
+
+Não infantilize o texto.
+
+## Argumentação e estrutura
+
+PODE reorganizar frases, períodos e parágrafos quando necessário para produzir uma progressão lógica mais clara.
+
+A reorganização DEVE preservar integralmente:
+
+1. premissas;
+2. fatos;
+3. relações de causa e consequência;
+4. qualificações e exceções;
+5. conclusões;
+6. intensidade argumentativa;
+7. sequência emocional relevante à carta.
+
+Cada argumento deve preparar naturalmente o seguinte. Evite saltos lógicos, referências obscuras e ideias importantes enterradas em construções secundárias.
+
+## Franqueza, conflito e palatabilidade
+
+Considere princípios tecnicamente sólidos de comunicação conjugal e psicoterapia apenas como referência de **forma comunicacional**, nunca como autorização para alterar o conteúdo.
+
+A carta envolve diálogo franco entre cônjuges. Portanto:
+
+- sentimentos reais DEVEM permanecer expressos como efetivamente apresentados;
+- verdades consideradas relevantes pelo autor NÃO DEVEM ser omitidas ou artificialmente atenuadas apenas para evitar desconforto;
+- intensidade e força emocional NÃO DEVEM ser reduzidas;
+- ofensas diretas desnecessárias DEVEM ser evitadas;
+- críticas, ironias ou conteúdos negativos já presentes de forma indireta NÃO DEVEM ser apagados ou neutralizados;
+- quando houver formulação semanticamente equivalente e mais palatável, ela PODE ser usada **somente se preservar exatamente a força, o sentido e a intensidade da afirmação**.
+
+Priorize, quando tecnicamente possível, descrição de fatos, efeitos, sentimentos e percepções sobre ataques pessoais, sem falsificar a posição do autor.
+
+## Correções
+
+Corrija:
+
+- ortografia;
+- gramática;
+- pontuação;
+- concordância;
+- regência;
+- léxico;
+- erros semânticos;
+- referências pronominais;
+- citações, quando houver erro verificável no próprio contexto fornecido.
+
+NÃO altere uma citação apenas por preferência estilística.
+
+## Formatação
+
+- Preserve destaques em MAIÚSCULAS.
+- Use **negrito com parcimônia e precisão** apenas nos pontos argumentativos ou emocionais realmente centrais.
+- NÃO sobrecarregue o texto com formatação.
+- Preserve a estrutura de carta pessoal.
+
+## Restrições finais
+
+NÃO seja prolixo.
+NÃO seja reducionista.
+NÃO moralize.
+NÃO diagnostique.
+NÃO acrescente conselhos externos.
+NÃO explique as alterações realizadas.
+NÃO produza resumo.
+NÃO acrescente introdução ou conclusão inexistentes apenas para “melhorar” a carta.
+
+Entregue exclusivamente a versão integral revisada.
+
+## Texto a revisar
+
+Nem perca tempo lendo isto se for ler só pedaços, pular trechos ou ler com impaciência. **Se não for ler tudo, com atenção, eu prefiro que ignore.**
+
+Isto aqui não é um desabafo. Não é um ataque. E, sinceramente, eu também nem sei dizer exatamente o que é. Depois de 18 anos juntos, nós já conversamos tanto que, em muitos assuntos, conversar parece inútil.
+
+Mesmo assim, nestas últimas duas semanas, você tem insistido em tocar em assuntos e tentar conversar sobre coisas das quais, antes, você mesma fugia. Você mesma já dizia que não adiantava conversar, porque eu e você já sabemos o que o outro vai dizer.
+
+Por isso, duvido que o que vou escrever aqui seja 100% novo para você. Uma coisa ou outra talvez seja, principalmente pela forma como vou dizer, porque nós mudamos e evoluímos com o tempo. **Mas a história, no fundo, é basicamente a mesma.**
+
+Então, repito: eu prefiro que você nem comece a ler se for para desprezar partes, pular trechos ou ficar impaciente. Se for ler, leia tudo.
+
 Dizem, continuamente sobre a necessidade de conversar, entretanto, depois de 18 anos juntos, nós já passamos do ponto em que conversar resolve; as feridas estão demasiadamente infecionadas e expostas que uma simples conversa não é mais possível. Creio que já dissemos muito, talvez não tudo, mas o suiciente e isso não faz diferença, porque tanto eu, quant você somos demasiadamente egoistas. Quando eu disse "que não vale a pena" ao pretender expor uma ideia esses dias, você pareceu chocada, mas depois de 18 anos, se nem mesmo o seu próprio cônjuge consegue ver boas intenções em suas ações e falas, mas vêz maldade ou coisa análoga nelas, então, _"não vale a pena"_. Se, depois de tanto tempo junto, você precisa "pisar em ovos", vestir uma máscara, e ser outra pessoa, para seu próprio cônjuge, então o que existe não é um casamento, mas qualquer outra coisa.
 
 Ano passado, 2025, em outubro, foi quando deescobri a verdade sobre nosso casamento: que tudo foi uma grande farsa; nada valeu a pena. Todo o scrifício e esforço de uma vida, tudo que eu sacrifiquei, não valeu de nada. É mais que ingratidão, pois a ingratidão, significaria que a pessoa reconhece que algo foi feito de bom, mas apenas não é grata; entretanto, no caso, vai muito mais além, é muito pior, muito mais agressivo e ofensivo, é _ao mal chamam bem e ao bem, mal"_ (Isaídas 5:20).
@@ -29,10 +157,12 @@ Eu tenho plena ciência de que eu falhei muito, e não escondo isso. Se eu pudes
   Aí, no sábado, você chegou para mim, logo após o almoço, que estava uma delícia por sinal, e me disse: "eu quero te pedir que você me ajude a manter a mesa arrumada sempre que usar". Sabe, eu não vejo problema eu nos ajudarmos, e em sermos parceiros. Mas existe um problema em apenas um lado ser parceiro, e eu vou explicar melhor. Nós somos cristãos e, desde o namoro, ficou muito claro que estabeleceríamos, tanto quanto possível, um casamento cristão tradicional. Isto é: naquilo que fosse viável e de acordo com as capacidades e habilidades de cada um — sempre para somar, nunca para subtrair — seguiríamos esse modelo: o homem como chefe e líder, e a mulher como colaboradora e submissa; o homem como protetor, e a mulher como cuidadora; o homem como provedor, e a mulher como administradora e mantenedora do lar e daquilo que foi provido. O homem é o que faz, a mulher é a que o auxiliar a fazer em tudo. Mas parece que, somente eu cumpri minha parte. E mais uma vez, longe mim dizer que não possuo defeitos ou que fiz tudo certinho, é justamwnte o oposto, eu estou explicitamente dizendo _"de acordo com as capacidades e habilidades"_ e, mais ainda, que nós devemos somar, ou seja, nas minhas deficiências, a intenção é que você some, e nas suas dificências eu some. A ideia não é que te corrigir e você me corrigir como se eu fosse consertar você e voce fosse me conserar, não! Isso não é nem sequer pedido na bíblia, o pedido é que formemos um, assim, nos tornamos completos. Se eu sou péssmimo em organização, você é ótima; se você é pessima em matemática, eu sou ótimo; se eu sou péssimo em portugues, você é ótima; se você é péssima em informática, eu sou ótimo. Isso não significa que devemos nos conformar, pelo contrário, romanos 12:2 diz o contrário, mas não compete ao outro cobrar nem exigir, e sim, agregar e somar, ou seja, resolver o que o outro não consegue resolver. Mas você é incapaz de resolver, ou seja de somar. Você sempre exigiu de mim, que eu me corrigisse, que eu me tornasse perfeito! Eu tenho defeitos alguns melhoraram, outros, infelizmente, nunca vão melhora e, eu vou morrer, com eles. Quando você exige de mim, que eu resolva ela, voc6E deixou de ser parceira, deixou de somar, e passou a substrair. Isso não é parceiria, isso é inimizade, e sempre foi assim, e eu sempre me senti não acolhido, mas perseguido, cobrado, e punido dentro de minha própria casa.
 
   Você não está alí como uma auxiliar, que alías, é um mandamento divino claro, e o que está em Tiago 2:10? Eu sei que você odeia de todo o coração essa palavras, mas porque será? Talvez seja justamente porque é onde aperta o calo. E é justamente assim com qualquer um, inclusive comigo, não é? O que nos pega, é o que nos causa mais ódio, e geralmente é um ódio mortal. Mas você não é serviçal, de forma alguma, você nunca está disponível, nunca está dispota, nunca está alí, ao lado, deonstrando interesse e intencionalidade em ajudar, colaborar, e contribuir. É inanição total. Se não for pedido, vocÊ não faz. E se for pedido, faz reclamando, por isso, eu prefiro nem pedir, e quando peço, uso palavras como "por gentileza", por favor", usando muito cautela, que você começou a achar ruim, porque você já sabe o que é. Mas sabe, eu não preciso agirt assim com mais ninguém,somente com voicê, eu preciso ter uma atitude e um jogo de palavras no nível de imploração, para chegar perto de conseguir um "sim" de você.
+  - Facilidade em dizer "não"
+    Você já reparou como eu digo sim para você para praticamente qualquer coisa. Você quer algo, eu digo compra, mesmo quando é estranho. Você tem uma ideia estranha, e mesmo apresentando objeçòes, eu digo sim. Você quer uma casa totda rosa: eu digo sim. Você quer uma casa de bonecas: digo sim. Você quer gatos, mesmo tendo combinado não ter: digo sim. Veja o hisórico, eu raramente digo, e quando digo, em geral é quando me envolve diretamente, para fazer algo que eu não quero. Mas quando é sobre você, fazer algo, desejar algo, mudar algo, ainda que me envolve indiretamente, ou possa interferir em mim: em digo sim. É sério. Você nunca pensou nisso eu acho. Agora pense o contrário. Eu raramente escuto você dizer sim. É tão dificil, mas tão dificil, e é assim: para mim, parece até que você sente prazer, pois não é possível. O _"não"_ está na ponta da lingua, antes mesmo de eu terminar de pedir. Mesmo para coisas tão triviais e banais, geralmente eu tenho que me desdobrar e me humilhar implorando e usando de palavras cordiais exageradas para chegar perto de obter um sim, e com má vontade, muita má vontade. Perceptível. Se eu te tratasse do mesmo jeito que sou tratado, eu já estaria preso, pela lei maria da penha, sem exagero algum! É literal!
 
-  Embora a bíblia, e portanto, Deus, dê um mandamento de que a mulher deva obecer ao marido, você claramente está disposta a dizer não, na ponta da lingua, sem nem sequer ter tempo de pensar e refletir. É um pecado aberto e publico, não contra mim, mas contra Deus. Eu já estou acostumado, nem me importo mais.
+  Embora a bíblia, e portanto, Deus, dê um mandamento de que a mulher deva obecer ao marido, você claramente está disposta a dizer "não", na ponta da lingua, sem nem sequer ter tempo de pensar e refletir. É um pecado aberto e publico, não contra mim, mas contra Deus. Eu já estou acostumado, nem me importo mais.
 
-  Um dos muitos erros que se introduziu na igreja é de que a mulher somente deve obedecer ao homem se ele esiver no senhor. Mas isso é errado, não está na biblia.
+  Um dos muitos erros que se introduziu na igreja é de que a mulher somente deve obedecer ao homem se ele _"estiver no senhor"_. Ah quantos pastores e pregadores já houvimos dizer isso ou algo similar. Mas isso é errado, está na biblia. O problema é que, quem quer falar sobre a mulher obedecer o marido, quando é politicamente errado? Ninguém hoje em dia ousa chamar o pecado pelo nome, não é?
 
   Há um problema sério com isso:
   1. Não está escrito em nenhum lugar, nem com essas palavras nem com outras palavras;
@@ -40,9 +170,9 @@ Eu tenho plena ciência de que eu falhei muito, e não escondo isso. Se eu pudes
   3. Se isso estivesse correto, então, a mesma coisa se aplicaria ao homem. Assim, do mesmo jeito que a mulher somente precisa obedecer o homem quando ele estiver no senhor, o homem somente precisaria amar a mulher ao ponto de dar a sua vida por ela quando ela estivesse no senhor. O texto que manda ela obedecer ao marido, é o mesmo que manda o marido amar ao ponto de se sacrificar por ela, então a regra é a mesma para ambos. E o pior, alí compara o casamento ao relacionamento de Cristo com a Igreja, mas qual foi o exemplo de Cristo? Ele amou e se sacrificou pela igreja apenas quando ela estava no senhor? Nào. _"⁸ Mas Deus prova o seu amor para conosco, em que Cristo morreu por nós, sendo nós ainda pecadores"_(Romanos 5:8a | ACF). Então nem homem nem mulher podem deixar de cumprir seus papeis quando o outro não estiver no senhor. Na realidade, o pecado do outro, nunca é justificativa para o nosso próprio pecado, isso é verdade no casamento, no dizimo, no governo; a nós compete a nossa parte, porque o outro peca, não devemos também pecar.
   4. Eu compreendo a ideia por traz do "se ele estiver no senhor", que remete a Atos 5:29, que diz: _"²⁹ …Mais importa obedecer a Deus do que aos homens"_ (Atos 5:29 | ACF). E está certo, mas isso se aplica a violar mandamentos, e não a deixar de cumprir coisas que não violam mandamentos. E há provas na bíblia. Cesar não "estava no senhor", nenhum imperador ou govenador romano estava, mas Jesus mandou obedecer as ordenanças deles mesmo mesmo quando forem péssimas: _"²¹ …Dai pois a César o que é de César, e a Deus o que é de Deus."_ (Mateus 22:21b | ACF). O que este texto prova é que obedecer o marido ou o governo não está em discusão, é um mandamento divino, e deve ser obedecido mesmo que não gostemos e que vejamos que aquilo é ruim. A única exceção é se violar um mandamento divino, e aí, somente neste caso excepcional, é que devemos obedecer primeiro a Deus acima de qualquer ordem humana. Ou seja, a autoridade humana ser pecadora, estar fora do espírito nunca foi desculpa para ser desobediente e irresponsável.
 
-  Ao longo dos anos, eu fui tirando de você as responsabilidades e os serviços, e você não perceu. Além de não precisa prover, nem ajudar administrar nada de contas, eu comecei a fazer as compras rotineiras, eu tirei de você a necessidade de cozinhar para mim e já nem peço mais sua ajuda para nada, exceto quando não consigo mesmo. Hoje, você só precisa limpar a casa e lavar a roupa, e olhe lá, mesmo assim você não dá conta. Eu nem falo ou comento nada. E aí, como eu já havia dito, neste sábado você veio falar comigo sobre parceria? É serio? Na mesa você me pediu para te ajudar mais ainda? A ajudar a manter a mesa organizada? Na realidade, se fosse ver, o mais correto, era assumir de fato a resonsabilidade, e já que é sua, o que eu esperaria vindo de você: "relaxa amor, isso é comigo, eu resolvo". Mas não, eu ainda tenho que me preocupar em é justamente o oposto, você quer ainda mais parceria, daquela em que você compartilha ainda mais serviço. O que vai ficar para você fazer? Você será a dondoca de casa e eu o seu serviçal? A parceiria de mão única, em que cada vez mais, retira-se o peso das suas costas, e cada vez mais eu assumo mais responsabilidade? Que eu faço de tudo? O que eu recebo? Nada? Porque neste morar juntos, até hoje, eu não sei o que estou recebendo de volta; bem no início, pelo menos eu tinha sexo e afeto, já hoje, o que eu tenho?
+  Ao longo dos anos, eu fui tirando de você as responsabilidades e os serviços, e você não perceu. Além de não precisa prover, nem ajudar administrar nada de contas, eu comecei a fazer as compras diárias, eu tirei de você a necessidade de cozinhar para mim (que você tanto reclamava) e já nem peço mais sua ajuda para nada, exceto quando não consigo mesmo. Hoje, você só precisa limpar a casa e lavar a roupa (sem desmerecer), e olhe lá, mesmo assim você não dá conta. Eu nem falo ou comento nada. E aí, como eu já havia dito, neste sábado você veio falar comigo sobre parceria? É serio? Na mesa do almoço você me pediu para te ajudar mais ainda? A ajudar a manter a mesa organizada? Na realidade, se fosse ver, o mais correto, era voc^r assumir de fato a resonsabilidade, e já que é sua, o que eu esperaria vindo de você: "relaxa amor, isso é comigo, eu resolvo". Mas não, eu ainda tenho que me preocupar... é justamente o oposto, você quer ainda mais parceria, daquela em que você compartilha ainda mais serviço. O que vai ficar para você fazer? Se eu contratar uma faxineira, o que restará para você? A parceiria de mão única, em que cada vez mais, retira-se o peso das suas costas, e cada vez mais eu assumo mais responsabilidade? Que eu faço de tudo? O que eu recebo? Nada? Porque neste relacionamento de "morar juntos", até hoje, eu não sei o que estou recebendo de volta; bem lá no início, pelo menos eu tinha sexo e afeto, já hoje, o que eu tenho? Sem sexo, sem afeto, sem respeito, sem admiração. É só ladeira abaixo. O que me resta mesmo é morrer.
 
-  Você reclamava de não ter tempo. Eu comprei uam lava-loucas (_"ah de novo a lava-loucas"_). Não! A questão aqui sou eu, e não você. Assim como no dizimo há roubo, desvio e tantas coisas erradas, mas ainda assim devemos devolver, eu comprei a maquina 80% por sua causa e 20% por puro egoimos sim, mas a maior parte foi por você. Se você usa ela ou não: não me importa. Eu fiz minha parte. Você tinha um problema, muito serviço domestico (que não é muito pois todas as mulheres fazem isso e ainda trabalham fora, e trocariam de lugar fácil fácil), mas eu te amo, eu sei que você está com depressão, e fui lá e ajudei com um solução: reduzir um trabalho. Se você vai ou não usufruir da "graça", aí é com você. Só que é o seguinte, os outros 20% (que me fizeram comprar por puro egoísmo) são justamente os que me aliviaram a consciência: agora, eu não tenho obrigação nenhuma em ajudar com a louça, o que eu poderia (mas sem obrigação nenhuma) fazer eu fiz! O resto é com você. Se você vai valorizar ou não, se você vai usufruir ou não, já sabemos a resposta. Minha consciência está totalmente limpa.
+  Você reclamava de não ter tempo. Eu comprei uam lava-loucas (_"ah de novo a lava-loucas"_). Não! A questão aqui sou eu, e não você. Assim como no dizimo há roubo, desvio e tantas coisas erradas, mas ainda assim devemos devolver, eu comprei a maquina 80% por sua causa e 20% por puro egoimos sim, mas a maior parte foi por você. Se você usa ela ou não: não me importa. Eu fiz minha parte. Você tinha um problema, muito serviço domestico (que não é muito pois todas as mulheres fazem isso e ainda trabalham fora, e trocariam de lugar com você fácil fácil), mas eu te amo e, eu sei que você está com depressão, e fui lá e ajudei com um solução: reduzir um trabalho. Se você vai ou não usufruir da _"graça"_, aí é com você. Só que é o seguinte, os outros 20% (que me fizeram comprar por puro egoísmo) são justamente os que me aliviaram a consciência: agora, eu não tenho obrigação nenhuma em ajudar com a louça, o que eu poderia (mas sem obrigação nenhuma) fazer eu fiz! O resto é com você. Se você vai valorizar ou não, se você vai usufruir ou não, já sabemos a resposta. Minha consciência está totalmente limpa.
 
 - você não é companheira
   Companheirismo é estar junto, seja o que for. Não desmereço todo apoio que você me deu, por exemplo na cirurgia de 2013. Não desmerecimento como se você fosse um zero à esquerda, pois você não é, mas definitivamente está bem aquém. Desde o início do casamento, eu já falava, por diversas vezes, que se não partir de mim, nós não ficamos juntos. Sou eu sempre a te procurar. E eu já cheguei a me comparar a um cachorrinho, que você comumente maltrata e ignora, mas sempre está disposto a voltar abanando o rabo.
