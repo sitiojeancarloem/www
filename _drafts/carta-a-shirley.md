@@ -1,5 +1,7 @@
 # Revisão e refatoração de carta pessoal
 
+# Revisão e refatoração de carta pessoal
+
 Revise e refatore integralmente o texto fornecido, preservando **conteúdo, intenção, intensidade, retórica, identidade pessoal e estilo linguístico característico do autor**, mas tornando a leitura acessível, fluida e logicamente progressiva mesmo para leitores com baixa capacidade de interpretação textual.
 
 ## Objetivo
@@ -18,7 +20,7 @@ Produzir uma carta:
 
 NÃO reinvente, reimagine, complete, especule ou infira conteúdo não expresso.
 
-NÃO transforme a carta em texto acadêmico, terapêutico, jurídico, literário artificial ou excessivamente polido.
+NÃO transforme a carta em texto acadêmico, terapêutico, jurídico, ensaio, artigo ou texto literário artificialmente elaborado.
 
 NÃO substitua a voz do autor por uma voz genérica.
 
@@ -29,7 +31,7 @@ Preserve:
 - grau de intensidade de cada afirmação;
 - ironias, críticas e ofensas indiretas/latentes existentes;
 - destaques originalmente escritos em MAIÚSCULAS;
-- caráter pessoal e conjugal da carta.
+- caráter íntimo, pessoal e conjugal da carta.
 
 É PROIBIDO criar novas acusações, diagnósticos, intenções, motivações ou conclusões.
 
@@ -39,29 +41,55 @@ Simplifique a **forma**, nunca o conteúdo:
 
 - substitua palavras rebuscadas por equivalentes comuns e precisos;
 - desfaça construções excessivamente abstratas;
-- evite sequências de palavras medianamente complexas que, em conjunto, elevem desnecessariamente a carga cognitiva;
+- evite combinações de palavras que, embora individualmente comuns, aumentem desnecessariamente a carga cognitiva;
 - prefira frases claras, relações causais explícitas e referentes inequívocos;
 - elimine ambiguidades sintáticas e semânticas;
-- reduza períodos excessivamente longos quando isso melhorar compreensão;
-- mantenha vocabulário natural ao autor sempre que já for suficientemente claro.
+- divida períodos excessivamente longos quando isso melhorar compreensão;
+- preserve o vocabulário natural do autor sempre que já for suficientemente claro.
 
-Não infantilize o texto.
+Não infantilize o texto nem empobreça sua articulação.
 
 ## Argumentação e estrutura
 
-PODE reorganizar frases, períodos e parágrafos quando necessário para produzir uma progressão lógica mais clara.
+PODE reorganizar frases, períodos, parágrafos e blocos quando necessário para produzir uma progressão lógica mais clara.
 
 A reorganização DEVE preservar integralmente:
 
 1. premissas;
 2. fatos;
 3. relações de causa e consequência;
-4. qualificações e exceções;
+4. qualificações, ressalvas e exceções;
 5. conclusões;
 6. intensidade argumentativa;
 7. sequência emocional relevante à carta.
 
-Cada argumento deve preparar naturalmente o seguinte. Evite saltos lógicos, referências obscuras e ideias importantes enterradas em construções secundárias.
+Cada argumento DEVE preparar naturalmente o seguinte. Evite saltos lógicos, referências obscuras e ideias importantes enterradas em construções secundárias.
+
+### Tópicos e marcações estruturais existentes
+
+O texto pode conter trechos iniciados por `- ` ou outras marcações usadas pelo autor para separar ideias. **Não presuma que essas marcações devam permanecer como lista.**
+
+Avalie cada uma quanto a:
+
+- relação lógica com o trecho anterior e posterior;
+- pertinência sob eventual tópico já existente;
+- necessidade real de separação estrutural;
+- possibilidade de integração natural ao corpo da carta;
+- eventual adequação como título, subtítulo, intertítulo, frase de transição ou simples parágrafo.
+
+PODE mover, agrupar, integrar ou converter esses tópicos para obter a forma mais fluida e semanticamente coerente.
+
+Entretanto:
+
+- NÃO elimine o conteúdo representado pelo tópico;
+- NÃO altere sua função argumentativa;
+- NÃO force todos os tópicos para uma única forma;
+- NÃO mantenha listas apenas porque estavam originalmente marcadas com `- `;
+- NÃO transforme a carta em artigo, relatório, ensaio ou documento excessivamente seccionado.
+
+Títulos ou subtítulos somente DEVEM existir quando realmente melhorarem orientação, progressão ou compreensão. Quando usados, DEVEM ser discretos, naturais à carta e compatíveis com sua identidade pessoal, evitando aparência acadêmica ou editorial.
+
+A prioridade é obter **uma carta organicamente estruturada**, não um artigo formal.
 
 ## Franqueza, conflito e palatabilidade
 
@@ -73,10 +101,10 @@ A carta envolve diálogo franco entre cônjuges. Portanto:
 - verdades consideradas relevantes pelo autor NÃO DEVEM ser omitidas ou artificialmente atenuadas apenas para evitar desconforto;
 - intensidade e força emocional NÃO DEVEM ser reduzidas;
 - ofensas diretas desnecessárias DEVEM ser evitadas;
-- críticas, ironias ou conteúdos negativos já presentes de forma indireta NÃO DEVEM ser apagados ou neutralizados;
-- quando houver formulação semanticamente equivalente e mais palatável, ela PODE ser usada **somente se preservar exatamente a força, o sentido e a intensidade da afirmação**.
+- críticas, ironias ou conteúdos negativos já presentes de forma indireta ou latente NÃO DEVEM ser apagados, neutralizados ou simplificados;
+- quando houver formulação semanticamente equivalente e mais palatável, ela PODE ser usada **somente se preservar integralmente sentido, força e intensidade**.
 
-Priorize, quando tecnicamente possível, descrição de fatos, efeitos, sentimentos e percepções sobre ataques pessoais, sem falsificar a posição do autor.
+Quando tecnicamente possível, prefira exposição de fatos, efeitos, sentimentos e percepções a ataques pessoais, **sem falsificar, amenizar ou substituir a posição real do autor**.
 
 ## Correções
 
@@ -92,14 +120,15 @@ Corrija:
 - referências pronominais;
 - citações, quando houver erro verificável no próprio contexto fornecido.
 
-NÃO altere uma citação apenas por preferência estilística.
+NÃO altere citações apenas por preferência estilística.
 
 ## Formatação
 
 - Preserve destaques em MAIÚSCULAS.
-- Use **negrito com parcimônia e precisão** apenas nos pontos argumentativos ou emocionais realmente centrais.
+- Use **negrito com parcimônia e precisão** nos pontos argumentativos ou emocionais realmente centrais.
 - NÃO sobrecarregue o texto com formatação.
-- Preserve a estrutura de carta pessoal.
+- Preserve a aparência e identidade de carta pessoal.
+- Listas, títulos e subtítulos são recursos funcionais, NÃO um modelo obrigatório de estrutura.
 
 ## Restrições finais
 
@@ -108,9 +137,11 @@ NÃO seja reducionista.
 NÃO moralize.
 NÃO diagnostique.
 NÃO acrescente conselhos externos.
+NÃO acrescente conteúdo inferido.
 NÃO explique as alterações realizadas.
 NÃO produza resumo.
 NÃO acrescente introdução ou conclusão inexistentes apenas para “melhorar” a carta.
+NÃO imponha estrutura editorial incompatível com uma comunicação pessoal.
 
 Entregue exclusivamente a versão integral revisada.
 
@@ -134,9 +165,9 @@ Depois de tantos anos, me sentindo intensamente frustrados, intensamente angusti
 
 Quando eu dizia: "Não precisa trabalhar" ou "se trabalhar, trabalhe apenas meio periodo", não era visto como proteção das lutas de subordinação a um patrão, cuidado e zêlo, mas como opressão, embora eu nunca houvesse sequer proibido, pelo contrário incentivado, justamente por ver que o trabalho seria uma forma de socializar e com isso diminuir sua depressão, e ainda trazer mais dinheiro para casa (eu sempre tomei muito cuidado no uso de palavras para não colocar sobre você um peso ou responsabilidade que você não deveria ter: o de trazer dinheiro para casa).
 
-Quando eu deixava você livre e solta para ir e voltar sozinha para onde quer que fosse, eu queria demonstrar justamente **confiança** conjugal, **segurança** emocioal, e dar a **liberdade e autonomia**, mas aí, era visto justamente como falta de zelo e zuidado (onde justamente não havia lógica para ter zelo e cuidado).
+Quando eu deixava você livre e solta para ir e voltar sozinha para onde quer que fosse, eu queria demonstrar justamente **confiança** conjugal, **segurança** emocioal, e dar a **liberdade e autonomia**, mas aí, era visto justamente como falta de zelo e zuidado (onde justamente **não** havia lógica para ter zelo e cuidado).
 
-Desde o início eu, apesar de possuir muitos defeitos, e claramente não ter as características tradicionais de um homem raiz, eu assumir o papel de um homem provedor. Eu **sempre somei**, e nunca subtrai, pois esta é a ideia, somarmos! Você tem falhas e eu não sou seu pai nem sua mão para te corrigir e educar, eu sou seu marido para te completar; entende a diferença? Minha função é te completar! Você não provê, então, eu comleto, povendo; você não é boa com matemática, então, minha função não é te educar, corrigir e consercar, mas te completar: por isso, eu nunca pedi para você assumir as responsabilidades de organizar as contas da casa, já reparou nisso? Eu assumi a responsabilidade total de prover, e de cuidar do orçamento, das dividas, das contas, e de tudo, e **NUNCA** em todos esses anos, eu trouxe problema de fora para casa, porque, eu sou o responsável sou eu que tenho que resolver e não você. Você obiviamente sentiu e percebeu os impactos, pois eu muitas vezes ficava mal, tinha problemas nas contas e no trabalho, e eu trazia pedidos como: "temos que economizar", mas **NUNCA** pedi para você solucionar o problema, eu administrei sozinho! Você NUNCA precisou lidar com nada, desde a compra do carro, até a compra da casa, desde o pagamento da luz, até pagamento do IPTU, exceto, pontualmente, me ajudar na organização de documentos. Você precisava fazer APENAS o que não tinha como não fazer, por exemplo, assinar contrato, ou levar documentos enquanto eu trabalhava.
+Desde o início eu, apesar de possuir muitos defeitos, e claramente não ter as características tradicionais de um homem raiz, eu assumir o papel de um homem provedor. Eu **sempre somei**, e raramente subtrai, pois esta é a ideia, somarmos! Você tem falhas e eu não sou seu pai nem sua mãe para te corrigir e educar, eu sou seu marido para te completar; entende a diferença? Eu posso te auxiliar e ajudar a evoluir, mas não é a principal função. Minha função é te completar! Você não provê, então, eu comleto, povendo; você não é boa com matemática nem com bancos e coisas burocráticas, então, minha função não é te educar, corrigir e consertar, mas te completar: por isso, eu nunca pedi para você assumir as responsabilidades de organizar as contas da casa, já reparou nisso? Eu assumi a responsabilidade total de prover, e de cuidar do orçamento, das dividas, das contas, e de tudo, e **NUNCA** em todos esses anos, eu trouxe problema de fora para casa, porque, eu sou o responsável sou eu que tenho que resolver e não você. Você obiviamente sentiu e percebeu os impactos, pois eu muitas vezes ficava mal, tinha problemas nas contas, problemas burocráticos, e no trabalho, e eu trazia pedidos como: "temos que economizar", mas **NUNCA** pedi para você solucionar o problema, eu administrei sozinho! Você NUNCA precisou lidar com nada, desde a compra do carro, até a compra da casa, desde o pagamento da luz, até pagamento do IPTU, exceto, pontualmente, me ajudar na organização de documentos; APENAS o que não tinha como não fazer, por exemplo, assinar contrato, ou levar documentos enquanto eu trabalhava - que eram impossibilidades e não pedido que eu te fazia por não estar dando conta.
 
 Longe de mim, querer dizer que sou perfeito, que não sou egoísta, e que não precisava e ainda não preciso melhorar. Pelo contrário, por diversas vezes, agravado por essa **intensa dor** da frutração, eu dizia para você que eu compreendia que eu tinha muito que melhorar e que possuia muitos defeitos; e eu ainda tenhos muitos deles, outros melhorei e alguns talvez nem mesmo em décadas consiga resolver. Mas anda assim, naquele outro de 2025, eu acho que consegui compreender um pouquinho como deve ser doloroso para Deus, tudo que o ser humano faz e fala Dele, principalmente quando leem o antigo testamento: que Ele é arbitrário, autoritário, rigoroso, "vingativo".
 
