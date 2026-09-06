@@ -506,19 +506,19 @@ Logo, desrespeito não pode ser definido simplesmente como “algo que me desagr
 
 **Exigência de um padrão perfeito**
 
-Talvez você não perceba, mas você impõe um padrão de perfeição, mesmo sem falar isso de forma direta e explícita, que beira a insanidade e é capaz de deixar qualquer um doente. E essa imposição existe de fato, na prática. Não é imaginação.
+Talvez você não perceba, mas você **impõe** um padrão de perfeição, mesmo sem falar isso de forma direta e explícita, que beira a insanidade e é capaz de deixar qualquer um doente. E essa imposição existe de fato, na prática. Não é imaginação.
 
-Um exemplo é um passeio. Se o passeio não for, no mínimo, do jeito que você imaginou na sua cabeça; se houver alguma palavra ríspida, algum desentendimento; se alguma coisa for feita fora do tempo ou da forma que você espera; se houver uma única palavra atravessada, então tudo desaba. Você simplesmente não suporta nem tolera correção de qualquer natureza, a não ser que seja extremamente açucarada.
+Um exemplo é um passeio. Se o passeio não for, no mínimo, do jeito que você imaginou na sua cabeça; se houver alguma palavra ríspida, algum desentendimento; se alguma coisa for feita fora do tempo ou da forma que você espera; se houver uma única palavra atravessada, então tudo desaba. Você simplesmente não suporta nem tolera correção de qualquer natureza, a não ser que seja extremamente açucarada (extremamente gentil).
 
-Esse é um dos motivos pelos quais você não deseja passear comigo, e você já falou isso abertamente. Eu tenho que ser perfeito, por exemplo, no trato com você. É totalmente inadmissível que eu esteja estressado, irritado, com dor, de mau humor, com baixa glicose ou qualquer outra coisa. Aliás, eu também não posso ter depressão, ansiedade nem efeito colateral de remédios.
+Esse é um dos motivos pelos quais você não deseja mais passear comigo, e você já falou isso **abertamente**. Eu tenho que ser perfeito, por exemplo, no trato com você. Para você é totalmente inadmissível que eu esteja estressado, irritado, com dor, de mau humor, com baixa glicose ou qualquer outra coisa. Aliás, eu também não posso ter depressão, ansiedade e nem efeito colateral de remédios.
 
-Mas aí está a ironia: quem exige isso é justamente a mesma pessoa que muda de humor três ou quatro vezes ao dia, às vezes em questão de segundos; a mesma que ofende sem preocupação, dá respostas curtas, grossas e atravessadas — e isso quando responde, porque muitas vezes simplesmente deixa a gente no vácuo, o que é uma falta total de respeito e educação.
+Mas aí está a ironia: quem exige isso é justamente a mesma pessoa que muda de humor três ou quatro vezes ao dia, às vezes em questão de segundos; a mesma que ofende sem preocupação, dá respostas curtas, grossas e atravessadas — e isso quando responde, porque muitas vezes simplesmente deixa a gente no vácuo, o que é uma **falta total de <u>respeito</u>** e educação.
 
-Todos esses defeitos, eu e você já conhecemos. E tudo bem, eu já me acostumei. Mas exigir perfeição do outro a ponto de nem querer passear com ele por causa disso... isso é algo para o qual eu nem consigo encontrar palavras.
+Todos esses defeitos, eu e você já conhecemos. E tudo bem, eu já me acostumei. Mas exigir perfeição do outro a ponto de nem querer passear com ele por causa disso... isso é algo para o qual eu nem consigo encontrar palavras de tão absurdo que é.
 
-Esse tipo de exigência está presente em muitas outras coisas, mas você nunca a diz de forma aberta. Você nunca me disse: “Eu quero que você seja perfeito. Eu quero que você nunca erre.” Mas o seu comportamento diz isso, porque basta um ou dois erros — quase sempre apenas um — e pronto: tudo desanda. Em casa, no passeio, em qualquer lugar.
+Esse tipo de exigência está presente em muitas outras coisas, mas você nunca a diz de forma aberta. Você nunca me disse: “Eu quero que você seja perfeito. Eu quero que você nunca erre.” Mas o seu comportamento diz isso, porque basta um ou dois erros — quase sempre apenas um — e pronto: **tudo desanda**. Em casa, no passeio, em qualquer lugar.
 
-Eu literalmente não posso ser eu mesmo na sua frente. Nunca pude, exceto durante o namoro. Depois que casei, isso me foi tirado. A cobrança não existe porque você a diz em palavras, mas porque você pune por comportamento quando eu não cumpro suas expectativas. Fez certo: ganha recompensa. Fez errado: é punido.
+Eu literalmente <u>não posso ser eu mesmo</u> na sua frente. **Nunca pude, exceto durante o namoro**. Depois que casei, isso me foi tirado. A cobrança não existe porque você a diz em palavras, mas porque você **pune** por **comportamento** quando eu não cumpro suas expectativas. **Fez certo: ganha recompensa. Fez errado: é punido**.
 
 É velado, mas está ali. Você pode até não ter essa intenção — quem sou eu para julgar? — e pode até não planejar nada disso, e eu não duvido que não planeje. Mas isso, na prática, é justamente o que é chamado de **manipulação**. E é horrível.
 
