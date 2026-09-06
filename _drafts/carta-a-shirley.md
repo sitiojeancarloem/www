@@ -1,7 +1,5 @@
 # Revisão e refatoração de carta pessoal
 
-# Revisão e refatoração de carta pessoal
-
 Revise e refatore integralmente o texto fornecido, preservando **conteúdo, intenção, intensidade, retórica, identidade pessoal e estilo linguístico característico do autor**, mas tornando a leitura acessível, fluida e logicamente progressiva mesmo para leitores com baixa capacidade de interpretação textual.
 
 ## Objetivo
@@ -48,6 +46,11 @@ Simplifique a **forma**, nunca o conteúdo:
 - preserve o vocabulário natural do autor sempre que já for suficientemente claro.
 
 Não infantilize o texto nem empobreça sua articulação.
+Não crie reducionismo de intecniodade emocional;
+
+Ao gerar, devolvar em arquivo .md para download.
+
+Seja rigoroso.
 
 ## Argumentação e estrutura
 
@@ -62,6 +65,7 @@ A reorganização DEVE preservar integralmente:
 5. conclusões;
 6. intensidade argumentativa;
 7. sequência emocional relevante à carta.
+8. Parágrafos nem curtos demais, nem longos demais. Devidamente adequados e gramaticalmente corretos para uma carta, respeitando o contexto e a evolução.
 
 Cada argumento DEVE preparar naturalmente o seguinte. Evite saltos lógicos, referências obscuras e ideias importantes enterradas em construções secundárias.
 
@@ -86,6 +90,7 @@ Entretanto:
 - NÃO force todos os tópicos para uma única forma;
 - NÃO mantenha listas apenas porque estavam originalmente marcadas com `- `;
 - NÃO transforme a carta em artigo, relatório, ensaio ou documento excessivamente seccionado.
+- Não quebre as sentenças/parágrafos em multiplos parágrafos apenas para finalidades visuais/estéticas.
 
 Títulos ou subtítulos somente DEVEM existir quando realmente melhorarem orientação, progressão ou compreensão. Quando usados, DEVEM ser discretos, naturais à carta e compatíveis com sua identidade pessoal, evitando aparência acadêmica ou editorial.
 
