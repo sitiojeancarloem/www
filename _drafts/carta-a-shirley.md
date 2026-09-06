@@ -1,3 +1,4 @@
+<!--
 # Revisão e refatoração de carta pessoal
 
 Revise e refatore integralmente o texto fornecido, preservando **conteúdo, intenção, intensidade, retórica, identidade pessoal e estilo linguístico característico do autor**, mas tornando a leitura acessível, fluida e logicamente progressiva mesmo para leitores com baixa capacidade de interpretação textual.
@@ -151,8 +152,9 @@ NÃO imponha estrutura editorial incompatível com uma comunicação pessoal.
 Entregue exclusivamente a versão integral revisada.
 
 ## Texto a revisar
+-->
 
-Nem perca tempo lendo isto se for ler só pedaços, pular trechos ou ler com impaciência. **Se não for ler tudo, com atenção, eu prefiro que ignore.**
+Shirley, nem perca tempo lendo isto se for ler só pedaços, pular trechos ou ler com impaciência. **Se não for ler tudo, com atenção, eu prefiro que ignore.**
 
 Isto aqui não é um desabafo. Não é um ataque. E, sinceramente, eu também nem sei dizer exatamente o que é. Depois de 18 anos juntos, nós já conversamos tanto que, em muitos assuntos, conversar parece inútil.
 
