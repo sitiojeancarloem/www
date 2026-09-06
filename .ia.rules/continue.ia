@@ -818,6 +818,23 @@ plano:
       - HTML publicado respondeu 200, preservou o COVER comum e manteve titulo exclusivamente na barra inferior; gh-pages remoto foi removido
       - dev, main, origin/dev e origin/main convergiram no commit-fonte publicado antes do fechamento operacional; _site permaneceu fora de staging e Git
       - nova varredura do TODO encontrou somente o equalizer perene, literal e desmarcado, sem TO-DO operacional remanescente
+  - id: FT-061
+    classe: manutencao_mecanica
+    criado_em: 2026-09-06T00:17:26.9616361-03:00
+    estado: concluida
+    fonte: .ia.rules/state/requests/FT-061/prompt.md
+    objetivo: Restabelecer o build local com drafts sem alterar o conteudo editorial ou os assets preservados.
+    escopo: Descoberta Jekyll dos artefatos auxiliares mantidos sob _drafts.
+    aceite:
+      - npm run dev-live -- --drafts inicia sem erro fatal
+      - drafts autorais permanecem elegiveis e artefatos de importacao deixam de ser tratados como posts
+      - nenhum conteudo editorial ou asset sob _drafts e removido
+      - _site preexistente permanece fora do commit
+    resultado:
+      - exclusoes cirurgicas impedem que auxiliares de recuperacao e midia sejam tratados como drafts
+      - captions locais materializam a semantica das tabelas sem reescrever o conteudo
+      - build isolado com --drafts aprovou em 141.283 segundos, sem diagnostico fatal ou colisao de destino
+      - check:footnotes e scripts/test_accessible_reading.rb aprovaram; _site permaneceu fora do commit
 lacunas:
   - id: GAP-AGENTS-CJS-ESM-001
     estado: isolada

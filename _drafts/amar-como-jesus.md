@@ -134,7 +134,7 @@ Para Deus, segundo a bíblia, o que é agir e falar com amor?
 <!-- TABELA EVOLUTIVA DE COMPARAÇãO: item 1 repreender  e castigar -->
 
 > ¹⁹ Eu Repreendo e CASTIGO a todos quantos amo; sê pois zeloso, e arrepende-te.
-> — Apocalipse 3:19 | ACF
+> — Apocalipse 3:19 \| ACF
 
 Amar, segundo o que "Está escrito", na compreensão de Deus, é **repreender** e **CASTIGAR**. E isso vai totalmente contra o senso comum atual. Há duas escolhas: continuar crendo no mundo, ou crer em Deus. Em consequência, o **verdadeiro cristão**, que é aquele que permanece em Cristo e anda assim como Ele (1 João 2:6) terá qual tipo de comportamento? É óbvio, precisa ficar claro, que quem repreende e castiga é Deus e não o cristão; cabe ao cristão, como mero mensageiro (profeta, discípulo, apóstolo), a simples função de carteiro - a repreensão e o eventual castigo, advêm não do próprio cristão, mas diretamente de Deus, mas percebe-se claramente o tipo de atitude, o peso, o rigor, e nível de semblante que o verdadeiro cristão terá. E não foi diferente com Paulo, João, Elias, Isaías, Moisés.
 
@@ -145,7 +145,7 @@ Amar, segundo o que "Está escrito", na compreensão de Deus, é **repreender** 
 > — Pv 27:5, ACF.
 
 > ¹¹ E, na verdade, toda a **CORREÇÃO**, ao presente, não parece ser de gozo, senão de tristeza, mas depois produz um fruto **pacífico** de justiça nos **exercitados** por ela.
-> — Hebreus 12:11 | ACF
+> — Hebreus 12:11 \| ACF
 
 > “<u>**FIRA-ME</u> o justo**, <u>será isso uma benignidade</u>; e **repreenda-me**...”
 > — Sl 141:5, ACF.
@@ -169,6 +169,7 @@ Assim, sabendo dessa origem humilde, popular, e simples, quando se lê que Ele c
 | **Sepulcros caiados**      | Mateus 23:27                          |
 | **Serpentes**              | Mateus 23:33                          |
 | **Raça de víboras**        | Mateus 23:33                          |
+{: data-jcem-caption="Expressões usadas por Jesus e referências bíblicas" }
 
 Quais seriam os termos atuais e modernos equivalentes!? É possível claramente, e de forma incontestável, afirmar que Jesus xingava as pessoas, sim, Ele era na visão atual, **rude** com as pessoas. Mas isso em momento algum, significava que seus atos eram **falta** de amor, misericórdia ou compaixão. Mas note, tal "grosseria" era e é ainda hoje, **potencialmente** considerada grosseria (e isso não é defesa da grosseria); ainda mais hoje, pois se perdeu totalmente a noção e senso de realidade e do conceito de amor e compaixão. A percepção de "grosseria", "agressividade" ou "ofensa" tem **muito mais** (mas não unicamente) relação com o ditado: _"se a carapuça serviu, enfia na cabeça"_, pois quanto mais aquela verdade serve para o ouvinte, mais dói nele próprio, e quanto mais dói nele, mais soa como grosseira e áspera, enquanto para outro em quem não serve, apenas foi algo lógico dito de forma direta, objetiva e sem rodeios. Portanto, a grosseria está **mais** nos ouvidos de quem ouve do que na boca de quem fala. Jesus e os profetas e apóstolos poderiam **soar** rudes e grosseiros, mas eles **nunca** foram estúpidos ou grosseiros: **há diferença entre soar de tal forma, e ser assim**.
 
@@ -185,6 +186,7 @@ Jesus claramente falava e agia com amor e compaixão, mas, ao fazê-lo, Ele usav
 | **Sepulcros caiados** | Aparência bonita e limpa escondendo corrupção interior        | **Bonitos por fora e podres por dentro**, **santos de fachada**, **gente podre por dentro**             |
 | **Serpentes**         | Astúcia maligna, perigo, traição, veneno moral                | **Cobras**, **traíras**, **canalhas**, **gente venenosa**                                               |
 | **Raça de víboras**   | Acusação coletiva de perversidade e perigo moral              | **Bando de cobras**, **bando de canalhas**, **gente venenosa**, **bando de desgraçados**                |
+{: data-jcem-caption="Termos bíblicos, sentidos e equivalentes cotidianos" }
 
 Você imagina um cristão usando estas palavras? Caso não imagine, então você não sabe o que é um cristão, pois Cristo usou estas palavras, as equivalentes no seu tempo! Você precisa aprender mais o que é Cristo e como isso não contradiz amor, compaixão e mansidão, apesar de violar sua ideia imaginária e deturpada do que é amor, compaixão e mansidão.
 
@@ -193,22 +195,22 @@ Você imagina um cristão usando estas palavras? Caso não imagine, então você
 A conduta do verdadeiro cristão é aberta, direta, **sem floreios**, e sem meias verdades. Paulo dá exemplo em Gálatas 2:11-14:
 
 > ¹¹ E, chegando Pedro à Antioquia, lhe resisti na cara, porque era repreensível.
-> — Gálatas 2:11 | ACF
+> — Gálatas 2:11 \| ACF
 
 > ² Que pregues a palavra, instes a tempo e fora de tempo, CORRIJAS, repreendas, exortes, com toda a longanimidade e **DOUTRINAS**. ³ Porque virá tempo _[e já chegou]_ em que NÃO suportarão a **SÃ doutrina**; mas, tendo coceira nos ouvidos, amontoarão para si doutores conforme as **SUAS** próprias concupiscências; ⁴ E desviarão os ouvidos da verdade, voltando às fábulas.
-> — 2 Timóteo 4:2-4 | ACF
+> — 2 Timóteo 4:2-4 \| ACF
 
-Obviamente é necessária muita **cautela**. Jesus não saía xingando e ofendendo todo mundo. Paulo também, não fazia isso. Mas a pergunta é: como compreender exatamente não o que se quer entender e não o que a sociedade quer impor sobre o que é amor, compaixão, misericórdia, mansidão, brandura e afins? Pois Jesus usava todos aqueles "xingamentos" por isso foi crucificado. Paulo falava na cara e de forma direta! Um verdadeiro cristão será diferente disso? Claro que não! E você é diferente de Cristo e de Paulo? Agora, é claro que **não** é para sair xingando e ofendendo todos, lembre-se: _"corrijas...com toda a longanimidade e DOUTRINAS [verdade]"_. Na realidade, Jesus em sua oração sacerdotal, pede por unidade do povo de Deus, mas ELe pede _"¹¹ …para que **sejam um**, assim como nós… ¹⁷ Santifica-os na **tua verdade**; a tua palavra é a verdade"_ (João 17:11,17 | ACF). A correção e a repreensão são pela Palavra de Deus, ou seja, pela verdade proferida por Deus e transmitida pelos profetas (2 Pedro 1:21), verdade esta que está contida na bíblia. **QUASE NUNCA** é necessário **emitir ofensa por si mesmo**, pois **quase sempre** quem fere é a própria palavra de Deus, _"¹² porque a palavra de Deus é viva e eficaz, e **mais penetrante do que espada** alguma de dois gumes, e penetra até à divisão da alma e do espírito,…"_ (Hebreus 4:12a | ACF).
+Obviamente é necessária muita **cautela**. Jesus não saía xingando e ofendendo todo mundo. Paulo também, não fazia isso. Mas a pergunta é: como compreender exatamente não o que se quer entender e não o que a sociedade quer impor sobre o que é amor, compaixão, misericórdia, mansidão, brandura e afins? Pois Jesus usava todos aqueles "xingamentos" por isso foi crucificado. Paulo falava na cara e de forma direta! Um verdadeiro cristão será diferente disso? Claro que não! E você é diferente de Cristo e de Paulo? Agora, é claro que **não** é para sair xingando e ofendendo todos, lembre-se: _"corrijas...com toda a longanimidade e DOUTRINAS [verdade]"_. Na realidade, Jesus em sua oração sacerdotal, pede por unidade do povo de Deus, mas ELe pede _"¹¹ …para que **sejam um**, assim como nós… ¹⁷ Santifica-os na **tua verdade**; a tua palavra é a verdade"_ (João 17:11,17 \| ACF). A correção e a repreensão são pela Palavra de Deus, ou seja, pela verdade proferida por Deus e transmitida pelos profetas (2 Pedro 1:21), verdade esta que está contida na bíblia. **QUASE NUNCA** é necessário **emitir ofensa por si mesmo**, pois **quase sempre** quem fere é a própria palavra de Deus, _"¹² porque a palavra de Deus é viva e eficaz, e **mais penetrante do que espada** alguma de dois gumes, e penetra até à divisão da alma e do espírito,…"_ (Hebreus 4:12a \| ACF).
 
 Paulo não teve apenas esta situação com Pedro. O Espírito Santo o moveu outras vezes deixando exemplo da conduta cristã:
 
 > ⁹ Todavia Saulo, que também se chama Paulo, **CHEIO** do **Espírito Santo**, e fixando os olhos nele [Elimas], ¹⁰ Disse: Ó **filho do diabo**, cheio de todo o engano e de toda a malícia, inimigo de toda a justiça, não cessarás de perturbar os retos caminhos do Senhor?
-> — Atos 13:9,10 | ACF
+> — Atos 13:9,10 \| ACF
 
 Em que multiverso ou realidade chamar outra pessoa de **filho do diabo** não é considerado um claro xingamento e nem ofensivo? E Paulo, note, estava **CHEIO do Espírito**. A orientação divina é clara em Tito 1:13:
 
 > ³ Tal testemunho é exato. Portanto, repreende-os SEVERAMENTE, para que sejam sadios na fé
-> — Tito 1:13 | ARA
+> — Tito 1:13 \| ARA
 
 > A maior necessidade do mundo é a de homens — homens que se não comprem nem se vendam; homens que no íntimo da alma sejam **verdadeiros e honestos**; homens que NÃO temam CHAMAR o pecado pelo seu NOME EXATO; homens, cuja **consciência** seja tão fiel ao dever como a bússola o é ao pólo; homens que **permaneçam firmes** pelo que é reto, ainda que caiam os céus.
 > — Ellen G. White, _Educação_, p. 57.
@@ -218,7 +220,7 @@ Falar e agir com amor e compaixão, NÃO significa ser **brando** e **suave**, p
 Pedro também xingava:
 
 > ¹² No entanto, estes difamam o que não entendem: são como **ANIMAIS irracionais**, guiados pelo instinto, nascidos para serem capturados e destruídos; eles serão corrompidos pela sua própria corrupção!
-> 2 Pedro 2:12 | NVI
+> 2 Pedro 2:12 \| NVI
 
 <!-- TABELA EVOLUTIVA DE COMPARAÇãO: item não é brando e suavidade; é falar na cara; é (reforçar) (chingar / ofender) abertamente e publicamente; ser severo.-->
 
@@ -345,13 +347,13 @@ Não é contra homens que eles estão lutando, e sim contra Deus. Provas?
 > -- Testemunhos para a Igreja, v. 5 - A reunião campal de Michigan, p. 22-23/19.
 
 > ⁹ "Pois darei a ordem e **SACUDIREI** o povo de Israel entre todas as nações, tal como se sacode o trigo em uma peneira, sem que um só grão caia na terra.
-> -- Amós 9:9 | NVI
+> -- Amós 9:9 \| NVI
 
 > _[Jesus:]_ ³¹ — Simão, Simão, eis que Satanás pediu para **peneirar** vocês como se faz com o trigo.
-> -- Lucas 22:31 | NVI
+> -- Lucas 22:31 \| NVI
 
 > ²⁶ A voz dele naquela ocasião abalou a terra, mas agora promete: "Uma vez mais, **abalarei** não apenas a terra, mas também o céu".
-> -- Hebreus 12:26 | NVI
+> -- Hebreus 12:26 \| NVI
 
 > **COMEÇOU** _[não está no futuro]_ a <u>forte</u> **SACUDIDURA** e **continuará**, e todos os que **NÃO** estiverem **dispostos** a <u>assumir</u> uma **posição OUSADA** e tenaz **em prol da VERDADE**, e a **SACRIFICAR-SE** por Deus e por Sua causa, **serão joeirados**.
 > — Ellen G. White, _Primeiros Escritos_, p. 50.
@@ -391,7 +393,7 @@ O mensageiro fiel não fere por gosto, nem silencia por medo. Ele fala porque co
 **Quando a doença é mortal, a verdade QUE CORTA para salvar É MISERICÓRDIA; a mentira que CONSOLA enquanto mata é CRUELDADE.**
 </i>
 
-Os "Acabes" atuais que, infelizmente são a grande parte (mas não todos), os líderes das igrejas adventistas em todos os lugares do mundo, **lutam contra a sacudidura**, que não vem de mãos humanas, mas do próprio Deus. A sacudidura **não é ação humana, é ação divina**. Os Elias modernos, assim como o Elias do passado, **são meros carteiros**, mas estes líderes insistem em perseguir, silenciar, e acusar falsamente; não é contra homens que estão lutando, é contra Deus. Não adianta tentar calá-los, silenciá-los, ou criar planos secretos em suas salas de reuniões. Milhões tentaram, e quando um é calado, dois ou mais surgem no lugar: não há como vencer, eles são como semente. Está escrito: _"³⁰ Não há sabedoria, nem inteligência, nem mesmo conselho contra o Senhor…"_ (Provérbios 21:30a | ARA).
+Os "Acabes" atuais que, infelizmente são a grande parte (mas não todos), os líderes das igrejas adventistas em todos os lugares do mundo, **lutam contra a sacudidura**, que não vem de mãos humanas, mas do próprio Deus. A sacudidura **não é ação humana, é ação divina**. Os Elias modernos, assim como o Elias do passado, **são meros carteiros**, mas estes líderes insistem em perseguir, silenciar, e acusar falsamente; não é contra homens que estão lutando, é contra Deus. Não adianta tentar calá-los, silenciá-los, ou criar planos secretos em suas salas de reuniões. Milhões tentaram, e quando um é calado, dois ou mais surgem no lugar: não há como vencer, eles são como semente. Está escrito: _"³⁰ Não há sabedoria, nem inteligência, nem mesmo conselho contra o Senhor…"_ (Provérbios 21:30a \| ARA).
 
 > A luz é enviada para desfazer as trevas; porém, em seu excessivo orgulho, a rejeitam, preferindo continuar às escuras. **DESPREZAM os conselhos divinos**, <u>**porque NÃO** correspondem</u> aos **seus pontos de vista e INTENÇÕES**, e **NÃO aprovam** seus **maus traços** de caráter. A operação do **Espírito** de Deus, que os **poderia** ajudar a entrar no bom caminho, **SE a aceitassem**, **NÃO se faz** de modo a **comprazê-los e lisonjear sua justiça própria**.
 > -- Testemunhos para a Igreja, v. 5 - Natureza e influência dos testemunhos, p. 655-656/689.
@@ -399,13 +401,13 @@ Os "Acabes" atuais que, infelizmente são a grande parte (mas não todos), os l�
 Sabe o que está escrito sobre estes que lutam para combater a sacudidura e contra Deus?
 
 > ⁶ "**NÃO preguem**", dizem os seus profetas [líderes]. "NÃO preguem **ACERCA dessas coisas**;…
-> Miquéias 2:6a | NVI
+> Miquéias 2:6a \| NVI
 
 > ¹⁰ Eles dizem aos videntes: "**NÃO** tenham mais visões!", e aos profetas: "**NÃO** nos **revelem** o que é **certo**! Falem-nos coisas **agradáveis**, profetizem **ilusões**.
-> Isaías 30:10 | NVI
+> Isaías 30:10 \| NVI
 
 > ¹² Mas vós aos nazireus _[o ungido do tempo biblico, análogo a líder ou pastor atual]_ destes vinho a beber, e aos profetas ordenastes, dizendo: Não profetizareis.
-> Amós 2:12 | ACF
+> Amós 2:12 \| ACF
 
 > Alguns que professam a justiça hão de, como Judas, entregar seu Senhor nas mãos de seus mais duros adversários. Esses que CONFIAM em si mesmos, resolvidos, como estão, a seguir seu **PRÓPRIO CAMINHO** e a **DEFENDER <u>suas próprias</u> idéias**, irão de mal a pior, até estarem prontos a **ACEITAR qualquer** proposta, **MENOS** a de **RENUNCIAR à sua própria vontade**. <u>Cegamente</u> prosseguirão no caminho do mal e tão **enganados** a respeito de **si mesmos**, que, como os fariseus <u>iludidos</u>, **IMAGINAM** estar fazendo a obra de Deus.
 > -- Testemunhos para a Igreja, v. 5 - Natureza e influência dos testemunhos, p. 657/691.
@@ -414,25 +416,25 @@ Sabe o que está escrito sobre estes que lutam para combater a sacudidura e cont
 > -- Testemunhos para a Igreja, v. 5 - Natureza e influência dos testemunhos, p. 656/690.
 
 > ²⁰ Ai dos que ao mal chamam bem e ao bem, mal; que fazem da escuridade luz e da luz, escuridade; põem o amargo por doce e o doce, por amargo!
-> Isaías 5:20 | ARA
+> Isaías 5:20 \| ARA
 
 > ¹⁴ No seu coração há perversidade; todo o tempo **maquina o mal**; anda **semeando contendas**. [...] ¹⁹ **testemunha falsa** que **profere mentiras** e o que semeia contendas entre irmãos.
-> — Provérbios 6:14,19 | ARA
+> — Provérbios 6:14,19 \| ARA
 
 > ⁵ Aquele que calunia o seu próximo **secretamente**, eu o cortarei;
-> — Salmos 101:5 | BKJ
+> — Salmos 101:5 \| BKJ
 
 E o que acontece a tais pessoas, sejam líderes ou não? Afinal, por um curto período de tempo pode parecer que eles estão vencendo não é?
 
 > ³ Pois eu invejava os arrogantes, ao ver a prosperidade dos perversos.
 > ¹⁷ até que entrei no santuário de Deus e atinei com o fim deles.
-> Salmos 73:3,17 | ARA
+> Salmos 73:3,17 \| ARA
 
 > ¹⁵ Pelo que a sua destruição virá repentinamente; subitamente, será quebrantado, sem que haja cura.
-> — Provérbios 6:15 | ARA
+> — Provérbios 6:15 \| ARA
 
 > ¹¹ Porque eu bem sei os pensamentos que tenho a vosso respeito, diz o Senhor; pensamentos de paz, e não de mal, para vos dar o fim que esperais.
-> Jeremias 29:11 | ACF
+> Jeremias 29:11 \| ACF
 
 <!-- AI-PROCESSED:START -->
 

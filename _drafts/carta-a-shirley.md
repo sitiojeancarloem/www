@@ -260,13 +260,13 @@ Há um problema sério com essa ideia:
 
 3. Se isso estivesse correto, então a mesma regra se aplicaria ao homem. Assim como a mulher somente precisaria obedecer ao homem quando ele estivesse no Senhor, o homem somente precisaria amar a mulher a ponto de dar a vida por ela quando ela estivesse no Senhor. O texto que manda a mulher obedecer ao marido é o mesmo que manda o marido amar a esposa a ponto de se sacrificar por ela. Portanto, a regra teria que ser a mesma para ambos.
 
-E há algo ainda mais importante: ali o casamento é comparado ao relacionamento de Cristo com a Igreja. Qual foi o exemplo de Cristo? Ele amou e se sacrificou pela Igreja apenas quando ela estava no Senhor? Não. _“⁸ Mas Deus prova o seu amor para conosco, em que Cristo morreu por nós, sendo nós ainda pecadores”_ (Romanos 5:8a | ACF).
+E há algo ainda mais importante: ali o casamento é comparado ao relacionamento de Cristo com a Igreja. Qual foi o exemplo de Cristo? Ele amou e se sacrificou pela Igreja apenas quando ela estava no Senhor? Não. _“⁸ Mas Deus prova o seu amor para conosco, em que Cristo morreu por nós, sendo nós ainda pecadores”_ (Romanos 5:8a \| ACF).
 
 Então, nem o homem nem a mulher podem deixar de cumprir seus papéis simplesmente porque o outro não está no Senhor. Na realidade, o pecado do outro nunca é justificativa para o nosso próprio pecado. Isso vale no casamento, no dízimo e no governo. A nós compete fazer a nossa parte. Porque o outro peca, nós não devemos pecar também.
 
-4. Eu compreendo a ideia por trás de _“se ele estiver no Senhor”_, que remete a Atos 5:29: _“²⁹ ...Mais importa obedecer a Deus do que aos homens”_ (Atos 5:29 | ACF). E o princípio está correto. Mas isso se aplica quando obedecer a uma autoridade significaria violar um mandamento de Deus, não quando simplesmente não gostamos da ordem ou achamos que ela é ruim.
+4. Eu compreendo a ideia por trás de _“se ele estiver no Senhor”_, que remete a Atos 5:29: _“²⁹ ...Mais importa obedecer a Deus do que aos homens”_ (Atos 5:29 \| ACF). E o princípio está correto. Mas isso se aplica quando obedecer a uma autoridade significaria violar um mandamento de Deus, não quando simplesmente não gostamos da ordem ou achamos que ela é ruim.
 
-E há provas disso na Bíblia. César não _“estava no Senhor”_. Nenhum imperador ou governador romano estava. Mesmo assim, Jesus mandou obedecer às ordenanças deles: _“²¹ ...Dai pois a César o que é de César, e a Deus o que é de Deus.”_ (Mateus 22:21b | ACF).
+E há provas disso na Bíblia. César não _“estava no Senhor”_. Nenhum imperador ou governador romano estava. Mesmo assim, Jesus mandou obedecer às ordenanças deles: _“²¹ ...Dai pois a César o que é de César, e a Deus o que é de Deus.”_ (Mateus 22:21b \| ACF).
 
 O que esse texto prova é que obedecer ao marido ou ao governo não está em discussão: é um mandamento divino e deve ser obedecido mesmo quando não gostamos ou quando consideramos aquilo ruim. A única exceção é quando a ordem viola um mandamento divino. Somente nesse caso excepcional devemos obedecer primeiro a Deus acima de qualquer ordem humana. Ou seja: a autoridade humana ser pecadora, ou estar fora do Espírito, nunca foi desculpa para desobediência ou irresponsabilidade.
 
@@ -376,10 +376,10 @@ Ou seja, todas essas características são essenciais e importantíssimas, mas s
 Então, o que define o casamento? Não pode ser nenhuma dessas características, nem outras semelhantes que também existam em outros relacionamentos. O casamento é um tipo de relacionamento único, diferente de todos os outros. Nesse sentido, ele é **santo**: separado dos demais. Então qual é a característica, ou quais são as características, que o tornam distinto? A Bíblia dá a resposta, e ela está em Gênesis 2:24 e Mateus 22:30:
 
 > ²⁴ Portanto deixará o homem o seu pai e a sua mãe, e apegar-se-á à sua mulher, e serão ambos uma carne.
-> — Gênesis 2:24 | ACF
+> — Gênesis 2:24 \| ACF
 
 > ³⁰ Porque na ressurreição nem casam nem são dados em casamento; mas serão como os anjos de Deus no céu.
-> — Mateus 22:30 | ACF
+> — Mateus 22:30 \| ACF
 
 A única característica que separa um relacionamento conjugal dos demais é a **atração, ou desejo, carnal**, e a consequente **união** literal das “_carnes_” mediante o sexo. Mateus complementa isso mostrando que, na ressurreição, não haverá casamento, embora os relacionamentos sejam perfeitos.
 
@@ -387,7 +387,7 @@ Ou seja, todas as características necessárias para um relacionamento perfeito 
 
 Do mesmo jeito que, sem pó, não existe homem e, sem fôlego, não existe vida, não existe casamento sem **sexo** e sem **desejo** carnal. O que isso significa? Não significa simplesmente fazer sexo. Significa **desejar** o outro carnalmente. Do contrário, seria abuso, coerção ou algo parecido. A união é uma decisão; o casamento é uma decisão.
 
-E esse “desejo carnal” de forma alguma significa cair no outro extremo, nos excessos mundanos. É aplicar o mesmo princípio usado para qualquer obediência: _“²³ ...deveis, porém, fazer estas coisas, e não omitir aquelas”_ (Mateus 23:23 | ACF). É fazer aquilo que precisa ser feito, aquilo que Deus manda, sem desobedecer às outras ordenanças. Uma coisa não anula a outra. Abandonar profanidade e promiscuidade **não** significa abandonar o **desejo carnal** pelo <u>cônjuge</u>, **nem** o <u>prazer sexual</u> que Deus mesmo criou.
+E esse “desejo carnal” de forma alguma significa cair no outro extremo, nos excessos mundanos. É aplicar o mesmo princípio usado para qualquer obediência: _“²³ ...deveis, porém, fazer estas coisas, e não omitir aquelas”_ (Mateus 23:23 \| ACF). É fazer aquilo que precisa ser feito, aquilo que Deus manda, sem desobedecer às outras ordenanças. Uma coisa não anula a outra. Abandonar profanidade e promiscuidade **não** significa abandonar o **desejo carnal** pelo <u>cônjuge</u>, **nem** o <u>prazer sexual</u> que Deus mesmo criou.
 
 Se, para obedecer a Deus, nós descumprimos outro mandamento dEle, então nos tornamos como os fariseus que Cristo condenou como hipócritas, porque obedeciam a um mandamento enquanto desobedeciam a outro.
 
@@ -416,12 +416,12 @@ Respeito não é simplesmente ser educado, concordar com alguém ou evitar contr
 A Bíblia expressa essa ideia por termos como **honra, consideração, estima e reverência**:
 
 > Honrai a todos. Amai a fraternidade. Temei a Deus. Honrai ao rei.
-> — 1 Pedro 2:17 | ACF
+> — 1 Pedro 2:17 \| ACF
 
 Assim, todos merecem honra como pessoas, enquanto determinadas relações também exigem o reconhecimento da posição que cada um ocupa:
 
 > [...] a quem honra, honra.
-> — Romanos 13:7 | ACF
+> — Romanos 13:7 \| ACF
 
 Por isso, respeito não significa concordância, aprovação nem obediência absoluta. É possível considerar alguém errado, corrigi-lo ou até contrariá-lo sem necessariamente desrespeitá-lo. Davi, por exemplo, reconhecia que Saul agia injustamente contra ele, mas ainda o tratava como “o ungido do SENHOR” (1 Samuel 24:6-10).
 
@@ -433,7 +433,7 @@ No casamento, Paulo usa uma expressão ainda mais forte:
 
 > [...] e a mulher **reverencie** o marido.
 >
-> — Efésios 5:33 | ACF
+> — Efésios 5:33 \| ACF
 
 O verbo grego é φοβέω (_phobéō_), que pode significar temer, reverenciar ou tratar com profundo respeito. No contexto conjugal, não significa viver aterrorizada pelo marido, mas reconhecer seriamente sua posição e agir de forma compatível com esse reconhecimento.
 
@@ -441,7 +441,7 @@ Essa **reverência** alcança necessariamente também a maneira de falar. Assim,
 
 Ao mesmo tempo, Pedro ordena ao marido que dê “honra à mulher” (1 Pedro 3:7). Portanto, ambos devem honra e consideração um ao outro, embora a Bíblia não atribua necessariamente a ambos os mesmos papéis, níveis, **intencidade** ou responsabilidades.
 
-Evidentemente, como eu já disse, existe um limite: nenhuma autoridade humana substitui Deus. Quando uma ordem humana exige desobediência direta a Deus, vale o princípio: _“Mais importa obedecer a Deus do que aos homens”_ (Atos 5:29 | ACF).
+Evidentemente, como eu já disse, existe um limite: nenhuma autoridade humana substitui Deus. Quando uma ordem humana exige desobediência direta a Deus, vale o princípio: _“Mais importa obedecer a Deus do que aos homens”_ (Atos 5:29 \| ACF).
 
 Respeitar é reconhecer a dignidade, o valor, os direitos e, quando existir, a posição legítima da outra pessoa, dando-lhe, por **palavras, tom, atitudes e ações, a honra e a consideração** que lhe são devidas, **mesmo quando se discorda** dela ou é necessário corrigi-la.
 

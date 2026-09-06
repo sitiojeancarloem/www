@@ -14,6 +14,7 @@ Equiapmetnos não obrigatóriso mas importantes: **NanoVNA** (permite analisar d
 | **Especiais / Experimentais**        | Formas variadas: cones, hélices, painéis planos ou grades suspensas.                | Discone, Helicoidal, Patch (Microstrip), Curtain Array, Rhombic                      | HF / VHF / UHF   | 0–15                  | Variável                | ★★★★★            | Aplicações específicas: larga banda, satélite, micro-ondas e comunicações de longa distância. |
 | **Verticais de Fio / Portáteis**     | Fio ou tubo montado verticalmente, com ou sem radiais inclinados; portátil.         | T2LT, Verticais telescópicas, Verticais com radiais inclinados                       | HF / VHF         | 1–4                   | Vertical                | ★                | Leves e rápidas de instalar; perfeitas para uso temporário e QRP.                             |
 | **Multielemento HF (Arrays de Fio)** | Múltiplos fios longos suspensos em grandes estruturas, formando feixes direcionais. | Beverage, Vee Beam, Rhombic, Curtain (dipolos em matriz)                             | HF               | 8–15                  | Horizontal              | ★★★★★            | Antenas enormes, altíssimo ganho; usadas para DX e recepção a longa distância.                |
+{: data-jcem-caption="Tipos de antenas" }
 
 ### Notas rápidas
 
@@ -35,6 +36,7 @@ Equiapmetnos não obrigatóriso mas importantes: **NanoVNA** (permite analisar d
 | **VHF/UHF (omni)**      | F / M                | **Colinear Vertical 5/8 λ**      | • [N9TAX Colinear Coax](https://www.youtube.com/watch?v=-NlBPcG28NE)<br>• [Flowerpot Antenna](https://www.youtube.com/watch?v=-NlBPcG28NE)<br>• [Franklin 5/8λ Stack](https://www.youtube.com/watch?v=-NlBPcG28NE)                     | ~360°        | Excelente cobertura local                     | Sem balun (rádiais + choke)          | ★★          | 2 m + 70 cm         |     |
 | **VHF/UHF (econômica)** | F / M                | **Plano Terra (¼ λ)**            | • [Ground Plane 2 m (fio + conector SO-239)](https://www.youtube.com/watch?v=XeVdLRh2lxY)<br>• [GP Dual Band com bobina](https://www.youtube.com/watch?v=XeVdLRh2lxY)<br>• [VHF ¼ λ Inox](https://www.youtube.com/watch?v=XeVdLRh2lxY) | ~360°        | Extremamente simples e barata                 | Sem balun (rádiais + choke opcional) | ★           | 2 m + 70 cm         |     |
 | **VHF/UHF – Direcional**       | F / M                | **Yagi 2 m / 70 cm**             | • [DK7ZB 2m/70cm](https://www.youtube.com/watch?v=cD8dWC13ckU)<br>• [Arrow Dual Band Yagi](https://www.youtube.com/watch?v=cD8dWC13ckU)<br>• [WA5VJB Cheap Yagi](https://www.youtube.com/watch?v=cD8dWC13ckU)                          | ~45–60°      | Alto ganho, ideal para repetidoras e satélite | Balun 1:1                            | ★★★         | 2 m + 70 cm         |     |
+{: data-jcem-caption="Melhores antenas DIY por tipo, cenário e direcionalidade" }
 
 ---
 
@@ -61,5 +63,6 @@ Um bom casamento reduz o VSWR e melhora o rendimento geral da transmissão.
 | **VHF/UHF – Portátil**          | [Yaesu ATAS‑120A Ativa Portátil]()            | ~360°                | Antena portátil/veicular que cobre HF + VHF (algumas bandas)  | HF + VHF + UHF (algumas) | —                           |                                                     |
 | **VHF/UHF – Fixa (omni)**       | [Antena Base VHF 5/8λ FM Rádio Comunitária]() | ~360°                | Cobertura omni em VHF base, custo‐benefício bom               | VHF + UHF próxima                                  |                                                     |
 | **VHF/UHF – Fixa (direcional)** | [HYS Yagi UHF 400‑470 MHz 5 Elementos]()      | ~45-60°              | Yagi de alto ganho para UHF, direção específica               | UHF (400-470 MHz)                                  |                                                     |
+{: data-jcem-caption="Alternativas comerciais por tipo e cenário" }
 
 [1]: https://hamradioplanet.com/best-vertical-antenna-for-ham-radio-top-picks-and-expert-tips-in-2023/?utm_source=chatgpt.com "Best Vertical Antenna for Ham Radio- Ham Radio Planet"

@@ -86,7 +86,14 @@ module Jcem
     def normalize_table(document, table)
       return if table["role"] == "presentation"
 
+      local_caption = table["data-jcem-caption"].to_s.strip
+      table.remove_attribute("data-jcem-caption")
       caption = table.at_xpath("./caption")
+      if caption.nil? && !local_caption.empty?
+        caption = Nokogiri::XML::Node.new("caption", document)
+        caption.content = local_caption
+        table.prepend_child(caption)
+      end
       fatal("tabela_sem_caption") unless caption && !compact_text(caption).empty?
       table["data-jcem-accessible-table"] = "true"
       table.xpath("./thead/tr/th").each_with_index do |header, index|

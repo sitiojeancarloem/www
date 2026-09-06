@@ -248,6 +248,7 @@
 | Revelação progressiva   | Hb 1:1-3; Jo 16:12-13; Mt 5:17-48                                            |
 | Profecia e remanescente | Am 3:7; Jl 2:28-29; At 2:14-21; Ap 12:17; 19:10                              |
 | Condicionalidade        | Jr 18:7-10; Ez 18; Jn 3                                                      |
+{: data-jcem-caption="Base bíblica nuclear por tema" }
 
 ## 15. Referências institucionais
 

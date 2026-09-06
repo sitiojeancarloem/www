@@ -22,6 +22,7 @@
 | 10.00 – 10.50 GHz   | SHF   | A/B    | Micro-ondas                     |                  |       | D           | 0.03  |       | 0.1–0.5 km     | Urbano          |
 | 24.00 – 24.25 GHz   | SHF   | A/B    | Experimentos                    |                  |       | D           | 0.012 |       | <0.3 km        | Urbano          |
 | **26.965 – 27.405** | HF    |        | PX / Rádio Cidadão – Emergência | **Sim (27.555)** | PX    | A           | 11    | PX    | 10–2000 km     | Ambos           |
+{: data-jcem-caption="Faixas de radioamadorismo e características de operação" }
 
 ### Notas rápidas
 

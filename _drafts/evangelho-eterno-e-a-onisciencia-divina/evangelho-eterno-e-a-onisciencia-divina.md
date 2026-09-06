@@ -161,6 +161,7 @@ Aqui convém fazer uma distinção que evita muita confusão. A Bíblia usa "lei
 | Lei penal                 | Sanções para transgressões específicas                    | Protege a ordem da aliança               |
 | Lei sacerdotal/cerimonial | Sacrifícios, sacerdócio, santuário, festas e purificações | Revela o processo redentivo              |
 | Lei sanitária/ritual      | Pureza, impureza, higiene e separação                     | Ensina santidade e preserva vida         |
+{: data-jcem-caption="Camadas funcionais da lei na Torá" }
 
 Quando se diz que a lei cerimonial cessou, o que exatamente cessou? O rito humano? A obrigação cultual levítica? O sacrifício repetido? Sim. Mas cessou a expiação? Cessou a mediação? Cessou o sacerdócio? Cessou a intercessão? Cessou o juízo? Se a resposta for sim, Hebreus se torna inexplicável.
 
@@ -183,6 +184,7 @@ Tal distinção pode ser resumida assim:
 | Linguagem bíblica | Mandamento, justiça, amor, santidade | Cordeiro, sangue, altar, sacerdote, santuário, véu       |
 | Forma antiga      | Decálogo e mandamentos morais        | Ritos levíticos e santuário terrestre                    |
 | Forma em Cristo   | Lei escrita no coração               | Sacrifício, sacerdócio e mediação no santuário celestial |
+{: data-jcem-caption="Comparação entre lei moral e lei cerimonial" }
 
 # Procedimento, norma e conceito
 
@@ -193,6 +195,7 @@ Grande parte da confusão nasce da identificação indevida entre rito e lei cer
 | Conceito                 | Verdade redentiva derivada do caráter de DEUS             | Substituição, expiação, mediação, juízo                     | Permanente                        |
 | Norma jurídico-redentiva | Organização divina desses princípios no plano da salvação | Necessidade de sangue, sacerdócio, intercessão, purificação | Permanente em Cristo              |
 | Procedimento             | Execução histórica, pedagógica e representativa           | Imolar cordeiro, aspergir sangue, queimar incenso           | Transitório como prática levítica |
+{: data-jcem-caption="Níveis da lei cerimonial" }
 
 Ora, se alguém diz que os procedimentos terrestres cessaram, diz algo correto. Não se oferecem cordeiros hoje como obrigação cultual cristã, pois Cristo ofereceu a SI mesmo uma vez por todas.[^22] Mas se alguém conclui que, por isso, cessaram a expiação, a mediação, a intercessão, o sacerdócio e o juízo, então destrói justamente aquilo que Hebreus preserva em Cristo.[^23]
 
@@ -216,6 +219,7 @@ A estrutura do santuário era evangelho em forma ritual:
 | Véu              | Acesso regulado à presença divina            | Cristo abre caminho vivo                      |
 | Lugar Santíssimo | Trono, juízo, purificação final              | Ministério celestial e juízo                  |
 | Dia da Expiação  | Purificação do santuário e destino do pecado | Fase final do ministério sacerdotal de Cristo |
+{: data-jcem-caption="Elementos do santuário e seu cumprimento em Cristo" }
 
 Perceba como isso muda a conversa. O santuário não era apêndice descartável de uma religião antiga. Era a cruz antes da cruz. Era Hebreus antes de Hebreus. Era Apocalipse 14 antes de Apocalipse 14. Era DEUS ensinando, por símbolos, aquilo que faria em Cristo e continuaria fazendo por Cristo.
 
@@ -233,6 +237,7 @@ Levítico 23 apresenta os tempos designados do SENHOR, santas convocações, fes
 | Dia da Expiação | Purificação do santuário, juízo e disposição final do pecado                                | Em cumprimento no ministério celestial de Cristo, segundo a leitura adventista |
 | Tabernáculos    | Colheita final, alegria dos remidos, DEUS habitando com o povo                              | Futuro                                                                         |
 | Oitavo Dia      | Consumação além da peregrinação; assembleia final e estado eterno                           | Futuro                                                                         |
+{: data-jcem-caption="Festas bíblicas e seu cumprimento tipológico" }
 
 A progressão não é acidental. Páscoa, Asmos, Primícias e Pentecostes se ligam à primeira vinda, morte, repouso, ressurreição e missão da igreja. Trombetas, Expiação, Tabernáculos e Oitavo Dia apontam para preparação, juízo, colheita final e consumação.
 
@@ -251,6 +256,7 @@ Há um detalhe técnico em Levítico 23 que merece atenção. Descontado o sába
 | 5              | 10º dia do 7º mês, Dia da Expiação     |
 | 6              | 15º dia do 7º mês, Tabernáculos, dia 1 |
 | 7              | 22º dia do 7º mês, Oitavo Dia          |
+{: data-jcem-caption="Sete descansos solenes anuais" }
 
 A Páscoa e as Primícias são solenidades nomeadas, mas não recebem descanso solene próprio. Isso é especialmente interessante no caso das Primícias.
 
@@ -295,6 +301,7 @@ O Novo Testamento não apresenta Cristo apenas como vítima passada. ELE morreu 
 | Mediador da nova aliança        | Hebreus 8:6-13; 9:15                   | Aplica a aliança no coração                           |
 | Advogado e intercessor          | Romanos 8:34; 1 João 2:1               | Mantém a mediação ativa                               |
 | Juiz                            | João 5:22; Atos 17:31; Apocalipse 14:7 | Integra evangelho e juízo                             |
+{: data-jcem-caption="Funções de Cristo e sua relação com a lei cerimonial" }
 
 Se a lei cerimonial fosse simplesmente abolida em sua essência, faltaria linguagem para explicar o ministério atual de Cristo. Hebreus fala precisamente nos termos do santuário: sacerdote, sangue, véu, aliança, expiação, purificação e acesso. A cruz não aboliu essa linguagem; tornou-a inevitável.
 

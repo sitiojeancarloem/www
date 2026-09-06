@@ -50,6 +50,11 @@ assert(toc.previous_element&.text&.include?("Isaías 53:10"), "blockquote inicia
 renormalized = Jcem::AccessibleReading.normalize_html(normalized, toc: true)
 assert(Nokogiri::HTML.parse(renormalized).css('[data-jcem-article-toc]').length == 1, "sumário não é idempotente")
 
+local_caption_html = html.sub("<caption>Valores</caption>", "").sub("<table>", '<table data-jcem-caption="Valores locais">')
+local_caption = Nokogiri::HTML.parse(Jcem::AccessibleReading.normalize_html(local_caption_html))
+assert(local_caption.at_css("table > caption")&.text == "Valores locais", "caption local não foi materializado")
+assert(!local_caption.at_css("table")&.key?("data-jcem-caption"), "metadado local de caption vazou no HTML")
+
 fallback_html = html.sub('<p>— Bíblia. NVI. Isaías 53:10<sup><a href="#fn:1" role="doc-noteref">1</a></sup> e reuso<sup><a href="#fn:1" role="doc-noteref">1</a></sup>.</p>', '')
 fallback = Nokogiri::HTML.parse(Jcem::AccessibleReading.normalize_html(fallback_html, toc: true))
 assert(fallback.at_css('.page__content')&.element_children&.first&.matches?('[data-jcem-article-toc]'), "fallback sem parágrafo não ficou determinístico")

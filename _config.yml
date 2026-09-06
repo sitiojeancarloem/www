@@ -206,6 +206,14 @@ exclude:
   - tsconfig.json
   - /old-root
   - /_scheduled
+  # Artefatos auxiliares de recuperação não são publicações Jekyll.
+  - /_drafts/**/imagens/**
+  - /_drafts/radioamador/*.jpg
+  - /_drafts/**/original.html
+  - /_drafts/**/processed.html
+  - /_drafts/**/pandoc_input.html
+  - /_drafts/**/convertido.md
+  - /_drafts/devaneios.md
   - Rakefile
   - README
   - tmp
