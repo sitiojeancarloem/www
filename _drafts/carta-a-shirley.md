@@ -27,6 +27,8 @@ NÃO transforme a carta em texto acadêmico, terapêutico, jurídico, ensaio, ar
 
 NÃO substitua a voz do autor por uma voz genérica.
 
+NÃO refatore, reescreve se não houver justificativa técnica ou necessidade real.
+
 Preserve:
 
 - fatos e argumentos;
@@ -135,6 +137,8 @@ NÃO altere citações apenas por preferência estilística.
 - Preserve a aparência e identidade de carta pessoal.
 - Listas, títulos e subtítulos são recursos funcionais, NÃO um modelo obrigatório de estrutura.
 - Parágrafos nem curtos demais, nem longos demais. Devidamente adequados e gramaticalmente corretos para uma carta, respeitando o contexto e a evolução.
+- todo texto entre aspas, simples ou duplas, DEVE estar em itálico.
+- Nenhuma palavra deve estar captalizada parcialmente, exceto se gramaticalmente correta, por exempo nomes próprios  e início de frase, e aqueles inequivocamente relacionadas ao Deus cristão (Deus, dEle, ELE, DELE, ...); exemplo de incorretas (VocÊ, EU, emissÃo, ...).
 
 ## Restrições finais
 
