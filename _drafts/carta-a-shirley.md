@@ -224,6 +224,38 @@ A questão mais importante e mais triste é esta: por que, por dinheiro, uma mul
 
 Então, você seria capaz de limpar um quarto tão ruim quanto o meu — ou até pior — de qualquer outra pessoa, homem ou mulher, por dinheiro, mas **não** por amor e cuidado. Isso é muito triste para mim. Você não tem obrigação nenhuma de limpar meu quarto, e eu sempre fiz questão de dizer que você não precisa. Mas há coisas que doem. O que seria parceria?
 
+Mas até no sexo é assim: por dinheiro, noite após noite, a mulher está lá, disposta a fazer — e fazer bem-feito. Pela quantia certa, mulheres fazem o que você quiser na cama. Basta a quantia certa, e ela faz você se sentir amado, desejado e querido. Com a quantia certa, faz isso todas as noites, noite após noite, sem reclamar uma única vez.
+
+A grande verdade é que o que importa mesmo é dinheiro. O resto é história. Nunca existiu isso de “amor de verdade”. Tudo é dinheiro. **Dinheiro move o mundo.**
+
+Pela quantia certa, médicos e médicas passam 24 horas sorrindo e tratando bem os pacientes. Pela quantia certa, pessoas matam. Pela quantia certa, milhares de mercenários estão se matando na Ucrânia por uma guerra que não tem nada a ver com eles. Pela quantia certa, as pessoas estão dispostas a fazer aquilo que não fazem por amor, nem pelos próprios pais ou filhos. Pela quantia certa, pessoas cuidam de idosos acamados enquanto seus próprios pais estão desamparados.
+
+É tão triste. Mas é a verdade. E, na maioria das vezes, nem precisa ser muito dinheiro. Pouca coisa já é suficiente para comprar aquilo que o amor não consegue comprar.
+
+Não se trata simplesmente de você. **É assim que todos nós somos.** No fim, o que importa mesmo é dinheiro, riqueza, poder, lucro. Falar outra coisa é mentira. Sempre foi mentira. Tudo sempre foi uma mentira. O que realmente interessa sempre foi e sempre será: **“O que eu ganho?”**
+
+Foi tirado tudo de mim. Primeiro, tudo aquilo que eu esperava de um casamento. Depois, até as migalhas que ainda restavam dele.
+
+Admiração, afeto, toque e sexo eram e são coisas essenciais e fundamentais, e já não eram realmente dados. Mas até o pouco que ainda existia me foi tomado. Quadro coisas essenciais para mim dentro de um casamento: **todas eliminadas.**
+
+E depois vieram as migalhas: as coisas que fazíamos juntos, os pequenos prazeres compartilhados que ainda funcionavam como uma espécie de “cola”; as pequenas demonstrações; os pequenos elogios; os olhares que pareciam demonstrar admiração — e já nem estou falando daquela admiração intensa que existia antes —; as palavras assanhadas e picantes; o contato constante, os toques, as carícias...
+
+**Tudo. Absolutamente tudo me foi tirado. Eu não tenho mais nada.**
+
+Faz mais de 10 anos que eu **não** me sinto casado. Faz mais de 10 anos que sou continuamente tentado a buscar lá fora aquilo que não tenho dentro de casa: alguém que faça eu me sentir novamente desejado, querido, respeitado e admirado. Alguém que me olhe com fome. Alguém que, apesar dos meus milhares de defeitos, ainda consiga enxergar alguma coisa boa em mim e me querer. Algué que diga: _"você é legal, quer ficar mais com você"_.
+
+Eu não sei mais o que é isso. **Mas eu já soube.**
+
+Pode parecer que estou falando somente de sexo. E sim, também estou falando de sexo. Mas isso vai muito além. Estou falando de fazer questão de estar junto. De fazer questão de estar ao lado. De fazer questão do toque físico. De fazer coisas juntos. De sair da própria zona de conforto e estar ali, perto, no mesmo quarto, na mesma sala ou no mesmo ambiente — às vezes até fazendo coisas diferentes —, mas **presente**.
+
+Não precisa ser sempre. Não precisa ser continuamente. É simplesmente demonstrar: **“Eu estou aqui, com você.”**
+
+É andar de carro e fazer questão de fazer um carinho. É estar na igreja e fazer questão de demonstrar carinho. É estar em qualquer lugar e ser acolhedor. Ser para o outro como uma cama quentinha em um dia frio.
+
+Eu já tive isso. Não completamente, mas já tive. Por um breve momento da minha vida. E talvez seja justamente esse breve momento que eu chame de **felicidade**. Mas a única verdade é aquela que todo mundo conhece: **Tudo passa.** E aquele breve momento passou. Eu sei que você não é feliz há muito tempo, mas eu também não sou feliz neste casamento há muito tempo.
+
+**MAIS E MAIS**
+
 No sábado, logo depois do almoço — que estava uma delícia, por sinal —, você chegou para mim e disse: “Eu quero te pedir que você me ajude a manter a mesa arrumada sempre que usar”. Eu não vejo problema em nos ajudarmos e sermos parceiros. Mas existe um problema quando apenas um lado é parceiro, e vou explicar melhor.
 
 Nós somos cristãos e, desde o namoro, ficou muito claro que estabeleceríamos, tanto quanto possível, um casamento cristão tradicional. Isto é: naquilo que fosse viável e de acordo com as capacidades e habilidades de cada um — sempre para somar, nunca para subtrair —, seguiríamos esse modelo: o homem como chefe e líder, e a mulher como colaboradora e submissa; o homem como protetor, e a mulher como cuidadora; o homem como provedor, e a mulher como administradora e mantenedora do lar e daquilo que foi provido. O homem é aquele que faz, e a mulher é aquela que o auxilia a fazer em tudo.
