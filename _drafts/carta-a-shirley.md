@@ -160,13 +160,33 @@ Shirley, nem perca tempo lendo isto se for ler só pedaços, pular trechos ou le
 
 Isto aqui não é um desabafo. Não é um ataque. E, sinceramente, eu também nem sei dizer exatamente o que é. Depois de 18 anos juntos, nós já conversamos tanto que, em muitos assuntos, conversar parece inútil.
 
-Mesmo assim, nestas últimas duas semanas, você tem insistido em tocar em assuntos e tentar conversar sobre coisas das quais, antes, você mesma fugia. Você mesma já dizia que não adiantava conversar, porque eu e você já sabemos o que o outro vai dizer.
+Mesmo assim, nestas últimas três semanas, você tem insistido em tocar em assuntos e tentar conversar sobre coisas das quais, antes, você mesma fugia. Você mesma já dizia que não adiantava conversar, porque eu e você já sabemos o que o outro vai dizer.
 
 Por isso, duvido que o que vou escrever aqui seja 100% novo para você. Uma coisa ou outra talvez seja, principalmente pela forma como vou dizer, porque nós mudamos e evoluímos com o tempo. **Mas a história, no fundo, é basicamente a mesma.**
 
 Então, repito: eu prefiro que você nem comece a ler se for para desprezar partes, pular trechos ou ficar impaciente. Se for ler, leia tudo.
 
-Falam continuamente sobre a necessidade de conversar. Entretanto, depois de 18 anos juntos, nós já passamos do ponto em que uma conversa simples resolve. As feridas estão infectadas e expostas demais para isso. Creio que já dissemos muita coisa, talvez não tudo, mas o suficiente. E isso não fez diferença, porque tanto eu quanto você somos egoístas demais.
+Eu creio que para aqueles que depressão e estão bem, sem crise, é arriscado demais se expor a situações que podem levar de volta a uma crise. É por isso que, às vezes, você me vê saindo correndo e fugindo de determinadas situações. Eu não estou em crise, mas eu estou bem próximo dela.
+
+Porque o **“diabo” da depressão** talvez seja um dos piores de todos, talvez até pior do que o da luxúria e o da avareza — ou, pelo menos, está no mesmo nível. Esse diabo consegue prender a pessoa, e você sabe muito bem disso.
+
+Então, eu sinto muito, mas **não vou cometer o mesmo erro de Adão**. Se eu perceber o perigo e ainda tiver forças, eu vou correr. Eu vou fugir. Porque, se não houver outra escolha e eu tiver que escolher entre as duas coisas, prefiro uma cólica renal a uma crise de depressão. **A depressão tira tudo da gente. Absolutamente tudo.**
+
+No seu caso, considero ainda mais preocupante, porque você está em crise, a mais profunda e duradoura que eu já vi. Talvez você não perceba. Talvez também não esteja deixando suficientemente claro para seu psicólogo e seu psiquiatra o quanto isso está profundo, mas, pelo que eu vejo, **você está em uma crise extremamente profunda**. Não me parece o momento de reduzir sessões, mas de aumentar.
+
+Por que estou falando isso? Porque, se já é arriscado tocar em determinados pontos quando estamos bem, pelo risco de voltarmos para uma crise, imagine tocar nesses mesmos pontos enquanto já estamos dentro dela. E, pelo que percebo, esse é o seu caso.
+
+Você tem insistido em tocar em assuntos muito sensíveis e delicados que eu creio que você **NÃO está pronta nem em condições de suportar agora**. Não porque você já não saiba dessas coisas, mas justamente porque falar delas exige revivê-las e ressenti-las.
+
+Eu mesmo não estou pronto para reviver as coisas que você já me disse, apesar de já ter ouvido todas elas. Entende? Você já me falou muitas vezes. Suponho que não exista muita coisa realmente nova. Talvez mudem as palavras, a forma de explicar, algum detalhe, mas os fatos e os pensamentos, em essência, provavelmente continuam os mesmos.
+
+**Eu não estou em crise e, ainda assim, não me considero pronto. Você se considera? Mesmo?**
+
+Falam continuamente sobre a necessidade de conversar. Entretanto, depois de 18 anos juntos, nós já passamos do ponto em que uma conversa simples resolve. As feridas estão infectadas, infeccionadas e expostas demais para isso. Creio que já dissemos muita coisa — talvez não tudo, mas o suficiente. E isso não fez diferença antes, porque tanto eu quanto você somos egoístas demais.
+
+Mas, já que você insiste nisso, eu vou falar. Não para desabafar. Não para ofender. Não para agredir. **Mas para compartilhar. Para conversar.**
+
+Algumas coisas talvez sejam novas, mas muito mais porque eu amadureci e hoje consigo explicá-las de outra maneira do que porque nunca tenha falado delas antes.
 
 Quando eu disse _“não vale a pena”_, ao pensar em expor uma ideia esses dias, você pareceu chocada. Mas, depois de 18 anos, se nem mesmo o seu próprio cônjuge consegue ver boas intenções nas suas ações e falas, e em vez disso vê maldade ou algo parecido — como eu descobri em outubro de 2025 — então, _“não vale a pena”_. Se, depois de tanto tempo juntos, você precisa _“pisar em ovos”_, vestir uma máscara e ser outra pessoa diante do próprio cônjuge, então o que existe não é um casamento, mas qualquer outra coisa.
 
