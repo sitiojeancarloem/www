@@ -2,6 +2,10 @@
 
 Revise e refatore integralmente o texto fornecido, preservando **conteúdo, intenção, intensidade, retórica, identidade pessoal e estilo linguístico característico do autor**, mas tornando a leitura acessível, fluida e logicamente progressiva mesmo para leitores com baixa capacidade de interpretação textual.
 
+Ao gerar, devolvar em arquivo .md para download.
+
+Seja rigoroso.
+
 ## Objetivo
 
 Produzir uma carta:
@@ -46,11 +50,7 @@ Simplifique a **forma**, nunca o conteúdo:
 - preserve o vocabulário natural do autor sempre que já for suficientemente claro.
 
 Não infantilize o texto nem empobreça sua articulação.
-Não crie reducionismo de intecniodade emocional;
-
-Ao gerar, devolvar em arquivo .md para download.
-
-Seja rigoroso.
+Não crie reducionismo de intensidade emocional;
 
 ## Argumentação e estrutura
 
@@ -65,7 +65,6 @@ A reorganização DEVE preservar integralmente:
 5. conclusões;
 6. intensidade argumentativa;
 7. sequência emocional relevante à carta.
-8. Parágrafos nem curtos demais, nem longos demais. Devidamente adequados e gramaticalmente corretos para uma carta, respeitando o contexto e a evolução.
 
 Cada argumento DEVE preparar naturalmente o seguinte. Evite saltos lógicos, referências obscuras e ideias importantes enterradas em construções secundárias.
 
@@ -134,6 +133,7 @@ NÃO altere citações apenas por preferência estilística.
 - NÃO sobrecarregue o texto com formatação.
 - Preserve a aparência e identidade de carta pessoal.
 - Listas, títulos e subtítulos são recursos funcionais, NÃO um modelo obrigatório de estrutura.
+- Parágrafos nem curtos demais, nem longos demais. Devidamente adequados e gramaticalmente corretos para uma carta, respeitando o contexto e a evolução.
 
 ## Restrições finais
 
