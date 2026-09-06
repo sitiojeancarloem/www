@@ -21,13 +21,11 @@ Produzir uma carta:
 
 ## Fidelidade
 
-NÃO reinvente, reimagine, complete, especule ou infira conteúdo não expresso.
-
-NÃO transforme a carta em texto acadêmico, terapêutico, jurídico, ensaio, artigo ou texto literário artificialmente elaborado.
-
-NÃO substitua a voz do autor por uma voz genérica.
-
-NÃO refatore, reescreve se não houver justificativa técnica ou necessidade real.
+- NÃO reinvente, reimagine, complete, especule ou infira conteúdo não expresso.
+- NÃO transforme a carta em texto acadêmico, terapêutico, jurídico, ensaio, artigo ou texto literário artificialmente elaborado.
+- NÃO substitua a voz do autor por uma voz genérica.
+- NÃO refatore ou reescreve frases se não houver justificativa técnica ou necessidade real.
+- Não reduzir força, intencidade ou sentimento/sentido.
 
 Preserve:
 
