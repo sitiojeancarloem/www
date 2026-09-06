@@ -1,160 +1,471 @@
 <!--
 # Revisão e refatoração de carta pessoal
 
-Revise e refatore integralmente o texto fornecido, preservando **conteúdo, intenção, intensidade, retórica, identidade pessoal e estilo linguístico característico do autor**, mas tornando a leitura acessível, fluida e logicamente progressiva mesmo para leitores com baixa capacidade de interpretação textual.
+Revise e refatore integralmente o texto fornecido, preservando **conteúdo, intenção, sentido, intensidade, retórica, identidade pessoal e estilo linguístico característico do autor**, mas tornando a leitura mais clara, fluida, objetiva e logicamente progressiva, inclusive para leitores com baixa capacidade de interpretação textual.
 
-Ao gerar, devolvar em arquivo .md para download.
+A intervenção DEVE ser **conservadora e tecnicamente justificada**: não reescreva uma frase, período, parágrafo ou bloco apenas porque outra formulação seria estilisticamente possível. Altere somente quando houver necessidade real de correção, clareza, fluidez, coerência, redução de ambiguidade, eliminação de redundância ou melhoria do encadeamento lógico.
+
+**Simplicidade NÃO implica simplificação de conteúdo.** Nenhum detalhe, nuance, ressalva, premissa, argumento, contraste, implicação, intensidade, sentimento ou recurso retórico relevante pode ser perdido.
+
+Ao concluir, devolva **exclusivamente a versão integral revisada em arquivo `.md` para download**.
 
 Seja rigoroso.
 
-## Objetivo
+---
+
+## 1. Objetivo
 
 Produzir uma carta:
 
-- simples, clara, objetiva, eloquente e argumentativamente forte;
-- compreensível por leitor com escolaridade aproximadamente equivalente ao 4º ano do Ensino Fundamental, inclusive com limitações de letramento funcional;
-- com encadeamento lógico explícito, progressivo e fácil de acompanhar;
-- fiel à voz, personalidade e maneira original de formular ideias do autor;
-- franca na exposição de fatos, argumentos e sentimentos, **sem artificialmente suavizá-los, intensificá-los ou reinterpretá-los**.
+* simples, clara, objetiva, eloquente e argumentativamente forte;
+* compreensível por leitor com escolaridade aproximadamente equivalente ao 4º ano do Ensino Fundamental, inclusive com limitações de letramento funcional;
+* com encadeamento lógico explícito, progressivo e fácil de acompanhar;
+* fiel à voz, à personalidade e à maneira original de formular ideias do autor;
+* franca na exposição de fatos, argumentos, percepções e sentimentos;
+* sem artificialmente suavizar, intensificar, reinterpretar, moralizar ou psicologizar aquilo que foi escrito;
+* menos prolixa quando houver prolixidade **inequivocamente redundante**, sem redução da substância argumentativa ou emocional.
 
-**Simplicidade NÃO implica simplificação de conteúdo.** Nenhum detalhe, nuance, ressalva, argumento, contraste, implicação, intensidade ou recurso retórico relevante pode ser perdido.
+### 1.1. Convergência de redundâncias e pleonasmos
 
-## Fidelidade
+Convirja redundâncias inequívocas, repetições sem função retórica e pleonasmos desnecessários quando:
 
-- NÃO reinvente, reimagine, complete, especule ou infira conteúdo não expresso.
-- NÃO transforme a carta em texto acadêmico, terapêutico, jurídico, ensaio, artigo ou texto literário artificialmente elaborado.
-- NÃO substitua a voz do autor por uma voz genérica.
-- NÃO refatore ou reescreve frases se não houver justificativa técnica ou necessidade real.
-- Não reduzir força, intencidade ou sentimento/sentido.
-- NÃO remover destaques já existentes.
+1. expressem substancialmente a mesma ideia;
+2. estejam dentro da mesma linha de raciocínio;
+3. apareçam próximas entre si, ainda que separadas por alguns parágrafos;
+4. possam ser fundidas sem alterar premissas, conclusões, intensidade ou progressão emocional;
+5. a fusão produza texto mais fluido e menos prolixo;
+6. nenhuma das ocorrências tenha função própria de ênfase, retomada, contraste, progressão, ritmo ou reforço retórico.
 
-Preserve:
+A convergência DEVE preservar todos os elementos informacionais relevantes presentes nas formulações originais.
 
-- fatos e argumentos;
-- sentimentos efetivamente expressos;
-- grau de intensidade de cada afirmação;
-- ironias, críticas e ofensas indiretas/latentes existentes;
-- destaques originalmente escritos em MAIÚSCULAS;
-- caráter íntimo, pessoal e conjugal da carta.
+**NÃO trate repetição intencional como erro.** Se a repetição cumprir função enfática, emocional, argumentativa ou estrutural, preserve-a.
 
-É PROIBIDO criar novas acusações, diagnósticos, intenções, motivações ou conclusões.
+A finalidade é eliminar apenas **redundância sem função**, e NÃO encurtar o texto por si só.
 
-## Clareza e linguagem
+---
 
-Simplifique a **forma**, nunca o conteúdo:
+## 2. Fidelidade ao original
 
-- substitua palavras rebuscadas por equivalentes comuns e precisos;
-- desfaça construções excessivamente abstratas;
-- evite combinações de palavras que, embora individualmente comuns, aumentem desnecessariamente a carga cognitiva;
-- prefira frases claras, relações causais explícitas e referentes inequívocos;
-- elimine ambiguidades sintáticas e semânticas;
-- divida períodos excessivamente longos quando isso melhorar compreensão;
-- preserve o vocabulário natural do autor sempre que já for suficientemente claro.
+### 2.1. Princípio geral
 
-Não infantilize o texto nem empobreça sua articulação.
-Não crie reducionismo de intensidade emocional;
+A versão revisada DEVE continuar sendo reconhecível como texto do mesmo autor.
 
-## Argumentação e estrutura
+NÃO:
 
-PODE reorganizar frases, períodos, parágrafos e blocos quando necessário para produzir uma progressão lógica mais clara.
+* reinvente;
+* reimagine;
+* complete;
+* especule;
+* infira conteúdo não expresso;
+* acrescente justificativas inexistentes;
+* crie novas relações causais;
+* crie novas acusações;
+* atribua intenções ou motivações não declaradas;
+* introduza diagnósticos;
+* produza novas conclusões.
+
+### 2.2. Voz e identidade
+
+NÃO:
+
+* transforme a carta em texto acadêmico, terapêutico, jurídico, ensaio, artigo ou texto literário artificialmente elaborado;
+* substitua a voz do autor por uma voz genérica;
+* torne o texto artificialmente sofisticado;
+* “embelezе” frases que já estejam claras e adequadas;
+* reescreva trechos apenas por preferência estilística.
+
+Preserve integralmente:
+
+* fatos;
+* premissas;
+* argumentos;
+* conclusões;
+* sentimentos efetivamente expressos;
+* percepções explicitamente apresentadas;
+* grau de intensidade de cada afirmação;
+* ironias;
+* críticas;
+* sarcasmos;
+* contrastes;
+* ofensas indiretas ou latentes já existentes;
+* repetições com função retórica;
+* destaques preexistentes;
+* trechos originalmente escritos em MAIÚSCULAS;
+* caráter íntimo, pessoal e conjugal da carta.
+
+### 2.3. Intensidade
+
+NÃO reduza nem aumente:
+
+* força;
+* dureza;
+* carga emocional;
+* contundência;
+* sentimento;
+* acusação;
+* frustração;
+* tristeza;
+* ironia;
+* indignação;
+* vulnerabilidade.
+
+Quando uma formulação original for emocionalmente forte, a revisão DEVE preservar intensidade semanticamente equivalente.
+
+---
+
+## 3. Clareza e linguagem
+
+Simplifique a **forma**, nunca o conteúdo.
+
+### 3.1. Vocabulário
+
+* substitua palavras rebuscadas por equivalentes comuns e precisos quando isso melhorar a compreensão;
+* preserve palavras naturais do autor quando já forem claras;
+* evite vocabulário artificialmente culto;
+* evite palavras vagas quando o próprio contexto permitir formulação mais precisa;
+* não empobreça o significado para obter simplicidade.
+
+### 3.2. Construção das frases
+
+* desfaça construções excessivamente abstratas;
+* reduza carga cognitiva desnecessária;
+* prefira relações causais explícitas;
+* torne os referentes pronominais inequívocos;
+* elimine ambiguidades sintáticas ou semânticas;
+* divida períodos excessivamente longos quando isso melhorar objetivamente a compreensão;
+* una frases excessivamente fragmentadas quando a fragmentação não tiver função retórica;
+* preserve frases curtas quando forem deliberadamente enfáticas.
+
+### 3.3. Nível de linguagem
+
+O texto DEVE ser acessível a leitor com baixa capacidade de interpretação, mas:
+
+* NÃO infantilize;
+* NÃO transforme ideias complexas em ideias simplistas;
+* NÃO elimine abstrações necessárias;
+* NÃO descaracterize a voz adulta do autor;
+* NÃO reduza a articulação argumentativa;
+* NÃO produza reducionismo emocional.
+
+O objetivo é **reduzir a complexidade linguística desnecessária**, não a complexidade das ideias.
+
+---
+
+## 4. Argumentação e estrutura
+
+PODE reorganizar frases, períodos, parágrafos e blocos quando houver benefício claro para a progressão lógica.
 
 A reorganização DEVE preservar integralmente:
 
 1. premissas;
 2. fatos;
-3. relações de causa e consequência;
-4. qualificações, ressalvas e exceções;
-5. conclusões;
-6. intensidade argumentativa;
-7. sequência emocional relevante à carta.
+3. argumentos;
+4. relações de causa e consequência;
+5. qualificações;
+6. ressalvas;
+7. exceções;
+8. contrastes;
+9. conclusões;
+10. intensidade argumentativa;
+11. sequência emocional relevante;
+12. dependências entre ideias.
 
-Cada argumento DEVE preparar naturalmente o seguinte. Evite saltos lógicos, referências obscuras e ideias importantes enterradas em construções secundárias.
+Cada argumento DEVE preparar naturalmente o seguinte.
 
-### Tópicos e marcações estruturais existentes
+Evite:
 
-O texto pode conter trechos iniciados por `- ` ou outras marcações usadas pelo autor para separar ideias. **Não presuma que essas marcações devam permanecer como lista.**
+* saltos lógicos;
+* referentes obscuros;
+* mudanças abruptas de assunto;
+* repetição acidental;
+* ideias essenciais enterradas em orações secundárias;
+* conclusões apresentadas antes de premissas indispensáveis, quando isso prejudicar a compreensão.
 
-Avalie cada uma quanto a:
+Entretanto, **NÃO reorganize por mera preferência estética**. Se a ordem original for suficientemente clara e funcional, preserve-a.
 
-- relação lógica com o trecho anterior e posterior;
-- pertinência sob eventual tópico já existente;
-- necessidade real de separação estrutural;
-- possibilidade de integração natural ao corpo da carta;
-- eventual adequação como título, subtítulo, intertítulo, frase de transição ou simples parágrafo.
+---
 
-PODE mover, agrupar, integrar ou converter esses tópicos para obter a forma mais fluida e semanticamente coerente.
+## 5. Parágrafos
+
+Os parágrafos DEVEM possuir extensão adequada à leitura de uma carta pessoal.
+
+Evite:
+
+* parágrafos excessivamente longos que acumulem vários argumentos independentes;
+* parágrafos artificialmente curtos;
+* fragmentação estética;
+* transformar cada frase em um parágrafo;
+* criar “efeito de postagem de rede social” quando ele não existir no original.
+
+Quebre um parágrafo apenas quando houver motivo semântico, argumentativo ou discursivo real, como:
+
+* mudança de argumento;
+* mudança relevante de perspectiva;
+* transição;
+* contraste;
+* conclusão de uma linha de raciocínio;
+* necessidade objetiva de melhorar compreensão.
+
+---
+
+## 6. Tópicos e marcações estruturais existentes
+
+O texto pode conter trechos iniciados por `- ` ou outras marcações utilizadas pelo autor para separar ideias.
+
+**NÃO presuma que essas marcações devam permanecer como lista.**
+
+Avalie individualmente cada ocorrência considerando:
+
+* relação lógica com o trecho anterior;
+* relação lógica com o trecho posterior;
+* eventual subordinação a tópico já existente;
+* necessidade real de separação estrutural;
+* possibilidade de integração natural ao corpo da carta;
+* eventual adequação como título;
+* eventual adequação como subtítulo;
+* eventual adequação como intertítulo;
+* eventual adequação como frase de transição;
+* eventual adequação como simples parágrafo.
+
+PODE:
+
+* mover;
+* agrupar;
+* integrar;
+* fundir;
+* converter;
+* hierarquizar;
+
+quando isso produzir estrutura mais fluida e semanticamente coerente.
 
 Entretanto:
 
-- NÃO elimine o conteúdo representado pelo tópico;
-- NÃO altere sua função argumentativa;
-- NÃO force todos os tópicos para uma única forma;
-- NÃO mantenha listas apenas porque estavam originalmente marcadas com `- `;
-- NÃO transforme a carta em artigo, relatório, ensaio ou documento excessivamente seccionado.
-- Não quebre as sentenças/parágrafos em multiplos parágrafos apenas para finalidades visuais/estéticas.
+* NÃO elimine o conteúdo representado pelo tópico;
+* NÃO altere sua função argumentativa;
+* NÃO force todos os tópicos para uma única forma;
+* NÃO mantenha listas apenas porque originalmente continham `- `;
+* NÃO transforme todos os tópicos em títulos;
+* NÃO transforme a carta em artigo, relatório, ensaio ou documento excessivamente seccionado.
 
-Títulos ou subtítulos somente DEVEM existir quando realmente melhorarem orientação, progressão ou compreensão. Quando usados, DEVEM ser discretos, naturais à carta e compatíveis com sua identidade pessoal, evitando aparência acadêmica ou editorial.
+Títulos e subtítulos somente DEVEM existir quando produzirem ganho real de:
+
+* orientação;
+* compreensão;
+* transição;
+* progressão argumentativa.
+
+Quando utilizados, DEVEM ser discretos, naturais e compatíveis com uma carta pessoal, sem aparência acadêmica ou editorial.
 
 A prioridade é obter **uma carta organicamente estruturada**, não um artigo formal.
 
-## Franqueza, conflito e palatabilidade
+---
 
-Considere princípios tecnicamente sólidos de comunicação conjugal e psicoterapia apenas como referência de **forma comunicacional**, nunca como autorização para alterar o conteúdo.
+## 7. Franqueza, conflito e palatabilidade
+
+Considere princípios tecnicamente sólidos de comunicação conjugal e psicoterapia **apenas como referência de forma comunicacional**, jamais como autorização para modificar o conteúdo.
+
+Esses princípios podem orientar:
+
+* clareza;
+* organização;
+* redução de ambiguidade;
+* distinção entre fato, percepção, sentimento e conclusão;
+* redução de agressividade linguística puramente acidental;
+* escolha entre formulações semanticamente equivalentes.
+
+Eles NÃO podem ser utilizados para:
+
+* censurar;
+* moralizar;
+* amenizar;
+* neutralizar;
+* reinterpretar;
+* corrigir a posição pessoal do autor;
+* retirar conteúdo desconfortável;
+* transformar acusações existentes em linguagem terapêutica;
+* substituir afirmações diretas por eufemismos que diminuam sua força.
 
 A carta envolve diálogo franco entre cônjuges. Portanto:
 
-- sentimentos reais DEVEM permanecer expressos como efetivamente apresentados;
-- verdades consideradas relevantes pelo autor NÃO DEVEM ser omitidas ou artificialmente atenuadas apenas para evitar desconforto;
-- intensidade e força emocional NÃO DEVEM ser reduzidas;
-- ofensas diretas desnecessárias DEVEM ser evitadas;
-- críticas, ironias ou conteúdos negativos já presentes de forma indireta ou latente NÃO DEVEM ser apagados, neutralizados ou simplificados;
-- quando houver formulação semanticamente equivalente e mais palatável, ela PODE ser usada **somente se preservar integralmente sentido, força e intensidade**.
+* sentimentos reais DEVEM permanecer expressos;
+* fatos considerados relevantes pelo autor NÃO DEVEM ser omitidos apenas porque possam causar desconforto;
+* intensidade e força emocional NÃO DEVEM ser reduzidas;
+* ofensas diretas desnecessárias podem ser reformuladas quando houver equivalente semanticamente fiel e menos gratuitamente ofensivo;
+* críticas, ironias, sarcasmos e conteúdos negativos já presentes NÃO DEVEM ser apagados, neutralizados ou enfraquecidos;
+* formulação mais palatável somente PODE ser utilizada quando preservar **integralmente sentido, intensidade, acusação, implicação e função retórica**.
 
-Quando tecnicamente possível, prefira exposição de fatos, efeitos, sentimentos e percepções a ataques pessoais, **sem falsificar, amenizar ou substituir a posição real do autor**.
+Quando tecnicamente possível, prefira exposição de:
 
-## Correções
+* fatos;
+* comportamentos;
+* consequências;
+* efeitos;
+* sentimentos;
+* percepções;
 
-Corrija:
+em vez de ataques pessoais desnecessários, **sem falsificar, amenizar, relativizar ou substituir a posição real do autor**.
 
-- ortografia;
-- gramática;
-- pontuação;
-- concordância;
-- regência;
-- léxico;
-- erros semânticos;
-- referências pronominais;
-- citações, quando houver erro verificável no próprio contexto fornecido.
+---
+
+## 8. Correções linguísticas
+
+Corrija rigorosamente:
+
+* ortografia;
+* acentuação;
+* digitação;
+* gramática;
+* pontuação;
+* concordância verbal;
+* concordância nominal;
+* regência;
+* colocação pronominal;
+* léxico;
+* construções semanticamente defeituosas;
+* referências pronominais;
+* palavras trocadas ou evidentemente mal digitadas;
+* inconsistências de capitalização;
+* erros verificáveis em citações quando o próprio contexto fornecido permitir correção inequívoca.
 
 NÃO altere citações apenas por preferência estilística.
 
-## Formatação
+Se houver dúvida real sobre a forma exata de uma citação e não for possível verificá-la pelo próprio material fornecido, preserve o conteúdo em vez de inventar uma correção.
 
-- Preserve destaques em MAIÚSCULAS.
-- Use **negrito com parcimônia e precisão** nos pontos argumentativos ou emocionais realmente centrais.
-- NÃO sobrecarregue o texto com formatação.
-- Preserve a aparência e identidade de carta pessoal.
-- Listas, títulos e subtítulos são recursos funcionais, NÃO um modelo obrigatório de estrutura.
-- Parágrafos nem curtos demais, nem longos demais. Devidamente adequados e gramaticalmente corretos para uma carta, respeitando o contexto e a evolução.
-- todo texto entre aspas, simples ou duplas, DEVE estar em itálico.
-- Nenhuma palavra deve estar captalizada parcialmente, exceto se gramaticalmente correta, por exempo nomes próprios  e início de frase, e aqueles inequivocamente relacionadas ao Deus cristão (Deus, dEle, ELE, DELE, ...); exemplo de incorretas (VocÊ, EU, emissÃo, ...).
+---
 
-## Restrições finais
+## 9. Formatação
 
-NÃO seja prolixo.
-NÃO seja reducionista.
-NÃO moralize.
-NÃO diagnostique.
-NÃO acrescente conselhos externos.
-NÃO acrescente conteúdo inferido.
-NÃO explique as alterações realizadas.
-NÃO produza resumo.
-NÃO acrescente introdução ou conclusão inexistentes apenas para “melhorar” a carta.
-NÃO imponha estrutura editorial incompatível com uma comunicação pessoal.
+### 9.1. Destaques existentes
 
-Entregue exclusivamente a versão integral revisada.
+* Preserve destaques já existentes.
+* Preserve palavras ou trechos originalmente escritos em MAIÚSCULAS.
+* NÃO remova deliberadamente ênfases existentes.
+* NÃO converta automaticamente MAIÚSCULAS em negrito ou vice-versa.
+
+### 9.2. Negrito
+
+Pode utilizar **negrito com parcimônia e precisão** para pontos argumentativos ou emocionais realmente centrais.
+
+NÃO sobrecarregue o texto com negrito.
+
+O negrito novo deve servir à leitura, não à decoração.
+
+### 9.3. Aspas
+
+Todo conteúdo delimitado por aspas simples ou duplas que represente:
+
+* fala;
+* expressão citada;
+* formulação destacada;
+* palavra ou frase reproduzida como citação;
+
+DEVE ficar em *itálico*, preservando também as aspas.
+
+Exemplo:
+
+`*"eu não quero isso"*`
+
+Não aplique essa regra mecanicamente quando a aspa tiver função puramente técnica, metalinguística ou fizer parte de sintaxe que não represente conteúdo citado, caso isso produza formatação incorreta.
+
+### 9.4. Capitalização
+
+Nenhuma palavra DEVE apresentar capitalização parcial incorreta.
+
+Corrija ocorrências como:
+
+* `VocÊ`;
+* `POrque`;
+* `emissÃo`;
+* `EU`, quando não houver função deliberada de ênfase;
+* outras combinações acidentais de maiúsculas e minúsculas.
+
+Preserve:
+
+* início de frase;
+* nomes próprios;
+* siglas;
+* acrônimos;
+* MAIÚSCULAS deliberadamente utilizadas como recurso de ênfase;
+* formas reverenciais inequivocamente relacionadas ao Deus cristão quando essa for a convenção utilizada no próprio texto, como `Deus`, `Ele`, `dEle`, `Seu`, `dEle` ou equivalentes;
+* outras capitalizações gramaticalmente justificadas.
+
+**NÃO confunda capitalização acidental com MAIÚSCULAS deliberadas para ênfase.**
+
+### 9.5. Aparência geral
+
+* Preserve a identidade visual de carta pessoal.
+* Não imponha aparência de relatório.
+* Não imponha hierarquia editorial desnecessária.
+* Listas, títulos e subtítulos são recursos funcionais, não modelos obrigatórios.
+* A formatação deve auxiliar compreensão sem competir com o conteúdo.
+
+---
+
+## 10. Critério de intervenção mínima
+
+Para cada alteração substancial, aplique implicitamente o seguinte teste:
+
+> **Existe um problema concreto no original que justifique esta mudança?**
+
+Problemas válidos incluem:
+
+* erro linguístico;
+* ambiguidade;
+* redundância sem função;
+* prolixidade desnecessária;
+* dificuldade real de compreensão;
+* ordem lógica deficiente;
+* referente obscuro;
+* quebra de fluidez;
+* incoerência sintática;
+* fragmentação inadequada;
+* período excessivamente complexo;
+* repetição involuntária;
+* estrutura inadequada.
+
+Se a resposta for **não**, preserve a formulação original.
+
+Entre duas versões semanticamente equivalentes, prefira aquela que:
+
+1. mais preserve a voz original;
+2. tenha menor intervenção;
+3. seja mais clara;
+4. mantenha a mesma intensidade;
+5. tenha menor carga cognitiva;
+6. preserve melhor a progressão argumentativa e emocional.
+
+---
+
+## 11. Restrições finais
+
+NÃO:
+
+* seja prolixo;
+* seja reducionista;
+* moralize;
+* diagnostique;
+* acrescente conselhos externos;
+* acrescente conteúdo inferido;
+* invente contexto;
+* acrescente interpretações psicológicas;
+* explique as alterações realizadas;
+* produza resumo;
+* produza comentários editoriais;
+* acrescente introdução inexistente;
+* acrescente conclusão inexistente apenas para “fechar” o texto;
+* imponha estrutura editorial incompatível com comunicação pessoal;
+* substitua o posicionamento do autor por uma versão considerada mais socialmente aceitável;
+* remova conteúdo apenas por ser duro, desconfortável ou controverso;
+* acrescente notas, avisos, prefácios ou pós-escritos inexistentes.
+
+A saída final DEVE conter **somente a versão integral revisada da carta**, sem explicações anteriores ou posteriores.
+
+O resultado DEVE ser entregue em **arquivo Markdown (`.md`) para download**.
+
+---
 
 ## Texto a revisar
+
 -->
 
 Shirley, nem perca tempo lendo isto se for ler só pedaços, pular trechos ou ler com impaciência. **Se não for ler tudo, com atenção, eu prefiro que ignore.**
