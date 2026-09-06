@@ -26,6 +26,7 @@ Produzir uma carta:
 - NÃO substitua a voz do autor por uma voz genérica.
 - NÃO refatore ou reescreve frases se não houver justificativa técnica ou necessidade real.
 - Não reduzir força, intencidade ou sentimento/sentido.
+- NÃO remover destaques já existentes.
 
 Preserve:
 
@@ -300,13 +301,13 @@ Esse tipo de imploração eu não preciso ter com mais ninguém. Somente com voc
 
 Você já reparou como eu digo _“sim”_ para você para praticamente qualquer coisa? Você quer algo, eu digo: compra. Mesmo quando acho estranho. Você tem uma ideia estranha e, mesmo apresentando objeções, eu digo _"sim"_. Você quer uma casa toda rosa: eu digo sim. Você quer uma casa de bonecas: digo sim. Você quer gatos, mesmo tendo combinado que não teríamos: digo sim.
 
-Veja o histórico. Eu raramente digo “não”. E, quando digo, em geral é quando aquilo me envolve diretamente, exigindo que eu faça algo que eu não quero. Mas, quando é sobre você fazer algo, desejar algo ou mudar algo, ainda que isso me envolva indiretamente ou possa interferir em mim, eu geralmente digo "sim". É sério. Acho que você nunca pensou nisso.
+Veja o histórico. Eu raramente digo “não”. E, quando digo, em geral é quando aquilo me envolve diretamente, exigindo que eu faça algo que eu não quero fazer, que é pessoal/íntimo. Mas, quando é sobre você fazer algo, desejar algo ou mudar algo, mesmo que isso **me** envolva indiretamente ou possa interferir **em mim**, eu geralmente digo "sim". É sério. E parece que você nunca pensou nisso.
 
-Agora pense no contrário. Eu raramente escuto você dizer "sim". É tão difícil, mas tão difícil, que às vezes parece até que você sente prazer em dizer "_não_", porque não é possível. O _“não”_ está na ponta da língua antes mesmo de eu terminar de pedir. Mesmo para coisas triviais e banais, geralmente eu tenho que me desdobrar, me humilhar, implorar e usar palavras cordiais de forma exagerada para chegar perto de obter um "_sim_" — e ainda com má vontade, muita má vontade. É perceptível. Se eu tratasse você do mesmo jeito que sou tratado, eu já estaria preso pela Lei Maria da Penha. E não estou exagerando. Estou falando literalmente.
+Agora pense no contrário. Eu raramente escuto você dizer "sim". É tão difícil, mas tão difícil, que às vezes parece até que você sente prazer em dizer "_não_", porque não é possível. O _“não”_ está na ponta da língua antes mesmo de eu terminar de pedir. Mesmo para coisas triviais e banais, geralmente eu tenho que me **desdobrar**, me **humilhar**, implorar e usar palavras cordiais de forma exagerada para chegar perto de obter um "_sim_" — e ainda com má vontade, muita má vontade. É perceptível. Se eu tratasse você do mesmo jeito que sou tratado, eu já estaria preso pela Lei Maria da Penha. E não estou exagerando. Estou falando literalmente.
 
-Embora a Bíblia, e portanto Deus, dê um mandamento de que a mulher deve obedecer ao marido, você claramente está disposta a dizer “_não_” com a resposta já na ponta da língua, sem sequer ter tempo de pensar e refletir. Isso é um pecado aberto e público, não contra mim, mas contra Deus. Eu já estou acostumado. Nem me importo mais.
+Embora a Bíblia, e portanto Deus, dê um mandamento de que a mulher deve obedecer ao marido, você claramente está disposta a dizer “_não_” com a resposta já na ponta da língua, sem sequer ter tempo de pensar e refletir. Isso **é um pecado aberto e público**, não contra mim, mas contra Deus. Eu já estou acostumado. Nem me importo mais.
 
-Um dos muitos erros que entraram na igreja é a ideia de que a mulher somente deve obedecer ao homem se ele _“estiver no Senhor”_. Quantos pastores e pregadores nós já ouvimos dizer isso ou algo parecido? Mas isso está completamente errado. A Bíblia não diz isso. O problema é que, hoje, quem quer falar sobre a mulher obedecer ao marido, quando isso é politicamente incorreto? Ninguém ousa chamar o pecado pelo nome, não é?
+Um dos muitos erros que entraram na igreja é a ideia de que a mulher somente deve obedecer ao homem **se** ele _“estiver no Senhor”_. Quantos pastores e pregadores nós já ouvimos dizer isso ou algo parecido? Mas isso está **completamente <u>errado</u>**. A Bíblia não diz isso. O problema é que, hoje, quem quer falar sobre a mulher obedecer ao marido, quando isso é politicamente incorreto? Ninguém ousa **chamar o pecado pelo nome**, não é?
 
 Há um problema sério com essa ideia:
 
