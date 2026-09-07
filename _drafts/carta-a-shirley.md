@@ -840,8 +840,18 @@ Mas o erro é todo meu. A culpa é totalmente minha. Eu fui ingênuo demais. Eu 
 
 Mas a gente aprende. E vai se tornando mais sagaz.
 
-Toda esta conversa faz alguma diferença? Claro que não! E, de forma alguma, estou te falando isso porque quero, desejo ou tenho esperança de que você mude. Na realidade, eu não quero que você mude. É justamente o contrário: já é tarde demais para isso.
+Eu já disse isso para você antes, com outras palavras:
 
-Eu não quero mais nada, a não ser **sobreviver a mais este dia**. É só mais este dia. Eu não estou pensando neste ano, nem nesta década, nem no restante da vida. Estou pensando apenas em vencer este dia. Um dia de cada vez. Como os alcoólatras.
+- Eu não vou mais ser seu cachorrinho.
+- Não existe mais casamento. Nós apenas moramos juntos — e você escolheu isso há anos.
+- Eu não vou mais me humilhar.
+- Eu não vou mais me expor a situações de risco como antes.
+- Eu não vou mais me esforçar. Estou muito cansado, esgotado, exausto de tanto tentar por 16 anos. Simplesmente não tenho mais forças, e o pouco que ainda existia se esvaiu em outubro de 2025.
 
-Eu nem quero voltar a falar dessas coisas. Eu fujo e tenho fugido delas — você sabe disso — porque eu sei que não adianta. Nunca fez diferença e não vai fazer diferença agora. E, como eu disse, eu nem quero mais, nem me importo, que faça.
+Toda esta conversa faz alguma diferença? Claro que não! E, de forma alguma, estou te falando isso porque quero, desejo ou tenho esperança de que você mude? **Não!** Na realidade, eu não quero que você mude. É justamente o contrário: já é **tarde demais** para isso. A _"porta da graça"_ se fechou.
+
+Eu não quero mais nada, a não ser **sobreviver a mais este dia**. É _"só mais este dia"_. Eu não estou pensando neste ano, nem nesta década, nem mesmo no restante da vida. Estou pensando apenas em vencer _"este dia"_. Um dia de cada vez. Como os alcoólatras.
+
+Eu nem quero voltar a falar dessas coisas. E por isso eu fujo e tenho fugido delas — você sabe disso — porque eu sei que não adianta. Nunca fez diferença e não vai fazer diferença agora. E, como eu disse, eu nem quero mais, nem me importo, que faça. Tudo que eu fiz, foi para nada! Pois sua visão de mundo é diferente da minha, e a minha é diferente da sua.
+
+Amor, viva este dia! Vença este dia! É só este dia: os problemas e os desafios deste dia. Um dia de cada vez, e pronto! Vamos fazer isso? Talvez, assim, nós consigamos. Eu não sei. Quem sabe? Mas falar, escrever cartinhas? Nós já tentamos tanto isso, não tentamos?
