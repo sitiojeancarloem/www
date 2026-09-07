@@ -282,7 +282,7 @@ Nesse caso:
 1. o sentimento, a acusação, a dor, a intensidade e a intenção reais DEVEM permanecer semanticamente intactos;
 2. amenizar DEVE significar apenas reduzir impacto ofensivo desnecessário da formulação, e NÃO reduzir o conteúdo emocional ou factual;
 3. dê preferência à alteração do jogo de palavras, ordem ou construção, mantendo a mesma força material;
-4. a versão original substituída DEVE ser preservada imediatamente junto ao trecho, em comentário HTML `<!-- ... -->`, para rastreabilidade;
+4. a versão original substituída DEVE ser preservada imediatamente junto ao trecho, em comentário HTML `<!-- ... --\>`, para rastreabilidade;
 
 5. NÃO utilize essa exceção de forma recorrente ou como mecanismo geral de suavização.
 
@@ -437,7 +437,7 @@ Na seção `## Alterações substanciais`:
 - NÃO invente alterações que não tenham ocorrido;
 - se nenhuma alteração substancial tiver sido necessária, escreva apenas `Nenhuma alteração substancial.`
 
-Comentários HTML `<!-- ... -->` exigidos pela regra de amenização excepcional pertencem à própria carta revisada e NÃO substituem o registro correspondente nesta seção.
+Comentários HTML `<!-- ... --\>` exigidos pela regra de amenização excepcional pertencem à própria carta revisada e NÃO substituem o registro correspondente nesta seção.
 
 ---
 
@@ -445,7 +445,7 @@ Comentários HTML `<!-- ... -->` exigidos pela regra de amenização excepcional
 
 -->
 
-Shirley, nem perca tempo lendo isto se for ler apenas pedaços, pular trechos ou ler com impaciência. **Se não for ler tudo, com atenção, eu prefiro que ignore.**
+Shirley, nem perca tempo lendo isto se for ler apenas pedaços, pular trechos ou ler com impaciência, ou ler de forma pausada: ou leia tudo de uma vez ou nem leia. **Se não for ler tudo, com atenção, eu prefiro que ignore.**
 
 Isto aqui não é um desabafo. Não é um ataque. E, sinceramente, eu também nem sei dizer exatamente o que é. Depois de 18 anos juntos, nós já conversamos tanto que, em muitos assuntos, conversar parece inútil.
 
@@ -587,7 +587,7 @@ Mas **você é incapaz** de resolver, ou seja, de somar. Você sempre **exigiu**
 
 Você não está ali como uma auxiliar, que, aliás, é um mandamento divino claro. E o que está em **Tiago 2:10**? Eu sei que você odeia de todo o coração essa palavra, mas por quê? Talvez seja justamente porque é onde aperta o calo. E é assim com qualquer um, inclusive comigo, não é? O que nos atinge é aquilo que mais nos incomoda, e às vezes causa um ódio enorme.
 
-Mas você não é prestativa, de forma alguma. O problema é mais fundo: você nunca está disponível, nunca está disposta, nunca está ali ao lado demonstrando interesse e intenção de ajudar, colaborar e contribuir. É inanição total. Se eu não pedir, você não faz. E, se eu pedir, faz reclamando. Por isso, eu prefiro quase sempre nem pedir. Quando peço, uso palavras como _“por gentileza”_ e _“por favor”_, com muito cuidado. Você começou até a achar ruim, porque já sabe o que vem. A questão é que você poderia falar o mesmo de mim, correto? Tudo bem. Mas qual é a função de cada um segundo a Bíblia? Quero dizer: quem é que auxilia quem? Eu tenho funções, e você tem funções. Isso não é minha opinião, meu gosto ou minha vontade. No final, se olharmos para toda a nossa história, veremos que eu te auxiliei muito mais vezes do que você me auxiliou. E isso de forma alguma desmerece os auxílios que você me deu — eu sei que você auxiliou, mas bem aquém: você é, ou deveria ser, **uma auxiliadora**, e não uma **auxiliadora eventual**. Entende?
+Mas você **não** é **<u>prestativa</u>**, de forma alguma. O problema é mais fundo: você nunca está disponível, nunca está disposta, nunca está ali ao lado demonstrando interesse e intenção de ajudar, colaborar e contribuir, de forma sincéra e genuina. É **inanição total**. Se eu não pedir, você não faz. E, se eu pedir, faz reclamando. Por isso, eu prefiro quase sempre nem pedir. Quando peço, uso palavras como _“por gentileza”_ e _“por favor”_, com muito cuidado. Você começou até a achar ruim, porque já sabe o que vem. A questão é que você poderia falar o mesmo de mim, correto? Tudo bem. Mas qual é a função de cada um segundo a Bíblia? Quero dizer: quem é que auxilia quem? Eu tenho funções, e você tem funções. Isso não é minha opinião, meu gosto ou minha vontade. No final, se olharmos para toda a nossa história, veremos que eu te auxiliei muito mais vezes do que você me auxiliou. E isso de forma alguma desmerece os auxílios que você me deu — eu sei que você auxiliou, mas bem aquém: você é, ou deveria ser, **uma auxiliadora**, e não uma **auxiliadora eventual**. Entende?
 
 Esse tipo de imploração eu não preciso ter com mais ninguém. Somente com você eu preciso ter uma atitude e uma escolha de palavras quase no nível de humilhação para chegar perto de conseguir um _“sim”_.
 
