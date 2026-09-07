@@ -855,3 +855,5 @@ Eu não quero mais nada, a não ser **sobreviver a mais este dia**. É _"só mai
 Eu nem quero voltar a falar dessas coisas. E por isso eu fujo e tenho fugido delas — você sabe disso — porque eu sei que não adianta. Nunca fez diferença e não vai fazer diferença agora. E, como eu disse, eu nem quero mais, nem me importo, que faça. Tudo que eu fiz, foi para nada! Pois sua visão de mundo é diferente da minha, e a minha é diferente da sua.
 
 Amor, viva este dia! Vença este dia! É só este dia: os problemas e os desafios deste dia. Um dia de cada vez, e pronto! Vamos fazer isso? Talvez, assim, nós consigamos. Eu não sei. Quem sabe? Mas falar, escrever cartinhas? Nós já tentamos tanto isso, não tentamos?
+
+Se você quiser trocar uma ideia com o seu psicólo, pode. Pois eu não tenho ideia alguma.
