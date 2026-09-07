@@ -513,7 +513,7 @@ Até outubro de 2025, eu ainda tinha um pensamento positivo sobre este casamento
 
 Mas isso acabou. Eu não vejo mais uma princesa, apenas uma abóbora. Não porque antes eu não enxergasse problemas ou defeitos, mas porque antes eu precisava me esforçar para me lembrar deles. Antes eu via uma pessoa boa que errava. Hoje eu não consigo mais ver dessa forma; hoje, infelizmente, eu já vejo maldade e más intenções. Eu lembro como me esquecia com facilidade, porque estava totalmente focado nas coisas boas, em viver o casamento e o amor. Mesmo depois de 16 anos, passando por muita depressão sua, altos e baixos, eu ainda estava _“em amor”_. Mas isso não sobreviveu a outubro de 2025. Ali, tudo acabou. Ali eu vi realmente quem você é.
 
-Agora, eu vivo como um alcoólatra, e já disse isso a você: **um dia de cada vez**. Eu fiz uma promessa e ainda quero cumpri-la: **até que a morte nos separe**. Mas é apenas isso. Não é fácil; Satanás rodeia, e eu não vou mentir. Mas eu não deixei de te amar; só que o encanto acabou. E vou ser bem sincero: quem perdeu foi você. Eu também perdi, mas também **me libertei**: hoje eu não estou mais preso à obsessão de alcançar o objetivo de te fazer feliz que eu tinha até 2025. Esse **não** é mais o meu alvo.
+Agora, eu vivo como um alcoólatra, e já disse isso a você: **um dia de cada vez**. Eu fiz uma promessa e ainda quero cumpri-la: **até que a morte nos separe**. Mas é algos simples, não é fácil; Satanás rodeia, e eu não vou mentir. Mas eu não deixei de te amar; só que o encanto acabou. E vou ser bem sincero: quem perdeu foi você. Eu também perdi, mas também **me libertei**: hoje eu não estou mais preso à obsessão de alcançar o objetivo de te fazer feliz que eu tinha até 2025. Esse **não** é mais o meu alvo.
 
 Eu tive um encanto por você durante mais de 16 anos que parecia **feitiçaria**. Dediquei-me e me esforcei a vida inteira para te fazer feliz, embora nunca tenha conseguido. Mas agora acabou. Agora é um dia de cada vez. O sonho morreu. Por isso, eu não quero mais ver o álbum nem o vídeo do casamento, assim como, no passado, eu já havia pedido para você ver comigo e **você não quis**. Aquilo representa uma mentira: havia amor do meu lado, e <u>**posse** do outro</u>. E eu não quero cutucar uma ferida que **não tem cura**, porque **só vai doer** mais, vai piorar e não há como resolver. A **ferida é um câncer terminal**.
 
@@ -839,3 +839,9 @@ Hoje, eu posso dizer que concordo totalmente com você: casamento é um erro. Ta
 Mas o erro é todo meu. A culpa é totalmente minha. Eu fui ingênuo demais. Eu leio sobre essas coisas nos livros e na Bíblia, mas é tão difícil acreditar que sejam reais, sabe? Você já deve ter ouvido falar do princípio da _“presunção de inocência”_. Hoje, eu olho para mim mesmo e acho que talvez eu seja o único otário do mundo que realmente aplicou isso.
 
 Mas a gente aprende. E vai se tornando mais sagaz.
+
+Toda esta conversa faz alguma diferença? Claro que não! E, de forma alguma, estou te falando isso porque quero, desejo ou tenho esperança de que você mude. Na realidade, eu não quero que você mude. É justamente o contrário: já é tarde demais para isso.
+
+Eu não quero mais nada, a não ser **sobreviver a mais este dia**. É só mais este dia. Eu não estou pensando neste ano, nem nesta década, nem no restante da vida. Estou pensando apenas em vencer este dia. Um dia de cada vez. Como os alcoólatras.
+
+Eu nem quero voltar a falar dessas coisas. Eu fujo e tenho fugido delas — você sabe disso — porque eu sei que não adianta. Nunca fez diferença e não vai fazer diferença agora. E, como eu disse, eu nem quero mais, nem me importo, que faça.
