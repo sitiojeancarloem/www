@@ -856,4 +856,4 @@ Eu nem quero voltar a falar dessas coisas. E por isso eu fujo e tenho fugido del
 
 Amor, viva este dia! Vença este dia! É só este dia: os problemas e os desafios deste dia. Um dia de cada vez, e pronto! Vamos fazer isso? Talvez, assim, nós consigamos. Eu não sei. Quem sabe? Mas falar, escrever cartinhas? Nós já tentamos tanto isso, não tentamos?
 
-Se você quiser trocar uma ideia com o seu psicólo, pode. Pois eu não tenho ideia alguma.
+Se você quiser trocar uma ideia com o seu psicólogo, pode. Pois eu não tenho ideia alguma.
