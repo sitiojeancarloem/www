@@ -1,13 +1,11 @@
 <!--
 # Revisão e refatoração de carta pessoal
 
-Revise e refatore integralmente o texto fornecido, preservando **conteúdo, intenção, sentido, intensidade, retórica, identidade pessoal e estilo linguístico característico do autor**, mas tornando a leitura mais clara, fluida, objetiva e logicamente progressiva, inclusive para leitores com baixa capacidade de interpretação textual.
+Revise e refatore integralmente o texto fornecido, preservando **conteúdo, sentido, intenção, intensidade, retórica, identidade pessoal e estilo linguístico característico do autor**, mas tornando-o mais claro, fluido, objetivo e logicamente progressivo, inclusive para leitores com baixa capacidade de interpretação textual.
 
-A intervenção DEVE ser **conservadora e tecnicamente justificada**: não reescreva uma frase, período, parágrafo ou bloco apenas porque outra formulação seria estilisticamente possível. Altere somente quando houver necessidade real de correção, clareza, fluidez, coerência, redução de ambiguidade, eliminação de redundância ou melhoria do encadeamento lógico.
+A intervenção DEVE ser **conservadora, mínima e tecnicamente justificável**. NÃO reescreva frase, período, parágrafo ou bloco apenas porque outra formulação seria estilisticamente possível. Altere somente para corrigir problema real de linguagem, clareza, fluidez, coerência, ambiguidade, redundância sem função ou encadeamento lógico.
 
-**Simplicidade NÃO implica simplificação de conteúdo.** Nenhum detalhe, nuance, ressalva, premissa, argumento, contraste, implicação, intensidade, sentimento ou recurso retórico relevante pode ser perdido.
-
-Ao concluir, devolva **exclusivamente a versão integral revisada em arquivo `.md` para download**.
+**Simplicidade NÃO implica simplificação de conteúdo.** Nenhum detalhe, nuance, ressalva, premissa, argumento, contraste, implicação, sentimento, intensidade ou recurso retórico relevante pode ser perdido.
 
 Seja rigoroso.
 
@@ -17,99 +15,95 @@ Seja rigoroso.
 
 Produzir uma carta:
 
-* simples, clara, objetiva, eloquente e argumentativamente forte;
-* compreensível por leitor com escolaridade aproximadamente equivalente ao 4º ano do Ensino Fundamental, inclusive com limitações de letramento funcional;
-* com encadeamento lógico explícito, progressivo e fácil de acompanhar;
-* fiel à voz, à personalidade e à maneira original de formular ideias do autor;
-* franca na exposição de fatos, argumentos, percepções e sentimentos;
-* sem artificialmente suavizar, intensificar, reinterpretar, moralizar ou psicologizar aquilo que foi escrito;
-* menos prolixa quando houver prolixidade **inequivocamente redundante**, sem redução da substância argumentativa ou emocional.
+- simples, clara, objetiva, eloquente e argumentativamente forte;
+- compreensível por leitor com escolaridade aproximadamente equivalente ao 4º ano do Ensino Fundamental, inclusive com limitações de letramento funcional;
+- com encadeamento lógico explícito, progressivo e fácil de acompanhar;
+- fiel à voz, personalidade, articulação e maneira original de formular ideias do autor;
+- franca na exposição de fatos, argumentos, percepções e sentimentos;
+- sem artificialmente suavizar, intensificar, reinterpretar, moralizar ou psicologizar o conteúdo;
+- menos prolixa somente quando houver redundância ou extensão **inequivocamente sem função**, sem redução da substância argumentativa ou emocional.
 
-### 1.1. Convergência de redundâncias e pleonasmos
+O resultado DEVE continuar reconhecível como texto do mesmo autor.
 
-Convirja redundâncias inequívocas, repetições sem função retórica e pleonasmos desnecessários quando:
+### 1.1. Redundâncias e pleonasmos
+
+Convirja redundâncias inequívocas, repetições sem função retórica e pleonasmos desnecessários quando, cumulativamente:
 
 1. expressem substancialmente a mesma ideia;
-2. estejam dentro da mesma linha de raciocínio;
-3. apareçam próximas entre si, ainda que separadas por alguns parágrafos;
-4. possam ser fundidas sem alterar premissas, conclusões, intensidade ou progressão emocional;
-5. a fusão produza texto mais fluido e menos prolixo;
-6. nenhuma das ocorrências tenha função própria de ênfase, retomada, contraste, progressão, ritmo ou reforço retórico.
+2. pertençam à mesma linha de raciocínio;
+3. estejam próximas, ainda que separadas por alguns parágrafos;
+4. possam ser fundidas sem alterar premissas, fatos, conclusões, intensidade, progressão emocional ou função argumentativa;
+5. a fusão torne o texto objetivamente mais claro ou fluido;
+6. nenhuma ocorrência exerça função própria de ênfase, retomada, contraste, progressão, ritmo ou reforço retórico.
 
-A convergência DEVE preservar todos os elementos informacionais relevantes presentes nas formulações originais.
+A convergência DEVE preservar todos os elementos informacionais relevantes das formulações originais.
 
-**NÃO trate repetição intencional como erro.** Se a repetição cumprir função enfática, emocional, argumentativa ou estrutural, preserve-a.
+**NÃO trate repetição intencional como erro.** Preserve-a quando cumprir função enfática, emocional, argumentativa ou estrutural.
 
-A finalidade é eliminar apenas **redundância sem função**, e NÃO encurtar o texto por si só.
+A finalidade é eliminar somente **redundância sem função**, nunca encurtar o texto por si só.
 
 ---
 
 ## 2. Fidelidade ao original
 
-### 2.1. Princípio geral
-
-A versão revisada DEVE continuar sendo reconhecível como texto do mesmo autor.
+### 2.1. Conteúdo
 
 NÃO:
 
-* reinvente;
-* reimagine;
-* complete;
-* especule;
-* infira conteúdo não expresso;
-* acrescente justificativas inexistentes;
-* crie novas relações causais;
-* crie novas acusações;
-* atribua intenções ou motivações não declaradas;
-* introduza diagnósticos;
-* produza novas conclusões.
+- reinvente ou reimagine;
+- complete lacunas;
+- especule ou infira conteúdo não expresso;
+- acrescente justificativas inexistentes;
+- crie relações causais não apresentadas;
+- crie novas acusações;
+- atribua intenções ou motivações não declaradas;
+- introduza diagnósticos;
+- produza novas conclusões.
+
+Preserve integralmente:
+
+- fatos;
+- premissas;
+- argumentos;
+- conclusões;
+- sentimentos efetivamente expressos;
+- percepções explicitamente apresentadas;
+- grau de intensidade de cada afirmação;
+- ironias, críticas e sarcasmos;
+- contrastes;
+- ofensas indiretas ou latentes já existentes;
+- repetições com função retórica;
+- destaques preexistentes;
+- MAIÚSCULAS deliberadas;
+- caráter íntimo, pessoal e conjugal da carta.
 
 ### 2.2. Voz e identidade
 
 NÃO:
 
-* transforme a carta em texto acadêmico, terapêutico, jurídico, ensaio, artigo ou texto literário artificialmente elaborado;
-* substitua a voz do autor por uma voz genérica;
-* torne o texto artificialmente sofisticado;
-* “embelezе” frases que já estejam claras e adequadas;
-* reescreva trechos apenas por preferência estilística.
-
-Preserve integralmente:
-
-* fatos;
-* premissas;
-* argumentos;
-* conclusões;
-* sentimentos efetivamente expressos;
-* percepções explicitamente apresentadas;
-* grau de intensidade de cada afirmação;
-* ironias;
-* críticas;
-* sarcasmos;
-* contrastes;
-* ofensas indiretas ou latentes já existentes;
-* repetições com função retórica;
-* destaques preexistentes;
-* trechos originalmente escritos em MAIÚSCULAS;
-* caráter íntimo, pessoal e conjugal da carta.
+- transforme a carta em texto acadêmico, terapêutico, jurídico, ensaio, artigo ou texto literário artificialmente elaborado;
+- substitua a voz do autor por voz genérica;
+- torne o texto artificialmente sofisticado;
+- “embelezе” frases já claras e adequadas;
+- reescreva apenas por preferência estilística.
 
 ### 2.3. Intensidade
 
-NÃO reduza nem aumente:
+NÃO reduza nem aumente arbitrariamente:
 
-* força;
-* dureza;
-* carga emocional;
-* contundência;
-* sentimento;
-* acusação;
-* frustração;
-* tristeza;
-* ironia;
-* indignação;
-* vulnerabilidade.
+- força;
+- dureza;
+- carga emocional;
+- contundência;
+- sentimento;
+- acusação;
+- frustração;
+- tristeza;
+- ironia;
+- indignação;
+- vulnerabilidade.
 
-Quando uma formulação original for emocionalmente forte, a revisão DEVE preservar intensidade semanticamente equivalente.
+Quando o original for emocionalmente forte, a revisão DEVE preservar intensidade semanticamente equivalente.
 
 ---
 
@@ -119,48 +113,48 @@ Simplifique a **forma**, nunca o conteúdo.
 
 ### 3.1. Vocabulário
 
-* substitua palavras rebuscadas por equivalentes comuns e precisos quando isso melhorar a compreensão;
-* preserve palavras naturais do autor quando já forem claras;
-* evite vocabulário artificialmente culto;
-* evite palavras vagas quando o próprio contexto permitir formulação mais precisa;
-* não empobreça o significado para obter simplicidade.
+- substitua palavras rebuscadas por equivalentes comuns e precisos quando isso melhorar a compreensão;
+- preserve palavras naturais do autor quando já forem claras;
+- evite vocabulário artificialmente culto;
+- evite termos vagos quando o próprio contexto permitir formulação mais precisa;
+- NÃO empobreça o significado para obter simplicidade.
 
 ### 3.2. Construção das frases
 
-* desfaça construções excessivamente abstratas;
-* reduza carga cognitiva desnecessária;
-* prefira relações causais explícitas;
-* torne os referentes pronominais inequívocos;
-* elimine ambiguidades sintáticas ou semânticas;
-* divida períodos excessivamente longos quando isso melhorar objetivamente a compreensão;
-* una frases excessivamente fragmentadas quando a fragmentação não tiver função retórica;
-* preserve frases curtas quando forem deliberadamente enfáticas.
+- desfaça construções excessivamente abstratas;
+- reduza carga cognitiva desnecessária;
+- explicite relações causais quando já estiverem logicamente contidas no original;
+- torne referentes pronominais inequívocos;
+- elimine ambiguidades sintáticas ou semânticas;
+- divida períodos excessivamente longos quando isso melhorar objetivamente a compreensão;
+- una frases excessivamente fragmentadas quando a fragmentação não tiver função retórica;
+- preserve frases curtas deliberadamente enfáticas.
 
 ### 3.3. Nível de linguagem
 
-O texto DEVE ser acessível a leitor com baixa capacidade de interpretação, mas:
+O texto DEVE ser acessível a leitor com baixa capacidade de interpretação, mas NÃO:
 
-* NÃO infantilize;
-* NÃO transforme ideias complexas em ideias simplistas;
-* NÃO elimine abstrações necessárias;
-* NÃO descaracterize a voz adulta do autor;
-* NÃO reduza a articulação argumentativa;
-* NÃO produza reducionismo emocional.
+- infantilize;
+- transforme ideias complexas em ideias simplistas;
+- elimine abstrações necessárias;
+- descaracterize a voz adulta do autor;
+- reduza a articulação argumentativa;
+- produza reducionismo emocional.
 
-O objetivo é **reduzir a complexidade linguística desnecessária**, não a complexidade das ideias.
+O objetivo é **reduzir complexidade linguística desnecessária, não a complexidade das ideias**.
 
 ---
 
 ## 4. Argumentação e estrutura
 
-PODE reorganizar frases, períodos, parágrafos e blocos quando houver benefício claro para a progressão lógica.
+PODE reorganizar frases, períodos, parágrafos e blocos quando houver ganho claro de compreensão ou progressão lógica.
 
 A reorganização DEVE preservar integralmente:
 
 1. premissas;
 2. fatos;
 3. argumentos;
-4. relações de causa e consequência;
+4. relações de causa e consequência já presentes;
 5. qualificações;
 6. ressalvas;
 7. exceções;
@@ -172,89 +166,72 @@ A reorganização DEVE preservar integralmente:
 
 Cada argumento DEVE preparar naturalmente o seguinte.
 
-Evite:
+Corrija, quando existentes:
 
-* saltos lógicos;
-* referentes obscuros;
-* mudanças abruptas de assunto;
-* repetição acidental;
-* ideias essenciais enterradas em orações secundárias;
-* conclusões apresentadas antes de premissas indispensáveis, quando isso prejudicar a compreensão.
+- saltos lógicos;
+- referentes obscuros;
+- mudanças abruptas de assunto;
+- repetição acidental;
+- ideias essenciais enterradas em orações secundárias;
+- conclusões apresentadas antes de premissas indispensáveis, quando isso prejudicar a compreensão.
 
-Entretanto, **NÃO reorganize por mera preferência estética**. Se a ordem original for suficientemente clara e funcional, preserve-a.
+**NÃO reorganize por mera preferência estética.** Se a ordem original já for clara e funcional, preserve-a.
 
 ---
 
 ## 5. Parágrafos
 
-Os parágrafos DEVEM possuir extensão adequada à leitura de uma carta pessoal.
+A carta é escrita em primeira pessoa e DEVE preservar aparência de redação/carta pessoal, não de postagem, artigo ou relatório.
 
-Evite:
+Os parágrafos DEVEM seguir a organização semântica e discursiva natural do português. Prefira parágrafos médios ou longos quando as frases pertencerem claramente ao mesmo núcleo de sentido.
 
-* parágrafos excessivamente longos que acumulem vários argumentos independentes;
-* parágrafos artificialmente curtos;
-* fragmentação estética;
-* transformar cada frase em um parágrafo;
-* criar “efeito de postagem de rede social” quando ele não existir no original.
+NÃO:
 
-Quebre um parágrafo apenas quando houver motivo semântico, argumentativo ou discursivo real, como:
+- acumule em um único parágrafo argumentos independentes que exijam separação;
+- fragmente artificialmente frases ou sentenças que semanticamente devam permanecer juntas;
+- transforme cada frase em um parágrafo;
+- use quebras de linha apenas por efeito visual;
+- crie “efeito de postagem de rede social” inexistente no original;
+- insira espaçamento ou linhas vazias sem função estrutural.
 
-* mudança de argumento;
-* mudança relevante de perspectiva;
-* transição;
-* contraste;
-* conclusão de uma linha de raciocínio;
-* necessidade objetiva de melhorar compreensão.
+Quebre parágrafo somente quando houver motivo semântico, argumentativo ou discursivo real, como:
+
+- mudança de argumento;
+- mudança relevante de perspectiva;
+- transição;
+- contraste;
+- conclusão de uma linha de raciocínio;
+- necessidade objetiva de melhorar a compreensão.
 
 ---
 
-## 6. Tópicos e marcações estruturais existentes
+## 6. Tópicos e marcações estruturais
 
 O texto pode conter trechos iniciados por `- ` ou outras marcações utilizadas pelo autor para separar ideias.
 
 **NÃO presuma que essas marcações devam permanecer como lista.**
 
-Avalie individualmente cada ocorrência considerando:
+Avalie individualmente cada ocorrência quanto a:
 
-* relação lógica com o trecho anterior;
-* relação lógica com o trecho posterior;
-* eventual subordinação a tópico já existente;
-* necessidade real de separação estrutural;
-* possibilidade de integração natural ao corpo da carta;
-* eventual adequação como título;
-* eventual adequação como subtítulo;
-* eventual adequação como intertítulo;
-* eventual adequação como frase de transição;
-* eventual adequação como simples parágrafo.
+- relação lógica com o trecho anterior;
+- relação lógica com o trecho posterior;
+- eventual subordinação a tópico existente;
+- necessidade real de separação;
+- possibilidade de integração natural ao corpo da carta;
+- adequação como título, subtítulo, intertítulo, frase de transição ou simples parágrafo.
 
-PODE:
-
-* mover;
-* agrupar;
-* integrar;
-* fundir;
-* converter;
-* hierarquizar;
-
-quando isso produzir estrutura mais fluida e semanticamente coerente.
+PODE mover, agrupar, integrar, fundir, converter ou hierarquizar esses trechos quando isso produzir estrutura mais fluida e semanticamente coerente.
 
 Entretanto:
 
-* NÃO elimine o conteúdo representado pelo tópico;
-* NÃO altere sua função argumentativa;
-* NÃO force todos os tópicos para uma única forma;
-* NÃO mantenha listas apenas porque originalmente continham `- `;
-* NÃO transforme todos os tópicos em títulos;
-* NÃO transforme a carta em artigo, relatório, ensaio ou documento excessivamente seccionado.
+- NÃO elimine o conteúdo representado;
+- NÃO altere sua função argumentativa;
+- NÃO force todos os tópicos para uma única forma;
+- NÃO mantenha listas apenas porque originalmente continham `- `;
+- NÃO transforme todos os tópicos em títulos;
+- NÃO converta a carta em artigo, relatório, ensaio ou documento excessivamente seccionado.
 
-Títulos e subtítulos somente DEVEM existir quando produzirem ganho real de:
-
-* orientação;
-* compreensão;
-* transição;
-* progressão argumentativa.
-
-Quando utilizados, DEVEM ser discretos, naturais e compatíveis com uma carta pessoal, sem aparência acadêmica ou editorial.
+Títulos, subtítulos e intertítulos somente DEVEM existir quando houver ganho real de orientação, compreensão, transição ou progressão argumentativa. Quando usados, DEVEM ser discretos, naturais e compatíveis com carta pessoal, sem aparência acadêmica ou editorial.
 
 A prioridade é obter **uma carta organicamente estruturada**, não um artigo formal.
 
@@ -262,48 +239,54 @@ A prioridade é obter **uma carta organicamente estruturada**, não um artigo fo
 
 ## 7. Franqueza, conflito e palatabilidade
 
-Considere princípios tecnicamente sólidos de comunicação conjugal e psicoterapia **apenas como referência de forma comunicacional**, jamais como autorização para modificar o conteúdo.
+Considere princípios tecnicamente sólidos de comunicação conjugal e psicoterapia **somente como referência de forma comunicacional**, nunca como autorização para alterar o posicionamento, os fatos ou os sentimentos do autor.
 
-Esses princípios podem orientar:
+Esses princípios PODEM orientar:
 
-* clareza;
-* organização;
-* redução de ambiguidade;
-* distinção entre fato, percepção, sentimento e conclusão;
-* redução de agressividade linguística puramente acidental;
-* escolha entre formulações semanticamente equivalentes.
+- clareza;
+- organização;
+- redução de ambiguidade;
+- distinção entre fato, percepção, sentimento e conclusão;
+- redução de agressividade linguística puramente acidental;
+- escolha entre formulações semanticamente equivalentes;
+- redução do risco de o receptor bloquear a mensagem por defensividade, desde que o conteúdo real permaneça intacto.
 
-Eles NÃO podem ser utilizados para:
+Eles NÃO PODEM ser usados para:
 
-* censurar;
-* moralizar;
-* amenizar;
-* neutralizar;
-* reinterpretar;
-* corrigir a posição pessoal do autor;
-* retirar conteúdo desconfortável;
-* transformar acusações existentes em linguagem terapêutica;
-* substituir afirmações diretas por eufemismos que diminuam sua força.
+- censurar;
+- moralizar;
+- neutralizar;
+- reinterpretar;
+- corrigir a posição pessoal do autor;
+- retirar conteúdo desconfortável;
+- transformar acusações existentes em linguagem terapêutica;
+- substituir afirmações diretas por eufemismos que diminuam sua força.
 
 A carta envolve diálogo franco entre cônjuges. Portanto:
 
-* sentimentos reais DEVEM permanecer expressos;
-* fatos considerados relevantes pelo autor NÃO DEVEM ser omitidos apenas porque possam causar desconforto;
-* intensidade e força emocional NÃO DEVEM ser reduzidas;
-* ofensas diretas desnecessárias podem ser reformuladas quando houver equivalente semanticamente fiel e menos gratuitamente ofensivo;
-* críticas, ironias, sarcasmos e conteúdos negativos já presentes NÃO DEVEM ser apagados, neutralizados ou enfraquecidos;
-* formulação mais palatável somente PODE ser utilizada quando preservar **integralmente sentido, intensidade, acusação, implicação e função retórica**.
+- sentimentos reais DEVEM permanecer expressos;
+- fatos considerados relevantes pelo autor NÃO DEVEM ser omitidos apenas porque possam causar desconforto;
+- intensidade e força emocional NÃO DEVEM ser reduzidas;
+- críticas, ironias, sarcasmos e conteúdos negativos já presentes NÃO DEVEM ser apagados, neutralizados ou enfraquecidos;
+- ofensas diretas desnecessárias PODEM ser reformuladas quando existir equivalente semanticamente fiel e menos gratuitamente ofensivo;
+- uma formulação mais palatável somente PODE ser usada quando preservar **integralmente sentido, intensidade, acusação, implicação e função retórica**.
 
-Quando tecnicamente possível, prefira exposição de:
+Quando tecnicamente possível, prefira exposição de fatos, comportamentos, consequências, efeitos, sentimentos e percepções a ataques pessoais desnecessários, **sem falsificar, amenizar, relativizar ou substituir a posição real do autor**.
 
-* fatos;
-* comportamentos;
-* consequências;
-* efeitos;
-* sentimentos;
-* percepções;
+### 7.1. Exceção estrita de amenização
 
-em vez de ataques pessoais desnecessários, **sem falsificar, amenizar, relativizar ou substituir a posição real do autor**.
+Amenização pontual é EXCEPCIONAL e somente PODE ocorrer quando houver justificativa psicológica plausível de que a forma original, embora fiel ao sentimento, tende a bloquear a comunicação por colocar o receptor imediatamente na defensiva.
+
+Nesse caso:
+
+1. o sentimento, a acusação, a dor, a intensidade e a intenção reais DEVEM permanecer semanticamente intactos;
+2. amenizar DEVE significar apenas reduzir impacto ofensivo desnecessário da formulação, e NÃO reduzir o conteúdo emocional ou factual;
+3. dê preferência à alteração do jogo de palavras, ordem ou construção, mantendo a mesma força material;
+4. a versão original substituída DEVE ser preservada imediatamente junto ao trecho, em comentário HTML `<!-- ... -->`, para rastreabilidade;
+
+5. NÃO utilize essa exceção de forma recorrente ou como mecanismo geral de suavização.
+
+Se não for possível melhorar a receptividade sem perda material de sentido ou intensidade, preserve a formulação original.
 
 ---
 
@@ -311,127 +294,108 @@ em vez de ataques pessoais desnecessários, **sem falsificar, amenizar, relativi
 
 Corrija rigorosamente:
 
-* ortografia;
-* acentuação;
-* digitação;
-* gramática;
-* pontuação;
-* concordância verbal;
-* concordância nominal;
-* regência;
-* colocação pronominal;
-* léxico;
-* construções semanticamente defeituosas;
-* referências pronominais;
-* palavras trocadas ou evidentemente mal digitadas;
-* inconsistências de capitalização;
-* erros verificáveis em citações quando o próprio contexto fornecido permitir correção inequívoca.
+- ortografia;
+- acentuação;
+- digitação;
+- gramática;
+- pontuação;
+- concordância verbal e nominal;
+- regência;
+- colocação pronominal;
+- léxico;
+- construções semanticamente defeituosas;
+- referências pronominais;
+- palavras trocadas ou evidentemente mal digitadas;
+- inconsistências de capitalização;
+- erros verificáveis em citações quando o próprio material permitir correção inequívoca.
 
 NÃO altere citações apenas por preferência estilística.
 
-Se houver dúvida real sobre a forma exata de uma citação e não for possível verificá-la pelo próprio material fornecido, preserve o conteúdo em vez de inventar uma correção.
+Se houver dúvida real sobre a forma exata de uma citação e não for possível verificá-la pelo material fornecido, preserve-a em vez de inventar correção.
 
 ---
 
 ## 9. Formatação
 
-### 9.1. Destaques existentes
+### 9.1. Destaques
 
-* Preserve destaques já existentes.
-* Preserve palavras ou trechos originalmente escritos em MAIÚSCULAS.
-* NÃO remova deliberadamente ênfases existentes.
-* NÃO converta automaticamente MAIÚSCULAS em negrito ou vice-versa.
+- preserve destaques existentes;
+- preserve palavras ou trechos originalmente escritos em MAIÚSCULAS quando houver função deliberada de ênfase;
+- NÃO remova deliberadamente ênfases existentes;
+- NÃO converta automaticamente MAIÚSCULAS em negrito ou vice-versa.
 
 ### 9.2. Negrito
 
-Pode utilizar **negrito com parcimônia e precisão** para pontos argumentativos ou emocionais realmente centrais.
+PODE adicionar **negrito com parcimônia e precisão** apenas a pontos argumentativos ou emocionais realmente centrais.
 
-NÃO sobrecarregue o texto com negrito.
-
-O negrito novo deve servir à leitura, não à decoração.
+NÃO sobrecarregue o texto. Negrito novo DEVE auxiliar leitura e hierarquia cognitiva, nunca servir como decoração.
 
 ### 9.3. Aspas
 
-Todo conteúdo delimitado por aspas simples ou duplas que represente:
-
-* fala;
-* expressão citada;
-* formulação destacada;
-* palavra ou frase reproduzida como citação;
-
-DEVE ficar em *itálico*, preservando também as aspas.
+Conteúdo delimitado por aspas simples ou duplas que represente fala, expressão citada, formulação destacada ou frase reproduzida como citação DEVE permanecer entre aspas e ficar em _itálico_.
 
 Exemplo:
 
 `*"eu não quero isso"*`
 
-Não aplique essa regra mecanicamente quando a aspa tiver função puramente técnica, metalinguística ou fizer parte de sintaxe que não represente conteúdo citado, caso isso produza formatação incorreta.
+NÃO aplique mecanicamente essa regra a aspas com função puramente técnica, metalinguística ou sintática quando isso produzir formatação inadequada.
 
 ### 9.4. Capitalização
 
-Nenhuma palavra DEVE apresentar capitalização parcial incorreta.
-
-Corrija ocorrências como:
-
-* `VocÊ`;
-* `POrque`;
-* `emissÃo`;
-* `EU`, quando não houver função deliberada de ênfase;
-* outras combinações acidentais de maiúsculas e minúsculas.
+Corrija capitalização parcial ou acidental, como `VocÊ`, `POrque`, `emissÃo` ou `EU` quando não houver função deliberada de ênfase.
 
 Preserve:
 
-* início de frase;
-* nomes próprios;
-* siglas;
-* acrônimos;
-* MAIÚSCULAS deliberadamente utilizadas como recurso de ênfase;
-* formas reverenciais inequivocamente relacionadas ao Deus cristão quando essa for a convenção utilizada no próprio texto, como `Deus`, `Ele`, `dEle`, `Seu`, `dEle` ou equivalentes;
-* outras capitalizações gramaticalmente justificadas.
+- início de frase;
+- nomes próprios;
+- siglas e acrônimos;
+- MAIÚSCULAS deliberadas como recurso enfático;
+- formas reverenciais inequivocamente relacionadas ao Deus cristão quando essa for a convenção do próprio texto, como `Deus`, `Ele`, `dEle`, `Seu` e equivalentes;
+- demais capitalizações gramaticalmente justificadas.
 
-**NÃO confunda capitalização acidental com MAIÚSCULAS deliberadas para ênfase.**
+**NÃO confunda erro de capitalização com MAIÚSCULAS deliberadas para ênfase.**
 
 ### 9.5. Aparência geral
 
-* Preserve a identidade visual de carta pessoal.
-* Não imponha aparência de relatório.
-* Não imponha hierarquia editorial desnecessária.
-* Listas, títulos e subtítulos são recursos funcionais, não modelos obrigatórios.
-* A formatação deve auxiliar compreensão sem competir com o conteúdo.
+- preserve a identidade visual de carta pessoal;
+- NÃO imponha aparência de relatório;
+- NÃO imponha hierarquia editorial desnecessária;
+- listas, títulos e subtítulos são recursos funcionais, não modelos obrigatórios;
+- a formatação DEVE auxiliar a compreensão sem competir com o conteúdo.
 
 ---
 
 ## 10. Critério de intervenção mínima
 
-Para cada alteração substancial, aplique implicitamente o seguinte teste:
+Para cada alteração substancial, aplique implicitamente o teste:
 
 > **Existe um problema concreto no original que justifique esta mudança?**
 
 Problemas válidos incluem:
 
-* erro linguístico;
-* ambiguidade;
-* redundância sem função;
-* prolixidade desnecessária;
-* dificuldade real de compreensão;
-* ordem lógica deficiente;
-* referente obscuro;
-* quebra de fluidez;
-* incoerência sintática;
-* fragmentação inadequada;
-* período excessivamente complexo;
-* repetição involuntária;
-* estrutura inadequada.
+- erro linguístico;
+- ambiguidade;
+- redundância sem função;
+- prolixidade desnecessária;
+- dificuldade real de compreensão;
+- ordem lógica deficiente;
+- referente obscuro;
+- quebra de fluidez;
+- incoerência sintática;
+- fragmentação inadequada;
+- período excessivamente complexo;
+- repetição involuntária;
+- estrutura inadequada.
 
 Se a resposta for **não**, preserve a formulação original.
 
-Entre duas versões semanticamente equivalentes, prefira aquela que:
+Entre duas versões semanticamente equivalentes, prefira, nesta ordem, a que:
 
-1. mais preserve a voz original;
-2. tenha menor intervenção;
+1. melhor preserve a voz original;
+2. exija menor intervenção;
 3. seja mais clara;
 4. mantenha a mesma intensidade;
-5. tenha menor carga cognitiva;
+5. imponha menor carga cognitiva;
 6. preserve melhor a progressão argumentativa e emocional.
 
 ---
@@ -440,33 +404,42 @@ Entre duas versões semanticamente equivalentes, prefira aquela que:
 
 NÃO:
 
-* seja prolixo;
-* seja reducionista;
-* moralize;
-* diagnostique;
-* acrescente conselhos externos;
-* acrescente conteúdo inferido;
-* invente contexto;
-* acrescente interpretações psicológicas;
-* explique as alterações realizadas;
-* produza resumo;
-* produza comentários editoriais;
-* acrescente introdução inexistente;
-* acrescente conclusão inexistente apenas para “fechar” o texto;
-* imponha estrutura editorial incompatível com comunicação pessoal;
-* substitua o posicionamento do autor por uma versão considerada mais socialmente aceitável;
-* remova conteúdo apenas por ser duro, desconfortável ou controverso;
-* acrescente notas, avisos, prefácios ou pós-escritos inexistentes.
-
-A saída final DEVE conter **somente a versão integral revisada da carta**, sem explicações anteriores ou posteriores.
-
-O resultado DEVE ser entregue em **arquivo Markdown (`.md`) para download**.
+- seja prolixo;
+- seja reducionista;
+- moralize;
+- diagnostique;
+- acrescente conselhos externos;
+- acrescente conteúdo inferido;
+- invente contexto;
+- acrescente interpretações psicológicas;
+- substitua o posicionamento do autor por versão considerada mais socialmente aceitável;
+- remova conteúdo apenas por ser duro, desconfortável ou controverso;
+- acrescente introdução, conclusão, notas, avisos, prefácios ou pós-escritos inexistentes;
+- imponha estrutura editorial incompatível com comunicação pessoal;
+- explique o procedimento de revisão dentro da carta.
 
 ---
 
-## 12. Resumo de alterações - extra saída
+## 12. Saída obrigatória
 
-Ao concluir, e por fora da eição, liste, exceto pelas correções ortograficas e ajustes de formatação, alterações que implicaram e remoção, inserção ou convergência de texto, e as justifique.
+Entregue **um único arquivo Markdown (`.md`) para download**, sem preâmbulo ou posfácio externos.
+
+O arquivo DEVE conter exatamente, nesta ordem:
+
+1. **a versão integral revisada da carta**;
+2. após um separador `---`, a seção `## Alterações substanciais`.
+
+Na seção `## Alterações substanciais`:
+
+- NÃO liste correções meramente ortográficas, gramaticais, tipográficas, de pontuação, capitalização ou formatação;
+- liste somente alterações que tenham implicado **remoção, inserção, movimentação, fusão/convergência ou reestruturação material de texto**;
+- para cada alteração, indique sucintamente o que mudou e a justificativa;
+- NÃO invente alterações que não tenham ocorrido;
+- se nenhuma alteração substancial tiver sido necessária, escreva apenas `Nenhuma alteração substancial.`
+
+Comentários HTML `<!-- ... -->` exigidos pela regra de amenização excepcional pertencem à própria carta revisada e NÃO substituem o registro correspondente nesta seção.
+
+---
 
 ## Texto a revisar
 
@@ -614,7 +587,7 @@ Mas **você é incapaz** de resolver, ou seja, de somar. Você sempre **exigiu**
 
 Você não está ali como uma auxiliar, que, aliás, é um mandamento divino claro. E o que está em **Tiago 2:10**? Eu sei que você odeia de todo o coração essa palavra, mas por quê? Talvez seja justamente porque é onde aperta o calo. E é assim com qualquer um, inclusive comigo, não é? O que nos atinge é aquilo que mais nos incomoda, e às vezes causa um ódio enorme.
 
-Mas você não é serviçal, de forma alguma. O problema é mais fundo: você nunca está disponível, nunca está disposta, nunca está ali ao lado demonstrando interesse e intenção de ajudar, colaborar e contribuir. É inanição total. Se eu não pedir, você não faz. E, se eu pedir, faz reclamando. Por isso, eu prefiro quase sempre nem pedir. Quando peço, uso palavras como _“por gentileza”_ e _“por favor”_, com muito cuidado. Você começou até a achar ruim, porque já sabe o que vem. A questão é que você poderia falar o mesmo de mim, correto? Tudo bem. Mas qual é a função de cada um segundo a Bíblia? Quero dizer: quem é que auxilia quem? Eu tenho funções, e você tem funções. Isso não é minha opinião, meu gosto ou minha vontade. No final, se olharmos para toda a nossa história, veremos que eu te auxiliei muito mais vezes do que você me auxiliou. E isso de forma alguma desmerece os auxílios que você me deu — eu sei que você auxiliou, mas bem aquém: você é, ou deveria ser, **uma auxiliadora**, e não uma **auxiliadora eventual**. Entende?
+Mas você não é prestativa, de forma alguma. O problema é mais fundo: você nunca está disponível, nunca está disposta, nunca está ali ao lado demonstrando interesse e intenção de ajudar, colaborar e contribuir. É inanição total. Se eu não pedir, você não faz. E, se eu pedir, faz reclamando. Por isso, eu prefiro quase sempre nem pedir. Quando peço, uso palavras como _“por gentileza”_ e _“por favor”_, com muito cuidado. Você começou até a achar ruim, porque já sabe o que vem. A questão é que você poderia falar o mesmo de mim, correto? Tudo bem. Mas qual é a função de cada um segundo a Bíblia? Quero dizer: quem é que auxilia quem? Eu tenho funções, e você tem funções. Isso não é minha opinião, meu gosto ou minha vontade. No final, se olharmos para toda a nossa história, veremos que eu te auxiliei muito mais vezes do que você me auxiliou. E isso de forma alguma desmerece os auxílios que você me deu — eu sei que você auxiliou, mas bem aquém: você é, ou deveria ser, **uma auxiliadora**, e não uma **auxiliadora eventual**. Entende?
 
 Esse tipo de imploração eu não preciso ter com mais ninguém. Somente com você eu preciso ter uma atitude e escolha de palavras quase no nível de imploração para chegar perto de conseguir um _“sim”_.
 
