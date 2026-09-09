@@ -65,3 +65,46 @@ TO-DOs integralmente concluídas DEVEM ser removidas, mantendo o arquivo limpo.
 Este marcador encerra a seção de governança e inicia exclusivamente as TO-DOs operacionais. Todo item de topo abaixo dele está sujeito integralmente ao RCF acima.
 
 ---
+
+- [ ] Manter documentação de uso, referências normativas e metadados do projeto sincronizados com o estado real
+  - [ ] Atualizar continuamente `README.md` sempre que modo de uso, configuração, comportamento ou recurso documentável for adicionado ou alterado.
+    - [ ] Evitar concentrar documentação densa em uma única página: distribuir conteúdo por subpáginas `.md` por contexto/função.
+    - [ ] No `README.md`, indexar as subpáginas preferencialmente em tabela, com:
+      - link direto;
+      - descrição ultrassucinta, porém suficiente para identificar contexto, aplicação real, função e, quando relevante, horizonte de uso/oportunidades.
+    - [ ] NÃO depender apenas do nome de um termo/recurso quando ele não for suficiente para explicar seu alcance ou aplicação.
+  - [ ] Criar e manter uma única página `.md` de uso e configuração de `Cover`, ligada diretamente pelo `README.md` e pelo RCF aplicável.
+    - [ ] Explicar, de forma sucinta e suficiente para humanos, os modos/estilos de `Cover`, formas de uso em artigos e configurações aplicáveis.
+    - [ ] Incluir ao menos um exemplo prático, copiável, funcional sem erro e aplicável a um cenário real.
+    - [ ] Incluir uma ilustração SVG simples para cada variação/modo de `Cover`.
+      - [ ] Todos os SVGs DEVEM compartilhar padrão, estilo, dimensões/formato e linguagem visual, permitindo comparação direta entre modos.
+      - [ ] Cada SVG DEVE expressar visualmente, de forma simples mas suficiente, o conceito e a diferença do respectivo modo.
+      - [ ] Os SVGs DEVEM permanecer legíveis no GitHub em temas claro e escuro.
+    - [ ] Atualizar a página e os SVGs sempre que um modo for criado/removido, ou quando sua apresentação visual/semântica mudar.
+  - [ ] Criar e manter uma única página `.md` de uso, configuração e estilos de `blockquote`, ligada diretamente pelo `README.md` e pelo RCF aplicável.
+    - [ ] Documentar todos os modelos de `blockquote`, inclusive variantes implementadas por HTML derivado com tag/estrutura diferente.
+    - [ ] Para cada modelo, incluir representação visual fiel à aparência real, por SVG ou imagem adequada, legível no GitHub em temas claro e escuro.
+    - [ ] Cada modelo DEVE ser representado pelo menos uma vez.
+      - [ ] Quando um mesmo modelo admitir apenas variações de cor, NÃO é necessário ilustrar cada cor; dois exemplos com cores distintas são suficientes.
+      - [ ] Se as cores forem selecionadas por nomes arbitrários, documentar todos os nomes disponíveis.
+      - [ ] Quando um nome representar combinação de múltiplas cores, inclusive tons distintos, exibir uma pequena paleta visual que mostre a combinação real correspondente.
+    - [ ] Explicar, de forma sucinta e suficiente para humanos, sintaxe, estrutura, formas de uso e configurações aplicáveis.
+    - [ ] Incluir ao menos um exemplo prático, copiável, funcional sem erro e aplicável a um cenário real.
+    - [ ] Atualizar a página e suas ilustrações sempre que estilos, modelos, sintaxe, configuração ou aparência forem adicionados ou alterados.
+  - [ ] Garantir que toda documentação de modo de uso contenha pelo menos um exemplo prático que:
+    - [ ] simule uso real;
+    - [ ] possa ser copiado sem alterações obrigatórias;
+    - [ ] seja funcional e sem erro;
+    - [ ] demonstre a aplicação concreta do recurso documentado.
+  - [ ] Incorporar ao `AGENTS.local.md`, em rota/subarquivo específico, as regras deste TO-DO que constituam modus operandi permanente de codificação/desenvolvimento.
+    - [ ] Essas regras DEVEM ser carregadas sempre — e apenas — quando houver necessidade de:
+      - alterar documentação `.md`;
+      - adicionar/alterar recurso cuja forma de uso exija atualização documental;
+      - atualizar documentação análoga afetada por mudança de comportamento, configuração ou interface de uso.
+    - [ ] A regra operacional DEVE exigir que alterações na forma de uso impliquem atualização das páginas correspondentes e de seus exemplos/ilustrações aplicáveis.
+  - [ ] Completar metadados de projeto em `package.json` e arquivos equivalentes, quando aplicável.
+    - [ ] Informar a URL do repositório upstream.
+    - [ ] Informar licença.
+    - [ ] Informar autor principal (JeanCarloEM, www.jeancarloem.com).
+    - [ ] Preservar/adicionar demais metadados equivalentes aplicáveis ao formato.
+  - [ ] Adicionar ao `README.md` link explícito para o repositório upstream.
