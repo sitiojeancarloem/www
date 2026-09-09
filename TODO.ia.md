@@ -88,7 +88,7 @@ Este marcador encerra a seção de governança e inicia exclusivamente as TO-DOs
       - [ ] Quando um mesmo modelo admitir apenas variações de cor, NÃO é necessário ilustrar cada cor; dois exemplos com cores distintas são suficientes.
       - [ ] Quando um mesmo modelo admitir apenas variações de ícone, NÃO é necessário ilustrar cada ícone; dois exemplos com ícons distintoss são suficientes.
       - [ ] Se as cores/ícones forem selecionadas por nomes arbitrários, documentar todos os nomes disponíveis.
-      - [ ] Se os ícones puderes se informados a partir de links externos e/ou a partir de fontes de ícones ou, de recursos internos, explicar o modo de uso de cada situação e, em caso de recursos internos, listar de forma suscinta, mas completas, todos os disponíveis.
+      - [ ] Se os ícones puderem ser informados a partir de links externos,a partir de fonte de ícones ou, de recursos internos, explicar o modo de uso de cada situação e, em caso de recursos internos, listar de forma suscinta mas completa, todos os disponíveis.
       - [ ] Quando um nome representar combinação de múltiplas cores, inclusive tons distintos, exibir uma pequena paleta visual que mostre a combinação real correspondente.
     - [ ] Explicar, de forma sucinta e suficiente para humanos, sintaxe, estrutura, formas de uso e configurações aplicáveis.
     - [ ] Incluir ao menos um exemplo prático, copiável, funcional sem erro e aplicável a um cenário real.
