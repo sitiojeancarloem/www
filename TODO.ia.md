@@ -98,7 +98,7 @@ Este marcador encerra a seção de governança e inicia exclusivamente as TO-DOs
     - [ ] possa ser copiado sem alterações obrigatórias;
     - [ ] seja funcional e sem erro;
     - [ ] demonstre a aplicação concreta do recurso documentado.
-  - [ ] Incorporar ao `AGENTS.local.md`, em rota/subarquivo específico, as regras deste TO-DO que constituam modus operandi permanente de codificação/desenvolvimento.
+  - [ ] Incorporar ao `AGENTS.local.md`, em rota/subarquivo específico, as regras deste TO-DO que constituam modus operandi permanente de codificação/desenvolvimento e atualização/criação do(s) .md.
     - [ ] Essas regras DEVEM ser carregadas sempre — e apenas — quando houver necessidade de:
       - alterar documentação `.md`;
       - adicionar/alterar recurso cuja forma de uso exija atualização documental;
