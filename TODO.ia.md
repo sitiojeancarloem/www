@@ -82,7 +82,7 @@ Este marcador encerra a seção de governança e inicia exclusivamente as TO-DOs
       - [ ] Os SVGs DEVEM permanecer legíveis no GitHub em temas claro e escuro.
     - [ ] Atualizar a página e os SVGs sempre que um modo for criado/removido, ou quando sua apresentação visual/semântica mudar.
   - [ ] Criar e manter uma única página `.md` de uso, configuração e estilos de `blockquote`, ligada diretamente pelo `README.md` e pelo RCF aplicável.
-    - [ ] Documentar todos os modelos de `blockquote`, inclusive variantes implementadas por HTML derivado com tag/estrutura diferente.
+    - [ ] Documentar todos os modelos de `blockquote`, inclusive variantes implementadas por HTML derivado com tag/estrutura diferente da tag `<blockquote>`.
     - [ ] Para cada modelo, incluir representação visual fiel à aparência real, por SVG ou imagem adequada, legível no GitHub em temas claro e escuro.
     - [ ] Cada modelo DEVE ser representado pelo menos uma vez.
       - [ ] Quando um mesmo modelo admitir apenas variações de cor, NÃO é necessário ilustrar cada cor; dois exemplos com cores distintas são suficientes.
