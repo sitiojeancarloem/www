@@ -1,6 +1,6 @@
 schema: jcem-continue/v1
 machine_id: JEAN-DESKTOP
-data_ref: 2026-09-10T12:02:25.9109160-03:00
+data_ref: 2026-09-10T12:49:50.8815796-03:00
 fonte: TODO.ia.md
 objetivo: Concluir a integracao e a validacao da frente de documentacao, referencias normativas e metadados, preservando sincronismo verificavel com o produto e aguardando validacao humana.
 autorizacao:
@@ -9,6 +9,10 @@ autorizacao:
   fonte: prompt humano "continue TO-DOs e FTs em andamento"
   escopo: executar a FT-064 de integracao e validacao, inclusive equalizar o gate documental com a governanca de status vigente em TODO.ia.md
   restricao: preservar o equalizer perene, separar norma de implementacao e aplicar rigorosamente os estados nomeados em TODO.ia.md secao 2
+autorizacao_restauracao_covers:
+  origem: prompt humano
+  data: 2026-09-10T12:49:50.8815796-03:00
+  escopo: restaurar cirurgicamente somente a ultima TO-DO removida por conclusao para correcao/aprimoramento dos COVERs, preservando cabecalho/governanca vigente, conteudo posterior e rastreabilidade real das FTs
 plano:
   - id: FT-020
     classe: implementacao_normativa
@@ -710,7 +714,7 @@ plano:
   - id: FT-056
     classe: implementacao_codigo
     criado_em: 2026-09-03T02:32:33.4097655-03:00
-    estado: concluida
+    estado: concluida_pendente_validacao
     depende_de: FT-055
     fonte: .ia.rules/state/requests/FT-053/prompt.md
     fonte_autorizacao: .ia.rules/state/requests/FT-053/prompt.md
@@ -727,10 +731,14 @@ plano:
       - Hero sanitizado suporta Markdown, CTA, seis zonas e propriedades ortogonais somente na area util 1200:630
       - estrutura editorial unica reúne duas barras e flag; impressão omite COVER/Hero e metadados sociais aceitam overrides descobertos automaticamente
       - contratos Ruby, TypeScript, build isolado, matriz Playwright, impressão e pipeline social aprovaram; navegador interno foi impedido pela politica automatica de localhost, sem indicar falha do produto
+    restauracao_todo:
+      data: 2026-09-10
+      origem: prompt humano "Restaurar cirurgicamente a TO-DO de correção/aprimoramento dos COVERs"
+      estado: implementacao comprovadamente concluida; aguarda somente validacao humana conforme a governanca vigente de TODO.ia.md
   - id: FT-057
     classe: integracao_validacao_publicacao
     criado_em: 2026-09-03T02:32:33.4097656-03:00
-    estado: concluida
+    estado: concluida_pendente_validacao
     depende_de: FT-054, FT-056
     fonte: .ia.rules/state/requests/FT-053/prompt.md
     fonte_autorizacao: .ia.rules/state/requests/FT-053/prompt.md
@@ -752,6 +760,10 @@ plano:
       - dev e main convergiram por fast-forward no commit-fonte publicado antes do fechamento operacional
       - _site preexistente permaneceu integralmente fora de staging, commits, push e publicacao
       - TO-DOs operacionais concluidas foram removidas e o equalizer perene permaneceu literal e desmarcado
+    restauracao_todo:
+      data: 2026-09-10
+      origem: prompt humano "Restaurar cirurgicamente a TO-DO de correção/aprimoramento dos COVERs"
+      estado: validacoes tecnica, visual e de publicacao comprovadas; resta apenas validacao humana da frente COVER restaurada
   - id: FT-058
     classe: implementacao_normativa
     criado_em: 2026-09-03T20:08:22.3269933-03:00
