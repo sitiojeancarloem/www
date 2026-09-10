@@ -108,7 +108,6 @@ vendor/
 
 # Diretórios específicos do Minimal Mistakes (se você os tiver)
 # Se você tiver uma pasta com exemplos de arquivos de dados, ignore-a
-/docs/
 /examples/
 
 # Arquivos de IDEs e do sistema operacional

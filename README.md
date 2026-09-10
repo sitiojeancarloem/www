@@ -8,9 +8,9 @@ Upstream canônico: [`sitiojeancarloem/www`](https://github.com/sitiojeancarloem
 
 | Guia | Aplicação real |
 |---|---|
-| [COVER e Hero](MODO-DE-USO-COVER-E-HERO.md) | Configurar os dez comportamentos visuais de imagem destacada, composição tripla, aliases, enquadramento, Hero e fontes sociais. |
-| [Blockquote](MODO-DE-USO-BLOCKQUOTE.md) | Escrever citações, selecionar todos os modelos registrados, configurar defaults, ícones, acessibilidade e impressão. |
-| [Leitura acessível e TTS](MODO-DE-USO-LEITURA-ACESSIVEL-E-TTS.md) | Declarar idiomas, pronúncia, referências faladas e alternativas textuais para tabelas, imagens e gráficos. |
+| [COVER e Hero](docs/MODO-DE-USO-COVER-E-HERO.md) | Configurar os dez comportamentos visuais de imagem destacada, composição tripla, aliases, enquadramento, Hero e fontes sociais. |
+| [Blockquote](docs/MODO-DE-USO-BLOCKQUOTE.md) | Escrever citações, selecionar todos os modelos registrados, configurar defaults, ícones, acessibilidade e impressão. |
+| [Leitura acessível e TTS](docs/MODO-DE-USO-LEITURA-ACESSIVEL-E-TTS.md) | Declarar idiomas, pronúncia, referências faladas e alternativas textuais para tabelas, imagens e gráficos. |
 | [Impressão editorial IEEE](src/jcem-print-ieee/README.md) | Integrar e inspecionar a biblioteca progressiva de impressão A4 em duas colunas. |
 | [Índice normativo](RCF.md) | Localizar requisitos, contratos e validações autoritativos por domínio do produto. |
 
@@ -98,7 +98,7 @@ Valores suportados:
 
 Aliases aceitos: `inline` equivale a `content`; `full`, `full-width` e `bleed` equivalem a `wide`.
 
-Modos de viewport, patterns laterais, fontes Open Graph independentes e Hero declarativo usam o schema cumulativo descrito em [`MODO-DE-USO-COVER-E-HERO.md`](MODO-DE-USO-COVER-E-HERO.md). A configuração nova não substitui nem reclassifica os modos acima.
+Modos de viewport, patterns laterais, fontes Open Graph independentes e Hero declarativo usam o schema cumulativo descrito em [`docs/MODO-DE-USO-COVER-E-HERO.md`](docs/MODO-DE-USO-COVER-E-HERO.md). A configuração nova não substitui nem reclassifica os modos acima.
 
 ## Carregamento inicial
 
@@ -165,7 +165,7 @@ Builds de produção executam `_plugins/jcem_html_compactor.rb` depois da escrit
 
 ## Blockquotes
 
-O guia canônico [`MODO-DE-USO-BLOCKQUOTE.md`](MODO-DE-USO-BLOCKQUOTE.md) reúne sintaxe copiável, configuração global e por artigo, os seis modelos registrados, ícones, HTML equivalente, citações inline, acessibilidade e impressão. O inventário deriva de `config/editorial-quotes.json`.
+O guia canônico [`docs/MODO-DE-USO-BLOCKQUOTE.md`](docs/MODO-DE-USO-BLOCKQUOTE.md) reúne sintaxe copiável, configuração global e por artigo, os seis modelos registrados, ícones, HTML equivalente, citações inline, acessibilidade e impressão. O inventário deriva de `config/editorial-quotes.json`.
 
 ## Impressão editorial IEEE
 

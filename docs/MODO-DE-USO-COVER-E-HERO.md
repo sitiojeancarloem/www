@@ -1,6 +1,6 @@
 # COVER e Hero — modo de uso
 
-Página canônica de autoria subordinada ao [`RCF-JCEM-CARREGAMENTO-PROGRESSIVO-001`](RCFs/carregamento-progressivo.md) e derivada de [`config/cover-system.json`](config/cover-system.json). Os campos legados `featured_image`, `featured_image_style` e `header.*` continuam válidos; `cover` especializa somente o que for declarado.
+Página canônica de autoria subordinada ao [`RCF-JCEM-CARREGAMENTO-PROGRESSIVO-001`](../RCFs/carregamento-progressivo.md) e derivada de [`config/cover-system.json`](../config/cover-system.json). Os campos legados `featured_image`, `featured_image_style` e `header.*` continuam válidos; `cover` especializa somente o que for declarado.
 
 ## Exemplo copiável e funcional
 
@@ -44,16 +44,16 @@ Todas as ilustrações usam `560×315`, a mesma janela, a mesma zona de artigo e
 
 | Comportamento | Aplicação e diferença material | Ilustração |
 |---|---|---|
-| Hero legado | `header.image` ou `featured_image` sem estilo explícito. Usa largura integral enquanto cabe no primeiro viewport e converge à zona do artigo quando a altura projetada excede a área disponível. | ![Hero legado em largura integral, com alternativa responsiva indicada](assets/images/documentacao/cover/legacy-hero.svg) |
-| `content` | COVER contida exatamente na zona visível do artigo, em proporção `1200:630`, sem sangria lateral. | ![Cover content contida na coluna do artigo](assets/images/documentacao/cover/content.svg) |
-| `wide single` | Uma imagem ocupa a altura canônica e é centralizada no viewport; somente o excesso horizontal é recortado simetricamente. | ![Cover wide com uma imagem central contínua](assets/images/documentacao/cover/wide-single.svg) |
-| `wide triptych` | Centro `1200:630` acompanhado por patterns laterais contínuos e independentes. | ![Cover wide tripla com segmentos esquerdo, central e direito](assets/images/documentacao/cover/wide-triptych.svg) |
-| `full-window` | COVER externa de `100svh`, iniciada atrás da masthead; ambos os eixos são contidos. | ![Cover full-window preenchendo a janela atrás da masthead](assets/images/documentacao/cover/full-window.svg) |
-| `window-height` | COVER externa de `100svh`; a altura governa a mídia. | ![Cover window-height governada pela altura total da janela](assets/images/documentacao/cover/window-height.svg) |
-| `window-width` | COVER externa de `100svh`; a largura governa a mídia. | ![Cover window-width governada pela largura da janela](assets/images/documentacao/cover/window-width.svg) |
-| `inner-full-window` | Preenche a altura útil abaixo da masthead e contém os dois eixos. | ![Cover inner-full-window contida abaixo da masthead](assets/images/documentacao/cover/inner-full-window.svg) |
-| `inner-window-height` | Usa a altura útil abaixo da masthead como dimensão governante. | ![Cover inner-window-height governada pela altura interna](assets/images/documentacao/cover/inner-window-height.svg) |
-| `inner-window-width` | Usa a largura como dimensão governante dentro da altura útil abaixo da masthead. | ![Cover inner-window-width governada pela largura interna](assets/images/documentacao/cover/inner-window-width.svg) |
+| Hero legado | `header.image` ou `featured_image` sem estilo explícito. Usa largura integral enquanto cabe no primeiro viewport e converge à zona do artigo quando a altura projetada excede a área disponível. | ![Hero legado em largura integral, com alternativa responsiva indicada](../assets/images/documentacao/cover/legacy-hero.svg) |
+| `content` | COVER contida exatamente na zona visível do artigo, em proporção `1200:630`, sem sangria lateral. | ![Cover content contida na coluna do artigo](../assets/images/documentacao/cover/content.svg) |
+| `wide single` | Uma imagem ocupa a altura canônica e é centralizada no viewport; somente o excesso horizontal é recortado simetricamente. | ![Cover wide com uma imagem central contínua](../assets/images/documentacao/cover/wide-single.svg) |
+| `wide triptych` | Centro `1200:630` acompanhado por patterns laterais contínuos e independentes. | ![Cover wide tripla com segmentos esquerdo, central e direito](../assets/images/documentacao/cover/wide-triptych.svg) |
+| `full-window` | COVER externa de `100svh`, iniciada atrás da masthead; ambos os eixos são contidos. | ![Cover full-window preenchendo a janela atrás da masthead](../assets/images/documentacao/cover/full-window.svg) |
+| `window-height` | COVER externa de `100svh`; a altura governa a mídia. | ![Cover window-height governada pela altura total da janela](../assets/images/documentacao/cover/window-height.svg) |
+| `window-width` | COVER externa de `100svh`; a largura governa a mídia. | ![Cover window-width governada pela largura da janela](../assets/images/documentacao/cover/window-width.svg) |
+| `inner-full-window` | Preenche a altura útil abaixo da masthead e contém os dois eixos. | ![Cover inner-full-window contida abaixo da masthead](../assets/images/documentacao/cover/inner-full-window.svg) |
+| `inner-window-height` | Usa a altura útil abaixo da masthead como dimensão governante. | ![Cover inner-window-height governada pela altura interna](../assets/images/documentacao/cover/inner-window-height.svg) |
+| `inner-window-width` | Usa a largura como dimensão governante dentro da altura útil abaixo da masthead. | ![Cover inner-window-width governada pela largura interna](../assets/images/documentacao/cover/inner-window-width.svg) |
 
 ## Modos, aliases e composição
 

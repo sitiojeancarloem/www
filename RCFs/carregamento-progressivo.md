@@ -56,7 +56,8 @@ Escopo: carregamento inicial, loader global, recursos pesados, skeleton loading 
 
 ### Documentação de autoria da COVER
 
-- [`MODO-DE-USO-COVER-E-HERO.md`](../MODO-DE-USO-COVER-E-HERO.md) DEVE ser a página canônica única de uso e configuração de COVER e Hero, ligada diretamente por este RCF e pelo índice do `README.md`. [PENDENTE-CODIGO]
+- `MODO-DE-USO-COVER-E-HERO.md` DEVE ser a página canônica única de uso e configuração de COVER e Hero, ligada diretamente por este RCF e pelo índice do `README.md`. [PENDENTE-CODIGO]
+  Página física: [`docs/MODO-DE-USO-COVER-E-HERO.md`](../docs/MODO-DE-USO-COVER-E-HERO.md).
 - A página DEVE documentar os dez comportamentos visuais preservados pelo produto: hero legado sem estilo; `content`; `wide single`; `wide triptych`; e os seis modos `full-window`, `window-height`, `window-width`, `inner-full-window`, `inner-window-height` e `inner-window-width`. [PENDENTE-CODIGO]
 - Cada um dos dez comportamentos DEVE possuir SVG comparável e fiel; aliases de escrita, valores de `fit`, fontes de pattern e seis zonas ortogonais de Hero DEVEM ser inventariados e explicados sem gerar ilustração redundante para cada permutação. [PENDENTE-CODIGO]
 - O exemplo copiável DEVE usar assets versionados existentes, demonstrar uma configuração real completa e ser validado pelo mesmo resolver de `config/cover-system.json` usado no build. [PENDENTE-CODIGO]

@@ -8,6 +8,7 @@ require_relative "jekyll_compat"
 require "json"
 require "jekyll"
 require "kramdown"
+require "open3"
 require "rexml/document"
 require "yaml"
 require_relative "../_plugins/jcem_cover_contract"
@@ -51,21 +52,30 @@ def verify_svg(relative_path)
   end
 end
 
-cover_doc_path = "MODO-DE-USO-COVER-E-HERO.md"
-quote_doc_path = "MODO-DE-USO-BLOCKQUOTE.md"
+cover_doc_path = "docs/MODO-DE-USO-COVER-E-HERO.md"
+quote_doc_path = "docs/MODO-DE-USO-BLOCKQUOTE.md"
 readme = read("README.md")
 cover_doc = read(cover_doc_path)
 quote_doc = read(quote_doc_path)
 cover_config = JSON.parse(read("config/cover-system.json"))
 quote_config = JSON.parse(read("config/editorial-quotes.json"))
 
-assert(Dir.glob(File.join(ROOT, "MODO-DE-USO-COVER*.md")).length == 1, "página canônica de COVER não é única")
-assert(Dir.glob(File.join(ROOT, "MODO-DE-USO-BLOCKQUOTE*.md")).length == 1, "página canônica de blockquote não é única")
+usage_inventory, usage_status = Open3.capture2("git", "ls-files", "--cached", "--others", "--exclude-standard", chdir: ROOT)
+assert(usage_status.success?, "inventário Git dos modos de uso falhou")
+usage_docs = usage_inventory.lines(chomp: true).select do |path|
+  File.file?(File.join(ROOT, path)) && File.basename(path).match?(/\AMODO-DE-USO-.*\.md\z/)
+end
+assert(usage_docs.length == 3, "inventário de modos de uso divergente")
+usage_docs.each do |path|
+  assert(File.dirname(path).tr("\\", "/") == "docs", "modo de uso fora de ./docs/: #{path}")
+end
+assert(Dir.glob(File.join(ROOT, "docs", "MODO-DE-USO-COVER*.md")).length == 1, "página canônica de COVER não é única")
+assert(Dir.glob(File.join(ROOT, "docs", "MODO-DE-USO-BLOCKQUOTE*.md")).length == 1, "página canônica de blockquote não é única")
 
 %w[
-  MODO-DE-USO-COVER-E-HERO.md
-  MODO-DE-USO-BLOCKQUOTE.md
-  MODO-DE-USO-LEITURA-ACESSIVEL-E-TTS.md
+  docs/MODO-DE-USO-COVER-E-HERO.md
+  docs/MODO-DE-USO-BLOCKQUOTE.md
+  docs/MODO-DE-USO-LEITURA-ACESSIVEL-E-TTS.md
   src/jcem-print-ieee/README.md
   RCF.md
 ].each do |link|
@@ -89,7 +99,7 @@ assert(cover_config.fetch("modes").keys.sort == %w[content full-window inner-ful
 cover_visuals.each do |slug, label|
   relative = "assets/images/documentacao/cover/#{slug}.svg"
   assert(cover_doc.downcase.include?(label), "comportamento #{label} ausente da documentação")
-  assert(cover_doc.include?(relative), "ilustração #{slug} não ligada pela documentação")
+  assert(cover_doc.include?("../#{relative}"), "ilustração #{slug} não ligada pela documentação")
   verify_svg(relative)
 end
 cover_config.fetch("aliases").each do |name, canonical|
@@ -110,7 +120,7 @@ assert(resolved_cover.dig("hero", "cta", "url") == "#inicio-do-artigo", "CTA do 
 quote_config.fetch("models").each do |model, definition|
   relative = "assets/images/documentacao/blockquote/#{model}.svg"
   assert(quote_doc.include?("`#{model}`"), "modelo de blockquote não documentado: #{model}")
-  assert(quote_doc.include?(relative), "ilustração de blockquote ausente: #{model}")
+  assert(quote_doc.include?("../#{relative}"), "ilustração de blockquote ausente: #{model}")
   assert(quote_doc.include?(definition["defaultIcon"]), "ícone padrão não documentado: #{model}") if definition["defaultIcon"]
   verify_svg(relative)
 end
@@ -126,7 +136,7 @@ rendered_quote = Jcem::QuoteSemantics.render_structural_quotes(normalized_quote,
 assert(rendered_quote.include?('data-jcem-quote-model="alerta1"'), "exemplo de blockquote perdeu o modelo")
 assert(rendered_quote.include?("🔎"), "exemplo de blockquote perdeu o ícone")
 
-internal_icon = quote_doc.match(/data-jcem-quote-icon-src=\"([^\"]+)\"/)&.[](1)
+internal_icon = quote_doc.scan(/data-jcem-quote-icon-src="([^"]+)"/).flatten.find { |source| source.start_with?("/") }
 assert(internal_icon&.start_with?("/"), "exemplo de ícone interno ausente")
 assert(File.file?(File.join(ROOT, internal_icon.delete_prefix("/"))), "asset interno do exemplo não existe")
 
@@ -141,13 +151,13 @@ end
 private_package = JSON.parse(read("scripts/lib/package.json"))
 assert(private_package == { "private" => true, "type" => "commonjs" }, "manifesto técnico privado deixou de ser fronteira mínima")
 
-todo_operational = read("TODO.ia.md").split("# TO-DOs", 2).last
-assert(!todo_operational.match?(/^\s+- \[[ x]\]/), "subitem operacional ainda usa checkbox em vez da nomenclatura da seção 2")
+todo_operational = read("TODO.ia.md").split(/^# TO-DOs\s*$/, 2).last
+assert(!todo_operational.match?(/^[ \t]+- \[[ x]\]/), "subitem operacional ainda usa checkbox em vez da nomenclatura da seção 2")
 todo_operational.lines.grep(/^- \[[ x]\]/).each do |line|
   assert(line.match?(/^- \[[ x]\] (?:⬜|📌|📜|⚖️|⏳|🔄|🔎|✅) \*\*[^*]+:\*\*/), "item de topo sem status nomeado: #{line.strip}")
 end
 
-%w[README.md MODO-DE-USO-COVER-E-HERO.md MODO-DE-USO-BLOCKQUOTE.md RCFs/carregamento-progressivo.md RCFs/citacoes.md].each do |path|
+%w[README.md docs/MODO-DE-USO-COVER-E-HERO.md docs/MODO-DE-USO-BLOCKQUOTE.md RCFs/carregamento-progressivo.md RCFs/citacoes.md].each do |path|
   verify_local_links(path)
 end
 

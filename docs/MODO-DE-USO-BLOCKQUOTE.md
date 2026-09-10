@@ -1,6 +1,6 @@
 # Blockquote — uso, configuração e estilos
 
-Página canônica de autoria subordinada ao [`RCF-JCEM-CITACOES-001`](RCFs/citacoes.md) e derivada de [`config/editorial-quotes.json`](config/editorial-quotes.json). O modelo descreve um bloco semântico de citação mesmo quando o renderer `futuristic` produz `div`, `table` e `role="blockquote"` no HTML final.
+Página canônica de autoria subordinada ao [`RCF-JCEM-CITACOES-001`](../RCFs/citacoes.md) e derivada de [`config/editorial-quotes.json`](../config/editorial-quotes.json). O modelo descreve um bloco semântico de citação mesmo quando o renderer `futuristic` produz `div`, `table` e `role="blockquote"` no HTML final.
 
 ## Exemplo copiável e funcional
 
@@ -17,12 +17,12 @@ A IAL do Kramdown deve vir imediatamente depois do bloco. O exemplo seleciona um
 
 | Modelo | Estrutura e aplicação | Aparência |
 |---|---|---|
-| `standard` | Mantém `<blockquote>`; usa fundo pautado e barra lateral de destaque. | ![Blockquote standard com fundo pautado e barra lateral](assets/images/documentacao/blockquote/standard.svg) |
-| `futuristic` | Renderer estrutural: painel decorativo com semântica preservada por `role="blockquote"` e `data-jcem-blockquote`. | ![Blockquote futuristic em painel angular](assets/images/documentacao/blockquote/futuristic.svg) |
-| `notice` | Aviso documental responsivo; ícone padrão `📄`. | ![Blockquote notice com ícones padrão e alternativo](assets/images/documentacao/blockquote/notice.svg) |
-| `info` | Informação de uso responsiva; ícone padrão `ℹ️`. | ![Blockquote info com ícones padrão e alternativo](assets/images/documentacao/blockquote/info.svg) |
-| `alerta1` | Revisão ou atenção editorial; ícone padrão `⚠️`. | ![Blockquote alerta1 com ícones padrão e alternativo](assets/images/documentacao/blockquote/alerta1.svg) |
-| `alerta2` | Ausência de referência ou alerta crítico; ícone padrão `❗`. | ![Blockquote alerta2 com ícones padrão e alternativo](assets/images/documentacao/blockquote/alerta2.svg) |
+| `standard` | Mantém `<blockquote>`; usa fundo pautado e barra lateral de destaque. | ![Blockquote standard com fundo pautado e barra lateral](../assets/images/documentacao/blockquote/standard.svg) |
+| `futuristic` | Renderer estrutural: painel decorativo com semântica preservada por `role="blockquote"` e `data-jcem-blockquote`. | ![Blockquote futuristic em painel angular](../assets/images/documentacao/blockquote/futuristic.svg) |
+| `notice` | Aviso documental responsivo; ícone padrão `📄`. | ![Blockquote notice com ícones padrão e alternativo](../assets/images/documentacao/blockquote/notice.svg) |
+| `info` | Informação de uso responsiva; ícone padrão `ℹ️`. | ![Blockquote info com ícones padrão e alternativo](../assets/images/documentacao/blockquote/info.svg) |
+| `alerta1` | Revisão ou atenção editorial; ícone padrão `⚠️`. | ![Blockquote alerta1 com ícones padrão e alternativo](../assets/images/documentacao/blockquote/alerta1.svg) |
+| `alerta2` | Ausência de referência ou alerta crítico; ícone padrão `❗`. | ![Blockquote alerta2 com ícones padrão e alternativo](../assets/images/documentacao/blockquote/alerta2.svg) |
 
 As ilustrações tipadas mostram duas ocorrências do mesmo modelo — ícone padrão e override — e incluem a paleta real de destaque/superfície. As cores não são configuradas por nomes arbitrários: cada modelo possui um accent fixo no tema (`notice` `#64748b`, `info` `#1673a5`, `alerta1` `#b66a00`, `alerta2` `#b4232f`) sobre o fundo de citação claro ou escuro.
 

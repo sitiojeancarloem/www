@@ -5,7 +5,7 @@ Status: vigente; implementação material validada em 2026-08-09.
 
 Escopo: citação inline, subcitação e bloco semântico de citação em artigo ou post processado por Markdown, HTML, Jekyll e adaptações equivalentes.
 
-Documentação de autoria: [`MODO-DE-USO-BLOCKQUOTE.md`](../MODO-DE-USO-BLOCKQUOTE.md), derivada do registro canônico `config/editorial-quotes.json`.
+Documentação de autoria: [`docs/MODO-DE-USO-BLOCKQUOTE.md`](../docs/MODO-DE-USO-BLOCKQUOTE.md), derivada do registro canônico `config/editorial-quotes.json`.
 
 ## Conceitos e fronteiras
 

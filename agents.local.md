@@ -33,5 +33,6 @@ Autoridade: `AGENTS.md` → `RCF.md` → sub-RCF aplicável → este adaptador. 
 - PageSpeed é aferido por layout e amostras representativas, sem degradar publicação individual.
 - Alteração visível valida claro/escuro, viewport, teclado e artefato renderizado aplicáveis. Publicação conclui somente com commit-fonte, artefato e URL servida convergentes.
 - Alteração de sintaxe, configuração, comportamento público ou aparência documentada atualiza no mesmo ciclo a página temática, o exemplo funcional, a ilustração aplicável e o índice do `README.md`; inventários fechados derivam dos schemas e registros canônicos.
+- Página canônica de modo de uso reside obrigatoriamente em `./docs/`; nenhuma equivalente é criada na raiz, em `RCFs/` ou em outro diretório.
 
 Detalhamento autoritativo: `RCFs/operacao-da-ia.md`.
