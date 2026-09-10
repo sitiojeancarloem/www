@@ -22,9 +22,18 @@ A formatação do arquivo DEVE preservar indentação visual coerente e inequív
 
 ## 2. Status, andamento e conclusão
 
-A marcação `[x]` NÃO significa conclusão: indica apenas que o item foi lido, teve sua FT criada e encontra-se em andamento. Itens NÃO iniciados DEVEM permanecer como `[ ]`.
+Emojis substituem os checkboxes do GitHub e indicam o ciclo de vida da tarefa (status):
 
-TO-DOs integralmente concluídas DEVEM ser removidas, mantendo o arquivo limpo.
+- ⬜ **Não iniciada `[ ]`:** na fila, aguardando início.
+- 📌 **Registrada:** possui **FT (Frente de Trabalho)** equivalente criada.
+- 📜 **Normatizada:** revisada, alinhada aos requisitos técnicos e incorporada ao RCF ou norma equivalente.
+- ⚖️ **Equalizada:** compatibilizada com as demais TO-DOs, podendo ter sido ajustada/adaptada para eliminar conflitos, redundâncias ou inconsistências.
+- ⏳ **Em desenvolvimento:** implementação em andamento.
+- 🔄 **Retomada:** retornou ao desenvolvimento após feedback ou correção de bugs solicitada pelo dev.
+- 🔎 **A revisar:** já percorreu uma ou mais etapas, mas deve ser reavaliada frente a novas demandas, TO-DOs ou revisões do projeto quanto à **adequação, pertinência, atualidade e ajustes necessários**.
+- ✅ **Concluída — pendente de validação:** implementação finalizada, aguardando aprovação humana (Code Review/QA).
+
+> ⚠️ **Regras:** nem todo item/subitem precisa percorrer todos os status. Apenas **⬜ Não iniciada**, **⏳ Em desenvolvimento** e **✅ Concluída** são obrigatórios; os demais aplicam-se quando pertinentes. Após validação e aprovação efetiva pelo dev, a tarefa DEVE ser **removida integralmente da lista**. ✅ significa apenas **implementada**, não **aprovada/encerrada**.
 
 ## 3. Regra perene de convergência
 
@@ -57,21 +66,6 @@ TO-DOs integralmente concluídas DEVEM ser removidas, mantendo o arquivo limpo.
   - Somente quando aplicável ao contexto do repositório, toda alteração que modifique o modo de codificar Markdown DEVE ser documentada no respectivo modo de uso.
 
   - Este item e toda a seção `# RCF — Governança da TO-DO` são perenes: NÃO PODEM ser marcados como concluídos, removidos ou alterados. Sua contabilização somente é necessária enquanto existir ao menos uma TO-DO por eles regida.
-
-## 4. Legenda de Status
-
-Emojis substituem os checkboxes do GitHub e indicam o ciclo de vida da tarefa (status):
-
-- ⬜ **Não iniciada `[ ]`:** na fila, aguardando início.
-- 📌 **Registrada:** possui **FT (Frente de Trabalho)** equivalente criada.
-- 📜 **Normatizada:** revisada, alinhada aos requisitos técnicos e incorporada ao RCF ou norma equivalente.
-- ⚖️ **Equalizada:** compatibilizada com as demais TO-DOs, podendo ter sido ajustada/adaptada para eliminar conflitos, redundâncias ou inconsistências.
-- ⏳ **Em desenvolvimento:** implementação em andamento.
-- 🔄 **Retomada:** retornou ao desenvolvimento após feedback ou correção de bugs solicitada pelo dev.
-- 🔎 **A revisar:** já percorreu uma ou mais etapas, mas deve ser reavaliada frente a novas demandas, TO-DOs ou revisões do projeto quanto à **adequação, pertinência, atualidade e ajustes necessários**.
-- ✅ **Concluída — pendente de validação:** implementação finalizada, aguardando aprovação humana (Code Review/QA).
-
-> ⚠️ **Regras:** nem todo item/subitem precisa percorrer todos os status. Apenas **⬜ Não iniciada**, **⏳ Em desenvolvimento** e **✅ Concluída** são obrigatórios; os demais aplicam-se quando pertinentes. Após validação e aprovação efetiva pelo dev, a tarefa DEVE ser **removida integralmente da lista**. ✅ significa apenas **implementada**, não **aprovada/encerrada**.
 
 # TO-DOs
 
