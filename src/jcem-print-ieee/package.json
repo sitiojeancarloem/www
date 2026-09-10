@@ -3,6 +3,16 @@
 	"version": "0.1.0",
 	"description": "Biblioteca agnóstica de preparação progressiva para impressão editorial em perfil IEEE versionado.",
 	"type": "module",
+	"homepage": "https://www.jeancarloem.com",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/sitiojeancarloem/www.git",
+		"directory": "src/jcem-print-ieee"
+	},
+	"author": {
+		"name": "JeanCarloEM",
+		"url": "https://www.jeancarloem.com"
+	},
 	"main": "dist/index.js",
 	"exports": {
 		".": "./dist/index.js",

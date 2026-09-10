@@ -5,6 +5,8 @@ Status: vigente; implementação material validada em 2026-08-09.
 
 Escopo: citação inline, subcitação e bloco semântico de citação em artigo ou post processado por Markdown, HTML, Jekyll e adaptações equivalentes.
 
+Documentação de autoria: [`MODO-DE-USO-BLOCKQUOTE.md`](../MODO-DE-USO-BLOCKQUOTE.md), derivada do registro canônico `config/editorial-quotes.json`.
+
 ## Conceitos e fronteiras
 
 - **Bloco de citação** ou `blockquote` DEVE significar conteúdo citado estruturalmente destacado, independentemente de ser materializado por `<blockquote>`, `div`, `table`, componente ou elemento customizado. A tag isolada NÃO DEVE ser a definição do conceito.

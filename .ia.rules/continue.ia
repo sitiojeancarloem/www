@@ -1,14 +1,14 @@
 schema: jcem-continue/v1
 machine_id: JEAN-DESKTOP
-data_ref: 2026-09-09T21:18:25.0606107-03:00
+data_ref: 2026-09-09T21:41:17.4036644-03:00
 fonte: TODO.ia.md
 objetivo: Equalizar a frente de documentacao, referencias normativas e metadados; concluir sua normatizacao antes de qualquer implementacao; e preservar sincronismo verificavel com o estado real do produto.
 autorizacao:
   origem: prompt humano
-  data: 2026-09-09T21:18:25.0606107-03:00
-  fonte: prompt de inicio das TO-DOs; conteudo material em TODO.ia.md
-  escopo: registro das FTs e normatizacao RCF da frente documental; implementacao condicionada a nova autorizacao expressa apos o gate normativo
-  restricao: preservar o equalizer perene, separar norma de implementacao e nao iniciar paginas, SVGs, README ou metadados antes da autorizacao subsequente
+  data: 2026-09-09T21:41:17.4036644-03:00
+  fonte: prompt humano de autorizacao expressa para continuar apos o gate normativo; conteudo material em TODO.ia.md
+  escopo: executar a FT-063 documental e sua validacao local proporcional, preservando a FT-064 como fase de integracao e validacao separada
+  restricao: preservar o equalizer perene, separar norma de implementacao e aplicar rigorosamente os estados nomeados em TODO.ia.md secao 2
 plano:
   - id: FT-020
     classe: implementacao_normativa
@@ -858,10 +858,10 @@ plano:
   - id: FT-063
     classe: implementacao_documental
     criado_em: 2026-09-09T21:18:25.0606108-03:00
-    estado: pendente
+    estado: em_andamento
     depende_de: FT-062
     fonte: TODO.ia.md
-    fonte_autorizacao: nova autorizacao humana apos conclusao da FT-062
+    fonte_autorizacao: prompt humano de 2026-09-09T21:41:17.4036644-03:00, com autorizacao expressa para continuar
     objetivo: Implementar as paginas unicas de uso de COVER e blockquote, suas ilustracoes, o indice do README, os metadados do projeto e a projecao documental em agents.local.md conforme o contrato normatizado.
     aceite:
       - documentacao deriva do registro e dos schemas vigentes sem inventar modo, nome, cor, icone ou configuracao

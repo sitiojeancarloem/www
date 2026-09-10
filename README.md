@@ -2,7 +2,17 @@
 
 Blog Jekyll com tema Minimal Mistakes e extensões customizadas em Liquid, SCSS e TypeScript.
 
-O contrato físico para idiomas, referências faladas, tabelas, imagens, TTS e gráficos está em [`MODO-DE-USO-LEITURA-ACESSIVEL-E-TTS.md`](MODO-DE-USO-LEITURA-ACESSIVEL-E-TTS.md).
+Upstream canônico: [`sitiojeancarloem/www`](https://github.com/sitiojeancarloem/www).
+
+## Documentação de uso
+
+| Guia | Aplicação real |
+|---|---|
+| [COVER e Hero](MODO-DE-USO-COVER-E-HERO.md) | Configurar os dez comportamentos visuais de imagem destacada, composição tripla, aliases, enquadramento, Hero e fontes sociais. |
+| [Blockquote](MODO-DE-USO-BLOCKQUOTE.md) | Escrever citações, selecionar todos os modelos registrados, configurar defaults, ícones, acessibilidade e impressão. |
+| [Leitura acessível e TTS](MODO-DE-USO-LEITURA-ACESSIVEL-E-TTS.md) | Declarar idiomas, pronúncia, referências faladas e alternativas textuais para tabelas, imagens e gráficos. |
+| [Impressão editorial IEEE](src/jcem-print-ieee/README.md) | Integrar e inspecionar a biblioteca progressiva de impressão A4 em duas colunas. |
+| [Índice normativo](RCF.md) | Localizar requisitos, contratos e validações autoritativos por domínio do produto. |
 
 ## Build local
 
@@ -155,71 +165,7 @@ Builds de produção executam `_plugins/jcem_html_compactor.rb` depois da escrit
 
 ## Blockquotes
 
-Por padrão, `blockquote` em posts é convertido para painel futurista.
-
-Configuração global:
-
-```yaml
-jcem:
-  blockquote_panels: true
-```
-
-Para desativar:
-
-```yaml
-jcem:
-  blockquote_panels: false
-```
-
-Override por post:
-
-```yaml
-blockquote_panels: false
-```
-
-ou:
-
-```yaml
-jcem:
-  blockquote_panels: false
-```
-
-Com o recurso ativo, o pipeline estático transforma cada `blockquote` normalizado dentro de `.page__content` em `div.jcem-panel.jcem-panel--futuristic`, preservando conteúdo, atributos e semântica acessível.
-
-No início direto de uma linha de `blockquote`, `--` seguido de espaço ou tab representa autoria legada e é normalizado automaticamente para travessão antes da conversão Markdown. O formato canônico de autoria é:
-
-```markdown
-> — Autor ou referência
-```
-
-Entradas legadas como `> -- texto`, `>    -- texto` e `>` seguido de tab e `-- texto` produzem o mesmo resultado. Dois hifens fora desse prefixo, `---`, código e blocos aninhados não são alterados.
-
-O contrato por ocorrência do `RCF-JCEM-CITACOES-001` está implementado. Um bloco pode selecionar `standard`, `futuristic`, `notice`, `info`, `alerta1`, `alerta2` ou outro modelo registrado por Kramdown IAL:
-
-```markdown
-> Conteúdo citado.
-{: data-jcem-quote-model="futuristic"}
-```
-
-Os quatro modelos informativos são responsivos e exclusivos da tela; impressão continua usando o perfil IEEE. O editor pode substituir o ícone padrão com emoji ou imagem segura:
-
-```markdown
-> Aviso editorial.
-{: data-jcem-quote-model="alerta1" data-jcem-quote-icon="🔎"}
-
-> Informação adicional.
-{: data-jcem-quote-model="info" data-jcem-quote-icon-src="/assets/images/info.svg" data-jcem-quote-icon-alt="Informação"}
-```
-
-A configuração da ocorrência prevalece sobre contexto, post e configuração global. O mesmo identificador seleciona estilos simples ou modelos que alterem a estrutura, sem uma segunda sintaxe; identificador desconhecido falha no build controlado.
-
-Citação inline em texto comum usa pares de aspas retas ou tipográficas e recebe marcação semântica sem perder os delimitadores. Backticks continuam significando código; quando representarem citação, devem receber marcação explícita:
-
-```markdown
-`conteúdo citado`{: .jcem-inline-quote}
-```
-
-O formatador exclui links, ênfase, código, notas e referências, preserva apóstrofos e aspas sem par e marca citações dentro de bloco ou citação externa como subcitações. A subcitação usa fundo contextual por tema e borda dupla também na impressão, para não depender somente de cor.
+O guia canônico [`MODO-DE-USO-BLOCKQUOTE.md`](MODO-DE-USO-BLOCKQUOTE.md) reúne sintaxe copiável, configuração global e por artigo, os seis modelos registrados, ícones, HTML equivalente, citações inline, acessibilidade e impressão. O inventário deriva de `config/editorial-quotes.json`.
 
 ## Impressão editorial IEEE
 
@@ -352,7 +298,7 @@ Jean Carlo EM — https://www.jeancarloem.com
 
 ## Repositório
 
-https://github.com/sitiojeancarloem/blog
+https://github.com/sitiojeancarloem/www
 
 ## Licença
 

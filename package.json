@@ -1,8 +1,16 @@
 {
   "name": "blog",
   "version": "1.0.0",
-  "description": "",
+  "description": "Site e acervo editorial do JeanCarloEM, construído com Jekyll e extensões próprias.",
   "type": "module",
+  "homepage": "https://www.jeancarloem.com",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sitiojeancarloem/www.git"
+  },
+  "bugs": {
+    "url": "https://github.com/sitiojeancarloem/www/issues"
+  },
   "scripts": {
     "check:ts": "tsc --noEmit && tsc -p src/jcem-print-ieee/tsconfig.json --noEmit",
     "build:ts": "tsc && node scripts/inject-code-headers.mjs assets/jcem/js/site.js",
@@ -24,11 +32,12 @@
     "check:editorial-assets": "node scripts/test_editorial_assets.mjs",
     "check:covers": "npm run build:ts && node scripts/check-cover-edges.mjs --self-test && bundle exec ruby scripts/test_cover_contract.rb && node scripts/test_cover_rendered.mjs && node scripts/test_cover_runtime.mjs",
     "check:publication": "bundle exec ruby scripts/test_jekyll_source_state.rb",
+    "check:documentation": "bundle exec ruby scripts/test_documentation.rb",
     "images:responsive": "python scripts/generate-responsive-images.py",
     "images:webp": "python scripts/generate-tracked-webp.py",
     "images:social": "node scripts/generate-social-images.mjs",
     "check:importador": "node --check importador/reconstruct-wxr.mjs && node --check importador/media-recovery.mjs && npm run import:wxr:dry && npm run import:media:plan -- --limit=5",
-    "check": "npm run check:ts && npm run check:html && npm run check:footnotes && npm run check:math && npm run check:assets && npm run check:authors && npm run check:namespaces && npm run check:quotes && npm run check:accessibility && npm run check:accessible-runtime && npm run check:inline-quotes && npm run check:print && npm run check:performance && npm run check:social-images && npm run check:editorial-assets && npm run check:covers && npm run check:attributions && npm run check:publication",
+    "check": "npm run check:ts && npm run check:html && npm run check:footnotes && npm run check:math && npm run check:assets && npm run check:authors && npm run check:namespaces && npm run check:quotes && npm run check:accessibility && npm run check:accessible-runtime && npm run check:inline-quotes && npm run check:print && npm run check:performance && npm run check:social-images && npm run check:editorial-assets && npm run check:covers && npm run check:attributions && npm run check:publication && npm run check:documentation",
     "pagespeed": "node scripts/check-pagespeed.mjs",
     "import:wxr:dry": "node importador/reconstruct-wxr.mjs --dry-run",
     "import:wxr": "node importador/reconstruct-wxr.mjs --write",
@@ -155,8 +164,15 @@
     "agent:publish": "npm run publish --",
     "agent:rcf:trace": "node .ia.rules/core/runtime/scripts/rcf-trace.js"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "jekyll",
+    "blog",
+    "editorial"
+  ],
+  "author": {
+    "name": "JeanCarloEM",
+    "url": "https://www.jeancarloem.com"
+  },
   "license": "MPL-2.0",
   "dependencies": {
     "@mozilla/readability": "^0.6.0",

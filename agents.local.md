@@ -21,6 +21,7 @@ Autoridade: `AGENTS.md` → `RCF.md` → sub-RCF aplicável → este adaptador. 
 | 404, masthead, rodapé, navegação ou componente comum | `RCFs/componentes-compartilhados.md` |
 | impressão/PDF | `RCFs/impressao-ieee.md` + contrato do conteúdo afetado |
 | build, Pages ou publicação | `RCFs/publicacao.md` + cenário operacional correspondente |
+| documentação `.md`, metadado público ou interface de uso alterada | `RCFs/documentacao-e-metadados.md` + sub-RCF do recurso documentado |
 
 ## Invariantes de execução
 
@@ -31,5 +32,6 @@ Autoridade: `AGENTS.md` → `RCF.md` → sub-RCF aplicável → este adaptador. 
 - Bate-papo distingue fala, síntese e inferência; preserva divergências, citações e disclaimers cumulativos.
 - PageSpeed é aferido por layout e amostras representativas, sem degradar publicação individual.
 - Alteração visível valida claro/escuro, viewport, teclado e artefato renderizado aplicáveis. Publicação conclui somente com commit-fonte, artefato e URL servida convergentes.
+- Alteração de sintaxe, configuração, comportamento público ou aparência documentada atualiza no mesmo ciclo a página temática, o exemplo funcional, a ilustração aplicável e o índice do `README.md`; inventários fechados derivam dos schemas e registros canônicos.
 
 Detalhamento autoritativo: `RCFs/operacao-da-ia.md`.
