@@ -58,6 +58,18 @@ TO-DOs integralmente concluídas DEVEM ser removidas, mantendo o arquivo limpo.
 
   - Este item e toda a seção `# RCF — Governança da TO-DO` são perenes: NÃO PODEM ser marcados como concluídos, removidos ou alterados. Sua contabilização somente é necessária enquanto existir ao menos uma TO-DO por eles regida.
 
+## 4. Legenda de Status
+
+Emojis substituem os checkboxes do GitHub e indicam o ciclo de vida da tarefa:
+
+- ⬜ **Não iniciada `[ ]`:** na fila, aguardando execução.
+- 📜 **Normatizada:** revisada, alinhada aos requisitos técnicos e incorporada ao RCF ou norma equivalente.
+- ⏳ **Em desenvolvimento:** implementação em andamento.
+- 🔄 **Retomada:** retornou ao desenvolvimento após feedback ou correção de bugs solicitada pelo dev.
+- ✅ **Concluída — pendente de validação:** implementação finalizada, aguardando aprovação humana (Code Review/QA).
+
+> ⚠️ **Regra:** após validação e aprovação efetiva pelo dev, a tarefa DEVE ser **removida integralmente da lista**. ✅ significa apenas **implementada**, não **aprovada/encerrada**.
+
 ---
 
 # TO-DOs
