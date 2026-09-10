@@ -992,13 +992,13 @@
         "MODO-DE-USO-COVER-E-HERO.md",
         "scripts/test_documentation.rb"
       ],
-      "commit": "",
+      "commit": "e2ba69ffa0f4dd05c677b84ac229608b6a1378a6",
       "ft": "FT-062",
       "id": "7a94e714e5148c4c6673099d",
       "line": 59,
       "rcf": "RCFs/carregamento-progressivo.md",
       "sentenceSha256": "83a71eb5d7c33e5e0b33582f832b58e8f8ea68fabde8f38e6586eac34517a32f",
-      "state": "pending",
+      "state": "synchronized",
       "syncCommit": ""
     },
     {
@@ -1019,13 +1019,13 @@
         "MODO-DE-USO-COVER-E-HERO.md",
         "scripts/test_documentation.rb"
       ],
-      "commit": "",
+      "commit": "e2ba69ffa0f4dd05c677b84ac229608b6a1378a6",
       "ft": "FT-062",
       "id": "34d342754ae08e9cb17d3e3a",
       "line": 60,
       "rcf": "RCFs/carregamento-progressivo.md",
       "sentenceSha256": "39d0269ba216044040537c03bb676ea29278a12175f599bd6875c29855865c2d",
-      "state": "pending",
+      "state": "synchronized",
       "syncCommit": ""
     },
     {
@@ -1046,13 +1046,13 @@
         "MODO-DE-USO-COVER-E-HERO.md",
         "scripts/test_documentation.rb"
       ],
-      "commit": "",
+      "commit": "e2ba69ffa0f4dd05c677b84ac229608b6a1378a6",
       "ft": "FT-062",
       "id": "7b13db1da7e871bfe6c46912",
       "line": 61,
       "rcf": "RCFs/carregamento-progressivo.md",
       "sentenceSha256": "13ebdbbc746c0a967baf7c275b0888c34bfed80d266ccb8ebe0fa831934ed1fc",
-      "state": "pending",
+      "state": "synchronized",
       "syncCommit": ""
     },
     {
@@ -1060,13 +1060,13 @@
         "MODO-DE-USO-COVER-E-HERO.md",
         "scripts/test_documentation.rb"
       ],
-      "commit": "",
+      "commit": "e2ba69ffa0f4dd05c677b84ac229608b6a1378a6",
       "ft": "FT-062",
       "id": "4fc554deb7525af70742a5c5",
       "line": 62,
       "rcf": "RCFs/carregamento-progressivo.md",
       "sentenceSha256": "bd0418acdf9d31471a787b7a51c3e69c4d6c91c4b6f7a9b1172e6654c203cee2",
-      "state": "pending",
+      "state": "synchronized",
       "syncCommit": ""
     },
     {
@@ -1074,13 +1074,13 @@
         "MODO-DE-USO-COVER-E-HERO.md",
         "scripts/test_documentation.rb"
       ],
-      "commit": "",
+      "commit": "e2ba69ffa0f4dd05c677b84ac229608b6a1378a6",
       "ft": "FT-062",
       "id": "a63e6273725c252915f9f60a",
       "line": 63,
       "rcf": "RCFs/carregamento-progressivo.md",
       "sentenceSha256": "1909cf402ae1c2051a8bfe957c90a1a341d52fd556a512e38378be84c45122fd",
-      "state": "pending",
+      "state": "synchronized",
       "syncCommit": ""
     },
     {
@@ -2523,13 +2523,13 @@
         "README.md",
         "scripts/test_documentation.rb"
       ],
-      "commit": "",
+      "commit": "e2ba69ffa0f4dd05c677b84ac229608b6a1378a6",
       "ft": "FT-062",
       "id": "93d7313c142beda07d2a2107",
       "line": 10,
       "rcf": "RCFs/documentacao-e-metadados.md",
       "sentenceSha256": "3ac209c39086036bc8adef07a7cdb083080c6a5264db4d0cd13807a292aec2d9",
-      "state": "pending",
+      "state": "synchronized",
       "syncCommit": ""
     },
     {
@@ -2539,13 +2539,13 @@
         "README.md",
         "scripts/test_documentation.rb"
       ],
-      "commit": "",
+      "commit": "e2ba69ffa0f4dd05c677b84ac229608b6a1378a6",
       "ft": "FT-062",
       "id": "8f717aababc629f2e3877057",
       "line": 11,
       "rcf": "RCFs/documentacao-e-metadados.md",
       "sentenceSha256": "30739489e74c091598a7a5eaa56cc626db9abac02390d884c187b6b7fb6b8cfb",
-      "state": "pending",
+      "state": "synchronized",
       "syncCommit": ""
     },
     {
@@ -2555,13 +2555,13 @@
         "README.md",
         "scripts/test_documentation.rb"
       ],
-      "commit": "",
+      "commit": "e2ba69ffa0f4dd05c677b84ac229608b6a1378a6",
       "ft": "FT-062",
       "id": "06d3272bd8557a0e69443c74",
       "line": 12,
       "rcf": "RCFs/documentacao-e-metadados.md",
       "sentenceSha256": "221f035cdfc7f96823b9672b06395d53a0f21de25989402447344cf82177dfa1",
-      "state": "pending",
+      "state": "synchronized",
       "syncCommit": ""
     },
     {
@@ -2571,13 +2571,13 @@
         "README.md",
         "scripts/test_documentation.rb"
       ],
-      "commit": "",
+      "commit": "e2ba69ffa0f4dd05c677b84ac229608b6a1378a6",
       "ft": "FT-062",
       "id": "fcb46e43074ee95d88cbf569",
       "line": 13,
       "rcf": "RCFs/documentacao-e-metadados.md",
       "sentenceSha256": "89023a07311d1e1cc008a74f18a25b824910ba083d2a46457e592e3e8c126691",
-      "state": "pending",
+      "state": "synchronized",
       "syncCommit": ""
     },
     {
@@ -2586,13 +2586,13 @@
         "MODO-DE-USO-COVER-E-HERO.md",
         "README.md"
       ],
-      "commit": "",
+      "commit": "e2ba69ffa0f4dd05c677b84ac229608b6a1378a6",
       "ft": "FT-062",
       "id": "a2e9b7d28e46932c466043e2",
       "line": 17,
       "rcf": "RCFs/documentacao-e-metadados.md",
       "sentenceSha256": "5315c71d9a2135da8ad87947d5b6045172640dfeff819c02a387265ba1532084",
-      "state": "pending",
+      "state": "synchronized",
       "syncCommit": ""
     },
     {
@@ -2601,13 +2601,13 @@
         "MODO-DE-USO-COVER-E-HERO.md",
         "README.md"
       ],
-      "commit": "",
+      "commit": "e2ba69ffa0f4dd05c677b84ac229608b6a1378a6",
       "ft": "FT-062",
       "id": "2d4c36d15e504cd086b8b818",
       "line": 18,
       "rcf": "RCFs/documentacao-e-metadados.md",
       "sentenceSha256": "68cbeb8f22621ece3bfabb279a5880562f3547daf8db054469774431bf2b219a",
-      "state": "pending",
+      "state": "synchronized",
       "syncCommit": ""
     },
     {
@@ -2618,13 +2618,13 @@
         "docs/MODO-DE-USO-LEITURA-ACESSIVEL-E-TTS.md",
         "scripts/test_documentation.rb"
       ],
-      "commit": "",
+      "commit": "e2ba69ffa0f4dd05c677b84ac229608b6a1378a6",
       "ft": "FT-062",
       "id": "c3ac79360d622b8997a5e2c4",
       "line": 18,
       "rcf": "RCFs/documentacao-e-metadados.md",
       "sentenceSha256": "858431305d18929058c99790db6fa98623cbd2f45d8e0f7e977b15c031537e34",
-      "state": "pending",
+      "state": "synchronized",
       "syncCommit": ""
     },
     {
@@ -2633,13 +2633,13 @@
         "MODO-DE-USO-COVER-E-HERO.md",
         "README.md"
       ],
-      "commit": "",
+      "commit": "e2ba69ffa0f4dd05c677b84ac229608b6a1378a6",
       "ft": "FT-062",
       "id": "e6a1bce454418597eeb5ed06",
       "line": 19,
       "rcf": "RCFs/documentacao-e-metadados.md",
       "sentenceSha256": "eb52f708fbd6653132a40a837f7b7bcd1f5f4cea562b5ad14c25e21f7d5c60d9",
-      "state": "pending",
+      "state": "synchronized",
       "syncCommit": ""
     },
     {
@@ -2648,13 +2648,13 @@
         "MODO-DE-USO-COVER-E-HERO.md",
         "README.md"
       ],
-      "commit": "",
+      "commit": "e2ba69ffa0f4dd05c677b84ac229608b6a1378a6",
       "ft": "FT-062",
       "id": "84fab39b67fd85803417d19a",
       "line": 20,
       "rcf": "RCFs/documentacao-e-metadados.md",
       "sentenceSha256": "a2dc43315343f7c1b8f5b6d631d3fc3315f4d749473c27b7592d4483bef8dff5",
-      "state": "pending",
+      "state": "synchronized",
       "syncCommit": ""
     },
     {
@@ -2663,13 +2663,13 @@
         "MODO-DE-USO-COVER-E-HERO.md",
         "README.md"
       ],
-      "commit": "",
+      "commit": "e2ba69ffa0f4dd05c677b84ac229608b6a1378a6",
       "ft": "FT-062",
       "id": "17d29fb7aa7cf5e83c504805",
       "line": 21,
       "rcf": "RCFs/documentacao-e-metadados.md",
       "sentenceSha256": "8a823aab266f30bd6bb30804a0dae5d632776e3fa601e185d2daf0d53845b864",
-      "state": "pending",
+      "state": "synchronized",
       "syncCommit": ""
     },
     {
@@ -2678,13 +2678,13 @@
         "MODO-DE-USO-COVER-E-HERO.md",
         "scripts/test_documentation.rb"
       ],
-      "commit": "",
+      "commit": "e2ba69ffa0f4dd05c677b84ac229608b6a1378a6",
       "ft": "FT-062",
       "id": "22e62fe8caeb2f652d4bfbd0",
       "line": 25,
       "rcf": "RCFs/documentacao-e-metadados.md",
       "sentenceSha256": "a7b199cbe58ede0c94dc5a4711df5abb4d9686875d4831f67fa1ca6a220ee1d4",
-      "state": "pending",
+      "state": "synchronized",
       "syncCommit": ""
     },
     {
@@ -2693,13 +2693,13 @@
         "MODO-DE-USO-COVER-E-HERO.md",
         "scripts/test_documentation.rb"
       ],
-      "commit": "",
+      "commit": "e2ba69ffa0f4dd05c677b84ac229608b6a1378a6",
       "ft": "FT-062",
       "id": "9251d43cfcd41f71a9f8f95e",
       "line": 26,
       "rcf": "RCFs/documentacao-e-metadados.md",
       "sentenceSha256": "41f94e7dd8810e708dbf8366780b5ba705d10c4390617653cb82e264a0343ee1",
-      "state": "pending",
+      "state": "synchronized",
       "syncCommit": ""
     },
     {
@@ -2708,13 +2708,13 @@
         "MODO-DE-USO-COVER-E-HERO.md",
         "scripts/test_documentation.rb"
       ],
-      "commit": "",
+      "commit": "e2ba69ffa0f4dd05c677b84ac229608b6a1378a6",
       "ft": "FT-062",
       "id": "861ca0179d789f80a94a45f5",
       "line": 27,
       "rcf": "RCFs/documentacao-e-metadados.md",
       "sentenceSha256": "9fb8029b974292b4f70bcaebc26d3e0a7bafffc28f397ce98f60304ff96b4838",
-      "state": "pending",
+      "state": "synchronized",
       "syncCommit": ""
     },
     {
@@ -2723,13 +2723,13 @@
         "MODO-DE-USO-COVER-E-HERO.md",
         "scripts/test_documentation.rb"
       ],
-      "commit": "",
+      "commit": "e2ba69ffa0f4dd05c677b84ac229608b6a1378a6",
       "ft": "FT-062",
       "id": "247f39be84c7fe0a3edb67ad",
       "line": 28,
       "rcf": "RCFs/documentacao-e-metadados.md",
       "sentenceSha256": "2236eb52d54d455d14a8b72f66e6df68334b400db3480c476568611378444ebe",
-      "state": "pending",
+      "state": "synchronized",
       "syncCommit": ""
     },
     {
@@ -2738,13 +2738,13 @@
         "MODO-DE-USO-COVER-E-HERO.md",
         "scripts/test_documentation.rb"
       ],
-      "commit": "",
+      "commit": "e2ba69ffa0f4dd05c677b84ac229608b6a1378a6",
       "ft": "FT-062",
       "id": "25661019455623cbdd0b0204",
       "line": 29,
       "rcf": "RCFs/documentacao-e-metadados.md",
       "sentenceSha256": "ec1a9a336f3c875e8771af4f24d9304b19371b39d465a483d87fb306c6a58d69",
-      "state": "pending",
+      "state": "synchronized",
       "syncCommit": ""
     },
     {
@@ -2753,13 +2753,13 @@
         "MODO-DE-USO-COVER-E-HERO.md",
         "scripts/test_documentation.rb"
       ],
-      "commit": "",
+      "commit": "e2ba69ffa0f4dd05c677b84ac229608b6a1378a6",
       "ft": "FT-062",
       "id": "9a6db2865c61cd7efcfbd534",
       "line": 30,
       "rcf": "RCFs/documentacao-e-metadados.md",
       "sentenceSha256": "1ab9801c2f04f7724ae524bc030410c71e43b72cc64f7b9d46381dcd3853a4b4",
-      "state": "pending",
+      "state": "synchronized",
       "syncCommit": ""
     },
     {
@@ -2769,13 +2769,13 @@
         "scripts/test_documentation.rb",
         "src/jcem-print-ieee/package.json"
       ],
-      "commit": "",
+      "commit": "e2ba69ffa0f4dd05c677b84ac229608b6a1378a6",
       "ft": "FT-062",
       "id": "2d5b04dfc8a4e0894dae20e7",
       "line": 34,
       "rcf": "RCFs/documentacao-e-metadados.md",
       "sentenceSha256": "635b2748a51b8821c50a4e752c64ee730fde62d362f1fbfed16844467bb2a7ef",
-      "state": "pending",
+      "state": "synchronized",
       "syncCommit": ""
     },
     {
@@ -2785,13 +2785,13 @@
         "scripts/test_documentation.rb",
         "src/jcem-print-ieee/package.json"
       ],
-      "commit": "",
+      "commit": "e2ba69ffa0f4dd05c677b84ac229608b6a1378a6",
       "ft": "FT-062",
       "id": "f3e6da16302e0789234bd8ce",
       "line": 35,
       "rcf": "RCFs/documentacao-e-metadados.md",
       "sentenceSha256": "0c4fdc641496833520927bfee72ed6841f15aeafa4db9fa4ecb8c541eea9b8c3",
-      "state": "pending",
+      "state": "synchronized",
       "syncCommit": ""
     },
     {
@@ -2801,13 +2801,13 @@
         "scripts/test_documentation.rb",
         "src/jcem-print-ieee/package.json"
       ],
-      "commit": "",
+      "commit": "e2ba69ffa0f4dd05c677b84ac229608b6a1378a6",
       "ft": "FT-062",
       "id": "6e16f2cdb24e5a69b6e9c616",
       "line": 36,
       "rcf": "RCFs/documentacao-e-metadados.md",
       "sentenceSha256": "8f14962f802b16afbb49881c879f763d1e35ee395fd0c30c82535ccc4a73ebf5",
-      "state": "pending",
+      "state": "synchronized",
       "syncCommit": ""
     },
     {
@@ -2817,13 +2817,13 @@
         "scripts/test_documentation.rb",
         "src/jcem-print-ieee/package.json"
       ],
-      "commit": "",
+      "commit": "e2ba69ffa0f4dd05c677b84ac229608b6a1378a6",
       "ft": "FT-062",
       "id": "3727c2686058434fda14b382",
       "line": 37,
       "rcf": "RCFs/documentacao-e-metadados.md",
       "sentenceSha256": "1323f89fa902dc4f64e71241f9e32e281d0557dec94913c0e94256f35b6d0abe",
-      "state": "pending",
+      "state": "synchronized",
       "syncCommit": ""
     },
     {
@@ -2831,13 +2831,13 @@
         "MODO-DE-USO-BLOCKQUOTE.md",
         "scripts/test_documentation.rb"
       ],
-      "commit": "",
+      "commit": "e2ba69ffa0f4dd05c677b84ac229608b6a1378a6",
       "ft": "FT-062",
       "id": "63f720ea83511cfb534c12f7",
       "line": 41,
       "rcf": "RCFs/documentacao-e-metadados.md",
       "sentenceSha256": "a3f28b4f8b56d4a3294e3d3dbdbf9236570e256eb8e0aeb2fb4c326d29597bf2",
-      "state": "pending",
+      "state": "synchronized",
       "syncCommit": ""
     },
     {
@@ -2845,13 +2845,13 @@
         "MODO-DE-USO-BLOCKQUOTE.md",
         "scripts/test_documentation.rb"
       ],
-      "commit": "",
+      "commit": "e2ba69ffa0f4dd05c677b84ac229608b6a1378a6",
       "ft": "FT-062",
       "id": "b63b7c354debd0ba17ab9cde",
       "line": 42,
       "rcf": "RCFs/documentacao-e-metadados.md",
       "sentenceSha256": "26e380e6f37c25e84bafa14fe2582eda1a4ef90e56333dc9de666bcf618401bb",
-      "state": "pending",
+      "state": "synchronized",
       "syncCommit": ""
     },
     {
@@ -2859,13 +2859,13 @@
         "MODO-DE-USO-BLOCKQUOTE.md",
         "scripts/test_documentation.rb"
       ],
-      "commit": "",
+      "commit": "e2ba69ffa0f4dd05c677b84ac229608b6a1378a6",
       "ft": "FT-062",
       "id": "d44582da57d5bff30404b12a",
       "line": 43,
       "rcf": "RCFs/documentacao-e-metadados.md",
       "sentenceSha256": "42575f216f210d4b91e616f20293ff423ccfd9dd3b8601d25064de7785d92c76",
-      "state": "pending",
+      "state": "synchronized",
       "syncCommit": ""
     },
     {
@@ -2873,13 +2873,13 @@
         "MODO-DE-USO-BLOCKQUOTE.md",
         "scripts/test_documentation.rb"
       ],
-      "commit": "",
+      "commit": "e2ba69ffa0f4dd05c677b84ac229608b6a1378a6",
       "ft": "FT-062",
       "id": "ed45ecc78ee16bf021868a36",
       "line": 44,
       "rcf": "RCFs/documentacao-e-metadados.md",
       "sentenceSha256": "61374a32ace759473a2bde0db4772167808d252280d3782167d52f8e52cfa98c",
-      "state": "pending",
+      "state": "synchronized",
       "syncCommit": ""
     },
     {
@@ -2887,13 +2887,13 @@
         "MODO-DE-USO-BLOCKQUOTE.md",
         "scripts/test_documentation.rb"
       ],
-      "commit": "",
+      "commit": "e2ba69ffa0f4dd05c677b84ac229608b6a1378a6",
       "ft": "FT-062",
       "id": "31b0156168c430f2b0e2794f",
       "line": 45,
       "rcf": "RCFs/documentacao-e-metadados.md",
       "sentenceSha256": "36f2fe44b4587b87cae3cfe590b3ae9ce34ff5b33491749bfec4db9cde618c96",
-      "state": "pending",
+      "state": "synchronized",
       "syncCommit": ""
     },
     {
@@ -2901,13 +2901,13 @@
         "MODO-DE-USO-BLOCKQUOTE.md",
         "scripts/test_documentation.rb"
       ],
-      "commit": "",
+      "commit": "e2ba69ffa0f4dd05c677b84ac229608b6a1378a6",
       "ft": "FT-062",
       "id": "886d0a31581fe2a266c91ee4",
       "line": 46,
       "rcf": "RCFs/documentacao-e-metadados.md",
       "sentenceSha256": "c426e74a99f4605cdb21b0af013ea15c6597b7cec338bc4b4718af4d9c39599e",
-      "state": "pending",
+      "state": "synchronized",
       "syncCommit": ""
     },
     {
@@ -2915,39 +2915,39 @@
         "MODO-DE-USO-BLOCKQUOTE.md",
         "scripts/test_documentation.rb"
       ],
-      "commit": "",
+      "commit": "e2ba69ffa0f4dd05c677b84ac229608b6a1378a6",
       "ft": "FT-062",
       "id": "12c60e36bde0354ea6ed22a7",
       "line": 47,
       "rcf": "RCFs/documentacao-e-metadados.md",
       "sentenceSha256": "941bc98c9a17c6e8e5eafb5d50588de779b3a4f5fa2c0d93a0c716915ed06358",
-      "state": "pending",
+      "state": "synchronized",
       "syncCommit": ""
     },
     {
       "artifacts": [
         "agents.local.md"
       ],
-      "commit": "",
+      "commit": "e2ba69ffa0f4dd05c677b84ac229608b6a1378a6",
       "ft": "FT-062",
       "id": "1b7ebe478f246bbbf389140d",
       "line": 51,
       "rcf": "RCFs/documentacao-e-metadados.md",
       "sentenceSha256": "81ade28aa85094b0bbbf3cb8ac9c198a51c7638eae135fe47eb19b13900ac2bd",
-      "state": "pending",
+      "state": "synchronized",
       "syncCommit": ""
     },
     {
       "artifacts": [
         "agents.local.md"
       ],
-      "commit": "",
+      "commit": "e2ba69ffa0f4dd05c677b84ac229608b6a1378a6",
       "ft": "FT-062",
       "id": "36949042192f84604b76eb1c",
       "line": 52,
       "rcf": "RCFs/documentacao-e-metadados.md",
       "sentenceSha256": "27c4dde486dc806958a829010e27cf14fe46de93d19fc3626f527fdac8694397",
-      "state": "pending",
+      "state": "synchronized",
       "syncCommit": ""
     },
     {
@@ -2955,13 +2955,13 @@
         "package.json",
         "scripts/test_documentation.rb"
       ],
-      "commit": "",
+      "commit": "e2ba69ffa0f4dd05c677b84ac229608b6a1378a6",
       "ft": "FT-062",
       "id": "95575705aea7206278c9a6ce",
       "line": 53,
       "rcf": "RCFs/documentacao-e-metadados.md",
       "sentenceSha256": "d1cb8deb2b2d819706161c2890bb77260c297601ac6c97af473dfa755841b09d",
-      "state": "pending",
+      "state": "synchronized",
       "syncCommit": ""
     },
     {
@@ -2969,13 +2969,13 @@
         "package.json",
         "scripts/test_documentation.rb"
       ],
-      "commit": "",
+      "commit": "e2ba69ffa0f4dd05c677b84ac229608b6a1378a6",
       "ft": "FT-062",
       "id": "400f67636ad2f6dafb488722",
       "line": 54,
       "rcf": "RCFs/documentacao-e-metadados.md",
       "sentenceSha256": "e82048f5d5c06b27256e3edbadb23b40d089a2a6b974c1be4ef9e2feaaa642d7",
-      "state": "pending",
+      "state": "synchronized",
       "syncCommit": ""
     },
     {
@@ -2983,13 +2983,13 @@
         "package.json",
         "scripts/test_documentation.rb"
       ],
-      "commit": "",
+      "commit": "e2ba69ffa0f4dd05c677b84ac229608b6a1378a6",
       "ft": "FT-062",
       "id": "ee858dc480fe0c78a0c8f529",
       "line": 55,
       "rcf": "RCFs/documentacao-e-metadados.md",
       "sentenceSha256": "707d260facb93cc4f8a1a184d9a81d603b3e37f9c7466107d6fc66347cda96d5",
-      "state": "pending",
+      "state": "synchronized",
       "syncCommit": ""
     },
     {
