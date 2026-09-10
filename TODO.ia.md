@@ -10,11 +10,11 @@ Este arquivo constitui uma lista normativa e operacional de TO-DOs convergentes.
 
 Todo item de topo DEVE:
 
-- iniciar exatamente com `- [ ]` ou `- [x]`;
+- iniciar exatamente com `- [ ]` (substituido posteriormente pelo emoji correspondente);
 - começar sem indentação;
 - representar uma frente autônoma subordinada às normas deste RCF.
 
-Todo conteúdo imediatamente posterior a um item de topo, enquanto não houver outro item iniciado sem indentação por `- [ ]` ou `- [x]`, DEVE ser interpretado como subordinado ao item de topo imediatamente anterior.
+Todo conteúdo imediatamente posterior a um item de topo, enquanto não houver outro item iniciado sem indentação por `- [ ]` (e análogo), DEVE ser interpretado como subordinado ao item de topo imediatamente anterior.
 
 A forma interna dessa subordinação é livre: PODE conter subtítulos, subitens, regras em estilo RCF, ordens, critérios, listas de afazeres, etapas, notas ou estruturas equivalentes. A semântica hierárquica prevalece sobre a forma.
 
