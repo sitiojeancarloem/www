@@ -4,15 +4,19 @@ Blog Jekyll com tema Minimal Mistakes e extensões customizadas em Liquid, SCSS 
 
 Upstream canônico: [`sitiojeancarloem/www`](https://github.com/sitiojeancarloem/www).
 
+## Drafts - Rascunhos
+
+Os artigos em desenvolvimento estão no repositório privado [https://github.com/sitiojeancarloem/drafts](https://github.com/sitiojeancarloem/drafts).
+
 ## Documentação de uso
 
-| Guia | Aplicação real |
-|---|---|
-| [COVER e Hero](docs/MODO-DE-USO-COVER-E-HERO.md) | Configurar os dez comportamentos visuais de imagem destacada, composição tripla, aliases, enquadramento, Hero e fontes sociais. |
-| [Blockquote](docs/MODO-DE-USO-BLOCKQUOTE.md) | Escrever citações, selecionar todos os modelos registrados, configurar defaults, ícones, acessibilidade e impressão. |
-| [Leitura acessível e TTS](docs/MODO-DE-USO-LEITURA-ACESSIVEL-E-TTS.md) | Declarar idiomas, pronúncia, referências faladas e alternativas textuais para tabelas, imagens e gráficos. |
-| [Impressão editorial IEEE](src/jcem-print-ieee/README.md) | Integrar e inspecionar a biblioteca progressiva de impressão A4 em duas colunas. |
-| [Índice normativo](RCF.md) | Localizar requisitos, contratos e validações autoritativos por domínio do produto. |
+| Guia                                                                   | Aplicação real                                                                                                                  |
+| ---------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
+| [COVER e Hero](docs/MODO-DE-USO-COVER-E-HERO.md)                       | Configurar os dez comportamentos visuais de imagem destacada, composição tripla, aliases, enquadramento, Hero e fontes sociais. |
+| [Blockquote](docs/MODO-DE-USO-BLOCKQUOTE.md)                           | Escrever citações, selecionar todos os modelos registrados, configurar defaults, ícones, acessibilidade e impressão.            |
+| [Leitura acessível e TTS](docs/MODO-DE-USO-LEITURA-ACESSIVEL-E-TTS.md) | Declarar idiomas, pronúncia, referências faladas e alternativas textuais para tabelas, imagens e gráficos.                      |
+| [Impressão editorial IEEE](src/jcem-print-ieee/README.md)              | Integrar e inspecionar a biblioteca progressiva de impressão A4 em duas colunas.                                                |
+| [Índice normativo](RCF.md)                                             | Localizar requisitos, contratos e validações autoritativos por domínio do produto.                                              |
 
 ## Build local
 
@@ -26,6 +30,7 @@ No Ruby 4, os scripts npm usam `scripts/jekyll_local.rb` e `scripts/jekyll_compa
 ## Publicação
 
 <!-- AI-PROCESSED -->
+
 `main` é branch de desenvolvimento. Publicação ocorre pelo branch temporário `gh-pages`, gerado automaticamente:
 
 ```bash
@@ -55,6 +60,7 @@ O plugin converte essas representações em rota pública determinística, prese
 ## Equações LaTeX
 
 <!-- AI-PROCESSED -->
+
 Equações são detectadas automaticamente durante o build. Não é necessário declarar `math: true` ou qualquer outro metadado no front matter.
 
 Formatos suportados:
@@ -103,6 +109,7 @@ Modos de viewport, patterns laterais, fontes Open Graph independentes e Hero dec
 ## Carregamento inicial
 
 <!-- AI-PROCESSED -->
+
 O loader inicial bloqueia apenas recursos essenciais: HTML, CSS, JavaScript de inicialização e dependências leves. Imagens, backgrounds, mídias e fontes opcionais continuam carregando de forma progressiva depois que a página é liberada.
 
 Componentes elegíveis com assets potencialmente lentos usam skeleton loading em CSS puro. Cards, thumbnails e imagens destacadas já recebem a marcação automaticamente; componentes futuros podem optar pelo mesmo comportamento com `data-jcem-skeleton`.
@@ -110,6 +117,7 @@ Componentes elegíveis com assets potencialmente lentos usam skeleton loading em
 ### Metadados de assets
 
 <!-- AI-PROCESSED -->
+
 Durante o build, `_plugins/jcem_asset_metadata.rb` gera metadados opcionais para imagens públicas e publica o índice consolidado em `assets/jcem/asset-metadata.json`. O cache incremental fica em `.jekyll-cache/jcem-asset-metadata.json`.
 
 Quando disponíveis, esses dados são usados para emitir `width`, `height` e proporção em imagens destacadas, cards e posts recentes. Imagens externas sem arquivo local devem declarar metadados em `_data/jcem_asset_metadata.yml`, preservando a reserva exata de espaço desde o HTML inicial. Sem o índice, a página continua funcional; o skeleton apenas usa a reserva genérica definida por CSS.
@@ -144,6 +152,7 @@ O primeiro autor recebe o painel principal. Autores seguintes usam composição 
 ## Mapa HTML do site
 
 <!-- AI-PROCESSED -->
+
 `/mapa/` é a versão HTML indexável do sitemap do blog. A página é gerada automaticamente por `_plugins/jcem_site_map.rb`, usa o layout `_layouts/mapa.html` e lista navegação principal, taxonomias e artigos publicados sem imagens.
 
 Configuração global:
@@ -220,6 +229,7 @@ O ícone de expandir/recolher é aplicado por CSS com Font Awesome.
 Títulos `## Bibliografia` e `## Referências` são recolhidos automaticamente no carregamento da página.
 
 <!-- AI-PROCESSED -->
+
 Na impressão, essas seções são abertas automaticamente.
 
 Notas de rodapé usam preferencialmente identificadores alfanuméricos Kramdown:
