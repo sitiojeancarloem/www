@@ -838,10 +838,10 @@ plano:
   - id: FT-062
     classe: implementacao_normativa
     criado_em: 2026-09-09T21:18:25.0606107-03:00
-    estado: em_andamento
+    estado: concluida
     fonte: TODO.ia.md
     objetivo: Equalizar e normatizar a manutencao sincronizada da documentacao de uso, referencias normativas, exemplos, ilustracoes e metadados do projeto.
-    escopo: RCF.md, nova sub-RCF documental, RCFs de COVER, citacoes e operacao da IA, alem da projecao local em agents.local.md.
+    escopo: RCF.md, RCF-JCEM-DOCUMENTACAO-METADADOS-001 e RCF-JCEM-CARREGAMENTO-PROGRESSIVO-001, preservando citacoes e operacao da IA como autoridades referenciadas.
     aceite:
       - README permanece indice compacto e liga paginas de uso por contexto e funcao
       - COVER e blockquote possuem contratos documentais unicos, completos, praticos e vinculados as respectivas RCFs
@@ -849,6 +849,12 @@ plano:
       - exemplos copiaveis sao validados contra configuracao, schema e pipeline reais
       - metadados de repositorio, licenca e autoria possuem fonte e valores canonicos explicitos
       - regra local carrega esta rota somente quando documentacao ou interface de uso for afetada
+    resultado:
+      - nova sub-RCF centraliza arquitetura documental, exemplos, ilustracoes, metadados e validacao sem duplicar os contratos de COVER ou citacoes
+      - COVER foi equalizada em dez comportamentos visuais, separando modos e composicoes de aliases e propriedades ortogonais
+      - blockquote passou a exigir pagina unica derivada do registro, cobertura visual de todos os modelos e tratamento explicito de cores e icones
+      - upstream, MPL-2.0 e autoria principal possuem valores canonicos, com excecao proporcional para manifesto puramente privado
+      - rota operacional foi normatizada, mas sua projecao e toda documentacao permanecem reservadas a FT-063 e a nova autorizacao humana
   - id: FT-063
     classe: implementacao_documental
     criado_em: 2026-09-09T21:18:25.0606108-03:00
@@ -856,13 +862,14 @@ plano:
     depende_de: FT-062
     fonte: TODO.ia.md
     fonte_autorizacao: nova autorizacao humana apos conclusao da FT-062
-    objetivo: Implementar as paginas unicas de uso de COVER e blockquote, suas ilustracoes, o indice do README e os metadados do projeto conforme o contrato normatizado.
+    objetivo: Implementar as paginas unicas de uso de COVER e blockquote, suas ilustracoes, o indice do README, os metadados do projeto e a projecao documental em agents.local.md conforme o contrato normatizado.
     aceite:
       - documentacao deriva do registro e dos schemas vigentes sem inventar modo, nome, cor, icone ou configuracao
       - exemplos de COVER e blockquote sao copiaveis, funcionais e suficientes para uso real
       - SVGs compartilham dimensoes e linguagem visual, distinguem cada conceito e permanecem legiveis em temas claro e escuro no GitHub
       - README liga diretamente as paginas e o upstream sem voltar a concentrar documentacao densa
       - package.json e equivalentes aplicaveis declaram upstream, MPL-2.0 e JeanCarloEM com URL institucional
+      - agents.local.md roteia mudanca documental somente aos contratos aplicaveis e exige sincronismo de paginas, exemplos e ilustracoes
   - id: FT-064
     classe: integracao_validacao
     criado_em: 2026-09-09T21:18:25.0606109-03:00

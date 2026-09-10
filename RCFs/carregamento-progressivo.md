@@ -54,6 +54,14 @@ Escopo: carregamento inicial, loader global, recursos pesados, skeleton loading 
 - Texto curto ou longo, link e CTA DEVEM manter contraste e legibilidade por tema e imagem mediante proteção declarada e previsível; a proteção NÃO PODE apagar a COVER, ocupar área decorativa nem depender de biblioteca externa. [86b8972]
 - Hero DEVE preservar ordem DOM, nome de link, foco visível, toque, zoom, reduced motion, 320 px e leitura sem JavaScript; nenhuma disposição visual PODE alterar a ordem semântica do conteúdo. [86b8972]
 
+### Documentação de autoria da COVER
+
+- `MODO-DE-USO-COVER-E-HERO.md` DEVE ser a página canônica única de uso e configuração de COVER e Hero, ligada diretamente por este RCF e pelo índice do `README.md`. [PENDENTE-CODIGO]
+- A página DEVE documentar os dez comportamentos visuais preservados pelo produto: hero legado sem estilo; `content`; `wide single`; `wide triptych`; e os seis modos `full-window`, `window-height`, `window-width`, `inner-full-window`, `inner-window-height` e `inner-window-width`. [PENDENTE-CODIGO]
+- Cada um dos dez comportamentos DEVE possuir SVG comparável e fiel; aliases de escrita, valores de `fit`, fontes de pattern e seis zonas ortogonais de Hero DEVEM ser inventariados e explicados sem gerar ilustração redundante para cada permutação. [PENDENTE-CODIGO]
+- O exemplo copiável DEVE usar assets versionados existentes, demonstrar uma configuração real completa e ser validado pelo mesmo resolver de `config/cover-system.json` usado no build. [PENDENTE-CODIGO]
+- Atualização de modo, composição, alias, fit, pattern, Hero, geometria ou semântica de COVER DEVE atualizar conjuntamente esta RCF, a página, a ilustração atingida e sua validação documental. [PENDENTE-CODIGO]
+
 - HTML e CSS devem produzir conteúdo legível imediatamente; JavaScript, consentimento e aprimoramentos progressivos NÃO PODEM ocultar ou bloquear a primeira renderização visível da página. [00251f5]
 - Recursos essenciais são HTML, CSS, JavaScript próprio necessário à inicialização e dependências leves do JavaScript, como JSON, XML ou formatos equivalentes.
 - Imagens, `background-image`, vídeos, áudios, iframes, fontes opcionais e demais assets pesados não devem bloquear a liberação inicial da página. [860dfdf]
