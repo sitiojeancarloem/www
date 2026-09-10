@@ -1,7 +1,7 @@
 <!-- AI-PROCESSED -->
 # RCF-JCEM-DOCUMENTACAO-METADADOS-001
 
-Status: vigente; implementação documental pendente na FT-063.
+Status: vigente; implementação documental concluída na FT-063 e integração/validação concluída na FT-064, pendente de validação humana.
 
 Escopo: documentação de uso, exemplos copiáveis, ilustrações comparativas, referências normativas e metadados públicos do projeto.
 

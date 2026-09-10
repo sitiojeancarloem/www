@@ -152,9 +152,13 @@ private_package = JSON.parse(read("scripts/lib/package.json"))
 assert(private_package == { "private" => true, "type" => "commonjs" }, "manifesto técnico privado deixou de ser fronteira mínima")
 
 todo_operational = read("TODO.ia.md").split(/^# TO-DOs\s*$/, 2).last
-assert(!todo_operational.match?(/^[ \t]+- \[[ x]\]/), "subitem operacional ainda usa checkbox em vez da nomenclatura da seção 2")
-todo_operational.lines.grep(/^- \[[ x]\]/).each do |line|
-  assert(line.match?(/^- \[[ x]\] (?:⬜|📌|📜|⚖️|⏳|🔄|🔎|✅) \*\*[^*]+:\*\*/), "item de topo sem status nomeado: #{line.strip}")
+status_markers = "⬜|📌|📜|⚖️|⏳|🔄|🔎|✅"
+assert(!todo_operational.match?(/^[ \t]*- \[[ x]\]/), "item operacional ainda usa checkbox em vez de emoji isolado")
+assert(!todo_operational.match?(/^[ \t]*- (?:#{status_markers}) \*\*[^*]+:\*\*/), "item operacional ainda repete o nome textual do status")
+operational_items = todo_operational.lines.grep(/^[ \t]*- /)
+assert(!operational_items.empty?, "TO-DO operacional sem item")
+operational_items.each do |line|
+  assert(line.match?(/^[ \t]*- (?:#{status_markers}) \S/), "item operacional sem emoji de status isolado: #{line.strip}")
 end
 
 %w[README.md docs/MODO-DE-USO-COVER-E-HERO.md docs/MODO-DE-USO-BLOCKQUOTE.md RCFs/carregamento-progressivo.md RCFs/citacoes.md].each do |path|

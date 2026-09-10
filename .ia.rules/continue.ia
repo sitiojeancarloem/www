@@ -1,13 +1,13 @@
 schema: jcem-continue/v1
 machine_id: JEAN-DESKTOP
-data_ref: 2026-09-09T22:12:02.2640645-03:00
+data_ref: 2026-09-10T11:58:27.5158162-03:00
 fonte: TODO.ia.md
-objetivo: Equalizar a frente de documentacao, referencias normativas e metadados; concluir sua normatizacao antes de qualquer implementacao; e preservar sincronismo verificavel com o estado real do produto.
+objetivo: Concluir a integracao e a validacao da frente de documentacao, referencias normativas e metadados, preservando sincronismo verificavel com o produto e aguardando validacao humana.
 autorizacao:
   origem: prompt humano
-  data: 2026-09-09T21:41:17.4036644-03:00
-  fonte: prompt humano de autorizacao expressa para continuar apos o gate normativo; conteudo material em TODO.ia.md
-  escopo: executar a FT-063 documental e sua validacao local proporcional, preservando a FT-064 como fase de integracao e validacao separada
+  data: 2026-09-10T11:42:51.2760549-03:00
+  fonte: prompt humano "continue TO-DOs e FTs em andamento"
+  escopo: executar a FT-064 de integracao e validacao, inclusive equalizar o gate documental com a governanca de status vigente em TODO.ia.md
   restricao: preservar o equalizer perene, separar norma de implementacao e aplicar rigorosamente os estados nomeados em TODO.ia.md secao 2
 plano:
   - id: FT-020
@@ -882,16 +882,25 @@ plano:
   - id: FT-064
     classe: integracao_validacao
     criado_em: 2026-09-09T21:18:25.0606109-03:00
-    estado: pendente
+    estado: concluida_pendente_validacao
     depende_de: FT-063
     fonte: TODO.ia.md
-    fonte_autorizacao: nova autorizacao humana apos conclusao da FT-062
+    fonte_autorizacao: prompt humano de 2026-09-10T11:42:51.2760549-03:00 para continuar TO-DOs e FTs em andamento
     objetivo: Provar sincronismo, cobertura, legibilidade e ausencia de regressao da documentacao e dos metadados antes de submetê-los a validacao humana.
     aceite:
       - links, inventarios, modos, modelos, aliases, icones, paletas e exemplos convergem com as fontes reais
       - SVGs sao validos, comparaveis e inspecionados em representacoes clara e escura
       - gates documentais, RCF, build e dominios afetados aprovam sem alterar fontes editoriais ou absorver _site
       - TO-DO operacional permanece ate aprovacao humana e o equalizer perene permanece literal e desmarcado
+    resultado:
+      - governanca operacional convergiu ao marcador exclusivo por emoji; checkbox e nome textual do status foram removidos sem alterar o equalizer perene
+      - gate documental foi atualizado para recusar checkbox e nome textual de status, preservando a exigencia de emoji isolado em cada item operacional
+      - status da RCF documental foi sincronizado com FT-063 implementada e FT-064 concluida, pendente de validacao humana
+      - gerador social normaliza terminadores de linha de SVG antes de hash e renderizacao, eliminando divergencia Windows/Linux sem regenerar qualquer uma das 24 variantes vigentes
+      - npm run check aprovou todos os dominios; npm run build:prod aprovou em 73.6 segundos com 12 assets sociais, 24 variantes e zero regeneracoes
+      - os 16 SVGs documentais permanecem inalterados desde a inspecao clara/escura da FT-063; dimensoes, viewBox, tema escuro e tokens foram revalidados estruturalmente
+      - npm audit --omit=dev encontrou zero vulnerabilidades de producao; _site e demais artefatos derivados foram restaurados e excluidos da mudanca
+    proximo_passo: validacao humana da TO-DO; apos aprovacao efetiva, remover integralmente o item operacional e manter a secao perene
 lacunas:
   - id: GAP-AGENTS-CJS-ESM-001
     estado: isolada

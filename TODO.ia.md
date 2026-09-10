@@ -75,48 +75,48 @@ Este marcador encerra a seção de governança e inicia exclusivamente as TO-DOs
 
 ---
 
-- [x] ✅ **Concluída — pendente de validação:** Manter documentação de uso, referências normativas e metadados do projeto sincronizados com o estado real
-  - ✅ **Concluída — pendente de validação:** Atualizar continuamente `README.md` sempre que modo de uso, configuração, comportamento ou recurso documentável for adicionado ou alterado.
-    - ✅ **Concluída — pendente de validação:** Evitar concentrar documentação densa em uma única página: distribuir conteúdo por subpáginas `.md` por contexto/função.
-    - ✅ **Concluída — pendente de validação:** Localizar toda documentação canônica de modo de uso obrigatoriamente em `./docs/`.
-    - ✅ **Concluída — pendente de validação:** No `README.md`, indexar as subpáginas preferencialmente em tabela, com:
-      - link direto;
-      - descrição ultrassucinta, porém suficiente para identificar contexto, aplicação real, função e, quando relevante, horizonte de uso/oportunidades.
-    - ✅ **Concluída — pendente de validação:** NÃO depender apenas do nome de um termo/recurso quando ele não for suficiente para explicar seu alcance ou aplicação.
-  - ✅ **Concluída — pendente de validação:** Criar e manter uma única página `.md` de uso e configuração de `Cover`, ligada diretamente pelo `README.md` e pelo RCF aplicável.
-    - ✅ **Concluída — pendente de validação:** Explicar, de forma sucinta e suficiente para humanos, os modos/estilos de `Cover`, formas de uso em artigos e configurações aplicáveis.
-    - ✅ **Concluída — pendente de validação:** Incluir ao menos um exemplo prático, copiável, funcional sem erro e aplicável a um cenário real.
-    - ✅ **Concluída — pendente de validação:** Incluir uma ilustração SVG simples para cada variação/modo de `Cover`.
-      - ✅ **Concluída — pendente de validação:** Todos os SVGs DEVEM compartilhar padrão, estilo, dimensões/formato e linguagem visual, permitindo comparação direta entre modos.
-      - ✅ **Concluída — pendente de validação:** Cada SVG DEVE expressar visualmente, de forma simples mas suficiente, o conceito e a diferença do respectivo modo.
-      - ✅ **Concluída — pendente de validação:** Os SVGs DEVEM permanecer legíveis no GitHub em temas claro e escuro.
-    - ✅ **Concluída — pendente de validação:** Atualizar a página e os SVGs sempre que um modo for criado/removido, ou quando sua apresentação visual/semântica mudar.
-  - ✅ **Concluída — pendente de validação:** Criar e manter uma única página `.md` de uso, configuração e estilos de `blockquote`, ligada diretamente pelo `README.md` e pelo RCF aplicável.
-    - ✅ **Concluída — pendente de validação:** Documentar todos os modelos de `blockquote`, inclusive variantes implementadas por HTML derivado com tag/estrutura diferente da tag `<blockquote>`.
-    - ✅ **Concluída — pendente de validação:** Para cada modelo, incluir representação visual fiel à aparência real, por SVG ou imagem adequada, legível no GitHub em temas claro e escuro.
-    - ✅ **Concluída — pendente de validação:** Cada modelo DEVE ser representado pelo menos uma vez.
-      - ✅ **Concluída — pendente de validação:** Quando um mesmo modelo admitir apenas variações de cor, NÃO é necessário ilustrar cada cor; dois exemplos com cores distintas são suficientes.
-      - ✅ **Concluída — pendente de validação:** Quando um mesmo modelo admitir apenas variações de ícone, NÃO é necessário ilustrar cada ícone; dois exemplos com ícons distintoss são suficientes.
-      - ✅ **Concluída — pendente de validação:** Se as cores/ícones forem selecionadas por nomes arbitrários, documentar todos os nomes disponíveis.
-      - ✅ **Concluída — pendente de validação:** Se os ícones puderem ser informados a partir de links externos,a partir de fonte de ícones ou, de recursos internos, explicar o modo de uso de cada situação e, em caso de recursos internos, listar de forma suscinta mas completa, todos os disponíveis.
-      - ✅ **Concluída — pendente de validação:** Quando um nome representar combinação de múltiplas cores, inclusive tons distintos, exibir uma pequena paleta visual que mostre a combinação real correspondente.
-    - ✅ **Concluída — pendente de validação:** Explicar, de forma sucinta e suficiente para humanos, sintaxe, estrutura, formas de uso e configurações aplicáveis.
-    - ✅ **Concluída — pendente de validação:** Incluir ao menos um exemplo prático, copiável, funcional sem erro e aplicável a um cenário real.
-    - ✅ **Concluída — pendente de validação:** Atualizar a página e suas ilustrações sempre que estilos, modelos, sintaxe, configuração ou aparência forem adicionados ou alterados.
-  - ✅ **Concluída — pendente de validação:** Garantir que toda documentação de modo de uso contenha pelo menos um exemplo prático que:
-    - ✅ **Concluída — pendente de validação:** simule uso real;
-    - ✅ **Concluída — pendente de validação:** possa ser copiado sem alterações obrigatórias;
-    - ✅ **Concluída — pendente de validação:** seja funcional e sem erro;
-    - ✅ **Concluída — pendente de validação:** demonstre a aplicação concreta do recurso documentado.
-  - ✅ **Concluída — pendente de validação:** Incorporar ao `AGENTS.local.md`, em rota/subarquivo específico, as regras deste TO-DO que constituam modus operandi permanente de codificação/desenvolvimento e atualização/criação do(s) .md.
-    - ✅ **Concluída — pendente de validação:** Essas regras DEVEM ser carregadas sempre — e apenas — quando houver necessidade de:
-      - alterar documentação `.md`;
-      - adicionar/alterar recurso cuja forma de uso exija atualização documental;
-      - atualizar documentação análoga afetada por mudança de comportamento, configuração ou interface de uso.
-    - ✅ **Concluída — pendente de validação:** A regra operacional DEVE exigir que alterações na forma de uso impliquem atualização das páginas correspondentes e de seus exemplos/ilustrações aplicáveis.
-  - ✅ **Concluída — pendente de validação:** Completar metadados de projeto em `package.json` e arquivos equivalentes, quando aplicável.
-    - ✅ **Concluída — pendente de validação:** Informar a URL do repositório upstream.
-    - ✅ **Concluída — pendente de validação:** Informar licença.
-    - ✅ **Concluída — pendente de validação:** Informar autor principal (JeanCarloEM, www.jeancarloem.com).
-    - ✅ **Concluída — pendente de validação:** Preservar/adicionar demais metadados equivalentes aplicáveis ao formato.
-  - ✅ **Concluída — pendente de validação:** Adicionar ao `README.md` link explícito para o repositório upstream.
+- ✅ Manter documentação de uso, referências normativas e metadados do projeto sincronizados com o estado real
+  - ✅ Atualizar continuamente `README.md` sempre que modo de uso, configuração, comportamento ou recurso documentável for adicionado ou alterado.
+    - ✅ Evitar concentrar documentação densa em uma única página: distribuir conteúdo por subpáginas `.md` por contexto/função.
+    - ✅ Localizar toda documentação canônica de modo de uso obrigatoriamente em `./docs/`.
+    - ✅ No `README.md`, indexar as subpáginas preferencialmente em tabela, com:
+      - ✅ link direto;
+      - ✅ descrição ultrassucinta, porém suficiente para identificar contexto, aplicação real, função e, quando relevante, horizonte de uso/oportunidades.
+    - ✅ NÃO depender apenas do nome de um termo/recurso quando ele não for suficiente para explicar seu alcance ou aplicação.
+  - ✅ Criar e manter uma única página `.md` de uso e configuração de `Cover`, ligada diretamente pelo `README.md` e pelo RCF aplicável.
+    - ✅ Explicar, de forma sucinta e suficiente para humanos, os modos/estilos de `Cover`, formas de uso em artigos e configurações aplicáveis.
+    - ✅ Incluir ao menos um exemplo prático, copiável, funcional sem erro e aplicável a um cenário real.
+    - ✅ Incluir uma ilustração SVG simples para cada variação/modo de `Cover`.
+      - ✅ Todos os SVGs DEVEM compartilhar padrão, estilo, dimensões/formato e linguagem visual, permitindo comparação direta entre modos.
+      - ✅ Cada SVG DEVE expressar visualmente, de forma simples mas suficiente, o conceito e a diferença do respectivo modo.
+      - ✅ Os SVGs DEVEM permanecer legíveis no GitHub em temas claro e escuro.
+    - ✅ Atualizar a página e os SVGs sempre que um modo for criado/removido ou quando sua apresentação visual/semântica mudar.
+  - ✅ Criar e manter uma única página `.md` de uso, configuração e estilos de `blockquote`, ligada diretamente pelo `README.md` e pelo RCF aplicável.
+    - ✅ Documentar todos os modelos de `blockquote`, inclusive variantes implementadas por HTML derivado com tag/estrutura diferente da tag `<blockquote>`.
+    - ✅ Para cada modelo, incluir representação visual fiel à aparência real, por SVG ou imagem adequada, legível no GitHub em temas claro e escuro.
+    - ✅ Cada modelo DEVE ser representado pelo menos uma vez.
+      - ✅ Quando um mesmo modelo admitir apenas variações de cor, NÃO é necessário ilustrar cada cor; dois exemplos com cores distintas são suficientes.
+      - ✅ Quando um mesmo modelo admitir apenas variações de ícone, NÃO é necessário ilustrar cada ícone; dois exemplos com ícones distintos são suficientes.
+      - ✅ Se as cores/ícones forem selecionados por nomes arbitrários, documentar todos os nomes disponíveis.
+      - ✅ Se os ícones puderem ser informados a partir de links externos, fontes de ícones ou recursos internos, explicar o modo de uso de cada situação e, em caso de recursos internos, listar de forma sucinta, mas completa, todos os disponíveis.
+      - ✅ Quando um nome representar combinação de múltiplas cores, inclusive tons distintos, exibir uma pequena paleta visual que mostre a combinação real correspondente.
+    - ✅ Explicar, de forma sucinta e suficiente para humanos, sintaxe, estrutura, formas de uso e configurações aplicáveis.
+    - ✅ Incluir ao menos um exemplo prático, copiável, funcional sem erro e aplicável a um cenário real.
+    - ✅ Atualizar a página e suas ilustrações sempre que estilos, modelos, sintaxe, configuração ou aparência forem adicionados ou alterados.
+  - ✅ Garantir que toda documentação de modo de uso contenha pelo menos um exemplo prático que:
+    - ✅ simule uso real;
+    - ✅ possa ser copiado sem alterações obrigatórias;
+    - ✅ seja funcional e sem erro;
+    - ✅ demonstre a aplicação concreta do recurso documentado.
+  - ✅ Incorporar ao `AGENTS.local.md`, em rota/subarquivo específico, as regras deste TO-DO que constituam modus operandi permanente de codificação/desenvolvimento e atualização/criação do(s) .md.
+    - ✅ Essas regras DEVEM ser carregadas sempre — e apenas — quando houver necessidade de:
+      - ✅ alterar documentação `.md`;
+      - ✅ adicionar/alterar recurso cuja forma de uso exija atualização documental;
+      - ✅ atualizar documentação análoga afetada por mudança de comportamento, configuração ou interface de uso.
+    - ✅ A regra operacional DEVE exigir que alterações na forma de uso impliquem atualização das páginas correspondentes e de seus exemplos/ilustrações aplicáveis.
+  - ✅ Completar metadados de projeto em `package.json` e arquivos equivalentes, quando aplicável.
+    - ✅ Informar a URL do repositório upstream.
+    - ✅ Informar licença.
+    - ✅ Informar autor principal (JeanCarloEM, www.jeancarloem.com).
+    - ✅ Preservar/adicionar demais metadados equivalentes aplicáveis ao formato.
+  - ✅ Adicionar ao `README.md` link explícito para o repositório upstream.

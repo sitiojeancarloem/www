@@ -13,6 +13,9 @@ const checkOnly = process.argv.includes('--check');
 const sha256 = (bytes) => createHash('sha256').update(bytes).digest('hex');
 const toPublic = (filePath) => `/${path.relative(root, filePath).split(path.sep).join('/')}`;
 const stableJson = (value) => `${JSON.stringify(value, null, '\t')}\n`;
+const canonicalSourceBytes = (sourcePath, bytes) => path.extname(sourcePath).toLowerCase() === '.svg'
+	? Buffer.from(bytes.toString('utf8').replace(/\r\n?/g, '\n'), 'utf8')
+	: bytes;
 
 const yamlScalar = (value) => {
 	const raw = value.trim();
@@ -196,8 +199,10 @@ for (const definition of definitions) {
 	const squareDefinition = { ...definition, source: definition.squareSource || definition.source };
 	const wideSourcePath = path.join(root, wideDefinition.source);
 	const squareSourcePath = path.join(root, squareDefinition.source);
-	const wideSourceBytes = await readFile(wideSourcePath);
-	const squareSourceBytes = squareSourcePath === wideSourcePath ? wideSourceBytes : await readFile(squareSourcePath);
+	const wideSourceBytes = canonicalSourceBytes(wideSourcePath, await readFile(wideSourcePath));
+	const squareSourceBytes = squareSourcePath === wideSourcePath
+		? wideSourceBytes
+		: canonicalSourceBytes(squareSourcePath, await readFile(squareSourcePath));
 	const wideSourceStat = await stat(wideSourcePath);
 	const squareSourceStat = squareSourcePath === wideSourcePath ? wideSourceStat : await stat(squareSourcePath);
 	const wideSourceSha256 = sha256(wideSourceBytes);
