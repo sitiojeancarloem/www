@@ -26,9 +26,11 @@ Escopo: namespaces de topo, subnamespaces, título lógico, nome físico e URL p
 - Em filesystem incompatível com `:`, o destino local DEVE usar `physical_prefix`; em destino publicável compatível, o artefato DEVE materializar o segmento lógico literal.
 - Redirecionamento ou canonical alternativo somente PODE existir por contrato explícito de migração; a rota lógica permanece autoridade.
 - Nova classe editorial DEVE ser adicionada por configuração e sub-RCF própria quando possuir regras de negócio, sem condicional privada no núcleo do plugin.
+- Servidor local em filesystem que materialize `physical_prefix` DEVE resolver a URL lógica recebida para o destino físico exclusivamente na camada de serviço de arquivos. Essa tradução não altera `document.url`, canonical, links, mapas, cards, feeds nem o artefato publicável.
+- A resolução local DEVE usar os metadados centrais do namespace e o mesmo normalizador do build; substituição textual global, regra exclusiva de `bate-papo`, hardcode por slug ou tentativa de servir o diretório lógico inexistente são proibidos.
 
 ## Validação
 
 - Testes DEVEM cobrir zero, um e múltiplos subnamespaces; profundidade arbitrária; Unicode; entrada inválida; prefixo físico; URL literal; destino Windows/Linux; canonical; idempotência e duas classes configuradas.
 - Build local e publicável DEVEM produzir conteúdo e URL equivalentes, ressalvada somente a representação física documentada.
-
+- Teste HTTP local DEVE solicitar a URL lógica com `:` e obter o documento materializado sob prefixo físico; a URL semântica retornada e a canonical permanecem literais e idênticas ao build publicável.
