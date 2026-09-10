@@ -79,7 +79,7 @@ Este marcador encerra a seção de governança e inicia exclusivamente as TO-DOs
 
 ---
 
-- [ ] Manter documentação de uso, referências normativas e metadados do projeto sincronizados com o estado real
+- [x] Manter documentação de uso, referências normativas e metadados do projeto sincronizados com o estado real
   - [ ] Atualizar continuamente `README.md` sempre que modo de uso, configuração, comportamento ou recurso documentável for adicionado ou alterado.
     - [ ] Evitar concentrar documentação densa em uma única página: distribuir conteúdo por subpáginas `.md` por contexto/função.
     - [ ] No `README.md`, indexar as subpáginas preferencialmente em tabela, com:

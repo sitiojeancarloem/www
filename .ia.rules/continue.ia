@@ -1,14 +1,14 @@
 schema: jcem-continue/v1
 machine_id: JEAN-DESKTOP
-data_ref: 2026-09-03T02:32:33.4097652-03:00
-fonte: .ia.rules/state/requests/FT-053/prompt.md
-objetivo: Equalizar, normatizar, implementar, validar e publicar TOC/TTS e COVER/Hero como frentes convergentes, preservando integralmente todas as features vigentes.
+data_ref: 2026-09-09T21:18:25.0606107-03:00
+fonte: TODO.ia.md
+objetivo: Equalizar a frente de documentacao, referencias normativas e metadados; concluir sua normatizacao antes de qualquer implementacao; e preservar sincronismo verificavel com o estado real do produto.
 autorizacao:
   origem: prompt humano
-  data: 2026-09-03T02:32:33.4097652-03:00
-  fonte: .ia.rules/state/requests/FT-053/prompt.md
-  escopo: todas as fases de todas as FTs aplicaveis, incluindo inspecao, RCF, documentacao, implementacao, migracao, testes, correcoes, commits e push
-  restricao: zero regressao, zero remocao ou degradacao de feature, zero perda de compatibilidade e zero enfraquecimento normativo
+  data: 2026-09-09T21:18:25.0606107-03:00
+  fonte: prompt de inicio das TO-DOs; conteudo material em TODO.ia.md
+  escopo: registro das FTs e normatizacao RCF da frente documental; implementacao condicionada a nova autorizacao expressa apos o gate normativo
+  restricao: preservar o equalizer perene, separar norma de implementacao e nao iniciar paginas, SVGs, README ou metadados antes da autorizacao subsequente
 plano:
   - id: FT-020
     classe: implementacao_normativa
@@ -835,6 +835,47 @@ plano:
       - captions locais materializam a semantica das tabelas sem reescrever o conteudo
       - build isolado com --drafts aprovou em 141.283 segundos, sem diagnostico fatal ou colisao de destino
       - check:footnotes e scripts/test_accessible_reading.rb aprovaram; _site permaneceu fora do commit
+  - id: FT-062
+    classe: implementacao_normativa
+    criado_em: 2026-09-09T21:18:25.0606107-03:00
+    estado: em_andamento
+    fonte: TODO.ia.md
+    objetivo: Equalizar e normatizar a manutencao sincronizada da documentacao de uso, referencias normativas, exemplos, ilustracoes e metadados do projeto.
+    escopo: RCF.md, nova sub-RCF documental, RCFs de COVER, citacoes e operacao da IA, alem da projecao local em agents.local.md.
+    aceite:
+      - README permanece indice compacto e liga paginas de uso por contexto e funcao
+      - COVER e blockquote possuem contratos documentais unicos, completos, praticos e vinculados as respectivas RCFs
+      - ilustracoes comparaveis cobrem modos canonicos de COVER e todos os modelos registrados de blockquote sem confundir aliases com modalidades
+      - exemplos copiaveis sao validados contra configuracao, schema e pipeline reais
+      - metadados de repositorio, licenca e autoria possuem fonte e valores canonicos explicitos
+      - regra local carrega esta rota somente quando documentacao ou interface de uso for afetada
+  - id: FT-063
+    classe: implementacao_documental
+    criado_em: 2026-09-09T21:18:25.0606108-03:00
+    estado: pendente
+    depende_de: FT-062
+    fonte: TODO.ia.md
+    fonte_autorizacao: nova autorizacao humana apos conclusao da FT-062
+    objetivo: Implementar as paginas unicas de uso de COVER e blockquote, suas ilustracoes, o indice do README e os metadados do projeto conforme o contrato normatizado.
+    aceite:
+      - documentacao deriva do registro e dos schemas vigentes sem inventar modo, nome, cor, icone ou configuracao
+      - exemplos de COVER e blockquote sao copiaveis, funcionais e suficientes para uso real
+      - SVGs compartilham dimensoes e linguagem visual, distinguem cada conceito e permanecem legiveis em temas claro e escuro no GitHub
+      - README liga diretamente as paginas e o upstream sem voltar a concentrar documentacao densa
+      - package.json e equivalentes aplicaveis declaram upstream, MPL-2.0 e JeanCarloEM com URL institucional
+  - id: FT-064
+    classe: integracao_validacao
+    criado_em: 2026-09-09T21:18:25.0606109-03:00
+    estado: pendente
+    depende_de: FT-063
+    fonte: TODO.ia.md
+    fonte_autorizacao: nova autorizacao humana apos conclusao da FT-062
+    objetivo: Provar sincronismo, cobertura, legibilidade e ausencia de regressao da documentacao e dos metadados antes de submetê-los a validacao humana.
+    aceite:
+      - links, inventarios, modos, modelos, aliases, icones, paletas e exemplos convergem com as fontes reais
+      - SVGs sao validos, comparaveis e inspecionados em representacoes clara e escura
+      - gates documentais, RCF, build e dominios afetados aprovam sem alterar fontes editoriais ou absorver _site
+      - TO-DO operacional permanece ate aprovacao humana e o equalizer perene permanece literal e desmarcado
 lacunas:
   - id: GAP-AGENTS-CJS-ESM-001
     estado: isolada
