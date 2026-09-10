@@ -2612,6 +2612,23 @@
     },
     {
       "artifacts": [
+        "agents.local.md",
+        "docs/MODO-DE-USO-BLOCKQUOTE.md",
+        "docs/MODO-DE-USO-COVER-E-HERO.md",
+        "docs/MODO-DE-USO-LEITURA-ACESSIVEL-E-TTS.md",
+        "scripts/test_documentation.rb"
+      ],
+      "commit": "",
+      "ft": "FT-062",
+      "id": "c3ac79360d622b8997a5e2c4",
+      "line": 18,
+      "rcf": "RCFs/documentacao-e-metadados.md",
+      "sentenceSha256": "858431305d18929058c99790db6fa98623cbd2f45d8e0f7e977b15c031537e34",
+      "state": "pending",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
         "MODO-DE-USO-BLOCKQUOTE.md",
         "MODO-DE-USO-COVER-E-HERO.md",
         "README.md"

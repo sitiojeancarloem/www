@@ -15,6 +15,7 @@ Escopo: documentação de uso, exemplos copiáveis, ilustrações comparativas, 
 ## Arquitetura documental
 
 - `README.md` DEVE permanecer porta de entrada compacta e indexar páginas de uso por contexto ou função em tabela com link direto e descrição ultrassucinta suficiente para indicar aplicação real, finalidade e horizonte relevante. [PENDENTE-CODIGO]
+- Toda documentação canônica de modo de uso DEVE residir obrigatoriamente sob `./docs/`; a raiz, `RCFs/`, fontes de pacote e demais diretórios NÃO DEVEM receber página concorrente de modo de uso. [PENDENTE-CODIGO]
 - Conteúdo denso, inventário de opções, matriz visual e exemplos extensos DEVEM residir na página temática correspondente, sem duplicação integral no `README.md`. [PENDENTE-CODIGO]
 - Cada domínio de uso DEVE possuir uma página canônica única; resumo em outro documento DEVE apontar para ela e NÃO PODE formar manual concorrente. [PENDENTE-CODIGO]
 - Link documental DEVE ser relativo, resolver no GitHub e no checkout local e preservar caixa e nome reais do arquivo. [PENDENTE-CODIGO]
@@ -39,6 +40,7 @@ Escopo: documentação de uso, exemplos copiáveis, ilustrações comparativas, 
 ## Documentação de blockquote
 
 - `MODO-DE-USO-BLOCKQUOTE.md` DEVE ser a página canônica única de uso, configuração e estilos de bloco de citação, ligada diretamente por `RCFs/citacoes.md` e pelo índice do `README.md`. [PENDENTE-CODIGO]
+  Página física: [`docs/MODO-DE-USO-BLOCKQUOTE.md`](../docs/MODO-DE-USO-BLOCKQUOTE.md).
 - O inventário documental DEVE derivar de `config/editorial-quotes.json` e cobrir todo modelo registrado, inclusive renderer cuja saída não permaneça na tag `<blockquote>`; identificador ausente do registro NÃO PODE ser documentado como disponível. [PENDENTE-CODIGO]
 - Cada modelo registrado DEVE possuir ao menos uma representação visual fiel. Se um mesmo modelo oferecer somente variação de cor ou somente variação de ícone, duas amostras distintas bastam; combinação nomeada de múltiplas cores DEVE exibir paleta compacta com os tons reais. [PENDENTE-CODIGO]
 - A página DEVE documentar a sintaxe única por ocorrência, defaults e precedência, configuração global e de artigo, estrutura HTML equivalente, autoria, acessibilidade, impressão e fallback sem JavaScript. [PENDENTE-CODIGO]
