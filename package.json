@@ -162,7 +162,11 @@
     "agent:inbox:complete-release": "node .ia.rules/core/runtime/scripts/repo-tools.js agent:inbox:complete-release",
     "agent:test:inbox": "node .ia.rules/core/runtime/scripts/repo-tools.js agent:test:inbox",
     "agent:publish": "npm run publish --",
-    "agent:rcf:trace": "node .ia.rules/core/runtime/scripts/rcf-trace.js"
+    "agent:rcf:trace": "node .ia.rules/core/runtime/scripts/rcf-trace.js",
+    "agent:units": "node .ia.rules/core/runtime/scripts/unit-manager.js",
+    "agent:long-run": "node .ia.rules/core/runtime/scripts/long-running.js",
+    "agent:visual": "node .ia.rules/core/runtime/scripts/visual-evidence.js",
+    "agent:state": "node .ia.rules/core/runtime/scripts/state-manager.js"
   },
   "keywords": [
     "jekyll",
