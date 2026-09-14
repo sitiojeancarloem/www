@@ -11,6 +11,7 @@ node_modules
 !/.ia.rules/state/contexts/FT-032/master.md
 !/.ia.rules/state/contexts/FT-053/
 !/.ia.rules/state/contexts/FT-053/*.md
+!/.ia.rules/state/requests/evidencias/
 !/.ia.rules/state/requests/
 /.ia.rules/state/requests/*
 !/.ia.rules/state/requests/FT-032/
@@ -308,4 +309,7 @@ Thumbs.db
 /agents-governance-backups/
 # END agents-governance managed
 
-!/.ia.rules/state/requests/evidencias/*.*
+!/.ia.rules/state/
+!/.ia.rules/state/requests/
+!/.ia.rules/state/requests/evidencias/
+!/.ia.rules/state/requests/evidencias/**

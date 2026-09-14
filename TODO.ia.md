@@ -101,50 +101,103 @@
     - ✅ Defina claramente precedência entre configuração global → modo → página/post, sem inferir valores inexistentes.
     - ✅ Preserve os contratos já vigentes que não conflitarem materialmente com esta especialização.
 
-- [ ] Relativo a TO-DO de topo `- ✅ Consolidar COVER como sistema responsivo, extensível e compatível com Hero, preservando integralmente recursos existentes`, fora identificados algumas não aderências, algumas não aprovações (rejeições), algumas irregulariedades e necessidades de ajustes, que DEVE ser totalmente corrijadas.
-  1. FLAG: existe uma clara e inequivoca má interpretação, reiterada e sucessiva (reforço), de todas as tentativas de explicar o correto posicionamento da flag e seu ponto de ancoragem gravitacional (simulado);
-  2. A barra de título do artigo, igualmente, possui uma clara e inequivoca má interpretação, reiterada e sucessiva (reforço), de todas as tentativas de explicar que, apesar de serem dois componentes a desempenharem visdualmente visualmente o papel de um único componente, possuem duas partes, uma superior e uma inferior, claramente e explicitamene definidas de forma distinta não sem propósito.
+- [ ] Corrigir integralmente as não aderências da TO-DO de topo `- ✅ Consolidar COVER como sistema responsivo, extensível e compatível com Hero, preservando integralmente recursos existentes`
 
-  ## ExplicaçÃo necessária
+  Foram identificadas **não aderências, rejeições explícitas, irregularidades e ajustes obrigatórios**. Dois erros vêm sendo reiterados apesar das sucessivas explicações e evidências e **NÃO DEVEM voltar a ser interpretados da mesma forma**:
+  1. **FLAG:** o posicionamento e, sobretudo, sua linha/eixo de ancoragem gravitacional simulada continuam sendo interpretados incorretamente.
+  2. **Barra de título:** continua sendo ignorado que, embora visualmente pareça um único componente, ela possui **duas partes funcional e visualmente distintas — superior e inferior — deliberadamente definidas dessa forma**.
 
-  Apesar da pasta de evidencias conter DEZENAS de evidencias, TODAS bem elaboradas, muitas delas, editadas manualmente, por meio de photoshop e demais editores, para deixar bem evidenciados por setas, tracejados e texto inseridos, incluindo, PDF com textos legíveis se necessidade de OCR; além de outros meios, esta IA tem se demontrada comlementemente inútil em interpretar, mesmo sob o conjunto somado de reiteradas evidências o mais óbivio e lógico raciocíonio diagrama de determinação, e persiste em retornar um software cujo visual é incorrento e desalinhado à solicitação.
-  Esta, totalmente fora de cogitação erro humano na explicaçãão, dado que, fora expressos reiteradas vezes, com revisões, por multiplas terceiras IA, e ainda assim, a IA desenvolvedora é incapaz de normatizar ou codificar o layout seguindo a definição solicitada.
+  ## Explicação necessária
 
-  ## Mero exemplo
+  A pasta de evidências contém **dezenas de referências**, muitas manualmente editadas com setas, tracejados e textos explicativos, além de PDF legível sem OCR e outros recursos destinados precisamente a eliminar ambiguidade. Ainda assim, sucessivas implementações continuam reproduzindo interpretação visual incorreta.
 
-  Para explicar, apenas um único artigo foi selecionado para exemplicar, o problema tanto com a barra de título principal, quanto com a flag, entretanto, o problema ocorre, em todos os modos/tipos de COVER em que tais elementos DEVEM ser exibidos sobre o cover; deve ser verificado no RCF e se necessário confirmar esta informação junto ao dev, mas até onde o dev se recoda há apenas um único modo, o que equivalente ao fullwindow em todas as suas variações, exceto aquela em que ele se ajusta para ficar igual/similar a um outro modelo. POrtanto, apesar de todas as evidencias mostrarem apenas um único modo, e um único tipo, tenha como conideração, que a explicação se aplica a todos os modos em que o título se sobrepoe ao cover.
+  **Não é aceitável reiterar a mesma interpretação já rejeitada.** As explicações foram sucessivamente revistas, inclusive por múltiplas IAs, e acompanhadas de evidências específicas. Portanto, antes de codificar novamente, a IA DEVE confrontar **RCF + código real + conjunto das evidências**, identificar a causa da interpretação equivocada e implementar o comportamento solicitado; NÃO apenas produzir nova aproximação visual.
 
-  Um detalhe importante, já quanto a explicação de ponto/linha/eixo correto de posicionamento gravitacional da flag, isso independende, pois, sempre que ela for ser exibida, ela deverá ser exibvida na barra de título principal. Lembrando que isto se refere apenas ao artigo e não a CARDs e outros.
+  ## Mero exemplo ≠ escopo restrito
 
-  A `evidencia18.png` é captura de tela real de um artigo real, no estato atual, que contem o defeito tanto na FLAG quanto na barra de título.
+  Para explicar o defeito foi escolhido apenas **um artigo**, demonstrando simultaneamente os problemas da barra de título e da FLAG. Isso **NÃO limita o escopo ao modo/tipo mostrado**.
 
-  ## FLAGs: linha de ancoragem gravitacional
+  A regra aplica-se a **todos os modos/tipos de COVER de artigo em que título/FLAG devam aparecer sobre o COVER**.
 
-  Na pasta de evidencias `D:\trampo\jeancarloem.com.blog\.ia.rules\state\requests\evidencias`, a `evidencia17.pdf` demonstra como é o layout de uma FLAG, como ela é composta, quais são suas 3 linhas (topo, sustentação gravitacional [simulada] e base). A FLAG usada como modelo na evidencia é a FLAG presente no aquivo `flagVermelho.svg`, entretanto, exceto pela cor, a semelhança visual se aplica também ao arquivo `flagCinza.svg`.
+  Quanto aos modos exatos, **NÃO presuma**: verifique no RCF e no código. Até onde o dev recorda, existe apenas um modo em que o título não permanece sobre o COVER, com nome equivalente a `fullwindow` (ou semelhante), incluindo suas variações, salvo quando alguma variação responsiva, determinada pelas regras/proporção da janela, assume aparência/comportamento equivalente a outro modelo. **Essa lembrança é contexto, não especificação definitiva**; confirme-a documentalmente e, se ainda necessário, com o dev.
 
-  A `evidencia17.pdf não tem o obnjetivo de mostrar como de fato o SVG dos arquivo é estruturado, ou como a FLAG é montada, ou quais são as partes dgeométricas dele, apenas evidenciar e distinguir o que precisa ser distinguido para explicação aqui.
+  Já a regra de ancoragem da FLAG independe dessa classificação: **sempre que a FLAG for exibida em artigo, ela DEVE estar vinculada à barra de título principal**. Não extrapole esta regra para CARDs ou outros componentes.
 
-  Embora o projeto atual utiliza um arquivo de imagem pronto, montado em SVG para exibir a flag sobre o cover e sobre a barra de título, a montagem utilizando puro CSS não DEVE ser descatada, desde que:
-  1. o resultado visual seja exatamente igual ao que os arquivos SVG produzem;
-  2. que produzam o mesmo alinhamento,e posicioament e sustenção (simulação gravitacional) baseados na linha horinzontal de base do triangula da trazeira da sobra.
-  3. Produzam custo de tamanho menor que o uso de SVG somado dos dois arquivos SVG atualmente existente;
-  4. permitam, adicionalmene, que a frente da flag tenha altura ajustavel ao conteúdo, sem alterar a proporção do triangulo inferior [1] que o forma.
-  - [1] Note que a frente da flaf, possui uma forma que, não possui um nome próprio. Mas ela poderia se chamada de união de um retangulo em cima, com um trângulo embaixo. É deste trinagulo embaixo que se refere o texto que mencionou o triangulo.
+  `evidencia18.png` é uma captura real do estado atual e demonstra simultaneamente os defeitos da FLAG e da barra de título.
 
-  ### O ERRO
+  ## FLAG — linha de ancoragem gravitacional
 
-  Alinhas a FLGA como se tem ocorrido, e fica explicito na `evidencia18.png`, pela **linha de topo**, é INCORRETO: isso deve ser corrigido: a FLAG deve ser alinhada e posicionada sob o barra de título para dar a impressão de estar sendo sustentada pela linha de base do triangulo da **trazeira da flag**. CORRIJA.
+  Em `D:\trampo\jeancarloem.com.blog\.ia.rules\state\requests\evidencias\`, `evidencia17.pdf` demonstra conceitualmente a composição visual da FLAG e distingue três linhas:
+  1. linha de topo;
+  2. linha de sustentação/ancoragem gravitacional simulada;
+  3. linha de base.
 
-  ## Barra de Título
+  A FLAG usada como referência é `flagVermelho.svg`; salvo a cor, o mesmo conceito visual aplica-se a `flagCinza.svg`.
 
-  Na pasta de evidencias, o `como-deveria-ser` mostra como é esperando que, o cover, flag e título, para o mesmo artigo de `evidencia18.png` deveria aparecer:
-  - Efeito vidro completo;
-  - Flag perfeitamente alinhada e posicionada com o triangulo trazeiro pociionado no topo da barra dando a impressão de estar apoiado/sustentado pelo barra de título.
-  - Título em amarelo (do logotipo) com shawdown ocupando apenas a barra inferior, embora visualmente, as duas baras pareçam apenas uma única barra;
-  - Título não contem adereço como: underline, borderline, nem icon fonte.
-  - Flag posicionada não muito peto da extremidade esquerda, mas também nem longe.
-  - A barra de titulo (as duas barras que somadas formam uma única - mas caso exista uma melhor forma de implementar que gere o mesmo resultado, pode fazer), garantem:
-    - shadown sobre o conteúdo externo, mas não sobre o cover e sobre o conteúdo interno (que fica atráz) e que fica desfocado, dando efeito de vidro
-    - possui efeito, perceptível de vidro fumê
-    - Texto dentro da FLAG é bem distribuído, tanto verticalmente, como horizontalmente, independentemente do conteúdo - ou seja, cada linha possui tamanho e weight diferente, conforme o conteúdo que apresenta; conteúdo centralizado; entre outros que tornam a flag com a impressão de cheia, mas sem extrapolar as linhas visuais dela.
-    - A Flag possui um tamanho suficiente para ler, mas não disputa com o título e outros conteúdos (ela não deve chamar a atenção).
+  `evidencia17.pdf` **NÃO descreve a estrutura técnica interna dos SVGs, sua montagem ou geometria real**. Seu objetivo é exclusivamente tornar inequívoca a distinção visual necessária para determinar o alinhamento correto.
+
+  ### ERRO REITERADO — CORRIGIR
+
+  **Alinhar a FLAG pela sua linha de topo, como ocorre em `evidencia18.png`, está ERRADO e já foi rejeitado.**
+
+  A linha de referência correta é a **linha horizontal correspondente à base do triângulo traseiro da FLAG**, isto é, a base do elemento que simula a dobra traseira.
+
+  Essa linha DEVE ficar **colinear à linha superior da barra de título**, de modo que a FLAG produza visualmente a impressão de estar **apoiada/sustentada/pendurada pela barra**, e NÃO simplesmente posicionada a partir do topo de sua caixa/imagem.
+
+  **CORRIJA pela linha de sustentação gravitacional. NÃO reincida no alinhamento pela linha de topo.**
+
+  ### SVG × CSS
+
+  O projeto atualmente utiliza SVG pronto para a FLAG. Implementação equivalente em CSS **NÃO DEVE ser descartada**, mas somente é aceitável se cumulativamente:
+  1. reproduzir visualmente o resultado dos SVGs;
+  2. preservar exatamente o alinhamento, posicionamento e sustentação simulada pela **base horizontal do triângulo traseiro**;
+  3. produzir custo total de tamanho inferior ao uso somado dos SVGs atuais;
+  4. permitir que a **frente da FLAG** ajuste sua altura ao conteúdo sem deformar a proporção do triângulo inferior que compõe sua extremidade.
+
+  > A frente da FLAG pode ser entendida, apenas para esta explicação, como a união visual de um retângulo superior com um triângulo inferior. É **esse triângulo inferior da frente** cuja proporção NÃO deve ser deformada pela variação de altura.
+
+  Não substitua SVG por CSS apenas por preferência técnica; a alternativa DEVE demonstrar vantagem e equivalência - incluindo exatidão visual.
+
+  ## Barra de título
+
+  `como-deveria-ser` demonstra o resultado visual esperado para o mesmo artigo mostrado em `evidencia18.png`.
+
+  A implementação atual também interpreta incorretamente a barra de título. **Embora visualmente as duas partes devam parecer uma única barra, elas possuem regiões superior e inferior distintas, e essa separação existe por propósito. NÃO a elimine por simplificação.**
+
+  A implementação técnica PODE não utilizar literalmente dois componentes, caso exista solução melhor, **desde que reproduza integralmente o mesmo resultado visual e funcional**.
+
+  O resultado DEVE garantir:
+  - **efeito completo de vidro**, perceptivelmente fumê;
+  - conteúdo localizado atrás da barra visivelmente desfocado, produzindo o efeito de vidro;
+  - sombra projetada sobre o conteúdo **externo**, sem sombrear indevidamente o próprio COVER ou o conteúdo interno/atrás do vidro;
+  - FLAG perfeitamente alinhada pela **base do triângulo traseiro** ao topo da barra, produzindo a impressão de sustentação;
+  - título ocupando **somente a região inferior** da composição;
+  - título no **amarelo do logotipo**, com `text-shadow`;
+  - **nenhum** adereço indevido no título: sem `underline`, `borderline`, ícone de fonte ou equivalente comum à links (mesmo o título sendo um link);
+  - as regiões superior e inferior visualmente integradas como uma única barra, sem perder suas funções distintas;
+  - FLAG suficientemente afastada da extremidade esquerda para não parecer colada, mas sem deslocamento excessivo.
+
+  ## Conteúdo interno da FLAG
+
+  A FLAG DEVE permanecer legível e proporcional, porém **visualmente secundária**: ela NÃO deve competir com o título nem se tornar elemento dominante.
+
+  O texto interno DEVE:
+  - distribuir-se adequadamente nos eixos horizontal e vertical;
+  - permanecer centralizado;
+  - utilizar tamanho e `weight` adequados a cada linha conforme sua função/conteúdo;
+  - preencher visualmente bem a área útil, sem parecer vazio;
+  - não extrapolar nem pressionar os limites visuais da FLAG;
+  - adaptar-se corretamente a conteúdos diferentes, preservando hierarquia e equilíbrio.
+
+  ## Validação obrigatória
+
+  A correção NÃO está concluída enquanto:
+  - a FLAG continuar sendo posicionada pela linha de topo;
+  - a base do triângulo traseiro não estiver colinear à linha superior da barra;
+  - a composição da barra perder a distinção intencional entre região superior e inferior;
+  - o título ocupar região incorreta ou conservar adereços já rejeitados;
+  - vidro, blur, sombra, cor, hierarquia ou posicionamento divergirem materialmente de `como-deveria-ser`;
+  - a solução funcionar apenas no exemplo mostrado e não nos demais modos de artigo aos quais a mesma regra se aplica;
+  - houver regressão de recurso existente ou alteração fora do necessário.
+
+  **Inspecione primeiro; determine o comportamento real; corrija a causa, não o sintoma. Estas interpretações já foram reiteradamente explicadas e rejeitadas: NÃO repita novamente a implementação incorreta.**
