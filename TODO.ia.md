@@ -101,7 +101,7 @@
     - ✅ Defina claramente precedência entre configuração global → modo → página/post, sem inferir valores inexistentes.
     - ✅ Preserve os contratos já vigentes que não conflitarem materialmente com esta especialização.
 
-- [ ] Corrigir integralmente as não aderências da TO-DO de topo `- ✅ Consolidar COVER como sistema responsivo, extensível e compatível com Hero, preservando integralmente recursos existentes`
+- 📌 Corrigir integralmente as não aderências da TO-DO de topo `- ✅ Consolidar COVER como sistema responsivo, extensível e compatível com Hero, preservando integralmente recursos existentes`
 
   Foram identificadas **não aderências, rejeições explícitas, irregularidades e ajustes obrigatórios**. Dois erros vêm sendo reiterados apesar das sucessivas explicações e evidências e **NÃO DEVEM voltar a ser interpretados da mesma forma**:
   1. **FLAG:** o posicionamento e, sobretudo, sua linha/eixo de ancoragem gravitacional simulada continuam sendo interpretados incorretamente.
@@ -167,37 +167,37 @@
   A implementação técnica PODE não utilizar literalmente dois componentes, caso exista solução melhor, **desde que reproduza integralmente o mesmo resultado visual e funcional**.
 
   O resultado DEVE garantir:
-  - **efeito completo de vidro**, perceptivelmente fumê;
-  - conteúdo localizado atrás da barra visivelmente desfocado, produzindo o efeito de vidro;
-  - sombra projetada sobre o conteúdo **externo**, sem sombrear indevidamente o próprio COVER ou o conteúdo interno/atrás do vidro;
-  - FLAG perfeitamente alinhada pela **base do triângulo traseiro** ao topo da barra, produzindo a impressão de sustentação;
-  - título ocupando **somente a região inferior** da composição;
-  - título no **amarelo do logotipo**, com `text-shadow`;
-  - **nenhum** adereço indevido no título: sem `underline`, `borderline`, ícone de fonte ou equivalente comum à links (mesmo o título sendo um link);
-  - as regiões superior e inferior visualmente integradas como uma única barra, sem perder suas funções distintas;
-  - FLAG suficientemente afastada da extremidade esquerda para não parecer colada, mas sem deslocamento excessivo.
+  - 📌 **efeito completo de vidro**, perceptivelmente fumê;
+  - 📌 conteúdo localizado atrás da barra visivelmente desfocado, produzindo o efeito de vidro;
+  - 📌 sombra projetada sobre o conteúdo **externo**, sem sombrear indevidamente o próprio COVER ou o conteúdo interno/atrás do vidro;
+  - 📌 FLAG perfeitamente alinhada pela **base do triângulo traseiro** ao topo da barra, produzindo a impressão de sustentação;
+  - 📌 título ocupando **somente a região inferior** da composição;
+  - 📌 título no **amarelo do logotipo**, com `text-shadow`;
+  - 📌 **nenhum** adereço indevido no título: sem `underline`, `borderline`, ícone de fonte ou equivalente comum à links (mesmo o título sendo um link);
+  - 📌 as regiões superior e inferior visualmente integradas como uma única barra, sem perder suas funções distintas;
+  - 📌 FLAG suficientemente afastada da extremidade esquerda para não parecer colada, mas sem deslocamento excessivo.
 
   ## Conteúdo interno da FLAG
 
   A FLAG DEVE permanecer legível e proporcional, porém **visualmente secundária**: ela NÃO deve competir com o título nem se tornar elemento dominante.
 
   O texto interno DEVE:
-  - distribuir-se adequadamente nos eixos horizontal e vertical;
-  - permanecer centralizado;
-  - utilizar tamanho e `weight` adequados a cada linha conforme sua função/conteúdo;
-  - preencher visualmente bem a área útil, sem parecer vazio;
-  - não extrapolar nem pressionar os limites visuais da FLAG;
-  - adaptar-se corretamente a conteúdos diferentes, preservando hierarquia e equilíbrio.
+  - 📌 distribuir-se adequadamente nos eixos horizontal e vertical;
+  - 📌 permanecer centralizado;
+  - 📌 utilizar tamanho e `weight` adequados a cada linha conforme sua função/conteúdo;
+  - 📌 preencher visualmente bem a área útil, sem parecer vazio;
+  - 📌 não extrapolar nem pressionar os limites visuais da FLAG;
+  - 📌 adaptar-se corretamente a conteúdos diferentes, preservando hierarquia e equilíbrio.
 
   ## Validação obrigatória
 
   A correção NÃO está concluída enquanto:
-  - a FLAG continuar sendo posicionada pela linha de topo;
-  - a base do triângulo traseiro não estiver colinear à linha superior da barra;
-  - a composição da barra perder a distinção intencional entre região superior e inferior;
-  - o título ocupar região incorreta ou conservar adereços já rejeitados;
-  - vidro, blur, sombra, cor, hierarquia ou posicionamento divergirem materialmente de `como-deveria-ser`;
-  - a solução funcionar apenas no exemplo mostrado e não nos demais modos de artigo aos quais a mesma regra se aplica;
-  - houver regressão de recurso existente ou alteração fora do necessário.
+  - 📌 a FLAG continuar sendo posicionada pela linha de topo;
+  - 📌 a base do triângulo traseiro não estiver colinear à linha superior da barra;
+  - 📌 a composição da barra perder a distinção intencional entre região superior e inferior;
+  - 📌 o título ocupar região incorreta ou conservar adereços já rejeitados;
+  - 📌 vidro, blur, sombra, cor, hierarquia ou posicionamento divergirem materialmente de `como-deveria-ser`;
+  - 📌 a solução funcionar apenas no exemplo mostrado e não nos demais modos de artigo aos quais a mesma regra se aplica;
+  - 📌 houver regressão de recurso existente ou alteração fora do necessário.
 
   **Inspecione primeiro; determine o comportamento real; corrija a causa, não o sintoma. Estas interpretações já foram reiteradamente explicadas e rejeitadas: NÃO repita novamente a implementação incorreta.**

@@ -1,14 +1,14 @@
 schema: jcem-continue/v1
 machine_id: JEAN-DESKTOP
-data_ref: 2026-09-10T12:49:50.8815796-03:00
+data_ref: 2026-09-14T00:19:37.6212130-03:00
 fonte: TODO.ia.md
-objetivo: Concluir a integracao e a validacao da frente de documentacao, referencias normativas e metadados, preservando sincronismo verificavel com o produto e aguardando validacao humana.
+objetivo: Corrigir integralmente a ancoragem gravitacional da flag e a composicao funcional de duas regioes da barra de titulo em todos os COVERs de artigo aplicaveis, sem regressao.
 autorizacao:
   origem: prompt humano
-  data: 2026-09-10T11:42:51.2760549-03:00
-  fonte: prompt humano "continue TO-DOs e FTs em andamento"
-  escopo: executar a FT-064 de integracao e validacao, inclusive equalizar o gate documental com a governanca de status vigente em TODO.ia.md
-  restricao: preservar o equalizer perene, separar norma de implementacao e aplicar rigorosamente os estados nomeados em TODO.ia.md secao 2
+  data: 2026-09-14T00:19:37.6212130-03:00
+  fonte: prompt humano "implemente da TODO.ia.md o item Corrigir integralmente as nao aderencias..."
+  escopo: capturar e equalizar integralmente a frente COVER restaurada; a implementacao permanece sujeita a nova autorizacao depois da fase normativa obrigatoria
+  restricao: confrontar RCF, codigo e todas as evidencias; corrigir a causa comum sem alterar cards, conteudo editorial, modos ou recursos nao relacionados
 autorizacao_restauracao_covers:
   origem: prompt humano
   data: 2026-09-10T12:49:50.8815796-03:00
@@ -914,6 +914,48 @@ plano:
       - npm audit --omit=dev encontrou zero vulnerabilidades de producao; _site e demais artefatos derivados foram restaurados e excluidos da mudanca
       - npm audit integral registrou uma vulnerabilidade alta herdada pelo sharp em libvips, restrita a dependencia de desenvolvimento/build e sem correcao disponivel no relatorio atual
     proximo_passo: validacao humana da TO-DO; apos aprovacao efetiva, remover integralmente o item operacional e manter a secao perene
+  - id: FT-065
+    classe: implementacao_normativa
+    criado_em: 2026-09-14T00:19:37.6212130-03:00
+    estado: em_andamento
+    fonte: TODO.ia.md
+    contexto: .ia.rules/state/contexts/FT-065/master.md
+    objetivo: Equalizar as nao aderencias reiteradas de flag e barra de titulo com o RCF vigente e tornar inequivocas as referencias geometricas, visuais e funcionais.
+    escopo: RCF-JCEM-CARREGAMENTO-PROGRESSIVO-001 e RCF-JCEM-COMPONENTES-COMPARTILHADOS-001, evidencia17.pdf, evidencia18.png, como-deveria-ser.png e preservacao das evidencias anteriores.
+    aceite:
+      - causa da interpretacao anterior registrada sem usar o marcador artificial como prova da geometria do SVG
+      - linha de sustentacao definida pela base horizontal real do triangulo traseiro e distinta do topo e da base da flag
+      - duas regioes da barra preservadas com sobreposicao, vidro, blur, fusao, sombra externa e titulo inferior inequivocos
+      - aplicabilidade por modo de artigo e exclusao de cards explicitadas sem regressao de COVER ou Hero
+      - interrupcao antes de codigo para nova autorizacao humana
+  - id: FT-066
+    classe: implementacao_codigo
+    criado_em: 2026-09-14T00:19:37.6212130-03:00
+    estado: planejada_aguardando_autorizacao
+    depende_de: FT-065
+    fonte: TODO.ia.md
+    contexto: .ia.rules/state/contexts/FT-065/master.md
+    objetivo: Corrigir markup, CSS e testes do cabecalho editorial compartilhado pela referencia geometrica real da flag e pelas duas regioes funcionais da barra.
+    aceite:
+      - SVGs preservados salvo prova cumulativa de equivalencia e menor custo da alternativa CSS
+      - base do triangulo traseiro colinear ao topo da barra superior em todos os modos aplicaveis
+      - barra superior desfoca o COVER atras de si e funde-se a barra inferior solida sem emenda
+      - titulo inferior amarelo com sombra e sem underline, borda ou icone de link
+      - conteudo da flag legivel, secundario, centralizado e responsivo a datas distintas
+      - testes medem geometria e estilos reais em vez de marcador tautologico
+  - id: FT-067
+    classe: integracao_validacao
+    criado_em: 2026-09-14T00:19:37.6212130-03:00
+    estado: planejada_aguardando_autorizacao
+    depende_de: FT-066
+    fonte: TODO.ia.md
+    contexto: .ia.rules/state/contexts/FT-065/master.md
+    objetivo: Validar a correcao visual e estrutural em todos os COVERs de artigo aplicaveis, temas, viewports e estados sem absorver artefatos derivados.
+    aceite:
+      - ledger antes/depois vincula cada regiao das evidencias ao render corrigido
+      - matriz cobre modos legados e estendidos, claro/escuro, mobile/desktop, DPR, resize, orientacao, scroll e impressao
+      - acessibilidade, build, documentacao COVER, RCF e regressao agregada aprovam
+      - nenhum card, SVG original, conteudo editorial ou recurso fora do escopo e alterado
 lacunas:
   - id: GAP-SHARP-LIBVIPS-2026-001
     estado: isolada_aguardando_upstream
