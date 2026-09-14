@@ -265,6 +265,13 @@ try {
 			const lowerStyle = lowerBar ? getComputedStyle(lowerBar) : null;
 			const titleStyle = title ? getComputedStyle(title) : null;
 			const titleLinkStyle = titleLink ? getComputedStyle(titleLink) : null;
+			const paintedAbove = (owner, box, coverStage) => {
+				if (!owner || !box || !coverStage) return false;
+				const painted = document.elementsFromPoint(box.left + box.width / 2, box.top + box.height / 2);
+				const ownerIndex = painted.findIndex((node) => node === owner || owner.contains(node));
+				const coverIndex = painted.findIndex((node) => node === coverStage || coverStage.contains(node));
+				return ownerIndex >= 0 && (coverIndex < 0 || ownerIndex < coverIndex);
+			};
 			return {
 				coverExtension: Boolean(document.querySelector('[data-jcem-cover]')),
 				heroExtension: Boolean(document.querySelector('[data-jcem-cover-hero]')),
@@ -280,6 +287,8 @@ try {
 				titleColor: titleStyle?.color || '', titleAccent: title ? (() => { const probe = document.createElement('span'); probe.style.color = 'var(--jcem-panel-accent-hot)'; title.append(probe); const color = getComputedStyle(probe).color; probe.remove(); return color; })() : '',
 				titleTextShadow: titleStyle?.textShadow || '', titleBorderBottom: titleStyle?.borderBottomWidth || '', titleBoxShadow: titleStyle?.boxShadow || '',
 				titleDecoration: titleLinkStyle?.textDecorationLine || '', titleAfter: titleLink ? getComputedStyle(titleLink, '::after').content : '',
+				upperPaintedAboveCover: paintedAbove(upperBar, upperBar?.getBoundingClientRect(), stage),
+				flagPaintedAboveCover: paintedAbove(flag, flag?.querySelector('.jcem-date-flag__year')?.getBoundingClientRect(), stage),
 			};
 		});
 		assert.deepEqual(
@@ -289,6 +298,8 @@ try {
 		);
 		assert.equal(await page.locator('.jcem-post-header__topbar, .jcem-post-header__bottombar').count(), 2, `estrutura de barras legada divergente ${mode}`);
 		assert.equal(legacy.titleParent, 'lower', `título fora da barra inferior ${mode}`);
+		assert.equal(legacy.upperPaintedAboveCover, true, `barra superior encoberta pelo COVER ${mode}: ${JSON.stringify(legacy)}`);
+		assert.equal(legacy.flagPaintedAboveCover, true, `flag encoberta pelo COVER ${mode}: ${JSON.stringify(legacy)}`);
 		assert.equal(legacy.overlap, 'true', `modo aplicável não sobrepôs a barra superior ${mode}`);
 		assert.ok(Math.abs(legacy.stage.top - legacy.masthead.bottom) <= 0.51, `cover não iniciou após masthead ${mode}: ${JSON.stringify(legacy)}`);
 		assert.ok(Math.abs(legacy.stage.bottom - legacy.upperBar.bottom) <= 0.51, `fim da barra vítrea fora da COVER ${mode}: ${JSON.stringify(legacy)}`);
@@ -316,6 +327,33 @@ try {
 			assert.ok(Math.abs(legacy.center.left - legacy.articleZone.left) <= 0.51 && Math.abs(legacy.center.right - legacy.articleZone.right) <= 0.51, `centro triplo fora da zona do artigo ${JSON.stringify(legacy)}`);
 		}
 	}
+
+	await page.setViewportSize({ width: 1119, height: 900 });
+	await page.goto(`http://127.0.0.1:${port}/p/devaneios/`, { waitUntil: 'load' });
+	const devaneios = await page.evaluate(() => {
+		const flag = document.querySelector('.jcem-post-header .jcem-date-flag');
+		const upperBar = document.querySelector('[data-jcem-title-bar="upper"]');
+		const stage = document.querySelector('.jcem-featured-image__stage');
+		const paintedAbove = (owner, target) => {
+			const box = target?.getBoundingClientRect();
+			if (!owner || !box || !stage) return false;
+			const painted = document.elementsFromPoint(box.left + box.width / 2, box.top + box.height / 2);
+			const ownerIndex = painted.findIndex((node) => node === owner || owner.contains(node));
+			const coverIndex = painted.findIndex((node) => node === stage || stage.contains(node));
+			return ownerIndex >= 0 && (coverIndex < 0 || ownerIndex < coverIndex);
+		};
+		return {
+			date: ['.jcem-date-flag__year', '.jcem-date-flag__month', '.jcem-date-flag__day']
+				.map((selector) => flag?.querySelector(selector)?.textContent?.trim()),
+			flagPaintedAboveCover: paintedAbove(flag, flag?.querySelector('.jcem-date-flag__year')),
+			upperPaintedAboveCover: paintedAbove(upperBar, upperBar),
+			overlap: document.querySelector('.jcem-post-header')?.getAttribute('data-jcem-title-cover-overlap'),
+		};
+	});
+	assert.deepEqual(devaneios.date, ['2014', 'ABR', '16'], `hierarquia da flag real divergente: ${JSON.stringify(devaneios)}`);
+	assert.equal(devaneios.overlap, 'true', `Devaneios perdeu sobreposição editorial: ${JSON.stringify(devaneios)}`);
+	assert.equal(devaneios.upperPaintedAboveCover, true, `barra superior real encoberta: ${JSON.stringify(devaneios)}`);
+	assert.equal(devaneios.flagPaintedAboveCover, true, `flag real encoberta: ${JSON.stringify(devaneios)}`);
 
 	await page.setViewportSize({ width: 320, height: 800 });
 	await page.goto(`http://127.0.0.1:${port}/_fixtures/covers/full-window/`, { waitUntil: 'load' });

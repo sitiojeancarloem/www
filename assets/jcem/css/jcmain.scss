@@ -359,13 +359,21 @@ aside {
 	margin-top: 0;
 }
 
+.main_jcem_wrapper:has(.jcem-post-header[data-jcem-title-cover-overlap='true']) #main {
+	// O #main precisa formar a camada acima da COVER; z-index apenas no descendente
+	// não supera os assets posicionados do skeleton que pertencem ao ramo irmão.
+	position: relative;
+	z-index: 7;
+}
+
 .main_jcem_wrapper .jcem-post:not(.jcem-post--with-cover) > .jcem-post-header {
 	margin-top: 1em;
 }
 
 .jcem-post-header__deck {
 	position: relative;
-	z-index: 4;
+	// Acima do conteúdo útil do COVER (6) e do z-index genérico dos assets do skeleton (4).
+	z-index: 7;
 	margin-top: 0;
 	overflow: visible;
 }

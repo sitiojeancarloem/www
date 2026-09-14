@@ -2103,6 +2103,15 @@ const validateCoverPage = async (page, url, theme, viewportName) => {
 			probe.remove();
 			return color;
 		})() : '';
+		const coverPaint = custom?.querySelector('.jcem-featured-image__stage') || legacy?.querySelector('.page__hero');
+		const paintedAboveCover = (owner, target) => {
+			const box = target?.getBoundingClientRect();
+			if (!owner || !box || !coverPaint) return false;
+			const painted = document.elementsFromPoint(box.left + box.width / 2, box.top + box.height / 2);
+			const ownerIndex = painted.findIndex((node) => node === owner || owner.contains(node));
+			const coverIndex = painted.findIndex((node) => node === coverPaint || coverPaint.contains(node));
+			return ownerIndex >= 0 && (coverIndex < 0 || ownerIndex < coverIndex);
+		};
 		const sharedStructure = {
 			mastheadRect,
 			titleBarsRect,
@@ -2124,6 +2133,12 @@ const validateCoverPage = async (page, url, theme, viewportName) => {
 			titleBoxShadow: titleStyle?.boxShadow || '',
 			titleDecoration: titleAnchorStyle?.textDecorationLine || '',
 			titleAfter: titleAnchor ? window.getComputedStyle(titleAnchor, '::after').content : '',
+			upperBarPaintedAboveCover: header?.getAttribute('data-jcem-title-cover-overlap') !== 'true'
+				? true
+				: paintedAboveCover(upperBar, upperBar),
+			flagPaintedAboveCover: header?.getAttribute('data-jcem-title-cover-overlap') !== 'true' || !flag
+				? true
+				: paintedAboveCover(flag, flag.querySelector('.jcem-date-flag__year')),
 		};
 
 		if (custom) {
@@ -2244,7 +2259,9 @@ const validateCoverPage = async (page, url, theme, viewportName) => {
 		result.titleBorderBottom !== '0px' ||
 		result.titleBoxShadow !== 'none' ||
 		result.titleDecoration !== 'none' ||
-		!['none', 'normal', '""'].includes(result.titleAfter)
+		!['none', 'normal', '""'].includes(result.titleAfter) ||
+		!result.upperBarPaintedAboveCover ||
+		!result.flagPaintedAboveCover
 	) {
 		fail(`Estrutura integrada das barras invalida em ${url} ${theme} ${viewportName}: ${JSON.stringify(result)}`);
 	}
@@ -2436,7 +2453,9 @@ const validateCoverPage = async (page, url, theme, viewportName) => {
 			artifactDir,
 			`cover-${url.replace(/\W+/g, '-') || 'home'}-${theme}-${viewportName}.png`,
 		),
-		fullPage: true,
+		// A evidência COVER deve permanecer inspecionável; páginas editoriais longas
+		// reduziriam a região validada a poucos pixels numa captura integral.
+		fullPage: false,
 	});
 };
 
