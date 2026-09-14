@@ -1,6 +1,6 @@
 schema: jcem-continue/v1
 machine_id: JEAN-DESKTOP
-data_ref: 2026-09-14T00:19:37.6212130-03:00
+data_ref: 2026-09-14T02:10:35.8727673-03:00
 fonte: TODO.ia.md
 objetivo: Corrigir integralmente a ancoragem gravitacional da flag e a composicao funcional de duas regioes da barra de titulo em todos os COVERs de artigo aplicaveis, sem regressao.
 autorizacao:
@@ -939,11 +939,11 @@ plano:
       - causa raiz conciliada: RCF anterior proibiu a sobreposicao necessaria, CSS e teste alinharam marcador artificial em top zero e a barra superior nunca aplicou blur real
       - RCFs agora separam upper glass e lower solid, limitam a sobreposicao a faixa terminal cabivel, vinculam a flag ao path real e excluem cards
       - dez modos, Hero, temas, impressao e geometrias ja vigentes permanecem preservados; implementacao e validacao aguardam nova autorizacao
-    proximo_passo: autorizacao humana explicita para executar FT-066 e, depois, FT-067
+    proximo_passo: validacao humana do resultado integrado registrado pela FT-067
   - id: FT-066
     classe: implementacao_codigo
     criado_em: 2026-09-14T00:19:37.6212130-03:00
-    estado: em_andamento
+    estado: concluida
     depende_de: FT-065
     fonte: TODO.ia.md
     fonte_autorizacao: prompt humano de 2026-09-14T01:30:31.8823778-03:00, com autorizacao explicita para executar FT-066 e FT-067
@@ -956,10 +956,18 @@ plano:
       - titulo inferior amarelo com sombra e sem underline, borda ou icone de link
       - conteudo da flag legivel, secundario, centralizado e responsivo a datas distintas
       - testes medem geometria e estilos reais em vez de marcador tautologico
+    resultado:
+      - layout passou a declarar explicitamente a sobreposicao somente para hero legado, content e wide, preservando os seis modos de viewport depois da area integral
+      - token 0.16850252 deriva do deslocamento 18.724 sobre o viewBox 111.12 e posiciona a base real do triangulo traseiro no topo da barra superior
+      - barra superior usa gradiente RGBA e backdrop-filter; barra inferior e solida, recebe sombra externa e contem exclusivamente o titulo amarelo sem aderecos de link
+      - SVGs originais foram preservados e fixtures com data passaram a exercer a flag nos quatro modos sobrepostos
+      - documentacao canonica e quatro ilustracoes afetadas foram sincronizadas no mesmo ciclo
+    commit_causal: 2fafaf46693edbff045cfb579101aaf8f19f3015
+    commit_rastreabilidade: 4ff450b152c3ffc8803222fa10f57c2ef3f473a8
   - id: FT-067
     classe: integracao_validacao
     criado_em: 2026-09-14T00:19:37.6212130-03:00
-    estado: autorizada_aguardando_ft_066
+    estado: concluida_pendente_validacao
     depende_de: FT-066
     fonte: TODO.ia.md
     fonte_autorizacao: prompt humano de 2026-09-14T01:30:31.8823778-03:00, com autorizacao explicita para executar FT-066 e FT-067
@@ -970,6 +978,17 @@ plano:
       - matriz cobre modos legados e estendidos, claro/escuro, mobile/desktop, DPR, resize, orientacao, scroll e impressao
       - acessibilidade, build, documentacao COVER, RCF e regressao agregada aprovam
       - nenhum card, SVG original, conteudo editorial ou recurso fora do escopo e alterado
+    resultado:
+      - build produtivo final aprovou em 164.1 segundos com 12 assets sociais, 24 variantes e zero regeneracoes
+      - check:covers aprovou os quatro modos legados e seis estendidos, seis zonas Hero, resize, orientacao e DPR 2
+      - matriz visual estrita aprovou 140 combinacoes dos dez modos em sete viewports e dois temas, repetida apos incluir datas nas quatro fixtures sobrepostas
+      - inspecao das capturas confirmou sustentacao, vidro, fusao, sombra, titulo e hierarquia da flag em claro, escuro, desktop e mobile
+      - documentacao, atribuicoes, publicacao, acessibilidade, impressao, desempenho e demais gates anteriores a editorial-assets aprovaram
+      - rcf-trace direto aprovou 347 entradas e 332 materiais; agent:rcf permanece bloqueado pela lacuna gerenciada GAP-RCF-MODULE-2026-001 ja isolada
+      - regressao agregada parou somente em check:editorial-assets porque o diretorio preexistente _drafts esta ausente; os gates posteriores foram executados e aprovados separadamente
+      - nenhum card, SVG de flag, conteudo editorial ou artefato _site integrou os commits
+    evidencia: .ia.rules/state/contexts/FT-065/validacao.md
+    proximo_passo: validacao humana do resultado visual; apos aprovacao efetiva, remover integralmente a TO-DO operacional e preservar o equalizer perene
 lacunas:
   - id: GAP-RCF-MODULE-2026-001
     estado: isolada_fora_do_escopo
