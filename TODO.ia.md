@@ -116,6 +116,8 @@
 
   Um detalhe importante, já quanto a explicação de ponto/linha/eixo correto de posicionamento gravitacional da flag, isso independende, pois, sempre que ela for ser exibida, ela deverá ser exibvida na barra de título principal. Lembrando que isto se refere apenas ao artigo e não a CARDs e outros.
 
+  A `evidencia18.png` é captura de tela real de um artigo real, no estato atual, que contem o defeito tanto na FLAG quanto na barra de título.
+
   ## FLAGs: linha de ancoragem gravitacional
 
   Na pasta de evidencias `D:\trampo\jeancarloem.com.blog\.ia.rules\state\requests\evidencias`, a `evidencia17.pdf` demonstra como é o layout de uma FLAG, como ela é composta, quais são suas 3 linhas (topo, sustentação gravitacional [simulada] e base). A FLAG usada como modelo na evidencia é a FLAG presente no aquivo `flagVermelho.svg`, entretanto, exceto pela cor, a semelhança visual se aplica também ao arquivo `flagCinza.svg`.
@@ -128,3 +130,9 @@
   3. Produzam custo de tamanho menor que o uso de SVG somado dos dois arquivos SVG atualmente existente;
   4. permitam, adicionalmene, que a frente da flag tenha altura ajustavel ao conteúdo, sem alterar a proporção do triangulo inferior [1] que o forma.
   - [1] Note que a frente da flaf, possui uma forma que, não possui um nome próprio. Mas ela poderia se chamada de união de um retangulo em cima, com um trângulo embaixo. É deste trinagulo embaixo que se refere o texto que mencionou o triangulo.
+
+  ### O ERRO
+
+  Alinhas a FLGA como se tem ocorrido, e fica explicito na `evidencia18.png`, pela **linha de topo**, é INCORRETO: isso deve ser corrigido: a FLAG deve ser alinhada e posicionada sob o barra de título para dar a impressão de estar sendo sustentada pela linha de base do triangulo da **trazeira da flag**. CORRIJA.
+
+  ## Barra de Título
