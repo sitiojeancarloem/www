@@ -273,14 +273,11 @@
     },
     {
       "artifacts": [
-        "_layouts/single.html",
         "assets/jcem/css/jcmain.scss",
-        "docs/MODO-DE-USO-COVER-E-HERO.md",
-        "scripts/test_cover_contract.rb",
-        "scripts/test_cover_rendered.mjs",
-        "scripts/test_cover_runtime.mjs"
+        "scripts/test_cover_runtime.mjs",
+        "scripts/validate-visual.js"
       ],
-      "commit": "2fafaf46693edbff045cfb579101aaf8f19f3015",
+      "commit": "c76224ba644a96d1371208169a4f396feb9acdfa",
       "ft": "FT-066",
       "id": "c747ee3c6ee729d22fce9e0d",
       "line": 25,
@@ -1983,15 +1980,11 @@
     },
     {
       "artifacts": [
-        "_includes/jcem/post-date-flag.html",
-        "_layouts/single.html",
         "assets/jcem/css/jcmain.scss",
-        "docs/MODO-DE-USO-COVER-E-HERO.md",
-        "scripts/test_cover_contract.rb",
-        "scripts/test_cover_rendered.mjs",
-        "scripts/test_cover_runtime.mjs"
+        "scripts/test_cover_runtime.mjs",
+        "scripts/validate-visual.js"
       ],
-      "commit": "2fafaf46693edbff045cfb579101aaf8f19f3015",
+      "commit": "c76224ba644a96d1371208169a4f396feb9acdfa",
       "ft": "FT-066",
       "id": "14be47f60773ae2afc33deb9",
       "line": 20,
@@ -2231,15 +2224,11 @@
     },
     {
       "artifacts": [
-        "_includes/jcem/post-date-flag.html",
-        "_layouts/single.html",
         "assets/jcem/css/jcmain.scss",
-        "docs/MODO-DE-USO-COVER-E-HERO.md",
-        "scripts/test_cover_contract.rb",
-        "scripts/test_cover_rendered.mjs",
-        "scripts/test_cover_runtime.mjs"
+        "scripts/test_cover_runtime.mjs",
+        "scripts/validate-visual.js"
       ],
-      "commit": "2fafaf46693edbff045cfb579101aaf8f19f3015",
+      "commit": "c76224ba644a96d1371208169a4f396feb9acdfa",
       "ft": "FT-066",
       "id": "45fdd513f06793411a355c01",
       "line": 52,
