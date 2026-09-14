@@ -63,6 +63,16 @@ layout: default
 {% if jcem_custom_featured or page.header.image and jcem_is_article %}
   {% assign jcem_has_structural_cover = true %}
 {% endif %}
+{% assign jcem_title_cover_overlap = false %}
+{% if jcem_is_article and jcem_has_structural_cover %}
+  {% if page.jcem_cover %}
+    {% if page.jcem_cover.mode == "legacy" or page.jcem_cover.mode == "content" or page.jcem_cover.mode == "wide" %}
+      {% assign jcem_title_cover_overlap = true %}
+    {% endif %}
+  {% else %}
+    {% assign jcem_title_cover_overlap = true %}
+  {% endif %}
+{% endif %}
 
 {% if jcem_custom_featured and jcem_featured_style == "wide" %}
   {% include jcem/post-featured-image.html style="wide" %}
@@ -102,7 +112,7 @@ layout: default
     {% if page.last_modified_at %}<meta itemprop="dateModified" content="{{ page.last_modified_at | date_to_xmlschema }}">{% endif %}
 
     {% unless jcem_overlay_header %}
-      <header class="jcem-post-header"{% if page.jcem_cover %} data-jcem-post-cover-mode="{{ page.jcem_cover.mode }}"{% endif %}{% if jcem_is_article %} data-print-span="all"{% endif %}>
+      <header class="jcem-post-header" data-jcem-title-cover-overlap="{{ jcem_title_cover_overlap }}"{% if page.jcem_cover %} data-jcem-post-cover-mode="{{ page.jcem_cover.mode }}"{% endif %}{% if jcem_is_article %} data-print-span="all"{% endif %}>
         {% if jcem_content_featured %}
           {% include jcem/post-featured-image.html style="content" %}
         {% endif %}

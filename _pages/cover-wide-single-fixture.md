@@ -8,6 +8,7 @@ author_profile: false
 sidebar: false
 sitemap: false
 robots: noindex, nofollow
+date: 2026-09-14
 featured_image_style: wide
 header:
   image: /assets/images/posts/devaneios/devaneios-grande.png

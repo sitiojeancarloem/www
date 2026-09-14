@@ -107,6 +107,12 @@ cover_config.fetch("aliases").each do |name, canonical|
 end
 cover_config.fetch("fits").each { |fit| assert(cover_doc.include?("`#{fit}`"), "fit não documentado: #{fit}") }
 cover_config.dig("hero", "zones").each { |zone| assert(cover_doc.include?("`#{zone}`"), "zona Hero não documentada: #{zone}") }
+assert(cover_doc.include?("16,85%") && cover_doc.include?("base horizontal do triângulo traseiro"), "sustentação real da FLAG não documentada")
+assert(cover_doc.include?("região superior de vidro fumê") && cover_doc.include?("região inferior sólida"), "duas regiões da barra não documentadas")
+%w[legacy-hero content wide-single wide-triptych].each do |slug|
+  svg = File.read(File.join(ROOT, "assets/images/documentacao/cover/#{slug}.svg"), encoding: "UTF-8")
+  assert(svg.include?('class="glass"') && svg.include?('class="flag"'), "barra/FLAG não representadas em #{slug}")
+end
 
 cover_example = cover_doc.match(/## Exemplo copiável e funcional.*?```yaml\s+---\s+(.*?)\s+---\s+```/m)
 assert(cover_example, "exemplo YAML de COVER não localizado")

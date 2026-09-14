@@ -2092,6 +2092,17 @@ const validateCoverPage = async (page, url, theme, viewportName) => {
 		const triangleBaseRect = rect(triangleBase);
 		const upperBarStyle = upperBar ? window.getComputedStyle(upperBar) : null;
 		const lowerBarStyle = lowerBar ? window.getComputedStyle(lowerBar) : null;
+		const titleStyle = title ? window.getComputedStyle(title) : null;
+		const titleAnchor = title?.querySelector('a');
+		const titleAnchorStyle = titleAnchor ? window.getComputedStyle(titleAnchor) : null;
+		const titleAccent = title ? (() => {
+			const probe = document.createElement('span');
+			probe.style.color = 'var(--jcem-panel-accent-hot)';
+			title.append(probe);
+			const color = window.getComputedStyle(probe).color;
+			probe.remove();
+			return color;
+		})() : '';
 		const sharedStructure = {
 			mastheadRect,
 			titleBarsRect,
@@ -2100,8 +2111,19 @@ const validateCoverPage = async (page, url, theme, viewportName) => {
 			flagRect,
 			triangleBaseRect,
 			titleParent: title?.parentElement?.getAttribute('data-jcem-title-bar') || '',
+			titleCoverOverlap: header?.getAttribute('data-jcem-title-cover-overlap') || '',
+			flagSupportRatio: header ? Number.parseFloat(window.getComputedStyle(header).getPropertyValue('--jcem-date-flag-support-ratio')) : 0,
 			upperBarBackground: upperBarStyle?.backgroundImage || '',
+			upperBarBackdropFilter: upperBarStyle?.backdropFilter || upperBarStyle?.webkitBackdropFilter || '',
 			lowerBarBackground: lowerBarStyle?.backgroundColor || '',
+			lowerBarShadow: lowerBarStyle?.boxShadow || '',
+			titleColor: titleStyle?.color || '',
+			titleAccent,
+			titleTextShadow: titleStyle?.textShadow || '',
+			titleBorderBottom: titleStyle?.borderBottomWidth || '',
+			titleBoxShadow: titleStyle?.boxShadow || '',
+			titleDecoration: titleAnchorStyle?.textDecorationLine || '',
+			titleAfter: titleAnchor ? window.getComputedStyle(titleAnchor, '::after').content : '',
 		};
 
 		if (custom) {
@@ -2214,7 +2236,15 @@ const validateCoverPage = async (page, url, theme, viewportName) => {
 		Math.abs(result.upperBarRect.bottom - result.lowerBarRect.top) > geometryTolerance ||
 		!result.upperBarBackground.includes('linear-gradient') ||
 		result.upperBarBackground.includes('90deg') ||
-		result.lowerBarBackground === 'rgba(0, 0, 0, 0)'
+		!result.upperBarBackdropFilter.includes('blur') ||
+		result.lowerBarBackground === 'rgba(0, 0, 0, 0)' ||
+		result.lowerBarShadow === 'none' ||
+		result.titleColor !== result.titleAccent ||
+		result.titleTextShadow === 'none' ||
+		result.titleBorderBottom !== '0px' ||
+		result.titleBoxShadow !== 'none' ||
+		result.titleDecoration !== 'none' ||
+		!['none', 'normal', '""'].includes(result.titleAfter)
 	) {
 		fail(`Estrutura integrada das barras invalida em ${url} ${theme} ${viewportName}: ${JSON.stringify(result)}`);
 	}
@@ -2222,7 +2252,8 @@ const validateCoverPage = async (page, url, theme, viewportName) => {
 		result.flagRect &&
 		(!result.triangleBaseRect ||
 			Math.abs(result.triangleBaseRect.top - result.upperBarRect.top) > geometryTolerance ||
-			result.flagRect.top < result.upperBarRect.top - geometryTolerance ||
+			result.flagSupportRatio <= 0 ||
+			result.flagRect.top >= result.upperBarRect.top - geometryTolerance ||
 			result.flagRect.bottom > result.titleBarsRect.bottom + geometryTolerance)
 	) {
 		fail(`Flag fora da geometria das barras em ${url} ${theme} ${viewportName}: ${JSON.stringify(result)}`);
@@ -2245,14 +2276,16 @@ const validateCoverPage = async (page, url, theme, viewportName) => {
 		) {
 			fail(`Estrutura da cover invalida em ${url} ${theme} ${viewportName}: ${JSON.stringify(result)}`);
 		}
-		if (
-			Math.abs(result.stageRect.bottom - result.upperBarRect.top) > geometryTolerance ||
-			result.stageRect.bottom > result.upperBarRect.top + geometryTolerance ||
-			(result.flagRect && result.stageRect.bottom > result.flagRect.top + geometryTolerance)
-		) {
+		const overlapTitleBar = result.titleCoverOverlap === 'true';
+		const invalidBoundary = overlapTitleBar
+			? Math.abs(result.stageRect.bottom - result.upperBarRect.bottom) > geometryTolerance ||
+				Math.abs(result.stageRect.bottom - result.lowerBarRect.top) > geometryTolerance ||
+				Math.abs(result.upperBarRect.top - (result.stageRect.bottom - result.upperBarRect.height)) > geometryTolerance
+			: Math.abs(result.stageRect.bottom - result.upperBarRect.top) > geometryTolerance;
+		if (invalidBoundary) {
 			fail(`Fronteira COVER/barras sobreposta em ${url} ${theme} ${viewportName}: ${JSON.stringify(result)}`);
 		}
-		const isViewportMode = Boolean(result.coverMode);
+		const isViewportMode = !overlapTitleBar;
 		if (
 			!isViewportMode &&
 			(Math.abs(result.stageRect.top - result.mastheadRect.bottom) > geometryTolerance ||
@@ -2349,9 +2382,10 @@ const validateCoverPage = async (page, url, theme, viewportName) => {
 		}
 		if (
 			Math.abs(result.legacyRect.top - result.mastheadRect.bottom) > geometryTolerance ||
-			Math.abs(result.legacyRect.bottom - result.upperBarRect.top) > geometryTolerance ||
-			result.legacyRect.bottom > result.upperBarRect.top + geometryTolerance ||
-			(result.flagRect && result.legacyRect.bottom > result.flagRect.top + geometryTolerance)
+			result.titleCoverOverlap !== 'true' ||
+			Math.abs(result.legacyRect.bottom - result.upperBarRect.bottom) > geometryTolerance ||
+			Math.abs(result.legacyRect.bottom - result.lowerBarRect.top) > geometryTolerance ||
+			Math.abs(result.upperBarRect.top - (result.legacyRect.bottom - result.upperBarRect.height)) > geometryTolerance
 		) {
 			fail(`Fronteira do Hero legado invalida em ${url} ${theme} ${viewportName}: ${JSON.stringify(result)}`);
 		}

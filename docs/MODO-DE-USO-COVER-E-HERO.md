@@ -55,6 +55,14 @@ Todas as ilustrações usam `560×315`, a mesma janela, a mesma zona de artigo e
 | `inner-window-height` | Usa a altura útil abaixo da masthead como dimensão governante. | ![Cover inner-window-height governada pela altura interna](../assets/images/documentacao/cover/inner-window-height.svg) |
 | `inner-window-width` | Usa a largura como dimensão governante dentro da altura útil abaixo da masthead. | ![Cover inner-window-width governada pela largura interna](../assets/images/documentacao/cover/inner-window-width.svg) |
 
+## Barra de título e FLAG
+
+O Hero legado, `content`, `wide single` e `wide triptych` reservam a faixa terminal da mídia para a região superior de vidro fumê. Essa região sobrepõe a COVER exatamente pela própria altura, desfoca o conteúdo posterior e termina na fronteira em que começa a região inferior sólida. O título permanece exclusivamente na região inferior, em amarelo, sem sublinhado, borda ou ícone de link.
+
+Nos seis modos de viewport (`full-window`, `window-height`, `window-width` e pares `inner-*`), a área governada permanece integral: o conjunto de título é posicionado depois dela, sem sobrepor a região superior. Em todos os modos, a FLAG continua pertencendo ao mesmo conjunto. Sua referência de apoio é a base horizontal do triângulo traseiro — cerca de `16,85%` abaixo do topo do `viewBox` nos SVGs atuais — e não o topo da caixa; essa linha coincide com o topo da região vítrea.
+
+As ilustrações de Hero legado, `content`, `wide single` e `wide triptych` representam a sobreposição vítrea, a região inferior sólida e a sustentação da FLAG. As demais preservam a COVER de viewport integral, que precede essas barras no fluxo.
+
 ## Modos, aliases e composição
 
 Prefira os nomes canônicos em novas publicações:

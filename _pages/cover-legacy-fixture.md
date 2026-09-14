@@ -8,6 +8,7 @@ author_profile: false
 sidebar: false
 sitemap: false
 robots: noindex, nofollow
+date: 2026-09-14
 header:
   image: /assets/images/posts/eventos-finais/a-heranca-dos-santos.png
   image_description: Cidade luminosa usada como fixture do hero legado

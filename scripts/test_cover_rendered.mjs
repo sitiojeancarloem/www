@@ -13,6 +13,14 @@ const legacy = await html('legacy');
 const content = await html('content');
 const single = await html('wide-single');
 const triptych = await html('wide-triptych');
+const viewportModes = await Promise.all([
+	'full-window',
+	'window-height',
+	'window-width',
+	'inner-full-window',
+	'inner-window-height',
+	'inner-window-width',
+].map(async (mode) => [mode, await html(mode)]));
 
 assert.equal(count(legacy, /<div class="page__hero"/g), 1, 'hero legado ausente ou duplicado');
 assert.equal(count(legacy, /\sdata-jcem-legacy-hero(?:\s|>)/g), 1, 'controle adaptativo do hero legado ausente');
@@ -38,8 +46,9 @@ assert.equal(count(triptych, /jcem-featured-image__side--left/g), 1, 'segmento l
 assert.equal(count(triptych, /jcem-featured-image__center/g), 1, 'segmento central ausente');
 assert.equal(count(triptych, /jcem-featured-image__side--right/g), 1, 'segmento right ausente');
 
-for (const [mode, source] of Object.entries({ content, single, triptych })) {
+for (const [mode, source] of Object.entries({ legacy, content, single, triptych })) {
 	assert.doesNotMatch(source, /jcem-featured-image[^>]*src="\/assets\/images\/social\//, `${mode} exibiu derivado social`);
+	assert.match(source, /data-jcem-title-cover-overlap="true"/, `${mode} sem política explícita de sobreposição`);
 	assert.equal(count(source, /data-jcem-title-bar="upper"/g), 1, `${mode} sem barra superior única`);
 	assert.equal(count(source, /data-jcem-title-bar="lower"/g), 1, `${mode} sem barra inferior única`);
 	const upper = source.match(/data-jcem-title-bar="upper"[\s\S]*?data-jcem-title-bar="lower"/)?.[0] || '';
@@ -48,4 +57,10 @@ for (const [mode, source] of Object.entries({ content, single, triptych })) {
 	assert.match(lower, /<h1 id="page-title"/, `${mode} não colocou título na barra inferior`);
 }
 
-console.log('cover_rendered=ok modes=4 leakage=0');
+for (const [mode, source] of viewportModes) {
+	assert.match(source, /data-jcem-title-cover-overlap="false"/, `${mode} sobrepôs as barras ao modo viewport`);
+	assert.equal(count(source, /data-jcem-title-bar="upper"/g), 1, `${mode} sem barra superior única`);
+	assert.equal(count(source, /data-jcem-title-bar="lower"/g), 1, `${mode} sem barra inferior única`);
+}
+
+console.log('cover_rendered=ok modes=10 leakage=0');

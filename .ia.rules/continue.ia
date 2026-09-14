@@ -9,6 +9,11 @@ autorizacao:
   fonte: prompt humano "implemente da TODO.ia.md o item Corrigir integralmente as nao aderencias..."
   escopo: capturar e equalizar integralmente a frente COVER restaurada; a implementacao permanece sujeita a nova autorizacao depois da fase normativa obrigatoria
   restricao: confrontar RCF, codigo e todas as evidencias; corrigir a causa comum sem alterar cards, conteudo editorial, modos ou recursos nao relacionados
+autorizacao_ft_066_067:
+  origem: prompt humano
+  data: 2026-09-14T01:30:31.8823778-03:00
+  fonte: prompt humano "autorizo explicitamente a execucao das FT-066 e FT-067."
+  escopo: executar a implementacao de codigo da FT-066 e a integracao e validacao da FT-067
 autorizacao_restauracao_covers:
   origem: prompt humano
   data: 2026-09-10T12:49:50.8815796-03:00
@@ -938,9 +943,10 @@ plano:
   - id: FT-066
     classe: implementacao_codigo
     criado_em: 2026-09-14T00:19:37.6212130-03:00
-    estado: planejada_aguardando_autorizacao
+    estado: em_andamento
     depende_de: FT-065
     fonte: TODO.ia.md
+    fonte_autorizacao: prompt humano de 2026-09-14T01:30:31.8823778-03:00, com autorizacao explicita para executar FT-066 e FT-067
     contexto: .ia.rules/state/contexts/FT-065/master.md
     objetivo: Corrigir markup, CSS e testes do cabecalho editorial compartilhado pela referencia geometrica real da flag e pelas duas regioes funcionais da barra.
     aceite:
@@ -953,9 +959,10 @@ plano:
   - id: FT-067
     classe: integracao_validacao
     criado_em: 2026-09-14T00:19:37.6212130-03:00
-    estado: planejada_aguardando_autorizacao
+    estado: autorizada_aguardando_ft_066
     depende_de: FT-066
     fonte: TODO.ia.md
+    fonte_autorizacao: prompt humano de 2026-09-14T01:30:31.8823778-03:00, com autorizacao explicita para executar FT-066 e FT-067
     contexto: .ia.rules/state/contexts/FT-065/master.md
     objetivo: Validar a correcao visual e estrutural em todos os COVERs de artigo aplicaveis, temas, viewports e estados sem absorver artefatos derivados.
     aceite:
