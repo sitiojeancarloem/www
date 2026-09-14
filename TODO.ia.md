@@ -136,3 +136,15 @@
   Alinhas a FLGA como se tem ocorrido, e fica explicito na `evidencia18.png`, pela **linha de topo**, é INCORRETO: isso deve ser corrigido: a FLAG deve ser alinhada e posicionada sob o barra de título para dar a impressão de estar sendo sustentada pela linha de base do triangulo da **trazeira da flag**. CORRIJA.
 
   ## Barra de Título
+
+  Na pasta de evidencias, o `como-deveria-ser` mostra como é esperando que, o cover, flag e título, para o mesmo artigo de `evidencia18.png` deveria aparecer:
+  - Efeito vidro completo;
+  - Flag perfeitamente alinhada e posicionada com o triangulo trazeiro pociionado no topo da barra dando a impressão de estar apoiado/sustentado pelo barra de título.
+  - Título em amarelo (do logotipo) com shawdown ocupando apenas a barra inferior, embora visualmente, as duas baras pareçam apenas uma única barra;
+  - Título não contem adereço como: underline, borderline, nem icon fonte.
+  - Flag posicionada não muito peto da extremidade esquerda, mas também nem longe.
+  - A barra de titulo (as duas barras que somadas formam uma única - mas caso exista uma melhor forma de implementar que gere o mesmo resultado, pode fazer), garantem:
+    - shadown sobre o conteúdo externo, mas não sobre o cover e sobre o conteúdo interno (que fica atráz) e que fica desfocado, dando efeito de vidro
+    - possui efeito, perceptível de vidro fumê
+    - Texto dentro da FLAG é bem distribuído, tanto verticalmente, como horizontalmente, independentemente do conteúdo - ou seja, cada linha possui tamanho e weight diferente, conforme o conteúdo que apresenta; conteúdo centralizado; entre outros que tornam a flag com a impressão de cheia, mas sem extrapolar as linhas visuais dela.
+    - A Flag possui um tamanho suficiente para ler, mas não disputa com o título e outros conteúdos (ela não deve chamar a atenção).
