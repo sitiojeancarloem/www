@@ -307,3 +307,5 @@ Thumbs.db
 /.ia.rules/agents-update.lock.json
 /agents-governance-backups/
 # END agents-governance managed
+
+!/.ia.rules/state/requests/evidencias/*.*
