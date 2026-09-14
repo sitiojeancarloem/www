@@ -100,3 +100,31 @@
     - ✅ O schema do `.md` DEVE ser simples para uso comum, extensível para composição avançada e validável no build; propriedades ausentes preservam defaults vigentes.
     - ✅ Defina claramente precedência entre configuração global → modo → página/post, sem inferir valores inexistentes.
     - ✅ Preserve os contratos já vigentes que não conflitarem materialmente com esta especialização.
+
+- [ ] Relativo a TO-DO de topo `- ✅ Consolidar COVER como sistema responsivo, extensível e compatível com Hero, preservando integralmente recursos existentes`, fora identificados algumas não aderências, algumas não aprovações (rejeições), algumas irregulariedades e necessidades de ajustes, que DEVE ser totalmente corrijadas.
+  1. FLAG: existe uma clara e inequivoca má interpretação, reiterada e sucessiva (reforço), de todas as tentativas de explicar o correto posicionamento da flag e seu ponto de ancoragem gravitacional (simulado);
+  2. A barra de título do artigo, igualmente, possui uma clara e inequivoca má interpretação, reiterada e sucessiva (reforço), de todas as tentativas de explicar que, apesar de serem dois componentes a desempenharem visdualmente visualmente o papel de um único componente, possuem duas partes, uma superior e uma inferior, claramente e explicitamene definidas de forma distinta não sem propósito.
+
+  ## ExplicaçÃo necessária
+
+  Apesar da pasta de evidencias conter DEZENAS de evidencias, TODAS bem elaboradas, muitas delas, editadas manualmente, por meio de photoshop e demais editores, para deixar bem evidenciados por setas, tracejados e texto inseridos, incluindo, PDF com textos legíveis se necessidade de OCR; além de outros meios, esta IA tem se demontrada comlementemente inútil em interpretar, mesmo sob o conjunto somado de reiteradas evidências o mais óbivio e lógico raciocíonio diagrama de determinação, e persiste em retornar um software cujo visual é incorrento e desalinhado à solicitação.
+  Esta, totalmente fora de cogitação erro humano na explicaçãão, dado que, fora expressos reiteradas vezes, com revisões, por multiplas terceiras IA, e ainda assim, a IA desenvolvedora é incapaz de normatizar ou codificar o layout seguindo a definição solicitada.
+
+  ## Mero exemplo
+
+  Para explicar, apenas um único artigo foi selecionado para exemplicar, o problema tanto com a barra de título principal, quanto com a flag, entretanto, o problema ocorre, em todos os modos/tipos de COVER em que tais elementos DEVEM ser exibidos sobre o cover; deve ser verificado no RCF e se necessário confirmar esta informação junto ao dev, mas até onde o dev se recoda há apenas um único modo, o que equivalente ao fullwindow em todas as suas variações, exceto aquela em que ele se ajusta para ficar igual/similar a um outro modelo. POrtanto, apesar de todas as evidencias mostrarem apenas um único modo, e um único tipo, tenha como conideração, que a explicação se aplica a todos os modos em que o título se sobrepoe ao cover.
+
+  Um detalhe importante, já quanto a explicação de ponto/linha/eixo correto de posicionamento gravitacional da flag, isso independende, pois, sempre que ela for ser exibida, ela deverá ser exibvida na barra de título principal. Lembrando que isto se refere apenas ao artigo e não a CARDs e outros.
+
+  ## FLAGs: linha de ancoragem gravitacional
+
+  Na pasta de evidencias `D:\trampo\jeancarloem.com.blog\.ia.rules\state\requests\evidencias`, a `evidencia17.pdf` demonstra como é o layout de uma FLAG, como ela é composta, quais são suas 3 linhas (topo, sustentação gravitacional [simulada] e base). A FLAG usada como modelo na evidencia é a FLAG presente no aquivo `flagVermelho.svg`, entretanto, exceto pela cor, a semelhança visual se aplica também ao arquivo `flagCinza.svg`.
+
+  A `evidencia17.pdf não tem o obnjetivo de mostrar como de fato o SVG dos arquivo é estruturado, ou como a FLAG é montada, ou quais são as partes dgeométricas dele, apenas evidenciar e distinguir o que precisa ser distinguido para explicação aqui.
+
+  Embora o projeto atual utiliza um arquivo de imagem pronto, montado em SVG para exibir a flag sobre o cover e sobre a barra de título, a montagem utilizando puro CSS não DEVE ser descatada, desde que:
+  1. o resultado visual seja exatamente igual ao que os arquivos SVG produzem;
+  2. que produzam o mesmo alinhamento,e posicioament e sustenção (simulação gravitacional) baseados na linha horinzontal de base do triangula da trazeira da sobra.
+  3. Produzam custo de tamanho menor que o uso de SVG somado dos dois arquivos SVG atualmente existente;
+  4. permitam, adicionalmene, que a frente da flag tenha altura ajustavel ao conteúdo, sem alterar a proporção do triangulo inferior [1] que o forma.
+  - [1] Note que a frente da flaf, possui uma forma que, não possui um nome próprio. Mas ela poderia se chamada de união de um retangulo em cima, com um trângulo embaixo. É deste trinagulo embaixo que se refere o texto que mencionou o triangulo.
