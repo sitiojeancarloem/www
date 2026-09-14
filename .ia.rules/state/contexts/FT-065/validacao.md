@@ -7,6 +7,26 @@
 - A validação anterior mediu geometria e estilos, mas não impôs à página real Devaneios a semântica visual da referência; a aprovação registrada abaixo permanece como histórico da tentativa rejeitada, não como aceite vigente.
 - FT-066 e FT-067 foram reabertas. Novo encerramento exige regressão explícita sobre `/p/devaneios/`, nova matriz e nova validação humana.
 
+## Correção e revalidação após a rejeição
+
+- Causa real: o seletor genérico do skeleton elevava a imagem da COVER a `z-index: 4` num ramo irmão do cabeçalho. O deck usava o mesmo nível e não assegurava a ordem de pintura; assim, mídia/skeleton cobriam SVG, ano, mês e vidro, deixando visível apenas a parcela da FLAG abaixo da COVER.
+- Correção: nos modos sobrepostos, `#main` forma uma camada `z-index: 7` acima da COVER e do conteúdo útil Hero; o deck mantém o mesmo nível explícito dentro desse ramo.
+- Regressão causal: `elementsFromPoint` compara FLAG e barra superior com o stage da COVER. Overlays globais legítimos podem permanecer acima de ambos sem mascarar a ordem relativa. A página real `/p/devaneios/` é exercida em `1119×900` e exige `2014 / ABR / 16` integralmente pintado.
+- Commit causal corrigido: `c76224ba644a96d1371208169a4f396feb9acdfa`; rastreabilidade RCF: `8e982882751489c92cfaaa51efa1b29db90fa339`.
+- Build produtivo isolado: aprovado em 78,61 s no destino temporário `jcem-cover-ft066-20260914-0935`.
+- `npm run check:covers`: aprovado; quatro modos legados, seis estendidos, seis zonas Hero, resize, orientação e DPR 2.
+- Página real Devaneios: 14 combinações aprovadas em sete viewports e dois temas. Capturas de viewport desktop/escuro e mobile/claro foram abertas e confirmaram a FLAG inteira e o vidro à frente da COVER.
+- Matriz final: 140 combinações aprovadas nos dez modos, sete viewports e dois temas com a nova prova de ordem de pintura.
+- Acessibilidade estrutural e runtime, impressão, desempenho, publicação e documentação: aprovados.
+- `rcf-trace.js validate` com Node 24.19.0: 347 entradas e 332 materiais aprovados.
+
+### Falha ambiental isolada
+
+- Comando: `npm run build:prod`; destino compartilhado `_site`; Windows NT 10.0.26100.0, PowerShell 7.6.6, Ruby 4.0.5, Bundler 4.0.14 e Node 22.21.0.
+- Resultado: `Errno::EINVAL` em `IO.binwrite` de `_site/assets/jcem/accessibility-manifest.json`, durante a presença de dois processos Ruby iniciados às 09:09, antes desta correção.
+- Conduta: os processos do usuário não foram encerrados. A repetição em destino temporário isolado aprovou, evidenciando concorrência específica do destino, não falha do código COVER.
+- `_site`, destino temporário e `visual-artifacts` continuam derivados e não integram commits.
+
 Data: 2026-09-14T02:10:35.8727673-03:00
 
 ## Causa e correção

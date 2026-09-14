@@ -943,7 +943,7 @@ plano:
   - id: FT-066
     classe: implementacao_codigo
     criado_em: 2026-09-14T00:19:37.6212130-03:00
-    estado: em_correcao_apos_rejeicao_humana
+    estado: concluida_corrigida_pendente_validacao_humana
     depende_de: FT-065
     fonte: TODO.ia.md
     fonte_autorizacao: prompt humano de 2026-09-14T01:30:31.8823778-03:00, com autorizacao explicita para executar FT-066 e FT-067
@@ -972,10 +972,19 @@ plano:
         - faixa superior sem a mesma percepcao de vidro e sustentacao da referencia como-deveria-ser.png
         - validacao anterior concentrou a inspecao visual nas fixtures e nao tornou a pagina real Devaneios uma regressao semantica especifica
       consequencia: a implementacao anterior permanece historica, mas nao satisfaz o aceite visual; corrigir a causa compartilhada e revalidar a pagina real antes de novo encerramento
+    correcao_apos_rejeicao:
+      em: 2026-09-14T09:50:33.5278423-03:00
+      causa_raiz: o seletor generico do skeleton elevava a imagem da COVER a z-index 4 no ramo irmao do cabecalho; o deck tambem em z-index 4 nao garantia a ordem de pintura e COVER encobria SVG, ano, mes e vidro ate sua fronteira inferior
+      implementacao:
+        - o ramo #main dos modos sobrepostos passou a formar camada z-index 7 acima da COVER e do conteudo util Hero; o deck compartilha essa camada explicita
+        - testes usam elementsFromPoint para comparar a ordem relativa de pintura contra o stage, sem falso negativo causado por overlays globais legitimos
+        - /p/devaneios/ integra regressao propria em 1119 por 900 com data 2014 ABR 16 e prova de pintura da FLAG e do vidro acima da COVER
+      commit_causal_correcao: c76224ba644a96d1371208169a4f396feb9acdfa
+      commit_rastreabilidade_correcao: 8e982882751489c92cfaaa51efa1b29db90fa339
   - id: FT-067
     classe: integracao_validacao
     criado_em: 2026-09-14T00:19:37.6212130-03:00
-    estado: reaberta_aguardando_correcao_ft_066
+    estado: concluida_pendente_validacao_humana
     depende_de: FT-066
     fonte: TODO.ia.md
     fonte_autorizacao: prompt humano de 2026-09-14T01:30:31.8823778-03:00, com autorizacao explicita para executar FT-066 e FT-067
@@ -999,7 +1008,18 @@ plano:
     rejeicao_humana:
       em: 2026-09-14T09:16:59.4158588-03:00
       resultado: rejeitada; a captura real de Devaneios contradiz a conclusao visual registrada
-    proximo_passo: incluir /p/devaneios/ como regressao semantica e visual explicita, reexecutar a matriz e somente entao solicitar nova validacao humana
+    revalidacao_apos_rejeicao:
+      em: 2026-09-14T09:50:33.5278423-03:00
+      - build Jekyll produtivo isolado aprovado em 78.61 segundos no destino temporario jcem-cover-ft066-20260914-0935
+      - check:covers aprovou quatro modos legados, seis estendidos, seis zonas Hero, resize, orientacao e DPR 2, incluindo a pagina real Devaneios em 1119 por 900
+      - pagina real /p/devaneios/ aprovou 14 combinacoes de sete viewports e dois temas; capturas desktop escuro e mobile claro foram inspecionadas em escala de viewport
+      - matriz final aprovou 140 combinacoes dos dez modos, sete viewports e dois temas com a nova prova de ordem de pintura
+      - acessibilidade estrutural e runtime, impressao, desempenho, publicacao e documentacao aprovaram
+      - rcf-trace com Node 24.19.0 aprovou 347 entradas e 332 materiais apos religar tres sentencas ao commit causal corrigido
+      - tentativa de build no _site compartilhado falhou em IO.binwrite do accessibility-manifest.json com Errno EINVAL enquanto dois processos Ruby preexistentes de 09:09 permaneciam ativos; o processo do usuario nao foi encerrado e o build isolado comprovou a natureza concorrente do destino
+      - ambiente: Windows NT 10.0.26100.0, PowerShell 7.6.6, Ruby 4.0.5, Bundler 4.0.14 e Node 22.21.0; rcf-trace executado com Node 24.19.0
+      - nenhum card, SVG de flag, conteudo editorial, _site ou artefato visual integrou os commits
+    proximo_passo: nova validacao humana do resultado visual; manter a TO-DO operacional em andamento ate aprovacao efetiva
 lacunas:
   - id: GAP-RCF-MODULE-2026-001
     estado: isolada_fora_do_escopo
