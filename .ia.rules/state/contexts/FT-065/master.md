@@ -67,4 +67,12 @@ Eliminar a causa comum das interpretacoes reiteradamente rejeitadas: ancorar a F
 
 ## Estado
 
-FT-065 em andamento. FT-066 e FT-067 planejadas e bloqueadas ate nova autorizacao humana posterior ao commit normativo.
+FT-065 concluida. O RCF equalizado substitui a interpretacao rejeitada e mantem 17 sentencas materiais em `PENDENTE-CODIGO`, preparadas para a FT-066. FT-066 e FT-067 permanecem planejadas e bloqueadas ate nova autorizacao humana posterior ao commit normativo.
+
+## Validacao normativa
+
+- `ruby scripts/test_documentation.rb`: aprovado, com `documentation=ok covers=10 quotes=6 manifests=2`.
+- `node .ia.rules/core/runtime/scripts/rcf-trace.js validate`: aprovado no Node 24.19.0, com `entries=347` e `material=332`.
+- `npm run agent:rcf`: nao executou a finalidade no Node 22.21.0; falhou ao carregar `.ia.rules/scenarios/release/scripts/package-registry.js` como ES module embora o artefato use `module.exports`.
+- Invocacao direta de `repo-tools.js agent:rcf` com Node 24.19.0: reproduziu a mesma falha antes do resultado RCF, sem mudanca de arquivo entre tentativas.
+- A incompatibilidade pertence ao runtime gerenciado e nao sera corrigida pela FT visual; o gate permanece explicitamente nao aprovado.

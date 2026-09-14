@@ -917,7 +917,7 @@ plano:
   - id: FT-065
     classe: implementacao_normativa
     criado_em: 2026-09-14T00:19:37.6212130-03:00
-    estado: em_andamento
+    estado: concluida
     fonte: TODO.ia.md
     contexto: .ia.rules/state/contexts/FT-065/master.md
     objetivo: Equalizar as nao aderencias reiteradas de flag e barra de titulo com o RCF vigente e tornar inequivocas as referencias geometricas, visuais e funcionais.
@@ -928,6 +928,13 @@ plano:
       - duas regioes da barra preservadas com sobreposicao, vidro, blur, fusao, sombra externa e titulo inferior inequivocos
       - aplicabilidade por modo de artigo e exclusao de cards explicitadas sem regressao de COVER ou Hero
       - interrupcao antes de codigo para nova autorizacao humana
+    resultado:
+      - evidencia17.pdf renderizada confirmou que topo, sustentacao e base sao linhas distintas; os SVGs reais situam a sustentacao em aproximadamente 16,85 por cento da altura
+      - evidencia18.png e como-deveria-ser.png foram comparadas em resolucao original e vinculadas ao ledger regional do contexto mestre
+      - causa raiz conciliada: RCF anterior proibiu a sobreposicao necessaria, CSS e teste alinharam marcador artificial em top zero e a barra superior nunca aplicou blur real
+      - RCFs agora separam upper glass e lower solid, limitam a sobreposicao a faixa terminal cabivel, vinculam a flag ao path real e excluem cards
+      - dez modos, Hero, temas, impressao e geometrias ja vigentes permanecem preservados; implementacao e validacao aguardam nova autorizacao
+    proximo_passo: autorizacao humana explicita para executar FT-066 e, depois, FT-067
   - id: FT-066
     classe: implementacao_codigo
     criado_em: 2026-09-14T00:19:37.6212130-03:00
@@ -957,6 +964,11 @@ plano:
       - acessibilidade, build, documentacao COVER, RCF e regressao agregada aprovam
       - nenhum card, SVG original, conteudo editorial ou recurso fora do escopo e alterado
 lacunas:
+  - id: GAP-RCF-MODULE-2026-001
+    estado: isolada_fora_do_escopo
+    evidencia: npm run agent:rcf e a invocacao direta pelo Node 24.19.0 falham antes da validacao porque package-registry.js e CommonJS carregado como ES module sob o package type module
+    reproducao: Node 22.21.0 e Node 24.19.0 na maquina JEAN-DESKTOP; rcf-trace validate permanece aprovado com entries 347 e material 332
+    restricao: nao alterar runtime de governanca gerenciado nem package.json nesta FT visual; exigir FT e autorizacao proprias para reparar a incompatibilidade
   - id: GAP-SHARP-LIBVIPS-2026-001
     estado: isolada_aguardando_upstream
     evidencia: npm audit reporta uma vulnerabilidade alta em sharp por CVEs herdadas de libvips e declara no fix available
