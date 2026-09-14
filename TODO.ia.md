@@ -101,7 +101,7 @@
     - ✅ Defina claramente precedência entre configuração global → modo → página/post, sem inferir valores inexistentes.
     - ✅ Preserve os contratos já vigentes que não conflitarem materialmente com esta especialização.
 
-- ✅ Corrigir integralmente as não aderências da TO-DO de topo `- ✅ Consolidar COVER como sistema responsivo, extensível e compatível com Hero, preservando integralmente recursos existentes`
+- ⏳ Corrigir integralmente as não aderências da TO-DO de topo `- ✅ Consolidar COVER como sistema responsivo, extensível e compatível com Hero, preservando integralmente recursos existentes`
 
   Foram identificadas **não aderências, rejeições explícitas, irregularidades e ajustes obrigatórios**. Dois erros vêm sendo reiterados apesar das sucessivas explicações e evidências e **NÃO DEVEM voltar a ser interpretados da mesma forma**:
   1. **FLAG:** o posicionamento e, sobretudo, sua linha/eixo de ancoragem gravitacional simulada continuam sendo interpretados incorretamente.

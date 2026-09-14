@@ -943,7 +943,7 @@ plano:
   - id: FT-066
     classe: implementacao_codigo
     criado_em: 2026-09-14T00:19:37.6212130-03:00
-    estado: concluida
+    estado: em_correcao_apos_rejeicao_humana
     depende_de: FT-065
     fonte: TODO.ia.md
     fonte_autorizacao: prompt humano de 2026-09-14T01:30:31.8823778-03:00, com autorizacao explicita para executar FT-066 e FT-067
@@ -964,10 +964,18 @@ plano:
       - documentacao canonica e quatro ilustracoes afetadas foram sincronizadas no mesmo ciclo
     commit_causal: 2fafaf46693edbff045cfb579101aaf8f19f3015
     commit_rastreabilidade: 4ff450b152c3ffc8803222fa10f57c2ef3f473a8
+    rejeicao_humana:
+      em: 2026-09-14T09:16:59.4158588-03:00
+      fonte: prompt humano com captura da pagina publicada /p/devaneios/ e declaracao "resultado incorreto"
+      divergencias_observadas:
+        - FLAG renderizada somente com o dia, sem a hierarquia visivel de ano, mes e dia da referencia
+        - faixa superior sem a mesma percepcao de vidro e sustentacao da referencia como-deveria-ser.png
+        - validacao anterior concentrou a inspecao visual nas fixtures e nao tornou a pagina real Devaneios uma regressao semantica especifica
+      consequencia: a implementacao anterior permanece historica, mas nao satisfaz o aceite visual; corrigir a causa compartilhada e revalidar a pagina real antes de novo encerramento
   - id: FT-067
     classe: integracao_validacao
     criado_em: 2026-09-14T00:19:37.6212130-03:00
-    estado: concluida_pendente_validacao
+    estado: reaberta_aguardando_correcao_ft_066
     depende_de: FT-066
     fonte: TODO.ia.md
     fonte_autorizacao: prompt humano de 2026-09-14T01:30:31.8823778-03:00, com autorizacao explicita para executar FT-066 e FT-067
@@ -988,7 +996,10 @@ plano:
       - regressao agregada parou somente em check:editorial-assets porque o diretorio preexistente _drafts esta ausente; os gates posteriores foram executados e aprovados separadamente
       - nenhum card, SVG de flag, conteudo editorial ou artefato _site integrou os commits
     evidencia: .ia.rules/state/contexts/FT-065/validacao.md
-    proximo_passo: validacao humana do resultado visual; apos aprovacao efetiva, remover integralmente a TO-DO operacional e preservar o equalizer perene
+    rejeicao_humana:
+      em: 2026-09-14T09:16:59.4158588-03:00
+      resultado: rejeitada; a captura real de Devaneios contradiz a conclusao visual registrada
+    proximo_passo: incluir /p/devaneios/ como regressao semantica e visual explicita, reexecutar a matriz e somente entao solicitar nova validacao humana
 lacunas:
   - id: GAP-RCF-MODULE-2026-001
     estado: isolada_fora_do_escopo

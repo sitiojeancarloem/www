@@ -1,5 +1,12 @@
 # Validação FT-066/FT-067 — COVER, barra e FLAG
 
+## Rejeição humana e reabertura
+
+- Em `2026-09-14T09:16:59.4158588-03:00`, o resultado foi rejeitado explicitamente com captura da página real `/p/devaneios/` e a declaração `resultado incorreto`.
+- A captura contradiz a conclusão anterior: a FLAG aparece apenas com o dia `16`, sem a hierarquia visível de ano/mês/dia da referência, e a faixa superior não comunica com a mesma clareza o vidro e a sustentação pretendidos.
+- A validação anterior mediu geometria e estilos, mas não impôs à página real Devaneios a semântica visual da referência; a aprovação registrada abaixo permanece como histórico da tentativa rejeitada, não como aceite vigente.
+- FT-066 e FT-067 foram reabertas. Novo encerramento exige regressão explícita sobre `/p/devaneios/`, nova matriz e nova validação humana.
+
 Data: 2026-09-14T02:10:35.8727673-03:00
 
 ## Causa e correção
