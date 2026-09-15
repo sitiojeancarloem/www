@@ -949,7 +949,7 @@ plano:
   - id: FT-066
     classe: implementacao_codigo
     criado_em: 2026-09-14T00:19:37.6212130-03:00
-    estado: concluida_corrigida_pendente_validacao_humana
+    estado: em_correcao_blur_autorizada
     depende_de: FT-065
     fonte: TODO.ia.md
     fonte_autorizacao: prompt humano de 2026-09-14T01:30:31.8823778-03:00, com autorizacao explicita para executar FT-066 e FT-067
@@ -1020,10 +1020,16 @@ plano:
       commit_causal: f1c833355d7298fb0ac6e069f9ee6bcd5870709e
       commit_rastreabilidade: 7ca24ce280
       proximo_passo: nova validacao humana do acabamento fumê; manter a TO-DO operacional em andamento ate aprovacao efetiva
+    quarta_correcao_humana:
+      em: 2026-09-15T09:42:28.3330329-03:00
+      fonte: .ia.rules/state/requests/FT-066/quarta-correcao-blur.md
+      resultado: 98 por cento aderente; falta tornar perceptivel o blur de todo o conteudo subjacente, recortado estritamente pela area da barra de titulo
+      preservacao: manter fumê, alpha, geometria, FLAG e foreground já aderentes; alterar somente o backdrop blur do deck
+      proximo_passo: exigir raio minimo mensuravel no teste, provar a falha no build anterior, implementar no deck inteiro e revalidar a rota real
   - id: FT-067
     classe: integracao_validacao
     criado_em: 2026-09-14T00:19:37.6212130-03:00
-    estado: concluida_corrigida_pendente_validacao_humana
+    estado: em_revalidacao_blur_autorizada
     depende_de: FT-066
     fonte: TODO.ia.md
     fonte_autorizacao: prompt humano de 2026-09-14T01:30:31.8823778-03:00, com autorizacao explicita para executar FT-066 e FT-067
