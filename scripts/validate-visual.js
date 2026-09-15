@@ -14,6 +14,10 @@ const visualValidationStrict = !['0', 'false', 'no', 'advisory'].includes(
 const visualProfile = String(process.env.VISUAL_PROFILE || 'full').toLowerCase();
 const coverProfile = visualProfile === 'covers';
 const focusedPagesOnly = process.env.VISUAL_SCOPE === 'pages';
+const hasAlphaGradient = (value) =>
+	value.includes('linear-gradient') &&
+	/(?:\/\s*0\.\d+|rgba\([^)]*,\s*0\.\d+\))/iu.test(value) &&
+	!value.includes('url(');
 const configuredList = (name, fallback) => {
 	const value = process.env[name];
 	return value
@@ -2090,6 +2094,8 @@ const validateCoverPage = async (page, url, theme, viewportName) => {
 		const lowerBarRect = rect(lowerBar);
 		const flagRect = rect(flag);
 		const triangleBaseRect = rect(triangleBase);
+		const titleBarsStyle = titleBars ? window.getComputedStyle(titleBars) : null;
+		const materialStyle = titleBars ? window.getComputedStyle(titleBars, '::before') : null;
 		const upperBarStyle = upperBar ? window.getComputedStyle(upperBar) : null;
 		const lowerBarStyle = lowerBar ? window.getComputedStyle(lowerBar) : null;
 		const titleStyle = title ? window.getComputedStyle(title) : null;
@@ -2122,10 +2128,22 @@ const validateCoverPage = async (page, url, theme, viewportName) => {
 			titleParent: title?.parentElement?.getAttribute('data-jcem-title-bar') || '',
 			titleCoverOverlap: header?.getAttribute('data-jcem-title-cover-overlap') || '',
 			flagSupportRatio: header ? Number.parseFloat(window.getComputedStyle(header).getPropertyValue('--jcem-date-flag-support-ratio')) : 0,
+			titleUpperBaseRatio: header ? Number.parseFloat(window.getComputedStyle(header).getPropertyValue('--jcem-title-upper-base-ratio')) : 0,
+			materialBackground: materialStyle?.backgroundImage || '',
+			materialBackdropFilter: materialStyle?.backdropFilter || materialStyle?.webkitBackdropFilter || '',
+			deckShadow: titleBarsStyle?.boxShadow || '',
 			upperBarBackground: upperBarStyle?.backgroundImage || '',
+			upperBarBackgroundColor: upperBarStyle?.backgroundColor || '',
+			upperBarFilter: upperBarStyle?.filter || '',
 			upperBarBackdropFilter: upperBarStyle?.backdropFilter || upperBarStyle?.webkitBackdropFilter || '',
+			upperBarShadow: upperBarStyle?.boxShadow || '',
 			lowerBarBackground: lowerBarStyle?.backgroundColor || '',
+			lowerBarBackgroundImage: lowerBarStyle?.backgroundImage || '',
+			lowerBarFilter: lowerBarStyle?.filter || '',
+			lowerBarBackdropFilter: lowerBarStyle?.backdropFilter || lowerBarStyle?.webkitBackdropFilter || '',
 			lowerBarShadow: lowerBarStyle?.boxShadow || '',
+			titleFilter: titleStyle?.filter || '',
+			titleBackdropFilter: titleStyle?.backdropFilter || titleStyle?.webkitBackdropFilter || '',
 			titleColor: titleStyle?.color || '',
 			titleAccent,
 			titleTextShadow: titleStyle?.textShadow || '',
@@ -2249,11 +2267,22 @@ const validateCoverPage = async (page, url, theme, viewportName) => {
 		!result.lowerBarRect ||
 		result.titleParent !== 'lower' ||
 		Math.abs(result.upperBarRect.bottom - result.lowerBarRect.top) > geometryTolerance ||
-		!result.upperBarBackground.includes('linear-gradient') ||
-		result.upperBarBackground.includes('90deg') ||
-		!result.upperBarBackdropFilter.includes('blur') ||
-		result.lowerBarBackground === 'rgba(0, 0, 0, 0)' ||
-		result.lowerBarShadow === 'none' ||
+		!hasAlphaGradient(result.materialBackground) ||
+		result.materialBackground.includes('90deg') ||
+		!result.materialBackdropFilter.includes('blur') ||
+		result.deckShadow === 'none' ||
+		result.upperBarBackground !== 'none' ||
+		result.upperBarBackgroundColor !== 'rgba(0, 0, 0, 0)' ||
+		result.upperBarFilter !== 'none' ||
+		result.upperBarBackdropFilter !== 'none' ||
+		result.upperBarShadow !== 'none' ||
+		result.lowerBarBackground !== 'rgba(0, 0, 0, 0)' ||
+		result.lowerBarBackgroundImage !== 'none' ||
+		result.lowerBarFilter !== 'none' ||
+		result.lowerBarBackdropFilter !== 'none' ||
+		result.lowerBarShadow !== 'none' ||
+		result.titleFilter !== 'none' ||
+		result.titleBackdropFilter !== 'none' ||
 		result.titleColor !== result.titleAccent ||
 		result.titleTextShadow === 'none' ||
 		result.titleBorderBottom !== '0px' ||
@@ -2270,6 +2299,8 @@ const validateCoverPage = async (page, url, theme, viewportName) => {
 		(!result.triangleBaseRect ||
 			Math.abs(result.triangleBaseRect.top - result.upperBarRect.top) > geometryTolerance ||
 			result.flagSupportRatio <= 0 ||
+			result.titleUpperBaseRatio <= 0 ||
+			Math.abs(result.upperBarRect.height / result.flagRect.height - (result.titleUpperBaseRatio + result.flagSupportRatio)) > 0.005 ||
 			result.flagRect.top >= result.upperBarRect.top - geometryTolerance ||
 			result.flagRect.bottom > result.titleBarsRect.bottom + geometryTolerance)
 	) {

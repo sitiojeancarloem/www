@@ -12,6 +12,13 @@ const cssSource = await readFile(path.join(sourceRoot, 'assets', 'jcem', 'css', 
 const supportTokenMatch = cssSource.match(/--jcem-date-flag-support-ratio:\s*([0-9.]+)\s*;/);
 assert.ok(supportTokenMatch, 'token canônico de sustentação da flag ausente');
 const supportToken = Number(supportTokenMatch[1]);
+const upperBaseTokenMatch = cssSource.match(/--jcem-title-upper-base-ratio:\s*([0-9.]+)\s*;/);
+assert.ok(upperBaseTokenMatch, 'token estrutural da região superior ausente');
+const upperBaseToken = Number(upperBaseTokenMatch[1]);
+const hasAlphaGradient = (value) =>
+	value.includes('linear-gradient') &&
+	/(?:\/\s*0\.\d+|rgba\([^)]*,\s*0\.\d+\))/iu.test(value) &&
+	!value.includes('url(');
 const svgSupportRatios = [];
 for (const filename of ['flagVermelho.svg', 'flagCinza.svg']) {
 	const svg = await readFile(path.join(sourceRoot, 'assets', 'jcem', 'img', filename), 'utf8');
@@ -93,6 +100,7 @@ try {
 			const hero = cover?.querySelector('[data-jcem-cover-hero]');
 			const masthead = document.querySelector('.masthead');
 			const header = document.querySelector('.jcem-post-header');
+			const titleBars = header?.querySelector('[data-jcem-title-bars]');
 			const articleZone = document.querySelector('article.page .page__inner-wrap');
 			const upperBar = header?.querySelector('[data-jcem-title-bar="upper"]');
 			const lowerBar = header?.querySelector('[data-jcem-title-bar="lower"]');
@@ -100,6 +108,8 @@ try {
 			const triangleBase = flag?.querySelector('[data-jcem-flag-triangle-base]');
 			const title = header?.querySelector('.page__title');
 			const titleLink = title?.querySelector('a');
+			const deckStyle = titleBars ? getComputedStyle(titleBars) : null;
+			const materialStyle = titleBars ? getComputedStyle(titleBars, '::before') : null;
 			const upperStyle = upperBar ? getComputedStyle(upperBar) : null;
 			const lowerStyle = lowerBar ? getComputedStyle(lowerBar) : null;
 			const titleStyle = title ? getComputedStyle(title) : null;
@@ -116,10 +126,21 @@ try {
 				titleParent: title?.parentElement?.getAttribute('data-jcem-title-bar') || '',
 				overlap: header?.getAttribute('data-jcem-title-cover-overlap'),
 				supportRatio: Number.parseFloat(getComputedStyle(header).getPropertyValue('--jcem-date-flag-support-ratio')),
-				upperBackdropFilter: upperStyle?.backdropFilter || upperStyle?.webkitBackdropFilter || '',
+				materialBackground: materialStyle?.backgroundImage || '',
+				materialBackdropFilter: materialStyle?.backdropFilter || materialStyle?.webkitBackdropFilter || '',
+				deckShadow: deckStyle?.boxShadow || '',
 				upperBackground: upperStyle?.backgroundImage || '',
+				upperBackgroundColor: upperStyle?.backgroundColor || '',
+				upperFilter: upperStyle?.filter || '',
+				upperBackdropFilter: upperStyle?.backdropFilter || upperStyle?.webkitBackdropFilter || '',
+				upperShadow: upperStyle?.boxShadow || '',
 				lowerBackground: lowerStyle?.backgroundColor || '',
+				lowerBackgroundImage: lowerStyle?.backgroundImage || '',
+				lowerFilter: lowerStyle?.filter || '',
+				lowerBackdropFilter: lowerStyle?.backdropFilter || lowerStyle?.webkitBackdropFilter || '',
 				lowerShadow: lowerStyle?.boxShadow || '',
+				titleFilter: titleStyle?.filter || '',
+				titleBackdropFilter: titleStyle?.backdropFilter || titleStyle?.webkitBackdropFilter || '',
 				titleColor: titleStyle?.color || '',
 				titleAccent: title ? (() => { const probe = document.createElement('span'); probe.style.color = 'var(--jcem-panel-accent-hot)'; title.append(probe); const color = getComputedStyle(probe).color; probe.remove(); return color; })() : '',
 				titleTextShadow: titleStyle?.textShadow || '',
@@ -159,11 +180,14 @@ try {
 		if (state.flag) {
 			assert.ok(Math.abs(state.triangleBase.top - state.upperBar.top) <= 0.51, `base da flag não colinear ${mode}: ${JSON.stringify(state)}`);
 			assert.ok(state.flag.top < state.upperBar.top, `flag ainda alinhada pelo topo ${mode}: ${JSON.stringify(state)}`);
+			assert.ok(Math.abs(state.upperBar.height / state.flag.height - (upperBaseToken + supportToken)) <= 0.005, `profundidade estrutural da região superior divergente ${mode}: ${JSON.stringify(state)}`);
 		}
 		assert.ok(Math.abs(state.supportRatio - supportToken) <= 1e-8, `token renderizado divergente ${mode}`);
-		assert.ok(state.upperBackground.includes('linear-gradient') && state.upperBackdropFilter.includes('blur'), `vidro superior incompleto ${mode}: ${JSON.stringify(state)}`);
-		assert.notEqual(state.lowerBackground, 'rgba(0, 0, 0, 0)', `barra inferior não sólida ${mode}`);
-		assert.notEqual(state.lowerShadow, 'none', `sombra externa ausente ${mode}`);
+		assert.ok(hasAlphaGradient(state.materialBackground) && state.materialBackdropFilter.includes('blur'), `material vítreo contínuo incompleto ${mode}: ${JSON.stringify(state)}`);
+		assert.notEqual(state.deckShadow, 'none', `sombra externa do conjunto ausente ${mode}`);
+		assert.ok(state.upperBackground === 'none' && state.upperBackgroundColor === 'rgba(0, 0, 0, 0)' && state.upperFilter === 'none' && state.upperBackdropFilter === 'none' && state.upperShadow === 'none', `foreground superior contaminado ${mode}: ${JSON.stringify(state)}`);
+		assert.ok(state.lowerBackground === 'rgba(0, 0, 0, 0)' && state.lowerBackgroundImage === 'none' && state.lowerFilter === 'none' && state.lowerBackdropFilter === 'none' && state.lowerShadow === 'none', `foreground inferior contaminado ${mode}: ${JSON.stringify(state)}`);
+		assert.ok(state.titleFilter === 'none' && state.titleBackdropFilter === 'none', `título desfocado ${mode}: ${JSON.stringify(state)}`);
 		assert.notEqual(state.titleTextShadow, 'none', `título sem text-shadow ${mode}`);
 		assert.equal(state.titleColor, state.titleAccent, `título fora do amarelo canônico ${mode}`);
 		assert.equal(state.titleBorderBottom, '0px', `título com borda ${mode}`);
@@ -220,16 +244,22 @@ try {
 	assert.ok(Math.abs(portrait.scroll - scrollBeforeResize) <= 1 && portrait.stage.height <= 1024 && portrait.overflow <= 1, `resize/orientação inválido ${JSON.stringify(portrait)}`);
 
 	await page.goto(`http://127.0.0.1:${port}/_fixtures/covers/content/`, { waitUntil: 'load' });
+	const backdropRegions = [];
 	for (const [width, height] of [[360, 800], [480, 800], [768, 1024], [1024, 768], [1280, 720]]) {
 		await page.setViewportSize({ width, height });
 		const resized = await page.evaluate(() => {
 			const rect = (node) => node?.getBoundingClientRect().toJSON();
+			const deck = document.querySelector('[data-jcem-title-bars]');
+			const materialStyle = deck ? getComputedStyle(deck, '::before') : null;
 			return {
 				stage: rect(document.querySelector('.jcem-featured-image__stage')),
 				article: rect(document.querySelector('article.page .page__inner-wrap')),
 				masthead: rect(document.querySelector('.masthead')),
 				upperBar: rect(document.querySelector('[data-jcem-title-bar="upper"]')),
 				lowerBar: rect(document.querySelector('[data-jcem-title-bar="lower"]')),
+				materialBackground: materialStyle?.backgroundImage || '',
+				materialBackdropFilter: materialStyle?.backdropFilter || materialStyle?.webkitBackdropFilter || '',
+				duplicateCoverInDeck: deck?.querySelectorAll('img, .jcem-featured-image__stage, .page__hero, [style*="background-image"]').length || 0,
 				overflow: document.documentElement.scrollWidth - document.documentElement.clientWidth,
 			};
 		});
@@ -243,7 +273,10 @@ try {
 			resized.overflow <= 1,
 			`resize contínuo rompeu cover comum ${width}x${height}: ${JSON.stringify(resized)}`,
 		);
+		assert.ok(hasAlphaGradient(resized.materialBackground) && resized.materialBackdropFilter.includes('blur') && resized.duplicateCoverInDeck === 0, `backdrop real perdido em resize ${width}x${height}: ${JSON.stringify(resized)}`);
+		backdropRegions.push(`${resized.stage.top.toFixed(2)}:${resized.upperBar.top.toFixed(2)}:${resized.upperBar.height.toFixed(2)}`);
 	}
+	assert.ok(new Set(backdropRegions).size > 1, `região real do COVER atrás do vidro não acompanhou resize/orientação: ${JSON.stringify(backdropRegions)}`);
 
 	await page.setViewportSize({ width: 1280, height: 720 });
 	for (const mode of ['legacy', 'content', 'wide-single', 'wide-triptych']) {
@@ -253,6 +286,7 @@ try {
 			const featured = document.querySelector('.jcem-featured-image, .jcem-legacy-hero');
 			const stage = featured?.querySelector('.jcem-featured-image__stage, .page__hero');
 			const articleZone = document.querySelector('article.page .page__inner-wrap');
+			const titleBars = document.querySelector('[data-jcem-title-bars]');
 			const upperBar = document.querySelector('[data-jcem-title-bar="upper"]');
 			const lowerBar = document.querySelector('[data-jcem-title-bar="lower"]');
 			const flag = document.querySelector('.jcem-post-header .jcem-date-flag');
@@ -261,6 +295,8 @@ try {
 			const masthead = document.querySelector('.masthead');
 			const title = document.querySelector('.jcem-post-header .page__title');
 			const titleLink = title?.querySelector('a');
+			const deckStyle = titleBars ? getComputedStyle(titleBars) : null;
+			const materialStyle = titleBars ? getComputedStyle(titleBars, '::before') : null;
 			const upperStyle = upperBar ? getComputedStyle(upperBar) : null;
 			const lowerStyle = lowerBar ? getComputedStyle(lowerBar) : null;
 			const titleStyle = title ? getComputedStyle(title) : null;
@@ -282,8 +318,10 @@ try {
 				titleParent: title?.parentElement?.getAttribute('data-jcem-title-bar') || '',
 				overlap: document.querySelector('.jcem-post-header')?.getAttribute('data-jcem-title-cover-overlap'),
 				supportRatio: Number.parseFloat(getComputedStyle(document.querySelector('.jcem-post-header')).getPropertyValue('--jcem-date-flag-support-ratio')),
-				upperBackdropFilter: upperStyle?.backdropFilter || upperStyle?.webkitBackdropFilter || '',
-				upperBackground: upperStyle?.backgroundImage || '', lowerBackground: lowerStyle?.backgroundColor || '', lowerShadow: lowerStyle?.boxShadow || '',
+				materialBackground: materialStyle?.backgroundImage || '', materialBackdropFilter: materialStyle?.backdropFilter || materialStyle?.webkitBackdropFilter || '', deckShadow: deckStyle?.boxShadow || '',
+				upperBackdropFilter: upperStyle?.backdropFilter || upperStyle?.webkitBackdropFilter || '', upperBackground: upperStyle?.backgroundImage || '', upperBackgroundColor: upperStyle?.backgroundColor || '', upperFilter: upperStyle?.filter || '', upperShadow: upperStyle?.boxShadow || '',
+				lowerBackground: lowerStyle?.backgroundColor || '', lowerBackgroundImage: lowerStyle?.backgroundImage || '', lowerBackdropFilter: lowerStyle?.backdropFilter || lowerStyle?.webkitBackdropFilter || '', lowerFilter: lowerStyle?.filter || '', lowerShadow: lowerStyle?.boxShadow || '',
+				titleFilter: titleStyle?.filter || '', titleBackdropFilter: titleStyle?.backdropFilter || titleStyle?.webkitBackdropFilter || '',
 				titleColor: titleStyle?.color || '', titleAccent: title ? (() => { const probe = document.createElement('span'); probe.style.color = 'var(--jcem-panel-accent-hot)'; title.append(probe); const color = getComputedStyle(probe).color; probe.remove(); return color; })() : '',
 				titleTextShadow: titleStyle?.textShadow || '', titleBorderBottom: titleStyle?.borderBottomWidth || '', titleBoxShadow: titleStyle?.boxShadow || '',
 				titleDecoration: titleLinkStyle?.textDecorationLine || '', titleAfter: titleLink ? getComputedStyle(titleLink, '::after').content : '',
@@ -308,11 +346,14 @@ try {
 		if (legacy.flag) {
 			assert.ok(Math.abs(legacy.triangleBase.top - legacy.upperBar.top) <= 0.51, `base da flag não colinear ${mode}: ${JSON.stringify(legacy)}`);
 			assert.ok(legacy.flag.top < legacy.upperBar.top, `flag ainda alinhada pelo topo ${mode}: ${JSON.stringify(legacy)}`);
+			assert.ok(Math.abs(legacy.upperBar.height / legacy.flag.height - (upperBaseToken + supportToken)) <= 0.005, `profundidade estrutural da região superior divergente ${mode}: ${JSON.stringify(legacy)}`);
 		}
 		assert.ok(Math.abs(legacy.supportRatio - supportToken) <= 1e-8, `token renderizado divergente ${mode}`);
-		assert.ok(legacy.upperBackground.includes('linear-gradient') && legacy.upperBackdropFilter.includes('blur'), `vidro superior incompleto ${mode}: ${JSON.stringify(legacy)}`);
-		assert.notEqual(legacy.lowerBackground, 'rgba(0, 0, 0, 0)', `barra inferior não sólida ${mode}`);
-		assert.notEqual(legacy.lowerShadow, 'none', `sombra externa ausente ${mode}`);
+		assert.ok(hasAlphaGradient(legacy.materialBackground) && legacy.materialBackdropFilter.includes('blur'), `material vítreo contínuo incompleto ${mode}: ${JSON.stringify(legacy)}`);
+		assert.notEqual(legacy.deckShadow, 'none', `sombra externa do conjunto ausente ${mode}`);
+		assert.ok(legacy.upperBackground === 'none' && legacy.upperBackgroundColor === 'rgba(0, 0, 0, 0)' && legacy.upperFilter === 'none' && legacy.upperBackdropFilter === 'none' && legacy.upperShadow === 'none', `foreground superior contaminado ${mode}: ${JSON.stringify(legacy)}`);
+		assert.ok(legacy.lowerBackground === 'rgba(0, 0, 0, 0)' && legacy.lowerBackgroundImage === 'none' && legacy.lowerFilter === 'none' && legacy.lowerBackdropFilter === 'none' && legacy.lowerShadow === 'none', `foreground inferior contaminado ${mode}: ${JSON.stringify(legacy)}`);
+		assert.ok(legacy.titleFilter === 'none' && legacy.titleBackdropFilter === 'none', `título desfocado ${mode}: ${JSON.stringify(legacy)}`);
 		assert.notEqual(legacy.titleTextShadow, 'none', `título sem sombra ${mode}`);
 		assert.equal(legacy.titleColor, legacy.titleAccent, `título fora do amarelo canônico ${mode}`);
 		assert.equal(legacy.titleBorderBottom, '0px', `título com borda ${mode}`);
