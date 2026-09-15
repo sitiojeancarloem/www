@@ -922,7 +922,7 @@ plano:
   - id: FT-065
     classe: implementacao_normativa
     criado_em: 2026-09-14T00:19:37.6212130-03:00
-    estado: concluida
+    estado: reaberta_correcao_final
     fonte: TODO.ia.md
     contexto: .ia.rules/state/contexts/FT-065/master.md
     objetivo: Equalizar as nao aderencias reiteradas de flag e barra de titulo com o RCF vigente e tornar inequivocas as referencias geometricas, visuais e funcionais.
@@ -939,11 +939,12 @@ plano:
       - causa raiz conciliada: RCF anterior proibiu a sobreposicao necessaria, CSS e teste alinharam marcador artificial em top zero e a barra superior nunca aplicou blur real
       - RCFs agora separam upper glass e lower solid, limitam a sobreposicao a faixa terminal cabivel, vinculam a flag ao path real e excluem cards
       - dez modos, Hero, temas, impressao e geometrias ja vigentes permanecem preservados; implementacao e validacao aguardam nova autorizacao
-    proximo_passo: validacao humana do resultado integrado registrado pela FT-067
+    reabertura_2026_09_15: evidencia19.png rejeitou o acabamento final; corrigir RCF, materialidade e posicao sem regredir a FLAG
+    proximo_passo: equalizar RCF ao pedido complementar e prosseguir com FT-066 autorizada
   - id: FT-066
     classe: implementacao_codigo
     criado_em: 2026-09-14T00:19:37.6212130-03:00
-    estado: concluida_corrigida_pendente_validacao_humana
+    estado: reaberta_correcao_final
     depende_de: FT-065
     fonte: TODO.ia.md
     fonte_autorizacao: prompt humano de 2026-09-14T01:30:31.8823778-03:00, com autorizacao explicita para executar FT-066 e FT-067
@@ -981,10 +982,20 @@ plano:
         - /p/devaneios/ integra regressao propria em 1119 por 900 com data 2014 ABR 16 e prova de pintura da FLAG e do vidro acima da COVER
       commit_causal_correcao: c76224ba644a96d1371208169a4f396feb9acdfa
       commit_rastreabilidade_correcao: 8e982882751489c92cfaaa51efa1b29db90fa339
+    segunda_rejeicao_humana:
+      em: 2026-09-15T00:55:36.0204346-03:00
+      fonte: .ia.rules/state/requests/FT-066/acabamento-final.md
+      evidencia_atual: .ia.rules/state/requests/evidencias/evidencia19.png
+      alvo: .ia.rules/state/requests/evidencias/como-deveria-ser.png
+      causa_confirmada_no_baseline:
+        - upper media 21,25 px e era a unica regiao com backdrop-filter
+        - lower media 58,32 px, usava fundo totalmente opaco e nenhum backdrop
+        - a composicao entrava pouco no COVER e interrompia a materialidade vitrea antes do titulo
+      preservacao: FLAG, SVGs, barra unica, modos COVER, Hero, responsividade e correcao de stacking anterior
   - id: FT-067
     classe: integracao_validacao
     criado_em: 2026-09-14T00:19:37.6212130-03:00
-    estado: concluida_pendente_validacao_humana
+    estado: reaberta_correcao_final
     depende_de: FT-066
     fonte: TODO.ia.md
     fonte_autorizacao: prompt humano de 2026-09-14T01:30:31.8823778-03:00, com autorizacao explicita para executar FT-066 e FT-067
@@ -1019,7 +1030,10 @@ plano:
       - tentativa de build no _site compartilhado falhou em IO.binwrite do accessibility-manifest.json com Errno EINVAL enquanto dois processos Ruby preexistentes de 09:09 permaneciam ativos; o processo do usuario nao foi encerrado e o build isolado comprovou a natureza concorrente do destino
       - ambiente: Windows NT 10.0.26100.0, PowerShell 7.6.6, Ruby 4.0.5, Bundler 4.0.14 e Node 22.21.0; rcf-trace executado com Node 24.19.0
       - nenhum card, SVG de flag, conteudo editorial, _site ou artefato visual integrou os commits
-    proximo_passo: nova validacao humana do resultado visual; manter a TO-DO operacional em andamento ate aprovacao efetiva
+    segunda_rejeicao_humana:
+      em: 2026-09-15T00:55:36.0204346-03:00
+      resultado: rejeitada; evidencia19.png comprova posicao baixa e materialidade vitrea insuficiente
+    proximo_passo: executar nova matriz apos a correcao e manter a TO-DO operacional em andamento ate aprovacao efetiva
 lacunas:
   - id: GAP-RCF-MODULE-2026-001
     estado: isolada_fora_do_escopo

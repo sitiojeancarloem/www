@@ -32,6 +32,8 @@ node_modules
 !/.ia.rules/state/requests/FT-050/prompt.md
 !/.ia.rules/state/requests/FT-053/
 !/.ia.rules/state/requests/FT-053/prompt.md
+!/.ia.rules/state/requests/FT-066/
+!/.ia.rules/state/requests/FT-066/acabamento-final.md
 !/.ia.rules/state/traceability/
 !/.ia.rules/state/traceability/rcf-map.json
 !.vscode
@@ -313,3 +315,5 @@ Thumbs.db
 !/.ia.rules/state/requests/
 !/.ia.rules/state/requests/evidencias/
 !/.ia.rules/state/requests/evidencias/**
+!/.ia.rules/state/requests/FT-066/
+!/.ia.rules/state/requests/FT-066/acabamento-final.md

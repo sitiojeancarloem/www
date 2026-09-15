@@ -1,5 +1,14 @@
 # Validação FT-066/FT-067 — COVER, barra e FLAG
 
+## Segunda rejeição humana — acabamento final
+
+- Em `2026-09-15T00:55:36.0204346-03:00`, `evidencia19.png` foi declarada estado atual rejeitado e `como-deveria-ser.png` permaneceu como alvo visual.
+- O pedido complementar integral está preservado em `.ia.rules/state/requests/FT-066/acabamento-final.md`.
+- A inspeção real do baseline em `1402×1157`, DPR efetivo `1,2`, mediu `upper=21,25 px`, `lower=58,32 px` e sobreposição `cover ∩ upper=21,25 px`.
+- Somente `upper` possuía `backdrop-filter: blur(12px) saturate(1.18)` e gradiente com alpha; `lower` usava fundo opaco e nenhum backdrop. Assim, a presença formal de blur não produzia vidro contínuo na superfície percebida.
+- A nova especialização exige mais entrada estrutural no COVER, alpha e gradiente contínuos nas duas regiões, backdrop real dinâmico, foreground nítido e sombra somente externa. FLAG, SVGs, estrutura única e correção de stacking anterior permanecem preservados.
+- FT-065, FT-066 e FT-067 foram reabertas; nenhum aceite visual anterior vale como conclusão desta rodada.
+
 ## Rejeição humana e reabertura
 
 - Em `2026-09-14T09:16:59.4158588-03:00`, o resultado foi rejeitado explicitamente com captura da página real `/p/devaneios/` e a declaração `resultado incorreto`.
