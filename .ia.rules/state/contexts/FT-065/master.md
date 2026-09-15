@@ -39,6 +39,7 @@ Eliminar a causa comum das interpretacoes reiteradamente rejeitadas: ancorar a F
 | `evidencia18.png`, encontro COVER/barra | flag inicia pelo topo da caixa; barra nao e vidro completo | sustentacao simulada e duas funcoes visuais perdidas | flag sobe acima da linha de suporte; regiao superior desfoca a COVER | offset pelo anchor ratio; sobreposicao apenas da regiao vitrea | FT-067, diff focal claro/escuro |
 | `evidencia19.png`, barra corrigida anterior | FLAG e coesao preservadas, mas barra baixa; somente `upper` com blur e `lower` opaca | materialidade e posição não convergem ao alvo | duas regiões continuam funcionais numa superfície única com alpha, gradiente e backdrop real; entrada maior deriva da altura da região vítrea | token soma base superior e deslocamento de sustentação; material migra ao deck | `check:covers`, 14 renders reais e matriz 140/140 |
 | `como-deveria-ser.png`, barra | duas regioes funcionais fundidas numa superficie vitrea continua, titulo amarelo inferior e flag secundaria | tentativa anterior limitou o blur a uma faixa pequena e tornou a região inferior opaca | material único com alpha, gradiente, backdrop real e sombra externa; foreground nítido | `deck::before` contínuo, filhos transparentes e sombra no deck | capturas wide/desktop/mobile claro/escuro inspecionadas |
+| `evidencia20.png`, faixa superior da barra | a terceira renderização mantém a arte praticamente intacta atrás do `upper`; o fumê não se distingue visualmente da transparência | a validação aceitou mera presença de alpha e blur, sem exigir densidade perceptível | fumê inequivocamente visível sobre a COVER, ainda translúcido e com variação do backdrop reconhecível | elevar estruturalmente a densidade do gradiente e testar seus patamares computados | FT-067, captura real comparada ao alvo e matriz regressiva |
 | `projeto-cover.pdf`, paginas 4, 5 e 12 | diagrama de suporte e exemplos avisam defeitos de barra/flag | leitura anterior tratou screenshot defeituosa como referencia integral | texto/setas governam; screenshots apenas contextualizam | manter clausulas compativeis e substituir somente a interpretacao rejeitada | FT-065, RCF equalizado |
 | `evidencia9.png` a `evidencia16.png` | registram geometria, modos e regressao anteriores | correcao local nao pode reabrir esses defeitos | proporcao, article-zone/window-zone e todos os modos preservados | matriz completa, nao fixture unica | FT-067, gates COVER existentes ampliados |
 | `e1.png` a `e5.png` e demais evidencias alheias | referencias de blockquote/404 ou contexto nao causal | extrapolar seria alterar fora do necessario | nenhuma mudanca nesses dominios | excluir dos artefatos da FT-066 | diff final limitado |
@@ -70,7 +71,7 @@ Eliminar a causa comum das interpretacoes reiteradamente rejeitadas: ancorar a F
 
 ## Estado
 
-FT-065 equalizada após a segunda rejeição. FT-066 e FT-067 concluídas tecnicamente, com rastreabilidade e matriz aprovadas, mas pendentes de nova validação humana. A TO-DO operacional permanece `⏳` até aceite efetivo.
+FT-065 equalizada após a terceira rejeição. FT-066 e FT-067 reabertas para corrigir a materialidade fumê insuficiente e a validação permissiva. A TO-DO operacional permanece `⏳` até aceite efetivo.
 
 ## Validacao normativa
 

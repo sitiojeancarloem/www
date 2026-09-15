@@ -949,7 +949,7 @@ plano:
   - id: FT-066
     classe: implementacao_codigo
     criado_em: 2026-09-14T00:19:37.6212130-03:00
-    estado: concluida_corrigida_pendente_validacao_humana
+    estado: reaberta_terceira_rejeicao_visual
     depende_de: FT-065
     fonte: TODO.ia.md
     fonte_autorizacao: prompt humano de 2026-09-14T01:30:31.8823778-03:00, com autorizacao explicita para executar FT-066 e FT-067
@@ -1005,10 +1005,19 @@ plano:
         - fallback sem blur preserva geometria, alpha progressivo e contraste
       commit_causal: 96f220e1b76a24f5357892132efdcc146d867062
       commit_rastreabilidade: e8a858774e36c34bd20431e12ff3c0bb06cbd2e2
+    terceira_rejeicao_humana:
+      em: 2026-09-15T01:46:38.5860613-03:00
+      fonte: .ia.rules/state/requests/FT-066/terceira-rejeicao.md
+      evidencia_atual: .ia.rules/state/requests/evidencias/evidencia20.png
+      resultado: rejeitada; a barra permaneceu visualmente transparente e não reproduziu a materialidade fumê inequívoca do alvo
+      causa_confirmada:
+        - o gradiente iniciava com apenas 0,28 de alpha e preservava quase intacta a arte de alto contraste atrás do upper
+        - os testes exigiam apenas presença sintática de alpha e blur, sem patamar mínimo de densidade perceptível
+      proximo_passo: elevar a densidade translúcida sem opacidade total e acrescentar regressão material antes de repetir a comparação real
   - id: FT-067
     classe: integracao_validacao
     criado_em: 2026-09-14T00:19:37.6212130-03:00
-    estado: concluida_pendente_validacao_humana
+    estado: reaberta_apos_terceira_rejeicao
     depende_de: FT-066
     fonte: TODO.ia.md
     fonte_autorizacao: prompt humano de 2026-09-14T01:30:31.8823778-03:00, com autorizacao explicita para executar FT-066 e FT-067
