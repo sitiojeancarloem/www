@@ -380,24 +380,18 @@ aside {
 	z-index: 7;
 	margin-top: 0;
 	overflow: visible;
-	box-shadow: 0 0.58rem 0.72rem -0.58rem var(--jcem-panel-shadow);
-}
-
-.jcem-post-header__deck::before {
-	content: '';
-	position: absolute;
-	inset: 0;
-	z-index: 0;
-	pointer-events: none;
+	// O próprio deck pinta e desfoca o backdrop: assim a superfície fumê não depende
+	// de um pseudo-elemento intermediário cuja presença computada não garantia pintura perceptível.
 	background: linear-gradient(
 		to bottom,
-		color-mix(in srgb, var(--jcem-panel-title-bg) 28%, transparent) 0%,
-		color-mix(in srgb, var(--jcem-panel-title-bg) 48%, transparent) 34%,
-		color-mix(in srgb, var(--jcem-panel-title-bg) 72%, transparent) 68%,
-		color-mix(in srgb, var(--jcem-panel-title-bg) 90%, transparent) 100%
+		color-mix(in srgb, var(--jcem-panel-title-bg) 55%, transparent) 0%,
+		color-mix(in srgb, var(--jcem-panel-title-bg) 70%, transparent) 34%,
+		color-mix(in srgb, var(--jcem-panel-title-bg) 84%, transparent) 68%,
+		color-mix(in srgb, var(--jcem-panel-title-bg) 94%, transparent) 100%
 	);
 	-webkit-backdrop-filter: blur(clamp(9px, 1.35vw, 14px)) saturate(1.14);
 	backdrop-filter: blur(clamp(9px, 1.35vw, 14px)) saturate(1.14);
+	box-shadow: 0 0.58rem 0.72rem -0.58rem var(--jcem-panel-shadow);
 }
 
 .jcem-post-header__deck::after {
@@ -461,12 +455,12 @@ aside {
 }
 
 @supports not ((-webkit-backdrop-filter: blur(1px)) or (backdrop-filter: blur(1px))) {
-	.jcem-post-header__deck::before {
+	.jcem-post-header__deck {
 		background: linear-gradient(
 			to bottom,
-			color-mix(in srgb, var(--jcem-panel-title-bg) 58%, transparent) 0%,
-			color-mix(in srgb, var(--jcem-panel-title-bg) 76%, transparent) 55%,
-			color-mix(in srgb, var(--jcem-panel-title-bg) 92%, transparent) 100%
+			color-mix(in srgb, var(--jcem-panel-title-bg) 68%, transparent) 0%,
+			color-mix(in srgb, var(--jcem-panel-title-bg) 82%, transparent) 55%,
+			color-mix(in srgb, var(--jcem-panel-title-bg) 95%, transparent) 100%
 		);
 	}
 }

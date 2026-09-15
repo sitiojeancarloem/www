@@ -18,6 +18,17 @@ const hasAlphaGradient = (value) =>
 	value.includes('linear-gradient') &&
 	/(?:\/\s*0\.\d+|rgba\([^)]*,\s*0\.\d+\))/iu.test(value) &&
 	!value.includes('url(');
+const gradientAlphaStops = (value) => [
+	...value.matchAll(/\/\s*(0?\.\d+)|rgba?\([^)]*,\s*(0?\.\d+)\)/giu),
+].map((match) => Number(match[1] ?? match[2]));
+const hasPerceptibleSmokeGradient = (value) => {
+	const stops = gradientAlphaStops(value);
+	return stops.length >= 4 &&
+		stops[0] >= 0.52 &&
+		stops.at(-1) <= 0.96 &&
+		stops.every((alpha) => alpha > 0 && alpha < 1) &&
+		stops.every((alpha, index) => index === 0 || alpha > stops[index - 1]);
+};
 const configuredList = (name, fallback) => {
 	const value = process.env[name];
 	return value
@@ -2095,7 +2106,7 @@ const validateCoverPage = async (page, url, theme, viewportName) => {
 		const flagRect = rect(flag);
 		const triangleBaseRect = rect(triangleBase);
 		const titleBarsStyle = titleBars ? window.getComputedStyle(titleBars) : null;
-		const materialStyle = titleBars ? window.getComputedStyle(titleBars, '::before') : null;
+		const materialStyle = titleBars ? window.getComputedStyle(titleBars) : null;
 		const upperBarStyle = upperBar ? window.getComputedStyle(upperBar) : null;
 		const lowerBarStyle = lowerBar ? window.getComputedStyle(lowerBar) : null;
 		const titleStyle = title ? window.getComputedStyle(title) : null;
@@ -2268,6 +2279,7 @@ const validateCoverPage = async (page, url, theme, viewportName) => {
 		result.titleParent !== 'lower' ||
 		Math.abs(result.upperBarRect.bottom - result.lowerBarRect.top) > geometryTolerance ||
 		!hasAlphaGradient(result.materialBackground) ||
+		!hasPerceptibleSmokeGradient(result.materialBackground) ||
 		result.materialBackground.includes('90deg') ||
 		!result.materialBackdropFilter.includes('blur') ||
 		result.deckShadow === 'none' ||
