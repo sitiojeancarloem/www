@@ -1,5 +1,20 @@
 # Validação FT-066/FT-067 — COVER, barra e FLAG
 
+## Terceira correção — fumê perceptível após `evidencia20.png`
+
+- Fonte da rejeição: `.ia.rules/state/requests/FT-066/terceira-rejeicao.md`; estado rejeitado: `evidencia20.png`; alvo vigente: `como-deveria-ser.png`.
+- Causa confirmada: o topo do gradiente possuía somente `0,28` de alpha e a validação aceitava presença nominal de alpha/blur, sem patamar de densidade; a arte de alto contraste permanecia visualmente quase intacta sob a faixa superior.
+- Correção: o próprio `.jcem-post-header__deck` passou a pintar o gradiente vertical e aplicar `backdrop-filter`, eliminando a camada material intermediária. O alpha progride por `0,55 → 0,70 → 0,84 → 0,94`, sempre abaixo de `1`; filhos continuam transparentes e sem filtros, e a sombra permanece externa no deck.
+- Regressão causal: o build anterior falhou em `material fumê contínuo ou perceptível incompleto`; o teste novo exige ao menos quatro patamares crescentes, início mínimo `0,52`, término máximo `0,96`, ausência de opacidade total, blur real e zero COVER duplicada.
+- Commit causal: `f1c833355d7298fb0ac6e069f9ee6bcd5870709e`; rastreabilidade RCF: `7ca24ce280`.
+- Build isolado: aprovado em `126,215 s` sob `tmp/ft066-third-candidate`.
+- `npm run check:covers`: aprovado com quatro modos legados, seis estendidos, seis zonas Hero, resize, orientação e DPR 2; inclui a rota real em `1119×900`.
+- `/p/devaneios/`: 14 combinações aprovadas em sete viewports e dois temas; a captura `visual-artifacts/ft066-third-devaneios/browser-dark-smoke.png` foi inspecionada no navegador e mostra a faixa real da COVER escurecida/desfocada sob o fumê, com título e FLAG nítidos.
+- Matriz compartilhada: 140 combinações aprovadas nos dez modos, sete viewports e dois temas.
+- Acessibilidade estrutural/runtime, impressão, desempenho, publicação e documentação aprovaram. `rcf-trace validate` aprovou `354` entradas e `332` sentenças materiais.
+- `_site`, `tmp/` e `visual-artifacts/` permanecem derivados locais fora dos commits.
+- Estado técnico: concluído, pendente de validação humana; a TO-DO operacional permanece `⏳`.
+
 ## Correção final e revalidação após `evidencia19.png`
 
 - Correção normativa: `92c44d7d0173997d9097e096942400da8bf5b82d`; commit causal: `96f220e1b76a24f5357892132efdcc146d867062`; rastreabilidade RCF: `e8a858774e36c34bd20431e12ff3c0bb06cbd2e2`.

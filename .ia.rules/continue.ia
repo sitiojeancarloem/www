@@ -949,7 +949,7 @@ plano:
   - id: FT-066
     classe: implementacao_codigo
     criado_em: 2026-09-14T00:19:37.6212130-03:00
-    estado: reaberta_terceira_rejeicao_visual
+    estado: concluida_corrigida_pendente_validacao_humana
     depende_de: FT-065
     fonte: TODO.ia.md
     fonte_autorizacao: prompt humano de 2026-09-14T01:30:31.8823778-03:00, com autorizacao explicita para executar FT-066 e FT-067
@@ -1013,11 +1013,17 @@ plano:
       causa_confirmada:
         - o gradiente iniciava com apenas 0,28 de alpha e preservava quase intacta a arte de alto contraste atrás do upper
         - os testes exigiam apenas presença sintática de alpha e blur, sem patamar mínimo de densidade perceptível
-      proximo_passo: elevar a densidade translúcida sem opacidade total e acrescentar regressão material antes de repetir a comparação real
+      correcao:
+        - o proprio deck passou a pintar o gradiente e aplicar backdrop-filter, sem pseudo-elemento material intermediario
+        - alpha progride por 0,55, 0,70, 0,84 e 0,94, sempre translucido; regressao exige densidade minima e progressao estrita
+        - rota real aprovou 14 combinacoes e a matriz compartilhada aprovou 140 combinacoes; captura escura foi inspecionada no navegador
+      commit_causal: f1c833355d7298fb0ac6e069f9ee6bcd5870709e
+      commit_rastreabilidade: 7ca24ce280
+      proximo_passo: nova validacao humana do acabamento fumê; manter a TO-DO operacional em andamento ate aprovacao efetiva
   - id: FT-067
     classe: integracao_validacao
     criado_em: 2026-09-14T00:19:37.6212130-03:00
-    estado: reaberta_apos_terceira_rejeicao
+    estado: concluida_corrigida_pendente_validacao_humana
     depende_de: FT-066
     fonte: TODO.ia.md
     fonte_autorizacao: prompt humano de 2026-09-14T01:30:31.8823778-03:00, com autorizacao explicita para executar FT-066 e FT-067
@@ -1064,6 +1070,14 @@ plano:
       - material computado possui gradiente alpha 0,28 a 0,90, blur dinamico e zero COVER duplicada; foreground computou sem filtros
       - acessibilidade, runtime acessivel, impressao, desempenho, publicacao, documentacao e rcf-trace aprovaram
       - evidencias locais em visual-artifacts/ft066-final-devaneios e visual-artifacts/ft066-final-matrix; derivados nao integram Git
+    revalidacao_apos_terceira_rejeicao:
+      - build isolado aprovado em 126,215 segundos sob tmp/ft066-third-candidate
+      - check:covers aprovou quatro modos legados, seis estendidos, seis zonas Hero, resize, orientacao e DPR 2, incluindo Devaneios em 1119 por 900
+      - pagina real Devaneios aprovou 14 combinacoes em sete viewports e dois temas; matriz integral aprovou 140 combinacoes
+      - material computado pertence ao deck, progride com alpha 0,55 a 0,94, preserva blur 14 px no viewport medido e mantem foreground sem filtros
+      - inspecao visual confirmou fumê visivel, faixa real da COVER escurecida e desfocada, titulo e FLAG nitidos
+      - acessibilidade, runtime acessivel, impressao, desempenho, publicacao, documentacao e rcf-trace aprovaram
+      - evidencias locais em visual-artifacts/ft066-third-devaneios e visual-artifacts/ft066-third-matrix; derivados nao integram Git
     proximo_passo: nova validacao humana do resultado visual; manter a TO-DO operacional em andamento ate aprovacao efetiva
 lacunas:
   - id: GAP-RCF-MODULE-2026-001

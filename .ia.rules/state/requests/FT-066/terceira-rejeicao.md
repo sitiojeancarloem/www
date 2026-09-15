@@ -6,7 +6,7 @@
 - Alvo vigente: `../evidencias/como-deveria-ser.png`.
 - FTs: FT-065, FT-066 e FT-067.
 - RCFs: RCF-JCEM-CARREGAMENTO-PROGRESSIVO-001 e RCF-JCEM-COMPONENTES-COMPARTILHADOS-001.
-- Estado de incorporação: capturada integralmente; correção de código e revalidação reabertas.
+- Estado de incorporação: capturada integralmente; correção de código e revalidação concluídas, pendentes de validação humana.
 
 ---
 
