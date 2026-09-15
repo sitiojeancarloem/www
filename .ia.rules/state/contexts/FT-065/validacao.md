@@ -1,5 +1,19 @@
 # Validação FT-066/FT-067 — COVER, barra e FLAG
 
+## Quarta correção — blur integral perceptível
+
+- Fonte humana: `.ia.rules/state/requests/FT-066/quarta-correcao-blur.md`; o fumê foi reconhecido como `98% aderente`, restando somente o desfoque perceptível de todo o conteúdo subjacente dentro da barra.
+- Preservação: alpha `0,55 → 0,94`, gradiente, geometria, FLAG, título, sombra e demais recursos permaneceram inalterados.
+- Correção: o `backdrop-filter` do próprio deck passou de `clamp(9px, 1.35vw, 14px)` para `clamp(20px, 2.5vw, 30px)`. A saída do backdrop continua recortada ao border-box da barra; os filhos permanecem sem filtro.
+- Regressão causal: contra `tmp/ft066-third-candidate`, o teste novo falhou ao medir `blur(14px)`; o candidato corrigido aprovou exigindo raio computado mínimo de `20px`.
+- Inspeção no navegador da rota `/p/devaneios/`: deck `1177,03 × 92,85 px`, `blur(30px) saturate(1.14)`; `upper`, `lower`, título e FLAG com filtros `none`. A faixa amarela e a pista ficam desfocadas somente na área da barra.
+- Evidência local: `visual-artifacts/ft066-fourth-devaneios/browser-dark-blur.png`.
+- Commit causal: `308608a70b4f27a37da21959fd5189cc461d4836`; rastreabilidade RCF: `301f53152d428c211a173a087d37e2db4c29e3d6`.
+- Build isolado aprovado em `159,411 s` sob `tmp/ft066-fourth-candidate`; `check:covers` aprovado com quatro modos legados, seis estendidos, seis zonas Hero, resize, orientação e DPR 2.
+- `/p/devaneios/`: 14 combinações aprovadas em sete viewports e dois temas. Matriz compartilhada: 140 combinações aprovadas nos dez modos, sete viewports e dois temas.
+- Acessibilidade estrutural/runtime, impressão, desempenho, publicação e documentação aprovaram. `rcf-trace validate` aprovou `354` entradas e `332` sentenças materiais.
+- Estado técnico: concluído, pendente de validação humana; a TO-DO operacional permanece `⏳`.
+
 ## Terceira correção — fumê perceptível após `evidencia20.png`
 
 - Fonte da rejeição: `.ia.rules/state/requests/FT-066/terceira-rejeicao.md`; estado rejeitado: `evidencia20.png`; alvo vigente: `como-deveria-ser.png`.

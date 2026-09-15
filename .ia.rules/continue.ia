@@ -949,7 +949,7 @@ plano:
   - id: FT-066
     classe: implementacao_codigo
     criado_em: 2026-09-14T00:19:37.6212130-03:00
-    estado: em_correcao_blur_autorizada
+    estado: concluida_corrigida_pendente_validacao_humana
     depende_de: FT-065
     fonte: TODO.ia.md
     fonte_autorizacao: prompt humano de 2026-09-14T01:30:31.8823778-03:00, com autorizacao explicita para executar FT-066 e FT-067
@@ -1025,11 +1025,18 @@ plano:
       fonte: .ia.rules/state/requests/FT-066/quarta-correcao-blur.md
       resultado: 98 por cento aderente; falta tornar perceptivel o blur de todo o conteudo subjacente, recortado estritamente pela area da barra de titulo
       preservacao: manter fumê, alpha, geometria, FLAG e foreground já aderentes; alterar somente o backdrop blur do deck
-      proximo_passo: exigir raio minimo mensuravel no teste, provar a falha no build anterior, implementar no deck inteiro e revalidar a rota real
+      correcao:
+        - o raio responsivo do backdrop do deck inteiro passou de clamp 9 a 14 px para clamp 20 a 30 px, sem alterar alpha, geometria, sombra ou foreground
+        - o teste exige raio computado minimo de 20 px; contra o build anterior falhou explicitamente ao medir blur de 14 px
+        - no navegador real, o deck mediu 92,85 px e blur de 30 px; upper, lower, titulo e FLAG permaneceram sem filtros
+        - rota real aprovou 14 combinacoes e matriz compartilhada aprovou 140 combinacoes; a pintura foi inspecionada em visual-artifacts/ft066-fourth-devaneios/browser-dark-blur.png
+      commit_causal: 308608a70b4f27a37da21959fd5189cc461d4836
+      commit_rastreabilidade: 301f53152d428c211a173a087d37e2db4c29e3d6
+      proximo_passo: validacao humana final do blur; manter a TO-DO operacional em andamento ate aprovacao efetiva
   - id: FT-067
     classe: integracao_validacao
     criado_em: 2026-09-14T00:19:37.6212130-03:00
-    estado: em_revalidacao_blur_autorizada
+    estado: concluida_corrigida_pendente_validacao_humana
     depende_de: FT-066
     fonte: TODO.ia.md
     fonte_autorizacao: prompt humano de 2026-09-14T01:30:31.8823778-03:00, com autorizacao explicita para executar FT-066 e FT-067
@@ -1084,7 +1091,15 @@ plano:
       - inspecao visual confirmou fumê visivel, faixa real da COVER escurecida e desfocada, titulo e FLAG nitidos
       - acessibilidade, runtime acessivel, impressao, desempenho, publicacao, documentacao e rcf-trace aprovaram
       - evidencias locais em visual-artifacts/ft066-third-devaneios e visual-artifacts/ft066-third-matrix; derivados nao integram Git
-    proximo_passo: nova validacao humana do resultado visual; manter a TO-DO operacional em andamento ate aprovacao efetiva
+    revalidacao_apos_correcao_do_blur:
+      - build isolado aprovado em 159,411 segundos sob tmp/ft066-fourth-candidate
+      - check:covers aprovou quatro modos legados, seis estendidos, seis zonas Hero, resize, orientacao e DPR 2, incluindo Devaneios em 1119 por 900
+      - pagina real Devaneios aprovou 14 combinacoes em sete viewports e dois temas; matriz integral aprovou 140 combinacoes
+      - teste causal exige blur computado minimo de 20 px e falhou no build anterior, que possuia 14 px
+      - navegador mediu deck integral de 92,85 px com blur de 30 px; upper, lower, titulo e FLAG permaneceram sem filtros
+      - acessibilidade, runtime acessivel, impressao, desempenho, publicacao, documentacao e rcf-trace aprovaram
+      - evidencia local em visual-artifacts/ft066-fourth-devaneios/browser-dark-blur.png; derivados nao integram Git
+    proximo_passo: validacao humana final do blur; manter a TO-DO operacional em andamento ate aprovacao efetiva
 lacunas:
   - id: GAP-RCF-MODULE-2026-001
     estado: isolada_fora_do_escopo

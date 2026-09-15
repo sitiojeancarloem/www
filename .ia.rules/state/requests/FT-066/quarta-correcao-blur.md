@@ -4,7 +4,7 @@
 - Recebido em: `2026-09-15T09:42:28.3330329-03:00`.
 - FTs: FT-066 e FT-067.
 - RCFs: RCF-JCEM-CARREGAMENTO-PROGRESSIVO-001 e RCF-JCEM-COMPONENTES-COMPARTILHADOS-001.
-- Estado de incorporação: capturada integralmente; implementação e revalidação em andamento.
+- Estado de incorporação: capturada integralmente; correção de código e revalidação concluídas, pendentes de validação humana.
 - Preservação explícita: manter fumê, alpha, geometria, FLAG e foreground já aderentes; corrigir somente o desfoque do conteúdo subjacente.
 
 ---
