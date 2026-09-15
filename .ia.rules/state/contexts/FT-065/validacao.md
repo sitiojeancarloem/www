@@ -1,5 +1,21 @@
 # Validação FT-066/FT-067 — COVER, barra e FLAG
 
+## Correção final e revalidação após `evidencia19.png`
+
+- Correção normativa: `92c44d7d0173997d9097e096942400da8bf5b82d`; commit causal: `96f220e1b76a24f5357892132efdcc146d867062`; rastreabilidade RCF: `e8a858774e36c34bd20431e12ff3c0bb06cbd2e2`.
+- A profundidade superior deixou de ser apenas `27%` da altura da FLAG e passou a somar o deslocamento intrínseco de sustentação `16,850252%`; em `1515×990`, resultou em `34,53125 px`, sem pixel de viewport nem regra por artigo.
+- No mesmo viewport, `upper.bottom = lower.top = cover.bottom = 722,48694 px`; a linha de sustentação da FLAG divergiu de `upper.top` por somente `0,001385 px` de subpixel.
+- O `deck::before` forma a única superfície material: gradiente vertical com alpha `0,28 → 0,48 → 0,72 → 0,90` e `backdrop-filter: blur(14px) saturate(1.14)` no viewport medido. Não há `url(...)`, imagem ou COVER duplicada dentro do deck.
+- `upper`, `lower` e título computaram fundo transparente quando aplicável, `filter: none` e `backdrop-filter: none`; a FLAG e o texto permanecem em foreground nítido. A sombra positiva pertence ao contorno externo do deck, e as regiões não possuem sombra própria.
+- Teste causal contra o build anterior falhou primeiro por ausência do novo token estrutural e depois pela profundidade antiga, comprovando que a regressão distingue o estado rejeitado.
+- `check:covers` aprovou quatro modos legados, seis estendidos, seis zonas Hero, resize, orientação e DPR 2. O teste de resize também exige material com alpha/blur, zero cópia de COVER e mudança efetiva das coordenadas da região real sob o vidro.
+- `/p/devaneios/` aprovou 14 combinações de sete viewports e dois temas. Capturas desktop/escuro, wide/escuro e mobile/claro foram inspecionadas em resolução de viewport.
+- A matriz integral aprovou 140 combinações dos dez modos em sete viewports e dois temas. Uma tentativa anterior sem `VISUAL_PAGES` foi inválida por direcionar o perfil COVER à raiz `/`, que não possui COVER; a repetição com os dez caminhos canônicos aprovou.
+- Acessibilidade estrutural e runtime, impressão, desempenho, publicação e documentação aprovaram. `rcf-trace validate` aprovou `354` entradas e `332` sentenças materiais.
+- Build candidato isolado: aprovado em `126,6 s` sob `tmp/ft066-bar-candidate`; `_site`, `tmp/` e `visual-artifacts/` não integram os commits.
+- Evidências posteriores locais: `visual-artifacts/ft066-final-devaneios/` e `visual-artifacts/ft066-final-matrix/`.
+- Estado técnico: concluído, pendente de validação humana; a TO-DO operacional permanece `⏳`.
+
 ## Segunda rejeição humana — acabamento final
 
 - Em `2026-09-15T00:55:36.0204346-03:00`, `evidencia19.png` foi declarada estado atual rejeitado e `como-deveria-ser.png` permaneceu como alvo visual.

@@ -922,7 +922,7 @@ plano:
   - id: FT-065
     classe: implementacao_normativa
     criado_em: 2026-09-14T00:19:37.6212130-03:00
-    estado: reaberta_correcao_final
+    estado: concluida_corrigida
     fonte: TODO.ia.md
     contexto: .ia.rules/state/contexts/FT-065/master.md
     objetivo: Equalizar as nao aderencias reiteradas de flag e barra de titulo com o RCF vigente e tornar inequivocas as referencias geometricas, visuais e funcionais.
@@ -940,11 +940,16 @@ plano:
       - RCFs agora separam upper glass e lower solid, limitam a sobreposicao a faixa terminal cabivel, vinculam a flag ao path real e excluem cards
       - dez modos, Hero, temas, impressao e geometrias ja vigentes permanecem preservados; implementacao e validacao aguardam nova autorizacao
     reabertura_2026_09_15: evidencia19.png rejeitou o acabamento final; corrigir RCF, materialidade e posicao sem regredir a FLAG
-    proximo_passo: equalizar RCF ao pedido complementar e prosseguir com FT-066 autorizada
+    correcao_normativa_2026_09_15:
+      - duas regioes funcionais preservadas numa unica superficie vitrea continua com alpha, gradiente e backdrop nativo
+      - profundidade superior acrescida pelo deslocamento intrinseco de sustentacao da FLAG, sem offset de viewport
+      - sombra externa segregada do material e foreground proibido de receber filter ou backdrop-filter
+      - commit_normativo: 92c44d7d0173997d9097e096942400da8bf5b82d
+    proximo_passo: validacao humana do acabamento integrado pela FT-067
   - id: FT-066
     classe: implementacao_codigo
     criado_em: 2026-09-14T00:19:37.6212130-03:00
-    estado: reaberta_correcao_final
+    estado: concluida_corrigida_pendente_validacao_humana
     depende_de: FT-065
     fonte: TODO.ia.md
     fonte_autorizacao: prompt humano de 2026-09-14T01:30:31.8823778-03:00, com autorizacao explicita para executar FT-066 e FT-067
@@ -992,10 +997,18 @@ plano:
         - lower media 58,32 px, usava fundo totalmente opaco e nenhum backdrop
         - a composicao entrava pouco no COVER e interrompia a materialidade vitrea antes do titulo
       preservacao: FLAG, SVGs, barra unica, modos COVER, Hero, responsividade e correcao de stacking anterior
+    correcao_final_2026_09_15:
+      implementacao:
+        - token de altura superior soma proporcao-base 0,27 ao deslocamento real de sustentacao 0,16850252
+        - deck before aplica um unico gradiente com alpha e backdrop-filter sobre as duas regioes, sem copia da COVER
+        - upper, lower, titulo e FLAG permanecem foreground nitido; sombra pertence somente ao contorno externo do deck
+        - fallback sem blur preserva geometria, alpha progressivo e contraste
+      commit_causal: 96f220e1b76a24f5357892132efdcc146d867062
+      commit_rastreabilidade: e8a858774e36c34bd20431e12ff3c0bb06cbd2e2
   - id: FT-067
     classe: integracao_validacao
     criado_em: 2026-09-14T00:19:37.6212130-03:00
-    estado: reaberta_correcao_final
+    estado: concluida_pendente_validacao_humana
     depende_de: FT-066
     fonte: TODO.ia.md
     fonte_autorizacao: prompt humano de 2026-09-14T01:30:31.8823778-03:00, com autorizacao explicita para executar FT-066 e FT-067
@@ -1033,7 +1046,16 @@ plano:
     segunda_rejeicao_humana:
       em: 2026-09-15T00:55:36.0204346-03:00
       resultado: rejeitada; evidencia19.png comprova posicao baixa e materialidade vitrea insuficiente
-    proximo_passo: executar nova matriz apos a correcao e manter a TO-DO operacional em andamento ate aprovacao efetiva
+    revalidacao_final_2026_09_15:
+      - build isolado aprovado em 126,6 segundos sob tmp/ft066-bar-candidate
+      - check:covers aprovou quatro modos legados, seis estendidos, seis zonas Hero, resize, orientacao e DPR 2
+      - pagina real Devaneios aprovou 14 combinacoes em sete viewports e dois temas
+      - matriz integral aprovou 140 combinacoes dos dez modos, sete viewports e dois temas
+      - no viewport 1515 por 990, sobreposicao superior mediu 34,53125 px e erro de sustentacao da FLAG ficou em 0,001385 px
+      - material computado possui gradiente alpha 0,28 a 0,90, blur dinamico e zero COVER duplicada; foreground computou sem filtros
+      - acessibilidade, runtime acessivel, impressao, desempenho, publicacao, documentacao e rcf-trace aprovaram
+      - evidencias locais em visual-artifacts/ft066-final-devaneios e visual-artifacts/ft066-final-matrix; derivados nao integram Git
+    proximo_passo: nova validacao humana do resultado visual; manter a TO-DO operacional em andamento ate aprovacao efetiva
 lacunas:
   - id: GAP-RCF-MODULE-2026-001
     estado: isolada_fora_do_escopo

@@ -5,7 +5,7 @@
 - Evidências vinculadas: `../evidencias/evidencia19.png` (estado rejeitado) e `../evidencias/como-deveria-ser.png` (alvo visual).
 - FTs: FT-065, FT-066 e FT-067.
 - RCFs: RCF-JCEM-CARREGAMENTO-PROGRESSIVO-001 e RCF-JCEM-COMPONENTES-COMPARTILHADOS-001.
-- Estado de incorporação: capturada integralmente; aguardando correção e validação.
+- Estado de incorporação: capturada integralmente; correção técnica e validação automatizada concluídas, pendentes de validação humana.
 
 ---
 
