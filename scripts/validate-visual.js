@@ -29,6 +29,10 @@ const hasPerceptibleSmokeGradient = (value) => {
 		stops.every((alpha) => alpha > 0 && alpha < 1) &&
 		stops.every((alpha, index) => index === 0 || alpha > stops[index - 1]);
 };
+const backdropBlurRadius = (value) => Number(
+	String(value).match(/blur\(\s*([0-9.]+)px\s*\)/iu)?.[1] || 0,
+);
+const hasPerceptibleFullBarBlur = (value) => backdropBlurRadius(value) >= 20;
 const configuredList = (name, fallback) => {
 	const value = process.env[name];
 	return value
@@ -2281,7 +2285,7 @@ const validateCoverPage = async (page, url, theme, viewportName) => {
 		!hasAlphaGradient(result.materialBackground) ||
 		!hasPerceptibleSmokeGradient(result.materialBackground) ||
 		result.materialBackground.includes('90deg') ||
-		!result.materialBackdropFilter.includes('blur') ||
+		!hasPerceptibleFullBarBlur(result.materialBackdropFilter) ||
 		result.deckShadow === 'none' ||
 		result.upperBarBackground !== 'none' ||
 		result.upperBarBackgroundColor !== 'rgba(0, 0, 0, 0)' ||

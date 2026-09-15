@@ -30,6 +30,10 @@ const hasPerceptibleSmokeGradient = (value) => {
 		stops.every((alpha) => alpha > 0 && alpha < 1) &&
 		stops.every((alpha, index) => index === 0 || alpha > stops[index - 1]);
 };
+const backdropBlurRadius = (value) => Number(
+	String(value).match(/blur\(\s*([0-9.]+)px\s*\)/iu)?.[1] || 0,
+);
+const hasPerceptibleFullBarBlur = (value) => backdropBlurRadius(value) >= 20;
 const svgSupportRatios = [];
 for (const filename of ['flagVermelho.svg', 'flagCinza.svg']) {
 	const svg = await readFile(path.join(sourceRoot, 'assets', 'jcem', 'img', filename), 'utf8');
@@ -194,7 +198,7 @@ try {
 			assert.ok(Math.abs(state.upperBar.height / state.flag.height - (upperBaseToken + supportToken)) <= 0.005, `profundidade estrutural da região superior divergente ${mode}: ${JSON.stringify(state)}`);
 		}
 		assert.ok(Math.abs(state.supportRatio - supportToken) <= 1e-8, `token renderizado divergente ${mode}`);
-		assert.ok(hasAlphaGradient(state.materialBackground) && hasPerceptibleSmokeGradient(state.materialBackground) && state.materialBackdropFilter.includes('blur'), `material fumê contínuo ou perceptível incompleto ${mode}: ${JSON.stringify(state)}`);
+		assert.ok(hasAlphaGradient(state.materialBackground) && hasPerceptibleSmokeGradient(state.materialBackground) && hasPerceptibleFullBarBlur(state.materialBackdropFilter), `material fumê contínuo ou blur integral perceptível incompleto ${mode}: ${JSON.stringify(state)}`);
 		assert.notEqual(state.deckShadow, 'none', `sombra externa do conjunto ausente ${mode}`);
 		assert.ok(state.upperBackground === 'none' && state.upperBackgroundColor === 'rgba(0, 0, 0, 0)' && state.upperFilter === 'none' && state.upperBackdropFilter === 'none' && state.upperShadow === 'none', `foreground superior contaminado ${mode}: ${JSON.stringify(state)}`);
 		assert.ok(state.lowerBackground === 'rgba(0, 0, 0, 0)' && state.lowerBackgroundImage === 'none' && state.lowerFilter === 'none' && state.lowerBackdropFilter === 'none' && state.lowerShadow === 'none', `foreground inferior contaminado ${mode}: ${JSON.stringify(state)}`);
@@ -284,7 +288,7 @@ try {
 			resized.overflow <= 1,
 			`resize contínuo rompeu cover comum ${width}x${height}: ${JSON.stringify(resized)}`,
 		);
-		assert.ok(hasAlphaGradient(resized.materialBackground) && hasPerceptibleSmokeGradient(resized.materialBackground) && resized.materialBackdropFilter.includes('blur') && resized.duplicateCoverInDeck === 0, `backdrop fumê real perdido ou imperceptível em resize ${width}x${height}: ${JSON.stringify(resized)}`);
+		assert.ok(hasAlphaGradient(resized.materialBackground) && hasPerceptibleSmokeGradient(resized.materialBackground) && hasPerceptibleFullBarBlur(resized.materialBackdropFilter) && resized.duplicateCoverInDeck === 0, `backdrop fumê real perdido, fraco ou não integral em resize ${width}x${height}: ${JSON.stringify(resized)}`);
 		backdropRegions.push(`${resized.stage.top.toFixed(2)}:${resized.upperBar.top.toFixed(2)}:${resized.upperBar.height.toFixed(2)}`);
 	}
 	assert.ok(new Set(backdropRegions).size > 1, `região real do COVER atrás do vidro não acompanhou resize/orientação: ${JSON.stringify(backdropRegions)}`);
@@ -360,7 +364,7 @@ try {
 			assert.ok(Math.abs(legacy.upperBar.height / legacy.flag.height - (upperBaseToken + supportToken)) <= 0.005, `profundidade estrutural da região superior divergente ${mode}: ${JSON.stringify(legacy)}`);
 		}
 		assert.ok(Math.abs(legacy.supportRatio - supportToken) <= 1e-8, `token renderizado divergente ${mode}`);
-		assert.ok(hasAlphaGradient(legacy.materialBackground) && hasPerceptibleSmokeGradient(legacy.materialBackground) && legacy.materialBackdropFilter.includes('blur'), `material fumê contínuo ou perceptível incompleto ${mode}: ${JSON.stringify(legacy)}`);
+		assert.ok(hasAlphaGradient(legacy.materialBackground) && hasPerceptibleSmokeGradient(legacy.materialBackground) && hasPerceptibleFullBarBlur(legacy.materialBackdropFilter), `material fumê contínuo ou blur integral perceptível incompleto ${mode}: ${JSON.stringify(legacy)}`);
 		assert.notEqual(legacy.deckShadow, 'none', `sombra externa do conjunto ausente ${mode}`);
 		assert.ok(legacy.upperBackground === 'none' && legacy.upperBackgroundColor === 'rgba(0, 0, 0, 0)' && legacy.upperFilter === 'none' && legacy.upperBackdropFilter === 'none' && legacy.upperShadow === 'none', `foreground superior contaminado ${mode}: ${JSON.stringify(legacy)}`);
 		assert.ok(legacy.lowerBackground === 'rgba(0, 0, 0, 0)' && legacy.lowerBackgroundImage === 'none' && legacy.lowerFilter === 'none' && legacy.lowerBackdropFilter === 'none' && legacy.lowerShadow === 'none', `foreground inferior contaminado ${mode}: ${JSON.stringify(legacy)}`);

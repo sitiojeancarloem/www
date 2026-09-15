@@ -389,8 +389,10 @@ aside {
 		color-mix(in srgb, var(--jcem-panel-title-bg) 84%, transparent) 68%,
 		color-mix(in srgb, var(--jcem-panel-title-bg) 94%, transparent) 100%
 	);
-	-webkit-backdrop-filter: blur(clamp(9px, 1.35vw, 14px)) saturate(1.14);
-	backdrop-filter: blur(clamp(9px, 1.35vw, 14px)) saturate(1.14);
+	// O filtro pertence ao deck inteiro: a saída é recortada ao border-box da barra,
+	// enquanto título e FLAG permanecem nítidos nas camadas filhas.
+	-webkit-backdrop-filter: blur(clamp(20px, 2.5vw, 30px)) saturate(1.14);
+	backdrop-filter: blur(clamp(20px, 2.5vw, 30px)) saturate(1.14);
 	box-shadow: 0 0.58rem 0.72rem -0.58rem var(--jcem-panel-shadow);
 }
 
