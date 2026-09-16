@@ -144,6 +144,24 @@
       ]
     },
     {
+      "path": ".ia.rules/package.json",
+      "profile": "consumer-runtime",
+      "destination": ".ia.rules/package.json",
+      "purpose": "fronteira CommonJS comum a runtimes, migrações e cenários distribuídos",
+      "roles": [
+        "final",
+        "constructor"
+      ],
+      "condition": "managed-command-or-scenario-runtime",
+      "ownership": "managed",
+      "validation": [
+        "source-exists",
+        "destination-unique",
+        "integrity-at-build",
+        "commonjs-boundary"
+      ]
+    },
+    {
       "path": ".ia.rules/config/core.json",
       "profile": "consumer-core",
       "destination": ".ia.rules/config/core.json",
@@ -680,6 +698,31 @@
       }
     },
     {
+      "path": ".ia.rules/core/runtime/scripts/context-session-cache.ts",
+      "profile": "consumer-runtime",
+      "destination": ".ia.rules/core/runtime/scripts/context-session-cache.ts",
+      "purpose": "cache contextual intrassessão validado por identidade e hash",
+      "roles": [
+        "final",
+        "constructor"
+      ],
+      "condition": "managed-context-routing",
+      "ownership": "managed",
+      "validation": [
+        "source-exists",
+        "destination-unique",
+        "integrity-at-build",
+        "session-cache-fail-closed"
+      ],
+      "language": "typescript",
+      "artifact": {
+        "destination": ".ia.rules/core/runtime/scripts/context-session-cache.js",
+        "format": "commonjs",
+        "target": "node24",
+        "builder": "typescript@7.0.2+esbuild@0.28.1"
+      }
+    },
+    {
       "path": ".ia.rules/core/runtime/scripts/repo-tools.ts",
       "profile": "consumer-runtime",
       "destination": ".ia.rules/core/runtime/scripts/repo-tools.ts",
@@ -1208,6 +1251,36 @@
         "destination-unique",
         "integrity-at-build"
       ]
+    },
+    {
+      "path": ".ia.rules/resources/editorial-authoring.md",
+      "profile": "consumer-scenario",
+      "destination": ".ia.rules/resources/editorial-authoring.md",
+      "purpose": "contrato condicional de edição autoral e inteligibilidade",
+      "roles": ["final", "constructor"],
+      "condition": "editorial-authoring-or-revision",
+      "ownership": "managed",
+      "validation": ["source-exists", "destination-unique", "integrity-at-build"]
+    },
+    {
+      "path": ".ia.rules/resources/spoken-normalization.md",
+      "profile": "consumer-scenario",
+      "destination": ".ia.rules/resources/spoken-normalization.md",
+      "purpose": "contrato condicional de normalização semântico-fonética",
+      "roles": ["final", "constructor"],
+      "condition": "spoken-representation-or-tts-normalization",
+      "ownership": "managed",
+      "validation": ["source-exists", "destination-unique", "integrity-at-build"]
+    },
+    {
+      "path": ".ia.rules/resources/context-cost-audit.md",
+      "profile": "consumer-scenario",
+      "destination": ".ia.rules/resources/context-cost-audit.md",
+      "purpose": "contrato e rota da Skill futura de auditoria de custo contextual",
+      "roles": ["final", "constructor"],
+      "condition": "context-token-route-memory-state-recovery-audit",
+      "ownership": "managed",
+      "validation": ["source-exists", "destination-unique", "integrity-at-build"]
     },
     {
       "path": ".ia.rules/resources/long-running.md",
@@ -1932,6 +2005,50 @@
       "unit": {"id":"visual-evidence","kind":"skill","version":"1.0.0","license":"MPL-2.0","trust":"first-party-reviewed","clients":["codex","github-copilot"]}
     },
     {
+      "path": ".ia.rules/skills/context-cost-audit/SKILL.md",
+      "profile": "consumer-core",
+      "destination": ".ia.rules/skills/context-cost-audit/SKILL.md",
+      "purpose": "Skill generalista de auditoria experimental de custo contextual",
+      "roles": ["final", "constructor"],
+      "condition": "context-cost-audit-requested",
+      "ownership": "managed",
+      "validation": ["source-exists", "destination-unique", "integrity-at-build", "skill-frontmatter"],
+      "unit": {"id":"context-cost-audit","kind":"skill","version":"1.0.0","license":"MPL-2.0","trust":"first-party-reviewed","clients":["codex","github-copilot"]}
+    },
+    {
+      "path": ".ia.rules/skills/context-cost-audit/descriptor.json",
+      "profile": "consumer-core",
+      "destination": ".ia.rules/skills/context-cost-audit/descriptor.json",
+      "purpose": "descriptor fechado da Skill context-cost-audit",
+      "roles": ["final", "constructor"],
+      "condition": "context-cost-audit-requested",
+      "ownership": "managed",
+      "validation": ["source-exists", "destination-unique", "integrity-at-build", "skill-schema"],
+      "unit": {"id":"context-cost-audit","kind":"skill","version":"1.0.0","license":"MPL-2.0","trust":"first-party-reviewed","clients":["codex","github-copilot"]}
+    },
+    {
+      "path": ".ia.rules/skills/context-cost-audit/references/experiment-contract.md",
+      "profile": "consumer-core",
+      "destination": ".ia.rules/skills/context-cost-audit/references/experiment-contract.md",
+      "purpose": "contrato sob demanda do experimento contextual",
+      "roles": ["final", "constructor"],
+      "condition": "context-cost-audit-experiment-preparation",
+      "ownership": "managed",
+      "validation": ["source-exists", "destination-unique", "integrity-at-build", "skill-resource-declared"],
+      "unit": {"id":"context-cost-audit","kind":"skill","version":"1.0.0","license":"MPL-2.0","trust":"first-party-reviewed","clients":["codex","github-copilot"]}
+    },
+    {
+      "path": ".ia.rules/skills/context-cost-audit/scripts/context_cost_audit.py",
+      "profile": "consumer-runtime",
+      "destination": ".ia.rules/skills/context-cost-audit/scripts/context_cost_audit.py",
+      "purpose": "medição determinística, combinações e relatório de custo contextual",
+      "roles": ["final", "constructor"],
+      "condition": "context-cost-audit-experiment-execution",
+      "ownership": "managed",
+      "validation": ["source-exists", "destination-unique", "integrity-at-build", "python-native-documentation", "context-cost-fixtures"],
+      "unit": {"id":"context-cost-audit","kind":"skill","version":"1.0.0","license":"MPL-2.0","trust":"first-party-reviewed","clients":["codex","github-copilot"]}
+    },
+    {
       "path": ".ia.rules/subagents/validation-audit/descriptor.json",
       "profile": "consumer-core",
       "destination": ".ia.rules/subagents/validation-audit/descriptor.json",
@@ -1976,6 +2093,30 @@
       "validation": ["source-exists", "destination-unique", "integrity-at-build", "event-driven-wait"],
       "language": "typescript",
       "artifact": {"destination":".ia.rules/core/runtime/scripts/long-running.js","format":"commonjs","target":"node24","builder":"typescript@7.0.2+esbuild@0.28.1"}
+    },
+    {
+      "path": ".ia.rules/core/runtime/scripts/editorial-authoring.ts",
+      "profile": "consumer-runtime",
+      "destination": ".ia.rules/core/runtime/scripts/editorial-authoring.ts",
+      "purpose": "aplicação rastreável de planos editoriais com preservação autoral e hooks opcionais",
+      "roles": ["final", "constructor"],
+      "condition": "editorial-authoring-runtime",
+      "ownership": "managed",
+      "validation": ["source-exists", "destination-unique", "integrity-at-build", "editorial-authoring-fixtures"],
+      "language": "typescript",
+      "artifact": {"destination":".ia.rules/core/runtime/scripts/editorial-authoring.js","format":"commonjs","target":"node24","builder":"typescript@7.0.2+esbuild@0.28.1"}
+    },
+    {
+      "path": ".ia.rules/core/runtime/scripts/spoken-normalization.ts",
+      "profile": "consumer-runtime",
+      "destination": ".ia.rules/core/runtime/scripts/spoken-normalization.ts",
+      "purpose": "normalização semântico-fonética pt-BR desacoplada de sintetizador",
+      "roles": ["final", "constructor"],
+      "condition": "spoken-normalization-runtime",
+      "ownership": "managed",
+      "validation": ["source-exists", "destination-unique", "integrity-at-build", "spoken-normalization-fixtures"],
+      "language": "typescript",
+      "artifact": {"destination":".ia.rules/core/runtime/scripts/spoken-normalization.js","format":"commonjs","target":"node24","builder":"typescript@7.0.2+esbuild@0.28.1"}
     },
     {
       "path": ".ia.rules/core/runtime/scripts/visual-evidence.ts",

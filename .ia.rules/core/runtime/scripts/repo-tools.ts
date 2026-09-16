@@ -13,6 +13,7 @@ const path = require("path");
 
 const { createZipFromDirectory } = require("./archive");
 const { loadConfiguration } = require("./configuration");
+const { deliverSessionContext } = require("./context-session-cache");
 const { buildDistributionMap, distributionMapFileName, distributionMapRelativePath, validateDistributionMap } = require("./distribution-map");
 const { validateRefusedDecisions } = require("./refused-decisions");
 const { resolveExistingReleaseTrigger } = require("./release-trigger-policy");
@@ -272,7 +273,7 @@ Object.assign(COMMANDS, {
   },
   "agent:context": {
     description: "gera contexto executivo compacto",
-    run: context,
+    run: (args) => context(args),
     status: "available",
   },
   "agent:workspace": {
@@ -596,7 +597,33 @@ function validateSourceDistributionManifest(manifest, sourceRoot) {
   if (physical.length !== sources.size) {
     throw new Error(`MANIFESTO_FONTE_NAO_EXAUSTIVO:physical=${physical.length}:declared=${sources.size}`);
   }
+  validateCommonJsArtifactBoundaries(manifest.entries, sourceRoot);
   return manifest;
+}
+
+/** Garante que todo JavaScript CommonJS gerado permaneça sob pacote explicitamente CommonJS. */
+function validateCommonJsArtifactBoundaries(entries, sourceRoot) {
+  const byDestination = new Map(entries.map((entry) => [entry.destination, entry]));
+  const boundaries = new Map([
+    [".ia.rules/", ".ia.rules/package.json"],
+    ["scripts/.agents/", "scripts/.agents/package.json"],
+  ]);
+  for (const entry of entries.filter((candidate) => candidate.artifact && candidate.artifact.format === "commonjs")) {
+    const artifactPath = entry.artifact.destination;
+    const matched = [...boundaries.entries()].find(([prefix]) => artifactPath.startsWith(prefix));
+    if (!matched) throw new Error(`MANIFESTO_FONTE_FRONTEIRA_COMMONJS_AUSENTE:${artifactPath}`);
+    const boundaryEntry = byDestination.get(matched[1]);
+    if (!boundaryEntry) throw new Error(`MANIFESTO_FONTE_FRONTEIRA_COMMONJS_AUSENTE:${artifactPath}:${matched[1]}`);
+    let boundary;
+    try {
+      boundary = JSON.parse(fs.readFileSync(path.join(sourceRoot, boundaryEntry.path), "utf8"));
+    } catch (error) {
+      throw new Error(`MANIFESTO_FONTE_FRONTEIRA_COMMONJS_INVALIDA:${matched[1]}:${error.message}`);
+    }
+    if (!boundary || boundary.type !== "commonjs") {
+      throw new Error(`MANIFESTO_FONTE_FRONTEIRA_COMMONJS_INVALIDA:${matched[1]}`);
+    }
+  }
 }
 
 /** Executa normalizeSourceDistributionPath no fluxo deste módulo; centraliza contrato reutilizável e preserva validações do chamador. */
@@ -1137,7 +1164,14 @@ function testAll() {
   runProcess(process.execPath, [path.join(ROOT_DIR, "test", "updater-git-state.test.js")]);
   runProcess(process.execPath, [path.join(ROOT_DIR, "test", "handoff-fallback.test.js")]);
   runProcess(process.execPath, [path.join(ROOT_DIR, "test", "governance-evolution.test.js")]);
-  return ok("TEST_OK", { suites: 23 });
+  runProcess(process.execPath, [path.join(ROOT_DIR, "test", "editorial-authoring.test.js")]);
+  runProcess(process.execPath, [path.join(ROOT_DIR, "test", "spoken-normalization.test.js")]);
+  runProcess(process.execPath, [path.join(ROOT_DIR, "test", "editorial-tts-integration.test.js")]);
+  runProcess(process.execPath, [path.join(ROOT_DIR, "test", "context-cost-audit.test.js")]);
+  runProcess(process.execPath, [path.join(ROOT_DIR, "test", "context-cost-report.test.js")]);
+  runProcess(process.execPath, [path.join(ROOT_DIR, "test", "context-session-cache.test.js")]);
+  runProcess(process.execPath, [path.join(ROOT_DIR, "test", "context-command-cache.test.js")]);
+  return ok("TEST_OK", { suites: 31 });
 }
 
 /** Executa validateIndex no fluxo deste módulo; centraliza contrato reutilizável e preserva validações do chamador. */
@@ -1211,6 +1245,10 @@ function hasExactPathCase(root, relativePath) {
 /** Executa validateDist no fluxo deste módulo; centraliza contrato reutilizável e preserva validações do chamador. */
 function validateDist() {
   assertFile(path.join(DIST_DIR, "AGENTS.md"), "dist/AGENTS.md ausente.");
+  assertFile(path.join(DIST_DIR, ".ia.rules", "package.json"), "dist/.ia.rules/package.json ausente.");
+  if (JSON.parse(fs.readFileSync(path.join(DIST_DIR, ".ia.rules", "package.json"), "utf8")).type !== "commonjs") {
+    throw new Error("dist/.ia.rules/package.json nao declara fronteira CommonJS.");
+  }
   assertFile(path.join(DIST_DIR, ".ia.rules", "core", "contracts.md"), "dist/.ia.rules/core/contracts.md ausente.");
   assertFile(path.join(DIST_DIR, ".ia.rules", "core", "update", "scenario.md"), "dist/.ia.rules/core/update/scenario.md ausente.");
   assertFile(path.join(DIST_DIR, ".ia.rules", "core", "concepts", "microconceitos.md"), "dist/.ia.rules/core/concepts/microconceitos.md ausente.");
@@ -1478,13 +1516,84 @@ function doctor() {
 }
 
 /** Executa context no fluxo deste módulo; centraliza contrato reutilizável e preserva validações do chamador. */
-function context() {
+function context(args = []) {
   const index = buildIndex();
   const log = runProcess("git", ["log", "--oneline", "-5"], { optional: true }).stdout.trim().split(/\r?\n/u).filter(Boolean);
-  return ok("CONTEXT_OK", {
+  const common = {
     branch: runProcess("git", ["branch", "--show-current"], { optional: true }).stdout.trim(),
     latestCommits: log,
-    normativeFiles: index.files,
+  };
+  const options = parseContextArguments(args);
+  if (!options.explicit && !options.sessionId) return ok("CONTEXT_OK", { ...common, normativeFiles: index.files });
+  const delivery = deliverSessionContext({
+    enabled: options.enabled,
+    reset: options.reset,
+    rootDir: ROOT_DIR,
+    sessionId: options.sessionId,
+    tokenizer: "utf8-json-bytes/4-ceil-estimate",
+    units: contextCacheUnits(index),
+  });
+  const misses = delivery.units.filter((unit) => unit.status === "miss");
+  const hits = delivery.units.filter((unit) => unit.status === "hit");
+  return ok("CONTEXT_OK", {
+    ...common,
+    contextCache: {
+      ...delivery.cache,
+      ...delivery.metrics,
+      invalidated: misses.filter((unit) => !["cold-context", "cache-disabled"].includes(unit.reason)).map((unit) => ({ id: unit.id, reason: unit.reason })),
+      removed: delivery.removed,
+      reusedFingerprint: hits.length ? crypto.createHash("sha256").update(hits.map((unit) => `${unit.id}:${unit.fingerprint}`).sort().join("\n"), "utf8").digest("hex") : "",
+    },
+    normativeFiles: misses.map((unit) => JSON.parse(unit.content).descriptor),
+  });
+}
+
+/** Interpreta apenas opções do cache oficial, preservando a saída legada quando nenhuma for usada. */
+function parseContextArguments(args) {
+  const options = {
+    enabled: true,
+    explicit: args.length > 0,
+    reset: false,
+    sessionId: String(process.env.AGENTS_CONTEXT_SESSION_ID || ""),
+  };
+  for (let index = 0; index < args.length; index += 1) {
+    const argument = args[index];
+    if (argument === "--session") options.sessionId = String(args[++index] || "");
+    else if (argument === "--no-cache") options.enabled = false;
+    else if (argument === "--reset-cache") options.reset = true;
+    else throw new Error(`CONTEXT_ARGUMENTO_INVALIDO:${argument}`);
+  }
+  if (options.sessionId.length > 256) throw new Error("CONTEXT_SESSION_MUITO_LONGA");
+  if (options.enabled && options.explicit && !options.sessionId) throw new Error("CONTEXT_SESSION_AUSENTE");
+  if (options.reset && (!options.enabled || !options.sessionId)) throw new Error("CONTEXT_RESET_SEM_SESSION");
+  return options;
+}
+
+/** Projeta cada destino do índice como unidade independente com integridade, papel, rota e dependência explícitos. */
+function contextCacheUnits(index) {
+  const sourceManifest = readSourceDistributionManifest();
+  const manifestByDestination = new Map();
+  for (const entry of sourceManifest.entries) {
+    manifestByDestination.set(entry.destination, entry);
+    if (entry.artifact) manifestByDestination.set(entry.artifact.destination, entry);
+  }
+  const integrityByDestination = new Map(index.update.files.map((entry) => [entry.path, entry.sha256 || ""]));
+  const sourceDestinationByPath = new Map(index.files.filter((entry) => !entry.artifact).map((entry) => [entry.path, entry.destination]));
+  return index.files.map((file) => {
+    const manifest = manifestByDestination.get(file.destination) || {};
+    const serialized = JSON.stringify({ descriptor: file, integrity: integrityByDestination.get(file.destination) || "" });
+    return {
+      authority: sourceManifest.authority,
+      content: serialized,
+      dependencies: file.artifact && sourceDestinationByPath.has(file.generatedFrom) ? [sourceDestinationByPath.get(file.generatedFrom)] : [],
+      id: file.destination,
+      path: file.path,
+      precedence: file.profile,
+      role: manifest.roles || ["final", "constructor"],
+      route: file.condition,
+      tokens: Math.ceil(Buffer.byteLength(JSON.stringify(file), "utf8") / 4),
+      version: manifest.unit ? manifest.unit.version : String(sourceManifest.version),
+    };
   });
 }
 
