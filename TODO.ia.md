@@ -502,3 +502,4 @@
       13. alteração central regenerar automaticamente páginas dependentes;
       14. templates explícitos continuarem selecionáveis;
       15. nenhuma funcionalidade, tema, impressão ou estilo existente regredir.
+      16. Atualizar o modo de uso correspondente inclusive com ulustrações mantendo a estilização já existente.
