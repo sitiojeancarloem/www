@@ -55,7 +55,12 @@ excerpt: "Fixture técnica controlada para validar modelos, aliases, temas e imp
 > A linha temática interrompida pelas aspas acompanha automaticamente o tema ativo.
 >
 > — `thematic-rail`
-{: data-jcem-quote-model="thematic-rail"}
+{: data-jcem-quote-model="thematic-rail" data-jcem-quote-geometry="short"}
+
+> Uma segunda composição deliberadamente mais longa comprova que o intervalo entre as duas hastes permanece centralizado, alinhado às aspas e com a mesma altura, independentemente das quebras e da quantidade de texto que determinam a altura total da caixa.
+>
+> — `thematic-rail` longo
+{: data-jcem-quote-model="thematic-rail" data-jcem-quote-geometry="long"}
 
 ## Modelos preservados
 

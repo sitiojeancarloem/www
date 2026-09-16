@@ -4,7 +4,7 @@
     :root{color-scheme:light dark}.frame{fill:#f8fafc;stroke:#334155}.rail{stroke:#2f7d95;stroke-width:5}.quote{fill:#2f7d95;font:700 72px Georgia,serif}.text{stroke:#475569;stroke-width:6;stroke-linecap:round}.author{stroke:#64748b;stroke-width:4;stroke-linecap:round}.label{fill:#0f172a;font:600 15px system-ui,sans-serif}.note{fill:#475569;font:12px system-ui,sans-serif}@media(prefers-color-scheme:dark){.frame{fill:#0f172a;stroke:#cbd5e1}.rail{stroke:#2b92db}.quote{fill:#2b92db}.text{stroke:#cbd5e1}.author{stroke:#94a3b8}.label{fill:#f8fafc}.note{fill:#cbd5e1}}
   </style>
   <rect class="frame" x="20" y="20" width="520" height="250" rx="8"/>
-  <path class="rail" d="M92 54v57M92 166v62"/><text class="quote" x="68" y="163">“</text>
-  <path class="text" d="M135 88h320M135 121h350M135 154h290"/><path class="author" d="M350 195h105"/>
+  <path class="rail" d="M92 54v57M92 171v57"/><text class="quote" x="68" y="164">”</text>
+  <path class="text" d="M135 88h320M135 121h350M135 154h290"/><path class="author" d="M135 195h105"/>
   <text class="label" x="20" y="297">thematic-rail</text><text class="note" x="134" y="297">alias primary · accent acompanha o tema</text>
 </svg>
