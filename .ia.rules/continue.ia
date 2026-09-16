@@ -1136,7 +1136,7 @@ plano:
   - id: FT-068
     classe: implementacao_normativa
     criado_em: 2026-09-16T01:46:32.9929559-03:00
-    estado: em_andamento
+    estado: concluida
     fonte: TODO.ia.md
     contexto: .ia.rules/state/contexts/FT-068/master.md
     objetivo: Equalizar e normatizar a migracao de TTS e edicao redacional para as capacidades canonicas de agents.md, conservando somente o delta local de produto.
@@ -1145,10 +1145,14 @@ plano:
       - toda capacidade local classificada como canonica, parcial ou estritamente local
       - precedencia das capacidades editorial-authoring e spoken-normalization explicita
       - nenhuma regra, feature de produto, teste ou documentacao local perdida
+    resultado:
+      - recursos gerenciados passam a preceder explicitamente as especializacoes Web do produto
+      - pipeline acessivel, controles TTS, modos de referencia e graficos permanecem locais por ausencia de equivalente material no nucleo
+      - rcf-trace aprovou 365 entradas e 338 sentencas materiais, com quatro pendencias causais da FT-069
   - id: FT-069
     classe: implementacao_governanca_local
     criado_em: 2026-09-16T01:46:32.9939559-03:00
-    estado: pendente
+    estado: em_andamento
     depende_de: FT-068
     fonte: TODO.ia.md
     fonte_autorizacao: prompt humano de 2026-09-16

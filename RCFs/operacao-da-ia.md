@@ -17,16 +17,20 @@ Escopo: modus operandi da IA específico deste produto, roteamento local e rela�
 
 | Gatilho material | Rotas mínimas obrigatórias, após `AGENTS.md`, índice e papéis aplicáveis |
 |---|---|
-| alteração editorial comum | `RCF.md`, capacidade `WEB-EDITORIAL` e sub-RCFs diretamente afetadas |
+| alteração editorial comum | recurso canônico `.ia.rules/resources/editorial-authoring.md`, capacidade `WEB-EDITORIAL`, `RCF.md` e sub-RCFs diretamente afetadas |
 | síntese `bate-papo:` | `RCFs/bate-papo.md`, `RCFs/namespaces-editoriais.md` e publicação quando aplicável |
 | citação, nota ou bibliografia | `RCFs/citacoes.md`, `RCFs/referencias-e-footnotes.md` e leitura acessível quando houver projeção falada |
-| TTS, leitor de tela, idioma, pronúncia, tabela, imagem ou gráfico acessível | `RCFs/leitura-acessivel-e-tts.md` e contratos semânticos de origem citados por ela |
+| TTS, leitor de tela, idioma, pronúncia, tabela, imagem ou gráfico acessível | recurso canônico `.ia.rules/resources/spoken-normalization.md`, `RCFs/leitura-acessivel-e-tts.md` e contratos semânticos de origem citados por ela |
 | PageSpeed, nova dependência ou asset client-side | `RCFs/desempenho-e-dependencias.md` e `RCFs/carregamento-progressivo.md` |
 | 404, masthead, rodapé, navegação ou componente comum | `RCFs/componentes-compartilhados.md` |
 | impressão ou PDF | `RCFs/impressao-ieee.md` e a sub-RCF semântica do conteúdo afetado |
 | build, GitHub Pages ou publicação | `RCFs/publicacao.md` e o cenário operacional correspondente em `.ia.rules/` |
 
 Rotas são cumulativas quando uma tarefa cruza domínios; o adaptador NÃO PODE escolher apenas uma rota e omitir dependência material.
+
+Os recursos canônicos `editorial-authoring` e `spoken-normalization` DEVEM governar, respectivamente, transformação autoral e preparação semântico-fonética antes de qualquer especialização local; o repositório NÃO PODE copiar, renomear, substituir ou congelar essas capacidades em norma paralela.
+
+RCF, plugin, include, TypeScript e teste deste produto PODEM especializar apenas a materialização Web editorial, o HTML acessível, os modos de leitura, a integração com o sintetizador do navegador e os datasets/gráficos locais que não pertençam à Norma Operacional.
 
 ## Método por classe de trabalho
 

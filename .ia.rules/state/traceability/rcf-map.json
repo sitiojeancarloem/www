@@ -4300,6 +4300,20 @@
     },
     {
       "artifacts": [
+        "agents.local.md",
+        "scripts/test_accessible_reading.rb"
+      ],
+      "commit": "",
+      "ft": "FT-068",
+      "id": "75a3a8498e97be285fe71536",
+      "line": 11,
+      "rcf": "RCFs/leitura-acessivel-e-tts.md",
+      "sentenceSha256": "99d1e5c39287b855c1397e926385913cb6e5edb2a3c3fb6f96b0c19d642ad8f6",
+      "state": "pending",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
         "RCFs/leitura-acessivel-e-tts.md"
       ],
       "commit": "57e473b7e3ce404552bac1d40ed281bc1e8e5b5f",
@@ -4309,6 +4323,20 @@
       "rcf": "RCFs/leitura-acessivel-e-tts.md",
       "sentenceSha256": "83eaaea7a590f2d5057d82b3b3577d42c0b63d39e730c6f37f105f199655c858",
       "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "agents.local.md",
+        "scripts/test_accessible_reading.rb"
+      ],
+      "commit": "",
+      "ft": "FT-068",
+      "id": "e3cc406ad222dbe778006e7c",
+      "line": 12,
+      "rcf": "RCFs/leitura-acessivel-e-tts.md",
+      "sentenceSha256": "eef6da832999eb5dde575230d719454dd590fea3ee2124c5200019d7af54efd6",
+      "state": "pending",
       "syncCommit": ""
     },
     {
@@ -4326,6 +4354,20 @@
     },
     {
       "artifacts": [
+        "agents.local.md",
+        "scripts/test_accessible_reading.rb"
+      ],
+      "commit": "",
+      "ft": "FT-068",
+      "id": "75b016803e0ad24dee73c014",
+      "line": 13,
+      "rcf": "RCFs/leitura-acessivel-e-tts.md",
+      "sentenceSha256": "0bb4e2ece06452a0698dc4a75ab566c461c241962ce11d7217a1c907d93587ad",
+      "state": "pending",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
         "RCFs/leitura-acessivel-e-tts.md"
       ],
       "commit": "57e473b7e3ce404552bac1d40ed281bc1e8e5b5f",
@@ -4335,6 +4377,20 @@
       "rcf": "RCFs/leitura-acessivel-e-tts.md",
       "sentenceSha256": "a64c8164341716df78c4106a1f769140a4561e003ab60c9a81af5c10521d206e",
       "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "agents.local.md",
+        "scripts/test_accessible_reading.rb"
+      ],
+      "commit": "",
+      "ft": "FT-068",
+      "id": "3ba77aef838bec196ac285a3",
+      "line": 14,
+      "rcf": "RCFs/leitura-acessivel-e-tts.md",
+      "sentenceSha256": "0ce2d0f9c9462c2de6272ef66aa1206cf4dfa238ca3c293e22e2045a7586b505",
+      "state": "pending",
       "syncCommit": ""
     },
     {

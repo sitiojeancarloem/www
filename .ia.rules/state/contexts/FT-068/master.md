@@ -1,6 +1,6 @@
 # FT-068 — Migração TTS e edição redacional
 
-Estado: em andamento. Fonte: `TODO.ia.md`. Dependências: capacidades gerenciadas `resource.editorial-authoring` e `resource.spoken-normalization`.
+Estado normativo: concluído. Implementação da projeção local: FT-069 em andamento. Fonte: `TODO.ia.md`. Dependências: capacidades gerenciadas `resource.editorial-authoring` e `resource.spoken-normalization`.
 
 ## Matriz de equivalência inicial
 
@@ -24,3 +24,5 @@ Estado: em andamento. Fonte: `TODO.ia.md`. Dependências: capacidades gerenciada
 - inventário antes/depois por path e finalidade;
 - comandos canônicos e testes do produto;
 - ausência de regra local que preceda ou substitua a capacidade gerenciada.
+
+Resultado normativo: equivalência genérica confirmada para os dois recursos gerenciados; as capacidades Web do produto são deltas legítimos e não serão removidas. `rcf-trace validate` aprovou `entries=365` e `material=338`.
