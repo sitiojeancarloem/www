@@ -14,25 +14,18 @@ const visualValidationStrict = !['0', 'false', 'no', 'advisory'].includes(
 const visualProfile = String(process.env.VISUAL_PROFILE || 'full').toLowerCase();
 const coverProfile = visualProfile === 'covers';
 const focusedPagesOnly = process.env.VISUAL_SCOPE === 'pages';
-const hasAlphaGradient = (value) =>
-	value.includes('linear-gradient') &&
-	/(?:\/\s*0\.\d+|rgba\([^)]*,\s*0\.\d+\))/iu.test(value) &&
-	!value.includes('url(');
-const gradientAlphaStops = (value) => [
-	...value.matchAll(/\/\s*(0?\.\d+)|rgba?\([^)]*,\s*(0?\.\d+)\)/giu),
-].map((match) => Number(match[1] ?? match[2]));
-const hasPerceptibleSmokeGradient = (value) => {
-	const stops = gradientAlphaStops(value);
-	return stops.length >= 4 &&
-		stops[0] >= 0.52 &&
-		stops.at(-1) <= 0.96 &&
-		stops.every((alpha) => alpha > 0 && alpha < 1) &&
-		stops.every((alpha, index) => index === 0 || alpha > stops[index - 1]);
-};
+const backgroundAlpha = (value) => Number(
+	String(value).match(/\/\s*(0?\.\d+)|rgba?\([^)]*,\s*(0?\.\d+)\)/iu)?.slice(1).find(Boolean) || 0,
+);
+const hasManualSmokeBaseline = (image, color) =>
+	image === 'none' && Math.abs(backgroundAlpha(color) - 0.35) <= 0.005;
 const backdropBlurRadius = (value) => Number(
 	String(value).match(/blur\(\s*([0-9.]+)px\s*\)/iu)?.[1] || 0,
 );
-const hasPerceptibleFullBarBlur = (value) => backdropBlurRadius(value) >= 20;
+const hasManualFullBarBlur = (value) => {
+	const radius = backdropBlurRadius(value);
+	return radius >= 10 && radius <= 15.01;
+};
 const configuredList = (name, fallback) => {
 	const value = process.env[name];
 	return value
@@ -2076,6 +2069,15 @@ const validateCoverPage = async (page, url, theme, viewportName) => {
 		null,
 		{ timeout: 15000 },
 	);
+	await page.waitForFunction(
+		() => {
+			const header = document.querySelector('.jcem-post-header');
+			if (header?.getAttribute('data-jcem-title-cover-overlap') !== 'true') return true;
+			return document.querySelector('[data-jcem-title-bars]')?.getAttribute('data-jcem-backdrop-composed') === 'true';
+		},
+		null,
+		{ timeout: 15000 },
+	);
 	await page.waitForTimeout(700);
 
 	const result = await page.evaluate(() => {
@@ -2145,7 +2147,10 @@ const validateCoverPage = async (page, url, theme, viewportName) => {
 			flagSupportRatio: header ? Number.parseFloat(window.getComputedStyle(header).getPropertyValue('--jcem-date-flag-support-ratio')) : 0,
 			titleUpperBaseRatio: header ? Number.parseFloat(window.getComputedStyle(header).getPropertyValue('--jcem-title-upper-base-ratio')) : 0,
 			materialBackground: materialStyle?.backgroundImage || '',
+			materialBackgroundColor: materialStyle?.backgroundColor || '',
 			materialBackdropFilter: materialStyle?.backdropFilter || materialStyle?.webkitBackdropFilter || '',
+			backdropComposed: titleBars?.getAttribute('data-jcem-backdrop-composed') || '',
+			backdropSaturationInline: titleBars?.style.getPropertyValue('--jcem-cover-backdrop-saturation') || '',
 			deckShadow: titleBarsStyle?.boxShadow || '',
 			upperBarBackground: upperBarStyle?.backgroundImage || '',
 			upperBarBackgroundColor: upperBarStyle?.backgroundColor || '',
@@ -2282,10 +2287,10 @@ const validateCoverPage = async (page, url, theme, viewportName) => {
 		!result.lowerBarRect ||
 		result.titleParent !== 'lower' ||
 		Math.abs(result.upperBarRect.bottom - result.lowerBarRect.top) > geometryTolerance ||
-		!hasAlphaGradient(result.materialBackground) ||
-		!hasPerceptibleSmokeGradient(result.materialBackground) ||
-		result.materialBackground.includes('90deg') ||
-		!hasPerceptibleFullBarBlur(result.materialBackdropFilter) ||
+		!hasManualSmokeBaseline(result.materialBackground, result.materialBackgroundColor) ||
+		!hasManualFullBarBlur(result.materialBackdropFilter) ||
+		(result.titleCoverOverlap === 'true' && result.backdropComposed !== 'true') ||
+		result.backdropSaturationInline !== '' ||
 		result.deckShadow === 'none' ||
 		result.upperBarBackground !== 'none' ||
 		result.upperBarBackgroundColor !== 'rgba(0, 0, 0, 0)' ||

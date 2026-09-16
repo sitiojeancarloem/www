@@ -399,6 +399,8 @@ aside {
 }
 
 .jcem-post-header__deck {
+	--jcem-cover-backdrop-saturation: 1.14;
+
 	position: relative;
 	// Acima do conteúdo útil do COVER (6) e do z-index genérico dos assets do skeleton (4).
 	z-index: 7;
@@ -415,8 +417,9 @@ aside {
 	// O filtro pertence ao deck inteiro: a saída é recortada ao border-box da barra,
 	// enquanto título e FLAG permanecem nítidos nas camadas filhas.
 	-webkit-backdrop-filter: blur(clamp(10px, 1.25vw, 15px))
-		saturate(1.14);
-	backdrop-filter: blur(clamp(10px, 1.25vw, 15px)) saturate(1.14);
+		saturate(var(--jcem-cover-backdrop-saturation));
+	backdrop-filter: blur(clamp(10px, 1.25vw, 15px))
+		saturate(var(--jcem-cover-backdrop-saturation));
 	box-shadow: 0 0.58rem 0.72rem -0.58rem var(--jcem-panel-shadow);
 }
 

@@ -467,6 +467,79 @@ const bindJcemLegacyHeroLayout = (): void => {
 	schedule();
 };
 
+const bindJcemCoverBackdropComposition = (): void => {
+	const header = document.querySelector<HTMLElement>(
+		'.jcem-post-header[data-jcem-title-cover-overlap="true"]',
+	);
+	const deck = header?.querySelector<HTMLElement>('[data-jcem-title-bars]');
+	const stage = document.querySelector<HTMLElement>(
+		'.jcem-featured-image__stage, [data-jcem-legacy-hero]',
+	);
+	const image = stage?.querySelector<HTMLImageElement>(
+		'.jcem-featured-image__img, .page__hero-image, img',
+	);
+	if (!deck || !stage || !image) return;
+
+	let scheduledFrame = 0;
+	let restoreFrame = 0;
+	let readinessObserver: MutationObserver | null = null;
+
+	const isReady = (): boolean =>
+		image.complete &&
+		image.naturalWidth > 0 &&
+		stage.dataset.jcemSkeletonState !== 'loading';
+
+	const recompose = (): void => {
+		scheduledFrame = 0;
+		if (!isReady() || restoreFrame) return;
+
+		const style = window.getComputedStyle(deck);
+		const backdrop =
+			style.backdropFilter || style.getPropertyValue('-webkit-backdrop-filter');
+		if (!backdrop.includes('blur(')) return;
+
+		// PROTECAO: Chromium pode conservar a textura anterior ao trocar skeleton
+		// pela imagem. Um delta imperceptivel por um frame invalida apenas este deck.
+		deck.style.setProperty('--jcem-cover-backdrop-saturation', '1.140001');
+		restoreFrame = window.requestAnimationFrame(() => {
+			deck.style.removeProperty('--jcem-cover-backdrop-saturation');
+			restoreFrame = 0;
+			const count = Number(deck.dataset.jcemBackdropCompositions || 0) + 1;
+			deck.dataset.jcemBackdropCompositions = String(count);
+			deck.dataset.jcemBackdropComposed = 'true';
+		});
+	};
+
+	const schedule = (): void => {
+		if (scheduledFrame || restoreFrame || !isReady()) return;
+		scheduledFrame = window.requestAnimationFrame(() => {
+			scheduledFrame = window.requestAnimationFrame(recompose);
+		});
+	};
+
+	const settle = (): void => {
+		if (!isReady()) return;
+		readinessObserver?.disconnect();
+		readinessObserver = null;
+		schedule();
+	};
+
+	if (isReady()) {
+		schedule();
+	} else {
+		readinessObserver = new MutationObserver(settle);
+		readinessObserver.observe(stage, {
+			attributes: true,
+			attributeFilter: ['data-jcem-skeleton-state'],
+		});
+		image.addEventListener('load', settle, { once: true });
+	}
+
+	window.addEventListener('resize', schedule, { passive: true });
+	window.addEventListener('orientationchange', schedule, { passive: true });
+	window.visualViewport?.addEventListener('resize', schedule, { passive: true });
+};
+
 const jcemSkeletonMediaSelector =
 	'img, video, iframe, .jcem-featured-image__stage, .jcem-featured-image, .archive__item-teaser, .page__hero, .page__hero--overlay, [data-jcem-skeleton]';
 const jcemSkeletonMinVisibleMs = 520;
@@ -2034,6 +2107,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	// amplos do DOM ficam para a oportunidade posterior.
 	bindJcemTheme();
 	bindJcemLegacyHeroLayout();
+	bindJcemCoverBackdropComposition();
 	hideNoScript();
 	scheduleJcemPostPaintEnhancements();
 });
