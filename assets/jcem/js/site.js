@@ -376,6 +376,66 @@ const bindJcemLegacyHeroLayout = () => {
         image.addEventListener('load', schedule, { once: true });
     schedule();
 };
+const bindJcemCoverBackdropComposition = () => {
+    var _a;
+    const header = document.querySelector('.jcem-post-header[data-jcem-title-cover-overlap="true"]');
+    const deck = header === null || header === void 0 ? void 0 : header.querySelector('[data-jcem-title-bars]');
+    const stage = document.querySelector('.jcem-featured-image__stage, [data-jcem-legacy-hero]');
+    const image = stage === null || stage === void 0 ? void 0 : stage.querySelector('.jcem-featured-image__img, .page__hero-image, img');
+    if (!deck || !stage || !image)
+        return;
+    let scheduledFrame = 0;
+    let restoreFrame = 0;
+    let readinessObserver = null;
+    const isReady = () => image.complete &&
+        image.naturalWidth > 0 &&
+        stage.dataset.jcemSkeletonState !== 'loading';
+    const recompose = () => {
+        scheduledFrame = 0;
+        if (!isReady() || restoreFrame)
+            return;
+        const style = window.getComputedStyle(deck);
+        const backdrop = style.backdropFilter || style.getPropertyValue('-webkit-backdrop-filter');
+        if (!backdrop.includes('blur('))
+            return;
+        deck.style.setProperty('--jcem-cover-backdrop-saturation', '1.140001');
+        restoreFrame = window.requestAnimationFrame(() => {
+            deck.style.removeProperty('--jcem-cover-backdrop-saturation');
+            restoreFrame = 0;
+            const count = Number(deck.dataset.jcemBackdropCompositions || 0) + 1;
+            deck.dataset.jcemBackdropCompositions = String(count);
+            deck.dataset.jcemBackdropComposed = 'true';
+        });
+    };
+    const schedule = () => {
+        if (scheduledFrame || restoreFrame || !isReady())
+            return;
+        scheduledFrame = window.requestAnimationFrame(() => {
+            scheduledFrame = window.requestAnimationFrame(recompose);
+        });
+    };
+    const settle = () => {
+        if (!isReady())
+            return;
+        readinessObserver === null || readinessObserver === void 0 ? void 0 : readinessObserver.disconnect();
+        readinessObserver = null;
+        schedule();
+    };
+    if (isReady()) {
+        schedule();
+    }
+    else {
+        readinessObserver = new MutationObserver(settle);
+        readinessObserver.observe(stage, {
+            attributes: true,
+            attributeFilter: ['data-jcem-skeleton-state'],
+        });
+        image.addEventListener('load', settle, { once: true });
+    }
+    window.addEventListener('resize', schedule, { passive: true });
+    window.addEventListener('orientationchange', schedule, { passive: true });
+    (_a = window.visualViewport) === null || _a === void 0 ? void 0 : _a.addEventListener('resize', schedule, { passive: true });
+};
 const jcemSkeletonMediaSelector = 'img, video, iframe, .jcem-featured-image__stage, .jcem-featured-image, .archive__item-teaser, .page__hero, .page__hero--overlay, [data-jcem-skeleton]';
 const jcemSkeletonMinVisibleMs = 520;
 const findJcemSkeletonContainer = (element) => {
@@ -1561,6 +1621,7 @@ scheduleJcemInitialReveal();
 document.addEventListener('DOMContentLoaded', () => {
     bindJcemTheme();
     bindJcemLegacyHeroLayout();
+    bindJcemCoverBackdropComposition();
     hideNoScript();
     scheduleJcemPostPaintEnhancements();
 });
