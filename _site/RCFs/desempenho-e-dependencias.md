@@ -30,7 +30,7 @@ Escopo: scripts, estilos, fontes, bibliotecas externas, assets de terceiros e re
 - Exceções à CDN exigem motivo técnico rastreável: modificação local do asset, indisponibilidade de CDN estável, licença incompatível, privacidade, segurança, necessidade offline, bloqueio de rede previsível ou ganho mensurável de performance com cópia local.
 - Leituras de layout e mutações visuais acionadas por `resize`, orientação ou observer DEVEM ocorrer em fases separadas e consolidadas por frame. Listener duplicado, medição repetida sem mudança, leitura/escrita intercalada e reconstrução integral desnecessária são proibidos. [860dfdf]
 - Agrupamento da barra responsiva NÃO PODE ser removido; DEVE usar `ResizeObserver` ou sinal equivalente com cache de dimensões e `requestAnimationFrame`, preservando fallback de `resize`/orientação. [860dfdf]
-- Runtime exclusivo de impressão IEEE NÃO DEVE integrar o caminho crítico. O módulo DEVE carregar após período ocioso ou atraso configurado suficientemente distante da primeira renderização e também imediatamente, sem bloquear o iniciador nativo, diante de `beforeprint` ou `matchMedia('print')`. [860dfdf]
+- Runtime e CSS exclusivos de impressão IEEE NÃO DEVEM integrar o caminho crítico nem ser transferidos por descoberta antecipada no `<head>`. O conector DEVE aguardar carga útil completa e recursos editoriais relevantes, então usar `requestIdleCallback` ou fila assíncrona equivalente; timeout fixo, user-agent e largura de viewport NÃO PODEM decidir disponibilidade ou início, enquanto `beforeprint` e `matchMedia('print')` preemptam a espera sem bloquear o iniciador nativo. [5aa0b17]
 
 ## Implementação
 

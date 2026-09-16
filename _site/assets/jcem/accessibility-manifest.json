@@ -4,8 +4,24 @@
   "chartjs_effective_version": "4.5.1",
   "pages": [
     {
+      "url": "/_fixtures/blockquote-models/",
+      "sha256": "2a10ff7436770bd3be12f662865295ab024a4cc1c8307c665c0cc7f27a475da2",
+      "language": "pt-BR",
+      "capabilities": {
+        "block_quotes": 2,
+        "inline_quotes": 0,
+        "references": 0,
+        "toc": 0,
+        "tables": 0,
+        "images": 0,
+        "language_changes": 0,
+        "charts": 0
+      },
+      "assets": []
+    },
+    {
       "url": "/_fixtures/covers/content/",
-      "sha256": "14e43fe77b41a3ad33bce92cd82ce1e7b308751e72e0a1d35d959530b2572e65",
+      "sha256": "adc84f8667a795988eacfc99a6256d066cd0b6cbb6ae4257c7c056b35b8a53d1",
       "language": "pt-BR",
       "capabilities": {
         "block_quotes": 0,
@@ -21,7 +37,7 @@
     },
     {
       "url": "/_fixtures/covers/full-window/",
-      "sha256": "3ba60cdfa637e625f84ac2c92872ed46bb950ac56cc05d5306e4390194a1e814",
+      "sha256": "c1f05f2c1cdc1fb4c296f715fcc9170a2467b9737aac3f3a5998018497a842ec",
       "language": "pt-BR",
       "capabilities": {
         "block_quotes": 0,
@@ -37,7 +53,7 @@
     },
     {
       "url": "/_fixtures/covers/inner-full-window/",
-      "sha256": "78256957b8bb77acbf2f8d04dadec842a3e2e692a7de65c5e827d6f2c7116b04",
+      "sha256": "082a2b17f99c459d8efd5d2323a5e5eaa184379d1db88e2f70e5735c119a358e",
       "language": "pt-BR",
       "capabilities": {
         "block_quotes": 0,
@@ -53,7 +69,7 @@
     },
     {
       "url": "/_fixtures/covers/inner-window-height/",
-      "sha256": "12e6a15f6e7cdf2bd555aa8d0ce34c0ffa6e2733ebed95a708d8e542db88c362",
+      "sha256": "f95cf18bae265b794e7bbdd4c06c297b4c7d8a3fef7d3d9295549b56870bacfb",
       "language": "pt-BR",
       "capabilities": {
         "block_quotes": 0,
@@ -69,7 +85,7 @@
     },
     {
       "url": "/_fixtures/covers/inner-window-width/",
-      "sha256": "8ef22eec0a7e5f3fb18525f9609f9d912a41346037658377753d39fe1d7c4dee",
+      "sha256": "f57d75730ef71ac88afe1473d248a588838b242499bffba804c6ca40f45501eb",
       "language": "pt-BR",
       "capabilities": {
         "block_quotes": 0,
@@ -85,7 +101,7 @@
     },
     {
       "url": "/_fixtures/covers/legacy/",
-      "sha256": "dcd38e2d95b7082807b069b26327684da8f32ecc43cb70462e8bdcfca79716de",
+      "sha256": "fb7487095d093d1f9246074021d35b63583f2dfa41705d1132ac942b781a0a71",
       "language": "pt-BR",
       "capabilities": {
         "block_quotes": 0,
@@ -101,7 +117,7 @@
     },
     {
       "url": "/_fixtures/covers/wide-single/",
-      "sha256": "61813e262f6fba9ca22321395b345d23c7b473c50f6f0ff3759ee4fc92266776",
+      "sha256": "a46e63e13809c112ab4e9e9431d6a57bbbfafcf445a204a89d16aadc56b393e8",
       "language": "pt-BR",
       "capabilities": {
         "block_quotes": 0,
@@ -117,7 +133,7 @@
     },
     {
       "url": "/_fixtures/covers/wide-triptych/",
-      "sha256": "cefce34c0937b2758d63dbd39df61547d113e0233d93019ec80a0f66f6f19036",
+      "sha256": "3318ad537b6494806ab095df446e75a909366a6212e3677b32b20a7067966805",
       "language": "pt-BR",
       "capabilities": {
         "block_quotes": 0,
@@ -133,7 +149,7 @@
     },
     {
       "url": "/_fixtures/covers/window-height/",
-      "sha256": "4e13501c79fc47493f6b691ee6b55a6516d36615c66c5db771c74341adca582d",
+      "sha256": "6743496deef1fd96cfa1ae61695df5150bc0311789c212c10b9f98e86e0707df",
       "language": "pt-BR",
       "capabilities": {
         "block_quotes": 0,
@@ -149,7 +165,7 @@
     },
     {
       "url": "/_fixtures/covers/window-width/",
-      "sha256": "a8594d17186db794f2e54b363632e35de49e49d124dd0c0bd73a3bbf09d349a7",
+      "sha256": "94811fc98e189d95eb393142ca9988a2dd3aa0f27c755a335724bac16be79bba",
       "language": "pt-BR",
       "capabilities": {
         "block_quotes": 0,
@@ -165,7 +181,7 @@
     },
     {
       "url": "/_fixtures/pagespeed/article-basic/",
-      "sha256": "762a89fe434aa227daa68c4590567e6d59c80203271b9ec35fe0dab79ece62ee",
+      "sha256": "ddee63fbf091c7fb66d6008e4336431e8ae4379dfa386b39c829eebfa9a66fea",
       "language": "pt-BR",
       "capabilities": {
         "block_quotes": 0,
@@ -181,10 +197,10 @@
     },
     {
       "url": "/_fixtures/pagespeed/article-panel/",
-      "sha256": "c64e8e6611a008bd0c6fcf27f0bc3f5957ab0f8d095225090a443f45f325998d",
+      "sha256": "163023f9f2c018a6e51f31267ac64ff41153e978e0d6c284b613a324f437cdb3",
       "language": "pt-BR",
       "capabilities": {
-        "block_quotes": 2,
+        "block_quotes": 0,
         "inline_quotes": 0,
         "references": 0,
         "toc": 0,
@@ -197,10 +213,10 @@
     },
     {
       "url": "/_fixtures/tts-accessibility/",
-      "sha256": "ca97bb93bd3ff3bacbfb89b66b453d33691468a70c6771e562f7a6b1ee57a4f7",
+      "sha256": "35484dba1fc0c099d67c2b651d3440a932693705d6055874a49034cd0b298e3a",
       "language": "pt-BR",
       "capabilities": {
-        "block_quotes": 1,
+        "block_quotes": 0,
         "inline_quotes": 1,
         "references": 1,
         "toc": 1,
@@ -216,10 +232,10 @@
     },
     {
       "url": "/p/5-verdades-de-genesis-27/",
-      "sha256": "43918b64d839f69c911891c25193cdc4a63c589f9b0ef988580f2672939d2d9c",
+      "sha256": "071335149775b1b014c3355438235dcfc992a1963c3e53bafc12b5068fbe4373",
       "language": "pt-BR",
       "capabilities": {
-        "block_quotes": 14,
+        "block_quotes": 0,
         "inline_quotes": 0,
         "references": 21,
         "toc": 1,
@@ -232,10 +248,10 @@
     },
     {
       "url": "/p/bate-papo/eventos-finais/a-heranca-dos-santos/",
-      "sha256": "b8165597126835a81eee8f3d10d1429fc900117b8ead292357de66cda00edb0d",
+      "sha256": "d5fbcd7a80e93c1541235b85d35e9e796be3ba1aecff9d56ab3b4ce66179d13d",
       "language": "pt-BR",
       "capabilities": {
-        "block_quotes": 30,
+        "block_quotes": 0,
         "inline_quotes": 0,
         "references": 32,
         "toc": 1,
@@ -248,10 +264,10 @@
     },
     {
       "url": "/p/bate-papo/eventos-finais/rumo-ao-lar-viagem-dos-remidos-coroas-e-recompensa-celestial/",
-      "sha256": "3e32f1714666ddae9fb87e974130837d6cdb87d89c054ed62b5e2617440385dd",
+      "sha256": "d520f8e839856ee058160da8fb83adf7196997f32e525947996ed284149f89ac",
       "language": "pt-BR",
       "capabilities": {
-        "block_quotes": 47,
+        "block_quotes": 0,
         "inline_quotes": 0,
         "references": 39,
         "toc": 1,
@@ -264,7 +280,7 @@
     },
     {
       "url": "/p/como-identificar-falacias/",
-      "sha256": "5c8af25a53c309902a340ec936396f934f9fb18056065e5832378aada0e8e3b7",
+      "sha256": "b418eb57f4f73804c810c6117444f170f541300b7f9902df9d5018aeba88d041",
       "language": "pt-BR",
       "capabilities": {
         "block_quotes": 0,
@@ -280,10 +296,10 @@
     },
     {
       "url": "/p/devaneios/",
-      "sha256": "1b3a0742c18ddc50f55014605468a3f17c2384f22ea728e2646f6486732e1842",
+      "sha256": "913097ca21294911e2c7e52794ca6c87035224ab617e4757b405b20a5fa4d6c0",
       "language": "pt-BR",
       "capabilities": {
-        "block_quotes": 18,
+        "block_quotes": 0,
         "inline_quotes": 0,
         "references": 57,
         "toc": 1,
@@ -296,10 +312,10 @@
     },
     {
       "url": "/p/nenhum-nivel-de-alcool-faz-bem-a-saude/",
-      "sha256": "44970096a31830fb410ce266154f2908ea79edce8db51b54983d0a12edb95103",
+      "sha256": "0469a7ecd31948cb1cd6fa70ecd5f8209b167e3c1ce9d6452beed90405fdbf57",
       "language": "pt-BR",
       "capabilities": {
-        "block_quotes": 9,
+        "block_quotes": 0,
         "inline_quotes": 0,
         "references": 28,
         "toc": 1,
@@ -312,10 +328,10 @@
     },
     {
       "url": "/p/nove-motivos-para-guardar-o-sabado/",
-      "sha256": "c6001f345e90ade06a7b443a0fd0f8c1377d9bf2279c90b38326e387f0616e25",
+      "sha256": "ed46b16e46aa74ea0d54b7a3bd3ac38cc2b5cd9c38e10b399782d9280d37d2ae",
       "language": "pt-BR",
       "capabilities": {
-        "block_quotes": 16,
+        "block_quotes": 0,
         "inline_quotes": 0,
         "references": 52,
         "toc": 1,
@@ -328,10 +344,10 @@
     },
     {
       "url": "/p/salvacao-importa-ser-perfeito/",
-      "sha256": "5c26c338ae6956ff10d6d178721ac98b5a02d57ccbf42ddbd22a3b51df498707",
+      "sha256": "b75a8dd96c1d30e43cc682af9dc2bdbd39b7e5232d4453fe9d26110822a38e55",
       "language": "pt-BR",
       "capabilities": {
-        "block_quotes": 19,
+        "block_quotes": 0,
         "inline_quotes": 0,
         "references": 95,
         "toc": 1,
@@ -344,10 +360,10 @@
     },
     {
       "url": "/p/sola-scriptura/",
-      "sha256": "92351f29188e08c4ea19a17dfc705be304047f9a6f35bea15dbb5c2d5ae8c481",
+      "sha256": "4df9fbe370f582482c2a41f84da0ec80167d1ad96afd53e3c9f1d98801cee803",
       "language": "pt-BR",
       "capabilities": {
-        "block_quotes": 56,
+        "block_quotes": 0,
         "inline_quotes": 0,
         "references": 80,
         "toc": 1,
@@ -360,10 +376,10 @@
     },
     {
       "url": "/p/tradicao-vs-biblia-tradicao-ou-biblia/",
-      "sha256": "e5e10d9c53d2b2558fba8e7e573676279b7c1f45da9c02916261f389cf270f3b",
+      "sha256": "30b513ec681d5ce37032a3fb24fcfbdc336c0211e2d0b8e19f7d240985dd2cce",
       "language": "pt-BR",
       "capabilities": {
-        "block_quotes": 12,
+        "block_quotes": 0,
         "inline_quotes": 0,
         "references": 20,
         "toc": 1,

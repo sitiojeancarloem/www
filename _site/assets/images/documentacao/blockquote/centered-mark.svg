@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="560" height="315" viewBox="0 0 560 315" role="img" aria-labelledby="title">
+  <title id="title">Blockquote centered-mark centralizado e sem fundo externo</title>
+  <style>
+    :root{color-scheme:light dark}.frame{fill:#f8fafc;stroke:#334155}.quote{fill:#2f7d95;font:700 66px Georgia,serif}.text{stroke:#475569;stroke-width:6;stroke-linecap:round}.author{stroke:#64748b;stroke-width:4;stroke-linecap:round}.label{fill:#0f172a;font:600 15px system-ui,sans-serif}.note{fill:#475569;font:12px system-ui,sans-serif}@media(prefers-color-scheme:dark){.frame{fill:#0f172a;stroke:#cbd5e1}.quote{fill:#2b92db}.text{stroke:#cbd5e1}.author{stroke:#94a3b8}.label{fill:#f8fafc}.note{fill:#cbd5e1}}
+  </style>
+  <rect class="frame" x="20" y="20" width="520" height="250" rx="8"/>
+  <text class="quote" x="242" y="102">“ ”</text><path class="text" d="M126 139h308M165 171h230"/><path class="author" d="M232 205h96"/>
+  <text class="label" x="20" y="297">centered-mark</text><text class="note" x="145" y="297">centro transparente · fundo externo excluído</text>
+</svg>

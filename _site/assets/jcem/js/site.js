@@ -376,6 +376,66 @@ const bindJcemLegacyHeroLayout = () => {
         image.addEventListener('load', schedule, { once: true });
     schedule();
 };
+const bindJcemCoverBackdropComposition = () => {
+    var _a;
+    const header = document.querySelector('.jcem-post-header[data-jcem-title-cover-overlap="true"]');
+    const deck = header === null || header === void 0 ? void 0 : header.querySelector('[data-jcem-title-bars]');
+    const stage = document.querySelector('.jcem-featured-image__stage, [data-jcem-legacy-hero]');
+    const image = stage === null || stage === void 0 ? void 0 : stage.querySelector('.jcem-featured-image__img, .page__hero-image, img');
+    if (!deck || !stage || !image)
+        return;
+    let scheduledFrame = 0;
+    let restoreFrame = 0;
+    let readinessObserver = null;
+    const isReady = () => image.complete &&
+        image.naturalWidth > 0 &&
+        stage.dataset.jcemSkeletonState !== 'loading';
+    const recompose = () => {
+        scheduledFrame = 0;
+        if (!isReady() || restoreFrame)
+            return;
+        const style = window.getComputedStyle(deck);
+        const backdrop = style.backdropFilter || style.getPropertyValue('-webkit-backdrop-filter');
+        if (!backdrop.includes('blur('))
+            return;
+        deck.style.setProperty('--jcem-cover-backdrop-saturation', '1.140001');
+        restoreFrame = window.requestAnimationFrame(() => {
+            deck.style.removeProperty('--jcem-cover-backdrop-saturation');
+            restoreFrame = 0;
+            const count = Number(deck.dataset.jcemBackdropCompositions || 0) + 1;
+            deck.dataset.jcemBackdropCompositions = String(count);
+            deck.dataset.jcemBackdropComposed = 'true';
+        });
+    };
+    const schedule = () => {
+        if (scheduledFrame || restoreFrame || !isReady())
+            return;
+        scheduledFrame = window.requestAnimationFrame(() => {
+            scheduledFrame = window.requestAnimationFrame(recompose);
+        });
+    };
+    const settle = () => {
+        if (!isReady())
+            return;
+        readinessObserver === null || readinessObserver === void 0 ? void 0 : readinessObserver.disconnect();
+        readinessObserver = null;
+        schedule();
+    };
+    if (isReady()) {
+        schedule();
+    }
+    else {
+        readinessObserver = new MutationObserver(settle);
+        readinessObserver.observe(stage, {
+            attributes: true,
+            attributeFilter: ['data-jcem-skeleton-state'],
+        });
+        image.addEventListener('load', settle, { once: true });
+    }
+    window.addEventListener('resize', schedule, { passive: true });
+    window.addEventListener('orientationchange', schedule, { passive: true });
+    (_a = window.visualViewport) === null || _a === void 0 ? void 0 : _a.addEventListener('resize', schedule, { passive: true });
+};
 const jcemSkeletonMediaSelector = 'img, video, iframe, .jcem-featured-image__stage, .jcem-featured-image, .archive__item-teaser, .page__hero, .page__hero--overlay, [data-jcem-skeleton]';
 const jcemSkeletonMinVisibleMs = 520;
 const findJcemSkeletonContainer = (element) => {
@@ -657,7 +717,14 @@ const jcemQuoteModels = [
     'info',
     'alerta1',
     'alerta2',
+    'framed-accent',
+    'pull-quote',
+    'centered-mark',
+    'editorial-statement',
+    'thematic-rail',
 ];
+const jcemTypedQuoteModels = ['notice', 'info', 'alerta1', 'alerta2'];
+const jcemQuoteAccents = ['cyan', 'amber', 'violet', 'green'];
 const jcemTypedQuoteIcons = {
     notice: '📄',
     info: 'ℹ️',
@@ -665,24 +732,47 @@ const jcemTypedQuoteIcons = {
     alerta2: '❗',
 };
 const isJcemQuoteModel = (value) => jcemQuoteModels.includes(value);
+const isJcemTypedQuoteModel = (value) => jcemTypedQuoteModels.includes(value);
+const isJcemQuoteAccent = (value) => jcemQuoteAccents.includes(value);
 const resolveJcemQuoteModel = (quote, article) => {
-    const requested = quote.dataset.jcemQuoteModel ||
+    const requested = quote.dataset.jcemQuoteModel;
+    if (requested === 'primary' || requested === 'destaque') {
+        const aliasTarget = requested === 'primary'
+            ? article.dataset.jcemQuoteAliasPrimary
+            : article.dataset.jcemQuoteAliasDestaque;
+        quote.dataset.jcemQuoteAlias = requested;
+        if (aliasTarget && isJcemQuoteModel(aliasTarget))
+            return aliasTarget;
+    }
+    if (!requested && article.dataset.jcemQuoteDefaultAlias) {
+        quote.dataset.jcemQuoteAlias = article.dataset.jcemQuoteDefaultAlias;
+    }
+    const resolved = requested ||
         article.dataset.jcemQuoteDefault ||
         (article.classList.contains('jcem-blockquote-panels')
             ? 'futuristic'
             : 'standard');
-    if (isJcemQuoteModel(requested)) {
-        return requested;
+    if (isJcemQuoteModel(resolved)) {
+        return resolved;
     }
     quote.dataset.jcemQuoteDiagnostic = 'modelo-desconhecido';
-    console.warn(`quote_semantics=modelo_desconhecido model=${requested}`);
+    console.warn(`quote_semantics=modelo_desconhecido model=${resolved}`);
     return 'standard';
 };
 const markJcemSemanticQuote = (quote, model) => {
     quote.dataset.jcemBlockquote = '';
     quote.dataset.jcemQuoteModel = model;
-    quote.classList.remove(...jcemQuoteModels.map((name) => `jcem-quote-model--${name}`));
+    quote.classList.remove(...jcemQuoteModels.map((name) => `jcem-quote-model--${name}`), ...jcemQuoteAccents.map((name) => `jcem-quote-accent--${name}`));
     quote.classList.add(`jcem-quote-model--${model}`);
+    if (model === 'framed-accent') {
+        const requestedAccent = quote.dataset.jcemQuoteAccent || 'cyan';
+        const accent = isJcemQuoteAccent(requestedAccent) ? requestedAccent : 'cyan';
+        if (accent !== requestedAccent) {
+            quote.dataset.jcemQuoteDiagnostic = 'accent-desconhecido';
+        }
+        quote.dataset.jcemQuoteAccent = accent;
+        quote.classList.add(`jcem-quote-accent--${accent}`);
+    }
     if (quote.tagName !== 'BLOCKQUOTE' && !quote.hasAttribute('role')) {
         quote.setAttribute('role', 'blockquote');
     }
@@ -735,7 +825,7 @@ const bindJcemBlockquotePanels = () => {
         }
         const model = resolveJcemQuoteModel(quote, article);
         markJcemSemanticQuote(quote, model);
-        if (!['standard', 'futuristic'].includes(model)) {
+        if (isJcemTypedQuoteModel(model)) {
             decorateJcemTypedQuote(quote, model);
         }
         quote.dataset.jcemQuoteProcessed = 'true';
@@ -1489,23 +1579,94 @@ const hideNoScript = () => {
     }
 };
 let jcemPrintPreparation = null;
+let jcemPrintStylesheets = null;
+const loadJcemPrintStylesheets = () => {
+    if (jcemPrintStylesheets)
+        return jcemPrintStylesheets;
+    const sources = Array.from(document.querySelectorAll('meta[name="jcem-print-stylesheet"]'))
+        .map((meta) => meta.content.trim())
+        .filter(Boolean);
+    jcemPrintStylesheets = Promise.all(sources.map((source) => new Promise((resolve, reject) => {
+        const absolute = new URL(source, document.baseURI).href;
+        const existing = Array.from(document.querySelectorAll('link[data-jcem-print-stylesheet]')).find((link) => link.href === absolute);
+        if (existing === null || existing === void 0 ? void 0 : existing.sheet) {
+            resolve();
+            return;
+        }
+        const link = existing || document.createElement('link');
+        link.rel = 'stylesheet';
+        link.media = 'print';
+        link.href = absolute;
+        link.dataset.jcemPrintStylesheet = '';
+        link.setAttribute('fetchpriority', 'low');
+        link.addEventListener('load', () => resolve(), { once: true });
+        link.addEventListener('error', () => reject(new Error(`PRINT_STYLESHEET_FAILED:${absolute}`)), { once: true });
+        if (!existing)
+            document.head.append(link);
+    }))).then(() => undefined);
+    return jcemPrintStylesheets;
+};
 const prepareJcemPrintArticle = () => {
     const article = select('[data-print-article]');
     if (!article)
         return Promise.resolve();
     if (jcemPrintPreparation)
         return jcemPrintPreparation;
-    jcemPrintPreparation = import(new URL('../print-ieee/index.js', import.meta.url).href)
+    article.dataset.printSchedule = 'loading';
+    jcemPrintPreparation = loadJcemPrintStylesheets()
+        .then(() => import(new URL('../print-ieee/index.js', import.meta.url).href))
         .then((library) => {
         library.prepareArticle(article, {
             profileId: article.dataset.printProfile ||
                 'ieee-conference-a4-ieeetran-1.8b',
         });
+        article.dataset.printSchedule = 'ready';
     })
         .catch(() => {
         article.dataset.printState = 'legivel';
+        article.dataset.printSchedule = 'failed';
     });
     return jcemPrintPreparation;
+};
+const waitForJcemPrintPrerequisites = async (article) => {
+    var _a;
+    article.dataset.printSchedule = 'waiting-load';
+    if (document.readyState !== 'complete') {
+        await new Promise((resolve) => {
+            window.addEventListener('load', () => resolve(), { once: true });
+        });
+    }
+    article.dataset.printSchedule = 'waiting-resources';
+    const images = Array.from(article.querySelectorAll('img'));
+    const imageTasks = images.map(async (image) => {
+        image.setAttribute('fetchpriority', 'low');
+        if (!image.complete) {
+            if (image.loading === 'lazy')
+                image.loading = 'eager';
+            await new Promise((resolve) => {
+                image.addEventListener('load', () => resolve(), { once: true });
+                image.addEventListener('error', () => resolve(), { once: true });
+            });
+        }
+        if (image.decode)
+            await image.decode().catch(() => undefined);
+    });
+    const fonts = ((_a = document.fonts) === null || _a === void 0 ? void 0 : _a.ready) || Promise.resolve();
+    await Promise.all([fonts, ...imageTasks].map((task) => task.catch(() => undefined)));
+};
+const runJcemPrintWhenIdle = (callback) => {
+    if (window.requestIdleCallback) {
+        window.requestIdleCallback(callback);
+        return;
+    }
+    const channel = new MessageChannel();
+    channel.port1.addEventListener('message', () => {
+        channel.port1.close();
+        channel.port2.close();
+        callback();
+    }, { once: true });
+    channel.port1.start();
+    channel.port2.postMessage(null);
 };
 const bindJcemPrintPreparation = () => {
     var _a, _b;
@@ -1521,15 +1682,10 @@ const bindJcemPrintPreparation = () => {
         if (event.matches)
             prepareNow();
     });
-    const scheduleIdle = () => {
-        if (window.requestIdleCallback) {
-            window.requestIdleCallback(prepareNow, { timeout: 2000 });
-        }
-        else {
-            window.setTimeout(prepareNow, 0);
-        }
-    };
-    window.setTimeout(scheduleIdle, 5000);
+    void waitForJcemPrintPrerequisites(article).then(() => {
+        article.dataset.printSchedule = 'idle';
+        runJcemPrintWhenIdle(prepareNow);
+    });
 };
 const bindJcemPostPaintEnhancements = () => {
     bindJcemSkeletonAssets();
@@ -1561,6 +1717,7 @@ scheduleJcemInitialReveal();
 document.addEventListener('DOMContentLoaded', () => {
     bindJcemTheme();
     bindJcemLegacyHeroLayout();
+    bindJcemCoverBackdropComposition();
     hideNoScript();
     scheduleJcemPostPaintEnhancements();
 });

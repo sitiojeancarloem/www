@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="560" height="315" viewBox="0 0 560 315" role="img" aria-labelledby="title">
+  <title id="title">Blockquote framed-accent em ciano e âmbar</title>
+  <style>
+    :root{color-scheme:light dark}.frame{fill:#f8fafc;stroke:#334155}.panel{fill:#f4f8fa}.cyan{stroke:#12b8c8}.amber{stroke:#d59a24}.line{fill:none;stroke-width:3}.bar{stroke-width:9}.dot{stroke-dasharray:4 5}.text{stroke:#475569;stroke-width:5;stroke-linecap:round}.label{fill:#0f172a;font:600 15px system-ui,sans-serif}.note{fill:#475569;font:12px system-ui,sans-serif}@media(prefers-color-scheme:dark){.frame{fill:#0f172a;stroke:#cbd5e1}.panel{fill:#2b303b}.text{stroke:#cbd5e1}.label{fill:#f8fafc}.note{fill:#cbd5e1}}
+  </style>
+  <rect class="frame" x="20" y="20" width="520" height="250" rx="8"/>
+  <rect class="panel cyan line" x="48" y="50" width="215" height="150" rx="5"/>
+  <path class="cyan bar" d="M48 50v150"/><path class="cyan line dot" d="M48 200h215"/>
+  <circle class="cyan line" cx="74" cy="125" r="12"/><path class="text" d="M104 88h112M104 113h132M104 138h120M104 163h78"/>
+  <rect class="panel amber line" x="297" y="50" width="215" height="150" rx="5"/>
+  <path class="amber bar" d="M297 50v150"/><path class="amber line dot" d="M297 200h215"/>
+  <circle class="amber line" cx="323" cy="125" r="12"/><path class="text" d="M353 88h112M353 113h132M353 138h120M353 163h78"/>
+  <text class="label" x="20" y="297">framed-accent</text><text class="note" x="155" y="297">um template · tokens cyan e amber</text>
+</svg>
