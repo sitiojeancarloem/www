@@ -49,7 +49,7 @@ Documentação de autoria: [`docs/MODO-DE-USO-BLOCKQUOTE.md`](../docs/MODO-DE-US
 
 - `framed-accent` DEVE usar uma única estrutura responsiva para as evidências e1/e2 e aceitar `data-jcem-quote-accent` somente com token cromático registrado; `cyan` e `amber` DEVEM reproduzir as duas referências iniciais sem estilo inline, e token desconhecido DEVE falhar no build controlado. [9d82ae0]
 - `pull-quote` DEVE preservar aspas laterais, autoria e pequeno recuo do conjunto em relação ao alinhamento comum; `centered-mark` e `editorial-statement` DEVEM preservar suas composições centralizadas sem incorporar os fundos externos das screenshots; `thematic-rail` DEVE preservar linha interrompida, aspas, texto e autoria com tokens vinculados ao tema ativo. [9d82ae0]
-- Todo modelo novo e preexistente DEVE possuir estado claro e escuro legível, atraente e coerente, usar a font-family canônica no conteúdo, limitar tipografia diferenciada a adornos decorativos e adaptar-se a 320 px sem corte, overflow ou perda de ordem. [9d82ae0]
+- Todo modelo novo e preexistente DEVE possuir estado claro e escuro legível, atraente e coerente, usar a font-family canônica no conteúdo, limitar tipografia diferenciada a adornos decorativos e adaptar-se a 320 px sem corte, overflow ou perda de ordem. [PENDENTE-CODIGO]
 - Modelo visual, alias e token cromático DEVEM permanecer dimensões distintas no registro, no renderer e na documentação; não se PODE duplicar estrutura, criar hardcode por artigo ou congelar em conteúdo o modelo concreto resultante de alias. [9d82ae0]
 
 ### Modelos tipados de aviso
