@@ -1,6 +1,6 @@
 schema: jcem-continue/v1
 machine_id: JEAN-DESKTOP
-data_ref: 2026-09-16T01:46:32.9929559-03:00
+data_ref: 2026-09-16T10:00:07.6382932-03:00
 fonte: TODO.ia.md
 objetivo: Processar integralmente as novas frentes de migracao TTS/redacional, impressao IEEE mobile pos-critica e templates de blockquote, preservando as frentes implementadas em avaliacao humana.
 autorizacao:
@@ -1225,7 +1225,7 @@ plano:
   - id: FT-073
     classe: implementacao_codigo_documentacao
     criado_em: 2026-09-16T01:46:32.9979559-03:00
-    estado: em_andamento
+    estado: concluida
     depende_de: FT-072
     fonte: TODO.ia.md
     fonte_autorizacao: prompt humano de 2026-09-16
@@ -1234,10 +1234,21 @@ plano:
       - registro, plugin, CSS, fixtures, testes, documentacao e ilustracoes convergem
       - default resolve para o modelo e6 e destaque para futuristic
       - mudanca central de alias reflete no build sem reescrever conteudo
+    resultado:
+      - registro central schema 2 preserva os seis modelos anteriores e acrescenta cinco modelos concretos, aliases primary e destaque e quatro accents fechados
+      - plugin e runtime resolvem aliases no build e no cliente, preservam flags legadas e selecao nominal e rejeitam modelo ou accent invalido
+      - estilos claro, escuro, 1280 px e 320 px foram aferidos; content-visibility foi preservado e materializado somente no ensaio visual agregado
+      - adaptador IEEE remove adornos web e conserva o tratamento impresso; documentacao canônica registra os onze modelos com cinco novas ilustracoes
+      - build produtivo isolado concluiu em 197,863 segundos e runtimes de citacao e impressao aprovaram desktop e mobile
+    commits:
+      normativo: 2eb3cadf48
+      rastreio_previo: dd27d13a81
+      causal: 0c9e2c0cb5
+      rastreabilidade: f153bf0b52
   - id: FT-074
     classe: integracao_validacao
     criado_em: 2026-09-16T01:46:32.9989559-03:00
-    estado: pendente
+    estado: concluida_tecnicamente_pendente_validacao_humana
     depende_de: FT-069, FT-071, FT-073
     fonte: TODO.ia.md
     fonte_autorizacao: prompt humano de 2026-09-16
@@ -1246,6 +1257,15 @@ plano:
       - testes focados, build produtivo, matriz visual e gates globais executados
       - capacidades e forca normativa anteriores preservadas ou superadas
       - TODOs permanecem em avaliacao humana sem marcacao de conclusao
+    resultado:
+      - antes, TTS e autoria carregavam primeiro rotas locais; depois, as capacidades gerenciadas editorial-authoring e spoken-normalization precedem somente os deltas Web preservados
+      - antes, IEEE era descoberto no head e possuia tratamento desigual; depois, desktop e mobile compartilham carga posterior a load, fontes, imagens e idle, com preempcao imediata de beforeprint
+      - antes, seis modelos concretos e default futuristic eram preservados; depois, os seis continuam selecionaveis e cinco novos modelos, aliases e accents ampliam o conjunto sem contaminar IEEE
+      - build produtivo isolado concluiu em 197,863 segundos; runtime aprovou citacoes em 1280 e 320, claro e escuro, e impressao desktop e mobile
+      - npm run check aprovou todos os gates ate check:editorial-assets e parou somente no ENOENT preexistente de _drafts; COVER, atribuicoes, publicacao e documentacao posteriores aprovaram separadamente
+      - check:covers foi executado contra o build isolado atual e aprovou dez modos, sem vazamento, em Chrome e Brave; o _site compartilhado desatualizado permaneceu intocado
+      - rcf-trace final aprovou 422 entradas e 391 sentencas materiais; nenhum artefato de build isolado integrou Git
+      - as quatro TO-DOs operacionais continuam em estado de avaliacao humana no TODO.ia.md, inclusive COVER, sem marcacao de conclusao
 lacunas:
   - id: GAP-RCF-MODULE-2026-001
     estado: isolada_fora_do_escopo
