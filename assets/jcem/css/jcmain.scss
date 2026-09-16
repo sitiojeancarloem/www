@@ -386,10 +386,31 @@ aside {
 		.jcem-post-header[data-jcem-title-cover-overlap='true']
 	)
 	#main {
-	// O #main precisa formar a camada acima da COVER; z-index apenas no descendente
-	// não supera os assets posicionados do skeleton que pertencem ao ramo irmão.
+	// Mantém a referência posicional sem criar um backdrop root: o deck precisa
+	// enxergar os pixels da COVER, que pertence ao ramo irmão anterior.
 	position: relative;
-	z-index: 7;
+}
+
+.main_jcem_wrapper:has(
+		.jcem-post-header[data-jcem-title-cover-overlap='true']
+	)
+	#main[data-jcem-cover-backdrop-root='released'] {
+	// O fill-mode da animação intro preserva um backdrop root mesmo após o fim.
+	// Liberá-lo depois da animação mantém a entrada visual e devolve o bitmap ao vidro.
+	animation: none;
+}
+
+.main_jcem_wrapper:has(
+		.jcem-post-header[data-jcem-title-cover-overlap='true']
+	)
+	.jcem-featured-image,
+.main_jcem_wrapper:has(
+		.jcem-post-header[data-jcem-title-cover-overlap='true']
+	)
+	.jcem-legacy-hero {
+	// Conter os z-index internos da COVER preserva FLAG/barras acima da imagem sem
+	// isolar o deck em um ancestral que impeça o backdrop-filter de alcançá-la.
+	z-index: 0;
 }
 
 .main_jcem_wrapper

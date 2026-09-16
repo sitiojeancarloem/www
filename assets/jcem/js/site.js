@@ -377,41 +377,60 @@ const bindJcemLegacyHeroLayout = () => {
     schedule();
 };
 const bindJcemCoverBackdropComposition = () => {
-    var _a;
+    var _a, _b;
     const header = document.querySelector('.jcem-post-header[data-jcem-title-cover-overlap="true"]');
     const deck = header === null || header === void 0 ? void 0 : header.querySelector('[data-jcem-title-bars]');
+    const main = header === null || header === void 0 ? void 0 : header.closest('#main');
     const stage = document.querySelector('.jcem-featured-image__stage, [data-jcem-legacy-hero]');
     const image = stage === null || stage === void 0 ? void 0 : stage.querySelector('.jcem-featured-image__img, .page__hero-image, img');
-    if (!deck || !stage || !image)
+    if (!deck || !main || !stage || !image)
         return;
-    let scheduledFrame = 0;
-    let restoreFrame = 0;
+    let settleFrame = 0;
+    let paintedFrame = 0;
     let readinessObserver = null;
+    let geometryObserver = null;
     const isReady = () => image.complete &&
         image.naturalWidth > 0 &&
-        stage.dataset.jcemSkeletonState !== 'loading';
-    const recompose = () => {
-        scheduledFrame = 0;
-        if (!isReady() || restoreFrame)
-            return;
+        stage.dataset.jcemSkeletonState !== 'loading' &&
+        main.dataset.jcemCoverBackdropRoot === 'released';
+    const computedBackdrop = () => {
         const style = window.getComputedStyle(deck);
-        const backdrop = style.backdropFilter || style.getPropertyValue('-webkit-backdrop-filter');
-        if (!backdrop.includes('blur('))
+        return style.backdropFilter || style.getPropertyValue('-webkit-backdrop-filter');
+    };
+    const invalidateNativeBackdrop = () => {
+        if (!computedBackdrop().includes('blur('))
+            return false;
+        deck.style.setProperty('-webkit-backdrop-filter', 'none', 'important');
+        deck.style.setProperty('backdrop-filter', 'none', 'important');
+        const disabled = computedBackdrop();
+        deck.style.removeProperty('-webkit-backdrop-filter');
+        deck.style.removeProperty('backdrop-filter');
+        const restored = computedBackdrop();
+        return disabled === 'none' && restored.includes('blur(');
+    };
+    const recompose = () => {
+        settleFrame = 0;
+        if (!isReady() || !invalidateNativeBackdrop())
             return;
-        deck.style.setProperty('--jcem-cover-backdrop-saturation', '1.140001');
-        restoreFrame = window.requestAnimationFrame(() => {
-            deck.style.removeProperty('--jcem-cover-backdrop-saturation');
-            restoreFrame = 0;
+        paintedFrame = window.requestAnimationFrame(() => {
+            paintedFrame = 0;
             const count = Number(deck.dataset.jcemBackdropCompositions || 0) + 1;
             deck.dataset.jcemBackdropCompositions = String(count);
             deck.dataset.jcemBackdropComposed = 'true';
         });
     };
     const schedule = () => {
-        if (scheduledFrame || restoreFrame || !isReady())
+        if (!isReady())
             return;
-        scheduledFrame = window.requestAnimationFrame(() => {
-            scheduledFrame = window.requestAnimationFrame(recompose);
+        deck.dataset.jcemBackdropComposed = 'pending';
+        if (settleFrame)
+            window.cancelAnimationFrame(settleFrame);
+        if (paintedFrame) {
+            window.cancelAnimationFrame(paintedFrame);
+            paintedFrame = 0;
+        }
+        settleFrame = window.requestAnimationFrame(() => {
+            settleFrame = window.requestAnimationFrame(recompose);
         });
     };
     const settle = () => {
@@ -435,6 +454,31 @@ const bindJcemCoverBackdropComposition = () => {
     window.addEventListener('resize', schedule, { passive: true });
     window.addEventListener('orientationchange', schedule, { passive: true });
     (_a = window.visualViewport) === null || _a === void 0 ? void 0 : _a.addEventListener('resize', schedule, { passive: true });
+    window.addEventListener('pageshow', schedule, { passive: true });
+    document.addEventListener('visibilitychange', () => {
+        if (document.visibilityState === 'visible')
+            schedule();
+    });
+    if (typeof ResizeObserver === 'function') {
+        geometryObserver = new ResizeObserver(schedule);
+        geometryObserver.observe(stage);
+        geometryObserver.observe(deck);
+    }
+    const releaseBackdropRoot = () => {
+        main.dataset.jcemCoverBackdropRoot = 'released';
+        schedule();
+    };
+    const mainAnimations = typeof main.getAnimations === 'function'
+        ? main.getAnimations({ subtree: false })
+        : [];
+    if (mainAnimations.length > 0) {
+        void Promise.all(mainAnimations.map((animation) => animation.finished.catch(() => undefined)))
+            .then(releaseBackdropRoot);
+    }
+    else {
+        releaseBackdropRoot();
+    }
+    void ((_b = document.fonts) === null || _b === void 0 ? void 0 : _b.ready.then(schedule));
 };
 const jcemSkeletonMediaSelector = 'img, video, iframe, .jcem-featured-image__stage, .jcem-featured-image, .archive__item-teaser, .page__hero, .page__hero--overlay, [data-jcem-skeleton]';
 const jcemSkeletonMinVisibleMs = 520;

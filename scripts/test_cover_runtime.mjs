@@ -4,6 +4,7 @@ import { readFile } from 'node:fs/promises';
 import { createServer } from 'node:http';
 import path from 'node:path';
 import { chromium } from 'playwright';
+import sharp from 'sharp';
 
 import { resolveJcemLegacyHeroMode } from '../assets/jcem/js/cover-layout.js';
 
@@ -80,6 +81,69 @@ const addConsentState = (page) => page.addInitScript(() => {
 	localStorage.setItem('silktideCookieChoice_obrigat_rios', 'true');
 });
 
+const waitForStableBackdropComposition = async (page, previousCompositions = 0) => {
+	await page.waitForFunction((previous) => {
+		const deck = document.querySelector('[data-jcem-title-bars]');
+		return deck?.getAttribute('data-jcem-backdrop-composed') === 'true' &&
+			Number(deck?.getAttribute('data-jcem-backdrop-compositions') || 0) > previous;
+	}, previousCompositions);
+	const stable = await page.evaluate(async (previous) => {
+		let stableFrames = 0;
+		let lastCompositions = -1;
+		for (let frame = 0; frame < 24; frame += 1) {
+			await new Promise((resolve) => requestAnimationFrame(resolve));
+			const deck = document.querySelector('[data-jcem-title-bars]');
+			const compositions = Number(deck?.getAttribute('data-jcem-backdrop-compositions') || 0);
+			const composed = deck?.getAttribute('data-jcem-backdrop-composed') === 'true';
+			stableFrames = composed && compositions > previous && compositions === lastCompositions
+				? stableFrames + 1
+				: 0;
+			lastCompositions = compositions;
+			if (stableFrames >= 3) return true;
+		}
+		return false;
+	}, previousCompositions);
+	assert.equal(stable, true, 'recomposição do backdrop não estabilizou em 24 frames');
+};
+
+const meanPixelDifference = async (left, right) => {
+	const [{ data: leftPixels, info: leftInfo }, { data: rightPixels, info: rightInfo }] = await Promise.all([
+		sharp(left).removeAlpha().raw().toBuffer({ resolveWithObject: true }),
+		sharp(right).removeAlpha().raw().toBuffer({ resolveWithObject: true }),
+	]);
+	assert.deepEqual(leftInfo, rightInfo, 'capturas do backdrop usam dimensões diferentes');
+	let difference = 0;
+	for (let index = 0; index < leftPixels.length; index += 1) {
+		difference += Math.abs(leftPixels[index] - rightPixels[index]);
+	}
+	return difference / leftPixels.length;
+};
+
+const assertBackdropPixels = async (page, label) => {
+	const deck = page.locator('[data-jcem-title-bars]');
+	await page.evaluate(() => document.fonts?.ready);
+	const automatic = await deck.screenshot({ animations: 'disabled' });
+	await page.evaluate(() => {
+		const target = document.querySelector('[data-jcem-title-bars]');
+		target?.style.setProperty('-webkit-backdrop-filter', 'none', 'important');
+		target?.style.setProperty('backdrop-filter', 'none', 'important');
+	});
+	const disabled = await deck.screenshot({ animations: 'disabled' });
+	await page.evaluate(() => {
+		const target = document.querySelector('[data-jcem-title-bars]');
+		target?.style.removeProperty('-webkit-backdrop-filter');
+		target?.style.removeProperty('backdrop-filter');
+	});
+	await page.evaluate(() => new Promise((resolve) => requestAnimationFrame(() => requestAnimationFrame(resolve))));
+	const manualToggle = await deck.screenshot({ animations: 'disabled' });
+	const [disabledDelta, toggleDelta] = await Promise.all([
+		meanPixelDifference(automatic, disabled),
+		meanPixelDifference(automatic, manualToggle),
+	]);
+	assert.ok(disabledDelta >= 0.35, `${label} não demonstrou blur visual real: automático/sem-blur=${disabledDelta}, automático/toggle=${toggleDelta}`);
+	assert.ok(toggleDelta <= Math.max(0.12, disabledDelta * 0.18), `${label} divergiu do toggle manual: automático=${toggleDelta}, sem-blur=${disabledDelta}`);
+};
+
 const assertFirstComposition = async (targetBrowser, label) => {
 	const context = await targetBrowser.newContext({ viewport: { width: 1169, height: 900 } });
 	const page = await context.newPage();
@@ -90,22 +154,27 @@ const assertFirstComposition = async (targetBrowser, label) => {
 	for (const action of ['direct', 'reload', 'no-cache']) {
 		if (action === 'direct') await page.goto(`${url}?composition=${label}`, { waitUntil: 'load' });
 		else await page.reload({ waitUntil: 'load' });
-		await page.waitForFunction(() => document.querySelector('[data-jcem-title-bars]')?.getAttribute('data-jcem-backdrop-composed') === 'true');
+		await waitForStableBackdropComposition(page);
 		const state = await page.evaluate(() => {
 			const deck = document.querySelector('[data-jcem-title-bars]');
 			const style = deck ? getComputedStyle(deck) : null;
 			return {
 				compositions: Number(deck?.getAttribute('data-jcem-backdrop-compositions') || 0),
-				inlineSaturation: deck?.style.getPropertyValue('--jcem-cover-backdrop-saturation') || '',
+				inlineBackdrop: deck?.style.getPropertyValue('backdrop-filter') || deck?.style.getPropertyValue('-webkit-backdrop-filter') || '',
 				backgroundImage: style?.backgroundImage || '',
 				backgroundColor: style?.backgroundColor || '',
 				backdropFilter: style?.backdropFilter || style?.webkitBackdropFilter || '',
 			};
 		});
 		assert.ok(state.compositions >= 1 && state.compositions <= 2, `${label} recompôs o primeiro paint em excesso (${action}): ${JSON.stringify(state)}`);
-		assert.equal(state.inlineSaturation, '', `${label} conservou estilo transitório (${action}): ${JSON.stringify(state)}`);
+		assert.equal(state.inlineBackdrop, '', `${label} conservou estilo transitório (${action}): ${JSON.stringify(state)}`);
 		assert.ok(hasManualSmokeBaseline(state.backgroundImage, state.backgroundColor) && hasManualFullBarBlur(state.backdropFilter), `${label} perdeu baseline manual (${action}): ${JSON.stringify(state)}`);
 	}
+	await assertBackdropPixels(page, `${label} no primeiro carregamento`);
+	const beforeResize = Number(await page.locator('[data-jcem-title-bars]').getAttribute('data-jcem-backdrop-compositions'));
+	await page.setViewportSize({ width: 1017, height: 820 });
+	await waitForStableBackdropComposition(page, beforeResize);
+	await assertBackdropPixels(page, `${label} após resize equivalente ao fechamento do DevTools`);
 	await context.close();
 };
 
@@ -291,7 +360,9 @@ try {
 	await page.waitForFunction(() => document.querySelector('[data-jcem-title-bars]')?.getAttribute('data-jcem-backdrop-composed') === 'true');
 	const backdropRegions = [];
 	for (const [width, height] of [[360, 800], [480, 800], [768, 1024], [1024, 768], [1280, 720]]) {
+		const previousCompositions = Number(await page.locator('[data-jcem-title-bars]').getAttribute('data-jcem-backdrop-compositions'));
 		await page.setViewportSize({ width, height });
+		await waitForStableBackdropComposition(page, previousCompositions);
 		const resized = await page.evaluate(() => {
 			const rect = (node) => node?.getBoundingClientRect().toJSON();
 			const deck = document.querySelector('[data-jcem-title-bars]');
@@ -307,7 +378,7 @@ try {
 				materialBackdropFilter: materialStyle?.backdropFilter || materialStyle?.webkitBackdropFilter || '',
 				backdropComposed: deck?.getAttribute('data-jcem-backdrop-composed') || '',
 				backdropCompositions: Number(deck?.getAttribute('data-jcem-backdrop-compositions') || 0),
-				backdropSaturationInline: deck?.style.getPropertyValue('--jcem-cover-backdrop-saturation') || '',
+				backdropFilterInline: deck?.style.getPropertyValue('backdrop-filter') || deck?.style.getPropertyValue('-webkit-backdrop-filter') || '',
 				duplicateCoverInDeck: deck?.querySelectorAll('img, .jcem-featured-image__stage, .page__hero, [style*="background-image"]').length || 0,
 				overflow: document.documentElement.scrollWidth - document.documentElement.clientWidth,
 			};
@@ -324,7 +395,7 @@ try {
 		);
 		assert.ok(hasManualSmokeBaseline(resized.materialBackground, resized.materialBackgroundColor) && hasManualFullBarBlur(resized.materialBackdropFilter) && resized.duplicateCoverInDeck === 0, `baseline manual do backdrop perdido em resize ${width}x${height}: ${JSON.stringify(resized)}`);
 		assert.equal(resized.backdropComposed, 'true', `backdrop não foi composto após estabilização ${width}x${height}: ${JSON.stringify(resized)}`);
-		assert.ok(resized.backdropCompositions >= 1 && resized.backdropSaturationInline === '', `recomposição local não restaurou o estilo final ${width}x${height}: ${JSON.stringify(resized)}`);
+		assert.ok(resized.backdropCompositions >= 1 && resized.backdropFilterInline === '', `recomposição local não restaurou o estilo final ${width}x${height}: ${JSON.stringify(resized)}`);
 		backdropRegions.push(`${resized.stage.top.toFixed(2)}:${resized.upperBar.top.toFixed(2)}:${resized.upperBar.height.toFixed(2)}`);
 	}
 	assert.ok(new Set(backdropRegions).size > 1, `região real do COVER atrás do vidro não acompanhou resize/orientação: ${JSON.stringify(backdropRegions)}`);
@@ -372,7 +443,7 @@ try {
 				overlap: document.querySelector('.jcem-post-header')?.getAttribute('data-jcem-title-cover-overlap'),
 				supportRatio: Number.parseFloat(getComputedStyle(document.querySelector('.jcem-post-header')).getPropertyValue('--jcem-date-flag-support-ratio')),
 				materialBackground: materialStyle?.backgroundImage || '', materialBackgroundColor: materialStyle?.backgroundColor || '', materialBackdropFilter: materialStyle?.backdropFilter || materialStyle?.webkitBackdropFilter || '', deckShadow: deckStyle?.boxShadow || '',
-				backdropComposed: titleBars?.getAttribute('data-jcem-backdrop-composed') || '', backdropSaturationInline: titleBars?.style.getPropertyValue('--jcem-cover-backdrop-saturation') || '',
+				backdropComposed: titleBars?.getAttribute('data-jcem-backdrop-composed') || '', backdropFilterInline: titleBars?.style.getPropertyValue('backdrop-filter') || titleBars?.style.getPropertyValue('-webkit-backdrop-filter') || '',
 				upperBackdropFilter: upperStyle?.backdropFilter || upperStyle?.webkitBackdropFilter || '', upperBackground: upperStyle?.backgroundImage || '', upperBackgroundColor: upperStyle?.backgroundColor || '', upperFilter: upperStyle?.filter || '', upperShadow: upperStyle?.boxShadow || '',
 				lowerBackground: lowerStyle?.backgroundColor || '', lowerBackgroundImage: lowerStyle?.backgroundImage || '', lowerBackdropFilter: lowerStyle?.backdropFilter || lowerStyle?.webkitBackdropFilter || '', lowerFilter: lowerStyle?.filter || '', lowerShadow: lowerStyle?.boxShadow || '',
 				titleFilter: titleStyle?.filter || '', titleBackdropFilter: titleStyle?.backdropFilter || titleStyle?.webkitBackdropFilter || '',
@@ -405,7 +476,7 @@ try {
 		assert.ok(Math.abs(legacy.supportRatio - supportToken) <= 1e-8, `token renderizado divergente ${mode}`);
 		assert.ok(hasManualSmokeBaseline(legacy.materialBackground, legacy.materialBackgroundColor) && hasManualFullBarBlur(legacy.materialBackdropFilter), `baseline manual do material fumê/blur divergente ${mode}: ${JSON.stringify(legacy)}`);
 		assert.equal(legacy.backdropComposed, 'true', `backdrop não composto no primeiro carregamento ${mode}: ${JSON.stringify(legacy)}`);
-		assert.equal(legacy.backdropSaturationInline, '', `estilo transitório persistiu ${mode}: ${JSON.stringify(legacy)}`);
+		assert.equal(legacy.backdropFilterInline, '', `estilo transitório persistiu ${mode}: ${JSON.stringify(legacy)}`);
 		assert.notEqual(legacy.deckShadow, 'none', `sombra externa do conjunto ausente ${mode}`);
 		assert.ok(legacy.upperBackground === 'none' && legacy.upperBackgroundColor === 'rgba(0, 0, 0, 0)' && legacy.upperFilter === 'none' && legacy.upperBackdropFilter === 'none' && legacy.upperShadow === 'none', `foreground superior contaminado ${mode}: ${JSON.stringify(legacy)}`);
 		assert.ok(legacy.lowerBackground === 'rgba(0, 0, 0, 0)' && legacy.lowerBackgroundImage === 'none' && legacy.lowerFilter === 'none' && legacy.lowerBackdropFilter === 'none' && legacy.lowerShadow === 'none', `foreground inferior contaminado ${mode}: ${JSON.stringify(legacy)}`);

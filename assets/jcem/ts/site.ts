@@ -472,38 +472,53 @@ const bindJcemCoverBackdropComposition = (): void => {
 		'.jcem-post-header[data-jcem-title-cover-overlap="true"]',
 	);
 	const deck = header?.querySelector<HTMLElement>('[data-jcem-title-bars]');
+	const main = header?.closest<HTMLElement>('#main');
 	const stage = document.querySelector<HTMLElement>(
 		'.jcem-featured-image__stage, [data-jcem-legacy-hero]',
 	);
 	const image = stage?.querySelector<HTMLImageElement>(
 		'.jcem-featured-image__img, .page__hero-image, img',
 	);
-	if (!deck || !stage || !image) return;
+	if (!deck || !main || !stage || !image) return;
 
-	let scheduledFrame = 0;
-	let restoreFrame = 0;
+	let settleFrame = 0;
+	let paintedFrame = 0;
 	let readinessObserver: MutationObserver | null = null;
+	let geometryObserver: ResizeObserver | null = null;
 
 	const isReady = (): boolean =>
 		image.complete &&
 		image.naturalWidth > 0 &&
-		stage.dataset.jcemSkeletonState !== 'loading';
+		stage.dataset.jcemSkeletonState !== 'loading' &&
+		main.dataset.jcemCoverBackdropRoot === 'released';
+
+	const computedBackdrop = (): string => {
+		const style = window.getComputedStyle(deck);
+		return style.backdropFilter || style.getPropertyValue('-webkit-backdrop-filter');
+	};
+
+	const invalidateNativeBackdrop = (): boolean => {
+		if (!computedBackdrop().includes('blur(')) return false;
+
+		// PROTECAO: Chromium pode manter a camada sem backdrop depois da troca da
+		// mídia ou de um resize (inclusive ao fechar o DevTools). Alternar a
+		// propriedade real e forçar os dois estilos reproduz o toggle manual sem
+		// apresentar um frame sem blur nem conservar promoção permanente de camada.
+		deck.style.setProperty('-webkit-backdrop-filter', 'none', 'important');
+		deck.style.setProperty('backdrop-filter', 'none', 'important');
+		const disabled = computedBackdrop();
+		deck.style.removeProperty('-webkit-backdrop-filter');
+		deck.style.removeProperty('backdrop-filter');
+		const restored = computedBackdrop();
+		return disabled === 'none' && restored.includes('blur(');
+	};
 
 	const recompose = (): void => {
-		scheduledFrame = 0;
-		if (!isReady() || restoreFrame) return;
+		settleFrame = 0;
+		if (!isReady() || !invalidateNativeBackdrop()) return;
 
-		const style = window.getComputedStyle(deck);
-		const backdrop =
-			style.backdropFilter || style.getPropertyValue('-webkit-backdrop-filter');
-		if (!backdrop.includes('blur(')) return;
-
-		// PROTECAO: Chromium pode conservar a textura anterior ao trocar skeleton
-		// pela imagem. Um delta imperceptivel por um frame invalida apenas este deck.
-		deck.style.setProperty('--jcem-cover-backdrop-saturation', '1.140001');
-		restoreFrame = window.requestAnimationFrame(() => {
-			deck.style.removeProperty('--jcem-cover-backdrop-saturation');
-			restoreFrame = 0;
+		paintedFrame = window.requestAnimationFrame(() => {
+			paintedFrame = 0;
 			const count = Number(deck.dataset.jcemBackdropCompositions || 0) + 1;
 			deck.dataset.jcemBackdropCompositions = String(count);
 			deck.dataset.jcemBackdropComposed = 'true';
@@ -511,9 +526,15 @@ const bindJcemCoverBackdropComposition = (): void => {
 	};
 
 	const schedule = (): void => {
-		if (scheduledFrame || restoreFrame || !isReady()) return;
-		scheduledFrame = window.requestAnimationFrame(() => {
-			scheduledFrame = window.requestAnimationFrame(recompose);
+		if (!isReady()) return;
+		deck.dataset.jcemBackdropComposed = 'pending';
+		if (settleFrame) window.cancelAnimationFrame(settleFrame);
+		if (paintedFrame) {
+			window.cancelAnimationFrame(paintedFrame);
+			paintedFrame = 0;
+		}
+		settleFrame = window.requestAnimationFrame(() => {
+			settleFrame = window.requestAnimationFrame(recompose);
 		});
 	};
 
@@ -538,6 +559,31 @@ const bindJcemCoverBackdropComposition = (): void => {
 	window.addEventListener('resize', schedule, { passive: true });
 	window.addEventListener('orientationchange', schedule, { passive: true });
 	window.visualViewport?.addEventListener('resize', schedule, { passive: true });
+	window.addEventListener('pageshow', schedule, { passive: true });
+	document.addEventListener('visibilitychange', () => {
+		if (document.visibilityState === 'visible') schedule();
+	});
+	if (typeof ResizeObserver === 'function') {
+		geometryObserver = new ResizeObserver(schedule);
+		geometryObserver.observe(stage);
+		geometryObserver.observe(deck);
+	}
+	const releaseBackdropRoot = (): void => {
+		main.dataset.jcemCoverBackdropRoot = 'released';
+		schedule();
+	};
+	const mainAnimations = typeof main.getAnimations === 'function'
+		? main.getAnimations({ subtree: false })
+		: [];
+	if (mainAnimations.length > 0) {
+		void Promise.all(
+			mainAnimations.map((animation) => animation.finished.catch(() => undefined)),
+		)
+			.then(releaseBackdropRoot);
+	} else {
+		releaseBackdropRoot();
+	}
+	void document.fonts?.ready.then(schedule);
 };
 
 const jcemSkeletonMediaSelector =
