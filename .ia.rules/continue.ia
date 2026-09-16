@@ -1293,7 +1293,7 @@ plano:
   - id: FT-075
     classe: correcao_normativa
     criado_em: 2026-09-16
-    estado: em_andamento
+    estado: concluida
     depende_de: FT-073
     fonte: .ia.rules/state/requests/FT-075/prompt.md
     contexto: .ia.rules/state/contexts/FT-075/master.md
@@ -1302,11 +1302,16 @@ plano:
       - exemplos citados na rejeicao nao limitam a auditoria dos cinco modelos
       - thematic-rail possui texto a esquerda, aspas visiveis e intervalo fixo centralizado
       - excecoes anteriores expressas e capacidades existentes permanecem preservadas
-    proximo_passo: corrigir RCFs e validar a etapa normativa antes da implementacao pre-autorizada
+    resultado:
+      - e1 a e6 tornadas referencias visuais estritas com excecoes expressas preservadas
+      - requisitos individuais ampliados para todos os cinco modelos, sem limitar a correcao aos exemplos da rejeicao
+      - thematic-rail exige haste de geometria estavel, intervalo centralizado, aspas visiveis e corpo/autoria a esquerda
+      - matriz passa a exigir medidas geometricas e comparacao visual, rejeitando teste baseado somente em content computado, classe ou overflow
+    proximo_passo: iniciar imediatamente a FT-076 pre-autorizada
   - id: FT-076
     classe: correcao_codigo_documentacao_validacao
     criado_em: 2026-09-16
-    estado: pendente
+    estado: em_andamento
     depende_de: FT-075
     fonte: .ia.rules/state/requests/FT-075/prompt.md
     fonte_autorizacao: prompt humano de 2026-09-16 e pre-autorizacao vigente para transicao normativa-implementacao
@@ -1316,7 +1321,7 @@ plano:
       - e1 a e6 comparados visualmente em claro, escuro, desktop e mobile
       - testes falham para aspas invisiveis, alinhamento incorreto e intervalo de haste variavel
       - modelos anteriores, aliases, semantica, acessibilidade e IEEE permanecem preservados
-    proximo_passo: aguardar conclusao e validacao normativa da FT-075
+    proximo_passo: implementar a correcao cumulativa e validar todos os modelos
 lacunas:
   - id: GAP-RCF-MODULE-2026-001
     estado: isolada_fora_do_escopo
