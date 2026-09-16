@@ -1868,13 +1868,13 @@
         "scripts/test_quote_runtime.mjs",
         "scripts/test_quote_semantics.rb"
       ],
-      "commit": "",
+      "commit": "0c9e2c0cb5d2f28ec1ad0848684624d7b9d82ae0",
       "ft": "FT-073",
       "id": "34d1ca6add9b6d752cd77a00",
       "line": 31,
       "rcf": "RCFs/citacoes.md",
       "sentenceSha256": "2b81aa8f218ce22e9482cee1fe46a3ef2eecc6ed865daf3a751ca9c03a3cdc44",
-      "state": "pending",
+      "state": "synchronized",
       "syncCommit": ""
     },
     {
@@ -1962,13 +1962,13 @@
         "scripts/test_quote_runtime.mjs",
         "scripts/test_quote_semantics.rb"
       ],
-      "commit": "",
+      "commit": "0c9e2c0cb5d2f28ec1ad0848684624d7b9d82ae0",
       "ft": "FT-073",
       "id": "7770fd3463cc8b0b94fdaf7b",
       "line": 40,
       "rcf": "RCFs/citacoes.md",
       "sentenceSha256": "50f0b56cb17c9383d93df4e9fa280430d271c274f84fd3cff31587bd21092a1a",
-      "state": "pending",
+      "state": "synchronized",
       "syncCommit": ""
     },
     {
@@ -1991,13 +1991,13 @@
         "scripts/test_quote_runtime.mjs",
         "scripts/test_quote_semantics.rb"
       ],
-      "commit": "",
+      "commit": "0c9e2c0cb5d2f28ec1ad0848684624d7b9d82ae0",
       "ft": "FT-073",
       "id": "8003287e239f9cc14c0983c1",
       "line": 41,
       "rcf": "RCFs/citacoes.md",
       "sentenceSha256": "dd64b0e2410924d0f8b153ea671ba32d7de7d4f7ee7b414ea70285e593dad37a",
-      "state": "pending",
+      "state": "synchronized",
       "syncCommit": ""
     },
     {
@@ -2020,13 +2020,13 @@
         "scripts/test_quote_runtime.mjs",
         "scripts/test_quote_semantics.rb"
       ],
-      "commit": "",
+      "commit": "0c9e2c0cb5d2f28ec1ad0848684624d7b9d82ae0",
       "ft": "FT-073",
       "id": "7c2ee2096577cbde27216a4b",
       "line": 42,
       "rcf": "RCFs/citacoes.md",
       "sentenceSha256": "0b0fc9ef4fcb1b2454ed619a0664a054aef34fb6d54badc200b41f886a385978",
-      "state": "pending",
+      "state": "synchronized",
       "syncCommit": ""
     },
     {
@@ -2101,13 +2101,13 @@
         "scripts/test_quote_runtime.mjs",
         "scripts/test_quote_semantics.rb"
       ],
-      "commit": "",
+      "commit": "0c9e2c0cb5d2f28ec1ad0848684624d7b9d82ae0",
       "ft": "FT-073",
       "id": "f888b1bfc15e9f40f0cacffc",
       "line": 50,
       "rcf": "RCFs/citacoes.md",
       "sentenceSha256": "e2fe05fc260b5e8867555a368c5635cb588cac8564716a7673b3c4c3a18022df",
-      "state": "pending",
+      "state": "synchronized",
       "syncCommit": ""
     },
     {
@@ -2130,13 +2130,13 @@
         "scripts/test_quote_runtime.mjs",
         "scripts/test_quote_semantics.rb"
       ],
-      "commit": "",
+      "commit": "0c9e2c0cb5d2f28ec1ad0848684624d7b9d82ae0",
       "ft": "FT-073",
       "id": "be13f1a4cdd4efdb48bff26f",
       "line": 51,
       "rcf": "RCFs/citacoes.md",
       "sentenceSha256": "0e0b719453d73d78baf223a81276da494d0664a74e3346c4f423135cb316cc44",
-      "state": "pending",
+      "state": "synchronized",
       "syncCommit": ""
     },
     {
@@ -2159,13 +2159,13 @@
         "scripts/test_quote_runtime.mjs",
         "scripts/test_quote_semantics.rb"
       ],
-      "commit": "",
+      "commit": "0c9e2c0cb5d2f28ec1ad0848684624d7b9d82ae0",
       "ft": "FT-073",
       "id": "d6c8ce77f1bec70c576d6ec4",
       "line": 52,
       "rcf": "RCFs/citacoes.md",
       "sentenceSha256": "a53aedff011b688eabb157942130aaaa819204444d66acc800b191bf92577280",
-      "state": "pending",
+      "state": "synchronized",
       "syncCommit": ""
     },
     {
@@ -2188,13 +2188,13 @@
         "scripts/test_quote_runtime.mjs",
         "scripts/test_quote_semantics.rb"
       ],
-      "commit": "",
+      "commit": "0c9e2c0cb5d2f28ec1ad0848684624d7b9d82ae0",
       "ft": "FT-073",
       "id": "513ec40acc019a338f3cdeb6",
       "line": 53,
       "rcf": "RCFs/citacoes.md",
       "sentenceSha256": "f36a0a1bc33b70e59b261e2dc82d824d2337e59891e2ae850235f8da53b917fb",
-      "state": "pending",
+      "state": "synchronized",
       "syncCommit": ""
     },
     {
@@ -4259,13 +4259,13 @@
         "docs/MODO-DE-USO-BLOCKQUOTE.md",
         "scripts/test_documentation.rb"
       ],
-      "commit": "",
+      "commit": "0c9e2c0cb5d2f28ec1ad0848684624d7b9d82ae0",
       "ft": "FT-073",
       "id": "5a4d17398186750f48f6d6ca",
       "line": 50,
       "rcf": "RCFs/documentacao-e-metadados.md",
       "sentenceSha256": "1860cfba839c5582689a140709d33c2d1d841207fd45252561934828644bca2d",
-      "state": "pending",
+      "state": "synchronized",
       "syncCommit": ""
     },
     {
@@ -4708,13 +4708,13 @@
         "scripts/test_print_ieee.mjs",
         "src/jcem-print-ieee/adapters/jekyll-blog.css"
       ],
-      "commit": "",
+      "commit": "0c9e2c0cb5d2f28ec1ad0848684624d7b9d82ae0",
       "ft": "FT-073",
       "id": "3bc858fd934bfbe808b42874",
       "line": 52,
       "rcf": "RCFs/impressao-ieee.md",
       "sentenceSha256": "1b736e6256833f8a3b0608c564b6b23a00991f60c475f00549b254164d0b3054",
-      "state": "pending",
+      "state": "synchronized",
       "syncCommit": ""
     },
     {

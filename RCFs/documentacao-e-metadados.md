@@ -47,7 +47,7 @@ Escopo: documentação de uso, exemplos copiáveis, ilustrações comparativas, 
 - Emoji ou texto curto, URL HTTPS e asset interno DEVEM ter usos explicados separadamente; nomes internos fechados DEVEM ser listados integralmente, enquanto entrada arbitrária DEVE ser descrita por formato e restrições sem inventário impossível. [a1378a6]
 - Ao menos um exemplo completo DEVE ser copiável sem alteração obrigatória, usar somente modelo e asset existentes e atravessar sem erro a normalização Markdown, o registro e o build. [a1378a6]
 - Adição, remoção ou alteração de modelo, sintaxe, nome, cor, ícone, estrutura ou precedência DEVE atualizar conjuntamente `RCFs/citacoes.md`, a página, as representações atingidas e a validação documental. [a1378a6]
-- A página DEVE distinguir modelos concretos, aliases dinâmicos e tokens cromáticos; DEVE listar integralmente os aliases e cores nomeadas do registro, ilustrar cada modelo concreto ao menos uma vez e mostrar duas cores quando um único modelo for parametrizável apenas por cor. [PENDENTE-CODIGO]
+- A página DEVE distinguir modelos concretos, aliases dinâmicos e tokens cromáticos; DEVE listar integralmente os aliases e cores nomeadas do registro, ilustrar cada modelo concreto ao menos uma vez e mostrar duas cores quando um único modelo for parametrizável apenas por cor. [9d82ae0]
 
 ## Projeção operacional e validação
 
