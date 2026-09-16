@@ -2159,13 +2159,13 @@
         "scripts/test_quote_runtime.mjs",
         "scripts/test_quote_semantics.rb"
       ],
-      "commit": "",
+      "commit": "2d087e41c699bec6a8686ae27c9ab73ef3f5a0f9",
       "ft": "FT-074",
       "id": "d6c8ce77f1bec70c576d6ec4",
       "line": 52,
       "rcf": "RCFs/citacoes.md",
       "sentenceSha256": "a53aedff011b688eabb157942130aaaa819204444d66acc800b191bf92577280",
-      "state": "pending",
+      "state": "synchronized",
       "syncCommit": ""
     },
     {
