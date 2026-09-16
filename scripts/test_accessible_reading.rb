@@ -90,4 +90,31 @@ Dir.mktmpdir("jcem-accessibility-manifest-") do |destination|
   assert(manifest.dig("pages", 0, "capabilities", "toc") == 1, "manifesto não registrou o sumário")
 end
 
+root = File.expand_path("..", __dir__)
+local_adapter = File.read(File.join(root, "agents.local.md"), encoding: "UTF-8")
+package = JSON.parse(File.read(File.join(root, "package.json"), encoding: "UTF-8"))
+tts_rcf = File.read(File.join(root, "RCFs", "leitura-acessivel-e-tts.md"), encoding: "UTF-8")
+
+# PROTECAO: a governança genérica pertence ao núcleo; estes arquivos comprovam
+# somente o roteamento e o delta Web que continua específico deste produto.
+assert(local_adapter.include?(".ia.rules/resources/editorial-authoring.md"), "rota editorial canônica ausente")
+assert(local_adapter.include?(".ia.rules/resources/spoken-normalization.md"), "rota de fala canônica ausente")
+assert(
+  package.dig("scripts", "agent:editorial") == "node .ia.rules/core/runtime/scripts/editorial-authoring.js",
+  "comando editorial deixou de delegar ao runtime gerenciado"
+)
+assert(
+  package.dig("scripts", "agent:spoken") == "node .ia.rules/core/runtime/scripts/spoken-normalization.js",
+  "comando de fala deixou de delegar ao runtime gerenciado"
+)
+assert(tts_rcf.include?("especializações locais de produto"), "delta local TTS não foi preservado")
+%w[
+  _plugins/jcem_zz_accessible_reading.rb
+  _includes/jcem/read-aloud.html
+  assets/jcem/js/read-aloud.js
+  scripts/test_accessible_runtime.mjs
+].each do |relative_path|
+  assert(File.file?(File.join(root, relative_path)), "capacidade local removida: #{relative_path}")
+end
+
 puts "accessible_reading=ok"
