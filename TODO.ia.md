@@ -345,3 +345,136 @@
     - ausência de dependência de heurísticas frágeis de user-agent.
 
   - **Aceite:** mobile e desktop DEVEM possuir a mesma capacidade de impressão IEEE, carregada somente na fase pós-crítica/idle, sem bloquear a página, sem regressão funcional ou visual e sem mecanismos artificiais de evasão de métricas.
+
+- [ ] **Criar novos templates visuais de `blockquote` a partir das evidências e centralizar aliases padrão**
+  - **Objetivo**
+    - Na pasta de evidências, usar `e1.png` a `e5.png` como referência visual para criar novos estilos/templates de `blockquote`, preservando fidelidade ao modelo sem interferir na impressão IEEE.
+    - Antes de implementar, inspecionar templates, classes, aliases, configuração central, pipeline de build e regras existentes para evitar colisão, duplicação ou regressão.
+
+  - **1. Templates derivados das evidências**
+    - Criar **4 modelos distintos**:
+      - `e1.png` + `e2.png` → **um único template**, sendo dois exemplos do mesmo estilo com variação/customização de cor;
+      - `e3.png` → um template próprio;
+      - `e4.png` → um template próprio;
+      - `e5.png` → um template próprio.
+    - Gerar para cada modelo um **nome semântico, estável e único**, que:
+      - NÃO colida com templates/classes/aliases existentes;
+      - NÃO dependa de nomes `e1`, `e2`, etc.;
+      - represente adequadamente sua linguagem visual.
+    - `e1/e2` DEVEM compartilhar a mesma estrutura visual e permitir **cor customizável**, conforme demonstrado pelas duas evidências.
+    - Em `e3.png`, preservar explicitamente o **pequeno recuo à esquerda em relação ao alinhamento normal dos demais parágrafos**.
+    - Em `e4.png` e `e5.png`, **desconsiderar o fundo da screenshot como parte do modelo**; reproduzir apenas o `blockquote` e seus elementos próprios.
+
+  - **2. Tipografia e adornos**
+    - Mesmo que as referências utilizem outras fontes, os templates DEVEM utilizar a **font-family já definida pelo projeto/repositório**.
+    - Somente adornos estritamente decorativos PODEM utilizar tipografia/forma específica quando necessária para reproduzir o modelo.
+    - NÃO introduzir nova fonte global apenas para aproximar as evidências.
+
+  - **3. Exclusivamente visual para web**
+    - Esses templates são **somente estilos visuais da apresentação web**.
+    - Em impressão, preview de impressão e geração equivalente, os estilos particulares de `blockquote` NÃO DEVEM prevalecer.
+    - O estilo/formatação IEEE já normatizado DEVE ter precedência absoluta na impressão.
+    - Garantir que nenhum template novo introduza cor, fundo, margem, adorno, tipografia ou estrutura visual que contamine o resultado IEEE.
+
+  - **4. Configuração centralizada de templates padrão**
+    - Criar, se ainda não existir, ou ampliar o mecanismo central existente para definir pelo menos:
+      - **template primário** de `blockquote`;
+      - **template secundário/destaque**.
+    - NÃO criar configuração paralela se já houver mecanismo canônico equivalente.
+
+    - Sem configuração específica no conteúdo:
+
+      ```text
+      blockquote comum → template primário
+      blockquote "destaque" → template secundário configurado
+      ```
+
+    - Valores padrão obrigatórios:
+      - **primário** → template equivalente a `e3.png`;
+      - **secundário / `destaque`** → `futuristic`.
+
+  - **5. `destaque` como alias dinâmico**
+    - `destaque` NÃO DEVE representar um template visual fixo.
+    - Deve funcionar como **alias configurável** para o template definido centralmente como secundário.
+    - Assim:
+
+      ```text
+      destaque → configuração central → template concreto
+      ```
+
+    - Alterar futuramente o alias central de `destaque` DEVE atualizar automaticamente todos os `blockquote` que o utilizem, sem editar cada página.
+
+  - **6. Primário também dinâmico**
+    - O template primário DEVE seguir o mesmo princípio:
+      - `blockquote` sem template explícito usa o alias/configuração primária;
+      - alterar a configuração central DEVE refletir automaticamente em todas as páginas que dependam do padrão.
+
+  - **7. Uso explícito continua permitido**
+    - A padronização NÃO DEVE impedir que o autor selecione diretamente qualquer template concreto disponível.
+    - A precedência DEVE ser inequívoca:
+
+      ```text
+      template explicitamente informado
+      >
+      alias "destaque", se utilizado
+      >
+      template primário padrão
+      ```
+
+    - Portanto:
+      - sem indicação → primário;
+      - `destaque` → template atualmente apontado pelo alias secundário;
+      - template nominal explícito → usa exatamente esse template.
+
+  - **8. Integração com build**
+    - A resolução dos aliases DEVE ocorrer de forma compatível com o pipeline real do projeto e ser **detectável em build-time**.
+    - Alterar a configuração central do primário ou `destaque` DEVE fazer com que as páginas dependentes sejam automaticamente reconstruídas/regeneradas pelo fluxo oficial.
+    - NÃO armazenar nos conteúdos o template concreto resultante do alias de modo que congele a configuração antiga.
+    - A dependência entre conteúdo e configuração DEVE permanecer rastreável pelo build.
+
+  - **9. Implementação**
+    - Reutilizar arquitetura, tokens, CSS, componentes e mecanismos existentes sempre que equivalentes.
+    - Evitar:
+      - CSS duplicado;
+      - seletores excessivamente específicos;
+      - `!important` sem necessidade comprovada;
+      - estilos inline;
+      - hardcode por artigo;
+      - lógica duplicada entre alias e template.
+    - Separar claramente:
+      - estrutura comum de `blockquote`;
+      - template visual;
+      - parâmetros/customizações;
+      - aliases/configuração central;
+      - overrides exclusivos de impressão IEEE.
+
+  - **10. Validação**
+    - Comparar visualmente cada implementação com sua evidência correspondente.
+    - Validar:
+      - `e1/e2` como um único modelo parametrizável por cor;
+      - fidelidade individual de `e3`, `e4` e `e5`;
+      - recuo específico de `e3`;
+      - ausência do fundo externo de `e4/e5`;
+      - font-family padrão do projeto;
+      - nomes sem colisão;
+      - primário apontando por padrão para o equivalente a `e3`;
+      - `destaque` apontando por padrão para `futuristic`;
+      - troca dos aliases refletindo globalmente após rebuild;
+      - seleção explícita de outros templates funcionando normalmente;
+      - impressão IEEE permanecendo visualmente inalterada.
+
+  - **Critério de aceite**
+    - Concluir somente quando:
+      1. os 4 templates derivados de `e1`–`e5` existirem sem colisão;
+      2. `e1/e2` forem um único template com cor customizável;
+      3. `e3` preservar seu recuo real;
+      4. fundos externos de `e4/e5` não fizerem parte dos templates;
+      5. tipografia seguir o projeto, salvo adornos justificáveis;
+      6. os estilos forem exclusivos da web e não afetarem IEEE;
+      7. existir configuração central de **primário** e **secundário/destaque**;
+      8. o primário apontar inicialmente para o modelo equivalente a `e3`;
+      9. `destaque` apontar inicialmente para `futuristic`;
+      10. ambos funcionarem como aliases dinâmicos resolvidos pelo build;
+      11. alteração central regenerar automaticamente as páginas dependentes;
+      12. templates explícitos continuarem selecionáveis diretamente;
+      13. nenhuma funcionalidade ou estilo existente regredir.
