@@ -2114,13 +2114,13 @@
       "artifacts": [
         "assets/jcem/css/jcmain.scss"
       ],
-      "commit": "",
+      "commit": "21d23e2929d010ca5270399492f5d0ab1961101f",
       "ft": "FT-076",
       "id": "89092c1ca7a63460e6547729",
       "line": 50,
       "rcf": "RCFs/citacoes.md",
       "sentenceSha256": "6e298fe2f49bc202f5b2810a6940ba777368663defc9a95e36649770ea59601b",
-      "state": "pending",
+      "state": "synchronized",
       "syncCommit": ""
     },
     {
@@ -2185,13 +2185,13 @@
       "artifacts": [
         "assets/jcem/css/jcmain.scss"
       ],
-      "commit": "",
+      "commit": "21d23e2929d010ca5270399492f5d0ab1961101f",
       "ft": "FT-076",
       "id": "c7566ea5f41e4dc66c12d450",
       "line": 52,
       "rcf": "RCFs/citacoes.md",
       "sentenceSha256": "079a8e8afbf75e5be74466ddf36ef8363fbe0de128051c0bfebb8eb47d26400f",
-      "state": "pending",
+      "state": "synchronized",
       "syncCommit": ""
     },
     {
@@ -2227,13 +2227,13 @@
       "artifacts": [
         "assets/jcem/css/jcmain.scss"
       ],
-      "commit": "",
+      "commit": "21d23e2929d010ca5270399492f5d0ab1961101f",
       "ft": "FT-076",
       "id": "ff7f84b2bd660debda6318a3",
       "line": 53,
       "rcf": "RCFs/citacoes.md",
       "sentenceSha256": "287cb68df7689e3d8710fdf73833b65ee738cd55a21300ad25de40e9b8cb9438",
-      "state": "pending",
+      "state": "synchronized",
       "syncCommit": ""
     },
     {
@@ -2526,13 +2526,13 @@
       "artifacts": [
         "assets/jcem/css/jcmain.scss"
       ],
-      "commit": "",
+      "commit": "21d23e2929d010ca5270399492f5d0ab1961101f",
       "ft": "FT-076",
       "id": "d5611cdda1aa906662d498d1",
       "line": 88,
       "rcf": "RCFs/citacoes.md",
       "sentenceSha256": "e8986370de90d3dafcef58943345e301332c730e355565c7961677c01282e11e",
-      "state": "pending",
+      "state": "synchronized",
       "syncCommit": ""
     },
     {
@@ -4282,13 +4282,13 @@
         "assets/images/documentacao/blockquote/thematic-rail.svg",
         "docs/MODO-DE-USO-BLOCKQUOTE.md"
       ],
-      "commit": "",
+      "commit": "21d23e2929d010ca5270399492f5d0ab1961101f",
       "ft": "FT-076",
       "id": "82567910bc90f5e12236fbfa",
       "line": 45,
       "rcf": "RCFs/documentacao-e-metadados.md",
       "sentenceSha256": "640a13b6303442c9d25b77af4ce7421bb7fa01231073c172469f01a9ede0e3cb",
-      "state": "pending",
+      "state": "synchronized",
       "syncCommit": ""
     },
     {

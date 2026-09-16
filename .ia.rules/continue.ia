@@ -1,6 +1,6 @@
 schema: jcem-continue/v1
 machine_id: JEAN-DESKTOP
-data_ref: 2026-09-16T14:46:47.3545004-03:00
+data_ref: 2026-09-16T16:50:13.9896307-03:00
 fonte: TODO.ia.md
 objetivo: Processar integralmente as novas frentes de migracao TTS/redacional, impressao IEEE mobile pos-critica e templates de blockquote, preservando as frentes implementadas em avaliacao humana.
 autorizacao:
@@ -1311,7 +1311,7 @@ plano:
   - id: FT-076
     classe: correcao_codigo_documentacao_validacao
     criado_em: 2026-09-16
-    estado: em_andamento
+    estado: concluida_tecnicamente_pendente_validacao_humana
     depende_de: FT-075
     fonte: .ia.rules/state/requests/FT-075/prompt.md
     fonte_autorizacao: prompt humano de 2026-09-16 e pre-autorizacao vigente para transicao normativa-implementacao
@@ -1321,7 +1321,26 @@ plano:
       - e1 a e6 comparados visualmente em claro, escuro, desktop e mobile
       - testes falham para aspas invisiveis, alinhamento incorreto e intervalo de haste variavel
       - modelos anteriores, aliases, semantica, acessibilidade e IEEE permanecem preservados
-    proximo_passo: implementar a correcao cumulativa e validar todos os modelos
+    resultado:
+      - causa comum identificada no display none herdado do adaptador de impressao para pseudo-elementos sem display explicito no modo web, somada ao text-align justify generico e a haste percentual do thematic-rail
+      - cinco modelos corrigidos cumulativamente; pseudo-elementos agora possuem exibicao verificavel e os alinhamentos especificos prevalecem sem remover modelos, aliases, accents ou semantica
+      - thematic-rail usa intervalo geometrico fixo centralizado, aspas visiveis e corpo e autoria a esquerda; amostras curta e longa comprovam que a altura do texto nao altera o intervalo
+      - fixture, documentacao e ilustracoes foram sincronizadas com as referencias estritas e1 a e6 e com as excecoes expressas ja vigentes
+    validacao:
+      - build produtivo integral e isolado em .tmp/ft076-site aprovado em 222,742 segundos, sem absorver o _site compartilhado
+      - runtime de citacoes aprovado em 1280 e 320 px, claro e escuro, incluindo geometria, visibilidade real dos adornos, alinhamento e isolamento IEEE
+      - check:ts, check:quotes, check:documentation, check:print, check:accessibility e check:performance aprovados
+      - check:accessible-runtime reproduziu a lacuna preexistente dos marcadores falados Inicio e Fim da citacao, sem nexo causal com a alteracao visual desta FT
+      - validate:visual geral permaneceu inconclusivo por timeout de 301 segundos, sem emitir falha; a matriz focada e as capturas dos cinco modelos foram concluidas e aprovadas tecnicamente
+    preservacao:
+      - estado anterior e posterior comparados; os seis modelos preexistentes, cinco novos modelos, aliases, accents, temas, responsividade, semantica e impressao foram preservados ou fortalecidos
+      - _site compartilhado e suas modificacoes preexistentes permaneceram fora da alteracao fonte e dos commits
+      - TODO operacional permanece em avaliacao humana e nao foi marcado como concluido
+    commits:
+      registro: a7cef635a9
+      normativo: 991aff8193
+      causal: 21d23e2929
+    proximo_passo: validacao humana da fidelidade visual; manter a TO-DO em andamento ate aceite efetivo
 lacunas:
   - id: GAP-RCF-MODULE-2026-001
     estado: isolada_fora_do_escopo

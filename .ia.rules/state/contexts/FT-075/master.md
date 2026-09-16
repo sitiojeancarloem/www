@@ -29,3 +29,12 @@ Corrigir cumulativamente a implementação visual dos cinco modelos derivados de
 - Comparação visual de todos os cinco modelos com `e1.png`–`e6.png` em claro/escuro e desktop/mobile.
 - Testes geométricos detectam adornos invisíveis, alinhamento incorreto e haste dependente da altura do texto.
 - Seis modelos preexistentes, aliases, build-time, runtime, acessibilidade e impressão IEEE permanecem aprovados.
+
+## Resultado técnico da FT-076
+
+- A falha comum era composta por pseudo-elementos com `content` calculado, porém ainda ocultos por `display: none`, alinhamento justificado genérico e haste do `thematic-rail` baseada em percentuais da altura total.
+- Os cinco modelos foram revalidados e corrigidos: adornos materializados, alinhamentos específicos restaurados e ilustrações/documentação sincronizadas.
+- O `thematic-rail` usa vão fixo centralizado e aspas visíveis; fixtures curta e longa comprovam que o vão não varia com a quantidade de texto.
+- O runtime focado aprovou claro/escuro em 1280/320 px e o isolamento de impressão IEEE. Os gates TypeScript, semântico, documental, impresso, acessível estático e de desempenho também aprovaram.
+- O gate geral `validate:visual` permaneceu inconclusivo por timeout após 301 segundos sem falha emitida. `check:accessible-runtime` reproduziu a lacuna preexistente dos marcadores falados de início/fim da citação, sem nexo com a correção visual.
+- A FT-076 está tecnicamente corrigida, mas a TO-DO e a integração FT-074 continuam pendentes do aceite visual humano.
