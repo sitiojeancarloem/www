@@ -50,14 +50,23 @@ assert.match(css, /\.jcem-panel__edge\)\s*\{[^}]*display:\s*none\s*!important/s)
 assert.match(css, /\[data-print-article\][^}]*\*\s*\{[^}]*Noto Sans[^}]*!important/s);
 assert.match(css, /:where\(code, pre, kbd, samp, code \*, pre \*\)/);
 assert.doesNotMatch(css.split('@media print')[0], /\[data-print-article\]\s*\{[^}]*font-/s);
-assert.match(
-	headInclude,
-	/<link rel="stylesheet" href="\{\{ '\/assets\/jcem\/print-ieee\/ieee\.css' \| relative_url \}\}" media="print">/,
+assert.match(headInclude, /<meta name="jcem-print-stylesheet" content="\{\{ '\/assets\/jcem\/print-ieee\/ieee\.css'/);
+assert.match(headInclude, /<meta name="jcem-print-stylesheet" content="\{\{ '\/assets\/jcem\/print-ieee\/jekyll-blog\.css'/);
+assert.doesNotMatch(headInclude, /<link[^>]+print-ieee[^>]+rel="stylesheet"/);
+
+const siteSource = await readFile(
+	path.join(repositoryRoot, 'assets', 'jcem', 'ts', 'site.ts'),
+	'utf8',
 );
-assert.match(
-	headInclude,
-	/<link rel="stylesheet" href="\{\{ '\/assets\/jcem\/print-ieee\/jekyll-blog\.css' \| relative_url \}\}" media="print">/,
-);
+assert.match(siteSource, /document\.readyState !== 'complete'/);
+assert.match(siteSource, /window\.addEventListener\('load'/);
+assert.match(siteSource, /document\.fonts\?\.ready/);
+assert.match(siteSource, /image\.decode\(\)/);
+assert.match(siteSource, /requestIdleCallback\(callback\)/);
+assert.match(siteSource, /new MessageChannel\(\)/);
+assert.match(siteSource, /window\.addEventListener\('beforeprint', prepareNow\)/);
+assert.doesNotMatch(siteSource, /setTimeout\(scheduleIdle,\s*5000\)/);
+assert.doesNotMatch(siteSource, /userAgent|navigator\.platform|maxTouchPoints/);
 
 const dom = new JSDOM(
 	'<main><article data-print-article data-print-state="legivel"><div data-print-span="all"></div><section data-print-body><p><a href="https://example.test/fonte">Fonte</a></p></section></article><footer data-print-institutional><time data-print-acquired-at></time></footer></main>',

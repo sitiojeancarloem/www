@@ -64,7 +64,11 @@ assert.doesNotMatch(
 	/getBoundingClientRect/,
 );
 assert.match(site, /addEventListener\('beforeprint', prepareNow\)/);
-assert.match(site, /setTimeout\(scheduleIdle, 5000\)/);
+assert.match(site, /document\.readyState !== 'complete'/);
+assert.match(site, /document\.fonts\?\.ready/);
+assert.match(site, /requestIdleCallback\(callback\)/);
+assert.match(site, /new MessageChannel\(\)/);
+assert.doesNotMatch(site, /setTimeout\(scheduleIdle, 5000\)/);
 assert.deepEqual(
 	config.layouts.map((layout) => layout.id),
 	['home', 'article', 'map', 'about', 'taxonomy', 'not-found'],
@@ -98,8 +102,8 @@ assert.match(
 	singleLayout,
 	/{% if jcem_custom_featured and jcem_featured_style == "wide" %}[\s\S]*?{% elsif jcem_custom_featured %}[\s\S]*?{% elsif page\.header/,
 );
-assert.match(customTheme, /--jcem-article-zone-width:\s*max\(0px, min\(calc\(100dvw - 4rem\), calc\(#\{\$max-width\} - 4rem\)\)\)/);
-assert.match(customTheme, /--jcem-standard-cover-height:\s*calc\(var\(--jcem-article-zone-width\) \* 630 \/ 1200\)/);
+assert.match(customTheme, /--jcem-article-zone-width:\s*max\(\s*0px,\s*min\(calc\(100dvw - 4rem\),\s*calc\(#\{\$max-width\} - 4rem\)\)\s*\)/);
+assert.match(customTheme, /--jcem-standard-cover-height:\s*calc\(\s*var\(--jcem-article-zone-width\) \* 630 \/ 1200\s*\)/);
 assert.match(
 	customTheme,
 	/\.jcem-featured-image--wide\s*\{[\s\S]*?\.jcem-featured-image__stage\s*\{[^}]*height:\s*var\(--jcem-standard-cover-height\);[^}]*min-height:\s*var\(--jcem-standard-cover-height\);[^}]*max-height:\s*var\(--jcem-standard-cover-height\);[\s\S]*?&\.jcem-featured-image--single \.jcem-featured-image__img\s*\{[^}]*width:\s*auto;[^}]*height:\s*100%;[^}]*max-width:\s*none;[^}]*max-height:\s*none;/,

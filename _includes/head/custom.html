@@ -186,8 +186,8 @@
 {% endif %}
 
 {% if page.collection == 'posts' or page.pagespeed_layout == 'article' %}
-<link rel="stylesheet" href="{{ '/assets/jcem/print-ieee/ieee.css' | relative_url }}" media="print">
-<link rel="stylesheet" href="{{ '/assets/jcem/print-ieee/jekyll-blog.css' | relative_url }}" media="print">
+<meta name="jcem-print-stylesheet" content="{{ '/assets/jcem/print-ieee/ieee.css' | relative_url }}">
+<meta name="jcem-print-stylesheet" content="{{ '/assets/jcem/print-ieee/jekyll-blog.css' | relative_url }}">
 {% endif %}
 
 <script src="{{ '/assets/jcem/js/site.js' | relative_url }}" type="module"></script>

@@ -2,6 +2,8 @@
 
 Biblioteca sem efeito colateral na importação para preparar artigos editoriais para impressão nativa. A API pública não depende de Jekyll, Ruby, tema ou DOM privado do consumidor.
 
+O uso no produto, inclusive em dispositivos móveis e seu carregamento pós-crítico, está documentado na página canônica [`docs/MODO-DE-USO-IMPRESSAO-IEEE.md`](../../docs/MODO-DE-USO-IMPRESSAO-IEEE.md).
+
 ```js
 import { prepareArticle } from '@jcem/print-ieee';
 

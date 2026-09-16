@@ -15,7 +15,7 @@ Os artigos em desenvolvimento estão no repositório privado [https://github.com
 | [COVER e Hero](docs/MODO-DE-USO-COVER-E-HERO.md)                       | Configurar os dez comportamentos visuais de imagem destacada, composição tripla, aliases, enquadramento, Hero e fontes sociais. |
 | [Blockquote](docs/MODO-DE-USO-BLOCKQUOTE.md)                           | Escrever citações, selecionar todos os modelos registrados, configurar defaults, ícones, acessibilidade e impressão.            |
 | [Leitura acessível e TTS](docs/MODO-DE-USO-LEITURA-ACESSIVEL-E-TTS.md) | Declarar idiomas, pronúncia, referências faladas e alternativas textuais para tabelas, imagens e gráficos.                      |
-| [Impressão editorial IEEE](src/jcem-print-ieee/README.md)              | Integrar e inspecionar a biblioteca progressiva de impressão A4 em duas colunas.                                                |
+| [Impressão editorial IEEE](docs/MODO-DE-USO-IMPRESSAO-IEEE.md)         | Imprimir artigos em desktop ou mobile com o perfil A4 em duas colunas e carregamento pós-crítico.                               |
 | [Índice normativo](RCF.md)                                             | Localizar requisitos, contratos e validações autoritativos por domínio do produto.                                              |
 
 ## Build local
@@ -177,6 +177,8 @@ Builds de produção executam `_plugins/jcem_html_compactor.rb` depois da escrit
 O guia canônico [`docs/MODO-DE-USO-BLOCKQUOTE.md`](docs/MODO-DE-USO-BLOCKQUOTE.md) reúne sintaxe copiável, configuração global e por artigo, os seis modelos registrados, ícones, HTML equivalente, citações inline, acessibilidade e impressão. O inventário deriva de `config/editorial-quotes.json`.
 
 ## Impressão editorial IEEE
+
+O modo de uso canônico está em [`docs/MODO-DE-USO-IMPRESSAO-IEEE.md`](docs/MODO-DE-USO-IMPRESSAO-IEEE.md); a documentação interna da biblioteca permanece em [`src/jcem-print-ieee/README.md`](src/jcem-print-ieee/README.md).
 
 Posts completos carregam sob demanda a biblioteca agnóstica `@jcem/print-ieee`, localizada em `src/jcem-print-ieee`; home, mapas, arquivos, 404 e listagens não carregam seus recursos. A importação não produz efeito colateral, e o estado automático máximo é `nativo-preparado`. O módulo é postergado para fora da janela inicial e antecipado imediatamente por `beforeprint`, sem comprometer a primeira impressão.
 

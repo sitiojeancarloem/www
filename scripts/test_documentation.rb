@@ -54,6 +54,7 @@ end
 
 cover_doc_path = "docs/MODO-DE-USO-COVER-E-HERO.md"
 quote_doc_path = "docs/MODO-DE-USO-BLOCKQUOTE.md"
+print_doc_path = "docs/MODO-DE-USO-IMPRESSAO-IEEE.md"
 readme = read("README.md")
 cover_doc = read(cover_doc_path)
 quote_doc = read(quote_doc_path)
@@ -65,17 +66,19 @@ assert(usage_status.success?, "inventário Git dos modos de uso falhou")
 usage_docs = usage_inventory.lines(chomp: true).select do |path|
   File.file?(File.join(ROOT, path)) && File.basename(path).match?(/\AMODO-DE-USO-.*\.md\z/)
 end
-assert(usage_docs.length == 3, "inventário de modos de uso divergente")
+assert(usage_docs.length == 4, "inventário de modos de uso divergente")
 usage_docs.each do |path|
   assert(File.dirname(path).tr("\\", "/") == "docs", "modo de uso fora de ./docs/: #{path}")
 end
 assert(Dir.glob(File.join(ROOT, "docs", "MODO-DE-USO-COVER*.md")).length == 1, "página canônica de COVER não é única")
 assert(Dir.glob(File.join(ROOT, "docs", "MODO-DE-USO-BLOCKQUOTE*.md")).length == 1, "página canônica de blockquote não é única")
+assert(Dir.glob(File.join(ROOT, "docs", "MODO-DE-USO-IMPRESSAO-IEEE*.md")).length == 1, "página canônica de impressão IEEE não é única")
 
 %w[
   docs/MODO-DE-USO-COVER-E-HERO.md
   docs/MODO-DE-USO-BLOCKQUOTE.md
   docs/MODO-DE-USO-LEITURA-ACESSIVEL-E-TTS.md
+  docs/MODO-DE-USO-IMPRESSAO-IEEE.md
   src/jcem-print-ieee/README.md
   RCF.md
 ].each do |link|
@@ -159,15 +162,19 @@ assert(private_package == { "private" => true, "type" => "commonjs" }, "manifest
 
 todo_operational = read("TODO.ia.md").split(/^# TO-DOs\s*$/, 2).last
 status_markers = "⬜|📌|📜|⚖️|⏳|🔄|🔎|✅"
-assert(!todo_operational.match?(/^[ \t]*- \[[ x]\]/), "item operacional ainda usa checkbox em vez de emoji isolado")
-assert(!todo_operational.match?(/^[ \t]*- (?:#{status_markers}) \*\*[^*]+:\*\*/), "item operacional ainda repete o nome textual do status")
-operational_items = todo_operational.lines.grep(/^[ \t]*- /)
+assert(!todo_operational.match?(/^- \[[ x]\]/), "item operacional ainda usa checkbox em vez de emoji isolado")
+assert(!todo_operational.match?(/^- (?:#{status_markers}) \*\*[^*]+:\*\*/), "item operacional ainda repete o nome textual do status")
+operational_items = todo_operational.lines.grep(/^- /)
 assert(!operational_items.empty?, "TO-DO operacional sem item")
 operational_items.each do |line|
   assert(line.match?(/^[ \t]*- (?:#{status_markers}) \S/), "item operacional sem emoji de status isolado: #{line.strip}")
 end
 
-%w[README.md docs/MODO-DE-USO-COVER-E-HERO.md docs/MODO-DE-USO-BLOCKQUOTE.md RCFs/carregamento-progressivo.md RCFs/citacoes.md].each do |path|
+print_doc = read(print_doc_path)
+assert(print_doc.include?("desktop e mobile"), "equivalência móvel da impressão não documentada")
+assert(print_doc.include?("`window.load`") && print_doc.include?("`requestIdleCallback`"), "ciclo pós-crítico da impressão não documentado")
+
+%w[README.md docs/MODO-DE-USO-COVER-E-HERO.md docs/MODO-DE-USO-BLOCKQUOTE.md docs/MODO-DE-USO-IMPRESSAO-IEEE.md RCFs/carregamento-progressivo.md RCFs/citacoes.md].each do |path|
   verify_local_links(path)
 end
 

@@ -1549,23 +1549,94 @@ const hideNoScript = () => {
     }
 };
 let jcemPrintPreparation = null;
+let jcemPrintStylesheets = null;
+const loadJcemPrintStylesheets = () => {
+    if (jcemPrintStylesheets)
+        return jcemPrintStylesheets;
+    const sources = Array.from(document.querySelectorAll('meta[name="jcem-print-stylesheet"]'))
+        .map((meta) => meta.content.trim())
+        .filter(Boolean);
+    jcemPrintStylesheets = Promise.all(sources.map((source) => new Promise((resolve, reject) => {
+        const absolute = new URL(source, document.baseURI).href;
+        const existing = Array.from(document.querySelectorAll('link[data-jcem-print-stylesheet]')).find((link) => link.href === absolute);
+        if (existing === null || existing === void 0 ? void 0 : existing.sheet) {
+            resolve();
+            return;
+        }
+        const link = existing || document.createElement('link');
+        link.rel = 'stylesheet';
+        link.media = 'print';
+        link.href = absolute;
+        link.dataset.jcemPrintStylesheet = '';
+        link.setAttribute('fetchpriority', 'low');
+        link.addEventListener('load', () => resolve(), { once: true });
+        link.addEventListener('error', () => reject(new Error(`PRINT_STYLESHEET_FAILED:${absolute}`)), { once: true });
+        if (!existing)
+            document.head.append(link);
+    }))).then(() => undefined);
+    return jcemPrintStylesheets;
+};
 const prepareJcemPrintArticle = () => {
     const article = select('[data-print-article]');
     if (!article)
         return Promise.resolve();
     if (jcemPrintPreparation)
         return jcemPrintPreparation;
-    jcemPrintPreparation = import(new URL('../print-ieee/index.js', import.meta.url).href)
+    article.dataset.printSchedule = 'loading';
+    jcemPrintPreparation = loadJcemPrintStylesheets()
+        .then(() => import(new URL('../print-ieee/index.js', import.meta.url).href))
         .then((library) => {
         library.prepareArticle(article, {
             profileId: article.dataset.printProfile ||
                 'ieee-conference-a4-ieeetran-1.8b',
         });
+        article.dataset.printSchedule = 'ready';
     })
         .catch(() => {
         article.dataset.printState = 'legivel';
+        article.dataset.printSchedule = 'failed';
     });
     return jcemPrintPreparation;
+};
+const waitForJcemPrintPrerequisites = async (article) => {
+    var _a;
+    article.dataset.printSchedule = 'waiting-load';
+    if (document.readyState !== 'complete') {
+        await new Promise((resolve) => {
+            window.addEventListener('load', () => resolve(), { once: true });
+        });
+    }
+    article.dataset.printSchedule = 'waiting-resources';
+    const images = Array.from(article.querySelectorAll('img'));
+    const imageTasks = images.map(async (image) => {
+        image.setAttribute('fetchpriority', 'low');
+        if (!image.complete) {
+            if (image.loading === 'lazy')
+                image.loading = 'eager';
+            await new Promise((resolve) => {
+                image.addEventListener('load', () => resolve(), { once: true });
+                image.addEventListener('error', () => resolve(), { once: true });
+            });
+        }
+        if (image.decode)
+            await image.decode().catch(() => undefined);
+    });
+    const fonts = ((_a = document.fonts) === null || _a === void 0 ? void 0 : _a.ready) || Promise.resolve();
+    await Promise.all([fonts, ...imageTasks].map((task) => task.catch(() => undefined)));
+};
+const runJcemPrintWhenIdle = (callback) => {
+    if (window.requestIdleCallback) {
+        window.requestIdleCallback(callback);
+        return;
+    }
+    const channel = new MessageChannel();
+    channel.port1.addEventListener('message', () => {
+        channel.port1.close();
+        channel.port2.close();
+        callback();
+    }, { once: true });
+    channel.port1.start();
+    channel.port2.postMessage(null);
 };
 const bindJcemPrintPreparation = () => {
     var _a, _b;
@@ -1581,15 +1652,10 @@ const bindJcemPrintPreparation = () => {
         if (event.matches)
             prepareNow();
     });
-    const scheduleIdle = () => {
-        if (window.requestIdleCallback) {
-            window.requestIdleCallback(prepareNow, { timeout: 2000 });
-        }
-        else {
-            window.setTimeout(prepareNow, 0);
-        }
-    };
-    window.setTimeout(scheduleIdle, 5000);
+    void waitForJcemPrintPrerequisites(article).then(() => {
+        article.dataset.printSchedule = 'idle';
+        runJcemPrintWhenIdle(prepareNow);
+    });
 };
 const bindJcemPostPaintEnhancements = () => {
     bindJcemSkeletonAssets();
