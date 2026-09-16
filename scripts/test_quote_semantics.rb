@@ -87,6 +87,33 @@ assert(rendered.include?('data-jcem-quote-model="alerta1" data-jcem-quote-icon="
 assert(rendered.include?('<span class="jcem-quote__icon" aria-hidden="true">⚠️</span>'), "ícone tipado não foi renderizado no build")
 assert(!rendered.include?("<blockquote>Citação por ocorrência"), "blockquote futurista permaneceu para mutação client-side")
 
+alias_markdown = <<~MARKDOWN
+  > Modelo primário.
+
+  > Modelo de destaque.
+  {: data-jcem-quote-model="destaque"}
+
+  > Card ciano.
+  {: data-jcem-quote-model="framed-accent" data-jcem-quote-accent="cyan"}
+
+  > Modelo concreto.
+  {: data-jcem-quote-model="pull-quote"}
+MARKDOWN
+alias_html = Kramdown::Document.new(alias_markdown, input: "GFM").to_html
+alias_normalized = Jcem::QuoteSemantics.normalize_html(alias_html, config)
+alias_rendered = Jcem::QuoteSemantics.render_structural_quotes(alias_normalized, "primary", config)
+assert(alias_rendered.match?(/data-jcem-quote-model="thematic-rail"[^>]*data-jcem-quote-alias="primary"/), "primário não materializou thematic-rail")
+assert(alias_rendered.match?(/data-jcem-quote-model="futuristic"[^>]*data-jcem-quote-alias="destaque"/), "destaque não materializou futuristic")
+assert(alias_rendered.include?('jcem-quote-model--framed-accent jcem-quote-accent--cyan'), "accent ciano não foi materializado")
+assert(alias_rendered.include?('data-jcem-quote-model="pull-quote"'), "modelo concreto deixou de prevalecer")
+
+reconfigured = Marshal.load(Marshal.dump(config))
+reconfigured.fetch("aliases")["primary"] = "centered-mark"
+reconfigured.fetch("aliases")["destaque"] = "editorial-statement"
+rebuilt = Jcem::QuoteSemantics.render_structural_quotes(alias_normalized, "primary", reconfigured)
+assert(rebuilt.match?(/data-jcem-quote-model="centered-mark"[^>]*data-jcem-quote-alias="primary"/), "troca do primário não regenerou dependências")
+assert(rebuilt.match?(/data-jcem-quote-model="editorial-statement"[^>]*data-jcem-quote-alias="destaque"/), "troca do destaque não regenerou dependências")
+
 begin
   Jcem::QuoteSemantics.normalize_html(
     '<blockquote data-jcem-quote-model="inexistente">x</blockquote>',
@@ -105,6 +132,16 @@ begin
   abort "quote_semantics=erro detalhe=icone inseguro foi aceito"
 rescue Jekyll::Errors::FatalException => error
   assert(error.message.include?("icone_invalido"), "ícone inseguro perdeu diagnóstico")
+end
+
+begin
+  Jcem::QuoteSemantics.normalize_html(
+    '<blockquote data-jcem-quote-model="framed-accent" data-jcem-quote-accent="inexistente">x</blockquote>',
+    config
+  )
+  abort "quote_semantics=erro detalhe=accent desconhecido foi aceito"
+rescue Jekyll::Errors::FatalException => error
+  assert(error.message.include?("accent_desconhecido"), "accent desconhecido perdeu diagnóstico")
 end
 
 puts "quote_semantics=ok"

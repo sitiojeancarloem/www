@@ -133,6 +133,12 @@ quote_config.fetch("models").each do |model, definition|
   assert(quote_doc.include?(definition["defaultIcon"]), "ícone padrão não documentado: #{model}") if definition["defaultIcon"]
   verify_svg(relative)
 end
+quote_config.fetch("aliases").each do |name, target|
+  assert(quote_doc.include?("`#{name}`") && quote_doc.include?("`#{target}`"), "alias de blockquote não documentado: #{name}")
+end
+quote_config.dig("accents", "tokens").each do |name, definition|
+  assert(quote_doc.include?("`#{name}`") && quote_doc.include?(definition.fetch("color")), "accent de blockquote não documentado: #{name}")
+end
 %w[#64748b #1673a5 #b66a00 #b4232f].each do |color|
   assert(quote_doc.include?(color), "cor tipada não documentada: #{color}")
 end
@@ -141,7 +147,7 @@ quote_example = quote_doc.match(/## Exemplo copiável e funcional.*?```markdown\
 assert(quote_example, "exemplo Markdown de blockquote não localizado")
 quote_html = Kramdown::Document.new(quote_example[1], input: "GFM").to_html
 normalized_quote = Jcem::QuoteSemantics.normalize_html(quote_html, quote_config)
-rendered_quote = Jcem::QuoteSemantics.render_structural_quotes(normalized_quote, quote_config.fetch("defaultModel"), quote_config)
+rendered_quote = Jcem::QuoteSemantics.render_structural_quotes(normalized_quote, "primary", quote_config)
 assert(rendered_quote.include?('data-jcem-quote-model="alerta1"'), "exemplo de blockquote perdeu o modelo")
 assert(rendered_quote.include?("🔎"), "exemplo de blockquote perdeu o ícone")
 

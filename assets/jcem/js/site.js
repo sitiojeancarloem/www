@@ -717,7 +717,14 @@ const jcemQuoteModels = [
     'info',
     'alerta1',
     'alerta2',
+    'framed-accent',
+    'pull-quote',
+    'centered-mark',
+    'editorial-statement',
+    'thematic-rail',
 ];
+const jcemTypedQuoteModels = ['notice', 'info', 'alerta1', 'alerta2'];
+const jcemQuoteAccents = ['cyan', 'amber', 'violet', 'green'];
 const jcemTypedQuoteIcons = {
     notice: '📄',
     info: 'ℹ️',
@@ -725,24 +732,47 @@ const jcemTypedQuoteIcons = {
     alerta2: '❗',
 };
 const isJcemQuoteModel = (value) => jcemQuoteModels.includes(value);
+const isJcemTypedQuoteModel = (value) => jcemTypedQuoteModels.includes(value);
+const isJcemQuoteAccent = (value) => jcemQuoteAccents.includes(value);
 const resolveJcemQuoteModel = (quote, article) => {
-    const requested = quote.dataset.jcemQuoteModel ||
+    const requested = quote.dataset.jcemQuoteModel;
+    if (requested === 'primary' || requested === 'destaque') {
+        const aliasTarget = requested === 'primary'
+            ? article.dataset.jcemQuoteAliasPrimary
+            : article.dataset.jcemQuoteAliasDestaque;
+        quote.dataset.jcemQuoteAlias = requested;
+        if (aliasTarget && isJcemQuoteModel(aliasTarget))
+            return aliasTarget;
+    }
+    if (!requested && article.dataset.jcemQuoteDefaultAlias) {
+        quote.dataset.jcemQuoteAlias = article.dataset.jcemQuoteDefaultAlias;
+    }
+    const resolved = requested ||
         article.dataset.jcemQuoteDefault ||
         (article.classList.contains('jcem-blockquote-panels')
             ? 'futuristic'
             : 'standard');
-    if (isJcemQuoteModel(requested)) {
-        return requested;
+    if (isJcemQuoteModel(resolved)) {
+        return resolved;
     }
     quote.dataset.jcemQuoteDiagnostic = 'modelo-desconhecido';
-    console.warn(`quote_semantics=modelo_desconhecido model=${requested}`);
+    console.warn(`quote_semantics=modelo_desconhecido model=${resolved}`);
     return 'standard';
 };
 const markJcemSemanticQuote = (quote, model) => {
     quote.dataset.jcemBlockquote = '';
     quote.dataset.jcemQuoteModel = model;
-    quote.classList.remove(...jcemQuoteModels.map((name) => `jcem-quote-model--${name}`));
+    quote.classList.remove(...jcemQuoteModels.map((name) => `jcem-quote-model--${name}`), ...jcemQuoteAccents.map((name) => `jcem-quote-accent--${name}`));
     quote.classList.add(`jcem-quote-model--${model}`);
+    if (model === 'framed-accent') {
+        const requestedAccent = quote.dataset.jcemQuoteAccent || 'cyan';
+        const accent = isJcemQuoteAccent(requestedAccent) ? requestedAccent : 'cyan';
+        if (accent !== requestedAccent) {
+            quote.dataset.jcemQuoteDiagnostic = 'accent-desconhecido';
+        }
+        quote.dataset.jcemQuoteAccent = accent;
+        quote.classList.add(`jcem-quote-accent--${accent}`);
+    }
     if (quote.tagName !== 'BLOCKQUOTE' && !quote.hasAttribute('role')) {
         quote.setAttribute('role', 'blockquote');
     }
@@ -795,7 +825,7 @@ const bindJcemBlockquotePanels = () => {
         }
         const model = resolveJcemQuoteModel(quote, article);
         markJcemSemanticQuote(quote, model);
-        if (!['standard', 'futuristic'].includes(model)) {
+        if (isJcemTypedQuoteModel(model)) {
             decorateJcemTypedQuote(quote, model);
         }
         quote.dataset.jcemQuoteProcessed = 'true';

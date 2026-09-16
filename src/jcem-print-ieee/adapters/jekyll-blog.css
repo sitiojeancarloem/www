@@ -66,6 +66,17 @@
 
 	body:has([data-print-article])
 		:is(#print-isolation-specificity-guard, [data-print-article])
+		:is(blockquote, [data-jcem-blockquote], [role="blockquote"])::before,
+	body:has([data-print-article])
+		:is(#print-isolation-specificity-guard, [data-print-article])
+		:is(blockquote, [data-jcem-blockquote], [role="blockquote"])::after {
+		/* PROTECAO: adornos de todos os templates web não atravessam o perfil IEEE. */
+		display: none !important;
+		content: none !important;
+	}
+
+	body:has([data-print-article])
+		:is(#print-isolation-specificity-guard, [data-print-article])
 		:is(
 			details.jcem-collapsible--references,
 			details.jcem-collapsible--bibliography

@@ -1,6 +1,19 @@
 {
-	"schema": 1,
-	"defaultModel": "futuristic",
+	"schema": 2,
+	"defaultModel": "thematic-rail",
+	"aliases": {
+		"primary": "thematic-rail",
+		"destaque": "futuristic"
+	},
+	"accents": {
+		"default": "cyan",
+		"tokens": {
+			"cyan": { "className": "jcem-quote-accent--cyan", "color": "#12b8c8" },
+			"amber": { "className": "jcem-quote-accent--amber", "color": "#d59a24" },
+			"violet": { "className": "jcem-quote-accent--violet", "color": "#8b6fd6" },
+			"green": { "className": "jcem-quote-accent--green", "color": "#3c9b78" }
+		}
+	},
 	"models": {
 		"standard": {
 			"structural": false,
@@ -29,10 +42,33 @@
 			"structural": false,
 			"className": "jcem-quote-model--alerta2",
 			"defaultIcon": "❗"
+		},
+		"framed-accent": {
+			"structural": false,
+			"className": "jcem-quote-model--framed-accent",
+			"parameter": "accent"
+		},
+		"pull-quote": {
+			"structural": false,
+			"className": "jcem-quote-model--pull-quote"
+		},
+		"centered-mark": {
+			"structural": false,
+			"className": "jcem-quote-model--centered-mark"
+		},
+		"editorial-statement": {
+			"structural": false,
+			"className": "jcem-quote-model--editorial-statement"
+		},
+		"thematic-rail": {
+			"structural": false,
+			"className": "jcem-quote-model--thematic-rail"
 		}
 	},
 	"attributes": {
 		"semantic": "data-jcem-blockquote",
-		"model": "data-jcem-quote-model"
+		"model": "data-jcem-quote-model",
+		"alias": "data-jcem-quote-alias",
+		"accent": "data-jcem-quote-accent"
 	}
 }

@@ -941,9 +941,17 @@ const jcemQuoteModels = [
 	'info',
 	'alerta1',
 	'alerta2',
+	'framed-accent',
+	'pull-quote',
+	'centered-mark',
+	'editorial-statement',
+	'thematic-rail',
 ] as const;
 type JcemQuoteModel = (typeof jcemQuoteModels)[number];
-type JcemTypedQuoteModel = Exclude<JcemQuoteModel, 'standard' | 'futuristic'>;
+const jcemTypedQuoteModels = ['notice', 'info', 'alerta1', 'alerta2'] as const;
+type JcemTypedQuoteModel = (typeof jcemTypedQuoteModels)[number];
+const jcemQuoteAccents = ['cyan', 'amber', 'violet', 'green'] as const;
+type JcemQuoteAccent = (typeof jcemQuoteAccents)[number];
 
 const jcemTypedQuoteIcons: Record<JcemTypedQuoteModel, string> = {
 	notice: '📄',
@@ -955,23 +963,41 @@ const jcemTypedQuoteIcons: Record<JcemTypedQuoteModel, string> = {
 const isJcemQuoteModel = (value: string): value is JcemQuoteModel =>
 	jcemQuoteModels.includes(value as JcemQuoteModel);
 
+const isJcemTypedQuoteModel = (value: JcemQuoteModel): value is JcemTypedQuoteModel =>
+	jcemTypedQuoteModels.includes(value as JcemTypedQuoteModel);
+
+const isJcemQuoteAccent = (value: string): value is JcemQuoteAccent =>
+	jcemQuoteAccents.includes(value as JcemQuoteAccent);
+
 const resolveJcemQuoteModel = (
 	quote: HTMLElement,
 	article: HTMLElement,
 ): JcemQuoteModel => {
-	const requested =
-		quote.dataset.jcemQuoteModel ||
+	const requested = quote.dataset.jcemQuoteModel;
+	if (requested === 'primary' || requested === 'destaque') {
+		const aliasTarget =
+			requested === 'primary'
+				? article.dataset.jcemQuoteAliasPrimary
+				: article.dataset.jcemQuoteAliasDestaque;
+		quote.dataset.jcemQuoteAlias = requested;
+		if (aliasTarget && isJcemQuoteModel(aliasTarget)) return aliasTarget;
+	}
+	if (!requested && article.dataset.jcemQuoteDefaultAlias) {
+		quote.dataset.jcemQuoteAlias = article.dataset.jcemQuoteDefaultAlias;
+	}
+	const resolved =
+		requested ||
 		article.dataset.jcemQuoteDefault ||
 		(article.classList.contains('jcem-blockquote-panels')
 			? 'futuristic'
 			: 'standard');
 
-	if (isJcemQuoteModel(requested)) {
-		return requested;
+	if (isJcemQuoteModel(resolved)) {
+		return resolved;
 	}
 
 	quote.dataset.jcemQuoteDiagnostic = 'modelo-desconhecido';
-	console.warn(`quote_semantics=modelo_desconhecido model=${requested}`);
+	console.warn(`quote_semantics=modelo_desconhecido model=${resolved}`);
 	return 'standard';
 };
 
@@ -983,8 +1009,18 @@ const markJcemSemanticQuote = (
 	quote.dataset.jcemQuoteModel = model;
 	quote.classList.remove(
 		...jcemQuoteModels.map((name) => `jcem-quote-model--${name}`),
+		...jcemQuoteAccents.map((name) => `jcem-quote-accent--${name}`),
 	);
 	quote.classList.add(`jcem-quote-model--${model}`);
+	if (model === 'framed-accent') {
+		const requestedAccent = quote.dataset.jcemQuoteAccent || 'cyan';
+		const accent = isJcemQuoteAccent(requestedAccent) ? requestedAccent : 'cyan';
+		if (accent !== requestedAccent) {
+			quote.dataset.jcemQuoteDiagnostic = 'accent-desconhecido';
+		}
+		quote.dataset.jcemQuoteAccent = accent;
+		quote.classList.add(`jcem-quote-accent--${accent}`);
+	}
 
 	if (quote.tagName !== 'BLOCKQUOTE' && !quote.hasAttribute('role')) {
 		quote.setAttribute('role', 'blockquote');
@@ -1049,8 +1085,8 @@ const bindJcemBlockquotePanels = (): void => {
 
 			const model = resolveJcemQuoteModel(quote, article);
 			markJcemSemanticQuote(quote, model);
-			if (!['standard', 'futuristic'].includes(model)) {
-				decorateJcemTypedQuote(quote, model as JcemTypedQuoteModel);
+			if (isJcemTypedQuoteModel(model)) {
+				decorateJcemTypedQuote(quote, model);
 			}
 			quote.dataset.jcemQuoteProcessed = 'true';
 

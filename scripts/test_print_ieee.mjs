@@ -116,6 +116,7 @@ const adapterCss = await readFile(
 	'utf8',
 );
 assert.match(adapterCss, /\.jcem-quote__icon\s*\{[^}]*display:\s*none\s*!important/s);
+assert.match(adapterCss, /:is\(blockquote, \[data-jcem-blockquote\], \[role="blockquote"\]\)::before,[\s\S]*?::after\s*\{[^}]*display:\s*none\s*!important[^}]*content:\s*none\s*!important/s);
 assert.match(adapterCss, /\.jcem-post-header,[^{]*\[data-print-metadata\]\s*\{[^}]*column-span:\s*all\s*!important/s);
 assert.match(adapterCss, /\.jcem-article-authors\s*\{[^}]*display:\s*none\s*!important/s);
 assert.match(adapterCss, /> :not\(\.main_jcem_wrapper, \[data-print-institutional\]\)/);

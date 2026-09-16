@@ -42,18 +42,26 @@ layout: default
 {% if jcem_custom_featured %}
   {% assign jcem_overlay_header = false %}
 {% endif %}
-{% assign jcem_blockquote_panels = true %}
-{% if site.jcem.blockquote_panels == false %}
-  {% assign jcem_blockquote_panels = false %}
-{% endif %}
+{% assign jcem_blockquote_model = site.jcem_quote_semantics.aliases.primary | default: site.jcem_quote_semantics.defaultModel | default: "standard" %}
+{% assign jcem_blockquote_alias = "primary" %}
 {% if page.blockquote_panels != null %}
-  {% assign jcem_blockquote_panels = page.blockquote_panels %}
+  {% if page.blockquote_panels %}
+    {% assign jcem_blockquote_model = "futuristic" %}
+  {% else %}
+    {% assign jcem_blockquote_model = "standard" %}
+  {% endif %}
+  {% assign jcem_blockquote_alias = "" %}
 {% elsif page.jcem.blockquote_panels != null %}
-  {% assign jcem_blockquote_panels = page.jcem.blockquote_panels %}
+  {% if page.jcem.blockquote_panels %}
+    {% assign jcem_blockquote_model = "futuristic" %}
+  {% else %}
+    {% assign jcem_blockquote_model = "standard" %}
+  {% endif %}
+  {% assign jcem_blockquote_alias = "" %}
 {% endif %}
-{% assign jcem_blockquote_model = "standard" %}
-{% if jcem_blockquote_panels %}
-  {% assign jcem_blockquote_model = "futuristic" %}
+{% assign jcem_blockquote_panels = false %}
+{% if jcem_blockquote_model == "futuristic" %}
+  {% assign jcem_blockquote_panels = true %}
 {% endif %}
 {% assign jcem_is_article = false %}
 {% if page.collection == 'posts' or page.pagespeed_layout == 'article' %}
@@ -105,7 +113,7 @@ layout: default
 <div id="main" role="main">
   {% include sidebar.html locale=locale %}
 
-  <article class="page h-entry{% if jcem_is_article %} jcem-post{% endif %}{% if jcem_has_structural_cover %} jcem-post--with-cover{% endif %}{% if jcem_featured_style != "" %} jcem-featured-style--{{ jcem_featured_style }}{% endif %}{% if jcem_blockquote_panels %} jcem-blockquote-panels{% endif %}" data-jcem-quote-default="{{ jcem_blockquote_model }}"{% if jcem_is_article %} data-print-article data-print-profile="ieee-conference-a4-ieeetran-1.8b" data-print-state="legivel"{% endif %} itemscope itemtype="https://schema.org/CreativeWork"{% if page.locale %} lang="{{ page.locale }}"{% endif %}>
+  <article class="page h-entry{% if jcem_is_article %} jcem-post{% endif %}{% if jcem_has_structural_cover %} jcem-post--with-cover{% endif %}{% if jcem_featured_style != "" %} jcem-featured-style--{{ jcem_featured_style }}{% endif %}{% if jcem_blockquote_panels %} jcem-blockquote-panels{% endif %}" data-jcem-quote-default="{{ jcem_blockquote_model }}"{% if jcem_blockquote_alias != "" %} data-jcem-quote-default-alias="{{ jcem_blockquote_alias }}"{% endif %} data-jcem-quote-alias-primary="{{ site.jcem_quote_semantics.aliases.primary }}" data-jcem-quote-alias-destaque="{{ site.jcem_quote_semantics.aliases.destaque }}"{% if jcem_is_article %} data-print-article data-print-profile="ieee-conference-a4-ieeetran-1.8b" data-print-state="legivel"{% endif %} itemscope itemtype="https://schema.org/CreativeWork"{% if page.locale %} lang="{{ page.locale }}"{% endif %}>
     {% if page.title %}<meta itemprop="headline" content="{{ page.title | replace: '|', '&#124;' | markdownify | strip_html | strip_newlines | escape_once }}">{% endif %}
     {% if page.excerpt %}<meta itemprop="description" content="{{ page.excerpt | markdownify | strip_html | strip_newlines | escape_once }}">{% endif %}
     {% if page.date %}<meta itemprop="datePublished" content="{{ page.date | date_to_xmlschema }}">{% endif %}

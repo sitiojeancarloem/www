@@ -38,7 +38,6 @@ enable_copy_code_button: # true, false (default)
 copyright: # "copyright" name, defaults to site.title
 copyright_url: # "copyright" URL, defaults to site.url
 jcem:
-  blockquote_panels: true
   footer_region_position: after_legal
   mapa:
     path: /mapa/

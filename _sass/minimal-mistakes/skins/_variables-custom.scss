@@ -1384,7 +1384,7 @@ body
 .main_jcem_wrapper
 	article:not(.jcem-blockquote-panels)
 	.page__content
-	blockquote:not(.jcem-panel),
+	blockquote:not(.jcem-panel):not([data-jcem-quote-model]),
 .main_jcem_wrapper
 	.page__content
 	blockquote.jcem-quote-model--standard:not(.jcem-panel),
@@ -2627,6 +2627,194 @@ body
 .main_jcem_wrapper .jcem-read-aloud__mode option {
 	background: var(--cbg);
 	color: var(--tc);
+}
+
+@media screen {
+	.main_jcem_wrapper .page__content [data-jcem-quote-model='framed-accent'],
+	.main_jcem_wrapper .page__content [data-jcem-quote-model='pull-quote'],
+	.main_jcem_wrapper .page__content [data-jcem-quote-model='centered-mark'],
+	.main_jcem_wrapper .page__content [data-jcem-quote-model='editorial-statement'],
+	.main_jcem_wrapper .page__content [data-jcem-quote-model='thematic-rail'] {
+		box-sizing: border-box;
+		max-width: 100%;
+		margin-block: clamp(1.35rem, 4vw, 2.4rem);
+		border: 0;
+		border-radius: 0;
+		background: transparent;
+		box-shadow: none;
+		color: var(--tc);
+		font-family: inherit;
+		font-style: normal;
+		text-indent: 0;
+	}
+
+	.main_jcem_wrapper .page__content [data-jcem-quote-model='framed-accent'] {
+		--jcem-framed-accent: #12b8c8;
+		position: relative;
+		padding: clamp(1.2rem, 4vw, 2rem) clamp(1rem, 4vw, 2.25rem)
+			clamp(1.45rem, 4.5vw, 2.25rem) clamp(2.8rem, 8vw, 4.4rem);
+		border: 2px solid var(--jcem-framed-accent);
+		border-inline-start-width: 0.55rem;
+		border-block-end-style: dotted;
+		border-radius: 0.4rem 0.4rem 0 0;
+		background: color-mix(
+			in srgb,
+			var(--jcem-framed-accent) 8%,
+			var(--jcem-quote-bg)
+		);
+	}
+
+	.main_jcem_wrapper .page__content .jcem-quote-accent--amber {
+		--jcem-framed-accent: #d59a24;
+	}
+
+	.main_jcem_wrapper .page__content .jcem-quote-accent--violet {
+		--jcem-framed-accent: #8b6fd6;
+	}
+
+	.main_jcem_wrapper .page__content .jcem-quote-accent--green {
+		--jcem-framed-accent: #3c9b78;
+	}
+
+	.main_jcem_wrapper .page__content [data-jcem-quote-model='framed-accent']::before {
+		content: '◆';
+		position: absolute;
+		inset-block-start: 50%;
+		inset-inline-start: 1.15rem;
+		color: var(--jcem-framed-accent);
+		font-size: clamp(1.2rem, 4vw, 1.8rem);
+		line-height: 1;
+		transform: translateY(-50%);
+	}
+
+	.main_jcem_wrapper .page__content [data-jcem-quote-model='framed-accent'] strong:first-child {
+		display: inline-block;
+		margin-block-end: 0.45rem;
+		padding: 0.18em 0.75em;
+		border: 1px solid var(--jcem-framed-accent);
+		border-radius: 999px;
+		color: var(--jcem-framed-accent);
+		font-size: 0.78em;
+		letter-spacing: 0.04em;
+		text-transform: uppercase;
+	}
+
+	.main_jcem_wrapper .page__content [data-jcem-quote-model='pull-quote'] {
+		position: relative;
+		margin-inline-start: clamp(0.55rem, 3vw, 1.6rem);
+		padding: 0.2rem 0.4rem 0.2rem clamp(3.2rem, 8vw, 4.8rem);
+	}
+
+	.main_jcem_wrapper .page__content [data-jcem-quote-model='pull-quote']::before {
+		content: '“';
+		position: absolute;
+		inset-block-start: -0.22em;
+		inset-inline-start: 0;
+		color: var(--jcem-panel-accent);
+		font-family: Georgia, serif;
+		font-size: clamp(4.5rem, 13vw, 7.5rem);
+		font-weight: 700;
+		line-height: 1;
+		opacity: 0.78;
+	}
+
+	.main_jcem_wrapper .page__content [data-jcem-quote-model='pull-quote'] > :last-child {
+		font-style: italic;
+		text-align: end;
+	}
+
+	.main_jcem_wrapper .page__content [data-jcem-quote-model='centered-mark'],
+	.main_jcem_wrapper .page__content [data-jcem-quote-model='editorial-statement'] {
+		position: relative;
+		padding: clamp(2.5rem, 7vw, 4.2rem) clamp(0.75rem, 6vw, 4rem)
+			clamp(1rem, 3vw, 1.8rem);
+		text-align: center;
+	}
+
+	.main_jcem_wrapper .page__content [data-jcem-quote-model='centered-mark']::before,
+	.main_jcem_wrapper .page__content [data-jcem-quote-model='editorial-statement']::before {
+		content: '“ ”';
+		position: absolute;
+		inset-block-start: 0;
+		inset-inline: 0;
+		color: var(--jcem-panel-accent);
+		font-family: Georgia, serif;
+		font-size: clamp(2.6rem, 9vw, 4.6rem);
+		font-weight: 700;
+		line-height: 1;
+		letter-spacing: 0.12em;
+		text-align: center;
+	}
+
+	.main_jcem_wrapper .page__content [data-jcem-quote-model='centered-mark'] p,
+	.main_jcem_wrapper .page__content [data-jcem-quote-model='editorial-statement'] p {
+		text-align: center;
+	}
+
+	.main_jcem_wrapper .page__content [data-jcem-quote-model='centered-mark'] {
+		font-size: clamp(1.05rem, 2.5vw, 1.38rem);
+		font-style: italic;
+	}
+
+	.main_jcem_wrapper .page__content [data-jcem-quote-model='editorial-statement'] {
+		color: var(--mtc);
+		font-size: clamp(1.25rem, 3.2vw, 1.9rem);
+		font-weight: 750;
+		line-height: 1.32;
+	}
+
+	.main_jcem_wrapper .page__content [data-jcem-quote-model='editorial-statement'] > :last-child {
+		color: var(--tc);
+		font-size: 0.55em;
+		font-style: italic;
+		font-weight: 500;
+	}
+
+	.main_jcem_wrapper .page__content [data-jcem-quote-model='thematic-rail'] {
+		position: relative;
+		padding: clamp(0.65rem, 2.5vw, 1.1rem) clamp(0.5rem, 2vw, 1rem)
+			clamp(0.65rem, 2.5vw, 1.1rem) clamp(2.5rem, 7vw, 4rem);
+		background-image: linear-gradient(
+			to bottom,
+			var(--jcem-panel-accent) 0 34%,
+			transparent 34% 55%,
+			var(--jcem-panel-accent) 55% 100%
+		);
+		background-position: left top;
+		background-repeat: no-repeat;
+		background-size: 0.22rem 100%;
+	}
+
+	.main_jcem_wrapper .page__content [data-jcem-quote-model='thematic-rail']::before {
+		content: '“';
+		position: absolute;
+		inset-block-start: 34%;
+		inset-inline-start: 0.42rem;
+		color: var(--jcem-panel-accent);
+		font-family: Georgia, serif;
+		font-size: clamp(2.9rem, 8vw, 4.5rem);
+		font-weight: 700;
+		line-height: 0.7;
+		transform: translate(-50%, -10%);
+	}
+
+	.main_jcem_wrapper .page__content [data-jcem-quote-model='thematic-rail'] > :last-child {
+		color: var(--mtc);
+		font-size: 0.82em;
+		font-style: italic;
+		text-align: end;
+	}
+
+	@media (max-width: 24rem) {
+		.main_jcem_wrapper .page__content [data-jcem-quote-model='framed-accent'] {
+			padding-inline: 2.7rem 0.85rem;
+		}
+
+		.main_jcem_wrapper .page__content [data-jcem-quote-model='pull-quote'] {
+			margin-inline-start: 0.35rem;
+			padding-inline-start: 2.8rem;
+		}
+	}
 }
 
 .main_jcem_wrapper .jcem-read-aloud button {

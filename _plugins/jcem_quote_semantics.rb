@@ -16,6 +16,7 @@ module Jcem
     CLASS_ATTRIBUTE = /\sclass=(?<quote>['"])(?<classes>.*?)\k<quote>/mi
     ICON_SOURCE_ATTRIBUTE = /\bdata-jcem-quote-icon-src=(?<quote>['"])(?<source>.*?)\k<quote>/i
     ICON_ALT_ATTRIBUTE = /\bdata-jcem-quote-icon-alt=(?<quote>['"])(?<alt>.*?)\k<quote>/i
+	ACCENT_ATTRIBUTE = /\bdata-jcem-quote-accent=(?<quote>['"])(?<accent>[a-z0-9][a-z0-9_-]*)\k<quote>/i
 	MARKDOWN_SPEECH_OPENER = /^>[ \t]*--(?=[ \t]|\r?$)/
 	BLOCKQUOTE_TAG = /<\/?blockquote\b[^>]*>/i
 
@@ -31,7 +32,18 @@ module Jcem
     def validate_config!(config, path = CONFIG_PATH)
       models = config.fetch("models", {})
       default_model = config["defaultModel"]
-      return if config["schema"] == 1 && models.is_a?(Hash) && models.key?(default_model)
+      aliases = config.fetch("aliases", {})
+      accents = config.dig("accents", "tokens") || {}
+      valid =
+        config["schema"] == 2 &&
+        models.is_a?(Hash) &&
+        models.key?(default_model) &&
+        aliases.is_a?(Hash) &&
+        %w[primary destaque].all? { |name| models.key?(aliases[name]) } &&
+        (aliases.keys & models.keys).empty? &&
+        accents.is_a?(Hash) &&
+        accents.key?(config.dig("accents", "default"))
+      return if valid
 
       raise Jekyll::Errors::FatalException,
             "quote_semantics=config_invalida path=#{path}"
@@ -44,7 +56,8 @@ module Jcem
     end
 
     def normalize_html(html, config)
-      validate_models!(html, config.fetch("models").keys)
+      validate_models!(html, config.fetch("models").keys + config.fetch("aliases").keys)
+      validate_accents!(html, config)
       validate_icons!(html)
       promote_explicit_inline_quotes(html)
     end
@@ -77,6 +90,40 @@ module Jcem
 	  normalized
 	end
 
+	def replace_attribute(tag, name, value)
+	  escaped = CGI.escapeHTML(value.to_s)
+	  if attribute_value(tag, name)
+		tag.sub(/\s#{Regexp.escape(name)}=(['"])(.*?)\1/i, %( #{name}="#{escaped}"))
+	  else
+		tag.sub(/>\z/, %( #{name}="#{escaped}">))
+	  end
+	end
+
+	def resolve_model(identifier, config)
+	  models = config.fetch("models")
+	  aliases = config.fetch("aliases")
+	  requested = identifier.to_s
+	  return [requested, nil] if models.key?(requested)
+	  return [aliases.fetch(requested), requested] if aliases.key?(requested)
+
+	  raise Jekyll::Errors::FatalException,
+	        "quote_semantics=modelo_desconhecido model=#{requested}"
+	end
+
+	def typed_model?(model, config)
+	  config.dig("models", model)&.key?("defaultIcon")
+	end
+
+	def accent_for(tag, model, config)
+	  requested = attribute_value(tag, "data-jcem-quote-accent")
+	  return nil unless model == "framed-accent" || requested
+	  unless model == "framed-accent"
+		raise Jekyll::Errors::FatalException,
+		      "quote_semantics=accent_incompativel model=#{model}"
+	  end
+	  requested || config.dig("accents", "default")
+	end
+
 	def typed_icon(tag, model, config)
 	  source = attribute_value(tag, "data-jcem-quote-icon-src").to_s
 	  alt = attribute_value(tag, "data-jcem-quote-icon-alt").to_s
@@ -87,7 +134,7 @@ module Jcem
 	  %(<span class="jcem-quote__icon" aria-hidden="true">#{CGI.escapeHTML(icon.to_s)}</span>)
 	end
 
-	def futuristic_panel_open(tag)
+	def futuristic_panel_open(tag, alias_name = nil)
 	  classes = attribute_value(tag, "class").to_s.split
 	  panel_classes = (["painel", "jcem-panel", "jcem-panel--blockquote", "jcem-panel--futuristic", "jcem-quote-model--futuristic"] + classes).uniq.join(" ")
 	  id = attribute_value(tag, "id")
@@ -96,8 +143,9 @@ module Jcem
 		%( #{name}="#{CGI.escapeHTML(value)}") if value
 	  end.join
 	  id_attribute = id ? %( id="#{CGI.escapeHTML(id)}") : ""
+	  alias_attribute = alias_name ? %( data-jcem-quote-alias="#{CGI.escapeHTML(alias_name)}") : ""
 	  <<~HTML.delete("\n")
-		<div class="#{CGI.escapeHTML(panel_classes)}"#{id_attribute} data-jcem-panel-source="blockquote" data-jcem-blockquote="" data-jcem-quote-model="futuristic" data-jcem-quote-processed="true" role="blockquote"><table class="nohover jcem-panel__table" cellspacing="0" cellpadding="0" border="0" role="presentation"><colgroup><col class="jcem-panel__column jcem-panel__column--left"><col class="jcem-panel__column jcem-panel__column--center"><col class="jcem-panel__column jcem-panel__column--right"></colgroup><tbody><tr class="jcem-panel__edge jcem-panel__edge--top"><td class="jcem-panel__corner jcem-panel__corner--top-left"></td><td class="jcem-panel__edge-fill jcem-panel__edge-fill--top"></td><td class="f3 jcem-panel__corner jcem-panel__corner--top-right"></td></tr><tr class="content jcem-panel__content-row"><td class="jcem-panel__body" colspan="3" data-jcem-blockquote-body=""#{body_attributes}>
+		<div class="#{CGI.escapeHTML(panel_classes)}"#{id_attribute} data-jcem-panel-source="blockquote" data-jcem-blockquote="" data-jcem-quote-model="futuristic"#{alias_attribute} data-jcem-quote-processed="true" role="blockquote"><table class="nohover jcem-panel__table" cellspacing="0" cellpadding="0" border="0" role="presentation"><colgroup><col class="jcem-panel__column jcem-panel__column--left"><col class="jcem-panel__column jcem-panel__column--center"><col class="jcem-panel__column jcem-panel__column--right"></colgroup><tbody><tr class="jcem-panel__edge jcem-panel__edge--top"><td class="jcem-panel__corner jcem-panel__corner--top-left"></td><td class="jcem-panel__edge-fill jcem-panel__edge-fill--top"></td><td class="f3 jcem-panel__corner jcem-panel__corner--top-right"></td></tr><tr class="content jcem-panel__content-row"><td class="jcem-panel__body" colspan="3" data-jcem-blockquote-body=""#{body_attributes}>
 	  HTML
 	end
 
@@ -108,30 +156,37 @@ module Jcem
 		  structural = stack.pop
 		  structural ? %(</td></tr><tr class="final jcem-panel__edge jcem-panel__edge--bottom"><td class="jcem-panel__corner jcem-panel__corner--bottom-left"></td><td class="jcem-panel__edge-fill jcem-panel__edge-fill--bottom"><div aria-hidden="true"></div></td><td class="f3 jcem-panel__corner jcem-panel__corner--bottom-right"></td></tr></tbody></table></div>) : tag
 		else
-		  model = attribute_value(tag, "data-jcem-quote-model") || default_model
+		  requested = attribute_value(tag, "data-jcem-quote-model") || default_model
+		  model, alias_name = resolve_model(requested, config)
 		  structural = model == "futuristic"
 		  stack << structural
 		  if structural
-			futuristic_panel_open(tag)
+			futuristic_panel_open(tag, alias_name)
 		  else
-			classes = ["jcem-quote-model--#{model}"]
-			classes += ["jcem-quote--typed", "jcem-quote--runtime-icon"] unless %w[standard futuristic].include?(model)
-			opening = augment_tag(tag, {
+			accent = accent_for(tag, model, config)
+			classes = [config.dig("models", model, "className") || "jcem-quote-model--#{model}"]
+			classes += ["jcem-quote--typed", "jcem-quote--runtime-icon"] if typed_model?(model, config)
+			classes << config.dig("accents", "tokens", accent, "className") if accent
+			normalized_tag = replace_attribute(tag, "data-jcem-quote-model", model)
+			opening = augment_tag(normalized_tag, {
 			  "data-jcem-blockquote" => "",
 			  "data-jcem-quote-model" => model,
+			  "data-jcem-quote-alias" => alias_name,
+			  "data-jcem-quote-accent" => accent,
 			  "data-jcem-quote-processed" => "true"
-			}, classes)
-			%w[standard futuristic].include?(model) ? opening : opening + typed_icon(tag, model, config)
+			}.compact, classes)
+			typed_model?(model, config) ? opening + typed_icon(tag, model, config) : opening
 		  end
 		end
 	  end
 	end
 
-	def default_model_for(document)
-	  panels = document.site.config.dig("jcem", "blockquote_panels") != false
+	def default_model_for(document, config)
 	  panels = document.data["blockquote_panels"] unless document.data["blockquote_panels"].nil?
 	  panels = document.data.dig("jcem", "blockquote_panels") if document.data["jcem"].is_a?(Hash) && !document.data.dig("jcem", "blockquote_panels").nil?
-	  panels ? "futuristic" : "standard"
+	  return panels ? "futuristic" : "standard" unless panels.nil?
+
+	  config.fetch("aliases").key?("primary") ? "primary" : config.fetch("defaultModel")
 	end
 
     def validate_models!(html, allowed_models)
@@ -142,6 +197,17 @@ module Jcem
         raise Jekyll::Errors::FatalException,
               "quote_semantics=modelo_desconhecido model=#{model}"
       end
+    end
+
+    def validate_accents!(html, config)
+      allowed = config.dig("accents", "tokens")&.keys || []
+      html.to_enum(:scan, ACCENT_ATTRIBUTE).each do
+        accent = Regexp.last_match[:accent]
+        next if allowed.include?(accent)
+
+		raise Jekyll::Errors::FatalException,
+		      "quote_semantics=accent_desconhecido accent=#{accent}"
+	  end
     end
 
     def validate_icons!(html)
@@ -195,7 +261,7 @@ module Jcem
 	  return unless article?(document)
 
 	  config = document.site.config.fetch("jcem_quote_semantics")
-	  document.output = render_structural_quotes(document.output.to_s, default_model_for(document), config)
+	  document.output = render_structural_quotes(document.output.to_s, default_model_for(document, config), config)
     end
 
 	# Normaliza a fonte em memória antes que Kramdown interprete sua estrutura.
