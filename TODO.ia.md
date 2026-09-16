@@ -202,7 +202,7 @@
 
   **Inspecione primeiro; determine o comportamento real; corrija a causa, não o sintoma. Estas interpretações já foram reiteradamente explicadas e rejeitadas: NÃO repita novamente a implementação incorreta.**
 
-- [ ] **Migrar TTS e edição redacional para a governança canônica de `agents.md`, preservando especializações locais**
+- ⏳ **Migrar TTS e edição redacional para a governança canônica de `agents.md`, preservando especializações locais**
   - **Objetivo**
     - A governança `agents.md` passou a incorporar grande parte, possivelmente a totalidade, das regras, diretrizes, capacidades e/ou scripts relacionados a **TTS** e **edição redacional/autoral**.
     - Este repositório DEVE passar a consumir **prioritariamente os mecanismos oficiais fornecidos por `agents.md`**, preservando apenas especializações realmente locais pelas vias oficiais de extensão.
@@ -304,7 +304,7 @@
       8. testes comprovarem equivalência ou superioridade após a migração;
       9. o repositório estiver plenamente aderente à estratégia `agents.md + extensões/hooks locais`.
 
-- [ ] **Disponibilizar a impressão IEEE também em dispositivos móveis, preservando carregamento pós-crítico e desempenho**
+- ⏳ **Disponibilizar a impressão IEEE também em dispositivos móveis, preservando carregamento pós-crítico e desempenho**
   - Verificar se existe regra, detecção de dispositivo, norma ou implementação que **impeça em mobile o download/inicialização da formatação de impressão IEEE**. Se existir, removê-la/adaptá-la para que o recurso funcione em dispositivos móveis **com equivalência funcional ao desktop**, considerando a compatibilidade atual entre navegadores móveis e impressoras.
 
   - O recurso IEEE DEVE:
@@ -346,7 +346,7 @@
 
   - **Aceite:** mobile e desktop DEVEM possuir a mesma capacidade de impressão IEEE, carregada somente na fase pós-crítica/idle, sem bloquear a página, sem regressão funcional ou visual e sem mecanismos artificiais de evasão de métricas.
 
-- [ ] **Criar templates visuais de `blockquote` a partir de `e1.png`–`e6.png`, com temas claro/escuro e aliases centralizados**
+- ⏳ **Criar templates visuais de `blockquote` a partir de `e1.png`–`e6.png`, com temas claro/escuro e aliases centralizados**
   - **Objetivo**
     - Na pasta de evidências, usar `e1.png` a `e6.png` como referência visual para criar novos estilos/templates de `blockquote`, preservando fidelidade visual, integração com os temas claro/escuro e precedência absoluta do estilo IEEE na impressão.
     - Antes de implementar, inspecionar templates, classes, aliases, configuração central, temas, pipeline de build e estilos de impressão existentes para evitar colisões, duplicação ou regressão.

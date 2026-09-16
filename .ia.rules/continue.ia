@@ -1,8 +1,8 @@
 schema: jcem-continue/v1
 machine_id: JEAN-DESKTOP
-data_ref: 2026-09-14T02:10:35.8727673-03:00
+data_ref: 2026-09-16T01:46:32.9929559-03:00
 fonte: TODO.ia.md
-objetivo: Corrigir integralmente a ancoragem gravitacional da flag e a composicao funcional de duas regioes da barra de titulo em todos os COVERs de artigo aplicaveis, sem regressao.
+objetivo: Processar integralmente as novas frentes de migracao TTS/redacional, impressao IEEE mobile pos-critica e templates de blockquote, preservando as frentes implementadas em avaliacao humana.
 autorizacao:
   origem: prompt humano
   data: 2026-09-14T00:19:37.6212130-03:00
@@ -14,6 +14,12 @@ autorizacao_ft_066_067:
   data: 2026-09-14T01:30:31.8823778-03:00
   fonte: prompt humano "autorizo explicitamente a execucao das FT-066 e FT-067."
   escopo: executar a implementacao de codigo da FT-066 e a integracao e validacao da FT-067
+autorizacao_ft_068_074:
+  origem: prompt humano
+  data: 2026-09-16T01:35:00-03:00
+  fonte: prompt humano de continuacao com pre-autorizacao normativa para implementacao e esclarecimento posterior para prosseguir sem encerrar TO-DOs em avaliacao humana
+  escopo: equalizar, normatizar, implementar, testar e documentar as tres TO-DOs novas, iniciando codigo imediatamente depois de cada norma validada
+  restricao: manter COVER e demais frentes implementadas em avaliacao humana; preservar integralmente capacidades locais e canonicas
 autorizacao_restauracao_covers:
   origem: prompt humano
   data: 2026-09-10T12:49:50.8815796-03:00
@@ -1127,6 +1133,90 @@ plano:
       - check:ts e rcf-trace aprovaram; check:documentation permanece bloqueado apenas por checkboxes preexistentes de outras frentes no TODO.ia.md
       - nenhum card, SVG de flag, conteudo editorial, _site, tmp ou artefato visual integrou os commits
     proximo_passo: validacao humana da quinta correcao; manter a TO-DO operacional em andamento ate aprovacao efetiva
+  - id: FT-068
+    classe: implementacao_normativa
+    criado_em: 2026-09-16T01:46:32.9929559-03:00
+    estado: em_andamento
+    fonte: TODO.ia.md
+    contexto: .ia.rules/state/contexts/FT-068/master.md
+    objetivo: Equalizar e normatizar a migracao de TTS e edicao redacional para as capacidades canonicas de agents.md, conservando somente o delta local de produto.
+    escopo: agents.local.md, RCFs/operacao-da-ia.md, RCFs/leitura-acessivel-e-tts.md, comandos canonicos e matriz de equivalencia.
+    aceite:
+      - toda capacidade local classificada como canonica, parcial ou estritamente local
+      - precedencia das capacidades editorial-authoring e spoken-normalization explicita
+      - nenhuma regra, feature de produto, teste ou documentacao local perdida
+  - id: FT-069
+    classe: implementacao_governanca_local
+    criado_em: 2026-09-16T01:46:32.9939559-03:00
+    estado: pendente
+    depende_de: FT-068
+    fonte: TODO.ia.md
+    fonte_autorizacao: prompt humano de 2026-09-16
+    objetivo: Implementar a projecao local minima da migracao TTS/redacional e remover somente duplicacoes comprovadamente absorvidas.
+    aceite:
+      - agents.local.md roteia capacidades canonicas antes das sub-RCFs locais
+      - comandos gerenciados existentes permanecem a unica implementacao operacional generica
+      - pipeline TTS e editorial especifico do produto permanece funcional e testado
+  - id: FT-070
+    classe: implementacao_normativa
+    criado_em: 2026-09-16T01:46:32.9949559-03:00
+    estado: pendente
+    fonte: TODO.ia.md
+    contexto: .ia.rules/state/contexts/FT-070/master.md
+    objetivo: Normatizar equivalencia IEEE em desktop e mobile com carga exclusivamente pos-critica baseada em estado real, sem heuristica de dispositivo.
+    escopo: RCFs/impressao-ieee.md, RCFs/desempenho-e-dependencias.md e RCFs/carregamento-progressivo.md.
+    aceite:
+      - ausencia de exclusao por user-agent, largura ou orientacao
+      - carga aguarda documento completo e recursos relevantes e usa idle com fallback
+      - beforeprint permanece rota imediata e funcional
+  - id: FT-071
+    classe: implementacao_codigo
+    criado_em: 2026-09-16T01:46:32.9959559-03:00
+    estado: pendente
+    depende_de: FT-070
+    fonte: TODO.ia.md
+    fonte_autorizacao: prompt humano de 2026-09-16
+    objetivo: Implementar e validar a inicializacao IEEE pos-critica equivalente em mobile e desktop.
+    aceite:
+      - nenhum atraso arbitrario isolado agenda a importacao
+      - carga, imagens relevantes, idle, beforeprint e repeticao idempotente cobertos
+      - rede, main thread, impressao, resize e orientacao sem regressao
+  - id: FT-072
+    classe: implementacao_normativa
+    criado_em: 2026-09-16T01:46:32.9969559-03:00
+    estado: pendente
+    fonte: TODO.ia.md
+    contexto: .ia.rules/state/contexts/FT-072/master.md
+    objetivo: Normatizar cinco modelos visuais derivados de e1 a e6, temas, parametros, aliases dinamicos e isolamento absoluto da impressao IEEE.
+    escopo: RCFs/citacoes.md, RCFs/documentacao-e-metadados.md, RCFs/impressao-ieee.md e registro central.
+    aceite:
+      - e1/e2 unificados por cor e e3, e4, e5 e e6 modelados separadamente
+      - aliases primary e destaque centralizados com precedencia explicita
+      - todos os modelos novos e existentes validos em claro, escuro, mobile e impressao
+  - id: FT-073
+    classe: implementacao_codigo_documentacao
+    criado_em: 2026-09-16T01:46:32.9979559-03:00
+    estado: pendente
+    depende_de: FT-072
+    fonte: TODO.ia.md
+    fonte_autorizacao: prompt humano de 2026-09-16
+    objetivo: Implementar os cinco modelos, aliases dinamicos, temas, testes e modo de uso ilustrado sem regredir selecao explicita ou IEEE.
+    aceite:
+      - registro, plugin, CSS, fixtures, testes, documentacao e ilustracoes convergem
+      - default resolve para o modelo e6 e destaque para futuristic
+      - mudanca central de alias reflete no build sem reescrever conteudo
+  - id: FT-074
+    classe: integracao_validacao
+    criado_em: 2026-09-16T01:46:32.9989559-03:00
+    estado: pendente
+    depende_de: FT-069, FT-071, FT-073
+    fonte: TODO.ia.md
+    fonte_autorizacao: prompt humano de 2026-09-16
+    objetivo: Integrar e comparar o estado anterior e posterior das tres frentes, executar gates e registrar pendencias de aceite humano sem encerrar TO-DOs.
+    aceite:
+      - testes focados, build produtivo, matriz visual e gates globais executados
+      - capacidades e forca normativa anteriores preservadas ou superadas
+      - TODOs permanecem em avaliacao humana sem marcacao de conclusao
 lacunas:
   - id: GAP-RCF-MODULE-2026-001
     estado: isolada_fora_do_escopo
