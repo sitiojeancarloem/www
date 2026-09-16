@@ -303,3 +303,45 @@
       7. artefatos obsoletos/duplicados tiverem sido removidos;
       8. testes comprovarem equivalência ou superioridade após a migração;
       9. o repositório estiver plenamente aderente à estratégia `agents.md + extensões/hooks locais`.
+
+- [ ] **Disponibilizar a impressão IEEE também em dispositivos móveis, preservando carregamento pós-crítico e desempenho**
+  - Verificar se existe regra, detecção de dispositivo, norma ou implementação que **impeça em mobile o download/inicialização da formatação de impressão IEEE**. Se existir, removê-la/adaptá-la para que o recurso funcione em dispositivos móveis **com equivalência funcional ao desktop**, considerando a compatibilidade atual entre navegadores móveis e impressoras.
+
+  - O recurso IEEE DEVE:
+    - estar disponível em **desktop e mobile**;
+    - produzir, dentro das capacidades reais do navegador/impressora, o **mesmo layout, conteúdo, paginação e configuração de impressão**;
+    - NÃO possuir exclusão baseada apenas em `mobile`, user-agent, largura de tela ou orientação;
+    - preservar fallbacks somente quando houver limitação técnica comprovada.
+
+  - **Carregamento pós-crítico obrigatório**
+    - Como impressão IEEE NÃO integra o conteúdo necessário à visualização normal da página, seus recursos DEVEM permanecer fora do caminho crítico.
+    - O download/inicialização DEVE ocorrer **somente após a conclusão do carregamento útil da página**, incluindo imagens e demais recursos relevantes, inclusive os não acompanhados diretamente pelos scripts atuais, utilizando mecanismo robusto de pós-carregamento/idle em vez de timeout arbitrário isolado.
+    - Priorizar mecanismos adequados, conforme compatibilidade real, como:
+      - `load`/estado completo do documento;
+      - `requestIdleCallback` com fallback;
+      - carregamento dinâmico tardio;
+      - prioridade de rede baixa (`fetchpriority`, quando aplicável);
+      - inicialização desacoplada da renderização/hidratação principal.
+    - O processamento DEVE ser fracionado/assíncrono quando necessário para **não bloquear a main thread, não causar travamento, jank ou aumento relevante de interação/CPU**.
+
+  - O recurso DEVE ser **disparado pela página, mas tratado como capacidade posterior e não crítica**, de modo que sua transferência/processamento tardios não atrasem a disponibilidade visual/interativa inicial.
+
+  - NÃO utilizar ofuscação, ocultação ou técnicas destinadas a impedir artificialmente que PageSpeed/Lighthouse ou outras ferramentas de observabilidade detectem trabalho efetivamente executado. A otimização DEVE decorrer de **carregamento legitimamente tardio, baixa prioridade e ausência do caminho crítico**, e ser verificável por ferramentas de desempenho.
+
+  - Antes de implementar:
+    1. localizar a regra atual de desktop/mobile e sua justificativa;
+    2. identificar todos os recursos IEEE, dependências e gatilhos;
+    3. medir seu impacto atual em rede, CPU, main thread e métricas Web Vitals;
+    4. escolher o mecanismo pós-crítico mais tardio que ainda garanta disponibilidade confiável para impressão.
+
+  - Validar em desktop e mobile:
+    - recurso IEEE disponível e funcional;
+    - impressão equivalente;
+    - resize/orientação sem regressão;
+    - página utilizável antes da carga IEEE;
+    - nenhum recurso IEEE bloqueando HTML/CSS/JS/imagens essenciais;
+    - nenhuma regressão significativa em LCP, INP, CLS ou carregamento;
+    - recurso carregado/inicializado posteriormente conforme projetado;
+    - ausência de dependência de heurísticas frágeis de user-agent.
+
+  - **Aceite:** mobile e desktop DEVEM possuir a mesma capacidade de impressão IEEE, carregada somente na fase pós-crítica/idle, sem bloquear a página, sem regressão funcional ou visual e sem mecanismos artificiais de evasão de métricas.
