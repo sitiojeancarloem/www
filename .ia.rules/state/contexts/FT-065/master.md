@@ -9,7 +9,7 @@
 
 ## Objetivo global
 
-Eliminar a causa comum das interpretacoes reiteradamente rejeitadas: ancorar a FLAG pela base horizontal real do triangulo traseiro, e nao pelo topo de sua caixa; preservar as duas regioes funcionais numa unica superficie vitrea/fume continua, com alpha, gradiente, backdrop dinamico e sombra externa, aplicada a todos os COVERs de artigo cabiveis.
+Eliminar a causa comum das interpretacoes reiteradamente rejeitadas: ancorar a FLAG pela base horizontal real do triangulo traseiro, e nao pelo topo de sua caixa; preservar as duas regioes funcionais numa unica superficie vitrea/fume continua, com o alpha, blur, bordas e sombra do baseline manual vigente, aplicada a todos os COVERs de artigo cabiveis.
 
 ## Decomposicao e precedencias
 
@@ -75,6 +75,15 @@ Eliminar a causa comum das interpretacoes reiteradamente rejeitadas: ancorar a F
 ## Estado
 
 FT-065 permanece equalizada após a correção complementar do blur. FT-066 e FT-067 foram corrigidas e revalidadas, mas continuam pendentes de validação humana. A TO-DO operacional permanece `⏳` até aceite efetivo.
+
+## Quinta correção — colinearidade por modalidade e composição inicial
+
+- A evidência `evidencia21.png`/`evidencia22.png` pertence à rota `wide single`; seu stage continua full-width por contrato. A rota real `/p/sola-scriptura/`, classificada como `content`, comprovou frame, stage, mídia, deck e artigo com as mesmas bordas em desktop e mobile.
+- O baseline manual foi preservado literalmente: superfície plana a `35%`, blur responsivo `clamp(10px, 1.25vw, 15px)`, saturação final `1.14`, bordas, sombra, FLAG e foreground sem filtros próprios.
+- Chrome e Brave agora recebem uma invalidação local única depois de imagem e skeleton estabilizarem. A variação imperceptível de saturação dura um frame e é removida; não há polling, timeout arbitrário, `will-change` permanente nem estilo final divergente.
+- Regressões classificam o modo antes de comparar retângulos, provam que `content` coincide bilateralmente com a zona do artigo e que `wide` não foi estreitado. Navegação direta, reload e cache desabilitado exigem composição concluída sem toggle manual.
+- Commits: fonte `0ce72f5121`, norma `5d4a99b7d0`, causal `280d5f69ac`, sincronização `33b7dcad12` e estabilização dos testes `5865727247`.
+- Estado técnico: concluído e revalidado; permanece pendente somente o aceite visual humano, mantendo a TO-DO em `⏳`.
 
 ## Validacao normativa
 

@@ -1,5 +1,19 @@
 # Validação FT-066/FT-067 — COVER, barra e FLAG
 
+## Quinta correção — bordas por modalidade e primeiro paint do backdrop
+
+- Fonte humana: `.ia.rules/state/requests/FT-066/quinta-correcao-geometria-inicializacao-blur.md`; evidências: `evidencia21.png` e `evidencia22.png`.
+- Diagnóstico: a rota mostrada nas evidências usa `featured_image_style: wide`, modalidade explicitamente full-width. Ela conserva stage de janela e crop central próprio; não pode ser estreitada para a zona do artigo. A rota real `/p/sola-scriptura/` usa `content` e já deriva frame, stage, mídia e deck das bordas canônicas do artigo.
+- Correção de composição: depois de imagem e skeleton estabilizarem, o deck recebe por um frame `--jcem-cover-backdrop-saturation: 1.140001` e volta ao valor CSS `1.14`. A invalidação é local, consolidada por `requestAnimationFrame`, repetida somente em resize/orientação e não mantém polling, timeout, `will-change` ou estilo inline final.
+- Preservação manual comprovada: `background-image: none`, alpha computado `0,35`, blur `10–15 px`, saturação `1.14`, bordas/sombra vigentes e filhos sem filtro.
+- Build produtivo isolado aprovado em `202,5 s` sob `tmp/ft066-fifth-final`; a etapa Jekyll concluiu em `169,57 s`, com 12 assets sociais, 24 variantes e zero alterações.
+- `npm run check:covers`: aprovado; quatro modos legados, seis estendidos, seis zonas Hero, resize, orientação, DPR 2, rotas reais `content`/`wide` e primeiro carregamento em Chrome e Brave por navegação direta, reload e cache desabilitado.
+- Matriz visual focada: oito combinações aprovadas para as duas rotas reais, temas claro/escuro e viewports desktop/mobile. Inspeção no navegador confirmou `content` com bordas idênticas em `1169×900` e `391×844`, `wide` preservado e uma composição final sem estilo transitório.
+- `npm run check:ts` e `rcf-trace validate` aprovaram; este último registrou `361` entradas e `334` sentenças materiais.
+- `npm run check:documentation` permaneceu não aprovado por três itens preexistentes de outras frentes em `TODO.ia.md` que usam checkbox, fora do escopo desta correção; o item COVER continua corretamente em `⏳`.
+- Commits: fonte `0ce72f5121`, norma `5d4a99b7d0`, causal `280d5f69ac`, sincronização `33b7dcad12` e testes `5865727247`.
+- `_site`, `tmp/` e artefatos visuais permanecem derivados locais fora dos commits. Estado técnico concluído, pendente de validação humana.
+
 ## Quarta correção — blur integral perceptível
 
 - Fonte humana: `.ia.rules/state/requests/FT-066/quarta-correcao-blur.md`; o fumê foi reconhecido como `98% aderente`, restando somente o desfoque perceptível de todo o conteúdo subjacente dentro da barra.

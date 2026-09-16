@@ -1033,6 +1033,25 @@ plano:
       commit_causal: 308608a70b4f27a37da21959fd5189cc461d4836
       commit_rastreabilidade: 301f53152d428c211a173a087d37e2db4c29e3d6
       proximo_passo: validacao humana final do blur; manter a TO-DO operacional em andamento ate aprovacao efetiva
+    quinta_correcao_humana:
+      em: 2026-09-16
+      fonte: .ia.rules/state/requests/FT-066/quinta-correcao-geometria-inicializacao-blur.md
+      diagnostico:
+        - evidencia21.png e evidencia22.png mostram uma rota wide single, cujo stage full-width deve ser preservado em vez de estreitado para a zona do artigo
+        - a rota real /p/sola-scriptura/ usa content e mede frame, stage, midia e deck exatamente nas bordas bilaterais do artigo em desktop e mobile
+        - Chrome e Brave podem conservar a textura anterior a troca skeleton para imagem mesmo com backdrop-filter computado
+      correcao:
+        - o baseline manual de fume 35 por cento, blur responsivo 10 a 15 px, bordas, sombra, FLAG e foreground foi preservado
+        - uma variacao imperceptivel de saturacao por um frame invalida somente o deck depois da estabilizacao da imagem e e removida imediatamente
+        - nao ha polling, timeout arbitrario, will-change permanente, flicker intencional ou estilo final divergente
+        - regressao classifica content e wide antes de comparar bordas e cobre primeiro carregamento, reload e cache desabilitado em Chrome e Brave
+      commits:
+        fonte: 0ce72f5121
+        normativo: 5d4a99b7d0
+        causal: 280d5f69ac
+        rastreabilidade: 33b7dcad12
+        testes: 5865727247
+      proximo_passo: validacao humana da quinta correcao; manter a TO-DO operacional em andamento ate aprovacao efetiva
   - id: FT-067
     classe: integracao_validacao
     criado_em: 2026-09-14T00:19:37.6212130-03:00
@@ -1099,7 +1118,15 @@ plano:
       - navegador mediu deck integral de 92,85 px com blur de 30 px; upper, lower, titulo e FLAG permaneceram sem filtros
       - acessibilidade, runtime acessivel, impressao, desempenho, publicacao, documentacao e rcf-trace aprovaram
       - evidencia local em visual-artifacts/ft066-fourth-devaneios/browser-dark-blur.png; derivados nao integram Git
-    proximo_passo: validacao humana final do blur; manter a TO-DO operacional em andamento ate aprovacao efetiva
+    revalidacao_apos_quinta_correcao:
+      - build produtivo isolado aprovado em 202,5 segundos sob tmp/ft066-fifth-final; Jekyll concluiu em 169,57 segundos e derivados sociais permaneceram idempotentes
+      - check:covers aprovou quatro modos legados, seis estendidos, seis zonas Hero, resize, orientacao, DPR 2 e as rotas reais content e wide
+      - Chrome e Brave aprovaram navegacao direta, reload e cache desabilitado com composicao concluida e restauracao do estilo final
+      - matriz visual focada aprovou oito combinacoes das duas rotas reais em desktop/mobile e claro/escuro
+      - inspecao no navegador confirmou content colinear em 1169 por 900 e 391 por 844, wide integral preservado, alpha 0,35, blur responsivo e uma recomposicao local
+      - check:ts e rcf-trace aprovaram; check:documentation permanece bloqueado apenas por checkboxes preexistentes de outras frentes no TODO.ia.md
+      - nenhum card, SVG de flag, conteudo editorial, _site, tmp ou artefato visual integrou os commits
+    proximo_passo: validacao humana da quinta correcao; manter a TO-DO operacional em andamento ate aprovacao efetiva
 lacunas:
   - id: GAP-RCF-MODULE-2026-001
     estado: isolada_fora_do_escopo
