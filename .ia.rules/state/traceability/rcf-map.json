@@ -1639,6 +1639,24 @@
     },
     {
       "artifacts": [
+        "_includes/head/custom.html",
+        "assets/jcem/js/site.js",
+        "assets/jcem/ts/site.ts",
+        "docs/MODO-DE-USO-IMPRESSAO-IEEE.md",
+        "scripts/test_documentation.rb",
+        "scripts/test_print_ieee.mjs"
+      ],
+      "commit": "",
+      "ft": "FT-070",
+      "id": "9aab1c64cb5e32e0e9dd8a78",
+      "line": 119,
+      "rcf": "RCFs/carregamento-progressivo.md",
+      "sentenceSha256": "780efd553e0dbfe09d9940db985cbacc76443e0d5c1b4c566b801487d26fa3da",
+      "state": "pending",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
         "_layouts/single.html",
         "assets/jcem/css/jcmain.scss",
         "scripts/test_cover_runtime.mjs",
@@ -2712,6 +2730,24 @@
       "rcf": "RCFs/desempenho-e-dependencias.md",
       "sentenceSha256": "b606f27eaf1449c90faec9c4a2c2eab00c7fe5e53614f9a8b7232226fbae5b38",
       "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "_includes/head/custom.html",
+        "assets/jcem/js/site.js",
+        "assets/jcem/ts/site.ts",
+        "docs/MODO-DE-USO-IMPRESSAO-IEEE.md",
+        "scripts/test_documentation.rb",
+        "scripts/test_print_ieee.mjs"
+      ],
+      "commit": "",
+      "ft": "FT-070",
+      "id": "1dfb867f42d05d71f4d8a5ba",
+      "line": 33,
+      "rcf": "RCFs/desempenho-e-dependencias.md",
+      "sentenceSha256": "0369b2e54b696edc2f631c1b80d3bd6c9e71f473ce19cbf1f554145244e68636",
+      "state": "pending",
       "syncCommit": ""
     },
     {
@@ -3975,6 +4011,60 @@
     },
     {
       "artifacts": [
+        "_includes/head/custom.html",
+        "assets/jcem/js/site.js",
+        "assets/jcem/ts/site.ts",
+        "docs/MODO-DE-USO-IMPRESSAO-IEEE.md",
+        "scripts/test_documentation.rb",
+        "scripts/test_print_ieee.mjs"
+      ],
+      "commit": "",
+      "ft": "FT-070",
+      "id": "d8897acb9f4283d7f96b3595",
+      "line": 65,
+      "rcf": "RCFs/impressao-ieee.md",
+      "sentenceSha256": "5ffd86e19f930c38340e913757e71de11c39e3c95cdc8608c73603679e567d4a",
+      "state": "pending",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "_includes/head/custom.html",
+        "assets/jcem/js/site.js",
+        "assets/jcem/ts/site.ts",
+        "docs/MODO-DE-USO-IMPRESSAO-IEEE.md",
+        "scripts/test_documentation.rb",
+        "scripts/test_print_ieee.mjs"
+      ],
+      "commit": "",
+      "ft": "FT-070",
+      "id": "fd05e44684cdab2ad1635eff",
+      "line": 66,
+      "rcf": "RCFs/impressao-ieee.md",
+      "sentenceSha256": "b7a932115c56680c676b68d772c87028c096bc774d7207b14e92cf0afbb98f11",
+      "state": "pending",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "_includes/head/custom.html",
+        "assets/jcem/js/site.js",
+        "assets/jcem/ts/site.ts",
+        "docs/MODO-DE-USO-IMPRESSAO-IEEE.md",
+        "scripts/test_documentation.rb",
+        "scripts/test_print_ieee.mjs"
+      ],
+      "commit": "",
+      "ft": "FT-070",
+      "id": "ca804deeb07fa292fde76ff5",
+      "line": 67,
+      "rcf": "RCFs/impressao-ieee.md",
+      "sentenceSha256": "00fb96ac552c0196ef558df6441511f1f88746918c99f775178ed3e1221d434e",
+      "state": "pending",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
         "RCFs/impressao-ieee.md"
       ],
       "commit": "cd19a001737be8456d0f5a5eb05dfa979a6f052e",
@@ -4270,6 +4360,24 @@
       "rcf": "RCFs/impressao-ieee.md",
       "sentenceSha256": "e8d2b74154ca12e94396056fad5de8933c0c794fbac8e4617e7eb905d855dd11",
       "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "_includes/head/custom.html",
+        "assets/jcem/js/site.js",
+        "assets/jcem/ts/site.ts",
+        "docs/MODO-DE-USO-IMPRESSAO-IEEE.md",
+        "scripts/test_documentation.rb",
+        "scripts/test_print_ieee.mjs"
+      ],
+      "commit": "",
+      "ft": "FT-070",
+      "id": "6ad9a7b0647e6fb2035eb7c7",
+      "line": 94,
+      "rcf": "RCFs/impressao-ieee.md",
+      "sentenceSha256": "bf64ecbcb7bf056dd62862e8e7ff063344a28ed652770e155f6d19333bbccf76",
+      "state": "pending",
       "syncCommit": ""
     },
     {

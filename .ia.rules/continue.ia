@@ -1152,7 +1152,7 @@ plano:
   - id: FT-069
     classe: implementacao_governanca_local
     criado_em: 2026-09-16T01:46:32.9939559-03:00
-    estado: em_andamento
+    estado: concluida
     depende_de: FT-068
     fonte: TODO.ia.md
     fonte_autorizacao: prompt humano de 2026-09-16
@@ -1161,10 +1161,18 @@ plano:
       - agents.local.md roteia capacidades canonicas antes das sub-RCFs locais
       - comandos gerenciados existentes permanecem a unica implementacao operacional generica
       - pipeline TTS e editorial especifico do produto permanece funcional e testado
+    resultado:
+      - adaptador local passou a carregar editorial-authoring e spoken-normalization antes dos deltas do produto
+      - comandos agent:editorial e agent:spoken permaneceram delegados ao runtime gerenciado
+      - teste acessivel comprova preservacao dos plugins, includes, assets e runtime TTS locais
+    commits:
+      normativo: ed3d7d3efb
+      causal: 884d4c925e
+      rastreabilidade: 4751e18218
   - id: FT-070
     classe: implementacao_normativa
     criado_em: 2026-09-16T01:46:32.9949559-03:00
-    estado: pendente
+    estado: concluida
     fonte: TODO.ia.md
     contexto: .ia.rules/state/contexts/FT-070/master.md
     objetivo: Normatizar equivalencia IEEE em desktop e mobile com carga exclusivamente pos-critica baseada em estado real, sem heuristica de dispositivo.
@@ -1173,10 +1181,15 @@ plano:
       - ausencia de exclusao por user-agent, largura ou orientacao
       - carga aguarda documento completo e recursos relevantes e usa idle com fallback
       - beforeprint permanece rota imediata e funcional
+    resultado:
+      - norma exige equivalencia desktop/mobile sem heuristica de dispositivo
+      - CSS e modulo IEEE ficam fora da descoberta carregavel do head ate load, recursos relevantes e idle
+      - beforeprint e matchMedia preemptam a espera e preservam conteudo legivel em falha
+      - rcf-trace aprovou 371 entradas e 340 sentencas materiais, com seis pendencias causais da FT-071
   - id: FT-071
     classe: implementacao_codigo
     criado_em: 2026-09-16T01:46:32.9959559-03:00
-    estado: pendente
+    estado: em_andamento
     depende_de: FT-070
     fonte: TODO.ia.md
     fonte_autorizacao: prompt humano de 2026-09-16

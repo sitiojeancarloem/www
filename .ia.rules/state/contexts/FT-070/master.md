@@ -1,6 +1,6 @@
 # FT-070 — Impressão IEEE mobile e pós-crítica
 
-Estado: pendente. Fonte: `TODO.ia.md`.
+Estado normativo: concluído. Implementação: FT-071 em andamento. Fonte: `TODO.ia.md`.
 
 ## Baseline e inventário
 
@@ -22,3 +22,5 @@ Estado: pendente. Fonte: `TODO.ia.md`.
 - registrar instante de `load`, agendamento e preparo em atributos/eventos testáveis, sem telemetria externa;
 - provar importação ausente antes do pós-carregamento e presente depois do idle;
 - executar desktop/mobile, orientação/resize, impressão e testes estruturais; comparar bytes/requisições críticas quando disponível.
+
+Resultado normativo: o perfil IEEE é único para desktop/mobile; metadados inertes substituem links de stylesheet no caminho crítico; `load` + fontes + imagens relevantes + idle formam a preparação preventiva, e `beforeprint`/`matchMedia` são preempções obrigatórias. `rcf-trace validate`: `entries=371`, `material=340`.
