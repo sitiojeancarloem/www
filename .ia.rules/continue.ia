@@ -1290,6 +1290,33 @@ plano:
       - check:covers foi executado contra o build isolado atual e aprovou dez modos, sem vazamento, em Chrome e Brave; o _site compartilhado desatualizado permaneceu intocado
       - rcf-trace final aprovou 422 entradas e 391 sentencas materiais; nenhum artefato de build isolado integrou Git
       - as quatro TO-DOs operacionais continuam em estado de avaliacao humana no TODO.ia.md, inclusive COVER, sem marcacao de conclusao
+  - id: FT-075
+    classe: correcao_normativa
+    criado_em: 2026-09-16
+    estado: em_andamento
+    depende_de: FT-073
+    fonte: .ia.rules/state/requests/FT-075/prompt.md
+    contexto: .ia.rules/state/contexts/FT-075/master.md
+    objetivo: Equalizar e corrigir o contrato visual dos cinco modelos derivados de e1 a e6, tornando as evidencias referencias estritas e explicitando geometria, alinhamento e estabilidade dos adornos.
+    aceite:
+      - exemplos citados na rejeicao nao limitam a auditoria dos cinco modelos
+      - thematic-rail possui texto a esquerda, aspas visiveis e intervalo fixo centralizado
+      - excecoes anteriores expressas e capacidades existentes permanecem preservadas
+    proximo_passo: corrigir RCFs e validar a etapa normativa antes da implementacao pre-autorizada
+  - id: FT-076
+    classe: correcao_codigo_documentacao_validacao
+    criado_em: 2026-09-16
+    estado: pendente
+    depende_de: FT-075
+    fonte: .ia.rules/state/requests/FT-075/prompt.md
+    fonte_autorizacao: prompt humano de 2026-09-16 e pre-autorizacao vigente para transicao normativa-implementacao
+    contexto: .ia.rules/state/contexts/FT-075/master.md
+    objetivo: Corrigir os cinco modelos, fortalecer os testes geometricos e visuais, atualizar ilustracoes e documentacao e validar regressao completa sem encerrar a TO-DO.
+    aceite:
+      - e1 a e6 comparados visualmente em claro, escuro, desktop e mobile
+      - testes falham para aspas invisiveis, alinhamento incorreto e intervalo de haste variavel
+      - modelos anteriores, aliases, semantica, acessibilidade e IEEE permanecem preservados
+    proximo_passo: aguardar conclusao e validacao normativa da FT-075
 lacunas:
   - id: GAP-RCF-MODULE-2026-001
     estado: isolada_fora_do_escopo
