@@ -56,9 +56,10 @@ assert.deepEqual(resolveJcemLegacyHeroMode({ ...image, viewportWidth: 2560, view
 const root = path.resolve(process.env.JCEM_SITE_ROOT || '_site');
 const types = new Map([['.html', 'text/html; charset=utf-8'], ['.js', 'text/javascript; charset=utf-8'], ['.css', 'text/css; charset=utf-8'], ['.svg', 'image/svg+xml']]);
 const targetFor = (requestPath) => {
-	const clean = decodeURIComponent(requestPath.split('?')[0]).replace(/^[/\\]+/, '');
+	const pathname = requestPath.split('?')[0];
+	const clean = decodeURIComponent(pathname).replace(/^[/\\]+/, '');
 	let target = path.join(root, clean || 'index.html');
-	if (requestPath.endsWith('/')) target = path.join(target, 'index.html');
+	if (pathname.endsWith('/')) target = path.join(target, 'index.html');
 	return path.relative(root, target).startsWith('..') ? null : target;
 };
 const server = createServer(async (request, response) => {
@@ -164,6 +165,7 @@ try {
 				zone: hero?.getAttribute('data-jcem-hero-zone'),
 				cover: rect(cover), stage: rect(stage), useful: rect(useful), hero: rect(hero), masthead: rect(masthead),
 				articleZone: rect(articleZone), upperBar: rect(upperBar), lowerBar: rect(lowerBar), flag: rect(flag), triangleBase: rect(triangleBase),
+				upperBorderTop: Number.parseFloat(upperStyle?.borderTopWidth || '0'),
 				titleParent: title?.parentElement?.getAttribute('data-jcem-title-bar') || '',
 				overlap: header?.getAttribute('data-jcem-title-cover-overlap'),
 				supportRatio: Number.parseFloat(getComputedStyle(header).getPropertyValue('--jcem-date-flag-support-ratio')),
@@ -220,7 +222,7 @@ try {
 		assert.equal(state.overlap, 'false', `modo viewport sobrepôs barra à COVER ${mode}`);
 		assert.ok(Math.abs(state.stage.bottom - state.upperBar.top) <= 0.51, `fronteira cover/barras divergente ${mode}: ${JSON.stringify(state)}`);
 		if (state.flag) {
-			assert.ok(Math.abs(state.triangleBase.top - state.upperBar.top) <= 0.51, `base da flag não colinear ${mode}: ${JSON.stringify(state)}`);
+			assert.ok(Math.abs(state.triangleBase.top - state.upperBar.top - state.upperBorderTop) <= 0.51, `base da flag não colinear com a borda interna vigente ${mode}: ${JSON.stringify(state)}`);
 			assert.ok(state.flag.top < state.upperBar.top, `flag ainda alinhada pelo topo ${mode}: ${JSON.stringify(state)}`);
 			assert.ok(Math.abs(state.upperBar.height / state.flag.height - (upperBaseToken + supportToken)) <= 0.005, `profundidade estrutural da região superior divergente ${mode}: ${JSON.stringify(state)}`);
 		}
@@ -365,6 +367,7 @@ try {
 				overflow: document.documentElement.scrollWidth - document.documentElement.clientWidth,
 				featuredRect: rect(featured), stage: rect(stage), articleZone: rect(articleZone), upperBar: rect(upperBar), lowerBar: rect(lowerBar),
 				flag: rect(flag), triangleBase: rect(triangleBase), center: rect(center), masthead: rect(masthead),
+				upperBorderTop: Number.parseFloat(upperStyle?.borderTopWidth || '0'),
 				titleParent: title?.parentElement?.getAttribute('data-jcem-title-bar') || '',
 				overlap: document.querySelector('.jcem-post-header')?.getAttribute('data-jcem-title-cover-overlap'),
 				supportRatio: Number.parseFloat(getComputedStyle(document.querySelector('.jcem-post-header')).getPropertyValue('--jcem-date-flag-support-ratio')),
@@ -395,7 +398,7 @@ try {
 		assert.ok(Math.abs(legacy.stage.bottom - legacy.lowerBar.top) <= 0.51, `barra sólida invadiu a COVER ${mode}: ${JSON.stringify(legacy)}`);
 		assert.ok(Math.abs(legacy.upperBar.top - (legacy.stage.bottom - legacy.upperBar.height)) <= 0.51, `sobreposição superior divergente ${mode}: ${JSON.stringify(legacy)}`);
 		if (legacy.flag) {
-			assert.ok(Math.abs(legacy.triangleBase.top - legacy.upperBar.top) <= 0.51, `base da flag não colinear ${mode}: ${JSON.stringify(legacy)}`);
+			assert.ok(Math.abs(legacy.triangleBase.top - legacy.upperBar.top - legacy.upperBorderTop) <= 0.51, `base da flag não colinear com a borda interna vigente ${mode}: ${JSON.stringify(legacy)}`);
 			assert.ok(legacy.flag.top < legacy.upperBar.top, `flag ainda alinhada pelo topo ${mode}: ${JSON.stringify(legacy)}`);
 			assert.ok(Math.abs(legacy.upperBar.height / legacy.flag.height - (upperBaseToken + supportToken)) <= 0.005, `profundidade estrutural da região superior divergente ${mode}: ${JSON.stringify(legacy)}`);
 		}
@@ -456,7 +459,7 @@ try {
 		const contentRoute = await page.evaluate(() => {
 			const rect = (selector) => document.querySelector(selector)?.getBoundingClientRect().toJSON();
 			return {
-				mode: document.querySelector('.jcem-featured-image')?.getAttribute('data-jcem-cover-mode'),
+				mode: document.querySelector('.jcem-featured-image')?.classList.contains('jcem-featured-image--content') ? 'content' : '',
 				frame: rect('.jcem-featured-image'),
 				stage: rect('.jcem-featured-image__stage'),
 				image: rect('.jcem-featured-image__img'),
@@ -479,7 +482,7 @@ try {
 	const wideRoute = await page.evaluate(() => {
 		const rect = (selector) => document.querySelector(selector)?.getBoundingClientRect().toJSON();
 		return {
-			mode: document.querySelector('.jcem-featured-image')?.getAttribute('data-jcem-cover-mode'),
+			mode: document.querySelector('.jcem-featured-image')?.classList.contains('jcem-featured-image--single') ? 'wide' : '',
 			stage: rect('.jcem-featured-image__stage'),
 			article: rect('article.page .page__inner-wrap'),
 			viewport: window.innerWidth,

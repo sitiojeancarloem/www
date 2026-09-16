@@ -2139,6 +2139,7 @@ const validateCoverPage = async (page, url, theme, viewportName) => {
 			mastheadRect,
 			titleBarsRect,
 			upperBarRect,
+			upperBarBorderTop: Number.parseFloat(upperBarStyle?.borderTopWidth || '0'),
 			lowerBarRect,
 			flagRect,
 			triangleBaseRect,
@@ -2318,7 +2319,7 @@ const validateCoverPage = async (page, url, theme, viewportName) => {
 	if (
 		result.flagRect &&
 		(!result.triangleBaseRect ||
-			Math.abs(result.triangleBaseRect.top - result.upperBarRect.top) > geometryTolerance ||
+			Math.abs(result.triangleBaseRect.top - result.upperBarRect.top - result.upperBarBorderTop) > geometryTolerance ||
 			result.flagSupportRatio <= 0 ||
 			result.titleUpperBaseRatio <= 0 ||
 			Math.abs(result.upperBarRect.height / result.flagRect.height - (result.titleUpperBaseRatio + result.flagSupportRatio)) > 0.005 ||
