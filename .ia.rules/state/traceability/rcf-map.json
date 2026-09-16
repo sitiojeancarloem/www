@@ -1720,6 +1720,731 @@
     },
     {
       "artifacts": [
+        "RCFs/citacoes.md"
+      ],
+      "commit": "363414fa45a4f60ab80f01e7ce56eea34860dfdf",
+      "ft": "FT-072",
+      "id": "21cb3569cba5c6fe8c87cd00",
+      "line": 12,
+      "rcf": "RCFs/citacoes.md",
+      "sentenceSha256": "e685c7b4acc24d51fba5278c63ca105eff1e1939272fef8caca457ef1808363c",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/citacoes.md"
+      ],
+      "commit": "363414fa45a4f60ab80f01e7ce56eea34860dfdf",
+      "ft": "FT-072",
+      "id": "9d8215d0a2427dbcbd8420df",
+      "line": 13,
+      "rcf": "RCFs/citacoes.md",
+      "sentenceSha256": "a1c76948b62fd81a3bce9931d98a6315bed82385794af71122c6ac75e10e30fe",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/citacoes.md"
+      ],
+      "commit": "363414fa45a4f60ab80f01e7ce56eea34860dfdf",
+      "ft": "FT-072",
+      "id": "bde1f3233323ced0e5620a9d",
+      "line": 14,
+      "rcf": "RCFs/citacoes.md",
+      "sentenceSha256": "0e3b580a4369daa0779992fa78ff7b4a0db866efa8e467d197c8126bc1777509",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/citacoes.md"
+      ],
+      "commit": "363414fa45a4f60ab80f01e7ce56eea34860dfdf",
+      "ft": "FT-072",
+      "id": "40a4722487a5c280189e9f1a",
+      "line": 15,
+      "rcf": "RCFs/citacoes.md",
+      "sentenceSha256": "e1d6c69b63952e9a880272b44048aec440201e4601e54fb5fb8658e815d17129",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/citacoes.md"
+      ],
+      "commit": "363414fa45a4f60ab80f01e7ce56eea34860dfdf",
+      "ft": "FT-072",
+      "id": "6c80cb93d9fc4bde4d1e04c8",
+      "line": 16,
+      "rcf": "RCFs/citacoes.md",
+      "sentenceSha256": "ea1f867f0fce336f86ddec4ae105d7e3df0e10e249be584d393a391aeb97cdd3",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/citacoes.md"
+      ],
+      "commit": "363414fa45a4f60ab80f01e7ce56eea34860dfdf",
+      "ft": "FT-072",
+      "id": "88612366c28ee65faa570fbf",
+      "line": 20,
+      "rcf": "RCFs/citacoes.md",
+      "sentenceSha256": "4ae27c51bdbe520989f43579d59ea023431373acde73f222537944e6df2af82a",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/citacoes.md"
+      ],
+      "commit": "ade7d53ec139804f444327fddb431a0a96257fc8",
+      "ft": "FT-072",
+      "id": "32e79f3e6a23a5b5d78bdd7e",
+      "line": 21,
+      "rcf": "RCFs/citacoes.md",
+      "sentenceSha256": "845e7abf9e76f08e8862368e783d5a5223f435e597edd067f22a16424beec15c",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/citacoes.md"
+      ],
+      "commit": "ade7d53ec139804f444327fddb431a0a96257fc8",
+      "ft": "FT-072",
+      "id": "f91d428f8cb6f24b0dc63d3c",
+      "line": 22,
+      "rcf": "RCFs/citacoes.md",
+      "sentenceSha256": "3dbac9140c9d4d67f27b80f068486806fbbb385e611b4b0bec6c36982c9052c2",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/citacoes.md"
+      ],
+      "commit": "363414fa45a4f60ab80f01e7ce56eea34860dfdf",
+      "ft": "FT-072",
+      "id": "e7a63cb363dc25bf8a2cfda6",
+      "line": 23,
+      "rcf": "RCFs/citacoes.md",
+      "sentenceSha256": "cb5fde8e8ddcf1563bec77f1166e2acec8b5561098b931fb81806990c8ba4c77",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/citacoes.md"
+      ],
+      "commit": "363414fa45a4f60ab80f01e7ce56eea34860dfdf",
+      "ft": "FT-072",
+      "id": "e4f254d5e40051663177d3f4",
+      "line": 30,
+      "rcf": "RCFs/citacoes.md",
+      "sentenceSha256": "bc9031087b9cb982464d463dfd60424f8a1734c96f8c9f855e0591448284ac1d",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "_layouts/single.html",
+        "_plugins/jcem_quote_semantics.rb",
+        "assets/images/documentacao/blockquote/centered-mark.svg",
+        "assets/images/documentacao/blockquote/editorial-statement.svg",
+        "assets/images/documentacao/blockquote/framed-accent.svg",
+        "assets/images/documentacao/blockquote/pull-quote.svg",
+        "assets/images/documentacao/blockquote/thematic-rail.svg",
+        "assets/jcem/css/jcmain.scss",
+        "assets/jcem/ts/site.ts",
+        "config/editorial-quotes.json",
+        "docs/MODO-DE-USO-BLOCKQUOTE.md",
+        "scripts/test_quote_semantics.rb"
+      ],
+      "commit": "",
+      "ft": "FT-073",
+      "id": "34d1ca6add9b6d752cd77a00",
+      "line": 31,
+      "rcf": "RCFs/citacoes.md",
+      "sentenceSha256": "2b81aa8f218ce22e9482cee1fe46a3ef2eecc6ed865daf3a751ca9c03a3cdc44",
+      "state": "pending",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/citacoes.md"
+      ],
+      "commit": "363414fa45a4f60ab80f01e7ce56eea34860dfdf",
+      "ft": "FT-072",
+      "id": "8612ecf452c9376534600fd9",
+      "line": 32,
+      "rcf": "RCFs/citacoes.md",
+      "sentenceSha256": "7afe601f306e1e89b3362f397794e0ffb6d086374a17fa9534b233790b9c67e7",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/citacoes.md"
+      ],
+      "commit": "363414fa45a4f60ab80f01e7ce56eea34860dfdf",
+      "ft": "FT-072",
+      "id": "95da7ffce1e04271c171a991",
+      "line": 33,
+      "rcf": "RCFs/citacoes.md",
+      "sentenceSha256": "2c652e1317368053ba90dac18374473cce6d69b37e72abe9f6fbcb985e8927a8",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/citacoes.md"
+      ],
+      "commit": "363414fa45a4f60ab80f01e7ce56eea34860dfdf",
+      "ft": "FT-072",
+      "id": "c2e88a36d9d3b4b92ad351c6",
+      "line": 34,
+      "rcf": "RCFs/citacoes.md",
+      "sentenceSha256": "05c9692912fec6d01b48085ca55fd306dd621fb34a52a25c5abdc6a351749b56",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/citacoes.md"
+      ],
+      "commit": "363414fa45a4f60ab80f01e7ce56eea34860dfdf",
+      "ft": "FT-072",
+      "id": "45f331943a20d6d249124b32",
+      "line": 35,
+      "rcf": "RCFs/citacoes.md",
+      "sentenceSha256": "e577b8769b6e5cfdb00f42f9035925ab7cbf2d259af9c535f0c1803d1b3ba5dc",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/citacoes.md"
+      ],
+      "commit": "363414fa45a4f60ab80f01e7ce56eea34860dfdf",
+      "ft": "FT-072",
+      "id": "1258c1f011f8f4951725ecba",
+      "line": 36,
+      "rcf": "RCFs/citacoes.md",
+      "sentenceSha256": "dfe2729f8f320609897b0225f36c8f74e3d295dcc6deb8a2bfa3c241d6c0a05f",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "_layouts/single.html",
+        "_plugins/jcem_quote_semantics.rb",
+        "assets/images/documentacao/blockquote/centered-mark.svg",
+        "assets/images/documentacao/blockquote/editorial-statement.svg",
+        "assets/images/documentacao/blockquote/framed-accent.svg",
+        "assets/images/documentacao/blockquote/pull-quote.svg",
+        "assets/images/documentacao/blockquote/thematic-rail.svg",
+        "assets/jcem/css/jcmain.scss",
+        "assets/jcem/ts/site.ts",
+        "config/editorial-quotes.json",
+        "docs/MODO-DE-USO-BLOCKQUOTE.md",
+        "scripts/test_quote_semantics.rb"
+      ],
+      "commit": "",
+      "ft": "FT-073",
+      "id": "7770fd3463cc8b0b94fdaf7b",
+      "line": 40,
+      "rcf": "RCFs/citacoes.md",
+      "sentenceSha256": "50f0b56cb17c9383d93df4e9fa280430d271c274f84fd3cff31587bd21092a1a",
+      "state": "pending",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "_layouts/single.html",
+        "_plugins/jcem_quote_semantics.rb",
+        "assets/images/documentacao/blockquote/centered-mark.svg",
+        "assets/images/documentacao/blockquote/editorial-statement.svg",
+        "assets/images/documentacao/blockquote/framed-accent.svg",
+        "assets/images/documentacao/blockquote/pull-quote.svg",
+        "assets/images/documentacao/blockquote/thematic-rail.svg",
+        "assets/jcem/css/jcmain.scss",
+        "assets/jcem/ts/site.ts",
+        "config/editorial-quotes.json",
+        "docs/MODO-DE-USO-BLOCKQUOTE.md",
+        "scripts/test_quote_semantics.rb"
+      ],
+      "commit": "",
+      "ft": "FT-073",
+      "id": "8003287e239f9cc14c0983c1",
+      "line": 41,
+      "rcf": "RCFs/citacoes.md",
+      "sentenceSha256": "dd64b0e2410924d0f8b153ea671ba32d7de7d4f7ee7b414ea70285e593dad37a",
+      "state": "pending",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "_layouts/single.html",
+        "_plugins/jcem_quote_semantics.rb",
+        "assets/images/documentacao/blockquote/centered-mark.svg",
+        "assets/images/documentacao/blockquote/editorial-statement.svg",
+        "assets/images/documentacao/blockquote/framed-accent.svg",
+        "assets/images/documentacao/blockquote/pull-quote.svg",
+        "assets/images/documentacao/blockquote/thematic-rail.svg",
+        "assets/jcem/css/jcmain.scss",
+        "assets/jcem/ts/site.ts",
+        "config/editorial-quotes.json",
+        "docs/MODO-DE-USO-BLOCKQUOTE.md",
+        "scripts/test_quote_semantics.rb"
+      ],
+      "commit": "",
+      "ft": "FT-073",
+      "id": "7c2ee2096577cbde27216a4b",
+      "line": 42,
+      "rcf": "RCFs/citacoes.md",
+      "sentenceSha256": "0b0fc9ef4fcb1b2454ed619a0664a054aef34fb6d54badc200b41f886a385978",
+      "state": "pending",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/citacoes.md"
+      ],
+      "commit": "363414fa45a4f60ab80f01e7ce56eea34860dfdf",
+      "ft": "FT-072",
+      "id": "ba4df9c55be234a8f5f58c74",
+      "line": 43,
+      "rcf": "RCFs/citacoes.md",
+      "sentenceSha256": "94f9b06aed4caf5d429f3dedcd02981ebe97aded9312ef79fd11462f9bf140d9",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/citacoes.md"
+      ],
+      "commit": "363414fa45a4f60ab80f01e7ce56eea34860dfdf",
+      "ft": "FT-072",
+      "id": "2638dff4066c17d8df4efdee",
+      "line": 44,
+      "rcf": "RCFs/citacoes.md",
+      "sentenceSha256": "3cd3b557b3f8fe0b05dbb03de0daa33a3ddf8b06d737599de925a4234fd8a8d8",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/citacoes.md"
+      ],
+      "commit": "363414fa45a4f60ab80f01e7ce56eea34860dfdf",
+      "ft": "FT-072",
+      "id": "88ee06cd88dbb8d6895e3bb5",
+      "line": 45,
+      "rcf": "RCFs/citacoes.md",
+      "sentenceSha256": "9af82954e1267abdc52e7c33562fe1feaf78570e28a92bbba246f49da3ff8121",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/citacoes.md"
+      ],
+      "commit": "363414fa45a4f60ab80f01e7ce56eea34860dfdf",
+      "ft": "FT-072",
+      "id": "92d773867e0da0b525f0ff7a",
+      "line": 46,
+      "rcf": "RCFs/citacoes.md",
+      "sentenceSha256": "8bf03a6cc28349a393489134b424f08d7bc55e4927ba6fdb559c68aabd75cf60",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "_layouts/single.html",
+        "_plugins/jcem_quote_semantics.rb",
+        "assets/images/documentacao/blockquote/centered-mark.svg",
+        "assets/images/documentacao/blockquote/editorial-statement.svg",
+        "assets/images/documentacao/blockquote/framed-accent.svg",
+        "assets/images/documentacao/blockquote/pull-quote.svg",
+        "assets/images/documentacao/blockquote/thematic-rail.svg",
+        "assets/jcem/css/jcmain.scss",
+        "assets/jcem/ts/site.ts",
+        "config/editorial-quotes.json",
+        "docs/MODO-DE-USO-BLOCKQUOTE.md",
+        "scripts/test_quote_semantics.rb"
+      ],
+      "commit": "",
+      "ft": "FT-073",
+      "id": "f888b1bfc15e9f40f0cacffc",
+      "line": 50,
+      "rcf": "RCFs/citacoes.md",
+      "sentenceSha256": "e2fe05fc260b5e8867555a368c5635cb588cac8564716a7673b3c4c3a18022df",
+      "state": "pending",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "_layouts/single.html",
+        "_plugins/jcem_quote_semantics.rb",
+        "assets/images/documentacao/blockquote/centered-mark.svg",
+        "assets/images/documentacao/blockquote/editorial-statement.svg",
+        "assets/images/documentacao/blockquote/framed-accent.svg",
+        "assets/images/documentacao/blockquote/pull-quote.svg",
+        "assets/images/documentacao/blockquote/thematic-rail.svg",
+        "assets/jcem/css/jcmain.scss",
+        "assets/jcem/ts/site.ts",
+        "config/editorial-quotes.json",
+        "docs/MODO-DE-USO-BLOCKQUOTE.md",
+        "scripts/test_quote_semantics.rb"
+      ],
+      "commit": "",
+      "ft": "FT-073",
+      "id": "be13f1a4cdd4efdb48bff26f",
+      "line": 51,
+      "rcf": "RCFs/citacoes.md",
+      "sentenceSha256": "0e0b719453d73d78baf223a81276da494d0664a74e3346c4f423135cb316cc44",
+      "state": "pending",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "_layouts/single.html",
+        "_plugins/jcem_quote_semantics.rb",
+        "assets/images/documentacao/blockquote/centered-mark.svg",
+        "assets/images/documentacao/blockquote/editorial-statement.svg",
+        "assets/images/documentacao/blockquote/framed-accent.svg",
+        "assets/images/documentacao/blockquote/pull-quote.svg",
+        "assets/images/documentacao/blockquote/thematic-rail.svg",
+        "assets/jcem/css/jcmain.scss",
+        "assets/jcem/ts/site.ts",
+        "config/editorial-quotes.json",
+        "docs/MODO-DE-USO-BLOCKQUOTE.md",
+        "scripts/test_quote_semantics.rb"
+      ],
+      "commit": "",
+      "ft": "FT-073",
+      "id": "d6c8ce77f1bec70c576d6ec4",
+      "line": 52,
+      "rcf": "RCFs/citacoes.md",
+      "sentenceSha256": "a53aedff011b688eabb157942130aaaa819204444d66acc800b191bf92577280",
+      "state": "pending",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "_layouts/single.html",
+        "_plugins/jcem_quote_semantics.rb",
+        "assets/images/documentacao/blockquote/centered-mark.svg",
+        "assets/images/documentacao/blockquote/editorial-statement.svg",
+        "assets/images/documentacao/blockquote/framed-accent.svg",
+        "assets/images/documentacao/blockquote/pull-quote.svg",
+        "assets/images/documentacao/blockquote/thematic-rail.svg",
+        "assets/jcem/css/jcmain.scss",
+        "assets/jcem/ts/site.ts",
+        "config/editorial-quotes.json",
+        "docs/MODO-DE-USO-BLOCKQUOTE.md",
+        "scripts/test_quote_semantics.rb"
+      ],
+      "commit": "",
+      "ft": "FT-073",
+      "id": "513ec40acc019a338f3cdeb6",
+      "line": 53,
+      "rcf": "RCFs/citacoes.md",
+      "sentenceSha256": "f36a0a1bc33b70e59b261e2dc82d824d2337e59891e2ae850235f8da53b917fb",
+      "state": "pending",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/citacoes.md"
+      ],
+      "commit": "363414fa45a4f60ab80f01e7ce56eea34860dfdf",
+      "ft": "FT-072",
+      "id": "cae0bfc9c74307767a761ce0",
+      "line": 57,
+      "rcf": "RCFs/citacoes.md",
+      "sentenceSha256": "8c574f76f0dc62692fceeb6c74000af0176b9dc13174cc45cee71fb8b70a8a3c",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/citacoes.md"
+      ],
+      "commit": "363414fa45a4f60ab80f01e7ce56eea34860dfdf",
+      "ft": "FT-072",
+      "id": "ae9594179f6f6e3ab2c6876a",
+      "line": 58,
+      "rcf": "RCFs/citacoes.md",
+      "sentenceSha256": "f878563efd6462a648bfe384832c74d7287cdab64ddac588fa25f35ef3a74069",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/citacoes.md"
+      ],
+      "commit": "363414fa45a4f60ab80f01e7ce56eea34860dfdf",
+      "ft": "FT-072",
+      "id": "3bb75e830404ee062a253ea2",
+      "line": 59,
+      "rcf": "RCFs/citacoes.md",
+      "sentenceSha256": "1a6ccd995c59ebff00ce34eaf9300d854c03988333e14b1a514d001cade797cd",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/citacoes.md"
+      ],
+      "commit": "363414fa45a4f60ab80f01e7ce56eea34860dfdf",
+      "ft": "FT-072",
+      "id": "3d1127d02122977e46e5b61a",
+      "line": 60,
+      "rcf": "RCFs/citacoes.md",
+      "sentenceSha256": "57ebb7ad09e4f03fd70949b4239c823caef4332072416f638529d2889783eedd",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/citacoes.md"
+      ],
+      "commit": "363414fa45a4f60ab80f01e7ce56eea34860dfdf",
+      "ft": "FT-072",
+      "id": "ad93e2ff65cdaa51a617fba0",
+      "line": 61,
+      "rcf": "RCFs/citacoes.md",
+      "sentenceSha256": "93bb932c77aa44081429c6c8cf527617a56cf56dfa63ae270bb219c42837cb7a",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/citacoes.md"
+      ],
+      "commit": "1a7226f6e31917e1d10104aedda4d323254a9a7d",
+      "ft": "FT-072",
+      "id": "ab3bfd88ce1b29d3ae3d1706",
+      "line": 62,
+      "rcf": "RCFs/citacoes.md",
+      "sentenceSha256": "e55d3c9844574992f9b097776a697590a1dc3098a3d68bc52526f9331afbaa88",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/citacoes.md"
+      ],
+      "commit": "4322fe8803dae3a3b3577815688e0c1c35eb4ab6",
+      "ft": "FT-072",
+      "id": "664abf46b3bef7169de933ed",
+      "line": 66,
+      "rcf": "RCFs/citacoes.md",
+      "sentenceSha256": "37ca61e43c96b9b6aa73dd5d3d4fcdf98eec82def394d44bed9c5d86d9a1f9de",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/citacoes.md"
+      ],
+      "commit": "4322fe8803dae3a3b3577815688e0c1c35eb4ab6",
+      "ft": "FT-072",
+      "id": "4e5335d5f860e359a27ea063",
+      "line": 67,
+      "rcf": "RCFs/citacoes.md",
+      "sentenceSha256": "0e168e9585a78f7deeffc9b7cd6bfd9c5b6d5cd4197e103c37aff0de90bfb409",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/citacoes.md"
+      ],
+      "commit": "4322fe8803dae3a3b3577815688e0c1c35eb4ab6",
+      "ft": "FT-072",
+      "id": "4099a30bc51952cddcd5e0cd",
+      "line": 68,
+      "rcf": "RCFs/citacoes.md",
+      "sentenceSha256": "a4fcc30d7b621f54bbfca7f5ec2b1e0c950bbf1bfee5e0ab65a12f7d68d76234",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/citacoes.md"
+      ],
+      "commit": "4322fe8803dae3a3b3577815688e0c1c35eb4ab6",
+      "ft": "FT-072",
+      "id": "a7bb2b4ec40ff08ea01aa726",
+      "line": 69,
+      "rcf": "RCFs/citacoes.md",
+      "sentenceSha256": "998dc79d11637776faf87dda9e5d495029f63a01cbee769022eb83e36ddfebcc",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/citacoes.md"
+      ],
+      "commit": "4322fe8803dae3a3b3577815688e0c1c35eb4ab6",
+      "ft": "FT-072",
+      "id": "6522ab29dfac47f612880710",
+      "line": 70,
+      "rcf": "RCFs/citacoes.md",
+      "sentenceSha256": "5aebdd295055d608ea272c240264690ef3cc71633cb98084b4553f5f732645eb",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/citacoes.md"
+      ],
+      "commit": "363414fa45a4f60ab80f01e7ce56eea34860dfdf",
+      "ft": "FT-072",
+      "id": "1177762d2f2148ccd2aa8720",
+      "line": 71,
+      "rcf": "RCFs/citacoes.md",
+      "sentenceSha256": "c7cdbf509b009fff8e145875c3582708ad38de54788e040f39c62b323d596652",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/citacoes.md"
+      ],
+      "commit": "363414fa45a4f60ab80f01e7ce56eea34860dfdf",
+      "ft": "FT-072",
+      "id": "58a7f0f30c523dc2b241960d",
+      "line": 75,
+      "rcf": "RCFs/citacoes.md",
+      "sentenceSha256": "0761f09d61bbb6e5645b9694c53aff319964157396f454694c66ae8e28a030db",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/citacoes.md"
+      ],
+      "commit": "363414fa45a4f60ab80f01e7ce56eea34860dfdf",
+      "ft": "FT-072",
+      "id": "854d43e172ecbf435a12f25a",
+      "line": 76,
+      "rcf": "RCFs/citacoes.md",
+      "sentenceSha256": "62d460bde088341d12af009db7249775a9b68f6a4dc0ce54425e4053baa822da",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/citacoes.md"
+      ],
+      "commit": "363414fa45a4f60ab80f01e7ce56eea34860dfdf",
+      "ft": "FT-072",
+      "id": "4d4c5f082b515a631429aba1",
+      "line": 77,
+      "rcf": "RCFs/citacoes.md",
+      "sentenceSha256": "f773df7fa1d15b267c29990a79d478a76fca227773ac8c199c5a97ce514233ea",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/citacoes.md"
+      ],
+      "commit": "363414fa45a4f60ab80f01e7ce56eea34860dfdf",
+      "ft": "FT-072",
+      "id": "8ec3b9cc93e0bca9e40299ea",
+      "line": 78,
+      "rcf": "RCFs/citacoes.md",
+      "sentenceSha256": "2b448ffe77aa529e653e6344a9a32966a3c3dfe7f9b7b095eb2631502c97dc98",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/citacoes.md"
+      ],
+      "commit": "363414fa45a4f60ab80f01e7ce56eea34860dfdf",
+      "ft": "FT-072",
+      "id": "331a2152ea2eb5a10a084a33",
+      "line": 82,
+      "rcf": "RCFs/citacoes.md",
+      "sentenceSha256": "f2511359ba2216b5ff76afe195045c3733fe562c3cd26417bdaedc573e23bc03",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/citacoes.md"
+      ],
+      "commit": "363414fa45a4f60ab80f01e7ce56eea34860dfdf",
+      "ft": "FT-072",
+      "id": "0ef3a56c3efd11fed4a18175",
+      "line": 83,
+      "rcf": "RCFs/citacoes.md",
+      "sentenceSha256": "7925bb7a38c1e7be732c05b8088429b37fb36a7e97dd2d0e8a47aaa47cce86c0",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/citacoes.md"
+      ],
+      "commit": "ade7d53ec139804f444327fddb431a0a96257fc8",
+      "ft": "FT-072",
+      "id": "b084390ff2564b2af93bbd81",
+      "line": 84,
+      "rcf": "RCFs/citacoes.md",
+      "sentenceSha256": "1919f2e519b93d34db37664d819e294acb7868351fff509d8f529821cbeb3633",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/citacoes.md"
+      ],
+      "commit": "363414fa45a4f60ab80f01e7ce56eea34860dfdf",
+      "ft": "FT-072",
+      "id": "6ee393321213d66a438d077c",
+      "line": 85,
+      "rcf": "RCFs/citacoes.md",
+      "sentenceSha256": "728de8d89047254bb9e520183e5c0baae1d5be6dbff914405c0272011d149088",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/citacoes.md"
+      ],
+      "commit": "4322fe8803dae3a3b3577815688e0c1c35eb4ab6",
+      "ft": "FT-072",
+      "id": "061e563c842b0e58b2201750",
+      "line": 86,
+      "rcf": "RCFs/citacoes.md",
+      "sentenceSha256": "5ebdb9636707bd2330130deffefa69995521b99ac1a0b3d17aa6b1f687c58742",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/citacoes.md"
+      ],
+      "commit": "363414fa45a4f60ab80f01e7ce56eea34860dfdf",
+      "ft": "FT-072",
+      "id": "0d28ad66b27ac10cc27bc54b",
+      "line": 87,
+      "rcf": "RCFs/citacoes.md",
+      "sentenceSha256": "2285c90f18f63fa87d78a4f5ff39ed6f5e57279a904a73ffb6acb8b991991f0e",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
         "RCFs/componentes-compartilhados.md"
       ],
       "commit": "619ac8fa2e81b6e5f7106610e11a50660de992a9",
@@ -3486,6 +4211,25 @@
     },
     {
       "artifacts": [
+        "assets/images/documentacao/blockquote/centered-mark.svg",
+        "assets/images/documentacao/blockquote/editorial-statement.svg",
+        "assets/images/documentacao/blockquote/framed-accent.svg",
+        "assets/images/documentacao/blockquote/pull-quote.svg",
+        "assets/images/documentacao/blockquote/thematic-rail.svg",
+        "docs/MODO-DE-USO-BLOCKQUOTE.md",
+        "scripts/test_documentation.rb"
+      ],
+      "commit": "",
+      "ft": "FT-073",
+      "id": "5a4d17398186750f48f6d6ca",
+      "line": 50,
+      "rcf": "RCFs/documentacao-e-metadados.md",
+      "sentenceSha256": "1860cfba839c5582689a140709d33c2d1d841207fd45252561934828644bca2d",
+      "state": "pending",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
         "agents.local.md"
       ],
       "commit": "e2ba69ffa0f4dd05c677b84ac229608b6a1378a6",
@@ -3916,6 +4660,21 @@
       "rcf": "RCFs/impressao-ieee.md",
       "sentenceSha256": "eac544619613c4ab66ad61bb52832f0ae0d40c14f2d03753e91ce88c99e0682e",
       "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "assets/jcem/css/jcmain.scss",
+        "scripts/test_print_ieee.mjs",
+        "src/jcem-print-ieee/jekyll-blog.scss"
+      ],
+      "commit": "",
+      "ft": "FT-073",
+      "id": "3bc858fd934bfbe808b42874",
+      "line": 52,
+      "rcf": "RCFs/impressao-ieee.md",
+      "sentenceSha256": "1b736e6256833f8a3b0608c564b6b23a00991f60c475f00549b254164d0b3054",
+      "state": "pending",
       "syncCommit": ""
     },
     {
