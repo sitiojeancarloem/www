@@ -1,6 +1,6 @@
 schema: jcem-continue/v1
 machine_id: JEAN-DESKTOP
-data_ref: 2026-09-16T10:00:07.6382932-03:00
+data_ref: 2026-09-16T14:46:47.3545004-03:00
 fonte: TODO.ia.md
 objetivo: Processar integralmente as novas frentes de migracao TTS/redacional, impressao IEEE mobile pos-critica e templates de blockquote, preservando as frentes implementadas em avaliacao humana.
 autorizacao:
@@ -1058,6 +1058,22 @@ plano:
         rastreabilidade: 33b7dcad12
         testes: 5865727247
       proximo_passo: validacao humana da quinta correcao; manter a TO-DO operacional em andamento ate aprovacao efetiva
+    sexta_correcao_humana:
+      em: 2026-09-16T14:46:47.3545004-03:00
+      fonte: .ia.rules/state/requests/FT-066/sexta-correcao-recomposicao-backdrop.md
+      diagnostico:
+        - a variacao subvisual de saturacao podia ser coalescida pelo Chromium sem reconstruir a camada nativa
+        - o z-index do ancestral #main e o fill-mode both da animacao intro mantinham backdrop roots que isolavam o deck da imagem no ramo irmao
+        - propriedade computada, contador e toggle sintetico nao provavam que os pixels do primeiro carregamento estavam efetivamente desfocados
+      correcao:
+        - COVER moderna e hero legado contem seus z-index internos em camada inferior, preservando FLAG e barras acima da midia sem isolar o deck
+        - a animacao intro permanece integral e seu backdrop root e liberado somente pela conclusao observavel da Web Animation, sem timeout arbitrario
+        - a recomposicao alterna a propriedade nativa dentro do mesmo frame, consolida resize, orientacao, pageshow, visibilidade, fontes e geometria e restaura zero estilo inline
+        - o teste compara pixels automaticos, sem blur e apos toggle manual no primeiro carregamento e depois de resize em Chrome e Brave
+      commits:
+        fonte: 6f1ac87496
+        causal: e488ff332e
+      proximo_passo: validacao humana da sexta correcao; manter a TO-DO operacional em andamento ate aprovacao efetiva
   - id: FT-067
     classe: integracao_validacao
     criado_em: 2026-09-14T00:19:37.6212130-03:00
@@ -1132,7 +1148,15 @@ plano:
       - inspecao no navegador confirmou content colinear em 1169 por 900 e 391 por 844, wide integral preservado, alpha 0,35, blur responsivo e uma recomposicao local
       - check:ts e rcf-trace aprovaram; check:documentation permanece bloqueado apenas por checkboxes preexistentes de outras frentes no TODO.ia.md
       - nenhum card, SVG de flag, conteudo editorial, _site, tmp ou artefato visual integrou os commits
-    proximo_passo: validacao humana da quinta correcao; manter a TO-DO operacional em andamento ate aprovacao efetiva
+    revalidacao_apos_sexta_correcao:
+      - a prova raster nova falhou contra o estado anterior com diferenca media de apenas 0,020126 por canal entre automatico e sem blur
+      - build produtivo isolado aprovado sob .tmp/ft066-backdrop-site; _site compartilhado foi restaurado e excluido da mudanca
+      - check:covers aprovou quatro modos legados, seis estendidos, seis zonas Hero, resize, orientacao, DPR 2 e prova raster em Chrome e Brave; o runtime completo aprovou duas execucoes consecutivas
+      - a rota real /p/nove-motivos-para-guardar-o-sabado/ foi inspecionada no navegador com blur 15 px, ordem FLAG/barra acima da midia, raiz liberada, uma composicao e nenhum filtro inline residual
+      - check:ts, acessibilidade estrutural, impressao, desempenho e documentacao aprovaram
+      - check:accessible-runtime continua falhando tambem contra o _site anterior por ausencia dos marcadores falados de inicio/fim de citacao na fixture TTS, fora do caminho COVER e sem relacao causal com esta mudanca
+      - nenhum card, SVG de flag, conteudo editorial, _site ou artefato visual integrou o commit causal
+    proximo_passo: validacao humana da sexta correcao; manter a TO-DO operacional em andamento ate aprovacao efetiva
   - id: FT-068
     classe: implementacao_normativa
     criado_em: 2026-09-16T01:46:32.9929559-03:00

@@ -398,11 +398,11 @@
     {
       "artifacts": [
         "assets/jcem/css/jcmain.scss",
+        "assets/jcem/js/site.js",
         "assets/jcem/ts/site.ts",
-        "scripts/test_cover_runtime.mjs",
-        "scripts/validate-visual.js"
+        "scripts/test_cover_runtime.mjs"
       ],
-      "commit": "280d5f69acfc5bc737f51f1632a049bd68159081",
+      "commit": "e488ff332e76f1b753f38d7248767b896bc36291",
       "ft": "FT-066",
       "id": "cc742b33800f8f862543a850",
       "line": 26,
@@ -1705,14 +1705,14 @@
     {
       "artifacts": [
         "assets/jcem/css/jcmain.scss",
+        "assets/jcem/js/site.js",
         "assets/jcem/ts/site.ts",
-        "scripts/test_cover_runtime.mjs",
-        "scripts/validate-visual.js"
+        "scripts/test_cover_runtime.mjs"
       ],
-      "commit": "280d5f69acfc5bc737f51f1632a049bd68159081",
+      "commit": "e488ff332e76f1b753f38d7248767b896bc36291",
       "ft": "FT-066",
       "id": "6860eb0e9782c2ec47872cc2",
-      "line": 144,
+      "line": 145,
       "rcf": "RCFs/carregamento-progressivo.md",
       "sentenceSha256": "5e017209778da9fb354d66a7e78066159cf86688f12ae6c82d1b96df67f54e28",
       "state": "synchronized",
@@ -2949,11 +2949,11 @@
     {
       "artifacts": [
         "assets/jcem/css/jcmain.scss",
+        "assets/jcem/js/site.js",
         "assets/jcem/ts/site.ts",
-        "scripts/test_cover_runtime.mjs",
-        "scripts/validate-visual.js"
+        "scripts/test_cover_runtime.mjs"
       ],
-      "commit": "280d5f69acfc5bc737f51f1632a049bd68159081",
+      "commit": "e488ff332e76f1b753f38d7248767b896bc36291",
       "ft": "FT-066",
       "id": "c3d2d3b0aaafc9ad63664a3f",
       "line": 20,
@@ -3224,11 +3224,11 @@
     {
       "artifacts": [
         "assets/jcem/css/jcmain.scss",
+        "assets/jcem/js/site.js",
         "assets/jcem/ts/site.ts",
-        "scripts/test_cover_runtime.mjs",
-        "scripts/validate-visual.js"
+        "scripts/test_cover_runtime.mjs"
       ],
-      "commit": "280d5f69acfc5bc737f51f1632a049bd68159081",
+      "commit": "e488ff332e76f1b753f38d7248767b896bc36291",
       "ft": "FT-066",
       "id": "522cf816624243e35e497f5a",
       "line": 52,
