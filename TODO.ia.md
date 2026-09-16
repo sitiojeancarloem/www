@@ -201,3 +201,105 @@
   - ✅ não houve regressão de recurso existente nem alteração fora do necessário.
 
   **Inspecione primeiro; determine o comportamento real; corrija a causa, não o sintoma. Estas interpretações já foram reiteradamente explicadas e rejeitadas: NÃO repita novamente a implementação incorreta.**
+
+- [ ] **Migrar TTS e edição redacional para a governança canônica de `agents.md`, preservando especializações locais**
+  - **Objetivo**
+    - A governança `agents.md` passou a incorporar grande parte, possivelmente a totalidade, das regras, diretrizes, capacidades e/ou scripts relacionados a **TTS** e **edição redacional/autoral**.
+    - Este repositório DEVE passar a consumir **prioritariamente os mecanismos oficiais fornecidos por `agents.md`**, preservando apenas especializações realmente locais pelas vias oficiais de extensão.
+    - É PROIBIDO manter implementação paralela, duplicada ou divergente quando a capacidade equivalente já existir canonicamente em `agents.md`.
+
+  - **1. Inventário e comparação obrigatórios**
+    - Antes de remover ou migrar qualquer coisa, identificar exatamente:
+      - o que existe atualmente neste repositório;
+      - o que já foi absorvido por `agents.md`;
+      - o que foi absorvido parcialmente;
+      - o que NÃO foi absorvido;
+      - diferenças de comportamento, força normativa, escopo, validação e implementação.
+    - Comparar normas, RCFs, scripts, Skills, SubAgents, Scenarios, hooks, testes e demais artefatos relacionados a TTS/edição.
+    - NÃO presumir equivalência apenas por nome ou finalidade aparente.
+    - Registrar uma matriz mínima:
+
+      ```text
+      capacidade local
+      → equivalente em agents.md?
+      → equivalência total/parcial/ausente
+      → especialização local necessária?
+      → destino final
+      ```
+
+  - **2. Precedência**
+    - Quando `agents.md` já fornecer capacidade equivalente ou superior, sua implementação/norma DEVE ser tratada como **fonte canônica**.
+    - Especializações deste repositório DEVEM apenas **estender**, nunca duplicar, substituir ou regredir a capacidade canônica.
+    - É PROIBIDO preservar versão local apenas por compatibilidade histórica se ela já tiver sido absorvida adequadamente por `agents.md`.
+
+  - **3. Extensões locais**
+    - Tudo que continuar específico deste repositório DEVE ser migrado para os mecanismos oficiais autorizados, conforme a arquitetura real, como:
+      - hooks;
+      - `agents.local.md` / equivalente vigente;
+      - Skills;
+      - SubAgents;
+      - Scenarios;
+      - scripts/extensões oficialmente previstas.
+    - Usar o **menor mecanismo suficiente**, sem criar fluxo paralelo.
+    - A extensão DEVE:
+      - depender da capacidade canônica, não copiá-la;
+      - conter somente o delta/especialização local;
+      - preservar compatibilidade futura;
+      - permanecer claramente separada da norma base;
+      - não sobrescrever evolução posterior de `agents.md` sem necessidade explícita.
+
+  - **4. Regra absoluta de não regressão**
+    - A migração NÃO PODE:
+      - perder qualquer feature válida atualmente existente;
+      - reduzir força, rigor ou escopo normativo;
+      - eliminar especialização necessária;
+      - substituir feature nova/superior de `agents.md` por implementação local antiga;
+      - congelar comportamento do repositório em versão anterior;
+      - duplicar regra base dentro da extensão local.
+    - Quando `agents.md` trouxer capacidade superior à local, **preservar a superior** e adaptar apenas o delta local.
+
+  - **5. Ordem obrigatória da migração**
+    1. inventariar estado local;
+    2. inventariar estado canônico de `agents.md`;
+    3. classificar cada capacidade como:
+       - absorvida integralmente;
+       - absorvida parcialmente;
+       - não absorvida;
+    4. identificar especializações realmente locais;
+    5. migrar essas especializações para hooks/extensões oficiais;
+    6. validar equivalência funcional/normativa;
+    7. somente então remover do repositório:
+       - tudo que já foi absorvido integralmente por `agents.md`;
+       - tudo que não havia sido absorvido, mas foi migrado com sucesso para extensão oficial;
+       - duplicações, adapters temporários e artefatos obsoletos.
+
+  - **6. Validação**
+    - Antes da exclusão final, provar para cada capacidade:
+      - fonte canônica atual;
+      - extensão local, se existir;
+      - equivalência ou superioridade funcional;
+      - equivalência ou superioridade normativa;
+      - testes correspondentes;
+      - ausência de regressão.
+    - Validar especialmente:
+      - TTS;
+      - edição redacional/autoral;
+      - normalização;
+      - hooks;
+      - roteamento;
+      - testes;
+      - build;
+      - comportamento sem extensão local;
+      - comportamento com extensões locais habilitadas.
+
+  - **7. Critério de aceite**
+    - Somente concluir quando:
+      1. toda capacidade local tiver sido classificada;
+      2. `agents.md` for usado como fonte canônica sempre que aplicável;
+      3. especializações restantes estiverem exclusivamente em mecanismos oficiais de extensão;
+      4. nenhuma implementação paralela desnecessária permanecer;
+      5. nenhuma feature local válida tiver sido perdida;
+      6. nenhuma feature nova/superior de `agents.md` tiver sido regredida;
+      7. artefatos obsoletos/duplicados tiverem sido removidos;
+      8. testes comprovarem equivalência ou superioridade após a migração;
+      9. o repositório estiver plenamente aderente à estratégia `agents.md + extensões/hooks locais`.
