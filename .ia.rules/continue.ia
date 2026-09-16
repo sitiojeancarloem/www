@@ -1189,7 +1189,7 @@ plano:
   - id: FT-071
     classe: implementacao_codigo
     criado_em: 2026-09-16T01:46:32.9959559-03:00
-    estado: em_andamento
+    estado: concluida
     depende_de: FT-070
     fonte: TODO.ia.md
     fonte_autorizacao: prompt humano de 2026-09-16
@@ -1198,10 +1198,18 @@ plano:
       - nenhum atraso arbitrario isolado agenda a importacao
       - carga, imagens relevantes, idle, beforeprint e repeticao idempotente cobertos
       - rede, main thread, impressao, resize e orientacao sem regressao
+    resultado:
+      - metadados inertes substituem stylesheets IEEE no head e a carga ocorre apos load, fontes, imagens e idle real
+      - beforeprint e matchMedia preservam a rota preemptiva, com idempotencia e fallback legivel
+      - gates estruturais, build isolado e runtime Chromium aprovaram desktop e mobile com o mesmo perfil
+    commits:
+      normativo: 03bf312c1b
+      causal: 2dd99ad4bb
+      rastreabilidade: be4a1d89a7
   - id: FT-072
     classe: implementacao_normativa
     criado_em: 2026-09-16T01:46:32.9969559-03:00
-    estado: pendente
+    estado: concluida
     fonte: TODO.ia.md
     contexto: .ia.rules/state/contexts/FT-072/master.md
     objetivo: Normatizar cinco modelos visuais derivados de e1 a e6, temas, parametros, aliases dinamicos e isolamento absoluto da impressao IEEE.
@@ -1210,10 +1218,14 @@ plano:
       - e1/e2 unificados por cor e e3, e4, e5 e e6 modelados separadamente
       - aliases primary e destaque centralizados com precedencia explicita
       - todos os modelos novos e existentes validos em claro, escuro, mobile e impressao
+    resultado:
+      - cinco identificadores concretos semanticamente estaveis definidos para e1 a e6
+      - aliases primary e destaque centralizados com destinos thematic-rail e futuristic
+      - tokens cromaticos nomeados, temas, build-time e isolamento IEEE tornados obrigatorios
   - id: FT-073
     classe: implementacao_codigo_documentacao
     criado_em: 2026-09-16T01:46:32.9979559-03:00
-    estado: pendente
+    estado: em_andamento
     depende_de: FT-072
     fonte: TODO.ia.md
     fonte_autorizacao: prompt humano de 2026-09-16

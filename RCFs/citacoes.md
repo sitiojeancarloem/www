@@ -28,7 +28,7 @@ Documentação de autoria: [`docs/MODO-DE-USO-BLOCKQUOTE.md`](../docs/MODO-DE-US
   ```
 
 - O mesmo atributo DEVE selecionar tanto variante meramente visual quanto modelo que altere a estrutura construída; o registro do modelo, não uma segunda sintaxe, DEVE declarar renderer, classes, semântica, suporte a tema e impressão.
-- `standard` e `futuristic` DEVEM identificar, respectivamente, bloco sem transformação estrutural e painel futurista já existente. Novo identificador DEVE ser documentado, versionado, validado e incorporado sem reestruturar o contrato.
+- `standard` e `futuristic` DEVEM identificar, respectivamente, bloco sem transformação estrutural e painel futurista já existente. `framed-accent`, `pull-quote`, `centered-mark`, `editorial-statement` e `thematic-rail` DEVEM identificar, respectivamente, o card parametrizável derivado de e1/e2 e os modelos derivados de e3, e4, e5 e e6; novo identificador DEVE ser documentado, versionado, validado e incorporado sem reestruturar o contrato. [PENDENTE-CODIGO]
 - Estrutura HTML equivalente DEVE declarar `data-jcem-blockquote` e, quando necessário, `data-jcem-quote-model`; `role`, elemento nativo, `cite` ou metadado equivalente DEVE preservar a semântica e a acessibilidade. O adaptador DEVE normalizar esse contrato para a API agnóstica antes de aplicar renderer.
 - Citação inline delimitada por par de aspas retas ou tipográficas dentro de parágrafo elegível DEVE receber representação semântica de ênfase sem perder os delimitadores. Apóstrofo, aspas sem par, delimitador vazio e texto atravessando nós incompatíveis NÃO DEVEM ser convertidos por inferência.
 - Backtick Markdown DEVE permanecer código inline por padrão, preservando posts técnicos. Quando o conteúdo entre backticks representar citação, a autoria DEVE declará-lo inequivocamente com IAL, por exemplo `` `conteúdo citado`{: .jcem-inline-quote}``; essa declaração DEVE preservar o texto e substituir somente a classificação de código pela de citação.
@@ -37,12 +37,20 @@ Documentação de autoria: [`docs/MODO-DE-USO-BLOCKQUOTE.md`](../docs/MODO-DE-US
 
 ## Modelos e precedência
 
-- Cada ocorrência DEVE resolver exatamente um modelo pela ordem: `data-jcem-quote-model` da própria ocorrência → configuração contextual aplicável → front matter do artigo → configuração global → `standard`.
-- O contrato legado `blockquote_panels: true|false` DEVE permanecer compatível e mapear para `futuristic|standard`; configuração específica por ocorrência DEVE prevalecer sobre esse booleano.
+- O registro canônico DEVE declarar aliases configuráveis `primary` e `destaque`, inicialmente resolvidos para `thematic-rail` e `futuristic`; bloco sem indicação DEVE consumir `primary`, enquanto `data-jcem-quote-model="destaque"` DEVE consumir o destino vigente de `destaque`. [PENDENTE-CODIGO]
+- Cada ocorrência DEVE resolver exatamente um modelo pela ordem: identificador concreto em `data-jcem-quote-model` → alias `destaque` da ocorrência → alias `primary`; a resolução DEVE ocorrer no build, materializar o identificador concreto somente no HTML derivado e preservar a fonte autoral vinculada ao alias para que mudança central regenere todas as dependências. [PENDENTE-CODIGO]
+- O contrato legado de artigo `blockquote_panels: true|false`, inclusive sob `jcem`, DEVE permanecer compatível e mapear para `futuristic|standard`; configuração específica por ocorrência DEVE prevalecer sobre esse booleano, e o alias primário central DEVE reger artigos sem override legado local. [PENDENTE-CODIGO]
 - Modelo desconhecido em fonte controlada DEVE falhar na validação de build com identificação da ocorrência. Artefato legado ou runtime sem registro DEVE degradar para `standard`, conservar todo o conteúdo e emitir diagnóstico, nunca remover ou ocultar a citação.
 - Registro de modelo DEVE declarar identificador, versão, estrutura ou estilo, entrada semântica, classes ou atributos emitidos, suporte a tema, impressão, acessibilidade, transformação reversível ou fallback e testes. Renderer NÃO DEVE depender de estrutura privada do artigo.
 - Transformação estrutural DEVE preservar ou reconstruir a semântica de citação, atributos, conteúdo, links, notas, referências, idioma, direção, foco e ordem de leitura. Ausência de JavaScript DEVE manter o bloco nativo legível.
 - Padrão global NÃO DEVE sobrescrever configuração contextual, de artigo ou da ocorrência. Novo modelo NÃO DEVE alterar implicitamente ocorrências já resolvidas.
+
+### Modelos derivados de e1–e6
+
+- `framed-accent` DEVE usar uma única estrutura responsiva para as evidências e1/e2 e aceitar `data-jcem-quote-accent` somente com token cromático registrado; `cyan` e `amber` DEVEM reproduzir as duas referências iniciais sem estilo inline, e token desconhecido DEVE falhar no build controlado. [PENDENTE-CODIGO]
+- `pull-quote` DEVE preservar aspas laterais, autoria e pequeno recuo do conjunto em relação ao alinhamento comum; `centered-mark` e `editorial-statement` DEVEM preservar suas composições centralizadas sem incorporar os fundos externos das screenshots; `thematic-rail` DEVE preservar linha interrompida, aspas, texto e autoria com tokens vinculados ao tema ativo. [PENDENTE-CODIGO]
+- Todo modelo novo e preexistente DEVE possuir estado claro e escuro legível, atraente e coerente, usar a font-family canônica no conteúdo, limitar tipografia diferenciada a adornos decorativos e adaptar-se a 320 px sem corte, overflow ou perda de ordem. [PENDENTE-CODIGO]
+- Modelo visual, alias e token cromático DEVEM permanecer dimensões distintas no registro, no renderer e na documentação; não se PODE duplicar estrutura, criar hardcode por artigo ou congelar em conteúdo o modelo concreto resultante de alias. [PENDENTE-CODIGO]
 
 ### Modelos tipados de aviso
 

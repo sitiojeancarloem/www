@@ -1,6 +1,6 @@
 # FT-072 — Templates de blockquote e aliases
 
-Estado: pendente. Fonte: `TODO.ia.md`. Evidências preservadas em `.ia.rules/state/requests/evidencias/e1.png` a `e6.png`.
+Estado normativo: concluído. Implementação: FT-073 em andamento. Fonte: `TODO.ia.md`. Evidências preservadas em `.ia.rules/state/requests/evidencias/e1.png` a `e6.png`.
 
 ## Ledger visual inicial
 
@@ -14,12 +14,24 @@ Estado: pendente. Fonte: `TODO.ia.md`. Evidências preservadas em `.ia.rules/sta
 
 ## Arquitetura-alvo
 
-- registro central declara `aliases.primary` e `aliases.highlight`, modelos concretos, parâmetros permitidos e classes;
+- registro central declara `aliases.primary` e `aliases.destaque`, modelos concretos, parâmetros permitidos e classes;
 - resolução: modelo explícito > alias `destaque` > alias primário;
 - defaults iniciais: primário → modelo derivado de e6; destaque → `futuristic`;
 - e1/e2 compartilham estrutura e aceitam accent validada por atributo/configuração; demais são modelos concretos;
 - todo CSS web fica sob `@media screen`; adaptador IEEE neutraliza estrutura, adornos, cores, fundos, margens e tipografia web;
 - documentação e ilustrações derivam do registro e permanecem sob `docs/`/`assets/images/documentacao/blockquote/`.
+
+## Identificadores normativos
+
+| Evidência | Modelo concreto | Regra específica |
+|---|---|---|
+| e1/e2 | `framed-accent` | `data-jcem-quote-accent` aceita tokens registrados; iniciais `cyan` e `amber` |
+| e3 | `pull-quote` | recuo pequeno, aspas laterais e autoria preservados |
+| e4 | `centered-mark` | composição centralizada sem o fundo externo |
+| e5 | `editorial-statement` | declaração centralizada sem o fundo externo |
+| e6 | `thematic-rail` | linha interrompida e paleta vinculada ao tema; destino inicial de `primary` |
+
+O alias `destaque` aponta inicialmente para `futuristic`. O HTML derivado materializa modelo concreto e registra a origem do alias; Markdown fonte conserva apenas o alias, permitindo rebuild global sem reescrita editorial.
 
 ## Matriz obrigatória
 
