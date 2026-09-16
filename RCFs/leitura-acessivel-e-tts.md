@@ -8,10 +8,10 @@ Escopo: representação acessível e falada de artigos, posts, páginas, navega�
 
 ## 0. Autoridade canônica e delta local
 
-- Preparação semântico-fonética, classificação contextual, delimitadores, referências e forma própria para fala DEVEM aplicar primeiro `.ia.rules/resources/spoken-normalization.md`; quando a mesma tarefa transformar texto autoral, `.ia.rules/resources/editorial-authoring.md` também DEVE reger preservação, organização e marcação. Esta RCF NÃO PODE duplicar nem reduzir esses contratos gerenciados. [PENDENTE-CODIGO]
-- O normalizador de build, o HTML acessível estático, os controles Web Speech, os modos `continuous|summary|full`, os manifestos por página e os gráficos condicionais DEVEM permanecer especializações locais de produto porque materializam a entrega Web e não são implementações fornecidas pela Norma Operacional. [PENDENTE-CODIGO]
-- `agent:editorial` e `agent:spoken` DEVEM continuar delegando exclusivamente aos runtimes gerenciados; plugin, include ou script deste produto NÃO PODE assumir seus nomes, sua finalidade operacional genérica nem preceder sua autoridade. [PENDENTE-CODIGO]
-- Atualização futura de `agents.md` DEVE ser confrontada com a matriz da FT-068 antes de remover especialização local; equivalência por nome é insuficiente, e remoção só PODE ocorrer após prova bidirecional de comportamento, força normativa, testes e ausência de regressão. [PENDENTE-CODIGO]
+- Preparação semântico-fonética, classificação contextual, delimitadores, referências e forma própria para fala DEVEM aplicar primeiro `.ia.rules/resources/spoken-normalization.md`; quando a mesma tarefa transformar texto autoral, `.ia.rules/resources/editorial-authoring.md` também DEVE reger preservação, organização e marcação. Esta RCF NÃO PODE duplicar nem reduzir esses contratos gerenciados. [1e64180]
+- O normalizador de build, o HTML acessível estático, os controles Web Speech, os modos `continuous|summary|full`, os manifestos por página e os gráficos condicionais DEVEM permanecer especializações locais de produto porque materializam a entrega Web e não são implementações fornecidas pela Norma Operacional. [1e64180]
+- `agent:editorial` e `agent:spoken` DEVEM continuar delegando exclusivamente aos runtimes gerenciados; plugin, include ou script deste produto NÃO PODE assumir seus nomes, sua finalidade operacional genérica nem preceder sua autoridade. [1e64180]
+- Atualização futura de `agents.md` DEVE ser confrontada com a matriz da FT-068 antes de remover especialização local; equivalência por nome é insuficiente, e remoção só PODE ocorrer após prova bidirecional de comportamento, força normativa, testes e ausência de regressão. [1e64180]
 
 ## 1. Conceitos, precedência e invariantes
 
