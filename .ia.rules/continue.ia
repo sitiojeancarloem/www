@@ -1101,6 +1101,31 @@ plano:
         causal: 7718f8f546
         rastreabilidade: 3afa897d5a
       proximo_passo: validacao humana da setima correcao; manter a TO-DO operacional em andamento ate aprovacao efetiva
+    oitava_correcao_humana:
+      em: 2026-09-17
+      fonte: .ia.rules/state/requests/FT-066/oitava-rejeicao-regressao-wide-devaneios.md
+      estado: implementada_e_revalidada_pendente_validacao_humana
+      diagnostico:
+        - o commit 7718f8f546 moveu o wide legado para o ramo compartilhado necessario ao backdrop, mas tambem anulou sua largura de viewport
+        - a classe jcem-featured-image--article aplicou width 100 por cento e removeu as margens de sangria, reclassificando sete publicacoes wide como geometria content
+        - Devaneios declara featured_image_style wide desde sua republicacao e a referencia humana confirma COVER de janela com barras na zona do artigo
+      preservacao:
+        - manter midia e deck no mesmo ramo de pintura, baseline de fume e blur, FLAG, titulo, SVGs e sobreposicao vertical
+        - manter content restrito a zona do artigo e preservar todos os modos governados pela janela
+        - testar Devaneios e toda a familia declarada wide sem encerrar a TO-DO antes do aceite humano
+      correcao:
+        - o wide legado continua no ramo compartilhado do cabecalho, mas volta a usar a geometria de janela da classe base, sem o modificador que o estreitava para a largura do artigo
+        - o contrato declara separadamente o stage full-bleed e o alinhamento das barras com a zona do artigo, impedindo nova reclassificacao de wide como content
+        - a familia completa das sete publicacoes wide passou a integrar a regressao de geometria; Devaneios e Nove motivos tambem exercitam desktop e mobile
+        - a recomposicao do ramo compartilhado deixou de agendar uma terceira passagem redundante por fonts.ready; ResizeObserver continua cobrindo mudancas reais de geometria
+      validacao:
+        - build produtivo isolado aprovado no destino temporario jcem-ft066-wide-20260917; Jekyll concluiu em 188,588 segundos e os derivados sociais permaneceram idempotentes
+        - check:covers aprovou contrato, renderizacao e runtime com quatro modos legados, seis estendidos, seis zonas Hero e Chrome e Brave
+        - Devaneios em 1119x900 preserva 2014 ABR 16, ordem de pintura, ramo compartilhado, stage de janela e deck alinhado ao artigo; a familia wide completa aprovou 1169x900 e as duas rotas criticas aprovaram 390x844
+        - inspecao no navegador confirmou stage de 1698,333 px para viewport de 1698 px e deck de 1192,031 px no desktop; no mobile, stage de 390,833 px e deck de 311,875 px, sem overflow horizontal
+        - check:ts, check:performance, check:documentation, check:accessibility, check:print e check:publication aprovaram; rcf-trace validate aprovou 442 entradas e 394 sentencas materiais
+        - o _site compartilhado permaneceu intocado e nenhum artefato temporario integra a alteracao fonte
+      proximo_passo: validacao humana da restauracao full-bleed de Devaneios; manter a TO-DO operacional em andamento ate aprovacao efetiva
   - id: FT-067
     classe: integracao_validacao
     criado_em: 2026-09-14T00:19:37.6212130-03:00
@@ -1192,7 +1217,13 @@ plano:
       - check:accessible-runtime reproduziu somente a lacuna preexistente dos marcadores falados de inicio e fim da citacao na fixture TTS, sem nexo causal com COVER
       - rcf-trace aprovou 435 entradas e 394 sentencas materiais depois da vinculacao do commit causal 7718f8f546
       - nenhum card, SVG de flag, conteudo editorial, _site ou artefato temporario integrou os commits
-    proximo_passo: validacao humana da setima correcao; manter a TO-DO operacional em andamento ate aprovacao efetiva
+    revalidacao_apos_oitava_correcao:
+      - build produtivo isolado e check:covers aprovaram a restauracao do stage de janela sem separar midia e deck nem regredir blur, FLAG ou barras
+      - todas as sete publicacoes featured_image_style wide aprovaram em desktop; Devaneios e Nove motivos tambem aprovaram em mobile, sem overflow horizontal
+      - Devaneios preservou stage full-bleed, barras na zona do artigo, data 2014 ABR 16 e ordem relativa de pintura em 1119x900
+      - TypeScript, desempenho, documentacao, acessibilidade estrutural, impressao, publicacao e rcf-trace aprovaram
+      - _site compartilhado e artefatos temporarios permaneceram fora da alteracao fonte
+    proximo_passo: validacao humana da oitava correcao; manter a TO-DO operacional em andamento ate aprovacao efetiva
   - id: FT-068
     classe: implementacao_normativa
     criado_em: 2026-09-16T01:46:32.9929559-03:00

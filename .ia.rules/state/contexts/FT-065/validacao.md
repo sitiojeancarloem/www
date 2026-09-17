@@ -130,3 +130,15 @@ Data: 2026-09-14T02:10:35.8727673-03:00
 - `check:accessible-runtime` reproduziu a lacuna preexistente dos marcadores falados de início/fim da citação na fixture TTS, fora do caminho COVER e sem nexo causal.
 - `rcf-trace validate`: aprovado com `435` entradas e `394` sentenças materiais. Commits: normativa `31f3490579`, causal `7718f8f546` e rastreabilidade `3afa897d5a`.
 - Estado técnico concluído, pendente de validação humana; a TO-DO operacional permanece `⏳`.
+
+## Oitava correção — restauração do `wide` legado full-bleed
+
+- Causa confirmada no commit `7718f8f546`: ao mover o `wide single` para o ramo compartilhado necessário ao backdrop, o modificador `jcem-featured-image--article` também substituiu sua largura de janela por `width: 100%`, reclassificando sete publicações `featured_image_style: wide` como geometria `content`.
+- Correção: mídia e deck permanecem no mesmo `.jcem-post-header`, mas o stage volta à sangria da janela fornecida pela classe `wide` base. As barras continuam alinhadas à zona do artigo; `content` e modos explicitamente governados pela janela mantêm seus contratos próprios.
+- Regressão: todas as sete publicações declaradas `wide` são descobertas nos fontes e validadas em `1169×900`; Devaneios e Nove motivos também exercitam `390×844`. Devaneios preserva ainda a prova específica em `1119×900`, a FLAG `2014 / ABR / 16` e a ordem relativa de pintura via `elementsFromPoint`.
+- O ramo compartilhado deixou de agendar a terceira recomposição redundante por `document.fonts.ready`; alterações reais de geometria continuam observadas por `ResizeObserver`. O runtime voltou a aprovar em Chrome e Brave sem relaxar o limite de recomposições.
+- Build produtivo isolado aprovado em `C:\Users\admin\AppData\Local\Temp\jcem-ft066-wide-20260917`; Jekyll concluiu em `188,588 s`, com 12 assets sociais, 24 variantes e zero regenerações.
+- `npm run check:covers` aprovou headers, arestas, contrato, renderização e runtime: quatro modos legados, seis estendidos, seis zonas Hero, sem vazamento, em Chrome e Brave.
+- Inspeção no navegador: em viewport `1698×1115`, stage `1698,333 px` e deck `1192,031 px`; em `390×844`, stage `390,833 px` e deck `311,875 px`. O stage permanece full-bleed, o deck permanece na zona do artigo e não há overflow horizontal.
+- `check:ts`, `check:performance`, `check:documentation`, `check:accessibility`, `check:print` e `check:publication` aprovaram. `rcf-trace validate` aprovou 442 entradas e 394 sentenças materiais; as novas ligações permanecem pendentes de commit causal autorizado.
+- `_site` compartilhado permaneceu intocado. Estado técnico concluído, pendente de validação humana; a TO-DO operacional permanece `⏳`.

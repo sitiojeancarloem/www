@@ -581,7 +581,9 @@ const bindJcemCoverBackdropComposition = (): void => {
 	if (sharesBackdropBranch) {
 		main.dataset.jcemCoverBackdropRoot = 'shared';
 		schedule();
-		void document.fonts?.ready.then(schedule);
+		// A geometria do stage e do deck já é observada. Reagendar também em
+		// document.fonts.ready duplicava a composição inicial no Brave quando a
+		// COVER wide ocupava a viewport, sem mudança geométrica adicional.
 		return;
 	}
 	const mainAnimations = typeof main.getAnimations === 'function'

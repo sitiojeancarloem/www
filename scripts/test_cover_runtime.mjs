@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import { existsSync } from 'node:fs';
-import { readFile } from 'node:fs/promises';
+import { readFile, readdir } from 'node:fs/promises';
 import { createServer } from 'node:http';
 import path from 'node:path';
 import { chromium } from 'playwright';
@@ -9,6 +9,16 @@ import sharp from 'sharp';
 import { resolveJcemLegacyHeroMode } from '../assets/jcem/js/cover-layout.js';
 
 const sourceRoot = path.resolve('.');
+const legacyWideRoutes = [];
+for (const filename of await readdir(path.join(sourceRoot, '_posts'))) {
+	if (!filename.endsWith('.md')) continue;
+	const source = await readFile(path.join(sourceRoot, '_posts', filename), 'utf8');
+	if (!/^featured_image_style:\s*wide\s*$/mu.test(source)) continue;
+	const explicitPermalink = source.match(/^permalink:\s*['"]?([^'"\s]+)['"]?\s*$/mu)?.[1];
+	const slug = filename.replace(/^\d{4}-\d{2}-\d{2}-/u, '').replace(/\.md$/u, '');
+	legacyWideRoutes.push(explicitPermalink || `/p/${slug}/`);
+}
+assert.ok(legacyWideRoutes.includes('/p/devaneios/'), 'Devaneios ausente da família wide declarada');
 const cssSource = await readFile(path.join(sourceRoot, 'assets', 'jcem', 'css', 'jcmain.scss'), 'utf8');
 const supportTokenMatch = cssSource.match(/--jcem-date-flag-support-ratio:\s*([0-9.]+)\s*;/);
 assert.ok(supportTokenMatch, 'token canônico de sustentação da flag ausente');
@@ -537,12 +547,31 @@ try {
 		return {
 			date: ['.jcem-date-flag__year', '.jcem-date-flag__month', '.jcem-date-flag__day']
 				.map((selector) => flag?.querySelector(selector)?.textContent?.trim()),
+			mode: document.querySelector('.jcem-featured-image')?.getAttribute('data-jcem-legacy-wide-scope') || '',
+			viewport: window.innerWidth,
+			stage: stage?.getBoundingClientRect().toJSON(),
+			article: document.querySelector('article.page .page__inner-wrap')?.getBoundingClientRect().toJSON(),
+			deck: document.querySelector('[data-jcem-title-bars]')?.getBoundingClientRect().toJSON(),
+			sharedHeader: Boolean(stage?.closest('.jcem-post-header') && stage?.closest('.jcem-post-header') === upperBar?.closest('.jcem-post-header')),
 			flagPaintedAboveCover: paintedAbove(flag, flag?.querySelector('.jcem-date-flag__year')),
 			upperPaintedAboveCover: paintedAbove(upperBar, upperBar),
 			overlap: document.querySelector('.jcem-post-header')?.getAttribute('data-jcem-title-cover-overlap'),
 		};
 	});
 	assert.deepEqual(devaneios.date, ['2014', 'ABR', '16'], `hierarquia da flag real divergente: ${JSON.stringify(devaneios)}`);
+	assert.equal(devaneios.mode, 'window', `Devaneios perdeu a modalidade wide: ${JSON.stringify(devaneios)}`);
+	assert.equal(devaneios.sharedHeader, true, `Devaneios separou mídia e vidro em ramos incompatíveis: ${JSON.stringify(devaneios)}`);
+	assert.ok(
+		Math.abs(devaneios.stage.width - devaneios.viewport) <= 1 &&
+			devaneios.stage.left < devaneios.article.left - 1 &&
+			devaneios.stage.right > devaneios.article.right + 1,
+		`Devaneios perdeu a sangria de viewport: ${JSON.stringify(devaneios)}`,
+	);
+	assert.ok(
+		Math.abs(devaneios.deck.left - devaneios.article.left) <= 0.51 &&
+			Math.abs(devaneios.deck.right - devaneios.article.right) <= 0.51,
+		`barras de Devaneios saíram da zona do artigo: ${JSON.stringify(devaneios)}`,
+	);
 	assert.equal(devaneios.overlap, 'true', `Devaneios perdeu sobreposição editorial: ${JSON.stringify(devaneios)}`);
 	assert.equal(devaneios.upperPaintedAboveCover, true, `barra superior real encoberta: ${JSON.stringify(devaneios)}`);
 	assert.equal(devaneios.flagPaintedAboveCover, true, `flag real encoberta: ${JSON.stringify(devaneios)}`);
@@ -572,29 +601,32 @@ try {
 		assert.equal(contentRoute.mode, 'content', `rota real perdeu classificação content: ${JSON.stringify(contentRoute)}`);
 	}
 
-	for (const [width, height] of [[1169, 900], [390, 844]]) {
-		await page.setViewportSize({ width, height });
-		await page.goto(`http://127.0.0.1:${port}/p/nove-motivos-para-guardar-o-sabado/`, { waitUntil: 'load' });
-		const wideRoute = await page.evaluate(() => {
-			const rect = (selector) => document.querySelector(selector)?.getBoundingClientRect().toJSON();
-			const stage = document.querySelector('.jcem-featured-image__stage');
-			const deck = document.querySelector('[data-jcem-title-bars]');
-			return {
-				mode: document.querySelector('.jcem-featured-image')?.getAttribute('data-jcem-legacy-wide-scope') || '',
-				stage: rect('.jcem-featured-image__stage'),
-				article: rect('article.page .page__inner-wrap'),
-				deck: rect('[data-jcem-title-bars]'),
-				sharedHeader: Boolean(stage?.closest('.jcem-post-header') && stage?.closest('.jcem-post-header') === deck?.closest('.jcem-post-header')),
-			};
-		});
-		assert.equal(wideRoute.mode, 'article', `rota da evidência não recebeu escopo legado colinear em ${width}x${height}: ${JSON.stringify(wideRoute)}`);
-		assert.equal(wideRoute.sharedHeader, true, `mídia e vidro da evidência ainda pertencem a ramos distintos em ${width}x${height}: ${JSON.stringify(wideRoute)}`);
-		for (const key of ['stage', 'deck']) {
-			assert.ok(
-				Math.abs(wideRoute[key].left - wideRoute.article.left) <= 0.51 &&
-				Math.abs(wideRoute[key].right - wideRoute.article.right) <= 0.51,
-				`rota da evidência ainda desalinhada em ${width}x${height} (${key}): ${JSON.stringify(wideRoute)}`,
-			);
+	for (const route of legacyWideRoutes) {
+		const viewports = ['/p/devaneios/', '/p/nove-motivos-para-guardar-o-sabado/'].includes(route)
+			? [[1169, 900], [390, 844]]
+			: [[1169, 900]];
+		for (const [width, height] of viewports) {
+			await page.setViewportSize({ width, height });
+			await page.goto(`http://127.0.0.1:${port}${route}`, { waitUntil: 'load' });
+			const wideRoute = await page.evaluate(() => {
+				const rect = (selector) => document.querySelector(selector)?.getBoundingClientRect().toJSON();
+				const stage = document.querySelector('.jcem-featured-image__stage');
+				const deck = document.querySelector('[data-jcem-title-bars]');
+				return {
+					mode: document.querySelector('.jcem-featured-image')?.getAttribute('data-jcem-legacy-wide-scope') || '',
+					stage: rect('.jcem-featured-image__stage'),
+					article: rect('article.page .page__inner-wrap'),
+					deck: rect('[data-jcem-title-bars]'),
+					viewport: window.innerWidth,
+					overflow: document.documentElement.scrollWidth - document.documentElement.clientWidth,
+					sharedHeader: Boolean(stage?.closest('.jcem-post-header') && stage?.closest('.jcem-post-header') === deck?.closest('.jcem-post-header')),
+				};
+			});
+			assert.equal(wideRoute.mode, 'window', `publicação wide reclassificada em ${route} ${width}x${height}: ${JSON.stringify(wideRoute)}`);
+			assert.equal(wideRoute.sharedHeader, true, `mídia e vidro pertencem a ramos distintos em ${route} ${width}x${height}: ${JSON.stringify(wideRoute)}`);
+			assert.ok(Math.abs(wideRoute.stage.width - wideRoute.viewport) <= 1 && wideRoute.stage.left < wideRoute.article.left - 1 && wideRoute.stage.right > wideRoute.article.right + 1, `COVER wide sem sangria em ${route} ${width}x${height}: ${JSON.stringify(wideRoute)}`);
+			assert.ok(Math.abs(wideRoute.deck.left - wideRoute.article.left) <= 0.51 && Math.abs(wideRoute.deck.right - wideRoute.article.right) <= 0.51, `barras wide fora da zona do artigo em ${route} ${width}x${height}: ${JSON.stringify(wideRoute)}`);
+			assert.ok(wideRoute.overflow <= 1, `COVER wide criou overflow horizontal em ${route} ${width}x${height}: ${JSON.stringify(wideRoute)}`);
 		}
 	}
 

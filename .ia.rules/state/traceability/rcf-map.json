@@ -130,6 +130,25 @@
     },
     {
       "artifacts": [
+        "_includes/jcem/post-featured-image.html",
+        "assets/jcem/css/jcmain.scss",
+        "assets/jcem/js/site.js",
+        "assets/jcem/ts/site.ts",
+        "docs/MODO-DE-USO-COVER-E-HERO.md",
+        "scripts/test_cover_runtime.mjs",
+        "scripts/test_web_performance.mjs"
+      ],
+      "commit": "",
+      "ft": "FT-066",
+      "id": "9fd169d66f75a7866950f6d5",
+      "line": 20,
+      "rcf": "RCFs/carregamento-progressivo.md",
+      "sentenceSha256": "bb85d76197ecfcbabd71681dae2c0cec89412628c1675ea8405f4a78df6f7185",
+      "state": "pending",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
         "RCFs/carregamento-progressivo.md"
       ],
       "commit": "e61d9cdc828889a4f2a8b4018f4fa37f65db4d00",
@@ -328,6 +347,25 @@
     },
     {
       "artifacts": [
+        "_includes/jcem/post-featured-image.html",
+        "assets/jcem/css/jcmain.scss",
+        "assets/jcem/js/site.js",
+        "assets/jcem/ts/site.ts",
+        "docs/MODO-DE-USO-COVER-E-HERO.md",
+        "scripts/test_cover_runtime.mjs",
+        "scripts/test_web_performance.mjs"
+      ],
+      "commit": "",
+      "ft": "FT-066",
+      "id": "ea825a34eb4acf3afe618ccb",
+      "line": 24,
+      "rcf": "RCFs/carregamento-progressivo.md",
+      "sentenceSha256": "d7d842e4f193c764b3195ca5536e4c0f0c2fac968bd51334e2eb0b011a825a9c",
+      "state": "pending",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
         "RCFs/carregamento-progressivo.md"
       ],
       "commit": "7cc307176289dc64176988e5d734988f232cb5f8",
@@ -390,6 +428,25 @@
       "rcf": "RCFs/carregamento-progressivo.md",
       "sentenceSha256": "9117d397a44a0a888cc67632767320a59d9ed1d9976a040e807305cdec14e7ad",
       "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "_includes/jcem/post-featured-image.html",
+        "assets/jcem/css/jcmain.scss",
+        "assets/jcem/js/site.js",
+        "assets/jcem/ts/site.ts",
+        "docs/MODO-DE-USO-COVER-E-HERO.md",
+        "scripts/test_cover_runtime.mjs",
+        "scripts/test_web_performance.mjs"
+      ],
+      "commit": "",
+      "ft": "FT-066",
+      "id": "b3305aafff60a8f754d04641",
+      "line": 25,
+      "rcf": "RCFs/carregamento-progressivo.md",
+      "sentenceSha256": "ae0b0717f22a788c5d5e9c2c0323f8f5d494d979c84a4bbbe9d604348423c1b5",
+      "state": "pending",
       "syncCommit": ""
     },
     {
@@ -536,6 +593,25 @@
       "rcf": "RCFs/carregamento-progressivo.md",
       "sentenceSha256": "a28050cc022019a974e1be564c05b699b7d2606de91156971de169dfb22f9691",
       "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "_includes/jcem/post-featured-image.html",
+        "assets/jcem/css/jcmain.scss",
+        "assets/jcem/js/site.js",
+        "assets/jcem/ts/site.ts",
+        "docs/MODO-DE-USO-COVER-E-HERO.md",
+        "scripts/test_cover_runtime.mjs",
+        "scripts/test_web_performance.mjs"
+      ],
+      "commit": "",
+      "ft": "FT-066",
+      "id": "9cde4d2b900c834228ac1945",
+      "line": 30,
+      "rcf": "RCFs/carregamento-progressivo.md",
+      "sentenceSha256": "fcaeedeaf5db424671dffcfaefd05a50aebec29cd72084eb6e708d03f5dc51d1",
+      "state": "pending",
       "syncCommit": ""
     },
     {
@@ -955,6 +1031,25 @@
       "rcf": "RCFs/carregamento-progressivo.md",
       "sentenceSha256": "c84a877d6e4388987e6daf2ce8b500ce4b2252c0ad220bdca979563f535d2645",
       "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "_includes/jcem/post-featured-image.html",
+        "assets/jcem/css/jcmain.scss",
+        "assets/jcem/js/site.js",
+        "assets/jcem/ts/site.ts",
+        "docs/MODO-DE-USO-COVER-E-HERO.md",
+        "scripts/test_cover_runtime.mjs",
+        "scripts/test_web_performance.mjs"
+      ],
+      "commit": "",
+      "ft": "FT-066",
+      "id": "4649b098ca5d8d5042764686",
+      "line": 44,
+      "rcf": "RCFs/carregamento-progressivo.md",
+      "sentenceSha256": "4981ddd4fffa9727e3f53f1480deb79eecbd126694880366d4b53b14678dd48b",
+      "state": "pending",
       "syncCommit": ""
     },
     {
@@ -1832,6 +1927,25 @@
       "rcf": "RCFs/carregamento-progressivo.md",
       "sentenceSha256": "231c7b5df8ca28d384cb39b735f1daa7a0ac55b14c312ececf906c4d25b34b0c",
       "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "_includes/jcem/post-featured-image.html",
+        "assets/jcem/css/jcmain.scss",
+        "assets/jcem/js/site.js",
+        "assets/jcem/ts/site.ts",
+        "docs/MODO-DE-USO-COVER-E-HERO.md",
+        "scripts/test_cover_runtime.mjs",
+        "scripts/test_web_performance.mjs"
+      ],
+      "commit": "",
+      "ft": "FT-066",
+      "id": "fd3e68d746ae6d457a68f438",
+      "line": 143,
+      "rcf": "RCFs/carregamento-progressivo.md",
+      "sentenceSha256": "eeb4a182d05082b0bc1b7e8c33c31c14f2aeed2f1cc85c9d5b77cbf5f7ef945c",
+      "state": "pending",
       "syncCommit": ""
     },
     {
@@ -3463,6 +3577,23 @@
       "rcf": "RCFs/componentes-compartilhados.md",
       "sentenceSha256": "1ba6d68bfda1e26618d3fdb1ad88c1d34e7ec8235a8fa274783b2891592c1441",
       "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "_includes/jcem/post-featured-image.html",
+        "assets/jcem/css/jcmain.scss",
+        "assets/jcem/js/site.js",
+        "assets/jcem/ts/site.ts",
+        "scripts/test_cover_runtime.mjs"
+      ],
+      "commit": "",
+      "ft": "FT-066",
+      "id": "cf227f4b15685e664c55ef26",
+      "line": 52,
+      "rcf": "RCFs/componentes-compartilhados.md",
+      "sentenceSha256": "7c45adbeec9b53db4da8916c37ae56503ca39a75596746dad9d934f6dc5ee9d1",
+      "state": "pending",
       "syncCommit": ""
     },
     {

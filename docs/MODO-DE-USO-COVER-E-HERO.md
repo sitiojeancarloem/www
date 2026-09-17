@@ -78,7 +78,7 @@ Prefira os nomes canônicos em novas publicações:
 | `inner-window-height` | interno, abaixo da masthead | altura | `innerWindowHeight`/`innerwindowheight` |
 | `inner-window-width` | interno, abaixo da masthead | largura | `innerWindowWidth`/`innerwindowwidth` |
 
-O campo legado `featured_image_style: wide`, quando usado sozinho com composição `single`, preserva o crop amplo por altura, mas permanece colinear à zona do artigo. Para largura integral/sangria, declare `cover.mode: wide` (preferido) ou um dos aliases explícitos `full`, `full-width` e `bleed`. A separação mantém a capacidade full-width sem transformar implicitamente publicações legadas em modo de janela.
+O campo legado `featured_image_style: wide`, `cover.mode: wide` (preferido para novas publicações) e os aliases `full`, `full-width` e `bleed` preservam a mesma geometria horizontal: a COVER ocupa a largura da janela, enquanto o conjunto de título continua alinhado à zona do artigo. A composição `single` mantém o crop central por altura; a sintaxe escolhida não reclassifica uma publicação `wide` como `content`.
 
 `composition` aceita `single` ou `triptych`. A composição tripla só é válida em modos de janela; exige `patterns.left` e `patterns.right`. Cada pattern pode ser:
 

@@ -757,16 +757,6 @@ aside {
 	}
 }
 
-.jcem-featured-image--wide.jcem-featured-image--article {
-	// O wide single legado mantém o crop por altura, mas compartilha as bordas
-	// e o ramo de pintura do artigo; o modo canônico cover.mode:wide não recebe
-	// este modificador e conserva a sangria de viewport.
-	width: 100%;
-	max-width: 100%;
-	margin-right: 0;
-	margin-left: 0;
-}
-
 .jcem-featured-image--triptych .jcem-featured-image__surface {
 	position: absolute;
 	inset: 0;

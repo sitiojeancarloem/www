@@ -377,7 +377,7 @@ const bindJcemLegacyHeroLayout = () => {
     schedule();
 };
 const bindJcemCoverBackdropComposition = () => {
-    var _a, _b, _c;
+    var _a, _b;
     const header = document.querySelector('.jcem-post-header[data-jcem-title-cover-overlap="true"]');
     const deck = header === null || header === void 0 ? void 0 : header.querySelector('[data-jcem-title-bars]');
     const main = header === null || header === void 0 ? void 0 : header.closest('#main');
@@ -474,7 +474,6 @@ const bindJcemCoverBackdropComposition = () => {
     if (sharesBackdropBranch) {
         main.dataset.jcemCoverBackdropRoot = 'shared';
         schedule();
-        void ((_b = document.fonts) === null || _b === void 0 ? void 0 : _b.ready.then(schedule));
         return;
     }
     const mainAnimations = typeof main.getAnimations === 'function'
@@ -487,7 +486,7 @@ const bindJcemCoverBackdropComposition = () => {
     else {
         releaseBackdropRoot();
     }
-    void ((_c = document.fonts) === null || _c === void 0 ? void 0 : _c.ready.then(schedule));
+    void ((_b = document.fonts) === null || _b === void 0 ? void 0 : _b.ready.then(schedule));
 };
 const jcemSkeletonMediaSelector = 'img, video, iframe, .jcem-featured-image__stage, .jcem-featured-image, .archive__item-teaser, .page__hero, .page__hero--overlay, [data-jcem-skeleton]';
 const jcemSkeletonMinVisibleMs = 520;

@@ -107,6 +107,9 @@ assert.match(
 	singleLayout,
 	/{% if jcem_legacy_wide_single_article %}[\s\S]*?post-featured-image\.html style="wide" scope="article"/,
 );
+assert.match(featuredImage, /data-jcem-legacy-wide-scope="window" data-jcem-cover-branch="shared-header"/);
+assert.doesNotMatch(featuredImage, /jcem-featured-image--article/);
+assert.doesNotMatch(customTheme, /\.jcem-featured-image--wide\.jcem-featured-image--article/);
 assert.match(customTheme, /--jcem-article-zone-width:\s*max\(\s*0px,\s*min\(calc\(100dvw - 4rem\),\s*calc\(#\{\$max-width\} - 4rem\)\)\s*\)/);
 assert.match(customTheme, /--jcem-standard-cover-height:\s*calc\(\s*var\(--jcem-article-zone-width\) \* 630 \/ 1200\s*\)/);
 assert.match(
