@@ -1377,6 +1377,31 @@ plano:
       normativo: 991aff8193
       causal: 21d23e2929
     proximo_passo: validacao humana da fidelidade visual; manter a TO-DO em andamento ate aceite efetivo
+  - id: FT-077
+    classe: correcao_codigo_validacao
+    criado_em: 2026-09-16
+    estado: concluida_tecnicamente_pendente_integracao_git_e_validacao_humana
+    depende_de: FT-071, FT-074
+    fonte: .ia.rules/state/requests/FT-077/prompt.md
+    fonte_autorizacao: prompts humanos de 2026-09-16 para corrigir e concluir de forma inter paginas
+    contexto: .ia.rules/state/contexts/FT-077/master.md
+    objetivo: Corrigir o isolamento de chrome web na impressao pela camada compartilhada e fortalecer a regressao inter paginas.
+    aceite:
+      - nenhum hardcode por rota ou conteudo
+      - diagnostico identifica os elementos visiveis
+      - artigos estruturalmente distintos aprovam desktop e mobile
+      - paginas sem artigo preservam impressao natural
+      - TO-DO de impressao permanece em avaliacao humana
+    resultado:
+      - causa confirmada na guarda de especificidade do reset IEEE, que restaurava a COVER wide agora descendente do artigo apesar das regras anteriores de ocultacao
+      - adaptador compartilhado neutraliza Hero, COVER e imagem acima do reset, sem hardcode por rota e sem alterar a tela
+      - diagnostico visual passa a listar elementos visiveis e estado real das folhas e da midia
+      - runtime cobre quatro artigos reais em desktop e mobile; validate visual integral aprovou em 405,8 segundos sob limite de 420
+      - build isolado, print, TypeScript, COVER, desempenho, acessibilidade estrutural, documentacao e publicacao aprovaram
+      - accessible runtime reproduziu somente a lacuna TTS preexistente dos marcadores falados de citacao, sem nexo causal
+      - seis sentencas materiais foram preparadas para vinculacao ao commit causal
+      - TO-DO de impressao permanece em avaliacao humana e nao foi marcada como concluida
+    proximo_passo: obter autorizacao Git especifica, criar commit causal, finalizar rcf trace e registrar a integracao sem encerrar a TO-DO
 lacunas:
   - id: GAP-RCF-MODULE-2026-001
     estado: isolada_fora_do_escopo
