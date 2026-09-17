@@ -122,3 +122,11 @@ Data: 2026-09-14T02:10:35.8727673-03:00
 - `npm run check` parou em `check:editorial-assets` porque `_drafts` não existe no worktree; a falha ocorre em `readdir` antes de avaliar o domínio COVER. Nenhum diretório ou conteúdo foi fabricado para contornar o gate.
 - `npm run agent:rcf` permanece bloqueado por `GAP-RCF-MODULE-2026-001`: `package-registry.js` usa `module.exports` enquanto o pacote raiz é ESM. O runtime gerenciado não foi alterado.
 - `_site` e `visual-artifacts` são derivados locais e não integram os commits.
+- Sétima correção: build produtivo isolado aprovado sob `.tmp/ft066-seventh-site`; o `_site` compartilhado permaneceu fora dos commits.
+- `npm run check:covers`: aprovado com quatro modos legados, seis estendidos, seis zonas Hero e prova raster persistente em Chrome e Brave.
+- A rota real `/p/nove-motivos-para-guardar-o-sabado/` aprovou mídia e deck colineares à zona do artigo em `1169x900` e `390x844`, no mesmo ramo de pintura.
+- O ciclo `1017x820 -> 1169x900` comprovou persistência do blur depois do equivalente ao fechamento do inspetor: raster automático equivalente ao toggle manual e distinto do baseline sem blur.
+- A fixture `full-width` confirmou preservação da sangria de janela; `check:ts`, contrato Ruby, documentação, acessibilidade estrutural, publicação, desempenho, impressão e runtime de impressão aprovaram.
+- `check:accessible-runtime` reproduziu a lacuna preexistente dos marcadores falados de início/fim da citação na fixture TTS, fora do caminho COVER e sem nexo causal.
+- `rcf-trace validate`: aprovado com `435` entradas e `394` sentenças materiais. Commits: normativa `31f3490579`, causal `7718f8f546` e rastreabilidade `3afa897d5a`.
+- Estado técnico concluído, pendente de validação humana; a TO-DO operacional permanece `⏳`.

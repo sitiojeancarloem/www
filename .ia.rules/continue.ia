@@ -955,7 +955,7 @@ plano:
   - id: FT-066
     classe: implementacao_codigo
     criado_em: 2026-09-14T00:19:37.6212130-03:00
-    estado: reaberta_apos_setima_rejeicao_humana
+    estado: concluida_tecnicamente_pendente_validacao_humana
     depende_de: FT-065
     fonte: TODO.ia.md
     fonte_autorizacao: prompt humano de 2026-09-14T01:30:31.8823778-03:00, com autorizacao explicita para executar FT-066 e FT-067
@@ -1077,7 +1077,7 @@ plano:
     setima_correcao_humana:
       em: 2026-09-16
       fonte: .ia.rules/state/requests/FT-066/setima-rejeicao-evidencias-21-22.md
-      estado: normatizada_implementacao_pre_autorizada
+      estado: implementada_e_revalidada_pendente_validacao_humana
       preservacao:
         - manter baseline manual de fume, blur, saturacao, bordas e sombra
         - manter FLAG, titulo, SVGs, sobreposicao vertical e modos governados pela janela
@@ -1090,12 +1090,21 @@ plano:
         - wide single legado sem cover passa a compartilhar bordas e ramo de pintura com a zona do artigo e a barra
         - cover.mode wide, aliases full-width e bleed e triptych preservam integralmente a capacidade de janela e sangria
         - propriedade computada, contador ou toggle coalescivel nao provam backdrop; a saida raster deve persistir apos resize e fechamento do inspetor
-        - oito sentencas materiais aguardam commit causal por meio do rcf-trace
-      proximo_passo: implementar imediatamente a projecao normatizada e revalidar FT-066 e FT-067 sem encerrar a TO-DO
+        - oito sentencas materiais foram vinculadas ao commit causal por meio do rcf-trace
+      correcao:
+        - wide single legado sem cover passou a renderizar a midia no mesmo ramo do cabecalho, colinear bilateralmente a zona do artigo, preservando seu crop wide
+        - cover.mode wide e aliases full, full-width e bleed permanecem explicitamente full-width; a fixture wide single passou a exercer o alias explicito
+        - o deck no ramo compartilhado aguarda pintura e fontes sem toggle sincrono coalescivel; o caminho legado separado conserva a recomposicao anterior
+        - a regressao compara raster automatico, sem blur e toggle manual apos dezoito frames e repete a prova depois do ciclo 1017x820 para 1169x900 equivalente ao fechamento do inspetor
+      commits:
+        normativo: 31f3490579
+        causal: 7718f8f546
+        rastreabilidade: 3afa897d5a
+      proximo_passo: validacao humana da setima correcao; manter a TO-DO operacional em andamento ate aprovacao efetiva
   - id: FT-067
     classe: integracao_validacao
     criado_em: 2026-09-14T00:19:37.6212130-03:00
-    estado: reaberta_apos_setima_rejeicao_humana
+    estado: concluida_tecnicamente_pendente_validacao_humana
     depende_de: FT-066
     fonte: TODO.ia.md
     fonte_autorizacao: prompt humano de 2026-09-14T01:30:31.8823778-03:00, com autorizacao explicita para executar FT-066 e FT-067
@@ -1174,7 +1183,16 @@ plano:
       - check:ts, acessibilidade estrutural, impressao, desempenho e documentacao aprovaram
       - check:accessible-runtime continua falhando tambem contra o _site anterior por ausencia dos marcadores falados de inicio/fim de citacao na fixture TTS, fora do caminho COVER e sem relacao causal com esta mudanca
       - nenhum card, SVG de flag, conteudo editorial, _site ou artefato visual integrou o commit causal
-    proximo_passo: validacao humana da sexta correcao; manter a TO-DO operacional em andamento ate aprovacao efetiva
+    revalidacao_apos_setima_correcao:
+      - build produtivo isolado aprovado sob .tmp/ft066-seventh-site, sem absorver o _site compartilhado
+      - check:covers aprovou quatro modos legados, seis estendidos, seis zonas Hero e prova raster persistente em Chrome e Brave
+      - a rota real /p/nove-motivos-para-guardar-o-sabado/ aprovou colinearidade da midia e do deck com o artigo em 1169x900 e 390x844, dentro do mesmo ramo de pintura
+      - o ciclo de viewport 1017x820 para 1169x900 comprovou que o raster automatico continua equivalente ao toggle manual e distinto do baseline sem blur depois do equivalente ao fechamento do inspetor
+      - o modo full-width explicito permaneceu com sangria de janela; check:ts, contrato Ruby, documentacao, acessibilidade estrutural, publicacao, desempenho, impressao e runtime de impressao aprovaram
+      - check:accessible-runtime reproduziu somente a lacuna preexistente dos marcadores falados de inicio e fim da citacao na fixture TTS, sem nexo causal com COVER
+      - rcf-trace aprovou 435 entradas e 394 sentencas materiais depois da vinculacao do commit causal 7718f8f546
+      - nenhum card, SVG de flag, conteudo editorial, _site ou artefato temporario integrou os commits
+    proximo_passo: validacao humana da setima correcao; manter a TO-DO operacional em andamento ate aprovacao efetiva
   - id: FT-068
     classe: implementacao_normativa
     criado_em: 2026-09-16T01:46:32.9929559-03:00

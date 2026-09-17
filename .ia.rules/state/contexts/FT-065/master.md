@@ -74,7 +74,16 @@ Eliminar a causa comum das interpretacoes reiteradamente rejeitadas: ancorar a F
 
 ## Estado
 
-FT-065 permanece equalizada quanto às invariantes preservadas, mas a sétima rejeição reabre a projeção material das bordas e da composição persistente. FT-066 e FT-067 voltam a estar em correção e revalidação. A TO-DO operacional permanece `⏳` até aceite efetivo.
+FT-065 permanece equalizada quanto às invariantes preservadas. A sétima correção foi implementada e revalidada tecnicamente pelas FT-066 e FT-067, mas continua pendente de validação humana. A TO-DO operacional permanece `⏳` até aceite efetivo.
+
+## Sétima correção — rota real, ramo de pintura e raster persistente
+
+- A rota real rejeitada `/p/nove-motivos-para-guardar-o-sabado/` usa `featured_image_style: wide` legado sem `cover`; nesse caso, a mídia agora compartilha o ramo do cabeçalho e as bordas bilaterais da zona do artigo, sem perder o crop wide.
+- A capacidade superior foi preservada: `cover.mode: wide`, aliases `full`, `full-width` e `bleed`, além de triptych, continuam podendo ocupar a janela; a fixture correspondente usa agora `full-width` explicitamente.
+- Quando mídia e deck compartilham o ramo, a estabilização aguarda pintura e fontes sem depender de toggle síncrono coalescível. O caminho de ramos separados mantém a recomposição já existente.
+- A prova raster compara automaticamente o estado automático, o baseline sem blur e o toggle manual depois de dezoito frames; repete o ensaio no ciclo `1017x820 -> 1169x900`, equivalente à abertura e ao fechamento do inspetor.
+- Commits: normativa `31f3490579`, causal `7718f8f546` e rastreabilidade `3afa897d5a`.
+- Estado: tecnicamente concluído, pendente de validação humana; a TO-DO permanece `⏳`.
 
 ## Quinta correção rejeitada — colinearidade por modalidade e composição inicial
 
