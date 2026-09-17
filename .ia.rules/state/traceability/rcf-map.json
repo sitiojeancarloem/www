@@ -4831,41 +4831,53 @@
     },
     {
       "artifacts": [
-        "RCFs/impressao-ieee.md"
+        "assets/jcem/print-ieee/jekyll-blog.css",
+        "scripts/test_print_ieee.mjs",
+        "scripts/test_print_runtime.mjs",
+        "scripts/validate-visual.js",
+        "src/jcem-print-ieee/adapters/jekyll-blog.css"
       ],
-      "commit": "cd19a001737be8456d0f5a5eb05dfa979a6f052e",
-      "ft": "FT-053",
+      "commit": "",
+      "ft": "FT-077",
       "id": "8a95160f3efda8eecd122d35",
       "line": 40,
       "rcf": "RCFs/impressao-ieee.md",
       "sentenceSha256": "8e7e621a467c3f2ef2376cbad3a49ee113203ba0638e4d9b9eca15abd72d8d4d",
-      "state": "synchronized",
+      "state": "pending",
       "syncCommit": ""
     },
     {
       "artifacts": [
-        "RCFs/impressao-ieee.md"
+        "assets/jcem/print-ieee/jekyll-blog.css",
+        "scripts/test_print_ieee.mjs",
+        "scripts/test_print_runtime.mjs",
+        "scripts/validate-visual.js",
+        "src/jcem-print-ieee/adapters/jekyll-blog.css"
       ],
-      "commit": "cd19a001737be8456d0f5a5eb05dfa979a6f052e",
-      "ft": "FT-053",
+      "commit": "",
+      "ft": "FT-077",
       "id": "0fdaecdd0c856d460f97397b",
       "line": 44,
       "rcf": "RCFs/impressao-ieee.md",
       "sentenceSha256": "6c2ba7f0e7c5ed794a4b9decc0c3a247d0b6c87ac2fb1be04b23646de352d488",
-      "state": "synchronized",
+      "state": "pending",
       "syncCommit": ""
     },
     {
       "artifacts": [
-        "RCFs/impressao-ieee.md"
+        "assets/jcem/print-ieee/jekyll-blog.css",
+        "scripts/test_print_ieee.mjs",
+        "scripts/test_print_runtime.mjs",
+        "scripts/validate-visual.js",
+        "src/jcem-print-ieee/adapters/jekyll-blog.css"
       ],
-      "commit": "cd19a001737be8456d0f5a5eb05dfa979a6f052e",
-      "ft": "FT-053",
+      "commit": "",
+      "ft": "FT-077",
       "id": "69011b2021fd77bbcc7aa98e",
       "line": 45,
       "rcf": "RCFs/impressao-ieee.md",
       "sentenceSha256": "4646edc95309b19a1aeca59821964bf4c48bd2c4dabb6ddae036722104fcfa78",
-      "state": "synchronized",
+      "state": "pending",
       "syncCommit": ""
     },
     {
@@ -4883,28 +4895,36 @@
     },
     {
       "artifacts": [
-        "RCFs/impressao-ieee.md"
+        "assets/jcem/print-ieee/jekyll-blog.css",
+        "scripts/test_print_ieee.mjs",
+        "scripts/test_print_runtime.mjs",
+        "scripts/validate-visual.js",
+        "src/jcem-print-ieee/adapters/jekyll-blog.css"
       ],
-      "commit": "cd19a001737be8456d0f5a5eb05dfa979a6f052e",
-      "ft": "FT-053",
+      "commit": "",
+      "ft": "FT-077",
       "id": "c89f66fd53b32f5579175ad8",
       "line": 47,
       "rcf": "RCFs/impressao-ieee.md",
       "sentenceSha256": "92fc3388e452f9bbe4b52bae61deed6c2f4e15991e95683df07f0c81804a161c",
-      "state": "synchronized",
+      "state": "pending",
       "syncCommit": ""
     },
     {
       "artifacts": [
-        "RCFs/impressao-ieee.md"
+        "assets/jcem/print-ieee/jekyll-blog.css",
+        "scripts/test_print_ieee.mjs",
+        "scripts/test_print_runtime.mjs",
+        "scripts/validate-visual.js",
+        "src/jcem-print-ieee/adapters/jekyll-blog.css"
       ],
-      "commit": "cd19a001737be8456d0f5a5eb05dfa979a6f052e",
-      "ft": "FT-053",
+      "commit": "",
+      "ft": "FT-077",
       "id": "f0e5d675c687f15a81b572fa",
       "line": 48,
       "rcf": "RCFs/impressao-ieee.md",
       "sentenceSha256": "10b174253fdffdf37e048691f7ffd583d56352f25c257a0e6a9bc32aebcea125",
-      "state": "synchronized",
+      "state": "pending",
       "syncCommit": ""
     },
     {
@@ -4923,16 +4943,18 @@
     {
       "artifacts": [
         "assets/jcem/print-ieee/jekyll-blog.css",
-        "scripts/test_cover_rendered.mjs",
-        "scripts/test_print_ieee_blog.rb"
+        "scripts/test_print_ieee.mjs",
+        "scripts/test_print_runtime.mjs",
+        "scripts/validate-visual.js",
+        "src/jcem-print-ieee/adapters/jekyll-blog.css"
       ],
-      "commit": "4fa30e8bde51fa4be694a37bf52ac31b986b8972",
-      "ft": "FT-053",
+      "commit": "",
+      "ft": "FT-077",
       "id": "f8599a2b8658ce544fec97a5",
       "line": 49,
       "rcf": "RCFs/impressao-ieee.md",
       "sentenceSha256": "1a500987155d5207dc87ead75e9fe7ad5a7ba4e8fa60211a41dd1afb1e243294",
-      "state": "synchronized",
+      "state": "pending",
       "syncCommit": ""
     },
     {

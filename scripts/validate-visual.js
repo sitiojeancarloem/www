@@ -1,3 +1,5 @@
+/*! Fonte: https://github.com/sitiojeancarloem/blog | Autor: Jean Carlo EM — https://www.jeancarloem.com | Licença: MPL-2.0 — https://mozilla.org/MPL/2.0/ — código aberto, sem garantia. */
+
 import { createServer } from 'node:http';
 import { mkdir, readFile, readdir } from 'node:fs/promises';
 import { existsSync } from 'node:fs';
@@ -2658,6 +2660,43 @@ const validatePrintTheme = async (page, url, viewportName) => {
 					style.visibility !== 'hidden'
 				);
 			});
+		const chromeSelectors = [
+			'.masthead',
+			'.page__hero',
+			'.jcem-featured-image',
+			'.jcem-featured-image__img',
+			'.page__footer',
+			'.sobpostbar',
+			'.page__share',
+			'.jcem-theme-toggle',
+			'.jcem-scroll-top',
+			'#silktide-wrapper',
+			'#silktide-cookie-icon',
+		];
+		const visibleChrome = chromeSelectors.flatMap((selector) =>
+			Array.from(document.querySelectorAll(selector)).flatMap((node) => {
+				const rect = node.getBoundingClientRect();
+				const style = window.getComputedStyle(node);
+				const isVisible =
+					rect.width > 1 &&
+					rect.height > 1 &&
+					style.display !== 'none' &&
+					style.visibility !== 'hidden';
+
+				return isVisible
+					? [{
+						selector,
+						tag: node.tagName.toLowerCase(),
+						id: node.id || '',
+						classes: Array.from(node.classList),
+						width: Math.round(rect.width * 100) / 100,
+						height: Math.round(rect.height * 100) / 100,
+						display: style.display,
+						visibility: style.visibility,
+					}]
+					: [];
+			}),
+		);
 		const hiddenByDisplay = (selector) =>
 			Array.from(document.querySelectorAll(selector)).every(
 				(node) => window.getComputedStyle(node).display === 'none',
@@ -2765,9 +2804,27 @@ const validatePrintTheme = async (page, url, viewportName) => {
 			markdownColumnStates,
 			referencesPrint: printDetails('details.jcem-collapsible--references'),
 			bibliographyPrint: printDetails('details.jcem-collapsible--bibliography'),
-			hiddenChrome: !visible(
-				'.masthead, .page__hero, .jcem-featured-image, .jcem-featured-image__img, .page__footer, .sobpostbar, .page__share, .jcem-theme-toggle, .jcem-scroll-top, #silktide-wrapper, #silktide-cookie-icon',
-			),
+			hiddenChrome: visibleChrome.length === 0,
+			visibleChrome,
+			printStylesheets: Array.from(
+				document.querySelectorAll('link[data-jcem-print-stylesheet]'),
+			).map((link) => ({
+				href: link.href,
+				media: link.media,
+				loaded: Boolean(link.sheet),
+				ruleCount: link.sheet?.cssRules?.length ?? -1,
+			})),
+			printState: article
+				? {
+					lifecycle: article.dataset.printLifecycle || '',
+					state: article.dataset.printState || '',
+					schedule: article.dataset.printSchedule || '',
+				}
+				: null,
+			media: {
+				print: window.matchMedia('print').matches,
+				screen: window.matchMedia('screen').matches,
+			},
 			webArticleHelpersHidden: hiddenByDisplay(
 				'[data-print-article] .toc, [data-print-article] .sidebar__right:has(.toc), [data-print-article] .header-link, [data-print-article] .jcem-date-flag, [data-print-article] .page__meta, [data-print-article] .page__share, [data-print-article] .pagination, [data-print-article] details.jcem-collapsible--references > summary, [data-print-article] details.jcem-collapsible--bibliography > summary',
 			),
@@ -2880,7 +2937,9 @@ const validatePrintTheme = async (page, url, viewportName) => {
 	}
 
 	if (!result.hiddenChrome) {
-		fail(`Impressao exibe elementos decorativos ou controles em ${url}`);
+		fail(
+			`Impressao exibe elementos decorativos ou controles em ${url}: ${JSON.stringify({ visible: result.visibleChrome, stylesheets: result.printStylesheets, state: result.printState, media: result.media })}`,
+		);
 	}
 
 	if (!result.webArticleHelpersHidden) {

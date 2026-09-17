@@ -120,6 +120,27 @@ assert.match(adapterCss, /:is\(blockquote, \[data-jcem-blockquote\], \[role="blo
 assert.match(adapterCss, /\.jcem-post-header,[^{]*\[data-print-metadata\]\s*\{[^}]*column-span:\s*all\s*!important/s);
 assert.match(adapterCss, /\.jcem-article-authors\s*\{[^}]*display:\s*none\s*!important/s);
 assert.match(adapterCss, /> :not\(\.main_jcem_wrapper, \[data-print-institutional\]\)/);
+const guardedChromeSelectors = adapterCss.match(
+	/body:has\(\[data-print-article\]\)\s*:is\(#print-isolation-specificity-guard, \[data-print-article\]\)\s*:is\(([\s\S]*?)\)\s*\{\s*\/\* PROTECAO: o guard de especificidade/s,
+)?.[1];
+assert.ok(
+	guardedChromeSelectors,
+	'chrome interno precisa prevalecer sobre o reset impresso de alta especificidade',
+);
+for (const guardedSelector of [
+	'.page__hero',
+	'.page__hero--overlay',
+	'.jcem-featured-image',
+	'.jcem-featured-image__img',
+	'.jcem-legacy-hero',
+	'.jcem-cover',
+]) {
+	assert.match(
+		guardedChromeSelectors,
+		new RegExp(guardedSelector.replaceAll('.', '\\.')),
+		`chrome interno sem neutralização acima do reset IEEE: ${guardedSelector}`,
+	);
+}
 for (const webOnlySelector of [
 	'.toc',
 	'.jcem-article-toc',

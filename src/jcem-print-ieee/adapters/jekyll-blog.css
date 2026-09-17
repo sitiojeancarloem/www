@@ -50,10 +50,17 @@
 			.jcem-article-toc,
 			.sidebar__right:has(.toc),
 			.header-link,
+			.page__hero,
+			.page__hero--overlay,
+			.jcem-featured-image,
+			.jcem-featured-image__img,
+			.jcem-legacy-hero,
+			.jcem-cover,
 			.jcem-date-flag,
 			.jcem-post-date-flag,
 			.jcem-post-read-time
 		) {
+		/* PROTECAO: o guard de especificidade prevalece sobre o reset `all: revert`. */
 		display: none !important;
 	}
 

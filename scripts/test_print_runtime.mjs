@@ -58,48 +58,93 @@ const profiles = [
 		deviceScaleFactor: 2,
 	}],
 ];
+const articlePaths = [
+	'/p/devaneios/',
+	'/p/sola-scriptura/',
+	'/p/nove-motivos-para-guardar-o-sabado/',
+	'/p/bate-papo/eventos-finais/a-heranca-dos-santos/',
+];
+const chromeSelectors = [
+	'.masthead',
+	'.page__hero',
+	'.page__hero--overlay',
+	'.jcem-featured-image',
+	'.jcem-featured-image__img',
+	'.jcem-legacy-hero',
+	'.jcem-cover',
+	'.page__footer',
+	'.sobpostbar',
+	'.page__share',
+	'.jcem-theme-toggle',
+	'.jcem-scroll-top',
+	'#silktide-wrapper',
+	'#silktide-cookie-icon',
+];
 
 try {
 	for (const [label, options] of profiles) {
-		const context = await browser.newContext(options);
-		const page = await context.newPage();
-		await page.addInitScript(() => {
-			localStorage.setItem('silktideCookieBanner_InitialChoice', '1');
-			localStorage.setItem('silktideCookieChoice_obrigat_rios', 'true');
-		});
-		await page.goto(`http://127.0.0.1:${port}/p/devaneios/`, {
-			waitUntil: 'domcontentloaded',
-		});
-		assert.equal(
-			await page.locator('link[data-jcem-print-stylesheet]').count(),
-			0,
-			`${label}: CSS de impressão entrou no caminho crítico`,
-		);
-		await page.waitForFunction(
-			() => document.querySelector('[data-print-article]')?.dataset.printSchedule === 'ready',
-			undefined,
-			{ timeout: 20_000 },
-		);
-		const state = await page.evaluate(() => ({
-			profile: document.querySelector('[data-print-article]')?.getAttribute('data-print-profile'),
-			schedule: document.querySelector('[data-print-article]')?.getAttribute('data-print-schedule'),
-			styles: [...document.querySelectorAll('link[data-jcem-print-stylesheet]')].map((link) => ({
-				href: link.getAttribute('href'),
-				media: link.getAttribute('media'),
-				priority: link.getAttribute('fetchpriority'),
-			})),
-			resources: performance.getEntriesByType('resource').map(({ name }) => name),
-		}));
-		assert.equal(state.schedule, 'ready', `${label}: preparação não concluiu`);
-		assert.equal(state.profile, 'ieee-conference-a4-ieeetran-1.8b');
-		assert.equal(state.styles.length, 2, `${label}: folhas IEEE incompletas`);
-		assert.ok(state.styles.every(({ media, priority }) => media === 'print' && priority === 'low'));
-		assert.ok(state.resources.some((url) => url.endsWith('/assets/jcem/print-ieee/ieee.css')));
-		assert.ok(state.resources.some((url) => url.endsWith('/assets/jcem/print-ieee/jekyll-blog.css')));
-		assert.ok(state.resources.some((url) => url.endsWith('/assets/jcem/print-ieee/index.js')));
-		await context.close();
+		for (const articlePath of articlePaths) {
+			const context = await browser.newContext(options);
+			const page = await context.newPage();
+			await page.addInitScript(() => {
+				localStorage.setItem('silktideCookieBanner_InitialChoice', '1');
+				localStorage.setItem('silktideCookieChoice_obrigat_rios', 'true');
+			});
+			await page.goto(`http://127.0.0.1:${port}${articlePath}`, {
+				waitUntil: 'domcontentloaded',
+			});
+			assert.equal(
+				await page.locator('link[data-jcem-print-stylesheet]').count(),
+				0,
+				`${label} ${articlePath}: CSS de impressão entrou no caminho crítico`,
+			);
+			await page.waitForFunction(
+				() => document.querySelector('[data-print-article]')?.dataset.printSchedule === 'ready',
+				undefined,
+				{ timeout: 20_000 },
+			);
+			const state = await page.evaluate(() => ({
+				profile: document.querySelector('[data-print-article]')?.getAttribute('data-print-profile'),
+				schedule: document.querySelector('[data-print-article]')?.getAttribute('data-print-schedule'),
+				styles: [...document.querySelectorAll('link[data-jcem-print-stylesheet]')].map((link) => ({
+					href: link.getAttribute('href'),
+					media: link.getAttribute('media'),
+					priority: link.getAttribute('fetchpriority'),
+				})),
+				resources: performance.getEntriesByType('resource').map(({ name }) => name),
+			}));
+			assert.equal(state.schedule, 'ready', `${label} ${articlePath}: preparação não concluiu`);
+			assert.equal(state.profile, 'ieee-conference-a4-ieeetran-1.8b');
+			assert.equal(state.styles.length, 2, `${label} ${articlePath}: folhas IEEE incompletas`);
+			assert.ok(state.styles.every(({ media, priority }) => media === 'print' && priority === 'low'));
+			assert.ok(state.resources.some((url) => url.endsWith('/assets/jcem/print-ieee/ieee.css')));
+			assert.ok(state.resources.some((url) => url.endsWith('/assets/jcem/print-ieee/jekyll-blog.css')));
+			assert.ok(state.resources.some((url) => url.endsWith('/assets/jcem/print-ieee/index.js')));
+
+			await page.emulateMedia({ media: 'print' });
+			const visibleChrome = await page.evaluate((selectors) =>
+				selectors.flatMap((selector) =>
+					Array.from(document.querySelectorAll(selector)).flatMap((node) => {
+						const rect = node.getBoundingClientRect();
+						const style = window.getComputedStyle(node);
+						return rect.width > 1 &&
+							rect.height > 1 &&
+							style.display !== 'none' &&
+							style.visibility !== 'hidden'
+							? [`${selector}:${node.tagName.toLowerCase()}.${Array.from(node.classList).join('.')}`]
+							: [];
+					}),
+				), chromeSelectors);
+			assert.deepEqual(
+				visibleChrome,
+				[],
+				`${label} ${articlePath}: chrome visível em impressão: ${visibleChrome.join(', ')}`,
+			);
+			await page.emulateMedia({ media: 'screen' });
+			await context.close();
+		}
 	}
-	console.log('print_runtime=ok profiles=desktop,mobile');
+	console.log(`print_runtime=ok profiles=desktop,mobile pages=${articlePaths.length}`);
 } finally {
 	await browser.close();
 	await new Promise((resolve) => server.close(resolve));
