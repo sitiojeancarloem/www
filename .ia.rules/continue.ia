@@ -955,7 +955,7 @@ plano:
   - id: FT-066
     classe: implementacao_codigo
     criado_em: 2026-09-14T00:19:37.6212130-03:00
-    estado: concluida_corrigida_pendente_validacao_humana
+    estado: reaberta_apos_setima_rejeicao_humana
     depende_de: FT-065
     fonte: TODO.ia.md
     fonte_autorizacao: prompt humano de 2026-09-14T01:30:31.8823778-03:00, com autorizacao explicita para executar FT-066 e FT-067
@@ -1073,11 +1073,24 @@ plano:
       commits:
         fonte: 6f1ac87496
         causal: e488ff332e
-      proximo_passo: validacao humana da sexta correcao; manter a TO-DO operacional em andamento ate aprovacao efetiva
+      resultado_humano: rejeitada em 2026-09-16; os defeitos apresentados por evidencia21.png e evidencia22.png persistem
+    setima_correcao_humana:
+      em: 2026-09-16
+      fonte: .ia.rules/state/requests/FT-066/setima-rejeicao-evidencias-21-22.md
+      estado: diagnostico_e_correcao_em_andamento
+      preservacao:
+        - manter baseline manual de fume, blur, saturacao, bordas e sombra
+        - manter FLAG, titulo, SVGs, sobreposicao vertical e modos governados pela janela
+        - nao alterar a largura canonica do artigo nem encerrar a TO-DO antes do aceite humano
+      correcoes_requeridas:
+        - incluir a rota real das evidencias na prova de colinearidade sem usar a classificacao implementada como dispensa circular
+        - impedir que o Chromium coalesca a desativacao e restauracao do filtro sem produzir uma recomposicao pintada persistente
+        - comparar o raster automatico, sem blur e apos ciclo de recomposicao em Chrome e Brave, inclusive depois de resize equivalente ao fechamento do inspetor
+      proximo_passo: concluir diagnostico causal, normatizar o delta, implementar e revalidar FT-066 e FT-067 sem encerrar a TO-DO
   - id: FT-067
     classe: integracao_validacao
     criado_em: 2026-09-14T00:19:37.6212130-03:00
-    estado: concluida_corrigida_pendente_validacao_humana
+    estado: reaberta_apos_setima_rejeicao_humana
     depende_de: FT-066
     fonte: TODO.ia.md
     fonte_autorizacao: prompt humano de 2026-09-14T01:30:31.8823778-03:00, com autorizacao explicita para executar FT-066 e FT-067
