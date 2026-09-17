@@ -119,13 +119,13 @@
         "scripts/test_cover_rendered.mjs",
         "scripts/test_cover_runtime.mjs"
       ],
-      "commit": "",
+      "commit": "7718f8f54687736be49a2aad60f8d0a530f516d6",
       "ft": "FT-066",
       "id": "1dfacbef2d9f28edb284b690",
       "line": 20,
       "rcf": "RCFs/carregamento-progressivo.md",
       "sentenceSha256": "bfbe9ac40000741ace7bd8dab1728dce940c63d5869ddd04d547fcd7ab6ef16b",
-      "state": "pending",
+      "state": "synchronized",
       "syncCommit": ""
     },
     {
@@ -383,13 +383,13 @@
         "scripts/test_cover_rendered.mjs",
         "scripts/test_cover_runtime.mjs"
       ],
-      "commit": "",
+      "commit": "7718f8f54687736be49a2aad60f8d0a530f516d6",
       "ft": "FT-066",
       "id": "4c18e29ebf3ef75016bbddd6",
       "line": 25,
       "rcf": "RCFs/carregamento-progressivo.md",
       "sentenceSha256": "9117d397a44a0a888cc67632767320a59d9ed1d9976a040e807305cdec14e7ad",
-      "state": "pending",
+      "state": "synchronized",
       "syncCommit": ""
     },
     {
@@ -468,13 +468,13 @@
         "scripts/test_cover_rendered.mjs",
         "scripts/test_cover_runtime.mjs"
       ],
-      "commit": "",
+      "commit": "7718f8f54687736be49a2aad60f8d0a530f516d6",
       "ft": "FT-066",
       "id": "ed5d254ddea927e55ab188d4",
       "line": 26,
       "rcf": "RCFs/carregamento-progressivo.md",
       "sentenceSha256": "b67bbb819ed6da2bfe50fca3ee6b0f54c1898f03de9998b6989c7678416fb6b4",
-      "state": "pending",
+      "state": "synchronized",
       "syncCommit": ""
     },
     {
@@ -529,13 +529,13 @@
         "scripts/test_cover_rendered.mjs",
         "scripts/test_cover_runtime.mjs"
       ],
-      "commit": "",
+      "commit": "7718f8f54687736be49a2aad60f8d0a530f516d6",
       "ft": "FT-066",
       "id": "d9b7702c850d15518478c721",
       "line": 30,
       "rcf": "RCFs/carregamento-progressivo.md",
       "sentenceSha256": "a28050cc022019a974e1be564c05b699b7d2606de91156971de169dfb22f9691",
-      "state": "pending",
+      "state": "synchronized",
       "syncCommit": ""
     },
     {
@@ -948,13 +948,13 @@
         "scripts/test_cover_rendered.mjs",
         "scripts/test_cover_runtime.mjs"
       ],
-      "commit": "",
+      "commit": "7718f8f54687736be49a2aad60f8d0a530f516d6",
       "ft": "FT-066",
       "id": "ded952aa52ee04a1cf8538ce",
       "line": 44,
       "rcf": "RCFs/carregamento-progressivo.md",
       "sentenceSha256": "c84a877d6e4388987e6daf2ce8b500ce4b2252c0ad220bdca979563f535d2645",
-      "state": "pending",
+      "state": "synchronized",
       "syncCommit": ""
     },
     {
@@ -1825,13 +1825,13 @@
         "scripts/test_cover_rendered.mjs",
         "scripts/test_cover_runtime.mjs"
       ],
-      "commit": "",
+      "commit": "7718f8f54687736be49a2aad60f8d0a530f516d6",
       "ft": "FT-066",
       "id": "09a5d8d938c3af1282437358",
       "line": 143,
       "rcf": "RCFs/carregamento-progressivo.md",
       "sentenceSha256": "231c7b5df8ca28d384cb39b735f1daa7a0ac55b14c312ececf906c4d25b34b0c",
-      "state": "pending",
+      "state": "synchronized",
       "syncCommit": ""
     },
     {
@@ -3159,13 +3159,13 @@
         "scripts/test_cover_rendered.mjs",
         "scripts/test_cover_runtime.mjs"
       ],
-      "commit": "",
+      "commit": "7718f8f54687736be49a2aad60f8d0a530f516d6",
       "ft": "FT-066",
       "id": "439acd387f2201344ebb55f3",
       "line": 20,
       "rcf": "RCFs/componentes-compartilhados.md",
       "sentenceSha256": "c254725f8bf54f9814c4df55e64560db786f7e906dab9681439d63068e2c8ed1",
-      "state": "pending",
+      "state": "synchronized",
       "syncCommit": ""
     },
     {
@@ -3456,13 +3456,13 @@
         "scripts/test_cover_rendered.mjs",
         "scripts/test_cover_runtime.mjs"
       ],
-      "commit": "",
+      "commit": "7718f8f54687736be49a2aad60f8d0a530f516d6",
       "ft": "FT-066",
       "id": "cdfafe006902773c08f45e61",
       "line": 52,
       "rcf": "RCFs/componentes-compartilhados.md",
       "sentenceSha256": "1ba6d68bfda1e26618d3fdb1ad88c1d34e7ec8235a8fa274783b2891592c1441",
-      "state": "pending",
+      "state": "synchronized",
       "syncCommit": ""
     },
     {
