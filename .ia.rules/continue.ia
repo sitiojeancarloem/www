@@ -1077,7 +1077,7 @@ plano:
     setima_correcao_humana:
       em: 2026-09-16
       fonte: .ia.rules/state/requests/FT-066/setima-rejeicao-evidencias-21-22.md
-      estado: diagnostico_e_correcao_em_andamento
+      estado: normatizada_implementacao_pre_autorizada
       preservacao:
         - manter baseline manual de fume, blur, saturacao, bordas e sombra
         - manter FLAG, titulo, SVGs, sobreposicao vertical e modos governados pela janela
@@ -1086,7 +1086,12 @@ plano:
         - incluir a rota real das evidencias na prova de colinearidade sem usar a classificacao implementada como dispensa circular
         - impedir que o Chromium coalesca a desativacao e restauracao do filtro sem produzir uma recomposicao pintada persistente
         - comparar o raster automatico, sem blur e apos ciclo de recomposicao em Chrome e Brave, inclusive depois de resize equivalente ao fechamento do inspetor
-      proximo_passo: concluir diagnostico causal, normatizar o delta, implementar e revalidar FT-066 e FT-067 sem encerrar a TO-DO
+      normatizacao:
+        - wide single legado sem cover passa a compartilhar bordas e ramo de pintura com a zona do artigo e a barra
+        - cover.mode wide, aliases full-width e bleed e triptych preservam integralmente a capacidade de janela e sangria
+        - propriedade computada, contador ou toggle coalescivel nao provam backdrop; a saida raster deve persistir apos resize e fechamento do inspetor
+        - oito sentencas materiais aguardam commit causal por meio do rcf-trace
+      proximo_passo: implementar imediatamente a projecao normatizada e revalidar FT-066 e FT-067 sem encerrar a TO-DO
   - id: FT-067
     classe: integracao_validacao
     criado_em: 2026-09-14T00:19:37.6212130-03:00
