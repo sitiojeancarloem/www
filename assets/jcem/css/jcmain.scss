@@ -597,6 +597,11 @@ aside {
 
 .jcem-post-header__meta {
 	min-height: 2.1rem;
+	margin-top: 0.3em;
+
+	> p.page__meta {
+		padding-top: 1em;
+	}
 }
 
 .jcem-post-header__topbar > .jcem-date-flag {
