@@ -1,6 +1,6 @@
 # FT-077 — Isolamento inter páginas da impressão
 
-Estado: tecnicamente corrigida, pendente de integração Git e validação humana. Fonte: `.ia.rules/state/requests/FT-077/prompt.md`.
+Estado: tecnicamente corrigida e integrada, pendente de validação humana. Fonte: `.ia.rules/state/requests/FT-077/prompt.md`.
 
 ## Objetivo
 
@@ -57,10 +57,10 @@ Eliminar, pela camada compartilhada do adaptador IEEE, qualquer chrome, decoraç
 - Matriz focada anterior: quatro artigos reais em wide/mobile aprovada; prova consolidada em `check:print:runtime`: `profiles=desktop,mobile pages=4`, 28,9 s.
 - `check:print`, `check:ts`, `check:covers`, `check:performance`, `check:accessibility`, `check:documentation` e `check:publication`: aprovados.
 - `check:accessible-runtime` reproduziu somente a lacuna preexistente dos marcadores falados de início/fim da citação na fixture TTS, sem nexo causal com os artefatos de impressão alterados.
-- `rcf-trace prepare` registrou seis sentenças materiais da FT-077; finalização aguarda o commit causal autorizado.
+- `rcf-trace finalize` vinculou seis sentenças materiais ao commit causal `11a0fc7f24`; a validação aprovou 435 entradas e 394 sentenças materiais.
 - A primeira tentativa de build final encontrou `ENOSPC`; somente os dois builds temporários desta FT foram removidos, recuperando cerca de 9,8 GB, e a repetição integral foi aprovada.
 
 ## Pendência
 
-- Integrar o commit causal e finalizar a rastreabilidade após autorização Git específica.
+- Commits integrados: registro `087f2d5d08`, causal `11a0fc7f24` e rastreabilidade `0218a7e49d`.
 - Manter a TO-DO de impressão em avaliação humana, sem marcar conclusão ou removê-la.

@@ -1380,7 +1380,7 @@ plano:
   - id: FT-077
     classe: correcao_codigo_validacao
     criado_em: 2026-09-16
-    estado: concluida_tecnicamente_pendente_integracao_git_e_validacao_humana
+    estado: concluida_tecnicamente_pendente_validacao_humana
     depende_de: FT-071, FT-074
     fonte: .ia.rules/state/requests/FT-077/prompt.md
     fonte_autorizacao: prompts humanos de 2026-09-16 para corrigir e concluir de forma inter paginas
@@ -1399,9 +1399,13 @@ plano:
       - runtime cobre quatro artigos reais em desktop e mobile; validate visual integral aprovou em 405,8 segundos sob limite de 420
       - build isolado, print, TypeScript, COVER, desempenho, acessibilidade estrutural, documentacao e publicacao aprovaram
       - accessible runtime reproduziu somente a lacuna TTS preexistente dos marcadores falados de citacao, sem nexo causal
-      - seis sentencas materiais foram preparadas para vinculacao ao commit causal
+      - seis sentencas materiais foram vinculadas ao commit causal e a rastreabilidade foi validada com 435 entradas e 394 sentencas materiais
       - TO-DO de impressao permanece em avaliacao humana e nao foi marcada como concluida
-    proximo_passo: obter autorizacao Git especifica, criar commit causal, finalizar rcf trace e registrar a integracao sem encerrar a TO-DO
+    commits:
+      registro: 087f2d5d08
+      causal: 11a0fc7f24
+      rastreabilidade: 0218a7e49d
+    proximo_passo: validacao humana da correcao inter paginas; manter a TO-DO em andamento ate aceite efetivo
 lacunas:
   - id: GAP-RCF-MODULE-2026-001
     estado: isolada_fora_do_escopo
