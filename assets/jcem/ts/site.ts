@@ -479,7 +479,8 @@ const bindJcemCoverBackdropComposition = (): void => {
 	const image = stage?.querySelector<HTMLImageElement>(
 		'.jcem-featured-image__img, .page__hero-image, img',
 	);
-	if (!deck || !main || !stage || !image) return;
+	if (!header || !deck || !main || !stage || !image) return;
+	const sharesBackdropBranch = header.contains(stage);
 
 	let settleFrame = 0;
 	let paintedFrame = 0;
@@ -490,7 +491,7 @@ const bindJcemCoverBackdropComposition = (): void => {
 		image.complete &&
 		image.naturalWidth > 0 &&
 		stage.dataset.jcemSkeletonState !== 'loading' &&
-		main.dataset.jcemCoverBackdropRoot === 'released';
+		(sharesBackdropBranch || main.dataset.jcemCoverBackdropRoot === 'released');
 
 	const computedBackdrop = (): string => {
 		const style = window.getComputedStyle(deck);
@@ -515,7 +516,12 @@ const bindJcemCoverBackdropComposition = (): void => {
 
 	const recompose = (): void => {
 		settleFrame = 0;
-		if (!isReady() || !invalidateNativeBackdrop()) return;
+		if (!isReady() || !computedBackdrop().includes('blur(')) return;
+
+		// Quando mídia e deck compartilham o cabeçalho, o backdrop nativo enxerga
+		// os pixels sem atravessar a animação/stacking context do ramo irmão. O
+		// frame duplo apenas confirma a pintura estável; não há toggle coalescível.
+		if (!sharesBackdropBranch && !invalidateNativeBackdrop()) return;
 
 		paintedFrame = window.requestAnimationFrame(() => {
 			paintedFrame = 0;
@@ -572,6 +578,12 @@ const bindJcemCoverBackdropComposition = (): void => {
 		main.dataset.jcemCoverBackdropRoot = 'released';
 		schedule();
 	};
+	if (sharesBackdropBranch) {
+		main.dataset.jcemCoverBackdropRoot = 'shared';
+		schedule();
+		void document.fonts?.ready.then(schedule);
+		return;
+	}
 	const mainAnimations = typeof main.getAnimations === 'function'
 		? main.getAnimations({ subtree: false })
 		: [];

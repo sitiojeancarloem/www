@@ -377,14 +377,15 @@ const bindJcemLegacyHeroLayout = () => {
     schedule();
 };
 const bindJcemCoverBackdropComposition = () => {
-    var _a, _b;
+    var _a, _b, _c;
     const header = document.querySelector('.jcem-post-header[data-jcem-title-cover-overlap="true"]');
     const deck = header === null || header === void 0 ? void 0 : header.querySelector('[data-jcem-title-bars]');
     const main = header === null || header === void 0 ? void 0 : header.closest('#main');
     const stage = document.querySelector('.jcem-featured-image__stage, [data-jcem-legacy-hero]');
     const image = stage === null || stage === void 0 ? void 0 : stage.querySelector('.jcem-featured-image__img, .page__hero-image, img');
-    if (!deck || !main || !stage || !image)
+    if (!header || !deck || !main || !stage || !image)
         return;
+    const sharesBackdropBranch = header.contains(stage);
     let settleFrame = 0;
     let paintedFrame = 0;
     let readinessObserver = null;
@@ -392,7 +393,7 @@ const bindJcemCoverBackdropComposition = () => {
     const isReady = () => image.complete &&
         image.naturalWidth > 0 &&
         stage.dataset.jcemSkeletonState !== 'loading' &&
-        main.dataset.jcemCoverBackdropRoot === 'released';
+        (sharesBackdropBranch || main.dataset.jcemCoverBackdropRoot === 'released');
     const computedBackdrop = () => {
         const style = window.getComputedStyle(deck);
         return style.backdropFilter || style.getPropertyValue('-webkit-backdrop-filter');
@@ -410,7 +411,9 @@ const bindJcemCoverBackdropComposition = () => {
     };
     const recompose = () => {
         settleFrame = 0;
-        if (!isReady() || !invalidateNativeBackdrop())
+        if (!isReady() || !computedBackdrop().includes('blur('))
+            return;
+        if (!sharesBackdropBranch && !invalidateNativeBackdrop())
             return;
         paintedFrame = window.requestAnimationFrame(() => {
             paintedFrame = 0;
@@ -468,6 +471,12 @@ const bindJcemCoverBackdropComposition = () => {
         main.dataset.jcemCoverBackdropRoot = 'released';
         schedule();
     };
+    if (sharesBackdropBranch) {
+        main.dataset.jcemCoverBackdropRoot = 'shared';
+        schedule();
+        void ((_b = document.fonts) === null || _b === void 0 ? void 0 : _b.ready.then(schedule));
+        return;
+    }
     const mainAnimations = typeof main.getAnimations === 'function'
         ? main.getAnimations({ subtree: false })
         : [];
@@ -478,7 +487,7 @@ const bindJcemCoverBackdropComposition = () => {
     else {
         releaseBackdropRoot();
     }
-    void ((_b = document.fonts) === null || _b === void 0 ? void 0 : _b.ready.then(schedule));
+    void ((_c = document.fonts) === null || _c === void 0 ? void 0 : _c.ready.then(schedule));
 };
 const jcemSkeletonMediaSelector = 'img, video, iframe, .jcem-featured-image__stage, .jcem-featured-image, .archive__item-teaser, .page__hero, .page__hero--overlay, [data-jcem-skeleton]';
 const jcemSkeletonMinVisibleMs = 520;

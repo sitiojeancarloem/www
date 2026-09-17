@@ -123,6 +123,12 @@ const assertBackdropPixels = async (page, label) => {
 	const deck = page.locator('[data-jcem-title-bars]');
 	await page.evaluate(() => document.fonts?.ready);
 	const automatic = await deck.screenshot({ animations: 'disabled' });
+	await page.evaluate(async () => {
+		for (let frame = 0; frame < 18; frame += 1) {
+			await new Promise((resolve) => requestAnimationFrame(resolve));
+		}
+	});
+	const persisted = await deck.screenshot({ animations: 'disabled' });
 	await page.evaluate(() => {
 		const target = document.querySelector('[data-jcem-title-bars]');
 		target?.style.setProperty('-webkit-backdrop-filter', 'none', 'important');
@@ -136,11 +142,15 @@ const assertBackdropPixels = async (page, label) => {
 	});
 	await page.evaluate(() => new Promise((resolve) => requestAnimationFrame(() => requestAnimationFrame(resolve))));
 	const manualToggle = await deck.screenshot({ animations: 'disabled' });
-	const [disabledDelta, toggleDelta] = await Promise.all([
+	const [persistenceDelta, disabledDelta, persistedDisabledDelta, toggleDelta] = await Promise.all([
+		meanPixelDifference(automatic, persisted),
 		meanPixelDifference(automatic, disabled),
+		meanPixelDifference(persisted, disabled),
 		meanPixelDifference(automatic, manualToggle),
 	]);
 	assert.ok(disabledDelta >= 0.35, `${label} não demonstrou blur visual real: automático/sem-blur=${disabledDelta}, automático/toggle=${toggleDelta}`);
+	assert.ok(persistedDisabledDelta >= 0.35, `${label} perdeu blur depois da estabilização: persistente/sem-blur=${persistedDisabledDelta}`);
+	assert.ok(persistenceDelta <= Math.max(0.12, disabledDelta * 0.18), `${label} alterou o raster depois da estabilização: automático/persistente=${persistenceDelta}`);
 	assert.ok(toggleDelta <= Math.max(0.12, disabledDelta * 0.18), `${label} divergiu do toggle manual: automático=${toggleDelta}, sem-blur=${disabledDelta}`);
 };
 
@@ -171,10 +181,15 @@ const assertFirstComposition = async (targetBrowser, label) => {
 		assert.ok(hasManualSmokeBaseline(state.backgroundImage, state.backgroundColor) && hasManualFullBarBlur(state.backdropFilter), `${label} perdeu baseline manual (${action}): ${JSON.stringify(state)}`);
 	}
 	await assertBackdropPixels(page, `${label} no primeiro carregamento`);
-	const beforeResize = Number(await page.locator('[data-jcem-title-bars]').getAttribute('data-jcem-backdrop-compositions'));
-	await page.setViewportSize({ width: 1017, height: 820 });
-	await waitForStableBackdropComposition(page, beforeResize);
-	await assertBackdropPixels(page, `${label} após resize equivalente ao fechamento do DevTools`);
+	for (const [width, height, stateLabel] of [
+		[1017, 820, 'inspetor aberto'],
+		[1169, 900, 'inspetor fechado'],
+	]) {
+		const beforeResize = Number(await page.locator('[data-jcem-title-bars]').getAttribute('data-jcem-backdrop-compositions'));
+		await page.setViewportSize({ width, height });
+		await waitForStableBackdropComposition(page, beforeResize);
+		await assertBackdropPixels(page, `${label} após resize equivalente ao ${stateLabel}`);
+	}
 	await context.close();
 };
 
@@ -432,6 +447,7 @@ try {
 				return ownerIndex >= 0 && (coverIndex < 0 || ownerIndex < coverIndex);
 			};
 			return {
+				viewport: window.innerWidth,
 				coverExtension: Boolean(document.querySelector('[data-jcem-cover]')),
 				heroExtension: Boolean(document.querySelector('[data-jcem-cover-hero]')),
 				featured: Boolean(featured),
@@ -491,6 +507,14 @@ try {
 			assert.ok(Math.abs(legacy.stage.left - legacy.articleZone.left) <= 0.51 && Math.abs(legacy.stage.right - legacy.articleZone.right) <= 0.51, `cover comum fora da zona do artigo ${JSON.stringify(legacy)}`);
 			assert.ok(Math.abs(legacy.stage.width / legacy.stage.height - (1200 / 630)) <= 0.002, `proporção comum divergente ${JSON.stringify(legacy)}`);
 		}
+		if (mode === 'wide-single') {
+			assert.ok(
+				Math.abs(legacy.stage.width - legacy.viewport) <= 1 &&
+				legacy.stage.left < legacy.articleZone.left - 1 &&
+				legacy.stage.right > legacy.articleZone.right + 1,
+				`alias explícito full-width perdeu a sangria de viewport: ${JSON.stringify(legacy)}`,
+			);
+		}
 		if (mode === 'wide-triptych') {
 			assert.ok(Math.abs(legacy.center.left - legacy.articleZone.left) <= 0.51 && Math.abs(legacy.center.right - legacy.articleZone.right) <= 0.51, `centro triplo fora da zona do artigo ${JSON.stringify(legacy)}`);
 		}
@@ -548,19 +572,31 @@ try {
 		assert.equal(contentRoute.mode, 'content', `rota real perdeu classificação content: ${JSON.stringify(contentRoute)}`);
 	}
 
-	await page.setViewportSize({ width: 1169, height: 900 });
-	await page.goto(`http://127.0.0.1:${port}/p/nove-motivos-para-guardar-o-sabado/`, { waitUntil: 'load' });
-	const wideRoute = await page.evaluate(() => {
-		const rect = (selector) => document.querySelector(selector)?.getBoundingClientRect().toJSON();
-		return {
-			mode: document.querySelector('.jcem-featured-image')?.classList.contains('jcem-featured-image--single') ? 'wide' : '',
-			stage: rect('.jcem-featured-image__stage'),
-			article: rect('article.page .page__inner-wrap'),
-			viewport: window.innerWidth,
-		};
-	});
-	assert.equal(wideRoute.mode, 'wide', `rota da evidência perdeu modo full-width: ${JSON.stringify(wideRoute)}`);
-	assert.ok(Math.abs(wideRoute.stage.width - wideRoute.viewport) <= 1 && wideRoute.stage.left < wideRoute.article.left - 1 && wideRoute.stage.right > wideRoute.article.right + 1, `modo wide foi indevidamente estreitado para a zona do artigo: ${JSON.stringify(wideRoute)}`);
+	for (const [width, height] of [[1169, 900], [390, 844]]) {
+		await page.setViewportSize({ width, height });
+		await page.goto(`http://127.0.0.1:${port}/p/nove-motivos-para-guardar-o-sabado/`, { waitUntil: 'load' });
+		const wideRoute = await page.evaluate(() => {
+			const rect = (selector) => document.querySelector(selector)?.getBoundingClientRect().toJSON();
+			const stage = document.querySelector('.jcem-featured-image__stage');
+			const deck = document.querySelector('[data-jcem-title-bars]');
+			return {
+				mode: document.querySelector('.jcem-featured-image')?.getAttribute('data-jcem-legacy-wide-scope') || '',
+				stage: rect('.jcem-featured-image__stage'),
+				article: rect('article.page .page__inner-wrap'),
+				deck: rect('[data-jcem-title-bars]'),
+				sharedHeader: Boolean(stage?.closest('.jcem-post-header') && stage?.closest('.jcem-post-header') === deck?.closest('.jcem-post-header')),
+			};
+		});
+		assert.equal(wideRoute.mode, 'article', `rota da evidência não recebeu escopo legado colinear em ${width}x${height}: ${JSON.stringify(wideRoute)}`);
+		assert.equal(wideRoute.sharedHeader, true, `mídia e vidro da evidência ainda pertencem a ramos distintos em ${width}x${height}: ${JSON.stringify(wideRoute)}`);
+		for (const key of ['stage', 'deck']) {
+			assert.ok(
+				Math.abs(wideRoute[key].left - wideRoute.article.left) <= 0.51 &&
+				Math.abs(wideRoute[key].right - wideRoute.article.right) <= 0.51,
+				`rota da evidência ainda desalinhada em ${width}x${height} (${key}): ${JSON.stringify(wideRoute)}`,
+			);
+		}
+	}
 
 	await page.setViewportSize({ width: 320, height: 800 });
 	await page.goto(`http://127.0.0.1:${port}/_fixtures/covers/full-window/`, { waitUntil: 'load' });

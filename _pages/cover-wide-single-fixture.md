@@ -9,7 +9,7 @@ sidebar: false
 sitemap: false
 robots: noindex, nofollow
 date: 2026-09-14
-featured_image_style: wide
+featured_image_style: full-width
 header:
   image: /assets/images/posts/devaneios/devaneios-grande.png
   image_description: Imagem propositalmente extrema usada como fixture da cover wide simples

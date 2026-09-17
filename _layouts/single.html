@@ -3,7 +3,8 @@ layout: default
 ---
 {% comment %}Fonte: https://github.com/sitiojeancarloem/blog | Autor: Jean Carlo EM — https://www.jeancarloem.com | Licença: MPL-2.0 — https://mozilla.org/MPL/2.0/ — código aberto, sem garantia.{% endcomment %}
 {%- assign locale = page.locale | default: layout.locale | default: site.locale %}
-{% assign jcem_featured_style = page.jcem_cover.style | default: page.featured_image_style | default: page.featured_image.style | default: page.header.image_style | default: page.header.featured_style | default: "" | downcase %}
+{% assign jcem_requested_featured_style = page.featured_image_style | default: page.featured_image.style | default: page.header.image_style | default: page.header.featured_style | default: "" | downcase %}
+{% assign jcem_featured_style = page.jcem_cover.style | default: jcem_requested_featured_style %}
 {% if jcem_featured_style == "inline" %}
   {% assign jcem_featured_style = "content" %}
 {% elsif jcem_featured_style == "full" or jcem_featured_style == "full-width" or jcem_featured_style == "bleed" %}
@@ -34,6 +35,14 @@ layout: default
 {% assign jcem_content_featured = false %}
 {% if jcem_custom_featured and jcem_featured_style == "content" %}
   {% assign jcem_content_featured = true %}
+{% endif %}
+{% assign jcem_legacy_wide_single_article = false %}
+{% if jcem_custom_featured and jcem_requested_featured_style == "wide" and page.jcem_cover == nil %}
+  {% assign jcem_legacy_wide_composition = page.header.image_wide_mode | default: "single" | downcase %}
+  {% if jcem_legacy_wide_composition == "single" %}
+    {% assign jcem_legacy_wide_single_article = true %}
+    {% assign jcem_content_featured = true %}
+  {% endif %}
 {% endif %}
 {% assign jcem_overlay_header = false %}
 {% if page.header.overlay_color or page.header.overlay_image %}
@@ -82,7 +91,7 @@ layout: default
   {% endif %}
 {% endif %}
 
-{% if jcem_custom_featured and jcem_featured_style == "wide" %}
+{% if jcem_custom_featured and jcem_featured_style == "wide" and jcem_legacy_wide_single_article == false %}
   {% include jcem/post-featured-image.html style="wide" %}
 {% elsif jcem_custom_featured %}
   {% comment %}A modalidade content é renderizada dentro da zona do artigo.{% endcomment %}
@@ -122,7 +131,11 @@ layout: default
     {% unless jcem_overlay_header %}
       <header class="jcem-post-header" data-jcem-title-cover-overlap="{{ jcem_title_cover_overlap }}"{% if page.jcem_cover %} data-jcem-post-cover-mode="{{ page.jcem_cover.mode }}"{% endif %}{% if jcem_is_article %} data-print-span="all"{% endif %}>
         {% if jcem_content_featured %}
-          {% include jcem/post-featured-image.html style="content" %}
+          {% if jcem_legacy_wide_single_article %}
+            {% include jcem/post-featured-image.html style="wide" scope="article" %}
+          {% else %}
+            {% include jcem/post-featured-image.html style="content" %}
+          {% endif %}
         {% endif %}
         <div class="jcem-post-header__deck" data-jcem-title-bars>
           <div class="jcem-post-header__topbar" data-jcem-title-bar="upper">

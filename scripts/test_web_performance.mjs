@@ -100,7 +100,12 @@ assert.doesNotMatch(featuredImage, /jcem-featured-image__surface--content/);
 assert.match(featuredImage, /featured_style == "wide" and wide_mode == "triptych"/);
 assert.match(
 	singleLayout,
-	/{% if jcem_custom_featured and jcem_featured_style == "wide" %}[\s\S]*?{% elsif jcem_custom_featured %}[\s\S]*?{% elsif page\.header/,
+	/{% if jcem_custom_featured and jcem_featured_style == "wide" and jcem_legacy_wide_single_article == false %}[\s\S]*?{% elsif jcem_custom_featured %}[\s\S]*?{% elsif page\.header/,
+);
+assert.match(singleLayout, /jcem_requested_featured_style == "wide" and page\.jcem_cover == nil/);
+assert.match(
+	singleLayout,
+	/{% if jcem_legacy_wide_single_article %}[\s\S]*?post-featured-image\.html style="wide" scope="article"/,
 );
 assert.match(customTheme, /--jcem-article-zone-width:\s*max\(\s*0px,\s*min\(calc\(100dvw - 4rem\),\s*calc\(#\{\$max-width\} - 4rem\)\)\s*\)/);
 assert.match(customTheme, /--jcem-standard-cover-height:\s*calc\(\s*var\(--jcem-article-zone-width\) \* 630 \/ 1200\s*\)/);
