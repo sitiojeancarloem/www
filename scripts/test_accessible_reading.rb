@@ -21,8 +21,11 @@ html = <<~HTML
   <div role="blockquote"><p>Texto citado.</p></div>
   <table><caption>Valores</caption><thead><tr><th></th><th>Total</th></tr></thead><tbody><tr><th>A</th><td>2</td></tr></tbody></table>
   <img src="/informativa.svg" alt="Informação suficiente">
+  <p>Consulte a <a href="/documentacao/">documentação acessível</a> para detalhes.</p>
   <p>— Bíblia. NVI. Isaías 53:10<sup><a href="#fn:1" role="doc-noteref">1</a></sup> e reuso<sup><a href="#fn:1" role="doc-noteref">1</a></sup>.</p>
-  <h2 id="primeira-secao">Primeira seção</h2>
+  <h2 id="primeira-secao">Primeira <a href="/secao/">seção</a><sup id="fnref:1"><a href="#fn:1" class="footnote">1</a></sup></h2>
+  <h3 id="terceiro-nivel">Terceiro nível</h3>
+  <h4 id="quarto-nivel">Quarto nível</h4>
   <div class="footnotes"><ol><li id="fn:1">Bíblia, NVI, Isaías 12:3; 53:10. <span class="jcem-footnote-backrefs"><a class="jcem-footnote-backref">a</a> <a class="jcem-footnote-backref">b</a></span></li></ol></div>
   </section></article></body></html>
 HTML
@@ -33,6 +36,7 @@ assert(normalized.include?('aria-roledescription="citação"'), "citação perde
 assert(normalized.include?('data-jcem-spoken-reference="Isaías 53:10 NVI"'), "referência bíblica por ocorrência não foi reduzida")
 assert(normalized.include?('data-jcem-reference-full="Bíblia, NVI, Isaías 12:3; 53:10"'), "referência integral não foi preservada")
 assert(normalized.include?('aria-details="fn:1"'), "relação deliberada com a nota foi perdida")
+assert(normalized.include?('class="footnote" role="doc-noteref"'), "footnote equivalente em sup não recebeu semântica de referência")
 assert(!normalized.include?('aria-describedby="fn:1"'), "nota longa permaneceu achatada em aria-describedby")
 assert(!normalized.include?('class="visually-hidden jcem-spoken-reference"'), "texto de referência intrusivo permaneceu no HTML")
 assert(!normalized.include?("Referência: Isaías 53:10 NVI Referência:"), "referências reutilizadas contaminaram a ocorrência seguinte")
@@ -45,8 +49,11 @@ toc = parsed.at_css('[data-jcem-article-toc="true"]')
 assert(toc, "sumário automático não foi gerado")
 assert(toc.at_css('summary')&.text == "Sumário do artigo", "sumário perdeu rótulo")
 assert(toc.at_css('nav[aria-label="Sumário do artigo"] a[href="#primeira-secao"]'), "heading não entrou no sumário")
+assert(toc.at_css('a[href="#primeira-secao"]')&.text == "Primeira seção", "TOC verbalizaria link ou número de referência do heading")
+assert(toc.css('a').all? { |link| link.text !~ /\d/ }, "numeração de referência vazou para links do TOC")
 assert(toc.previous_element&.name == "p", "sumário não foi inserido após o primeiro parágrafo real")
-assert(toc.previous_element&.text&.include?("Isaías 53:10"), "blockquote inicial foi aceito como primeiro parágrafo")
+assert(toc.previous_element&.text&.include?("documentação acessível"), "sumário não sucedeu o primeiro parágrafo editorial")
+assert(!toc.previous_element&.ancestors&.any? { |ancestor| ancestor.name == "blockquote" || ancestor["role"] == "blockquote" }, "blockquote inicial foi aceito como primeiro parágrafo")
 renormalized = Jcem::AccessibleReading.normalize_html(normalized, toc: true)
 assert(Nokogiri::HTML.parse(renormalized).css('[data-jcem-article-toc]').length == 1, "sumário não é idempotente")
 
@@ -55,7 +62,9 @@ local_caption = Nokogiri::HTML.parse(Jcem::AccessibleReading.normalize_html(loca
 assert(local_caption.at_css("table > caption")&.text == "Valores locais", "caption local não foi materializado")
 assert(!local_caption.at_css("table")&.key?("data-jcem-caption"), "metadado local de caption vazou no HTML")
 
-fallback_html = html.sub('<p>— Bíblia. NVI. Isaías 53:10<sup><a href="#fn:1" role="doc-noteref">1</a></sup> e reuso<sup><a href="#fn:1" role="doc-noteref">1</a></sup>.</p>', '')
+fallback_html = html
+  .sub('<p>Consulte a <a href="/documentacao/">documentação acessível</a> para detalhes.</p>', '')
+  .sub('<p>— Bíblia. NVI. Isaías 53:10<sup><a href="#fn:1" role="doc-noteref">1</a></sup> e reuso<sup><a href="#fn:1" role="doc-noteref">1</a></sup>.</p>', '')
 fallback = Nokogiri::HTML.parse(Jcem::AccessibleReading.normalize_html(fallback_html, toc: true))
 assert(fallback.at_css('.page__content')&.element_children&.first&.matches?('[data-jcem-article-toc]'), "fallback sem parágrafo não ficou determinístico")
 

@@ -1092,7 +1092,7 @@ plano:
   - id: FT-079
     classe: correcao_codigo_validacao
     criado_em: 2026-09-18
-    estado: em_desenvolvimento
+    estado: concluida_tecnicamente_pendente_validacao_humana
     depende_de: FT-078
     fonte: .ia.rules/state/requests/FT-078/prompt.md
     fonte_autorizacao: prompt humano de 2026-09-18 para aplicar as correcoes e continuacao expressa no mesmo contexto
@@ -1103,7 +1103,13 @@ plano:
       - fixture combina paragrafo, sup de footnote, link editorial, headings com links/referencias e TOC
       - runtime nao produz numeros soltos nem anuncios proibidos
       - continuous, summary e full, controles, citacoes, tabelas, graficos e idiomas aprovam
-    proximo_passo: implementar a regressao focada e a correcao local ja autorizada
+    resultado:
+      - seletor unico reconhece doc-noteref e equivalentes de footnote em sup sem depender apenas do role preexistente
+      - links editoriais do corpo recebem indicacao humana e titulos omitem semantica de link e expansao de referencia
+      - TOC deriva nomes limpos dos headings e no modo full nao pronuncia link, referencia ou ordinal
+      - build produtivo isolado, acessibilidade estrutural, footnotes e TypeScript aprovaram
+      - runtime percorreu continuous, summary e full com toda cobertura nova aprovada e parou somente na lacuna preexistente de marcadores de blockquote registrada pela FT-077
+    proximo_passo: validacao auditiva humana da fala corrigida; tratar marcadores de blockquote somente em frente causal propria
 lacunas:
   - id: GAP-RCF-MODULE-2026-001
     estado: isolada_fora_do_escopo

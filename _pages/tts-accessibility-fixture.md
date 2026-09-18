@@ -14,12 +14,18 @@ excerpt: "Fixture técnica controlada para validar semântica, TTS e gráficos c
 
 Esta página técnica valida a leitura sequencial sem substituir a semântica HTML.
 
-## Citações e referência
+Consulte a [documentação de leitura acessível](/docs/MODO-DE-USO-LEITURA-ACESSIVEL-E-TTS/) para detalhes.
+
+## Citações e [referência](/docs/MODO-DE-USO-LEITURA-ACESSIVEL-E-TTS/)[^fixture]
 
 > A estrutura acessível permanece completa mesmo sem JavaScript.
 > — Fixture técnica JCEM.[^fixture]
 
 Uma ocorrência com `citação inline`{:.jcem-inline-quote} preserva a unidade da frase.
+
+### Título de terceiro nível
+
+#### Título de quarto nível
 
 [^fixture]: JCEM. Fixture de leitura acessível. 2026.
 

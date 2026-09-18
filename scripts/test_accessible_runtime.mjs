@@ -147,21 +147,35 @@ try {
 		canvasHidden: document.querySelector('[data-jcem-chart-canvas]')?.closest('[aria-hidden="true"]') !== null,
 	}));
 	const speech = fixture.spoken.map(({ text }) => text).join(' ');
+	const quotationMarkersPresent = speech.includes('Início da citação.') && speech.includes('Fim da citação.');
+	const continuousHeading = fixture.spoken.find(({ text }) => text.includes('Citações e referência'))?.text || '';
+	const continuousReference = fixture.spoken.find(({ text }) => text.includes('Fixture técnica JCEM'))?.text || '';
 	if (
 		fixture.chartState !== 'rendered' ||
 		fixture.chartVersion !== '4.5.1' ||
 		!fixture.canvasHidden ||
-		!speech.includes('Início da citação.') ||
-		!speech.includes('Fim da citação.') ||
 		!speech.includes('Tabela:') ||
 		!speech.includes('Gráfico:') ||
 		!speech.includes('Esta passagem possui uma referência.') ||
+		!speech.includes('Link: documentação de leitura acessível') ||
+		!speech.includes('Título: Título de terceiro nível') ||
+		!speech.includes('Título: Título de quarto nível') ||
 		!speech.includes('λόγος')
 	) {
 		throw new Error(`RUNTIME_ACESSIVEL_INVALIDO ${JSON.stringify(fixture)}`);
 	}
 	if (speech.includes('Bíblia, NVI, Isaías 12:3; 53:10')) {
 		throw new Error('REFERENCIA_COMPLETA_INTERROMPEU_MODO_CONTINUO');
+	}
+	if (!continuousHeading.startsWith('Título:') || /(?:Link|Referência):|\b1\b/.test(continuousHeading)) {
+		throw new Error(`TITULO_TTS_CONTAMINADO ${continuousHeading}`);
+	}
+	const pageTitle = fixture.spoken.find(({ text }) => text.startsWith('Título: Fixture de leitura acessível e TTS'))?.text || '';
+	if (!pageTitle || /(?:Link|Referência):|\b1\b/.test(pageTitle)) {
+		throw new Error(`TITULO_PRINCIPAL_TTS_CONTAMINADO ${pageTitle}`);
+	}
+	if (!continuousReference.includes('uma referência') || /(?:^|\s)1(?:[.,:]|\s|$)/.test(continuousReference)) {
+		throw new Error(`MARCADOR_FOOTNOTE_ISOLADO ${continuousReference}`);
 	}
 	if (speech.includes('Sumário do artigo.')) throw new Error('TOC_INTERROMPEU_MODO_CONTINUO');
 	const tocStructure = await page.evaluate(() => {
@@ -193,9 +207,14 @@ try {
 	if (fullModeHint !== 'Modo de referências: completo') throw new Error(`HINT_MODO_TTS_INVALIDO ${fullModeHint}`);
 	await page.click('[data-jcem-read-action="play"]');
 	await page.waitForFunction(() => document.querySelector('[data-jcem-read-status]')?.textContent === 'Leitura concluída.');
-	const fullSpeech = await page.evaluate(() => window.__jcemSpokenFixture.map(({ text }) => text).join(' '));
+	const fullFixture = await page.evaluate(() => window.__jcemSpokenFixture);
+	const fullSpeech = fullFixture.map(({ text }) => text).join(' ');
 	if (!fullSpeech.includes('Referência 1: JCEM. Fixture de leitura acessível. 2026.')) throw new Error(`MODO_REFERENCIA_COMPLETA_AUSENTE ${fullSpeech}`);
 	if (!fullSpeech.includes('Sumário do artigo.')) throw new Error('TOC_AUSENTE_NO_MODO_COMPLETO');
+	const tocSpeech = fullFixture.filter(({ text }) => text === 'Sumário do artigo.' || text.startsWith('Seção:')).map(({ text }) => text);
+	if (!tocSpeech.length || tocSpeech.some((text) => /(?:Link|Referência):|\b\d+\b/.test(text))) {
+		throw new Error(`TOC_TTS_CONTAMINADO ${JSON.stringify(tocSpeech)}`);
+	}
 
 	await page.evaluate(() => { window.__jcemHoldSpeech = true; });
 	await page.click('[data-jcem-read-action="play"]');
@@ -241,6 +260,7 @@ try {
 	if (await page.locator('[data-jcem-chart-renderer], [data-jcem-chart-adapter], [data-jcem-read-aloud-runtime]').count()) {
 		throw new Error('ASSET_CONDICIONAL_NA_HOME');
 	}
+	if (!quotationMarkersPresent) throw new Error('MARCADORES_CITACAO_AUSENTES');
 
 	console.log(`accessible_runtime=ok spoken_units=${fixture.spoken.length} chart=${fixture.chartVersion}`);
 } finally {

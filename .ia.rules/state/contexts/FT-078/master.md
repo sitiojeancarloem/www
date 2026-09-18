@@ -1,6 +1,6 @@
 # FT-078/FT-079 — Projeção falada contextual
 
-Estado: FT-078 normatizada; FT-079 autorizada e em implementação. Fonte: `.ia.rules/state/requests/FT-078/prompt.md`.
+Estado: FT-078 concluída; FT-079 tecnicamente concluída e pendente de validação auditiva humana. Fonte: `.ia.rules/state/requests/FT-078/prompt.md`.
 
 ## Objetivo
 
@@ -35,3 +35,11 @@ Normatizar e corrigir cirurgicamente a verbalização contextual de referências
 - Links editoriais do corpo e headings `h2`–`h4` recebem contexto humano coerente.
 - Headings com links/referências e os links do TOC não verbalizam link, referência ou número estrutural.
 - Modos `continuous`, `summary` e `full` preservam seus contratos e os demais recursos TTS continuam aprovados.
+
+## Implementação e validação
+
+- O normalizador reconhece `doc-noteref` e equivalentes de footnote em `<sup>`, materializa a função semântica ausente e remove marcadores de headings ao derivar o TOC.
+- O runtime anuncia links somente em unidades editoriais do corpo; título principal e `h2`–`h4` usam conteúdo textual sem link ou referência, e o TOC fala somente os nomes das seções.
+- `scripts/test_accessible_reading.rb` cobre o seletor equivalente, a limpeza combinada de heading e TOC, idempotência e fallback; aprovado por `check:accessibility`.
+- `check:footnotes`, `check:ts`, `node --check` e build produtivo isolado em `.tmp/ft079-site` aprovaram.
+- O runtime Chromium percorreu integralmente `continuous`, `summary` e `full`; as novas asserções de footnote, link, títulos e TOC aprovaram. O comando global continua encerrando exclusivamente em `MARCADORES_CITACAO_AUSENTES`, lacuna de blockquote preexistente registrada na FT-077 e não causada pelos cinco artefatos desta correção.

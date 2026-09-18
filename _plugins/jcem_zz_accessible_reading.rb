@@ -16,6 +16,7 @@ module Jcem
     ARTICLE_SELECTOR = "article.jcem-post"
     CONTENT_SELECTOR = "article.jcem-post .page__content"
     TOC_SELECTOR = "[data-jcem-article-toc]"
+    NOTEREF_SELECTOR = '[role="doc-noteref"], sup > a.footnote[href^="#fn:"], sup[id^="fnref"] > a[href^="#fn:"]'
 
     module_function
 
@@ -76,6 +77,7 @@ module Jcem
 
     def normalize_noteref(document, link, summary = nil, full = nil, target_id = nil)
       summary, full, target_id = reference_text(document, link) unless full && target_id
+      link["role"] ||= "doc-noteref"
       link.remove_attribute("aria-describedby")
       link["aria-details"] = target_id
       link["data-jcem-spoken-reference"] = summary if summary
@@ -131,6 +133,12 @@ module Jcem
       end
     end
 
+    def heading_text(heading)
+      clone = heading.dup
+      clone.css("#{NOTEREF_SELECTOR}, .header-link").remove
+      compact_text(clone)
+    end
+
     def build_toc(document, content, label)
       return if content.at_css(TOC_SELECTOR)
 
@@ -153,11 +161,14 @@ module Jcem
       nav["aria-label"] = "Sumário do artigo"
       list = Nokogiri::XML::Node.new("ol", document)
       headings.each do |heading|
+        label = heading_text(heading)
+        next if label.empty?
+
         item = Nokogiri::XML::Node.new("li", document)
         item["data-jcem-toc-level"] = heading.name.delete_prefix("h")
         link = Nokogiri::XML::Node.new("a", document)
         link["href"] = "##{heading['id']}"
-        link.content = compact_text(heading)
+        link.content = label
         item.add_child(link)
         list.add_child(item)
       end
@@ -193,7 +204,7 @@ module Jcem
       fatal("artigo_sem_conteudo") unless content
       content.css('table').each { |table| normalize_table(document, table) }
       content.css('img').each { |image| normalize_image(image) }
-      references = content.css('a[role="doc-noteref"]').map do |link|
+      references = content.css(NOTEREF_SELECTOR).map do |link|
         summary, full, target_id = reference_text(document, link)
         [link, summary, full, target_id]
       end

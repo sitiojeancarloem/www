@@ -32,13 +32,16 @@
 	const normalize = (value) => String(value || '').replace(/\s+/g, ' ').trim();
 	const languageFor = (element) =>
 		element.closest('[lang]')?.getAttribute('lang') || document.documentElement.lang || 'pt-BR';
+	const noterefSelector = '[role="doc-noteref"], sup > a.footnote[href^="#fn:"], sup[id^="fnref"] > a[href^="#fn:"]';
 
+	/** Obtém referências normalizadas pertencentes à unidade falada. */
 	const referencesFor = (element) => [...element.querySelectorAll('[data-jcem-reference-full]')].map((link) => ({
 		marker: normalize(link.textContent).replace(/^[\s[\]()]+|[\s[\]()]+$/g, ''),
 		summary: normalize(link.dataset.jcemReferenceSummary),
 		full: normalize(link.dataset.jcemReferenceFull),
 	}));
 
+	/** Constrói a indicação de referências segundo o modo escolhido. */
 	const referenceSuffix = (element) => {
 		const references = referencesFor(element);
 		if (!references.length) return '';
@@ -52,18 +55,28 @@
 		return `${[...new Set(values)].join('. ')}.`;
 	};
 
-	const textFor = (element) => {
+	/** Extrai texto editorial e anuncia somente links de corpo autorizados. */
+	const textFor = (element, { announceLinks = true } = {}) => {
 		const clone = element.cloneNode(true);
 		clone.querySelectorAll('script, style, [aria-hidden="true"]').forEach((node) => node.remove());
-		clone.querySelectorAll('[role="doc-noteref"]').forEach((reference) => reference.remove());
+		clone.querySelectorAll(noterefSelector).forEach((reference) => reference.remove());
+		clone.querySelectorAll('.header-link, [role="doc-backlink"]').forEach((link) => link.remove());
+		if (announceLinks) {
+			clone.querySelectorAll('a[href]').forEach((link) => {
+				const label = normalize(link.textContent);
+				link.replaceWith(document.createTextNode(label ? ` Link: ${label} ` : ''));
+			});
+		}
 		clone.querySelectorAll('img[data-jcem-accessible-image="informative"]').forEach((image) => {
 			image.replaceWith(document.createTextNode(` Imagem: ${image.getAttribute('alt')}. `));
 		});
 		return normalize(clone.textContent);
 	};
 
-	const add = (element, text, prefix = '', suffix = '') => {
-		const value = normalize(`${prefix} ${text} ${referenceSuffix(element)} ${suffix}`);
+	/** Adiciona uma unidade, permitindo excluir referências em contextos vedados. */
+	const add = (element, text, prefix = '', suffix = '', includeReferences = true) => {
+		const references = includeReferences ? referenceSuffix(element) : '';
+		const value = normalize(`${prefix} ${text} ${references} ${suffix}`);
 		if (value) units.push({ text: value, lang: languageFor(element) });
 	};
 
@@ -86,8 +99,8 @@
 		if (!(element instanceof HTMLElement) || element.hidden || element.getAttribute('aria-hidden') === 'true') return;
 		if (element.matches('[data-jcem-article-toc]')) {
 			if ((referenceMode?.value || 'continuous') !== 'full') return;
-			add(element, 'Sumário do artigo.');
-			element.querySelectorAll('nav a').forEach((link) => add(link, textFor(link), 'Seção:'));
+			add(element, 'Sumário do artigo.', '', '', false);
+			element.querySelectorAll('nav a').forEach((link) => add(link, textFor(link, { announceLinks: false }), 'Seção:', '', false));
 			return;
 		}
 		if (element.matches('[data-jcem-chart]')) {
@@ -105,7 +118,11 @@
 			addTable(element);
 			return;
 		}
-		if (element.matches('h1, h2, h3, h4, h5, h6, p, figcaption')) {
+		if (element.matches('h2, h3, h4')) {
+			add(element, textFor(element, { announceLinks: false }), 'Título:', '', false);
+			return;
+		}
+		if (element.matches('h1, h5, h6, p, figcaption')) {
 			add(element, textFor(element));
 			return;
 		}
@@ -120,7 +137,7 @@
 	const buildUnits = () => {
 		units = [];
 		const title = document.querySelector('#page-title');
-		if (title) add(title, textFor(title), 'Título:');
+		if (title) add(title, textFor(title, { announceLinks: false }), 'Título:', '', false);
 		[...root.children].forEach(walk);
 	};
 
