@@ -54,4 +54,9 @@ Corrigir cumulativamente a implementação visual dos cinco modelos derivados de
 - A rota real `/p/devaneios/` foi inspecionada em desktop e em 390 px: a primeira citação e as subsequentes exibem o glifo duplo integralmente e com centralização óptica, inclusive sob `content-visibility: auto`.
 - O corpo computado permanece `text-align: justify`; a autoria permanece `text-align: left` e em itálico.
 - Os runtimes de citação e impressão, documentação e desempenho aprovaram contra o build isolado corrente; o teste de citação agora mede a tinta efetivamente rasterizada na rota real.
-- A integração continua pendente de aceite visual humano; nenhuma TO-DO foi encerrada.
+- A integração permaneceu pendente até o aceite humano posterior.
+
+## Aceite humano — 2026-09-18
+
+- O desenvolvedor aprovou expressamente a correção visual e a documentação de `blockquote`.
+- A TO-DO operacional e as FT-075/FT-076 deixaram o estado corrente; permanecem preservados o contexto, a validação e o histórico de commits.

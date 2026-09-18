@@ -27,9 +27,29 @@ A IAL do Kramdown deve vir imediatamente depois do bloco. O exemplo seleciona um
 | `pull-quote` | Citação lateral de e3, com aspas grandes, autoria à esquerda e pequeno recuo. | ![Blockquote pull-quote com recuo e aspas laterais](../assets/images/documentacao/blockquote/pull-quote.svg) |
 | `centered-mark` | Composição centralizada de e4, sem incorporar o fundo externo da referência. | ![Blockquote centered-mark centralizado](../assets/images/documentacao/blockquote/centered-mark.svg) |
 | `editorial-statement` | Declaração editorial centralizada de e5, sem superfície externa fixa. | ![Blockquote editorial-statement centralizado](../assets/images/documentacao/blockquote/editorial-statement.svg) |
-| `thematic-rail` | Haste temática interrompida por aspas centralizadas de e6; corpo justificado, autoria à esquerda, intervalo estável e cores vinculadas ao tema ativo. | ![Blockquote thematic-rail com linha e aspas temáticas](../assets/images/documentacao/blockquote/thematic-rail.svg) |
+| `thematic-rail` | Haste temática interrompida pelo glifo de aspas duplas centralizado de e6; corpo justificado, autoria à esquerda, intervalo estável e cores vinculadas ao tema ativo. | ![Blockquote thematic-rail com linha e aspas temáticas](../assets/images/documentacao/blockquote/thematic-rail.svg) |
 
 As ilustrações tipadas mostram duas ocorrências do mesmo modelo — ícone padrão e override — e incluem a paleta real de destaque/superfície. Cada modelo tipado possui um accent fixo no tema (`notice` `#64748b`, `info` `#1673a5`, `alerta1` `#b66a00`, `alerta2` `#b4232f`) sobre o fundo de citação claro ou escuro.
+
+## Formas de seleção
+
+O bloco sem atributo usa o alias `primary`, hoje resolvido para `thematic-rail`. Para fixar um modelo em uma ocorrência, mantenha o Markdown da citação e acrescente a IAL correspondente imediatamente abaixo. A matriz cobre todos os modelos concretos registrados:
+
+| Modelo | IAL por ocorrência |
+|---|---|
+| `standard` | `{: data-jcem-quote-model="standard"}` |
+| `futuristic` | `{: data-jcem-quote-model="futuristic"}` |
+| `notice` | `{: data-jcem-quote-model="notice"}` |
+| `info` | `{: data-jcem-quote-model="info"}` |
+| `alerta1` | `{: data-jcem-quote-model="alerta1"}` |
+| `alerta2` | `{: data-jcem-quote-model="alerta2"}` |
+| `framed-accent` | `{: data-jcem-quote-model="framed-accent"}` |
+| `pull-quote` | `{: data-jcem-quote-model="pull-quote"}` |
+| `centered-mark` | `{: data-jcem-quote-model="centered-mark"}` |
+| `editorial-statement` | `{: data-jcem-quote-model="editorial-statement"}` |
+| `thematic-rail` | `{: data-jcem-quote-model="thematic-rail"}` |
+
+O `thematic-rail` padrão mantém um único glifo de aspas duplas (`”`), integralmente contido entre as duas hastes e opticamente centralizado no intervalo. A última linha de um corpo justificado pode terminar antes da margem direita, como é próprio da composição tipográfica; a autoria segue à esquerda e em itálico.
 
 Somente `framed-accent` aceita `data-jcem-quote-accent`. O inventário fechado é `cyan` (`#12b8c8`), `amber` (`#d59a24`), `violet` (`#8b6fd6`) e `green` (`#3c9b78`); nome diferente falha no build. Exemplo copiável da parametrização:
 

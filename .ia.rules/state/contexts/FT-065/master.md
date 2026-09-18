@@ -74,7 +74,7 @@ Eliminar a causa comum das interpretacoes reiteradamente rejeitadas: ancorar a F
 
 ## Estado
 
-FT-065 permanece equalizada quanto às invariantes preservadas. A sétima correção foi implementada e revalidada tecnicamente pelas FT-066 e FT-067, mas continua pendente de validação humana. A TO-DO operacional permanece `⏳` até aceite efetivo.
+FT-065 permanece equalizada quanto às invariantes preservadas. As correções das FT-066 e FT-067 foram implementadas e revalidadas tecnicamente.
 
 ## Sétima correção — rota real, ramo de pintura e raster persistente
 
@@ -101,3 +101,9 @@ FT-065 permanece equalizada quanto às invariantes preservadas. A sétima corre�
 - `npm run agent:rcf`: nao executou a finalidade no Node 22.21.0; falhou ao carregar `.ia.rules/scenarios/release/scripts/package-registry.js` como ES module embora o artefato use `module.exports`.
 - Invocacao direta de `repo-tools.js agent:rcf` com Node 24.19.0: reproduziu a mesma falha antes do resultado RCF, sem mudanca de arquivo entre tentativas.
 - A incompatibilidade pertence ao runtime gerenciado e nao sera corrigida pela FT visual; o gate permanece explicitamente nao aprovado.
+
+## Aceite humano — 2026-09-18
+
+- O desenvolvedor aprovou expressamente a frente COVER e autorizou sua conclusão.
+- A TO-DO operacional de não aderências de COVER foi removida integralmente após o aceite, preservando esta fonte, os RCFs, os testes e a evidência histórica.
+- FT-065, FT-066 e FT-067 deixaram o estado operacional corrente; não há pendência humana de COVER remanescente.

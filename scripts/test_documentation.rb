@@ -129,10 +129,14 @@ assert(resolved_cover.dig("hero", "cta", "url") == "#inicio-do-artigo", "CTA do 
 quote_config.fetch("models").each do |model, definition|
   relative = "assets/images/documentacao/blockquote/#{model}.svg"
   assert(quote_doc.include?("`#{model}`"), "modelo de blockquote não documentado: #{model}")
+  assert(quote_doc.include?("data-jcem-quote-model=\"#{model}\""), "seleção direta de blockquote não documentada: #{model}")
   assert(quote_doc.include?("../#{relative}"), "ilustração de blockquote ausente: #{model}")
   assert(quote_doc.include?(definition["defaultIcon"]), "ícone padrão não documentado: #{model}") if definition["defaultIcon"]
   verify_svg(relative)
 end
+thematic_rail_illustration = read("assets/images/documentacao/blockquote/thematic-rail.svg")
+assert(thematic_rail_illustration.include?('x="68" y="178">”</text>'), "ilustração thematic-rail não centraliza o glifo de aspas duplas")
+assert(quote_doc.include?("opticamente centralizado") && quote_doc.include?("corpo justificado"), "contrato visual do thematic-rail não documentado")
 quote_config.fetch("aliases").each do |name, target|
   assert(quote_doc.include?("`#{name}`") && quote_doc.include?("`#{target}`"), "alias de blockquote não documentado: #{name}")
 end
@@ -183,5 +187,6 @@ assert(print_doc.include?("`window.load`") && print_doc.include?("`requestIdleCa
 %w[README.md docs/MODO-DE-USO-COVER-E-HERO.md docs/MODO-DE-USO-BLOCKQUOTE.md docs/MODO-DE-USO-IMPRESSAO-IEEE.md RCFs/carregamento-progressivo.md RCFs/citacoes.md].each do |path|
   verify_local_links(path)
 end
+assert(readme.include?("11 modelos concretos"), "README não reflete o inventário completo de blockquotes")
 
 puts "documentation=ok covers=#{cover_visuals.length} quotes=#{quote_config.fetch("models").length} manifests=2"

@@ -13,7 +13,7 @@ Os artigos em desenvolvimento estão no repositório privado [https://github.com
 | Guia                                                                   | Aplicação real                                                                                                                  |
 | ---------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
 | [COVER e Hero](docs/MODO-DE-USO-COVER-E-HERO.md)                       | Configurar os dez comportamentos visuais de imagem destacada, composição tripla, aliases, enquadramento, Hero e fontes sociais. |
-| [Blockquote](docs/MODO-DE-USO-BLOCKQUOTE.md)                           | Escrever citações, selecionar todos os modelos registrados, configurar defaults, ícones, acessibilidade e impressão.            |
+| [Blockquote](docs/MODO-DE-USO-BLOCKQUOTE.md)                           | Escrever citações e selecionar os 11 modelos concretos, aliases, accents, ícones, acessibilidade e impressão.                   |
 | [Leitura acessível e TTS](docs/MODO-DE-USO-LEITURA-ACESSIVEL-E-TTS.md) | Declarar idiomas, pronúncia, referências faladas e alternativas textuais para tabelas, imagens e gráficos.                      |
 | [Impressão editorial IEEE](docs/MODO-DE-USO-IMPRESSAO-IEEE.md)         | Imprimir artigos em desktop ou mobile com o perfil A4 em duas colunas e carregamento pós-crítico.                               |
 | [Índice normativo](RCF.md)                                             | Localizar requisitos, contratos e validações autoritativos por domínio do produto.                                              |
