@@ -73,7 +73,14 @@ eventos_finais_posts = [
 ]
 eventos_finais_posts.each do |relative_path|
   post = File.binread(File.expand_path(relative_path, __dir__)).force_encoding(Encoding::UTF_8)
-  assert(post.include?('data-jcem-quote-model="alerta1"'), "disclaimer bate-papo não usa alerta1")
+  assert(
+    post.match?(/^> \*\*Nota editorial:\*\*.*\R\{: data-jcem-quote-model="alerta1"\}\R/),
+    "disclaimer bate-papo não aplica alerta1 ao blockquote"
+  )
+  assert(
+    !post.match?(/^> \{: data-jcem-quote-model=/),
+    "IAL de blockquote foi aninhada e seria aplicada ao parágrafo"
+  )
   assert(
     post.match?(/^content_subnamespaces:\R  - eventos-finais\R/),
     "obra-base Eventos Finais perdeu o subnamespace"

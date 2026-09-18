@@ -38,6 +38,10 @@ const screenshotRoot = process.env.JCEM_QUOTE_SCREENSHOT_DIR
 	: null;
 if (screenshotRoot) await mkdir(screenshotRoot, { recursive: true });
 const expected = ['standard', 'futuristic', 'notice', 'info', 'alerta1', 'alerta2', 'framed-accent', 'pull-quote', 'centered-mark', 'editorial-statement', 'thematic-rail'];
+const batePapoSlug = 'rumo-ao-lar-viagem-dos-remidos-coroas-e-recompensa-celestial';
+const batePapoRoute = existsSync(path.join(root, 'p', 'bate-papo', 'eventos-finais', batePapoSlug))
+	? `/p/bate-papo/eventos-finais/${batePapoSlug}/`
+	: `/p/bate-papo:eventos-finais/${batePapoSlug}/`;
 
 /**
  * Mede no raster a extensão e o centro óptico do glifo temático sem confundir
@@ -165,6 +169,26 @@ try {
 			}
 		}
 		assert.ok(realStates.slice(1).every(({ contentVisibility }) => contentVisibility === 'auto'), `${viewport.width}: regressão real não exercitou content-visibility`);
+
+		// Regride a nota editorial que revelou a soma indevida do modelo primário
+		// com alerta1 por uma IAL Markdown aninhada no conteúdo da citação.
+		await page.goto(`http://127.0.0.1:${port}${batePapoRoute}`, { waitUntil: 'load' });
+		const editorialNotice = page.locator('article.jcem-post .page__content [data-jcem-blockquote]').first();
+		const editorialNoticeState = await editorialNotice.evaluate((element) => {
+			const style = getComputedStyle(element);
+			const before = getComputedStyle(element, '::before');
+			return {
+				model: element.getAttribute('data-jcem-quote-model'),
+				paragraphModel: element.querySelector(':scope > p')?.getAttribute('data-jcem-quote-model') || '',
+				beforeContent: before.content,
+				backgroundImage: style.backgroundImage,
+			};
+		});
+		assert.deepEqual(
+			editorialNoticeState,
+			{ model: 'alerta1', paragraphModel: '', beforeContent: 'none', backgroundImage: 'none' },
+			`${viewport.width}: nota editorial somou alerta1 ao modelo primário`,
+		);
 
 		await page.goto(`http://127.0.0.1:${port}/_fixtures/blockquote-models/`, { waitUntil: 'load' });
 		await page.evaluate(() => window.scrollTo(0, 0));

@@ -13,7 +13,7 @@ header:
 <!-- AI-PROCESSED:START -->
 
 > **Nota editorial:** Esta é uma síntese fiel de um bate-papo, editada apenas para tornar a leitura mais clara e agradável. O material foi produzido e processado de forma automatizada, inclusive com uso de inteligência artificial, e pode conter erros, imprecisões ou interpretações inadequadas. Nem tudo o que foi dito foi necessariamente aceito por todos: formulações coletivas não significam unanimidade, aprovação integral ou ausência de objeções; cada participante pode ter ponderado, discordado, preferido não se manifestar ou silenciado por razões distintas.
-> {: data-jcem-quote-model="alerta1"}
+{: data-jcem-quote-model="alerta1"}
 
 <!-- AI-PROCESSED:END -->
 
