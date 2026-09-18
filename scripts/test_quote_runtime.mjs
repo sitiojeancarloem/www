@@ -170,6 +170,21 @@ try {
 		}
 		assert.ok(realStates.slice(1).every(({ contentVisibility }) => contentVisibility === 'auto'), `${viewport.width}: regressão real não exercitou content-visibility`);
 
+		// Regride a página real indicada na revisão visual do recuo externo.
+		await page.goto(`http://127.0.0.1:${port}/p/5-verdades-de-genesis-27/`, { waitUntil: 'load' });
+		const defaultQuote = page.locator("article.jcem-post .page__content [data-jcem-quote-model='thematic-rail'][data-jcem-quote-alias='primary']").first();
+		const defaultQuoteState = await defaultQuote.evaluate((element) => ({
+			model: element.getAttribute('data-jcem-quote-model'),
+			alias: element.getAttribute('data-jcem-quote-alias'),
+			marginInlineStart: Number.parseFloat(getComputedStyle(element).marginInlineStart),
+		}));
+		assert.equal(defaultQuoteState.model, 'thematic-rail');
+		assert.equal(defaultQuoteState.alias, 'primary');
+		assert.ok(
+			Math.abs(defaultQuoteState.marginInlineStart - 28) <= 0.1,
+			`${viewport.width}: recuo externo do modelo padrão divergiu de 28px: ${JSON.stringify(defaultQuoteState)}`,
+		);
+
 		// Regride a nota editorial que revelou a soma indevida do modelo primário
 		// com alerta1 por uma IAL Markdown aninhada no conteúdo da citação.
 		await page.goto(`http://127.0.0.1:${port}${batePapoRoute}`, { waitUntil: 'load' });
@@ -215,6 +230,7 @@ try {
 						fontFamily: style.fontFamily,
 						background: style.backgroundColor,
 						backgroundImage: style.backgroundImage,
+						marginInlineStart: Number.parseFloat(style.marginInlineStart),
 						textAlign: style.textAlign,
 						bodyAlignments: [...quote.querySelectorAll(':scope > p:not(.jcem-quote-reference), :scope > :is(ul, ol) li')].map((paragraph) => getComputedStyle(paragraph).textAlign),
 						referenceAlignments: [...quote.querySelectorAll(':scope > .jcem-quote-reference')].map((paragraph) => getComputedStyle(paragraph).textAlign),
@@ -272,6 +288,10 @@ try {
 			assert.ok(pullQuoteEntries.every((entry) => ['left', 'start'].includes(entry.textAlign)), `${theme}/${viewport.width}: alinhamento do pull-quote não é esquerdo`);
 			assert.ok(pullQuoteEntries.every((entry) => entry.bodyAlignments.every((alignment) => ['left', 'start'].includes(alignment))), `${theme}/${viewport.width}: parágrafo do pull-quote não é esquerdo`);
 			const thematicEntries = state.models.filter(({ model }) => model === 'thematic-rail');
+			assert.ok(
+				thematicEntries.every(({ marginInlineStart }) => Math.abs(marginInlineStart - 28) <= 0.1),
+				`${theme}/${viewport.width}: recuo externo thematic-rail divergiu de 28px: ${JSON.stringify(thematicEntries.map(({ marginInlineStart }) => marginInlineStart))}`,
+			);
 			assert.ok(thematicEntries.every((entry) => entry.bodyAlignments.every((alignment) => alignment === 'justify')), `${theme}/${viewport.width}: corpo do thematic-rail não está justificado`);
 			assert.ok(thematicEntries.every((entry) => entry.referenceAlignments.every((alignment) => ['left', 'start'].includes(alignment))), `${theme}/${viewport.width}: autoria do thematic-rail não está à esquerda`);
 			for (const model of ['centered-mark', 'editorial-statement']) assert.equal(state.models.find((entry) => entry.model === model).background, 'rgba(0, 0, 0, 0)');
