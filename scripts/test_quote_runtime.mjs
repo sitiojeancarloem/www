@@ -9,6 +9,7 @@ import { mkdir, readFile } from 'node:fs/promises';
 import { createServer } from 'node:http';
 import path from 'node:path';
 import { chromium } from 'playwright';
+import sharp from 'sharp';
 
 const root = path.resolve(process.env.JCEM_SITE_ROOT || '_site');
 const types = new Map([['.html', 'text/html; charset=utf-8'], ['.js', 'text/javascript; charset=utf-8'], ['.css', 'text/css; charset=utf-8'], ['.svg', 'image/svg+xml']]);
@@ -38,6 +39,60 @@ const screenshotRoot = process.env.JCEM_QUOTE_SCREENSHOT_DIR
 if (screenshotRoot) await mkdir(screenshotRoot, { recursive: true });
 const expected = ['standard', 'futuristic', 'notice', 'info', 'alerta1', 'alerta2', 'framed-accent', 'pull-quote', 'centered-mark', 'editorial-statement', 'thematic-rail'];
 
+/**
+ * Mede no raster a extensão e o centro óptico do glifo temático sem confundir
+ * a haste vertical, que compartilha a mesma cor de destaque.
+ *
+ * @param {import('playwright').Page} page página com a citação visível.
+ * @param {{ rect: { left: number, top: number, height: number }, paddingInlineStart: number, color: string, fontSize: number }} geometry geometria computada da ocorrência.
+ * @returns {Promise<{ inkWidth: number, inkCenterY: number, expectedCenterY: number }>} métricas da área pintada pelas aspas.
+ */
+const measureThematicQuoteInk = async (page, geometry) => {
+	const screenshot = await page.screenshot({ type: 'png' });
+	const metadata = await sharp(screenshot).metadata();
+	const left = Math.max(0, Math.floor(geometry.rect.left));
+	const top = Math.max(0, Math.floor(geometry.rect.top));
+	const width = Math.min(metadata.width - left, Math.ceil(geometry.paddingInlineStart));
+	const height = Math.min(metadata.height - top, Math.ceil(geometry.rect.height));
+	assert.ok(width > 0 && height > 0, 'recorte raster do thematic-rail é inválido');
+
+	const { data, info } = await sharp(screenshot)
+		.extract({ left, top, width, height })
+		.ensureAlpha()
+		.raw()
+		.toBuffer({ resolveWithObject: true });
+	const accent = geometry.color.match(/[\d.]+/g)?.slice(0, 3).map(Number);
+	assert.equal(accent?.length, 3, `cor temática não mensurável: ${geometry.color}`);
+	const rowPixels = Array.from({ length: info.height }, () => []);
+	for (let y = 0; y < info.height; y += 1) {
+		for (let x = 0; x < info.width; x += 1) {
+			const offset = (y * info.width + x) * info.channels;
+			const distance = Math.hypot(
+				data[offset] - accent[0],
+				data[offset + 1] - accent[1],
+				data[offset + 2] - accent[2],
+			);
+			if (distance <= 112 && data[offset + 3] > 0) rowPixels[y].push(x);
+		}
+	}
+
+	const denseThreshold = Math.max(7, Math.floor(geometry.fontSize * 0.14));
+	const glyphRows = rowPixels
+		.map((pixels, y) => (pixels.length >= denseThreshold ? y : -1))
+		.filter((y) => y >= 0);
+	const maximumRowPixels = Math.max(...rowPixels.map((pixels) => pixels.length));
+	assert.ok(
+		glyphRows.length > 0,
+		`área pintada das aspas não localizada no raster: max=${maximumRowPixels} threshold=${denseThreshold} color=${geometry.color} crop=${width}x${height}`,
+	);
+	const glyphPixels = glyphRows.flatMap((y) => rowPixels[y]);
+	return {
+		inkWidth: Math.max(...glyphPixels) - Math.min(...glyphPixels) + 1,
+		inkCenterY: (Math.min(...glyphRows) + Math.max(...glyphRows)) / 2,
+		expectedCenterY: geometry.rect.top - top + geometry.rect.height / 2,
+	};
+};
+
 try {
 	for (const viewport of [{ width: 1280, height: 900 }, { width: 320, height: 800 }]) {
 		const page = await browser.newPage({ viewport });
@@ -64,6 +119,54 @@ try {
 			assert.ok(rendered.height > 20, `${viewport.width}: modelo não materializado ${rendered.model}`);
 			assert.ok(rendered.textHeight > 0, `${viewport.width}: texto não materializado ${rendered.model}`);
 		}
+
+		// Regride a rota que expôs a contenção de pintura: a fixture agregada
+		// desativa content-visibility em seguida e, sozinha, não detecta o recorte.
+		await page.goto(`http://127.0.0.1:${port}/p/devaneios/`, { waitUntil: 'load' });
+		const realQuotes = page.locator("article.jcem-post .page__content [data-jcem-quote-model='thematic-rail']");
+		const realQuoteCount = await realQuotes.count();
+		assert.ok(realQuoteCount > 1, `${viewport.width}: rota Devaneios sem múltiplas citações padrão`);
+		const realStates = [];
+		for (let index = 0; index < realQuoteCount; index += 1) {
+			const quote = realQuotes.nth(index);
+			await quote.scrollIntoViewIfNeeded();
+			const geometry = await quote.evaluate((element) => {
+				const rect = element.getBoundingClientRect();
+				const style = getComputedStyle(element);
+				const before = getComputedStyle(element, '::before');
+				const matrix = new DOMMatrixReadOnly(before.transform);
+				const pseudoLeft = rect.left + Number.parseFloat(before.left) + matrix.m41;
+				const pseudoWidth = Number.parseFloat(before.width);
+				return {
+					contentVisibility: style.contentVisibility,
+					bodyAlignments: [...element.querySelectorAll(':scope > p:not(.jcem-quote-reference), :scope > :is(ul, ol) li')]
+						.map((paragraph) => getComputedStyle(paragraph).textAlign),
+					referenceAlignments: [...element.querySelectorAll(':scope > .jcem-quote-reference')]
+						.map((paragraph) => getComputedStyle(paragraph).textAlign),
+					pseudoLeft,
+					pseudoRight: pseudoLeft + pseudoWidth,
+					beforeContent: before.content,
+					paddingInlineStart: Number.parseFloat(style.paddingInlineStart),
+					color: before.color,
+					fontSize: Number.parseFloat(before.fontSize),
+					rect: { left: rect.left, right: rect.right, top: rect.top, height: rect.height },
+				};
+			});
+			realStates.push(geometry);
+			assert.ok(geometry.beforeContent.includes('”'), `${viewport.width}/${index}: aspas temáticas ausentes`);
+			assert.ok(geometry.pseudoLeft >= geometry.rect.left - 0.6, `${viewport.width}/${index}: aspas escapam da caixa de pintura pela esquerda`);
+			assert.ok(geometry.pseudoRight <= geometry.rect.right + 0.6, `${viewport.width}/${index}: aspas escapam da caixa de pintura pela direita`);
+			assert.ok(geometry.bodyAlignments.length > 0 && geometry.bodyAlignments.every((alignment) => alignment === 'justify'), `${viewport.width}/${index}: corpo da citação não está justificado`);
+			assert.ok(geometry.referenceAlignments.every((alignment) => ['left', 'start'].includes(alignment)), `${viewport.width}/${index}: autoria da citação não está à esquerda`);
+			if (viewport.width === 1280 && index < 2) {
+				const raster = await measureThematicQuoteInk(page, geometry);
+				assert.ok(raster.inkWidth >= geometry.fontSize * 0.3, `${viewport.width}/${index}: raster contém somente parte das aspas`);
+				assert.ok(Math.abs(raster.inkCenterY - raster.expectedCenterY) <= geometry.fontSize * 0.1, `${viewport.width}/${index}: aspas não estão opticamente centralizadas`);
+			}
+		}
+		assert.ok(realStates.slice(1).every(({ contentVisibility }) => contentVisibility === 'auto'), `${viewport.width}: regressão real não exercitou content-visibility`);
+
+		await page.goto(`http://127.0.0.1:${port}/_fixtures/blockquote-models/`, { waitUntil: 'load' });
 		await page.evaluate(() => window.scrollTo(0, 0));
 		// A captura de matriz precisa materializar todos os modelos ao mesmo tempo;
 		// a otimização real de content-visibility foi validada individualmente acima.
@@ -89,7 +192,8 @@ try {
 						background: style.backgroundColor,
 						backgroundImage: style.backgroundImage,
 						textAlign: style.textAlign,
-						paragraphAlignments: [...quote.querySelectorAll(':scope > p')].map((paragraph) => getComputedStyle(paragraph).textAlign),
+						bodyAlignments: [...quote.querySelectorAll(':scope > p:not(.jcem-quote-reference), :scope > :is(ul, ol) li')].map((paragraph) => getComputedStyle(paragraph).textAlign),
+						referenceAlignments: [...quote.querySelectorAll(':scope > .jcem-quote-reference')].map((paragraph) => getComputedStyle(paragraph).textAlign),
 						geometry: quote.getAttribute('data-jcem-quote-geometry'),
 						thematicGap: style.getPropertyValue('--jcem-thematic-rail-gap').trim(),
 						before: (() => {
@@ -140,13 +244,13 @@ try {
 			for (const model of ['centered-mark', 'editorial-statement']) {
 				assert.ok(state.models.find((entry) => entry.model === model).before.content.includes('”'), `${theme}/${viewport.width}: aspas superiores divergentes em ${model}`);
 			}
-			for (const model of ['pull-quote', 'thematic-rail']) {
-				const entries = state.models.filter((entry) => entry.model === model);
-				assert.ok(entries.every((entry) => ['left', 'start'].includes(entry.textAlign)), `${theme}/${viewport.width}: alinhamento do ${model} não é esquerdo`);
-				assert.ok(entries.every((entry) => entry.paragraphAlignments.every((alignment) => ['left', 'start'].includes(alignment))), `${theme}/${viewport.width}: parágrafo do ${model} não é esquerdo`);
-			}
-			for (const model of ['centered-mark', 'editorial-statement']) assert.equal(state.models.find((entry) => entry.model === model).background, 'rgba(0, 0, 0, 0)');
+			const pullQuoteEntries = state.models.filter(({ model }) => model === 'pull-quote');
+			assert.ok(pullQuoteEntries.every((entry) => ['left', 'start'].includes(entry.textAlign)), `${theme}/${viewport.width}: alinhamento do pull-quote não é esquerdo`);
+			assert.ok(pullQuoteEntries.every((entry) => entry.bodyAlignments.every((alignment) => ['left', 'start'].includes(alignment))), `${theme}/${viewport.width}: parágrafo do pull-quote não é esquerdo`);
 			const thematicEntries = state.models.filter(({ model }) => model === 'thematic-rail');
+			assert.ok(thematicEntries.every((entry) => entry.bodyAlignments.every((alignment) => alignment === 'justify')), `${theme}/${viewport.width}: corpo do thematic-rail não está justificado`);
+			assert.ok(thematicEntries.every((entry) => entry.referenceAlignments.every((alignment) => ['left', 'start'].includes(alignment))), `${theme}/${viewport.width}: autoria do thematic-rail não está à esquerda`);
+			for (const model of ['centered-mark', 'editorial-statement']) assert.equal(state.models.find((entry) => entry.model === model).background, 'rgba(0, 0, 0, 0)');
 			const thematicGeometries = new Set(thematicEntries.map(({ geometry }) => geometry).filter(Boolean));
 			assert.ok(thematicGeometries.has('short') && thematicGeometries.has('long'), `${theme}/${viewport.width}: amostras curta e longa ausentes`);
 			assert.ok(thematicEntries.every(({ backgroundImage }) => backgroundImage !== 'none'));

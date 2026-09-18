@@ -27,7 +27,7 @@ A IAL do Kramdown deve vir imediatamente depois do bloco. O exemplo seleciona um
 | `pull-quote` | Citação lateral de e3, com aspas grandes, autoria à esquerda e pequeno recuo. | ![Blockquote pull-quote com recuo e aspas laterais](../assets/images/documentacao/blockquote/pull-quote.svg) |
 | `centered-mark` | Composição centralizada de e4, sem incorporar o fundo externo da referência. | ![Blockquote centered-mark centralizado](../assets/images/documentacao/blockquote/centered-mark.svg) |
 | `editorial-statement` | Declaração editorial centralizada de e5, sem superfície externa fixa. | ![Blockquote editorial-statement centralizado](../assets/images/documentacao/blockquote/editorial-statement.svg) |
-| `thematic-rail` | Haste temática interrompida por aspas centralizadas de e6; corpo e autoria ficam à esquerda, o intervalo não varia com a altura textual e as cores seguem o tema ativo. | ![Blockquote thematic-rail com linha e aspas temáticas](../assets/images/documentacao/blockquote/thematic-rail.svg) |
+| `thematic-rail` | Haste temática interrompida por aspas centralizadas de e6; corpo justificado, autoria à esquerda, intervalo estável e cores vinculadas ao tema ativo. | ![Blockquote thematic-rail com linha e aspas temáticas](../assets/images/documentacao/blockquote/thematic-rail.svg) |
 
 As ilustrações tipadas mostram duas ocorrências do mesmo modelo — ícone padrão e override — e incluem a paleta real de destaque/superfície. Cada modelo tipado possui um accent fixo no tema (`notice` `#64748b`, `info` `#1673a5`, `alerta1` `#b66a00`, `alerta2` `#b4232f`) sobre o fundo de citação claro ou escuro.
 
@@ -113,7 +113,7 @@ Não existe catálogo fechado de ícones internos: qualquer imagem pública vers
 - Todos os modelos preservam conteúdo, links, notas, idioma, foco e ordem de leitura.
 - Em telas estreitas, modelos tipados movem o ícone para uma linha própria sem truncar o texto.
 - Os cinco modelos derivados de e1–e6 usam a font-family canônica do site; somente as aspas decorativas usam forma serifada própria.
-- `thematic-rail` usa tokens de texto, superfície e accent do tema; suas duas hastes e as aspas têm geometria própria estável e centralizada, independente da quantidade de texto. `centered-mark` e `editorial-statement` mantêm fundo transparente.
+- `thematic-rail` usa tokens de texto, superfície e accent do tema; suas duas hastes e as duas aspas têm geometria própria estável, integralmente visível e opticamente centralizada, independente da quantidade de texto ou de `content-visibility`. O corpo é justificado e a autoria permanece à esquerda. `centered-mark` e `editorial-statement` mantêm fundo transparente.
 - O `futuristic` muda a estrutura visual, mas conserva `data-jcem-blockquote` e `role="blockquote"`.
 - Sem JavaScript, o HTML estático ou o `<blockquote>` nativo continuam legíveis.
 - Na impressão, a decoração web é neutralizada e todos os modelos usam o perfil IEEE comum.

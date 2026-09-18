@@ -2816,10 +2816,12 @@ body
 
 	.main_jcem_wrapper .page__content [data-jcem-quote-model='thematic-rail'] {
 		--jcem-thematic-rail-gap: 2.7rem;
+		--jcem-thematic-rail-inset: calc(var(--jcem-thematic-rail-gap) / 2);
 		position: relative;
 		min-height: 7rem;
 		padding: clamp(0.85rem, 2.5vw, 1.2rem) clamp(0.5rem, 2vw, 1rem)
-			clamp(0.85rem, 2.5vw, 1.2rem) clamp(2.2rem, 7vw, 3.6rem);
+			clamp(0.85rem, 2.5vw, 1.2rem)
+			calc(clamp(2.2rem, 7vw, 3.6rem) + var(--jcem-thematic-rail-inset));
 		background-image: linear-gradient(
 			to bottom,
 			var(--jcem-panel-accent) 0 calc(50% - var(--jcem-thematic-rail-gap) / 2),
@@ -2827,7 +2829,7 @@ body
 				calc(50% + var(--jcem-thematic-rail-gap) / 2),
 			var(--jcem-panel-accent) calc(50% + var(--jcem-thematic-rail-gap) / 2) 100%
 		);
-		background-position: left top;
+		background-position: var(--jcem-thematic-rail-inset) top;
 		background-repeat: no-repeat;
 		background-size: 0.22rem 100%;
 	}
@@ -2838,7 +2840,7 @@ body
 		display: grid;
 		place-items: center;
 		inset-block-start: 50%;
-		inset-inline-start: 0.11rem;
+		inset-inline-start: var(--jcem-thematic-rail-inset);
 		width: var(--jcem-thematic-rail-gap);
 		height: var(--jcem-thematic-rail-gap);
 		color: var(--jcem-panel-accent);
@@ -2846,7 +2848,21 @@ body
 		font-size: clamp(2.2rem, 6vw, 3.2rem);
 		font-weight: 700;
 		line-height: 1;
-		transform: translate(-50%, -50%);
+		// PROTECAO: mantém o glifo inteiro sob contenção de pintura e compensa a
+		// métrica ascendente das aspas Georgia para centralização óptica no vão.
+		transform: translate(-50%, calc(-50% + 0.17em));
+	}
+
+	.main_jcem_wrapper
+		.page__content
+		[data-jcem-quote-model='thematic-rail']
+		> p:not(.jcem-quote-reference),
+	.main_jcem_wrapper
+		.page__content
+		[data-jcem-quote-model='thematic-rail']
+		> :is(ul, ol)
+		li {
+		text-align: justify;
 	}
 
 	.main_jcem_wrapper .page__content [data-jcem-quote-model='thematic-rail'] > :last-child {
@@ -2867,7 +2883,7 @@ body
 		}
 
 		.main_jcem_wrapper .page__content [data-jcem-quote-model='thematic-rail'] {
-			padding-inline: 2.3rem 0.4rem;
+			padding-inline: calc(2.3rem + var(--jcem-thematic-rail-inset)) 0.4rem;
 		}
 	}
 }

@@ -38,3 +38,12 @@ Corrigir cumulativamente a implementação visual dos cinco modelos derivados de
 - O runtime focado aprovou claro/escuro em 1280/320 px e o isolamento de impressão IEEE. Os gates TypeScript, semântico, documental, impresso, acessível estático e de desempenho também aprovaram.
 - O gate geral `validate:visual` permaneceu inconclusivo por timeout após 301 segundos sem falha emitida. `check:accessible-runtime` reproduziu a lacuna preexistente dos marcadores falados de início/fim da citação, sem nexo com a correção visual.
 - A FT-076 está tecnicamente corrigida, mas a TO-DO e a integração FT-074 continuam pendentes do aceite visual humano.
+
+## Segunda correção humana — 2026-09-17
+
+- Fonte: `../../requests/FT-075/segunda-correcao-blockquote-padrao.md`.
+- Evidência real: na primeira citação de `Devaneios`, fora do limiar otimizado, as duas aspas aparecem; nas demais, `content-visibility: auto` ativa contenção de pintura e recorta a metade do pseudo-elemento deslocada para fora da caixa.
+- Lacuna de teste: a matriz anterior desativava `content-visibility` antes da comparação agregada e verificava a caixa calculada do pseudo-elemento, não a área efetivamente pintada na rota real.
+- Correção normativa: o corpo do `thematic-rail` é justificado; a autoria permanece à esquerda; aspas devem ficar inteiras dentro da área de pintura e opticamente centralizadas.
+- Correção técnica: deslocar haste e pseudo-elemento para um inset interno comum, preservar a distância até o conteúdo, aplicar compensação vertical óptica e testar o artigo real com a otimização ativa.
+- Preservação: `_site` compartilhado continua intocado como fonte; build e evidências posteriores usam destino isolado.

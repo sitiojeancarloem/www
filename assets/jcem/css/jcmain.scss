@@ -328,8 +328,16 @@ aside {
 
 	// PROTECAO: os cinco modelos derivados têm alinhamento definido pelas evidências.
 	[data-jcem-quote-model='framed-accent'] > p,
-	[data-jcem-quote-model='pull-quote'] > p,
-	[data-jcem-quote-model='thematic-rail'] > p {
+	[data-jcem-quote-model='pull-quote'] > p {
+		text-align: left;
+	}
+
+	[data-jcem-quote-model='thematic-rail'] > p:not(.jcem-quote-reference),
+	[data-jcem-quote-model='thematic-rail'] > :is(ul, ol) li {
+		text-align: justify;
+	}
+
+	[data-jcem-quote-model='thematic-rail'] > .jcem-quote-reference {
 		text-align: left;
 	}
 
