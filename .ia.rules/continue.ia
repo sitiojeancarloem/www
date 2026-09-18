@@ -1109,6 +1109,11 @@ plano:
       - TOC deriva nomes limpos dos headings e no modo full nao pronuncia link, referencia ou ordinal
       - build produtivo isolado, acessibilidade estrutural, footnotes e TypeScript aprovaram
       - runtime percorreu continuous, summary e full com toda cobertura nova aprovada e parou somente na lacuna preexistente de marcadores de blockquote registrada pela FT-077
+      - rastreabilidade escopada da RCF TTS aprovou 68 entradas e 68 sentencas materiais; o gate global preserva pendencias preexistentes de FT-066 e RCFs/citacoes.md
+    commits:
+      registro: c280116064
+      normativo: 28d8092e7b
+      causal: 99f5ba63c2
     proximo_passo: validacao auditiva humana da fala corrigida; tratar marcadores de blockquote somente em frente causal propria
 lacunas:
   - id: GAP-RCF-MODULE-2026-001

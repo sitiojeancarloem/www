@@ -43,3 +43,5 @@ Normatizar e corrigir cirurgicamente a verbalização contextual de referências
 - `scripts/test_accessible_reading.rb` cobre o seletor equivalente, a limpeza combinada de heading e TOC, idempotência e fallback; aprovado por `check:accessibility`.
 - `check:footnotes`, `check:ts`, `node --check` e build produtivo isolado em `.tmp/ft079-site` aprovaram.
 - O runtime Chromium percorreu integralmente `continuous`, `summary` e `full`; as novas asserções de footnote, link, títulos e TOC aprovaram. O comando global continua encerrando exclusivamente em `MARCADORES_CITACAO_AUSENTES`, lacuna de blockquote preexistente registrada na FT-077 e não causada pelos cinco artefatos desta correção.
+- `rcf-trace finalize` vinculou as duas sentenças ao commit causal `99f5ba63c25bd56b45f3326ec9b1509e24968a4a`; a validação escopada de `RCFs/leitura-acessivel-e-tts.md` aprovou 68 entradas e 68 sentenças materiais.
+- A validação global permanece impedida por sete pendências preexistentes da FT-066 e por sentença não mapeada em `RCFs/citacoes.md`; nenhuma delas foi alterada, atribuída ou mascarada por esta FT.

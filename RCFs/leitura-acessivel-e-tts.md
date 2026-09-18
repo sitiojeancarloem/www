@@ -46,8 +46,8 @@ Escopo: representação acessível e falada de artigos, posts, páginas, navega�
 
 O normalizador DEVE gerar no máximo um marcador por fronteira semântica. Leitor de tela que já anuncia função nativa NÃO DEVE receber duplicação mecânica equivalente. [e8e5b5f]
 
-- No TTS opcional, link editorial pertencente ao corpo DEVE ser introduzido por indicação humana curta antes de seu nome textual; link permanente ou outro link descendente de `h2`, `h3` ou `h4` NÃO DEVE produzir anúncio de link separado. [PENDENTE-CODIGO]
-- `h2`, `h3` e `h4` DEVEM ser identificados como títulos na projeção falada, usando somente seu conteúdo editorial; marcador de nota, expansão de referência e semântica de link descendente NÃO DEVEM ser pronunciados nesses títulos. No TOC, rótulo, links e numeração estrutural DEVEM resultar apenas na sequência de nomes das seções, sem anúncio de link, referência ou ordinal. [PENDENTE-CODIGO]
+- No TTS opcional, link editorial pertencente ao corpo DEVE ser introduzido por indicação humana curta antes de seu nome textual; link permanente ou outro link descendente de `h2`, `h3` ou `h4` NÃO DEVE produzir anúncio de link separado. [4968a4a]
+- `h2`, `h3` e `h4` DEVEM ser identificados como títulos na projeção falada, usando somente seu conteúdo editorial; marcador de nota, expansão de referência e semântica de link descendente NÃO DEVEM ser pronunciados nesses títulos. No TOC, rótulo, links e numeração estrutural DEVEM resultar apenas na sequência de nomes das seções, sem anúncio de link, referência ou ordinal. [4968a4a]
 
 | Finalidade                | Contexto                                            | Forma falada padrão                                                 | Não se aplica quando                                                                   |
 | ------------------------- | --------------------------------------------------- | ------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |

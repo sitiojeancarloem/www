@@ -6017,13 +6017,13 @@
         "scripts/test_accessible_reading.rb",
         "scripts/test_accessible_runtime.mjs"
       ],
-      "commit": "",
+      "commit": "99f5ba63c25bd56b45f3326ec9b1509e24968a4a",
       "ft": "FT-079",
       "id": "f46f771ad166f4a1697df94b",
       "line": 49,
       "rcf": "RCFs/leitura-acessivel-e-tts.md",
       "sentenceSha256": "860ded41db99c97eafdb88d9fe68b10c16f8daa9c90558a5752db1a4fedf259f",
-      "state": "pending",
+      "state": "synchronized",
       "syncCommit": ""
     },
     {
@@ -6034,13 +6034,13 @@
         "scripts/test_accessible_reading.rb",
         "scripts/test_accessible_runtime.mjs"
       ],
-      "commit": "",
+      "commit": "99f5ba63c25bd56b45f3326ec9b1509e24968a4a",
       "ft": "FT-079",
       "id": "ff0f9db7c72b89cb4f77d50b",
       "line": 50,
       "rcf": "RCFs/leitura-acessivel-e-tts.md",
       "sentenceSha256": "2d2a40df805807e34b8b9b7d88059476f53e5391ea384a0b675da4c16f947774",
-      "state": "pending",
+      "state": "synchronized",
       "syncCommit": ""
     },
     {
