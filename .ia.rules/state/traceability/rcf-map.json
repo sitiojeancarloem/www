@@ -2484,6 +2484,20 @@
     },
     {
       "artifacts": [
+        "assets/jcem/css/jcmain.scss",
+        "scripts/test_quote_runtime.mjs"
+      ],
+      "commit": "0e492a822aa3f24f41ce6ca7caf458887b182de6",
+      "ft": "FT-076",
+      "id": "298e57726320e8dec3b2ad5b",
+      "line": 53,
+      "rcf": "RCFs/citacoes.md",
+      "sentenceSha256": "f3361ed56b455d7b858fb61079e7914226e017cd8ce11f800f9f13c9ba05df20",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
         "RCFs/citacoes.md"
       ],
       "commit": "363414fa45a4f60ab80f01e7ce56eea34860dfdf",
@@ -2778,6 +2792,19 @@
       "line": 88,
       "rcf": "RCFs/citacoes.md",
       "sentenceSha256": "e8986370de90d3dafcef58943345e301332c730e355565c7961677c01282e11e",
+      "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "scripts/test_quote_runtime.mjs"
+      ],
+      "commit": "0e492a822aa3f24f41ce6ca7caf458887b182de6",
+      "ft": "FT-076",
+      "id": "5a425c5c35ac2f6ca13715db",
+      "line": 88,
+      "rcf": "RCFs/citacoes.md",
+      "sentenceSha256": "77f787748d3c28f9c739d826396b0808ecda9d2caf8e59578ec1d2a3083e48f6",
       "state": "synchronized",
       "syncCommit": ""
     },

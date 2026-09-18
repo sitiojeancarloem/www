@@ -47,3 +47,11 @@ Corrigir cumulativamente a implementação visual dos cinco modelos derivados de
 - Correção normativa: o corpo do `thematic-rail` é justificado; a autoria permanece à esquerda; aspas devem ficar inteiras dentro da área de pintura e opticamente centralizadas.
 - Correção técnica: deslocar haste e pseudo-elemento para um inset interno comum, preservar a distância até o conteúdo, aplicar compensação vertical óptica e testar o artigo real com a otimização ativa.
 - Preservação: `_site` compartilhado continua intocado como fonte; build e evidências posteriores usam destino isolado.
+
+## Validação da segunda correção — 2026-09-18
+
+- O build produtivo isolado foi refeito a partir da árvore corrente em `.tmp/ft076-blockquote-current-site`, com `TEMP` e `TMP` confinados ao repositório por insuficiência de espaço no temporário do sistema.
+- A rota real `/p/devaneios/` foi inspecionada em desktop e em 390 px: a primeira citação e as subsequentes exibem o glifo duplo integralmente e com centralização óptica, inclusive sob `content-visibility: auto`.
+- O corpo computado permanece `text-align: justify`; a autoria permanece `text-align: left` e em itálico.
+- Os runtimes de citação e impressão, documentação e desempenho aprovaram contra o build isolado corrente; o teste de citação agora mede a tinta efetivamente rasterizada na rota real.
+- A integração continua pendente de aceite visual humano; nenhuma TO-DO foi encerrada.

@@ -1393,12 +1393,17 @@ plano:
       - cinco modelos corrigidos cumulativamente; pseudo-elementos agora possuem exibicao verificavel e os alinhamentos especificos prevalecem sem remover modelos, aliases, accents ou semantica
       - thematic-rail usa intervalo geometrico fixo centralizado, aspas visiveis e corpo e autoria a esquerda; amostras curta e longa comprovam que a altura do texto nao altera o intervalo
       - fixture, documentacao e ilustracoes foram sincronizadas com as referencias estritas e1 a e6 e com as excecoes expressas ja vigentes
+      - segunda correcao humana identificou que a matriz anterior desativava content-visibility e, por isso, nao detectava o recorte das aspas nas citacoes posteriores da rota real
+      - thematic-rail passou a manter haste e aspas dentro da caixa de pintura, com glifo duplo integralmente visivel e centralizado; corpo justificado e autoria a esquerda foram explicitados e preservados
     validacao:
       - build produtivo integral e isolado em .tmp/ft076-site aprovado em 222,742 segundos, sem absorver o _site compartilhado
       - runtime de citacoes aprovado em 1280 e 320 px, claro e escuro, incluindo geometria, visibilidade real dos adornos, alinhamento e isolamento IEEE
       - check:ts, check:quotes, check:documentation, check:print, check:accessibility e check:performance aprovados
       - check:accessible-runtime reproduziu a lacuna preexistente dos marcadores falados Inicio e Fim da citacao, sem nexo causal com a alteracao visual desta FT
       - validate:visual geral permaneceu inconclusivo por timeout de 301 segundos, sem emitir falha; a matriz focada e as capturas dos cinco modelos foram concluidas e aprovadas tecnicamente
+      - build produtivo isolado corrente em .tmp/ft076-blockquote-current-site aprovado; runtime de citacoes aprovado em 1280 e 320 px, claro, escuro e impressao IEEE
+      - rota real /p/devaneios/ inspecionada em desktop e 390 px com content-visibility ativo; primeira citacao e citacoes posteriores exibem duas aspas inteiras, corpo justificado e autoria a esquerda em italico
+      - runtime de impressao, documentacao e desempenho aprovados contra o build isolado corrente
     preservacao:
       - estado anterior e posterior comparados; os seis modelos preexistentes, cinco novos modelos, aliases, accents, temas, responsividade, semantica e impressao foram preservados ou fortalecidos
       - _site compartilhado e suas modificacoes preexistentes permaneceram fora da alteracao fonte e dos commits
@@ -1407,6 +1412,8 @@ plano:
       registro: a7cef635a9
       normativo: 991aff8193
       causal: 21d23e2929
+      segunda_correcao: 0e492a822a
+      ajuste_distancia: ad788fdf0c
     proximo_passo: validacao humana da fidelidade visual; manter a TO-DO em andamento ate aceite efetivo
   - id: FT-077
     classe: correcao_codigo_validacao
