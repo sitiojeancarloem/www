@@ -1072,6 +1072,34 @@ plano:
       causal: 11a0fc7f24
       rastreabilidade: 0218a7e49d
     proximo_passo: validacao humana da correcao inter paginas; manter a TO-DO em andamento ate aceite efetivo
+  - id: FT-078
+    classe: implementacao_normativa
+    criado_em: 2026-09-18
+    estado: registrada_aguardando_commit_inicial
+    fonte: .ia.rules/state/requests/FT-078/prompt.md
+    contexto: .ia.rules/state/contexts/FT-078/master.md
+    objetivo: Refinar o contrato da projecao falada para referencias de footnote, links, headings e TOC sem alterar a representacao visual ou a acessibilidade estatica.
+    escopo: RCFs/leitura-acessivel-e-tts.md e rastreabilidade aplicavel.
+    aceite:
+      - numero ou glifo de footnote nunca e pronunciado isoladamente
+      - links editoriais e headings recebem contexto humano no TTS opcional
+      - links e referencias internos a headings e numeros estruturais do TOC nao sao pronunciados
+      - modos de referencia e demais capacidades vigentes permanecem preservados
+  - id: FT-079
+    classe: correcao_codigo_validacao
+    criado_em: 2026-09-18
+    estado: registrada_aguardando_ft_normativa
+    depende_de: FT-078
+    fonte: .ia.rules/state/requests/FT-078/prompt.md
+    fonte_autorizacao: prompt humano de 2026-09-18 para aplicar as correcoes e continuacao expressa no mesmo contexto
+    autorizacao_codigo: humana
+    contexto: .ia.rules/state/contexts/FT-078/master.md
+    objetivo: Corrigir o runtime TTS e cobrir referencias, links, headings e TOC por regressao focada sem regredir os demais pontos.
+    aceite:
+      - fixture combina paragrafo, sup de footnote, link editorial, headings com links/referencias e TOC
+      - runtime nao produz numeros soltos nem anuncios proibidos
+      - continuous, summary e full, controles, citacoes, tabelas, graficos e idiomas aprovam
+    proximo_passo: apos commit exclusivo do registro inicial, concluir FT-078 e executar FT-079 ja autorizada
 lacunas:
   - id: GAP-RCF-MODULE-2026-001
     estado: isolada_fora_do_escopo
