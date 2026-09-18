@@ -6011,6 +6011,40 @@
     },
     {
       "artifacts": [
+        "_pages/tts-accessibility-fixture.md",
+        "_plugins/jcem_zz_accessible_reading.rb",
+        "assets/jcem/js/read-aloud.js",
+        "scripts/test_accessible_reading.rb",
+        "scripts/test_accessible_runtime.mjs"
+      ],
+      "commit": "",
+      "ft": "FT-079",
+      "id": "f46f771ad166f4a1697df94b",
+      "line": 49,
+      "rcf": "RCFs/leitura-acessivel-e-tts.md",
+      "sentenceSha256": "860ded41db99c97eafdb88d9fe68b10c16f8daa9c90558a5752db1a4fedf259f",
+      "state": "pending",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "_pages/tts-accessibility-fixture.md",
+        "_plugins/jcem_zz_accessible_reading.rb",
+        "assets/jcem/js/read-aloud.js",
+        "scripts/test_accessible_reading.rb",
+        "scripts/test_accessible_runtime.mjs"
+      ],
+      "commit": "",
+      "ft": "FT-079",
+      "id": "ff0f9db7c72b89cb4f77d50b",
+      "line": 50,
+      "rcf": "RCFs/leitura-acessivel-e-tts.md",
+      "sentenceSha256": "2d2a40df805807e34b8b9b7d88059476f53e5391ea384a0b675da4c16f947774",
+      "state": "pending",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
         "RCFs/leitura-acessivel-e-tts.md"
       ],
       "commit": "cf9a947ef0b643cb1ee7d3f47d10ecec2e983edf",

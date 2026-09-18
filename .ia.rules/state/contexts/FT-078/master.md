@@ -1,6 +1,6 @@
 # FT-078/FT-079 — Projeção falada contextual
 
-Estado: registrada, aguardando commit inicial de governança. Fonte: `.ia.rules/state/requests/FT-078/prompt.md`.
+Estado: FT-078 normatizada; FT-079 autorizada e em implementação. Fonte: `.ia.rules/state/requests/FT-078/prompt.md`.
 
 ## Objetivo
 
