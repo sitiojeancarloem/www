@@ -1115,6 +1115,36 @@ plano:
       normativo: 28d8092e7b
       causal: 99f5ba63c2
     proximo_passo: validacao auditiva humana da fala corrigida; tratar marcadores de blockquote somente em frente causal propria
+  - id: FT-080
+    classe: implementacao_normativa
+    criado_em: 2026-09-18
+    estado: em_andamento
+    depende_de: FT-078, FT-079
+    fonte: .ia.rules/state/requests/FT-080/prompt.md
+    contexto: .ia.rules/state/contexts/FT-080/master.md
+    objetivo: Consolidar a gramatica falada global de referencias biblicas, preservando o contrato anterior e distinguindo modos curto e longo.
+    escopo: RCFs/leitura-acessivel-e-tts.md e rastreabilidade aplicavel.
+    aceite:
+      - dois-pontos representa somente a estrutura capitulo-versiculo e nunca a palavra para
+      - modos curto e longo derivam da mesma referencia interpretada
+      - listas, intervalos, grupos, mudancas de capitulo, contexto herdado e pausas permanecem semanticamente fieis
+      - exemplos comprovam a regra global sem hardcode por artigo ou livro
+  - id: FT-081
+    classe: correcao_codigo_validacao
+    criado_em: 2026-09-18
+    estado: aguardando_norma
+    depende_de: FT-080
+    fonte: .ia.rules/state/requests/FT-080/prompt.md
+    fonte_autorizacao: prompts humanos de 2026-09-18 para corrigir, generalizar, implementar, testar, criar commits e enviar ao remoto
+    autorizacao_codigo: humana
+    contexto: .ia.rules/state/contexts/FT-080/master.md
+    objetivo: Implementar parser comum e validar globalmente as projecoes curta e longa de referencias biblicas.
+    aceite:
+      - AST unica cobre livros simples, compostos, numerados e abreviados
+      - referencias simples e compostas, intervalos, listas, grupos e conectivos aprovam
+      - horarios e segmentos tecnicos nao sofrem normalizacao biblica
+      - payload falado nao contem para entre capitulo e versiculo
+      - runtime e gates acessiveis preservam as capacidades vigentes
 lacunas:
   - id: GAP-RCF-MODULE-2026-001
     estado: isolada_fora_do_escopo
