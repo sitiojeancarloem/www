@@ -13,7 +13,7 @@ Autoridade: `AGENTS.md` → `RCF.md` → sub-RCF aplicável → este adaptador. 
 
 | Gatilho | Rota mínima após o núcleo |
 |---|---|
-| conteúdo editorial ou revisão autoral | recurso canônico `.ia.rules/resources/editorial-authoring.md` + capacidade `WEB-EDITORIAL` + sub-RCFs do conteúdo alterado |
+| conteúdo editorial ou revisão autoral | recurso canônico `.ia.rules/resources/editorial-authoring.md` + capacidade `WEB-EDITORIAL` + sub-RCFs do conteúdo alterado; havendo referência potencialmente divina, cadeia correferente ou caixa alta material, carregar depois `RCFs/revisao-editorial-reverencial.md` + Skill local `.ia.rules/local/skills/reverential-editorial-review/SKILL.md` |
 | síntese `bate-papo:` | `RCFs/bate-papo.md` + namespaces + publicação quando aplicável |
 | citação, nota ou bibliografia | `RCFs/citacoes.md` + `RCFs/referencias-e-footnotes.md` |
 | TTS, forma falada, idioma, pronúncia, tabela, imagem ou gráfico acessível | recurso canônico `.ia.rules/resources/spoken-normalization.md` + `RCFs/leitura-acessivel-e-tts.md` + contrato semântico de origem; carregar `editorial-authoring.md` também somente quando houver transformação autoral |

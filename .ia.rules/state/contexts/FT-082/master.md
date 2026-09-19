@@ -1,6 +1,6 @@
 # Contexto mestre — FT-082 a FT-084
 
-Estado: FT-082 normatizada; FT-083 aguarda implementação já autorizada. Fonte material: `TODO.ia.md`. Autorização e pedido de execução: `.ia.rules/state/requests/FT-082/prompt.md`.
+Estado: FT-082 normatizada; FT-083 implementada; FT-084 em validação. Fonte material: `TODO.ia.md`. Autorização e pedido de execução: `.ia.rules/state/requests/FT-082/prompt.md`.
 
 ## Objetivo
 
@@ -25,6 +25,14 @@ A sub-RCF `RCFs/revisao-editorial-reverencial.md` centraliza a regra do produto;
 1. FT-082 — equalização e normatização: consolidar contrato, precedências, casos e destino oficial; nenhum artefato executável da Skill entra nesta fase.
 2. FT-083 — implementação: criar somente a Skill local, descritor, roteamento e testes necessários, após o commit normativo já autorizado.
 3. FT-084 — integração e validação: executar matriz completa, regressões e rastreabilidade; manter a TO-DO em validação humana.
+
+## Implementação da FT-083
+
+- `.ia.rules/local/skills/reverential-editorial-review/SKILL.md` contém o procedimento contextual, a matriz mínima e a saída preservadora.
+- `descriptor.json` registra gatilhos positivos e negativos, autoridade, efeitos, limites, validação e remoção; `agents/openai.yaml` mantém a interface da Skill.
+- `agents.local.md` carrega a especialização somente depois de `editorial-authoring` e apenas quando houver referência potencialmente divina, cadeia correferente ou caixa alta material.
+- `scripts/test_reverential_editorial_policy.rb` e `npm run check:editorial-policy` validam estrutura, rota, precedência, casos e ausência de Subagent redundante.
+- O núcleo gerenciado permaneceu inalterado e a indisponibilidade da extensão não bloqueia a capacidade editorial essencial.
 
 ## Dependências e preservação
 

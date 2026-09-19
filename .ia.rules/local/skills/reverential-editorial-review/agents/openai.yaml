@@ -1,0 +1,6 @@
+interface:
+  display_name: "Revisão editorial reverencial"
+  short_description: "Revisão reverencial contextual e preservadora"
+  default_prompt: "Use $reverential-editorial-review para revisar capitalização reverencial e preservar ênfases autorais."
+policy:
+  allow_implicit_invocation: true

@@ -1,0 +1,55 @@
+{
+  "schema": "agents-skill-descriptor/v1",
+  "name": "reverential-editorial-review",
+  "description": "Revisa capitalização reverencial cristã com decisão contextual e preservação editorial.",
+  "version": "1.0.0",
+  "purpose": "Especializar a revisão autoral deste produto sem duplicar a capacidade editorial gerenciada.",
+  "positiveTriggers": [
+    "revisão autoral com referência potencialmente divina",
+    "pré-publicação com cadeia correferente cristã",
+    "edição editorial com caixa alta material"
+  ],
+  "negativeTriggers": [
+    "correção técnica sem alteração editorial",
+    "formatação mecânica sem referência divina ou caixa alta material",
+    "conteúdo sem decisão reverencial"
+  ],
+  "roles": ["final", "editorial"],
+  "authority": "AGENTS.md, RCF.md, editorial-authoring e RCFs/revisao-editorial-reverencial.md permanecem superiores",
+  "inputs": {
+    "required": ["texto expressamente colocado em escopo"],
+    "optional": ["contexto editorial", "fonte da citação", "intenção autoral documentada"]
+  },
+  "output": {
+    "format": "texto revisado e registro de alterações, preservações e ambiguidades"
+  },
+  "requires": [
+    ".ia.rules/resources/editorial-authoring.md",
+    "RCFs/revisao-editorial-reverencial.md"
+  ],
+  "resources": [],
+  "scripts": [],
+  "hooks": [],
+  "permissions": ["leitura do contexto editorial", "escrita somente no texto autorizado"],
+  "effects": ["proposta ou aplicação explícita de revisão editorial local"],
+  "limits": {
+    "automaticCorpusScan": false,
+    "blindReplacement": false,
+    "inferAmbiguousReferent": false,
+    "managedCoreMutation": false
+  },
+  "validation": [
+    "matriz positiva, negativa e combinada",
+    "preservação de citação e ênfase autoral",
+    "caso limítrofe mantém a forma original",
+    "descritor, rota local e ausência de Subagent redundante"
+  ],
+  "origin": "sitiojeancarloem/www",
+  "license": "MPL-2.0",
+  "trust": "first-party-reviewed",
+  "clients": ["codex", "github-copilot"],
+  "precedence": "subordinada a AGENTS.md, RCF.md, editorial-authoring e à sub-RCF reverencial",
+  "merge": "extensão local independente sem sobrescrever recurso gerenciado",
+  "update": "alteração governada por FT normativa e validação focada",
+  "removal": "removível sem impedir a capacidade editorial canônica"
+}

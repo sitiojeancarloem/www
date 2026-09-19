@@ -6691,8 +6691,10 @@
     {
       "artifacts": [
         ".ia.rules/local/skills/reverential-editorial-review/SKILL.md",
+        ".ia.rules/local/skills/reverential-editorial-review/agents/openai.yaml",
         ".ia.rules/local/skills/reverential-editorial-review/descriptor.json",
         "agents.local.md",
+        "package.json",
         "scripts/test_reverential_editorial_policy.rb"
       ],
       "commit": "",
@@ -6707,8 +6709,10 @@
     {
       "artifacts": [
         ".ia.rules/local/skills/reverential-editorial-review/SKILL.md",
+        ".ia.rules/local/skills/reverential-editorial-review/agents/openai.yaml",
         ".ia.rules/local/skills/reverential-editorial-review/descriptor.json",
         "agents.local.md",
+        "package.json",
         "scripts/test_reverential_editorial_policy.rb"
       ],
       "commit": "",
@@ -6723,8 +6727,10 @@
     {
       "artifacts": [
         ".ia.rules/local/skills/reverential-editorial-review/SKILL.md",
+        ".ia.rules/local/skills/reverential-editorial-review/agents/openai.yaml",
         ".ia.rules/local/skills/reverential-editorial-review/descriptor.json",
         "agents.local.md",
+        "package.json",
         "scripts/test_reverential_editorial_policy.rb"
       ],
       "commit": "",
@@ -6739,8 +6745,10 @@
     {
       "artifacts": [
         ".ia.rules/local/skills/reverential-editorial-review/SKILL.md",
+        ".ia.rules/local/skills/reverential-editorial-review/agents/openai.yaml",
         ".ia.rules/local/skills/reverential-editorial-review/descriptor.json",
         "agents.local.md",
+        "package.json",
         "scripts/test_reverential_editorial_policy.rb"
       ],
       "commit": "",
@@ -6755,8 +6763,10 @@
     {
       "artifacts": [
         ".ia.rules/local/skills/reverential-editorial-review/SKILL.md",
+        ".ia.rules/local/skills/reverential-editorial-review/agents/openai.yaml",
         ".ia.rules/local/skills/reverential-editorial-review/descriptor.json",
         "agents.local.md",
+        "package.json",
         "scripts/test_reverential_editorial_policy.rb"
       ],
       "commit": "",
@@ -6771,8 +6781,10 @@
     {
       "artifacts": [
         ".ia.rules/local/skills/reverential-editorial-review/SKILL.md",
+        ".ia.rules/local/skills/reverential-editorial-review/agents/openai.yaml",
         ".ia.rules/local/skills/reverential-editorial-review/descriptor.json",
         "agents.local.md",
+        "package.json",
         "scripts/test_reverential_editorial_policy.rb"
       ],
       "commit": "",
@@ -6787,8 +6799,10 @@
     {
       "artifacts": [
         ".ia.rules/local/skills/reverential-editorial-review/SKILL.md",
+        ".ia.rules/local/skills/reverential-editorial-review/agents/openai.yaml",
         ".ia.rules/local/skills/reverential-editorial-review/descriptor.json",
         "agents.local.md",
+        "package.json",
         "scripts/test_reverential_editorial_policy.rb"
       ],
       "commit": "",
@@ -6803,8 +6817,10 @@
     {
       "artifacts": [
         ".ia.rules/local/skills/reverential-editorial-review/SKILL.md",
+        ".ia.rules/local/skills/reverential-editorial-review/agents/openai.yaml",
         ".ia.rules/local/skills/reverential-editorial-review/descriptor.json",
         "agents.local.md",
+        "package.json",
         "scripts/test_reverential_editorial_policy.rb"
       ],
       "commit": "",
@@ -6819,8 +6835,10 @@
     {
       "artifacts": [
         ".ia.rules/local/skills/reverential-editorial-review/SKILL.md",
+        ".ia.rules/local/skills/reverential-editorial-review/agents/openai.yaml",
         ".ia.rules/local/skills/reverential-editorial-review/descriptor.json",
         "agents.local.md",
+        "package.json",
         "scripts/test_reverential_editorial_policy.rb"
       ],
       "commit": "",
@@ -6835,8 +6853,10 @@
     {
       "artifacts": [
         ".ia.rules/local/skills/reverential-editorial-review/SKILL.md",
+        ".ia.rules/local/skills/reverential-editorial-review/agents/openai.yaml",
         ".ia.rules/local/skills/reverential-editorial-review/descriptor.json",
         "agents.local.md",
+        "package.json",
         "scripts/test_reverential_editorial_policy.rb"
       ],
       "commit": "",
@@ -6851,8 +6871,10 @@
     {
       "artifacts": [
         ".ia.rules/local/skills/reverential-editorial-review/SKILL.md",
+        ".ia.rules/local/skills/reverential-editorial-review/agents/openai.yaml",
         ".ia.rules/local/skills/reverential-editorial-review/descriptor.json",
         "agents.local.md",
+        "package.json",
         "scripts/test_reverential_editorial_policy.rb"
       ],
       "commit": "",
@@ -6867,8 +6889,10 @@
     {
       "artifacts": [
         ".ia.rules/local/skills/reverential-editorial-review/SKILL.md",
+        ".ia.rules/local/skills/reverential-editorial-review/agents/openai.yaml",
         ".ia.rules/local/skills/reverential-editorial-review/descriptor.json",
         "agents.local.md",
+        "package.json",
         "scripts/test_reverential_editorial_policy.rb"
       ],
       "commit": "",
@@ -6883,8 +6907,10 @@
     {
       "artifacts": [
         ".ia.rules/local/skills/reverential-editorial-review/SKILL.md",
+        ".ia.rules/local/skills/reverential-editorial-review/agents/openai.yaml",
         ".ia.rules/local/skills/reverential-editorial-review/descriptor.json",
         "agents.local.md",
+        "package.json",
         "scripts/test_reverential_editorial_policy.rb"
       ],
       "commit": "",
@@ -6899,8 +6925,10 @@
     {
       "artifacts": [
         ".ia.rules/local/skills/reverential-editorial-review/SKILL.md",
+        ".ia.rules/local/skills/reverential-editorial-review/agents/openai.yaml",
         ".ia.rules/local/skills/reverential-editorial-review/descriptor.json",
         "agents.local.md",
+        "package.json",
         "scripts/test_reverential_editorial_policy.rb"
       ],
       "commit": "",
@@ -6915,8 +6943,10 @@
     {
       "artifacts": [
         ".ia.rules/local/skills/reverential-editorial-review/SKILL.md",
+        ".ia.rules/local/skills/reverential-editorial-review/agents/openai.yaml",
         ".ia.rules/local/skills/reverential-editorial-review/descriptor.json",
         "agents.local.md",
+        "package.json",
         "scripts/test_reverential_editorial_policy.rb"
       ],
       "commit": "",
@@ -6931,8 +6961,10 @@
     {
       "artifacts": [
         ".ia.rules/local/skills/reverential-editorial-review/SKILL.md",
+        ".ia.rules/local/skills/reverential-editorial-review/agents/openai.yaml",
         ".ia.rules/local/skills/reverential-editorial-review/descriptor.json",
         "agents.local.md",
+        "package.json",
         "scripts/test_reverential_editorial_policy.rb"
       ],
       "commit": "",
@@ -6947,8 +6979,10 @@
     {
       "artifacts": [
         ".ia.rules/local/skills/reverential-editorial-review/SKILL.md",
+        ".ia.rules/local/skills/reverential-editorial-review/agents/openai.yaml",
         ".ia.rules/local/skills/reverential-editorial-review/descriptor.json",
         "agents.local.md",
+        "package.json",
         "scripts/test_reverential_editorial_policy.rb"
       ],
       "commit": "",
@@ -6963,8 +6997,10 @@
     {
       "artifacts": [
         ".ia.rules/local/skills/reverential-editorial-review/SKILL.md",
+        ".ia.rules/local/skills/reverential-editorial-review/agents/openai.yaml",
         ".ia.rules/local/skills/reverential-editorial-review/descriptor.json",
         "agents.local.md",
+        "package.json",
         "scripts/test_reverential_editorial_policy.rb"
       ],
       "commit": "",
@@ -6979,8 +7015,10 @@
     {
       "artifacts": [
         ".ia.rules/local/skills/reverential-editorial-review/SKILL.md",
+        ".ia.rules/local/skills/reverential-editorial-review/agents/openai.yaml",
         ".ia.rules/local/skills/reverential-editorial-review/descriptor.json",
         "agents.local.md",
+        "package.json",
         "scripts/test_reverential_editorial_policy.rb"
       ],
       "commit": "",
@@ -6995,8 +7033,10 @@
     {
       "artifacts": [
         ".ia.rules/local/skills/reverential-editorial-review/SKILL.md",
+        ".ia.rules/local/skills/reverential-editorial-review/agents/openai.yaml",
         ".ia.rules/local/skills/reverential-editorial-review/descriptor.json",
         "agents.local.md",
+        "package.json",
         "scripts/test_reverential_editorial_policy.rb"
       ],
       "commit": "",
@@ -7011,8 +7051,10 @@
     {
       "artifacts": [
         ".ia.rules/local/skills/reverential-editorial-review/SKILL.md",
+        ".ia.rules/local/skills/reverential-editorial-review/agents/openai.yaml",
         ".ia.rules/local/skills/reverential-editorial-review/descriptor.json",
         "agents.local.md",
+        "package.json",
         "scripts/test_reverential_editorial_policy.rb"
       ],
       "commit": "",
@@ -7027,8 +7069,10 @@
     {
       "artifacts": [
         ".ia.rules/local/skills/reverential-editorial-review/SKILL.md",
+        ".ia.rules/local/skills/reverential-editorial-review/agents/openai.yaml",
         ".ia.rules/local/skills/reverential-editorial-review/descriptor.json",
         "agents.local.md",
+        "package.json",
         "scripts/test_reverential_editorial_policy.rb"
       ],
       "commit": "",

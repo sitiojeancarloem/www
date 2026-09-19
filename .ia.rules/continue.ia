@@ -1115,7 +1115,7 @@ plano:
   - id: FT-083
     classe: implementacao_skill_local
     criado_em: 2026-09-18T23:10:35.1387330-03:00
-    estado: pendente
+    estado: concluida
     depende_de: FT-082
     fonte: TODO.ia.md
     fonte_autorizacao: .ia.rules/state/requests/FT-082/prompt.md
@@ -1127,6 +1127,11 @@ plano:
       - decisao contextual preserva forma ambigua, citacoes e enfase autoral e evita capitalizacao redundante
       - casos positivos, negativos, mistos, correferentes e de sentenca integral em caixa alta estao cobertos
       - operacao sem a Skill conserva a capacidade editorial gerenciada essencial
+    resultado:
+      - Skill local e descritor declaram gatilhos, precedencia, saida, limites e falha preservadora sem hook ou automacao cega
+      - interface OpenAI permite invocacao implicita somente nos sinais editoriais descritos e preserva editorial-authoring como primeira autoridade
+      - agents.local.md roteia a extensao depois da capacidade gerenciada sem criar Subagent
+      - regressao focada cobre matriz positiva, negativa e combinada, integridade estrutural e ausencia de mutacao do nucleo
   - id: FT-084
     classe: integracao_validacao
     criado_em: 2026-09-18T23:10:35.1397330-03:00
