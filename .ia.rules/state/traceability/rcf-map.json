@@ -6697,13 +6697,13 @@
         "package.json",
         "scripts/test_reverential_editorial_policy.rb"
       ],
-      "commit": "",
+      "commit": "04cd0d829d42ebdc3e049fe2ae35462f1357e91d",
       "ft": "FT-083",
       "id": "572d19c25a9eaf0be91b5840",
       "line": 10,
       "rcf": "RCFs/revisao-editorial-reverencial.md",
       "sentenceSha256": "167ce26dd8837f20d766a8a872a594255de4c72aabfae948c346dbf377699d0d",
-      "state": "pending",
+      "state": "synchronized",
       "syncCommit": ""
     },
     {
@@ -6715,13 +6715,13 @@
         "package.json",
         "scripts/test_reverential_editorial_policy.rb"
       ],
-      "commit": "",
+      "commit": "04cd0d829d42ebdc3e049fe2ae35462f1357e91d",
       "ft": "FT-083",
       "id": "30c60ab6215c07c355407a86",
       "line": 11,
       "rcf": "RCFs/revisao-editorial-reverencial.md",
       "sentenceSha256": "6899f719fe34f8d3adb685d265d86e2531c3c7316025e595fd28d73c88b538a7",
-      "state": "pending",
+      "state": "synchronized",
       "syncCommit": ""
     },
     {
@@ -6733,13 +6733,13 @@
         "package.json",
         "scripts/test_reverential_editorial_policy.rb"
       ],
-      "commit": "",
+      "commit": "04cd0d829d42ebdc3e049fe2ae35462f1357e91d",
       "ft": "FT-083",
       "id": "385c3ecb493fbadf60fd53dc",
       "line": 12,
       "rcf": "RCFs/revisao-editorial-reverencial.md",
       "sentenceSha256": "e56268f6f96defdceeb9d7a2307093f79970b164e2007461dd19e6f0fba25efa",
-      "state": "pending",
+      "state": "synchronized",
       "syncCommit": ""
     },
     {
@@ -6751,13 +6751,13 @@
         "package.json",
         "scripts/test_reverential_editorial_policy.rb"
       ],
-      "commit": "",
+      "commit": "04cd0d829d42ebdc3e049fe2ae35462f1357e91d",
       "ft": "FT-083",
       "id": "3b30c9bc41e558d9c9a04c6a",
       "line": 16,
       "rcf": "RCFs/revisao-editorial-reverencial.md",
       "sentenceSha256": "c77355b9b40138b799bb9e97967287d8bde59e00a537485c8121cb4b5b304b03",
-      "state": "pending",
+      "state": "synchronized",
       "syncCommit": ""
     },
     {
@@ -6769,13 +6769,13 @@
         "package.json",
         "scripts/test_reverential_editorial_policy.rb"
       ],
-      "commit": "",
+      "commit": "04cd0d829d42ebdc3e049fe2ae35462f1357e91d",
       "ft": "FT-083",
       "id": "03bd2dd470a43cfecb3a3a09",
       "line": 17,
       "rcf": "RCFs/revisao-editorial-reverencial.md",
       "sentenceSha256": "8f9be42ffdc2d2c61ccc1340beee4b9dd10526d69659e5297bb61f56efb6a0f6",
-      "state": "pending",
+      "state": "synchronized",
       "syncCommit": ""
     },
     {
@@ -6787,13 +6787,13 @@
         "package.json",
         "scripts/test_reverential_editorial_policy.rb"
       ],
-      "commit": "",
+      "commit": "04cd0d829d42ebdc3e049fe2ae35462f1357e91d",
       "ft": "FT-083",
       "id": "fa4b8751a41050dfbed1964f",
       "line": 18,
       "rcf": "RCFs/revisao-editorial-reverencial.md",
       "sentenceSha256": "f1cf48339c48a753e67d254b5b1262b4896d2f4923332181f54686cf4623a241",
-      "state": "pending",
+      "state": "synchronized",
       "syncCommit": ""
     },
     {
@@ -6805,13 +6805,13 @@
         "package.json",
         "scripts/test_reverential_editorial_policy.rb"
       ],
-      "commit": "",
+      "commit": "04cd0d829d42ebdc3e049fe2ae35462f1357e91d",
       "ft": "FT-083",
       "id": "f4a646dc83354bd401321338",
       "line": 19,
       "rcf": "RCFs/revisao-editorial-reverencial.md",
       "sentenceSha256": "8e979d685224e94a1f505b15a051b1905aa957cccf1a1312e10829697584bbc1",
-      "state": "pending",
+      "state": "synchronized",
       "syncCommit": ""
     },
     {
@@ -6823,13 +6823,13 @@
         "package.json",
         "scripts/test_reverential_editorial_policy.rb"
       ],
-      "commit": "",
+      "commit": "04cd0d829d42ebdc3e049fe2ae35462f1357e91d",
       "ft": "FT-083",
       "id": "411822898f325bc3b571b0a7",
       "line": 23,
       "rcf": "RCFs/revisao-editorial-reverencial.md",
       "sentenceSha256": "8d77e46f2408fcd3706f847d8033b5b525c436653c18cdf38eab3e195b32c6e3",
-      "state": "pending",
+      "state": "synchronized",
       "syncCommit": ""
     },
     {
@@ -6841,13 +6841,13 @@
         "package.json",
         "scripts/test_reverential_editorial_policy.rb"
       ],
-      "commit": "",
+      "commit": "04cd0d829d42ebdc3e049fe2ae35462f1357e91d",
       "ft": "FT-083",
       "id": "c8b16cc916b520b86768459b",
       "line": 24,
       "rcf": "RCFs/revisao-editorial-reverencial.md",
       "sentenceSha256": "71548477c29eeb089201a4f4205ec623effabbff255b27afe9fb51305141c812",
-      "state": "pending",
+      "state": "synchronized",
       "syncCommit": ""
     },
     {
@@ -6859,13 +6859,13 @@
         "package.json",
         "scripts/test_reverential_editorial_policy.rb"
       ],
-      "commit": "",
+      "commit": "04cd0d829d42ebdc3e049fe2ae35462f1357e91d",
       "ft": "FT-083",
       "id": "09450a2afdf475e2915b8b17",
       "line": 25,
       "rcf": "RCFs/revisao-editorial-reverencial.md",
       "sentenceSha256": "ea34d27554ab361de07c38aa500ffe020677a81be42b6f734300f20533cdf25b",
-      "state": "pending",
+      "state": "synchronized",
       "syncCommit": ""
     },
     {
@@ -6877,13 +6877,13 @@
         "package.json",
         "scripts/test_reverential_editorial_policy.rb"
       ],
-      "commit": "",
+      "commit": "04cd0d829d42ebdc3e049fe2ae35462f1357e91d",
       "ft": "FT-083",
       "id": "56813b44ff36f605bfc2b4c0",
       "line": 26,
       "rcf": "RCFs/revisao-editorial-reverencial.md",
       "sentenceSha256": "a7ab41c8102186003826a307b00deef9584c93a24d62f5826d722a069e75965b",
-      "state": "pending",
+      "state": "synchronized",
       "syncCommit": ""
     },
     {
@@ -6895,13 +6895,13 @@
         "package.json",
         "scripts/test_reverential_editorial_policy.rb"
       ],
-      "commit": "",
+      "commit": "04cd0d829d42ebdc3e049fe2ae35462f1357e91d",
       "ft": "FT-083",
       "id": "78c0adfb239845728923ce06",
       "line": 27,
       "rcf": "RCFs/revisao-editorial-reverencial.md",
       "sentenceSha256": "cbd94d93c8bd9be5a279963811dbf7f1a6c27fa3ebe2badf6de317024c043319",
-      "state": "pending",
+      "state": "synchronized",
       "syncCommit": ""
     },
     {
@@ -6913,13 +6913,13 @@
         "package.json",
         "scripts/test_reverential_editorial_policy.rb"
       ],
-      "commit": "",
+      "commit": "04cd0d829d42ebdc3e049fe2ae35462f1357e91d",
       "ft": "FT-083",
       "id": "bc5ac3df5c55abd931bd0541",
       "line": 28,
       "rcf": "RCFs/revisao-editorial-reverencial.md",
       "sentenceSha256": "c56e20f664a749ad6a9577f8c98e2980ba9837636fbf65883242e168febe7ece",
-      "state": "pending",
+      "state": "synchronized",
       "syncCommit": ""
     },
     {
@@ -6931,13 +6931,13 @@
         "package.json",
         "scripts/test_reverential_editorial_policy.rb"
       ],
-      "commit": "",
+      "commit": "04cd0d829d42ebdc3e049fe2ae35462f1357e91d",
       "ft": "FT-083",
       "id": "635566b52bc07b04f6b86234",
       "line": 29,
       "rcf": "RCFs/revisao-editorial-reverencial.md",
       "sentenceSha256": "72d83f6d1b95ea409c51c4ef99f2212c72dac1c11518244a61c650fe7e8bb88e",
-      "state": "pending",
+      "state": "synchronized",
       "syncCommit": ""
     },
     {
@@ -6949,13 +6949,13 @@
         "package.json",
         "scripts/test_reverential_editorial_policy.rb"
       ],
-      "commit": "",
+      "commit": "04cd0d829d42ebdc3e049fe2ae35462f1357e91d",
       "ft": "FT-083",
       "id": "02b871c3f71833b65cb65e3b",
       "line": 33,
       "rcf": "RCFs/revisao-editorial-reverencial.md",
       "sentenceSha256": "8bf43c46a659ce3964075ec1e07b7b26eb62149316e8f46fb44a2d1772173810",
-      "state": "pending",
+      "state": "synchronized",
       "syncCommit": ""
     },
     {
@@ -6967,13 +6967,13 @@
         "package.json",
         "scripts/test_reverential_editorial_policy.rb"
       ],
-      "commit": "",
+      "commit": "04cd0d829d42ebdc3e049fe2ae35462f1357e91d",
       "ft": "FT-083",
       "id": "5be23a4c986b3f17b8a792c6",
       "line": 34,
       "rcf": "RCFs/revisao-editorial-reverencial.md",
       "sentenceSha256": "a5a2c165ea2a2429fb1d976108cd92055193b2820afae6aae672490b3c3ffaab",
-      "state": "pending",
+      "state": "synchronized",
       "syncCommit": ""
     },
     {
@@ -6985,13 +6985,13 @@
         "package.json",
         "scripts/test_reverential_editorial_policy.rb"
       ],
-      "commit": "",
+      "commit": "04cd0d829d42ebdc3e049fe2ae35462f1357e91d",
       "ft": "FT-083",
       "id": "c5ad7aec1292f88d7fd3b9d9",
       "line": 35,
       "rcf": "RCFs/revisao-editorial-reverencial.md",
       "sentenceSha256": "eb74941c86935549c030fc8e86dac074cb037ce7fef5b13f573ed31373b420b1",
-      "state": "pending",
+      "state": "synchronized",
       "syncCommit": ""
     },
     {
@@ -7003,13 +7003,13 @@
         "package.json",
         "scripts/test_reverential_editorial_policy.rb"
       ],
-      "commit": "",
+      "commit": "04cd0d829d42ebdc3e049fe2ae35462f1357e91d",
       "ft": "FT-083",
       "id": "be6b8d81c8571f3a11a4a6db",
       "line": 36,
       "rcf": "RCFs/revisao-editorial-reverencial.md",
       "sentenceSha256": "f97c49a4f3b832c8fa8101dba49c384216daecc58f1985a0737b24043792856c",
-      "state": "pending",
+      "state": "synchronized",
       "syncCommit": ""
     },
     {
@@ -7021,13 +7021,13 @@
         "package.json",
         "scripts/test_reverential_editorial_policy.rb"
       ],
-      "commit": "",
+      "commit": "04cd0d829d42ebdc3e049fe2ae35462f1357e91d",
       "ft": "FT-083",
       "id": "d2ec9dd7e5829cf0af2a53d4",
       "line": 40,
       "rcf": "RCFs/revisao-editorial-reverencial.md",
       "sentenceSha256": "475ecf8c2d184bf7f94d58848b85fc24eb90fb281df9dc0b554c3bef3b872b02",
-      "state": "pending",
+      "state": "synchronized",
       "syncCommit": ""
     },
     {
@@ -7039,13 +7039,13 @@
         "package.json",
         "scripts/test_reverential_editorial_policy.rb"
       ],
-      "commit": "",
+      "commit": "04cd0d829d42ebdc3e049fe2ae35462f1357e91d",
       "ft": "FT-083",
       "id": "72002b2a84c628d6365e7eff",
       "line": 41,
       "rcf": "RCFs/revisao-editorial-reverencial.md",
       "sentenceSha256": "a6e16806d60c60f928a982cf5c3200c3f68b5c0dbc41dfcb8ab5e6b71b6bf310",
-      "state": "pending",
+      "state": "synchronized",
       "syncCommit": ""
     },
     {
@@ -7057,13 +7057,13 @@
         "package.json",
         "scripts/test_reverential_editorial_policy.rb"
       ],
-      "commit": "",
+      "commit": "04cd0d829d42ebdc3e049fe2ae35462f1357e91d",
       "ft": "FT-083",
       "id": "6829135c1d142df298843945",
       "line": 42,
       "rcf": "RCFs/revisao-editorial-reverencial.md",
       "sentenceSha256": "fa79c8a71be3853b064b8416c04c5bbd3c52bb79d8c752c70c395d9313cc026c",
-      "state": "pending",
+      "state": "synchronized",
       "syncCommit": ""
     },
     {
@@ -7075,13 +7075,13 @@
         "package.json",
         "scripts/test_reverential_editorial_policy.rb"
       ],
-      "commit": "",
+      "commit": "04cd0d829d42ebdc3e049fe2ae35462f1357e91d",
       "ft": "FT-083",
       "id": "5e53815c42a0a07703a6a0f3",
       "line": 43,
       "rcf": "RCFs/revisao-editorial-reverencial.md",
       "sentenceSha256": "ea161ba218c9b1cceab8aaf1c86ad708e05f8dd546b77ba2b6952cf6c93a635f",
-      "state": "pending",
+      "state": "synchronized",
       "syncCommit": ""
     }
   ]
