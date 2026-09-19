@@ -1096,7 +1096,7 @@ plano:
   - id: FT-082
     classe: implementacao_normativa
     criado_em: 2026-09-18T23:10:35.1377330-03:00
-    estado: em_andamento
+    estado: concluida
     fonte: TODO.ia.md
     fonte_autorizacao: .ia.rules/state/requests/FT-082/prompt.md
     contexto: .ia.rules/state/contexts/FT-082/master.md
@@ -1107,6 +1107,11 @@ plano:
       - capacidade gerenciada editorial-authoring permanece autoridade e a regra de produto ocupa somente extensao local
       - Skill e Subagent sao comparados e o menor mecanismo suficiente e escolhido sem duplicacao
       - nenhuma implementacao de Skill, teste ou adaptador integra o commit normativo
+    resultado:
+      - nova sub-RCF centraliza precedencia, referente, citacao, enfase, caixa alta integral e correfencia sem copiar editorial-authoring
+      - Skill local foi confirmada como menor mecanismo suficiente; Subagent foi rejeitado por ausencia de objetivo independente ou ganho de paralelismo
+      - RCF.md e operacao-da-ia roteiam a especializacao somente para revisao autoral ou pre-publicacao materialmente pertinente
+      - FT-083 permanece dependente deste commit normativo e ja possui autorizacao humana previa
   - id: FT-083
     classe: implementacao_skill_local
     criado_em: 2026-09-18T23:10:35.1387330-03:00

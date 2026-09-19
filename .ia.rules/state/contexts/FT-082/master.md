@@ -1,6 +1,6 @@
 # Contexto mestre — FT-082 a FT-084
 
-Estado: inicializado. Fonte material: `TODO.ia.md`. Autorização e pedido de execução: `.ia.rules/state/requests/FT-082/prompt.md`.
+Estado: FT-082 normatizada; FT-083 aguarda implementação já autorizada. Fonte material: `TODO.ia.md`. Autorização e pedido de execução: `.ia.rules/state/requests/FT-082/prompt.md`.
 
 ## Objetivo
 
@@ -14,9 +14,11 @@ Especializar a revisão editorial deste produto para aplicar capitalização rev
 - O núcleo gerenciado sob `.ia.rules/resources`, `.ia.rules/core`, `.ia.rules/skills` e `.ia.rules/subagents` é imutável neste repositório Final.
 - `.ia.rules/local/` é a extensão oficial preservável pelo atualizador e será avaliada como destino da especialização.
 
-## Decisão de mecanismo a validar na FT-082
+## Decisão de mecanismo da FT-082
 
-Skill é a candidata preferencial: trata-se de procedimento recorrente, estreito, contextual e sequencial, sem objetivo independente que justifique Subagent. A FT normativa deve confirmar ganho líquido, gatilhos positivos, negativos e limítrofes e operação essencial sem a extensão antes da implementação.
+Skill é o menor mecanismo suficiente: trata-se de procedimento recorrente, estreito, contextual e sequencial, sem objetivo independente que justifique Subagent. A implementação ficará em `.ia.rules/local/skills/reverential-editorial-review/`, dependerá da capacidade canônica e declarará gatilhos positivos, negativos e limítrofes, recursos sob demanda inexistentes e operação essencial sem a extensão.
+
+A sub-RCF `RCFs/revisao-editorial-reverencial.md` centraliza a regra do produto; `RCFs/operacao-da-ia.md` somente roteia a especialização após `editorial-authoring`. O adaptador `agents.local.md` será alterado apenas na FT-083 para apontar a rota, sem copiar o contrato.
 
 ## Fases e ordem
 
