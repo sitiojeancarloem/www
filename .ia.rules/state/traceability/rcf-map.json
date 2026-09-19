@@ -6418,13 +6418,13 @@
         "scripts/test_accessible_runtime.mjs",
         "scripts/test_biblical_reference_speech.mjs"
       ],
-      "commit": "",
+      "commit": "a1a42f1093dc91f7ac3e131081cb97666b3095f0",
       "ft": "FT-080",
       "id": "7fd51aff045a729116cd50ab",
       "line": 90,
       "rcf": "RCFs/leitura-acessivel-e-tts.md",
       "sentenceSha256": "9e8472da34e012959deb1ca7dfdf485608a96fa894cb0bd0e9d5c90b3992e7e4",
-      "state": "pending",
+      "state": "synchronized",
       "syncCommit": ""
     },
     {
@@ -6439,13 +6439,13 @@
         "scripts/test_accessible_runtime.mjs",
         "scripts/test_biblical_reference_speech.mjs"
       ],
-      "commit": "",
+      "commit": "a1a42f1093dc91f7ac3e131081cb97666b3095f0",
       "ft": "FT-080",
       "id": "46edea68a1a8502d4757bec7",
       "line": 91,
       "rcf": "RCFs/leitura-acessivel-e-tts.md",
       "sentenceSha256": "f218956aceb0551dfcb74b2a1fa140a2c9d1aec93b38bf152222e18acd3e7142",
-      "state": "pending",
+      "state": "synchronized",
       "syncCommit": ""
     },
     {
@@ -6460,13 +6460,13 @@
         "scripts/test_accessible_runtime.mjs",
         "scripts/test_biblical_reference_speech.mjs"
       ],
-      "commit": "",
+      "commit": "a1a42f1093dc91f7ac3e131081cb97666b3095f0",
       "ft": "FT-080",
       "id": "f0d054b6c1d2d3f66f3737ee",
       "line": 92,
       "rcf": "RCFs/leitura-acessivel-e-tts.md",
       "sentenceSha256": "c5aff8806da9b42222e3f9f0a7941397fe1d8cabf07ba5ad495d45ab4aa6337f",
-      "state": "pending",
+      "state": "synchronized",
       "syncCommit": ""
     },
     {
@@ -6481,13 +6481,13 @@
         "scripts/test_accessible_runtime.mjs",
         "scripts/test_biblical_reference_speech.mjs"
       ],
-      "commit": "",
+      "commit": "a1a42f1093dc91f7ac3e131081cb97666b3095f0",
       "ft": "FT-080",
       "id": "0d2d15bf2b7e720ba283e522",
       "line": 93,
       "rcf": "RCFs/leitura-acessivel-e-tts.md",
       "sentenceSha256": "fe634100b4252f5ce0b9e8438f8dc73cb747dd68ebbb73996ac1ba1f0c084f75",
-      "state": "pending",
+      "state": "synchronized",
       "syncCommit": ""
     },
     {
@@ -6515,13 +6515,13 @@
         "scripts/test_accessible_runtime.mjs",
         "scripts/test_biblical_reference_speech.mjs"
       ],
-      "commit": "",
+      "commit": "a1a42f1093dc91f7ac3e131081cb97666b3095f0",
       "ft": "FT-080",
       "id": "ca910a6f20d506e5639cd98c",
       "line": 94,
       "rcf": "RCFs/leitura-acessivel-e-tts.md",
       "sentenceSha256": "bb016564d187cb54c37c4d55c324f9a85e4e0a3974508602605c4f9300caa0d7",
-      "state": "pending",
+      "state": "synchronized",
       "syncCommit": ""
     },
     {
@@ -6536,13 +6536,13 @@
         "scripts/test_accessible_runtime.mjs",
         "scripts/test_biblical_reference_speech.mjs"
       ],
-      "commit": "",
+      "commit": "a1a42f1093dc91f7ac3e131081cb97666b3095f0",
       "ft": "FT-080",
       "id": "b277246a1b3a4aed147322e9",
       "line": 95,
       "rcf": "RCFs/leitura-acessivel-e-tts.md",
       "sentenceSha256": "28cbc4125598c1c47944910e628ed5795aa64d87663017154b88e6f8b8e7b7e5",
-      "state": "pending",
+      "state": "synchronized",
       "syncCommit": ""
     },
     {
