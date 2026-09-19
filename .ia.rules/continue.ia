@@ -1,14 +1,21 @@
 schema: jcem-continue/v1
 machine_id: JEAN-DESKTOP
-data_ref: 2026-09-16T16:50:13.9896307-03:00
+data_ref: 2026-09-18T23:10:35.1377330-03:00
 fonte: TODO.ia.md
-objetivo: Processar integralmente as novas frentes de migracao TTS/redacional, impressao IEEE mobile pos-critica e templates de blockquote, preservando as frentes implementadas em avaliacao humana.
+objetivo: Processar as frentes em avaliacao humana e implementar a capitalizacao reverencial e a preservacao de enfases autorais pela extensao editorial local minima.
 autorizacao_ft_068_074:
   origem: prompt humano
   data: 2026-09-16T01:35:00-03:00
   fonte: prompt humano de continuacao com pre-autorizacao normativa para implementacao e esclarecimento posterior para prosseguir sem encerrar TO-DOs em avaliacao humana
   escopo: equalizar, normatizar, implementar, testar e documentar as tres TO-DOs novas, iniciando codigo imediatamente depois de cada norma validada
   restricao: preservar integralmente capacidades locais e as frentes ainda em avaliacao humana
+autorizacao_ft_082_084:
+  origem: .ia.rules/state/requests/FT-082/prompt.md
+  fonte_sha256: F0E653EAA7897BFA83AD2BC6CC0DFDFCABD8B73126C1C96BB56519D8DF695D09
+  data: 2026-09-18T23:10:35.1377330-03:00
+  escopo: encerrar a TO-DO de COVER aprovada; registrar, normatizar, implementar, testar e integrar todas as fases ainda nao iniciadas da frente de capitalizacao reverencial
+  autorizacao_codigo: previa e expressa, exercivel depois da conclusao e do commit da FT normativa
+  restricao: nao reiniciar fases existentes, nao executar dependencia insatisfeita e nao inventar requisito diante de lacuna material
 plano:
   - id: FT-020
     classe: implementacao_normativa
@@ -1086,6 +1093,49 @@ plano:
       normativo: ed5a8987a3
       causal: a1a42f1093
     proximo_passo: validacao auditiva humana das pausas e naturalidade; tratar blockquote e pendencias globais somente em frentes causais proprias
+  - id: FT-082
+    classe: implementacao_normativa
+    criado_em: 2026-09-18T23:10:35.1377330-03:00
+    estado: em_andamento
+    fonte: TODO.ia.md
+    fonte_autorizacao: .ia.rules/state/requests/FT-082/prompt.md
+    contexto: .ia.rules/state/contexts/FT-082/master.md
+    objetivo: Equalizar e normatizar a revisao reverencial contextual, a preservacao de enfase autoral e a precedencia de citacoes sem duplicar a capacidade editorial gerenciada.
+    escopo: RCFs/operacao-da-ia.md, contrato editorial local aplicavel, agents.local.md somente na fase de projecao e extensao oficial local.
+    aceite:
+      - referencia cristã inequivoca, outra divindade, ambiguidade, citacao, correfencia e caixa alta integral possuem precedencia verificavel
+      - capacidade gerenciada editorial-authoring permanece autoridade e a regra de produto ocupa somente extensao local
+      - Skill e Subagent sao comparados e o menor mecanismo suficiente e escolhido sem duplicacao
+      - nenhuma implementacao de Skill, teste ou adaptador integra o commit normativo
+  - id: FT-083
+    classe: implementacao_skill_local
+    criado_em: 2026-09-18T23:10:35.1387330-03:00
+    estado: pendente
+    depende_de: FT-082
+    fonte: TODO.ia.md
+    fonte_autorizacao: .ia.rules/state/requests/FT-082/prompt.md
+    autorizacao_codigo: humana_previa
+    contexto: .ia.rules/state/contexts/FT-082/master.md
+    objetivo: Implementar a Skill editorial local minima, seu descritor, roteamento e regressao sem editar o nucleo gerenciado nem criar Subagent redundante.
+    aceite:
+      - Skill local ativa somente para edicao, revisao autoral ou pre-publicacao materialmente pertinentes
+      - decisao contextual preserva forma ambigua, citacoes e enfase autoral e evita capitalizacao redundante
+      - casos positivos, negativos, mistos, correferentes e de sentenca integral em caixa alta estao cobertos
+      - operacao sem a Skill conserva a capacidade editorial gerenciada essencial
+  - id: FT-084
+    classe: integracao_validacao
+    criado_em: 2026-09-18T23:10:35.1397330-03:00
+    estado: pendente
+    depende_de: FT-083
+    fonte: TODO.ia.md
+    fonte_autorizacao: .ia.rules/state/requests/FT-082/prompt.md
+    autorizacao_codigo: humana_previa
+    contexto: .ia.rules/state/contexts/FT-082/master.md
+    objetivo: Integrar a extensao editorial, provar cobertura e ausencia de regressao e deixar a TO-DO implementada para validacao humana.
+    aceite:
+      - testes focados, validacao normativa, documental e de rastreabilidade aprovam
+      - matriz de casos da TO-DO possui cobertura bidirecional sem inferencia semantica fabricada
+      - TODO transita para implementada pendente de validacao humana sem encerrar outras frentes
 lacunas:
   - id: GAP-RCF-MODULE-2026-001
     estado: isolada_fora_do_escopo

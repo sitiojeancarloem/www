@@ -188,7 +188,7 @@
 
   - **Aceite:** mobile e desktop DEVEM possuir a mesma capacidade de impressão IEEE, carregada somente na fase pós-crítica/idle, sem bloquear a página, sem regressão funcional ou visual e sem mecanismos artificiais de evasão de métricas.
 
-* [ ] Ajustar a skill/subagent preexistente de edição, revisão autoral e pré-publicação para normatizar capitalização reverencial e preservação de ênfases autorais
+- ⏳ Ajustar a skill/subagent preexistente de edição, revisão autoral e pré-publicação para normatizar capitalização reverencial e preservação de ênfases autorais
   - A implementação DEVE primeiro inspecionar a skill/subagent, prompts, normas, RCFs e contratos efetivamente existentes e ajustar o ponto normativo correto, evitando duplicação, regras paralelas ou divergentes.
 
   - Fora de citações, toda referência **inequívoca ao Deus cristão — Pai/Deus, Jesus Cristo ou Espírito Santo — DEVE ser integralmente capitalizada** quando realizada por:
