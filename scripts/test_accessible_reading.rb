@@ -120,10 +120,17 @@ assert(tts_rcf.include?("especializações locais de produto"), "delta local TTS
 %w[
   _plugins/jcem_zz_accessible_reading.rb
   _includes/jcem/read-aloud.html
+  assets/jcem/js/biblical-reference-speech.js
   assets/jcem/js/read-aloud.js
+  scripts/test_biblical_reference_speech.mjs
   scripts/test_accessible_runtime.mjs
 ].each do |relative_path|
   assert(File.file?(File.join(root, relative_path)), "capacidade local removida: #{relative_path}")
 end
+
+read_aloud_include = File.read(File.join(root, "_includes", "jcem", "read-aloud.html"), encoding: "UTF-8")
+read_aloud_runtime = File.read(File.join(root, "assets", "jcem", "js", "read-aloud.js"), encoding: "UTF-8")
+assert(read_aloud_include.include?('type="module"'), "parser bíblico modular não será carregado")
+assert(read_aloud_runtime.include?("./biblical-reference-speech.js"), "runtime não usa o parser bíblico comum")
 
 puts "accessible_reading=ok"

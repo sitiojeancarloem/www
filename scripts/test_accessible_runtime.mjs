@@ -150,6 +150,8 @@ try {
 	const quotationMarkersPresent = speech.includes('Início da citação.') && speech.includes('Fim da citação.');
 	const continuousHeading = fixture.spoken.find(({ text }) => text.includes('Citações e referência'))?.text || '';
 	const continuousReference = fixture.spoken.find(({ text }) => text.includes('Fixture técnica JCEM'))?.text || '';
+	const continuousBiblical = fixture.spoken.find(({ text }) => text.startsWith('Casos bíblicos:'))?.text || '';
+	const continuousTechnical = fixture.spoken.find(({ text }) => text.includes('horário 14:30'))?.text || '';
 	if (
 		fixture.chartState !== 'rendered' ||
 		fixture.chartVersion !== '4.5.1' ||
@@ -166,6 +168,28 @@ try {
 	}
 	if (speech.includes('Bíblia, NVI, Isaías 12:3; 53:10')) {
 		throw new Error('REFERENCIA_COMPLETA_INTERROMPEU_MODO_CONTINUO');
+	}
+	const expectedShortBiblical = [
+		'Gênesis, 2, 7',
+		'Apocalipse, 14, 12',
+		'Gênesis, 2, 7 a 8, e 15',
+		'Apocalipse, 14, 12, 22; 15, 3 a 7; 16, 1, 3 e 5',
+		'Êxodo, 12, 1 a 3, e 7',
+		'1 João, 3, 16',
+		'1 Coríntios, 13, 4, 7 e 13',
+		'II Coríntios, 11, 14',
+		'I João, 2, 3 a 6',
+		'Sl, 23, 1, NVI',
+	];
+	if (
+		!continuousBiblical ||
+		expectedShortBiblical.some((reference) => !continuousBiblical.includes(reference)) ||
+		/\b(?:Gênesis|Apocalipse|Êxodo|João|Coríntios|Sl)\b[^.]*\b(?:para|por|até|capítulo|versículo)\b/iu.test(continuousBiblical)
+	) {
+		throw new Error(`REFERENCIA_BIBLICA_CURTA_INVALIDA ${continuousBiblical}`);
+	}
+	if (!continuousTechnical.includes('horário 14:30') || !continuousTechnical.includes('Gênesis 2:7')) {
+		throw new Error(`SEGMENTO_TECNICO_BIBLICO_ALTERADO ${continuousTechnical}`);
 	}
 	if (!continuousHeading.startsWith('Título:') || /(?:Link|Referência):|\b1\b/.test(continuousHeading)) {
 		throw new Error(`TITULO_TTS_CONTAMINADO ${continuousHeading}`);
@@ -200,6 +224,9 @@ try {
 	if (!summarySpeech.includes('Referência 1:') || summarySpeech.includes('Sumário do artigo.')) {
 		throw new Error(`MODO_REFERENCIA_RESUMIDA_INVALIDO ${summarySpeech}`);
 	}
+	if (expectedShortBiblical.some((reference) => !summarySpeech.includes(reference)) || /Gênesis\s+2\s+para\s+7/iu.test(summarySpeech)) {
+		throw new Error(`REFERENCIA_BIBLICA_RESUMIDA_INVALIDA ${summarySpeech}`);
+	}
 
 	await page.evaluate(() => { window.__jcemSpokenFixture.length = 0; });
 	await page.selectOption('[data-jcem-read-reference-mode]', 'full');
@@ -210,10 +237,36 @@ try {
 	const fullFixture = await page.evaluate(() => window.__jcemSpokenFixture);
 	const fullSpeech = fullFixture.map(({ text }) => text).join(' ');
 	if (!fullSpeech.includes('Referência 1: JCEM. Fixture de leitura acessível. 2026.')) throw new Error(`MODO_REFERENCIA_COMPLETA_AUSENTE ${fullSpeech}`);
+	const expectedLongBiblical = [
+		'Gênesis, capítulo 2, versículo 7',
+		'Apocalipse, capítulo 14, versículo 12',
+		'Gênesis, capítulo 2, versículos de 7 a 8 e o versículo 15',
+		'Apocalipse, capítulo 14, versículos 12 e 22; capítulo 15, versículos de 3 a 7; capítulo 16, versículos 1, 3 e 5',
+		'Êxodo, capítulo 12, versículos de 1 a 3 e o versículo 7',
+		'1 João, capítulo 3, versículo 16',
+		'1 Coríntios, capítulo 13, versículos 4, 7 e 13',
+		'II Coríntios, capítulo 11, versículo 14',
+		'I João, capítulo 2, versículos de 3 a 6',
+		'Sl, capítulo 23, versículo 1, NVI',
+	];
+	if (expectedLongBiblical.some((reference) => !fullSpeech.includes(reference)) || /\b(?:Gênesis|Apocalipse)\b[^.]*\b(?:para|por|até)\b/iu.test(fullSpeech)) {
+		throw new Error(`REFERENCIA_BIBLICA_LONGA_INVALIDA ${fullSpeech}`);
+	}
 	if (!fullSpeech.includes('Sumário do artigo.')) throw new Error('TOC_AUSENTE_NO_MODO_COMPLETO');
 	const tocSpeech = fullFixture.filter(({ text }) => text === 'Sumário do artigo.' || text.startsWith('Seção:')).map(({ text }) => text);
 	if (!tocSpeech.length || tocSpeech.some((text) => /(?:Link|Referência):|\b\d+\b/.test(text))) {
 		throw new Error(`TOC_TTS_CONTAMINADO ${JSON.stringify(tocSpeech)}`);
+	}
+
+	await page.goto(`http://127.0.0.1:${port}/p/5-verdades-de-genesis-27/`, { waitUntil: 'load' });
+	await page.click('[data-jcem-read-action="play"]');
+	await page.waitForFunction(() => document.querySelector('[data-jcem-read-status]')?.textContent === 'Leitura concluída.');
+	const exampleArticleSpeech = await page.evaluate(() => window.__jcemSpokenFixture.map(({ text }) => text).join(' '));
+	if (
+		!exampleArticleSpeech.includes('Título: 5 verdades de Gênesis, 2, 7') ||
+		/Gênesis\s+2\s+(?:para|por|até)\s+7/iu.test(exampleArticleSpeech)
+	) {
+		throw new Error(`ARTIGO_EXEMPLO_BIBLICO_INVALIDO ${exampleArticleSpeech}`);
 	}
 
 	await page.evaluate(() => { window.__jcemHoldSpeech = true; });

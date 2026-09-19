@@ -29,6 +29,12 @@ Uma ocorrência com `citação inline`{:.jcem-inline-quote} preserva a unidade d
 
 [^fixture]: JCEM. Fixture de leitura acessível. 2026.
 
+## Referências bíblicas globais
+
+Casos bíblicos: Gênesis 2:7; Apocalipse 14:12; Gênesis 2:7-8,15; Apocalipse 14:12,22;15:3-7;16:1,3 e 5; Êxodo 12:1-3,7; 1 João 3:16; 1 Coríntios 13:4,7 e 13; II Coríntios 11:14; I João 2:3-6; Sl 23:1 NVI.
+
+O horário 14:30 continua sendo horário, e a sintaxe técnica `Gênesis 2:7` permanece literal.
+
 ## Idiomas
 
 O nome <span lang="en">Web Speech API</span> mantém seu idioma, enquanto <span lang="grc">λόγος</span> identifica explicitamente o grego antigo sem transliteração inventada.

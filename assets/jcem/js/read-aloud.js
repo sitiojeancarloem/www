@@ -3,6 +3,8 @@
  * Autor: Jean Carlo EM — https://www.jeancarloem.com
  * Licença: MPL-2.0 — https://mozilla.org/MPL/2.0/
  */
+import { normalizeBiblicalReferences } from './biblical-reference-speech.js';
+
 (() => {
 	'use strict';
 
@@ -30,6 +32,8 @@
 	let generation = 0;
 
 	const normalize = (value) => String(value || '').replace(/\s+/g, ' ').trim();
+	const biblicalMode = () => (referenceMode?.value || 'continuous') === 'full' ? 'long' : 'short';
+	const normalizeBiblical = (value) => normalizeBiblicalReferences(normalize(value), biblicalMode());
 	const languageFor = (element) =>
 		element.closest('[lang]')?.getAttribute('lang') || document.documentElement.lang || 'pt-BR';
 	const noterefSelector = '[role="doc-noteref"], sup > a.footnote[href^="#fn:"], sup[id^="fnref"] > a[href^="#fn:"]';
@@ -49,7 +53,7 @@
 		if (mode === 'continuous') return `Esta passagem possui ${references.length === 1 ? 'uma referência' : `${references.length} referências`}.`;
 		const values = references.map((reference, referenceIndex) => {
 			const marker = reference.marker || String(referenceIndex + 1);
-			const value = mode === 'full' ? reference.full : reference.summary;
+			const value = normalizeBiblical(mode === 'full' ? reference.full : reference.summary);
 			return `Referência ${marker}: ${value || 'resumo indisponível; consulte a nota completa'}`;
 		});
 		return `${[...new Set(values)].join('. ')}.`;
@@ -61,6 +65,12 @@
 		clone.querySelectorAll('script, style, [aria-hidden="true"]').forEach((node) => node.remove());
 		clone.querySelectorAll(noterefSelector).forEach((reference) => reference.remove());
 		clone.querySelectorAll('.header-link, [role="doc-backlink"]').forEach((link) => link.remove());
+		const technicalSegments = [];
+		clone.querySelectorAll('code, pre, kbd, samp').forEach((node) => {
+			const token = `\uE000${technicalSegments.length}\uE001`;
+			technicalSegments.push(normalize(node.textContent));
+			node.replaceWith(document.createTextNode(token));
+		});
 		if (announceLinks) {
 			clone.querySelectorAll('a[href]').forEach((link) => {
 				const label = normalize(link.textContent);
@@ -70,7 +80,8 @@
 		clone.querySelectorAll('img[data-jcem-accessible-image="informative"]').forEach((image) => {
 			image.replaceWith(document.createTextNode(` Imagem: ${image.getAttribute('alt')}. `));
 		});
-		return normalize(clone.textContent);
+		const spoken = normalizeBiblical(clone.textContent);
+		return normalize(spoken.replace(/\uE000(\d+)\uE001/g, (_, segment) => technicalSegments[Number(segment)]));
 	};
 
 	/** Adiciona uma unidade, permitindo excluir referências em contextos vedados. */
@@ -81,15 +92,16 @@
 	};
 
 	const addTable = (table) => {
-		const caption = normalize(table.querySelector(':scope > caption')?.textContent);
+		const captionNode = table.querySelector(':scope > caption');
+		const caption = captionNode ? textFor(captionNode, { announceLinks: false }) : '';
 		const columnHeaders = [...table.querySelectorAll(':scope > thead > tr:first-child > th')]
-			.map((cell) => normalize(cell.textContent));
+			.map((cell) => textFor(cell, { announceLinks: false }));
 		add(table, caption, 'Tabela:');
 		table.querySelectorAll(':scope > tbody > tr').forEach((row) => {
 			const cells = [...row.children].filter((cell) => /^(TH|TD)$/.test(cell.tagName));
 			const rowText = cells.map((cell, cellIndex) => {
 				const header = columnHeaders[cellIndex] || (cellIndex === 0 ? 'Linha' : `Coluna ${cellIndex + 1}`);
-				return `${header}: ${normalize(cell.textContent)}`;
+				return `${header}: ${textFor(cell, { announceLinks: false })}`;
 			}).join('. ');
 			add(row, rowText);
 		});
@@ -104,9 +116,12 @@
 			return;
 		}
 		if (element.matches('[data-jcem-chart]')) {
-			const title = normalize(element.querySelector('figcaption strong')?.textContent);
-			const summary = normalize(element.querySelector('.jcem-chart__summary')?.textContent);
-			const conclusion = normalize(element.querySelector('.jcem-chart__conclusion')?.textContent);
+			const titleNode = element.querySelector('figcaption strong');
+			const summaryNode = element.querySelector('.jcem-chart__summary');
+			const conclusionNode = element.querySelector('.jcem-chart__conclusion');
+			const title = titleNode ? textFor(titleNode, { announceLinks: false }) : '';
+			const summary = summaryNode ? textFor(summaryNode, { announceLinks: false }) : '';
+			const conclusion = conclusionNode ? textFor(conclusionNode, { announceLinks: false }) : '';
 			add(element, `${title}. ${summary} ${conclusion}`, 'Gráfico:');
 			return;
 		}
