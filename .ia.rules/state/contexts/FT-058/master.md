@@ -1,5 +1,7 @@
 # FT-058 a FT-060 - correção estrutural do COVER
 
+Estado: aprovada pelo desenvolvedor e encerrada em 2026-09-18; a frente foi retirada de `TODO.ia.md` e do estado operacional, preservando este contexto como histórico técnico.
+
 - Fonte: `.ia.rules/state/requests/FT-058/prompt.md` (SHA-256 `E2F8281827A814BB75856352B82B5E3C2AFA88EDB10D3B6A463A6DDCAED96F83`).
 - Evidência normativa: `.ia.rules/state/requests/evidencias/projeto-cover.pdf` (SHA-256 `05E30E9959AC095867A4096C1BADDC387037CEFFFB194E7342905FA5494FA8CB`).
 - Evidências negativas: `evidencia13.png`, `evidencia14.png`, `evidencia15.png` e `evidencia16.png`, já versionadas no commit `b1a2e70e39`.
