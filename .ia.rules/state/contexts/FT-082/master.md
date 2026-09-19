@@ -1,6 +1,6 @@
 # Contexto mestre — FT-082 a FT-084
 
-Estado: FT-082 normatizada; FT-083 implementada; FT-084 em validação. Fonte material: `TODO.ia.md`. Autorização e pedido de execução: `.ia.rules/state/requests/FT-082/prompt.md`.
+Estado: FT-082 normatizada; FT-083 implementada; FT-084 concluída tecnicamente e pendente de validação humana. Fonte material: `TODO.ia.md`. Autorização e pedido de execução: `.ia.rules/state/requests/FT-082/prompt.md`.
 
 ## Objetivo
 
@@ -50,3 +50,11 @@ A sub-RCF `RCFs/revisao-editorial-reverencial.md` centraliza a regra do produto;
 - Cadeia correferente recebe capitalização adicional apenas na forma mais estrita quando ela está presente.
 - Citações e ênfases autorais permanecem intactas.
 - A frente termina em `✅` pendente de aprovação humana; aprovação posterior autoriza sua remoção integral.
+
+## Evidência da FT-084
+
+- O validador oficial `quick_validate.py`, `npm run check:editorial-policy`, `npm run check:publication` e `npm run check:documentation` aprovaram.
+- `npm run check:editorial-assets` aprovou após prover `_drafts/` vazio somente durante o processo, pois o script o percorre incondicionalmente e o checkout não contém esse diretório; o diretório temporário foi removido e o corpus permaneceu intocado.
+- O recorte de rastreabilidade da FT-083 aprovou 22 entradas e 22 sentenças sincronizadas com `04cd0d829d42ebdc3e049fe2ae35462f1357e91d`.
+- O gate global de rastreabilidade permanece bloqueado por `RCFs/citacoes.md:53`, já preexistente, e mantém intactas sete pendências da FT-066.
+- A TO-DO passou a `✅`; somente a aprovação humana posterior autoriza removê-la integralmente.

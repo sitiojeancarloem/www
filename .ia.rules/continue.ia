@@ -1112,6 +1112,9 @@ plano:
       - Skill local foi confirmada como menor mecanismo suficiente; Subagent foi rejeitado por ausencia de objetivo independente ou ganho de paralelismo
       - RCF.md e operacao-da-ia roteiam a especializacao somente para revisao autoral ou pre-publicacao materialmente pertinente
       - FT-083 permanece dependente deste commit normativo e ja possui autorizacao humana previa
+    commits:
+      registro: 27e5dc7712
+      normativo: e440bc3bf3
   - id: FT-083
     classe: implementacao_skill_local
     criado_em: 2026-09-18T23:10:35.1387330-03:00
@@ -1132,10 +1135,13 @@ plano:
       - interface OpenAI permite invocacao implicita somente nos sinais editoriais descritos e preserva editorial-authoring como primeira autoridade
       - agents.local.md roteia a extensao depois da capacidade gerenciada sem criar Subagent
       - regressao focada cobre matriz positiva, negativa e combinada, integridade estrutural e ausencia de mutacao do nucleo
+    commits:
+      causal: 04cd0d829d
+      rastreabilidade: 6bd5c83da0
   - id: FT-084
     classe: integracao_validacao
     criado_em: 2026-09-18T23:10:35.1397330-03:00
-    estado: pendente
+    estado: concluida_tecnicamente_pendente_validacao_humana
     depende_de: FT-083
     fonte: TODO.ia.md
     fonte_autorizacao: .ia.rules/state/requests/FT-082/prompt.md
@@ -1146,6 +1152,12 @@ plano:
       - testes focados, validacao normativa, documental e de rastreabilidade aprovam
       - matriz de casos da TO-DO possui cobertura bidirecional sem inferencia semantica fabricada
       - TODO transita para implementada pendente de validacao humana sem encerrar outras frentes
+    resultado:
+      - validador oficial da Skill, check editorial focado, publicacao e documentacao aprovaram
+      - regressao de assets editoriais aprovou com _drafts vazio temporario porque o checkout nao possui esse diretorio esperado pelo script
+      - rastreabilidade escopada aprovou 22 entradas e 22 sentencas vinculadas ao commit causal; o gate global conserva a lacuna preexistente RCFs/citacoes.md:53 e sete pendencias da FT-066
+      - TODO transitou para implementada pendente de validacao humana sem alterar as demais frentes
+    proximo_passo: validacao humana da aplicabilidade editorial da Skill; apos aprovacao, remover integralmente esta TO-DO
 lacunas:
   - id: GAP-RCF-MODULE-2026-001
     estado: isolada_fora_do_escopo
