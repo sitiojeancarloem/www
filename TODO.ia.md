@@ -244,3 +244,148 @@
     - ausência de dependência de heurísticas frágeis de user-agent.
 
   - **Aceite:** mobile e desktop DEVEM possuir a mesma capacidade de impressão IEEE, carregada somente na fase pós-crítica/idle, sem bloquear a página, sem regressão funcional ou visual e sem mecanismos artificiais de evasão de métricas.
+
+* [ ] Ajustar a skill/subagent preexistente de edição, revisão autoral e pré-publicação para normatizar capitalização reverencial e preservação de ênfases autorais
+  - A implementação DEVE primeiro inspecionar a skill/subagent, prompts, normas, RCFs e contratos efetivamente existentes e ajustar o ponto normativo correto, evitando duplicação, regras paralelas ou divergentes.
+
+  - Fora de citações, toda referência **inequívoca ao Deus cristão — Pai/Deus, Jesus Cristo ou Espírito Santo — DEVE ser integralmente capitalizada** quando realizada por:
+    - nome próprio;
+    - nome, forma, variante ou transliteração inequivocamente utilizada como nome divino cristão;
+    - designação/título inequivocamente referido ao Deus cristão no contexto;
+    - pronome pessoal;
+    - pronome demonstrativo;
+    - contração;
+    - outra forma pronominal/nominal cuja referência ao Ser divino cristão seja inequívoca pelo próprio texto ou contexto.
+
+  - Isso inclui, sem se limitar a, nomes e variantes inequivocamente cristãs como:
+    - `DEUS`;
+    - `JESUS`;
+    - `JESUS CRISTO`;
+    - `CRISTO`;
+    - `ESPÍRITO SANTO`;
+    - `JEOVÁ`;
+    - `JAVÉ`;
+    - `YHWH`;
+    - outras grafias, transliterações, variantes ou nomes próprios que, no contexto, sejam **inequivocamente destinados ao Deus cristão**.
+
+  - Também podem ser abrangidas formas contextuais como `PAI`, `FILHO`, `SENHOR`, `ELE`, `AQUELE`, `DELE`, `NELE` e equivalentes, **somente quando sua referência ao Deus cristão for inequívoca**.
+
+  - A enumeração acima é exemplificativa, NÃO exaustiva: a implementação NÃO DEVE limitar a regra a um dicionário fechado de `Deus`, `Jesus` e `Espírito Santo`.
+
+  - Como o corpus pode conter **artigos teológicos, apologéticos, históricos ou comparativos**, menções a outras divindades, deuses, seres religiosos ou concepções de divindade PODEM ser frequentes e legítimas.
+
+  - Portanto, a mera ocorrência lexical de `deus`, `senhor`, `pai`, `filho`, `espírito`, nomes divinos, títulos religiosos ou formas análogas **NÃO é suficiente** para aplicar a capitalização reverencial.
+
+  - A skill/subagent DEVE determinar **a qual referente a expressão efetivamente se aplica** antes de capitalizá-la.
+
+  - A capitalização reverencial aqui definida DEVE ser aplicada **exclusivamente quando o referente for inequivocamente o Deus cristão, Jesus Cristo ou o Espírito Santo**.
+
+  - Quando `deus` ou expressão análoga se referir a:
+    - outra divindade;
+    - deus de outra religião;
+    - divindade mitológica;
+    - conceito genérico de divindade;
+    - classe/categoria de deuses;
+    - personagem tratado como deus;
+    - referente cuja identidade religiosa seja ambígua;
+    - qualquer outro ente que NÃO seja inequivocamente o Deus cristão;
+      a capitalização reverencial desta norma **NÃO DEVE ser aplicada**.
+
+  - Exemplos conceituais:
+    - `o deus Baal` NÃO DEVE tornar-se `o DEUS Baal` por esta regra;
+    - `os deuses gregos` NÃO DEVE tornar-se `os DEUSES gregos`;
+    - `o deus daquela religião` NÃO DEVE ser capitalizado reverencialmente sem identificação inequívoca;
+    - `Deus criou os céus e a terra`, quando o contexto identificar inequivocamente o Deus cristão, DEVE tornar-se `DEUS criou os céus e a terra`.
+
+  - A existência de terminologia cristã nas proximidades NÃO autoriza, por si só, a inferência de que toda ocorrência de `deus` ou termo semelhante tenha o Deus cristão como referente.
+
+  - Em construções comparativas — p.ex., entre o Deus cristão e outras divindades — cada ocorrência DEVE ser resolvida individualmente conforme seu referente real.
+
+  - É PROIBIDO capitalizar com base em:
+    - mera possibilidade;
+    - frequência estatística do corpus;
+    - assunto geral do artigo;
+    - proximidade lexical;
+    - interpretação teológica incerta;
+    - antecedente ambíguo.
+
+  - Na dúvida material sobre o referente, a forma existente DEVE ser preservada; a skill/subagent NÃO DEVE inventar certeza semântica.
+
+  - Quando uma mesma ocorrência textual contiver múltiplas formas correferentes e uma delas identificar o referente de maneira mais estrita/explícita, **somente a forma mais estrita DEVE receber a capitalização reverencial adicional**.
+    - Ex.: `então aquele Jesus que um dia foi pendurado no madeiro` → `então aquele JESUS que um dia foi pendurado no madeiro`.
+    - Embora `aquele` tenha `Jesus` como referente, ele DEVE permanecer em minúsculo porque o próprio nome já realiza, na mesma construção, a identificação mais estrita.
+    - Ex.: `aquele Espírito Santo que os discípulos receberam` → `aquele ESPÍRITO SANTO que os discípulos receberam`, e NÃO `AQUELE ESPÍRITO SANTO`.
+    - Ex.: `o próprio Jeová declarou` → `o próprio JEOVÁ declarou`, sem capitalizar elementos correferenciais ou modificadores que não sejam necessários.
+    - Se a forma explícita inexistir e o contexto tornar o demonstrativo/pronome inequívoco, a capitalização passa a aplicar-se a ele: `aquele` → `AQUELE`, `ele` → `ELE`, `dele` → `DELE`, etc.
+
+  - Essa regra de especificidade DEVE impedir capitalização redundante de múltiplos elementos da mesma cadeia referencial sem necessidade, preservando naturalidade, legibilidade e intenção autoral.
+
+  - **Citações são exceção à aplicação automática da capitalização reverencial.**
+    - A regra NÃO DEVE alterar automaticamente referências divinas dentro de:
+      - citações inline delimitadas por aspas;
+      - `blockquote`;
+      - demais estruturas que a norma existente reconheça inequivocamente como citação.
+
+    - Portanto, uma ocorrência de `Deus`, `Jesus`, `Espírito Santo`, `Jeová`, `Javé` ou equivalente dentro de uma citação NÃO DEVE ser transformada automaticamente em caixa alta apenas por esta regra.
+    - O texto citado DEVE preservar sua capitalização de origem/editorial, salvo outra correção explicitamente autorizada pelas normas aplicáveis.
+
+  - Independentemente de ser texto autoral ou citação, **ênfases em maiúsculas intencionalmente introduzidas pelo autor/editor DEVEM ser preservadas**.
+    - Se uma palavra ou expressão foi deliberadamente deixada em CAIXA ALTA, a revisão NÃO DEVE reduzir sua capitalização.
+    - Se a IA/subagent reescrever o trecho, o equivalente semântico correspondente DEVE preservar essa ênfase em caixa alta.
+    - Essa preservação aplica-se inclusive dentro de citações.
+    - A capitalização autoral preexistente NÃO DEVE ser removida apenas porque a regra automática teria produzido outra forma.
+
+  - Exceção: **frase ou sentença inteira em caixa alta DEVE ser presumida erro tipográfico/editorial, NÃO ênfase lexical**, e DEVE ser normalizada segundo a capitalização adequada ao texto, preservando apenas eventuais ênfases localizadas que possam ser inequivocamente determinadas.
+
+  - A regra de sentença inteira em caixa alta NÃO DEVE ser usada para apagar, após a normalização:
+    - capitalizações reverenciais aplicáveis;
+    - nomes próprios;
+    - siglas;
+    - destaques pontuais legítimos;
+    - outras capitalizações exigidas pelas normas editoriais.
+
+  - A precedência normativa DEVE ser:
+    1. identificar se o trecho é citação;
+    2. identificar e preservar ênfases autorais/editoriais localizadas em caixa alta;
+    3. normalizar frases/sentenças integralmente em caixa alta quando configurarem erro;
+    4. fora de citações, resolver semanticamente o referente de cada expressão potencialmente divina;
+    5. somente quando o referente for inequívoco, determinar se corresponde ao Deus cristão, Jesus Cristo ou Espírito Santo;
+    6. aplicar a capitalização reverencial apenas às referências cristãs inequivocamente identificadas;
+    7. entre referências correferentes concorrentes na mesma construção, capitalizar apenas a forma semanticamente mais estrita/explícita;
+    8. preservar toda capitalização legítima já existente durante qualquer reescrita.
+
+  - A implementação NÃO DEVE depender exclusivamente de substituições cegas, regex ou lista fechada de palavras:
+    - DEVE considerar contexto, correferência e estrutura suficientes para distinguir, por exemplo, `deus`, `senhor`, `ele`, `aquele`, `dele`, `nele`, `pai`, `filho` ou `espírito` referentes ao Deus cristão daqueles referentes a outras divindades, seres humanos ou outros entes;
+    - DEVE reconhecer nomes divinos cristãos inequívocos mesmo quando forem variantes não enumeradas explicitamente nesta TO-DO;
+    - DEVE distinguir ocorrências diferentes da mesma palavra dentro de um mesmo artigo, parágrafo ou sentença quando seus referentes forem distintos;
+    - PODE utilizar léxico/lista de nomes conhecidos como apoio, mas NÃO como único critério quando a decisão depender de contexto.
+
+  - Caso a skill/subagent atual não possua contexto suficiente para determinar o referente com segurança, DEVE preservar a forma existente em vez de inventar certeza semântica.
+
+  - As normas da skill/subagent DEVEM ser atualizadas, caso ainda não expressem integralmente essas regras, de forma centralizada e reutilizável para toda edição/revisão autoral e pré-publicação.
+
+  - A validação DEVE cobrir, no mínimo:
+    - `Deus` → `DEUS`, quando inequivocamente referido ao Deus cristão;
+    - `Jesus` → `JESUS`;
+    - `Jesus Cristo` → `JESUS CRISTO`;
+    - `Cristo` → `CRISTO`;
+    - `Espírito Santo` → `ESPÍRITO SANTO`;
+    - `Jeová` → `JEOVÁ`;
+    - `Javé` → `JAVÉ`;
+    - outras variantes/transliterações inequivocamente cristãs;
+    - `deus` usado genericamente ou para outra divindade, sem capitalização reverencial;
+    - referências a Baal, divindades gregas e outras divindades, sem aplicação indevida da regra cristã;
+    - coexistência, no mesmo trecho, de referência ao Deus cristão e a outra divindade, com resolução independente de cada ocorrência;
+    - pronome divino cristão inequívoco sem nome explícito: `aquele` → `AQUELE`;
+    - pronome + nome explícito: `aquele Jesus` → `aquele JESUS`;
+    - `aquele Espírito Santo` → `aquele ESPÍRITO SANTO`;
+    - pronomes/contrações divinos inequívocos, como `ele`, `dele`, `nele`;
+    - títulos/designações contextuais cristãs e não cristãs, garantindo distinção correta;
+    - ocorrências homógrafas referentes inequivocamente a seres humanos, outras divindades ou outros entes, que NÃO DEVEM ser capitalizadas;
+    - referências ambíguas, que NÃO DEVEM ser presumidas cristãs;
+    - citações inline e `blockquote`, que NÃO DEVEM receber capitalização reverencial automática;
+    - preservação de palavras/expressões originalmente em CAIXA ALTA;
+    - preservação dessa ênfase quando o trecho for reescrito;
+    - correção de frase/sentença inteira indevidamente em CAIXA ALTA;
+    - ausência de capitalização redundante em cadeias correferentes;
+    - ausência de regressão nas demais regras editoriais e de pré-publicação.
