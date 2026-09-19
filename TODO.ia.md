@@ -362,7 +362,7 @@
 
   - Caso a skill/subagent atual não possua contexto suficiente para determinar o referente com segurança, DEVE preservar a forma existente em vez de inventar certeza semântica.
 
-  - As normas da skill/subagent DEVEM ser atualizadas, caso ainda não expressem integralmente essas regras, de forma centralizada e reutilizável para toda edição/revisão autoral e pré-publicação.
+  - As normas da skill/subagent DEVEM ser atualizadas (e senão existir, ser criadas), caso ainda não expressem integralmente essas regras, de forma centralizada e reutilizável para toda edição/revisão autoral e pré-publicação.
 
   - A validação DEVE cobrir, no mínimo:
     - `Deus` → `DEUS`, quando inequivocamente referido ao Deus cristão;
