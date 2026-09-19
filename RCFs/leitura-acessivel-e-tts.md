@@ -85,6 +85,15 @@ O normalizador DEVE gerar no máximo um marcador por fronteira semântica. Leito
 - Backlinks, letras de reuso e numeração visual continuam regidos por `RCF-JCEM-FOOTNOTES-001`; a projeção falada não pode expor glifo de retorno como conteúdo editorial. [e8e5b5f]
 - Nota longa ou estruturada NÃO DEVE ser achatada automaticamente como descrição do marcador por `aria-describedby`. O link nativo bidirecional entre `doc-noteref` e `doc-footnote` permanece obrigatório; `aria-details` PODE complementar a relação quando suportado, mas não substitui link, foco, destino nem retorno operável. [e983edf]
 
+### 4.1 Gramática falada de referências bíblicas
+
+- Toda referência bíblica reconhecida DEVE ser interpretada em uma única estrutura de livro, grupos, capítulos, versículos, intervalos, separadores, conectivos e versão antes de gerar suas formas faladas curta e longa; artigo, rota, livro ou exemplo específico NÃO PODE determinar o comportamento. [PENDENTE-CODIGO]
+- `:` DEVE representar exclusivamente a relação estrutural entre capítulo e versículo e NÃO PODE produzir `para`, `por`, `até` ou outra palavra na fala; horário, URL, código, fórmula e sintaxe não classificados como referência bíblica permanecem inalterados. [PENDENTE-CODIGO]
+- A forma curta DEVE verbalizar livro, capítulo e versículos por números e pausas proporcionais aos separadores, usando somente `a` em intervalo e conectivo explícito ou inequivocamente exigido pela lista; `Gênesis 2:7` resulta em `Gênesis, 2, 7`, sem anunciar `capítulo` ou `versículo`. [PENDENTE-CODIGO]
+- A forma longa DEVE explicitar `capítulo`, `versículo` ou `versículos`, usar `de <início> a <fim>` para intervalo, naturalizar o último conectivo de lista e repetir `capítulo` em cada mudança de grupo sem repetir livro herdado; `Gênesis 2:7` resulta em `Gênesis, capítulo 2, versículo 7`. [PENDENTE-CODIGO]
+- Vírgula entre versículos, `e` explícito, hífen de intervalo e ponto e vírgula entre grupos DEVEM conservar ordem, contexto herdado e prosódia por vírgula, conectivo, `a` e ponto e vírgula respectivamente; inferência só PODE naturalizar lista inequivocamente analisada e NÃO PODE preencher construção inválida ou indefinida. [PENDENTE-CODIGO]
+- A cobertura permanente DEVE combinar livros simples, compostos, numerados e abreviados com referências simples e compostas, intervalos, versículos avulsos, mudanças de capítulo, grupos, conectivos explícitos/inferidos e versões, comprovando no payload efetivo os modos curto/longo e a ausência de palavra artificial entre capítulo e versículo. [PENDENTE-CODIGO]
+
 ## 5. Idiomas e pronúncia
 
 - Página e trechos em idioma diferente DEVEM usar tag BCP 47 aplicável. Grego koiné/antigo DEVE ser identificado como `grc` quando essa for a classificação editorial real; grafia original permanece visível. [e8e5b5f]

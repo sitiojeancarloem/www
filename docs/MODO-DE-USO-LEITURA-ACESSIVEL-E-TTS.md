@@ -26,7 +26,7 @@ Quando o caption não deve mudar a composição visual legada, use `class="visua
 
 ## Referências e fala local
 
-Links Kramdown de footnote são associados à definição no build. Para referências bíblicas cuja versão e passagem aparecem junto da ocorrência, o normalizador gera a forma curta, por exemplo `Isaías 53:10 NVI`. Quando a parcela exata não é demonstrável, ele preserva a definição integral em vez de inventar uma redução.
+Links Kramdown de footnote são associados à definição no build. Para referências bíblicas cuja versão e passagem aparecem junto da ocorrência, o normalizador seleciona a parcela exata e o leitor interpreta sua estrutura globalmente. No modo curto, `Isaías 53:10 NVI` é falado como `Isaías, 53, 10, NVI`; no modo longo, como `Isaías, capítulo 53, versículo 10, NVI`. Intervalos, listas e mudanças de capítulo preservam seus conectivos e pausas; `:` nunca é falado como `para`. Quando a parcela exata não é demonstrável, o sistema preserva a definição integral em vez de inventar uma redução.
 
 Uma forma falada excepcional exige todos os metadados abaixo na própria ocorrência:
 
