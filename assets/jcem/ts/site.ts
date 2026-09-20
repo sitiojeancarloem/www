@@ -1496,7 +1496,9 @@ const normalizeJcemFootnoteBackrefs = (): Map<string, HTMLAnchorElement[]> => {
 			}
 
 			groups.get(id)?.forEach((link) => {
-				link.textContent = String(index + 1);
+				// PROTECAO: a ordenação pode atualizar o número, mas nunca remover a gramática [N].
+				link.textContent = `[${index + 1}]`;
+				link.dataset.jcemReferenceIdentifier = String(index + 1);
 			});
 		});
 	}

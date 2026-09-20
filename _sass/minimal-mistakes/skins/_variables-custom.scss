@@ -1715,26 +1715,6 @@ body
 	vertical-align: baseline;
 }
 
-.main_jcem_wrapper sup[id^='fnref']::before,
-.main_jcem_wrapper sup[id^='fnref']::after {
-	display: inline;
-	font-family: inherit;
-	font-size: 1em;
-	line-height: 1;
-	color: var(--link);
-	letter-spacing: 0;
-	text-indent: 0;
-	word-spacing: 0;
-}
-
-.main_jcem_wrapper sup[id^='fnref']::before {
-	content: '[';
-}
-
-.main_jcem_wrapper sup[id^='fnref']::after {
-	content: ']';
-}
-
 .main_jcem_wrapper sup[id^='fnref'] .footnote,
 .main_jcem_wrapper sup[id^='fnref'] a[role='doc-noteref'] {
 	position: relative;
@@ -1798,8 +1778,6 @@ body
 		transform 0.12s ease 0.35s;
 }
 
-.main_jcem_wrapper sup[id^='fnref']::before,
-.main_jcem_wrapper sup[id^='fnref']::after,
 .main_jcem_wrapper sup[id^='fnref'] > a,
 .main_jcem_wrapper sup[id^='fnref'] > a * {
 	font-weight: 600 !important;

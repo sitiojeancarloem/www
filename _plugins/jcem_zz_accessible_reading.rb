@@ -77,6 +77,12 @@ module Jcem
 
     def normalize_noteref(document, link, summary = nil, full = nil, target_id = nil)
       summary, full, target_id = reference_text(document, link) unless full && target_id
+      identifier = compact_text(link).match?(/\A\[\d+\]\z/) ? compact_text(link)[1..-2] : compact_text(link)
+      fatal("marcador_de_nota_invalido texto=#{compact_text(link)}") unless identifier.match?(/\A\d+\z/)
+
+      # PROTECAO: os colchetes pertencem ao HTML final; CSS apenas apresenta o marcador.
+      link.content = "[#{identifier}]"
+      link["data-jcem-reference-identifier"] = identifier
       link["role"] ||= "doc-noteref"
       link.remove_attribute("aria-describedby")
       link["aria-details"] = target_id

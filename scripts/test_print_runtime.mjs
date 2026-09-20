@@ -138,6 +138,7 @@ try {
 				});
 				return {
 					refs: refs.length,
+					invalidReferenceGrammar: refs.filter((link) => !/^\[\d+\]$/.test((link.textContent || '').trim())).length,
 					nestedFootnoteSup: article?.querySelectorAll('sup[id^="fnref"] sup').length || 0,
 					printMarkersInsideFootnotes:
 						article?.querySelectorAll('sup[id^="fnref"] [data-print-link-note]').length || 0,
@@ -153,6 +154,7 @@ try {
 				0,
 				`${label} ${articlePath}: chamada de footnote contém <sup> aninhado`,
 			);
+			assert.equal(footnoteStructure.invalidReferenceGrammar, 0, `${label} ${articlePath}: chamada ordinária fora de [N]`);
 			assert.equal(
 				footnoteStructure.printMarkersInsideFootnotes,
 				0,

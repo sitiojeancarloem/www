@@ -6776,7 +6776,10 @@
       "artifacts": [
         "_plugins/jcem_zz_accessible_reading.rb",
         "_sass/minimal-mistakes/skins/_variables-custom.scss",
+        "assets/jcem/js/site.js",
+        "assets/jcem/ts/site.ts",
         "scripts/test_accessible_reading.rb",
+        "scripts/test_print_ieee.mjs",
         "scripts/test_print_runtime.mjs"
       ],
       "commit": "",

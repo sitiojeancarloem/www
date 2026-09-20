@@ -66,6 +66,11 @@ const siteSource = await readFile(
 	path.join(repositoryRoot, 'assets', 'jcem', 'ts', 'site.ts'),
 	'utf8',
 );
+const webSkin = await readFile(
+	path.join(repositoryRoot, '_sass', 'minimal-mistakes', 'skins', '_variables-custom.scss'),
+	'utf8',
+);
+assert.doesNotMatch(webSkin, /sup\[id\^='fnref'\]::(?:before|after)[\s\S]*?content:\s*['"][[\]]['"]/);
 assert.match(siteSource, /document\.readyState !== 'complete'/);
 assert.match(siteSource, /window\.addEventListener\('load'/);
 assert.match(siteSource, /document\.fonts\?\.ready/);
@@ -81,9 +86,9 @@ const dom = new JSDOM(
 		<article data-print-article data-print-state="legivel">
 			<div data-print-span="all"></div>
 			<section data-print-body>
-				<p data-case="single">Única<sup id="fnref:1"><a class="footnote" role="doc-noteref" href="#fn:1">1</a></sup>.</p>
-				<p data-case="consecutive">Consecutivas<sup id="fnref:4"><a class="footnote" role="doc-noteref" href="#fn:4">4</a></sup><sup id="fnref:5"><a class="footnote" role="doc-noteref" href="#fn:5">5</a></sup><sup id="fnref:6"><a class="footnote" role="doc-noteref" href="#fn:6">6</a></sup>.</p>
-				<p data-case="separated">Separada<sup id="fnref:10"><a class="footnote" role="doc-noteref" href="#fn:10">10</a></sup> e outra chamada<sup id="fnref:1:1"><a class="footnote" role="doc-noteref" href="#fn:1">1</a></sup>.</p>
+				<p data-case="single">Única<sup id="fnref:1"><a class="footnote" role="doc-noteref" href="#fn:1">[1]</a></sup>.</p>
+				<p data-case="consecutive">Consecutivas<sup id="fnref:4"><a class="footnote" role="doc-noteref" href="#fn:4">[4]</a></sup><sup id="fnref:5"><a class="footnote" role="doc-noteref" href="#fn:5">[5]</a></sup><sup id="fnref:6"><a class="footnote" role="doc-noteref" href="#fn:6">[6]</a></sup>.</p>
+				<p data-case="separated">Separada<sup id="fnref:10"><a class="footnote" role="doc-noteref" href="#fn:10">[10]</a></sup> e outra chamada<sup id="fnref:1:1"><a class="footnote" role="doc-noteref" href="#fn:1">[1]</a></sup>.</p>
 				<p data-case="legitimate">Área m<sup data-legitimate-sup>2</sup> e <sup data-legitimate-link><a href="https://example.test/elevada">fonte elevada</a></sup>.</p>
 				<p><a data-external href="https://example.test/fonte">Fonte</a> <a data-external-duplicate href="https://example.test/fonte">Fonte repetida</a> <a data-internal href="/interno/">Interno</a> <a data-fragment href="#secao">Seção</a></p>
 				<h2 id="secao">Seção</h2>
@@ -133,8 +138,9 @@ assert.deepEqual(
 		link.textContent,
 		link.getAttribute('href'),
 	]),
-	[['1', '#fn:1'], ['4', '#fn:4'], ['5', '#fn:5'], ['6', '#fn:6'], ['10', '#fn:10'], ['1', '#fn:1']],
+	[['[1]', '#fn:1'], ['[4]', '#fn:4'], ['[5]', '#fn:5'], ['[6]', '#fn:6'], ['[10]', '#fn:10'], ['[1]', '#fn:1']],
 );
+assert.equal(article.querySelector('[data-case="consecutive"]').textContent, 'Consecutivas[4][5][6].');
 assert.ok(
 	[...article.querySelectorAll('a[role="doc-noteref"]')].every((link) =>
 		document.getElementById(link.getAttribute('href').slice(1)),

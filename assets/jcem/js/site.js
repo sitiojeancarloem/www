@@ -1157,7 +1157,8 @@ const normalizeJcemFootnoteBackrefs = () => {
                 list.append(note);
             }
             (_a = groups.get(id)) === null || _a === void 0 ? void 0 : _a.forEach((link) => {
-                link.textContent = String(index + 1);
+                link.textContent = `[${index + 1}]`;
+                link.dataset.jcemReferenceIdentifier = String(index + 1);
             });
         });
     }
