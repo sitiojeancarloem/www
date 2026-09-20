@@ -1,6 +1,6 @@
 # FT-077 — Isolamento inter páginas da impressão
 
-Estado: segunda correção tecnicamente validada; rastreabilidade e validação humana pendentes. Fontes: `.ia.rules/state/requests/FT-077/prompt.md` e `.ia.rules/state/requests/FT-077/segunda-correcao-footnotes-impressao.md`.
+Estado: terceira correção humana registrada e autorizada; implementação, rastreabilidade e validação humana pendentes. Fontes: `.ia.rules/state/requests/FT-077/prompt.md`, `.ia.rules/state/requests/FT-077/segunda-correcao-footnotes-impressao.md` e `.ia.rules/state/requests/FT-077/terceira-correcao-referencias-links-controles.md`.
 
 ## Objetivo
 
@@ -84,3 +84,13 @@ Eliminar, pela camada compartilhada do adaptador IEEE, qualquer chrome, decoraç
 - O build produtivo isolado em `.tmp/ft077-footnotes-site` aprovou em 215,6 s. `check:print`, `check:print:runtime`, `check:ts`, `check:footnotes`, `check:accessibility`, `check:publication`, `check:documentation` e `git diff --check` aprovaram.
 - O PDF A4 real de `Devaneios` manteve sete páginas; inspeção raster da página 1 confirmou chamadas 4, 5 e 6 independentes, sem numeração secundária e com ritmo vertical contínuo.
 - Commit causal da segunda correção: `3cb143ed2e`. O finalizador oficial não sincronizou as três sentenças novas porque interrompe primeiro na pendência preexistente da FT-066 `9fd169d66f75a7866950f6d5`, cujos artefatos não pertencem a este commit.
+
+## Terceira correção humana — gramática, namespaces, decoração e controles
+
+- A evidência real de `/p/devaneios/` é apenas caso reproduzível; a correção permanece obrigatoriamente global e interartigos.
+- A inspeção confirmou que os colchetes das chamadas ordinárias são hoje gerados por `::before`/`::after` na skin web, enquanto o texto real do link contém somente o número. O reset IEEE remove esses pseudo-elementos e revela `<sup>N</sup>` no papel.
+- A lista de URLs impressas materializa marcadores numéricos reais, compartilhando a aparência da sequência ordinária sem possuir namespace próprio.
+- O perfil impresso aplica `text-decoration: underline` a todo link, transferindo ao papel decoração originada exclusivamente do hyperlink; ao mesmo tempo, a correção deve preservar decoração editorial externa, inclusive de ancestral semântico ou estilizado.
+- O componente de leitura e outros controles interativos internos ao artigo não pertencem à classificação estrutural de chrome atualmente neutralizada pelo adaptador.
+- A implementação autorizada deve consolidar texto real `[N]` nas chamadas ordinárias, reservar identificadores alfabéticos determinísticos aos links impressos, manter associações e sequências independentes, neutralizar somente a decoração própria do link e excluir controles web sem resíduo geométrico.
+- Cada microetapa funcional concluída deve receber commit próprio e validação correspondente; `_site` compartilhado permanece intocado.

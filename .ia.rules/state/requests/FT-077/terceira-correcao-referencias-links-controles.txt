@@ -1,0 +1,244 @@
+# Corrigir referências, links e controles no modo de impressão
+
+Continue a implementação corrigindo, de forma **global/inter-artigos**, o sistema de referências do modo de impressão.
+
+A captura anexa, com marcações em vermelho, é **mero exemplo reproduzível**. Problema, causa e correção NÃO DEVEM ser tratados por artigo, trecho, número, URL ou seletor específico; a solução DEVE atuar no mecanismo comum.
+
+## Problemas
+
+A imagem evidencia:
+
+1. **colisão entre referências semanticamente distintas**, inclusive reutilização do mesmo número para finalidades diferentes;
+2. coexistência indevida de dois formatos:
+   - `<sup>[N]</sup>`;
+   - `<sup>N</sup>`;
+3. referências contíguas sem isolamento, podendo parecer um único número, como `456`;
+4. decoração visual de hyperlink sendo indevidamente levada ao papel;
+5. controles exclusivos da web aparecendo na impressão.
+
+## Notação global única
+
+A única forma permitida para marcadores de referência DEVE ser:
+
+```html
+<sup>[identificador]</sup>
+```
+
+Para referências ordinárias:
+
+```text
+[1]
+[2]
+[4][5][6]
+```
+
+É PROIBIDO usar `<sup>N</sup>` ou qualquer forma sem `[]`.
+
+Os colchetes DEVEM isolar visual e semanticamente cada referência, inclusive quando contíguas, evitando que `[4][5][6]` seja percebido como `456` ou uma única referência. O padrão DEVE permanecer compatível com o modo web e com a convenção já definida, semelhante à Wikipedia.
+
+## Referências ordinárias × links impressos
+
+Na web, hyperlinks são clicáveis e NÃO precisam de referência adicional. No papel, deixam de ser clicáveis; por isso, o modo de impressão PODE/DEVE adicionar referência ao destino do link conforme o mecanismo existente.
+
+Essas referências adicionais DEVEM usar **namespace próprio e identificação alfabética**, enquanto referências ordinárias permanecem numéricas:
+
+```text
+referência ordinária        → [N]
+referência de link impresso → [letra]
+```
+
+Ambas DEVEM usar `<sup>[identificador]</sup>`.
+
+Referências de links impressos:
+
+- NÃO PODEM consumir, reutilizar, alterar ou colidir com a numeração ordinária;
+- NÃO PODEM renumerar footnotes/referências existentes;
+- NÃO PODEM ser confundidas semanticamente com referências numéricas;
+- DEVEM manter associação inequívoca e determinística entre marcador e destino.
+
+Se a convenção alfabética concreta já existir, DEVE ser preservada; se não existir, DEVE ser definida uma única convenção determinística e normatizada.
+
+## Colisões
+
+O sistema DEVE garantir namespaces/sequências independentes para finalidades distintas.
+
+É PROIBIDO:
+
+- reutilizar o mesmo identificador para destinos semanticamente distintos;
+- fundir referências adjacentes;
+- alterar a identidade das referências existentes ao inserir referências de links;
+- mascarar colisões por renumeração posterior.
+
+## Estilo dos marcadores
+
+O marcador `<sup>[...]</sup>`:
+
+- NÃO DEVE ter `underline`;
+- NÃO DEVE herdar decoração visual existente **exclusivamente por ser hyperlink**;
+- NÃO DEVE adicionar decoração própria além da legitimamente aplicada pelo contexto textual.
+
+No modo impressão, DEVEM ser removidos apenas os efeitos cuja origem seja o link, como, quando aplicável:
+
+- `text-decoration: underline`;
+- cor exclusiva de hyperlink;
+- estados/interações visuais;
+- outras decorações próprias do `<a>`.
+
+## Preservação de decoração externa
+
+Decoração aplicada por elemento, classe, estilo ancestral ou intenção editorial externa ao hyperlink DEVE ser preservada.
+
+Exemplo:
+
+```html
+<u><a href="...">que cita link</a></u>
+```
+
+O underline provém de `<u>` e DEVE permanecer.
+
+Também:
+
+```html
+<span class="estilo"><a href="...">link</a></span>
+```
+
+A decoração legítima do `span`/classe ancestral DEVE permanecer.
+
+Logo:
+
+- decoração originada exclusivamente pelo hyperlink → remover na impressão;
+- decoração externa/editorial que envolve o hyperlink → preservar.
+
+É PROIBIDO remover indiscriminadamente `text-decoration`, estilos herdados ou decoração legítima de ancestrais.
+
+## Paridade web × impressão
+
+As referências ordinárias DEVEM manter a mesma notação semântica/visual básica na web e impressão:
+
+```text
+[N]
+```
+
+A impressão PODE acrescentar referências alfabéticas para links não clicáveis, mas isso NÃO DEVE:
+
+- alterar numeração existente;
+- alterar o formato das referências ordinárias;
+- gerar colisão;
+- contaminar a versão web;
+- modificar conteúdo autoral além do necessário para representar o destino impresso.
+
+## Inspeção obrigatória
+
+Antes de alterar código, inspecione:
+
+1. geração de referências na web;
+2. geração de referências adicionais para links na impressão;
+3. footnotes/referências;
+4. indexação/numeração em build/renderização;
+5. CSS web e `@media print`;
+6. transformações DOM/HTML;
+7. RCFs, normas e contratos aplicáveis.
+
+Identifique a causa real da coexistência de `<sup>[N]</sup>` e `<sup>N</sup>` e das colisões. Corrija o mecanismo comum, NÃO o exemplo.
+
+## Controles web na impressão
+
+Todo elemento exclusivo de interação/UI web DEVE ficar ausente da impressão, incluindo, quando aplicável:
+
+- botões;
+- `select`;
+- campos;
+- barras/controles de progresso;
+- controles de leitura/reprodução;
+- indicadores interativos;
+- widgets;
+- menus;
+- equivalentes.
+
+A correção DEVE usar a classificação/semântica estrutural existente, sem patch pontual para os controles da captura.
+
+Ocultá-los NÃO DEVE:
+
+- deixar espaço vazio indevido;
+- deslocar artificialmente conteúdo;
+- prejudicar o fluxo das colunas;
+- alterar o comportamento web.
+
+## Implementação
+
+A solução DEVE:
+
+- consolidar globalmente `<sup>[identificador]</sup>`;
+- eliminar formas sem `[]`;
+- manter referências ordinárias numéricas;
+- usar referências alfabéticas apenas para links adicionados pela impressão;
+- manter namespaces independentes;
+- impedir colisões e renumeração cruzada;
+- preservar isolamento de referências contíguas;
+- remover apenas decoração própria de hyperlink;
+- preservar decoração externa/editorial;
+- impedir impressão de controles web;
+- preservar integralmente o comportamento web;
+- respeitar e, se necessário, atualizar RCFs/normas existentes sem legitimar implementação divergente.
+
+É PROIBIDO resolver por:
+
+- hardcode de números, URLs, artigos ou seletores;
+- substituições textuais frágeis;
+- mera ocultação visual de estrutura incorreta;
+- renumeração corretiva posterior.
+
+## Commits obrigatórios por etapa
+
+DEVE-SE fazer **commit sempre que cada etapa ou microetapa funcionalmente concluída terminar**, preservando granularidade, rastreabilidade e convenções existentes.
+
+Isso inclui, conforme a decomposição real do trabalho, commits separados para unidades concluídas como:
+
+- inspeção/ajuste normativo quando gerar alteração versionada;
+- correção da gramática global de referências;
+- separação dos namespaces numérico/alfabético;
+- correção de decoração de hyperlinks na impressão;
+- remoção de controles web da impressão;
+- testes correspondentes;
+- ajustes documentais/RCF.
+
+É PROIBIDO acumular várias microetapas concluídas em um único commit por conveniência quando puderem ser versionadas de forma independente e coerente. Também NÃO DEVE haver commit de trabalho incompleto apenas para cumprir quantidade; cada commit DEVE representar uma unidade concluída, consistente e validável.
+
+## Validação mínima
+
+Validar:
+
+- referência numérica isolada;
+- múltiplas referências contíguas, como `[4][5][6]`;
+- ausência total de `<sup>N</sup>` nos marcadores abrangidos;
+- hyperlinks isolados e múltiplos;
+- hyperlink próximo a referência numérica;
+- ausência de colisão numérico × alfabético;
+- estabilidade da sequência numérica após inserir referências alfabéticas;
+- destinos distintos com associações corretas;
+- hyperlink sem decoração externa, removendo apenas estilo próprio de link;
+- `<u><a>...</a></u>`, preservando underline externo;
+- link dentro de `span`/estrutura estilizada, preservando decoração externa;
+- múltiplos artigos;
+- web e impressão;
+- ausência de controles web na impressão;
+- ausência de espaço/resíduo após ocultação desses controles;
+- ausência de regressão em footnotes, hyperlinks e demais referências.
+
+Sempre que possível, testar também DOM/HTML/estrutura resultante, NÃO apenas aparência visual.
+
+## Critério de aceite
+
+A implementação somente estará correta quando:
+
+- existir uma única gramática global: `<sup>[identificador]</sup>`;
+- referências ordinárias forem numéricas;
+- referências de links impressos forem alfabéticas e independentes;
+- não houver colisão nem renumeração cruzada;
+- referências contíguas permanecerem isoladas;
+- nenhuma decoração exclusiva de hyperlink sobreviver à impressão;
+- decoração externa legítima for preservada;
+- web e impressão permanecerem semanticamente compatíveis;
+- controles exclusivos da web não forem impressos;
+- a correção funcionar globalmente entre artigos;
+- cada etapa/microetapa concluída estiver devidamente commitada.

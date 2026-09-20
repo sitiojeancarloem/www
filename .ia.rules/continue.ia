@@ -979,10 +979,10 @@ plano:
   - id: FT-077
     classe: correcao_codigo_validacao
     criado_em: 2026-09-16
-    estado: correcao_tecnica_validada_pendente_rastreabilidade_e_validacao_humana
+    estado: terceira_correcao_registrada_pendente_implementacao_rastreabilidade_e_validacao_humana
     depende_de: FT-071, FT-074
-    fonte: .ia.rules/state/requests/FT-077/prompt.md e segunda-correcao-footnotes-impressao.md
-    fonte_autorizacao: prompts humanos de 2026-09-16 para corrigir e concluir de forma inter paginas
+    fonte: .ia.rules/state/requests/FT-077/prompt.md, segunda-correcao-footnotes-impressao.md e terceira-correcao-referencias-links-controles.md
+    fonte_autorizacao: prompts humanos de 2026-09-16 e 2026-09-20 para corrigir e concluir de forma inter paginas, com commits obrigatorios por microetapa concluida
     contexto: .ia.rules/state/contexts/FT-077/master.md
     objetivo: Corrigir o isolamento de chrome web na impressao pela camada compartilhada e fortalecer a regressao inter paginas.
     aceite:
@@ -1006,12 +1006,13 @@ plano:
       - linhas alternadas com e sem sup mantiveram altura e passo de 14,40625 px; PDF A4 de sete paginas confirmou legibilidade e ritmo continuo
       - check print, runtime, TypeScript, footnotes, acessibilidade, publicacao, documentacao e build produtivo isolado aprovaram
       - finalizacao oficial da rastreabilidade foi bloqueada pela pendencia preexistente FT-066 9fd169d66f75a7866950f6d5, alheia ao commit causal
+      - terceira correcao deve materializar colchetes no DOM das referencias ordinarias, separar links impressos em namespace alfabetico, preservar decoracao editorial externa e excluir controles web da impressao
     commits:
       registro: 087f2d5d08
       causal: 11a0fc7f24
       rastreabilidade: 0218a7e49d
       causal_segunda_correcao: 3cb143ed2e
-    proximo_passo: sincronizar as tres sentencas RCF da segunda correcao quando o gate oficial deixar de ser bloqueado pela FT-066; depois colher validacao humana e manter a TO-DO em andamento ate aceite efetivo
+    proximo_passo: normatizar e implementar em microetapas commitadas a terceira correcao; validar DOM, web, impressao e PDF interartigos; sincronizar rastreabilidade quando o gate oficial permitir e manter a TO-DO em andamento ate aceite humano efetivo
   - id: FT-078
     classe: implementacao_normativa
     criado_em: 2026-09-18
