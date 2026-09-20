@@ -37,6 +37,16 @@ const materializeInstitutionalPageFooter = () => {
     }
     style.textContent = `@page { @bottom-center { content: "${escaped}"; color: #000; font-family: "Noto Sans", Arial, sans-serif; font-size: 6.5pt; line-height: 8pt; border-top: 0.25pt solid #777; padding-top: 1.5mm; } }`;
 };
+const alphabeticPrintReference = (index) => {
+    let value = index;
+    let identifier = '';
+    while (value > 0) {
+        value -= 1;
+        identifier = String.fromCharCode(97 + (value % 26)) + identifier;
+        value = Math.floor(value / 26);
+    }
+    return identifier;
+};
 const materializePrintLinks = (article) => {
     article.querySelectorAll('[data-print-link-references]').forEach((node) => node.remove());
     article.querySelectorAll('[data-print-link-note]').forEach((node) => node.remove());
@@ -47,7 +57,9 @@ const materializePrintLinks = (article) => {
     const title = document.createElement('h2');
     title.textContent = 'URLs dos links';
     const list = document.createElement('ol');
+    list.setAttribute('type', 'a');
     references.append(title, list);
+    const articleIndex = Array.from(document.querySelectorAll('[data-print-article]')).indexOf(article) + 1;
     const seen = new Map();
     article.querySelectorAll('[data-print-body] a[href]').forEach((link) => {
         const rawHref = (link.getAttribute('href') || '').trim();
@@ -65,19 +77,28 @@ const materializePrintLinks = (article) => {
         }
         if (!/^https?:/i.test(url))
             return;
-        let index = seen.get(url);
-        if (!index) {
-            index = seen.size + 1;
-            seen.set(url, index);
+        let reference = seen.get(url);
+        if (!reference) {
+            const identifier = alphabeticPrintReference(seen.size + 1);
+            reference = {
+                identifier,
+                targetId: `print-link-reference-${articleIndex}-${identifier}`,
+            };
+            seen.set(url, reference);
             const item = document.createElement('li');
-            item.textContent = `${index}. ${url}`;
+            item.id = reference.targetId;
+            item.dataset.printLinkIdentifier = identifier;
+            item.textContent = url;
             list.append(item);
         }
         const marker = document.createElement('sup');
         marker.dataset.printLinkNote = '';
         marker.dataset.printOnly = '';
-        marker.textContent = `[${index}]`;
-        marker.setAttribute('aria-label', `URL ${index} na lista final`);
+        marker.dataset.printLinkIdentifier = reference.identifier;
+        marker.dataset.printLinkTarget = reference.targetId;
+        marker.textContent = `[${reference.identifier}]`;
+        marker.setAttribute('aria-details', reference.targetId);
+        marker.setAttribute('aria-label', `URL ${reference.identifier} na lista final`);
         let markerAnchor = link;
         let superscript = link.closest('sup');
         while (superscript) {

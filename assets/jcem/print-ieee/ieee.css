@@ -185,6 +185,12 @@
 	}
 
 	:is(#print-isolation-specificity-guard, [data-print-article])
+		[data-print-link-references]
+		ol {
+		list-style-type: lower-alpha !important;
+	}
+
+	:is(#print-isolation-specificity-guard, [data-print-article])
 		:is(blockquote, [role="blockquote"]) {
 		display: block !important;
 		margin: 6pt 0 !important;

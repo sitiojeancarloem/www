@@ -147,6 +147,18 @@ try {
 					spuriousFootnoteUrls: Array.from(
 						article?.querySelectorAll('[data-print-link-references] li') || [],
 					).filter((item) => /#fn(?::|ref)/.test(item.textContent || '')).length,
+					invalidPrintLinkReferences: Array.from(
+						article?.querySelectorAll('[data-print-link-note]') || [],
+					).filter((marker) => {
+						const identifier = marker.getAttribute('data-print-link-identifier') || '';
+						const target = document.getElementById(marker.getAttribute('data-print-link-target') || '');
+						return !/^[a-z]+$/.test(identifier) || marker.textContent !== `[${identifier}]` ||
+							marker.getAttribute('aria-details') !== target?.id ||
+							target?.getAttribute('data-print-link-identifier') !== identifier;
+					}).length,
+					numericPrintLinkMarkers: Array.from(
+						article?.querySelectorAll('[data-print-link-note]') || [],
+					).filter((marker) => /^\[\d+\]$/.test((marker.textContent || '').trim())).length,
 				};
 			});
 			assert.equal(
@@ -163,6 +175,8 @@ try {
 			assert.equal(footnoteStructure.missingTargets, 0, `${label} ${articlePath}: destino de footnote ausente`);
 			assert.equal(footnoteStructure.invalidBacklinks, 0, `${label} ${articlePath}: backlink de footnote inválido`);
 			assert.equal(footnoteStructure.spuriousFootnoteUrls, 0, `${label} ${articlePath}: URL espúria de footnote`);
+			assert.equal(footnoteStructure.invalidPrintLinkReferences, 0, `${label} ${articlePath}: associação alfabética inválida`);
+			assert.equal(footnoteStructure.numericPrintLinkMarkers, 0, `${label} ${articlePath}: namespace de URL colidiu com notas numéricas`);
 
 			await page.emulateMedia({ media: 'print' });
 			const lineMetrics = await page.evaluate(() => {

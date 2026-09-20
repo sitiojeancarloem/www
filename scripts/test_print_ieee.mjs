@@ -154,6 +154,21 @@ assert.equal(article.querySelector('[data-legitimate-link] [data-print-link-note
 assert.ok(article.querySelector('[data-legitimate-link] + [data-print-link-note]'));
 assert.equal(article.querySelectorAll('[data-print-link-note]').length, 4);
 assert.equal(article.querySelectorAll('[data-print-link-references] li').length, 3);
+assert.equal(article.querySelector('[data-print-link-references] ol').getAttribute('type'), 'a');
+assert.deepEqual(
+	[...article.querySelectorAll('[data-print-link-note]')].map((marker) => marker.textContent),
+	['[a]', '[b]', '[b]', '[c]'],
+);
+assert.deepEqual(
+	[...article.querySelectorAll('[data-print-link-references] li')].map((item) => item.dataset.printLinkIdentifier),
+	['a', 'b', 'c'],
+);
+for (const marker of article.querySelectorAll('[data-print-link-note]')) {
+	const targetId = marker.dataset.printLinkTarget;
+	assert.ok(targetId, 'marcador alfabético sem destino declarado');
+	assert.equal(marker.getAttribute('aria-details'), targetId);
+	assert.equal(document.getElementById(targetId)?.dataset.printLinkIdentifier, marker.dataset.printLinkIdentifier);
+}
 assert.match(article.querySelector('[data-print-link-references]').textContent, /https:\/\/example\.test\/fonte/);
 assert.doesNotMatch(article.querySelector('[data-print-link-references]').textContent, /#fn:/);
 controller.prepare();
