@@ -47,7 +47,49 @@ const alphabeticPrintReference = (index) => {
     }
     return identifier;
 };
+const captureExternalLinkDecorations = (article) => {
+    if (window.matchMedia?.('print').matches)
+        return;
+    article.querySelectorAll('[data-print-external-text-decoration]').forEach((element) => {
+        delete element.dataset.printExternalTextDecoration;
+        for (const property of [
+            '--jcem-print-text-decoration-line',
+            '--jcem-print-text-decoration-style',
+            '--jcem-print-text-decoration-color',
+            '--jcem-print-text-decoration-thickness',
+            '--jcem-print-text-underline-offset',
+        ])
+            element.style.removeProperty(property);
+    });
+    const captured = new Set();
+    article.querySelectorAll('[data-print-body] a[href]').forEach((link) => {
+        const boundary = link.closest('[data-print-body]');
+        for (let ancestor = link.parentElement; ancestor; ancestor = ancestor.parentElement) {
+            if (captured.has(ancestor)) {
+                if (ancestor === boundary)
+                    break;
+                continue;
+            }
+            const computed = window.getComputedStyle(ancestor);
+            const shorthand = computed.textDecoration || '';
+            const fallbackLines = shorthand.match(/\b(?:underline|overline|line-through)\b/g)?.join(' ') || '';
+            const decorationLine = computed.textDecorationLine || fallbackLines;
+            if (decorationLine && decorationLine !== 'none') {
+                ancestor.dataset.printExternalTextDecoration = '';
+                ancestor.style.setProperty('--jcem-print-text-decoration-line', decorationLine);
+                ancestor.style.setProperty('--jcem-print-text-decoration-style', computed.textDecorationStyle || 'solid');
+                ancestor.style.setProperty('--jcem-print-text-decoration-color', computed.textDecorationColor || computed.color);
+                ancestor.style.setProperty('--jcem-print-text-decoration-thickness', computed.textDecorationThickness || 'auto');
+                ancestor.style.setProperty('--jcem-print-text-underline-offset', computed.textUnderlineOffset || 'auto');
+                captured.add(ancestor);
+            }
+            if (ancestor === boundary)
+                break;
+        }
+    });
+};
 const materializePrintLinks = (article) => {
+    captureExternalLinkDecorations(article);
     article.querySelectorAll('[data-print-link-references]').forEach((node) => node.remove());
     article.querySelectorAll('[data-print-link-note]').forEach((node) => node.remove());
     const references = document.createElement('section');

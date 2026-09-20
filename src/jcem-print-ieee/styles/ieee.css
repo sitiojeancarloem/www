@@ -150,7 +150,18 @@
 
 	:is(#print-isolation-specificity-guard, [data-print-article]) a {
 		color: inherit !important;
-		text-decoration: underline !important;
+		text-decoration: none !important;
+		text-shadow: none !important;
+	}
+
+	:is(#print-isolation-specificity-guard, [data-print-article])
+		[data-print-external-text-decoration] {
+		/* PROTECAO: restaura a intenção do ancestral, nunca o estilo nativo do link. */
+		text-decoration-line: var(--jcem-print-text-decoration-line) !important;
+		text-decoration-style: var(--jcem-print-text-decoration-style) !important;
+		text-decoration-color: var(--jcem-print-text-decoration-color) !important;
+		text-decoration-thickness: var(--jcem-print-text-decoration-thickness) !important;
+		text-underline-offset: var(--jcem-print-text-underline-offset) !important;
 	}
 
 	:is(#print-isolation-specificity-guard, [data-print-article]) a::after {

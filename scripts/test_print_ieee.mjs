@@ -53,6 +53,8 @@ assert.match(css, /\[data-print-body\]\s*\{[^}]*column-count:\s*auto\s*!importan
 assert.match(css, /#print-isolation-specificity-guard/);
 assert.match(css, /all:\s*revert\s*!important/);
 assert.match(css, /\*::before[^{]*\*::after\s*\{[^}]*all:\s*revert\s*!important/s);
+assert.match(css, /\[data-print-article\]\) a\s*\{[^}]*color:\s*inherit\s*!important[^}]*text-decoration:\s*none\s*!important/s);
+assert.match(css, /\[data-print-external-text-decoration\]\s*\{[^}]*text-decoration-line:\s*var\(--jcem-print-text-decoration-line\)\s*!important/s);
 assert.match(css, /\.jcem-panel__table[^}]*display:\s*contents\s*!important/s);
 assert.match(css, /\.jcem-panel__edge\)\s*\{[^}]*display:\s*none\s*!important/s);
 assert.match(css, /\[data-print-article\][^}]*\*\s*\{[^}]*Noto Sans[^}]*!important/s);
@@ -82,7 +84,7 @@ assert.doesNotMatch(siteSource, /setTimeout\(scheduleIdle,\s*5000\)/);
 assert.doesNotMatch(siteSource, /userAgent|navigator\.platform|maxTouchPoints/);
 
 const dom = new JSDOM(
-	`<main>
+	`<style>.editorial-decoration { text-decoration: underline wavy rgb(120, 20, 30); text-underline-offset: 3px; }</style><main>
 		<article data-print-article data-print-state="legivel">
 			<div data-print-span="all"></div>
 			<section data-print-body>
@@ -91,6 +93,7 @@ const dom = new JSDOM(
 				<p data-case="separated">Separada<sup id="fnref:10"><a class="footnote" role="doc-noteref" href="#fn:10">[10]</a></sup> e outra chamada<sup id="fnref:1:1"><a class="footnote" role="doc-noteref" href="#fn:1">[1]</a></sup>.</p>
 				<p data-case="legitimate">Área m<sup data-legitimate-sup>2</sup> e <sup data-legitimate-link><a href="https://example.test/elevada">fonte elevada</a></sup>.</p>
 				<p><a data-external href="https://example.test/fonte">Fonte</a> <a data-external-duplicate href="https://example.test/fonte">Fonte repetida</a> <a data-internal href="/interno/">Interno</a> <a data-fragment href="#secao">Seção</a></p>
+				<p><a data-plain-decoration href="#secao">Link comum</a> <u data-semantic-decoration><a href="#secao">Link em u</a></u> <span class="editorial-decoration" data-class-decoration><a href="#secao">Link em classe</a></span></p>
 				<h2 id="secao">Seção</h2>
 				<div class="footnotes"><ol>
 					<li id="fn:1" role="doc-footnote">Nota 1 <a role="doc-backlink" class="reversefootnote" href="#fnref:1">retorno</a></li>
@@ -149,6 +152,9 @@ assert.ok(
 );
 assert.equal(document.querySelector('[role="doc-backlink"]').getAttribute('href'), '#fnref:1');
 assert.equal(article.querySelector('[data-fragment] + [data-print-link-note]'), null);
+assert.equal(article.querySelector('[data-plain-decoration]').closest('[data-print-external-text-decoration]'), null);
+assert.ok(article.querySelector('[data-class-decoration]').hasAttribute('data-print-external-text-decoration'));
+assert.match(article.querySelector('[data-class-decoration]').style.getPropertyValue('--jcem-print-text-decoration-line'), /underline/);
 assert.equal(article.querySelector('[data-legitimate-sup]').textContent, '2');
 assert.equal(article.querySelector('[data-legitimate-link] [data-print-link-note]'), null);
 assert.ok(article.querySelector('[data-legitimate-link] + [data-print-link-note]'));

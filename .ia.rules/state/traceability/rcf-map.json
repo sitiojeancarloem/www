@@ -5534,9 +5534,12 @@
     },
     {
       "artifacts": [
+        "assets/jcem/print-ieee/ieee.css",
+        "assets/jcem/print-ieee/index.js",
         "scripts/test_print_ieee.mjs",
         "scripts/test_print_runtime.mjs",
-        "src/jcem-print-ieee/adapters/jekyll-blog.css",
+        "src/jcem-print-ieee/dist/ieee.css",
+        "src/jcem-print-ieee/dist/index.js",
         "src/jcem-print-ieee/src/index.ts",
         "src/jcem-print-ieee/styles/ieee.css"
       ],

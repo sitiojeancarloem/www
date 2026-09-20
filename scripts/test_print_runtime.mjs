@@ -178,7 +178,44 @@ try {
 			assert.equal(footnoteStructure.invalidPrintLinkReferences, 0, `${label} ${articlePath}: associação alfabética inválida`);
 			assert.equal(footnoteStructure.numericPrintLinkMarkers, 0, `${label} ${articlePath}: namespace de URL colidiu com notas numéricas`);
 
+			await page.evaluate(async () => {
+				const article = document.querySelector('[data-print-article]');
+				const body = article?.querySelector('[data-print-body]');
+				if (!article || !body) throw new Error('artigo de fixture ausente');
+				const style = document.createElement('style');
+				style.dataset.printDecorationFixtureStyle = '';
+				style.textContent = '.print-decoration-fixture { text-decoration: underline wavy rgb(120, 20, 30); text-underline-offset: 3px; }';
+				document.head.append(style);
+				const fixture = document.createElement('p');
+				fixture.dataset.printDecorationFixture = '';
+				fixture.innerHTML = '<a data-print-plain-link href="https://example.test/runtime-fixture">comum</a> <u data-print-u-decoration><a href="#print-decoration-target">semântico</a></u> <span class="print-decoration-fixture" data-print-class-decoration><a href="#print-decoration-target">classe</a></span><span id="print-decoration-target"></span>';
+				body.append(fixture);
+				const { prepareArticle } = await import('/assets/jcem/print-ieee/index.js');
+				prepareArticle(article).prepare();
+			});
+
 			await page.emulateMedia({ media: 'print' });
+			const linkDecoration = await page.evaluate(() => {
+				const plain = document.querySelector('[data-print-plain-link]');
+				const semantic = document.querySelector('[data-print-u-decoration]');
+				const classed = document.querySelector('[data-print-class-decoration]');
+				const external = plain;
+				const marker = document.querySelector('[data-print-link-note]');
+				return {
+					plain: getComputedStyle(plain).textDecorationLine,
+					semantic: getComputedStyle(semantic).textDecorationLine,
+					classed: getComputedStyle(classed).textDecorationLine,
+					external: getComputedStyle(external).textDecorationLine,
+					marker: getComputedStyle(marker).textDecorationLine,
+					classCaptured: classed.hasAttribute('data-print-external-text-decoration'),
+				};
+			});
+			assert.equal(linkDecoration.plain, 'none', `${label} ${articlePath}: link comum manteve decoração própria`);
+			assert.equal(linkDecoration.external, 'none', `${label} ${articlePath}: hyperlink editorial permaneceu sublinhado`);
+			assert.equal(linkDecoration.marker, 'none', `${label} ${articlePath}: marcador ganhou decoração de link`);
+			assert.match(linkDecoration.semantic, /underline/, `${label} ${articlePath}: <u> externo perdeu underline`);
+			assert.match(linkDecoration.classed, /underline/, `${label} ${articlePath}: classe ancestral perdeu underline`);
+			assert.equal(linkDecoration.classCaptured, true, `${label} ${articlePath}: classe não foi classificada`);
 			const lineMetrics = await page.evaluate(() => {
 				const article = document.querySelector('[data-print-article]');
 				const fixture = document.createElement('section');
