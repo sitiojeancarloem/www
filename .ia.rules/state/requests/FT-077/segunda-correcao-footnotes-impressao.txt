@@ -1,0 +1,363 @@
+Corrigir duplicação/aninhamento de <sup> e equalizar espaçamento vertical das linhas no modo impressão
+
+Continue a implementação corrigindo a renderização de referências de notas de rodapé no modo impressão, incluindo a estrutura dos <sup> e o espaçamento vertical das linhas que os contenham ou não.
+
+O artigo Devaneios e as capturas anexas são meros exemplos reproduzíveis. O problema demonstrado, sua causa e a respectiva correção NÃO DEVEM ser tratados de forma específica para esse artigo: a solução DEVE ser global/inter-artigos, aplicável a qualquer conteúdo que utilize o mesmo mecanismo de footnotes/notas de rodapé e o mesmo fluxo de renderização/impressão.
+
+Problema 1 — duplicação/aninhamento indevido de <sup>
+
+Na visualização web, um trecho equivalente a:
+
+... um extremo que não reflete a realidade[4][5][6] e é tão prejudicial ...
+
+é renderizado corretamente: 4, 5 e 6 aparecem como referências <sup> independentes, cada uma vinculada à respectiva footnote.
+
+Entretanto, na geração para impressão, essas mesmas referências passam a aparecer visualmente como algo equivalente a:
+
+realidade 4^8 5^9 6^10
+
+onde ^ representa um novo nível de sobrescrito.
+
+Ou seja, cada marcador de footnote que já é um <sup> recebe indevidamente outro <sup>, produzindo visualmente uma espécie de dupla exponenciação:
+
+realidade elevada a 4, e o 4 elevado a 8;
+
+5 elevado a 9;
+
+6 elevado a 10.
+
+Esse comportamento está completamente incorreto.
+
+O DOM/HTML final, ou qualquer representação/intermediário equivalente, NÃO DEVE produzir estrutura semanticamente equivalente a:
+
+<sup>4<sup>8</sup></sup>
+<sup>5<sup>9</sup></sup>
+<sup>6<sup>10</sup></sup>
+
+nem qualquer outra composição que provoque:
+
+segundo nível de sobrescrito;
+
+numeração adicional/espúria;
+
+associação indevida entre referências;
+
+reprocessamento de uma referência de footnote como se fosse conteúdo novo a ser novamente referenciado.
+
+Comportamento correto das footnotes
+
+Neste aspecto textual, a impressão DEVE reproduzir a mesma semântica e aparência estrutural da visualização web, conforme demonstrado no segundo anexo.
+
+Especificamente:
+
+4, 5 e 6 DEVEM permanecer três referências de footnote independentes;
+
+cada referência DEVE possuir um único nível visual de sobrescrito;
+
+nenhuma referência DEVE receber outro número em sobrescrito;
+
+nenhuma referência adicional DEVE ser criada;
+
+a sequência original DEVE ser preservada;
+
+a associação entre cada marcador e sua footnote correspondente DEVE permanecer íntegra;
+
+os href, id, backlinks e demais vínculos DEVEM continuar corretos conforme o contrato já existente;
+
+a preparação para impressão NÃO DEVE reinterpretar uma referência de footnote já renderizada como conteúdo que precise receber nova referência.
+
+Visualmente, o resultado correto DEVE equivaler a:
+
+realidade⁴⁵⁶ e é tão prejudicial
+
+preservando o espaçamento e o estilo efetivamente definidos pela renderização web existente, e NÃO a:
+
+realidade 4⁸ 5⁹ 6¹⁰
+
+Problema 2 — descasamento de line-height/métrica vertical causado por <sup>
+
+Além da duplicação dos sobrescritos, existe um problema de ritmo vertical/altura de linha: linhas que contêm <sup> e linhas que não contêm nenhum <sup> não mantêm atualmente o mesmo espaçamento visual na impressão.
+
+Isso produz descasamento perceptível entre linhas/parágrafos, pois a presença de uma referência sobrescrita interfere na altura efetiva da linha — ou em métrica equivalente utilizada pelo pipeline/renderizador — e faz com que o texto impresso apresente distâncias verticais diferentes conforme a linha possua ou não footnote.
+
+Esse comportamento também DEVE ser corrigido de forma global.
+
+Paridade vertical obrigatória entre linhas com e sem <sup>
+
+O line-height, métrica tipográfica ou mecanismo equivalente empregado no layout DEVE GARANTIR que linhas com <sup> e linhas sem qualquer <sup> possuam espaçamento vertical visualmente equivalente, estável e previsível, tanto na visualização pertinente quanto, obrigatoriamente, no resultado impresso.
+
+Portanto:
+
+a presença de <sup> NÃO DEVE aumentar nem reduzir de forma perceptível a distância entre linhas;
+
+linhas sem <sup> DEVEM reservar/usar uma métrica vertical compatível com linhas que contenham sobrescritos;
+
+linhas com <sup> NÃO DEVEM “abrir” o entrelinhamento apenas por conter footnotes;
+
+linhas sem <sup> NÃO DEVEM ficar visualmente mais comprimidas que as linhas com <sup>;
+
+a alternância entre linhas com e sem footnotes NÃO DEVE produzir ondulação, salto, degrau ou irregularidade perceptível no ritmo vertical;
+
+o resultado impresso DEVE apresentar continuidade tipográfica uniforme independentemente da distribuição das footnotes no texto;
+
+a correção NÃO DEVE depender de uma sequência concreta de notas nem de um artigo específico.
+
+A meta NÃO é simplesmente atribuir um valor arbitrário de line-height, mas garantir paridade visual real. Se o projeto utilizar outra técnica/métrica equivalente, ela PODE ser mantida, desde que satisfaça o mesmo contrato.
+
+Quando tecnicamente aplicável, a solução DEVE preferir uma altura de linha determinada pelo bloco/elemento textual, e NÃO pela caixa visual do <sup>, de modo que o sobrescrito permaneça dentro da composição tipográfica sem alterar o ritmo vertical das linhas.
+
+A correção DEVE ser compatível com:
+
+texto sem footnotes;
+
+texto com uma footnote;
+
+múltiplas footnotes consecutivas;
+
+<sup> legítimos não relacionados a footnotes;
+
+diferentes tamanhos de fonte já suportados;
+
+diferentes comprimentos/quebras de linha;
+
+visualização web e modo impressão, respeitando as diferenças tipográficas legitimamente previstas pelo projeto.
+
+É PROIBIDO corrigir o problema apenas para a linha imediatamente afetada ou aplicar compensações pontuais/hardcoded que gerem novo desalinhamento em outras linhas, artigos ou tamanhos de fonte.
+
+Inspeção obrigatória antes da correção
+
+Antes de modificar o código:
+
+inspecione o pipeline real de geração/renderização para web e impressão;
+
+identifique em qual etapa as referências de footnotes já existentes são novamente processadas, clonadas, numeradas, transformadas ou encapsuladas;
+
+determine se o defeito de <sup> ocorre:
+
+no HTML gerado;
+
+em transformação/manipulação de DOM;
+
+em pré-processamento específico de impressão;
+
+no CSS de impressão;
+
+no mecanismo de footnotes;
+
+ou na combinação de mais de uma dessas etapas;
+
+inspecione separadamente como line-height, vertical-align, tamanho do <sup>, posicionamento vertical, métricas da fonte e regras de @media print afetam a altura real das linhas;
+
+determine se o descasamento vertical decorre do CSS, do motor de impressão, da estrutura DOM ou de combinação dessas causas;
+
+aplique cada correção no mecanismo comum responsável pelo defeito, e NÃO no conteúdo, HTML ou artigo usado como exemplo.
+
+É PROIBIDO criar correção específica para:
+
+Devaneios;
+
+os números 4, 5, 6, 8, 9 ou 10;
+
+uma URL concreta;
+
+um seletor exclusivo daquele artigo;
+
+uma linha/parágrafo concreto;
+
+qualquer caso hardcoded equivalente.
+
+Requisitos de implementação
+
+A correção DEVE:
+
+preservar o mecanismo de footnotes já válido;
+
+impedir processamento recursivo/repetido de referências já materializadas;
+
+impedir <sup> aninhado quando o elemento representa referência de footnote;
+
+impedir geração de numeração adicional/espúria;
+
+manter correspondência 1:1 entre cada marcador e sua respectiva footnote;
+
+preservar href, id, backlink e demais contratos existentes;
+
+funcionar com referências isoladas;
+
+funcionar com várias referências consecutivas;
+
+funcionar com múltiplos artigos/páginas;
+
+preservar <sup> legítimos que NÃO sejam footnotes;
+
+preservar qualquer uso semântico legítimo de sobrescrito no conteúdo;
+
+manter espaçamento vertical uniforme entre linhas com e sem <sup>;
+
+garantir que a presença de <sup> NÃO altere perceptivelmente a altura/ritmo da linha impressa;
+
+garantir que linhas sem <sup> utilizem espaçamento compatível com linhas que os contenham;
+
+preservar legibilidade do próprio sobrescrito, sem clipping, sobreposição ou colisão com linhas adjacentes;
+
+preservar a posição visual adequada do <sup> em relação ao texto-base;
+
+NÃO mascarar o erro estrutural de footnotes apenas visualmente por CSS caso a estrutura/numeração incorreta continue existindo no DOM/HTML;
+
+NÃO resolver o problema de line-height ocultando, cortando ou deslocando o <sup> de forma que prejudique sua legibilidade;
+
+NÃO remover indiscriminadamente <sup> aninhados se houver casos legítimos não relacionados a footnotes;
+
+corrigir a origem real do reprocessamento/duplicação e a origem real do descasamento vertical.
+
+Se os problemas forem introduzidos por mais de uma camada, a solução DEVE eliminar cada causa na camada correta e impedir regressão nas demais, sem criar tratamentos redundantes ou divergentes.
+
+Paridade web × impressão
+
+Para referências de footnotes inseridas no fluxo textual, a impressão DEVE manter paridade semântica com a visualização web quanto a:
+
+quantidade de referências;
+
+ordem;
+
+números;
+
+associação com as notas;
+
+vínculo/navegação;
+
+hierarquia estrutural;
+
+existência de um único nível de sobrescrito.
+
+Além disso, a composição tipográfica DEVE manter ritmo vertical uniforme:
+
+linhas equivalentes DEVEM conservar espaçamento visual compatível possuindo ou não <sup>;
+
+a existência de uma footnote NÃO DEVE provocar alteração perceptível no entrelinhamento;
+
+a impressão NÃO DEVE produzir espaçamento variável em função da presença de sobrescritos.
+
+Diferenças estritamente tipográficas de @media print PODEM existir quando já previstas pelo projeto, mas NÃO PODEM alterar indevidamente:
+
+estrutura;
+
+conteúdo;
+
+numeração;
+
+hierarquia;
+
+cardinalidade;
+
+associação;
+
+identidade das referências;
+
+regularidade do ritmo vertical entre linhas equivalentes.
+
+A exigência de paridade NÃO significa necessariamente que web e impressão devam compartilhar literalmente o mesmo valor CSS; significa que o comportamento visual e tipográfico resultante DEVE ser coerente e que, no modo impresso, linhas com e sem <sup> NÃO apresentem descasamento perceptível.
+
+Integridade
+
+A correção DEVE garantir que:
+
+cada marcador textual corresponda somente à footnote correta;
+
+nenhuma referência herde ou receba numeração de outra;
+
+nenhuma transformação de impressão crie novas referências;
+
+nenhuma referência original seja perdida;
+
+nenhuma referência seja duplicada;
+
+nenhuma referência seja renumerada indevidamente;
+
+sequências consecutivas permaneçam semanticamente independentes, ainda que visualmente próximas;
+
+o comportamento permaneça determinístico entre visualização web e impressão;
+
+a presença/ausência de <sup> NÃO altere de forma perceptível a distância vertical entre linhas equivalentes;
+
+a normalização do espaçamento NÃO comprometa acessibilidade, seleção/cópia de texto, links ou legibilidade.
+
+Validação obrigatória
+
+Adicionar/ajustar testes capazes de comprovar, no mínimo:
+
+uma única footnote;
+
+várias footnotes consecutivas, como [4][5][6];
+
+footnotes separadas ao longo do mesmo parágrafo;
+
+footnotes em múltiplos parágrafos;
+
+múltiplos artigos/páginas que utilizem o mesmo mecanismo;
+
+numerações acima de 9;
+
+coexistência de footnotes e <sup> legítimos não relacionados a notas;
+
+renderização web;
+
+renderização/impressão;
+
+HTML/DOM intermediário, quando aplicável;
+
+inexistência de <sup> de footnote aninhado;
+
+inexistência de números adicionais/espúrios;
+
+preservação correta de href, id e backlinks;
+
+preservação da ordem original;
+
+ausência de duplicação;
+
+ausência de renumeração indevida;
+
+ausência de regressão na navegação e no mecanismo geral de notas;
+
+comparação entre linhas consecutivas com e sem <sup>;
+
+alternância de várias linhas com e sem footnotes;
+
+múltiplas footnotes na mesma linha;
+
+quebras automáticas de linha contendo <sup> próximo ao início, meio e fim da linha;
+
+estabilidade do entrelinhamento no resultado impresso;
+
+ausência de clipping, colisão ou sobreposição do <sup> após a equalização do ritmo vertical.
+
+Os testes NÃO DEVEM validar apenas aparência superficial: quando o pipeline permitir, DEVEM também verificar a estrutura/semântica resultante, garantindo que o defeito de footnotes não esteja apenas oculto por CSS.
+
+Para o espaçamento vertical, quando houver infraestrutura adequada de teste visual/regressão, DEVE-SE verificar que linhas equivalentes com e sem <sup> mantenham a mesma métrica/ritmo vertical dentro da tolerância já adotada pelo projeto. Se não houver teste visual automatizado aplicável, a validação DEVE incluir inspeção reproduzível da impressão/PDF ou mecanismo equivalente, sem inventar infraestrutura desnecessária apenas para esta correção.
+
+Critérios de aceite
+
+A implementação somente estará correta quando, para qualquer artigo que utilize o mesmo mecanismo de footnotes:
+
+cada referência aparecer uma única vez;
+
+cada referência possuir um único nível de sobrescrito;
+
+nenhuma numeração espúria for criada;
+
+a associação marcador ↔ footnote permanecer correta;
+
+a impressão reproduzir a mesma estrutura textual e semântica da visualização web nesse aspecto;
+
+<sup> legítimos não relacionados a footnotes permanecerem intactos;
+
+linhas com e sem <sup> apresentarem espaçamento vertical real/impresso visualmente equivalente e uniforme;
+
+a presença de sobrescritos NÃO causar descasamento perceptível no ritmo vertical;
+
+a equalização de line-height/métrica equivalente NÃO causar clipping, colisão, sobreposição ou perda de legibilidade;
+
+não houver correção específica para o artigo usado como exemplo;
+
+não houver regressão nas demais formas de notas, sobrescritos ou tipografia existentes.

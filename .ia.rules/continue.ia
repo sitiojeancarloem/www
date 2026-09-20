@@ -979,7 +979,7 @@ plano:
   - id: FT-077
     classe: correcao_codigo_validacao
     criado_em: 2026-09-16
-    estado: em_correcao_apos_rejeicao_humana
+    estado: correcao_tecnica_validada_pendente_rastreabilidade_e_validacao_humana
     depende_de: FT-071, FT-074
     fonte: .ia.rules/state/requests/FT-077/prompt.md e segunda-correcao-footnotes-impressao.md
     fonte_autorizacao: prompts humanos de 2026-09-16 para corrigir e concluir de forma inter paginas
@@ -1001,11 +1001,17 @@ plano:
       - seis sentencas materiais foram vinculadas ao commit causal e a rastreabilidade foi validada com 435 entradas e 394 sentencas materiais
       - TO-DO de impressao permanece em avaliacao humana e nao foi marcada como concluida
       - segunda rejeicao confirmou reprocessamento de footnotes pela lista impressa de URLs e variacao da metrica vertical de sobrescritos
+      - coletor de URLs passou a classificar href original e excluir fragmentos, chamadas, backlinks e secoes de referencias antes da resolucao
+      - 57 chamadas reais de Devaneios conservaram cardinalidade, destinos e um unico sup; quatro artigos aprovaram desktop e mobile
+      - linhas alternadas com e sem sup mantiveram altura e passo de 14,40625 px; PDF A4 de sete paginas confirmou legibilidade e ritmo continuo
+      - check print, runtime, TypeScript, footnotes, acessibilidade, publicacao, documentacao e build produtivo isolado aprovaram
+      - finalizacao oficial da rastreabilidade foi bloqueada pela pendencia preexistente FT-066 9fd169d66f75a7866950f6d5, alheia ao commit causal
     commits:
       registro: 087f2d5d08
       causal: 11a0fc7f24
       rastreabilidade: 0218a7e49d
-    proximo_passo: corrigir footnotes e ritmo vertical globalmente, revalidar DOM e impressao inter artigos e manter a TO-DO em andamento ate aceite efetivo
+      causal_segunda_correcao: 3cb143ed2e
+    proximo_passo: sincronizar as tres sentencas RCF da segunda correcao quando o gate oficial deixar de ser bloqueado pela FT-066; depois colher validacao humana e manter a TO-DO em andamento ate aceite efetivo
   - id: FT-078
     classe: implementacao_normativa
     criado_em: 2026-09-18

@@ -1,6 +1,6 @@
 # FT-077 — Isolamento inter páginas da impressão
 
-Estado: reaberta para segunda correção humana. Fontes: `.ia.rules/state/requests/FT-077/prompt.md` e `.ia.rules/state/requests/FT-077/segunda-correcao-footnotes-impressao.md`.
+Estado: segunda correção tecnicamente validada; rastreabilidade e validação humana pendentes. Fontes: `.ia.rules/state/requests/FT-077/prompt.md` e `.ia.rules/state/requests/FT-077/segunda-correcao-footnotes-impressao.md`.
 
 ## Objetivo
 
@@ -73,3 +73,14 @@ Eliminar, pela camada compartilhada do adaptador IEEE, qualquer chrome, decoraç
 - A correção deve classificar o `href` original antes de resolvê-lo, excluir referências semânticas e fragmentos intradocumentais, impedir qualquer `<sup>` descendente de outro `<sup>` e manter links sobrescritos legítimos sem perda.
 - A métrica deve partir do `line-height` do bloco textual: sobrescritos permanecem legíveis e elevados, mas com `line-height: 0` e posicionamento relativo proporcional, inclusive para marcadores de URL.
 - A regressão deve combinar prova estrutural em fixture genérica, auditoria interartigos do DOM real e medição geométrica em mídia de impressão.
+
+## Resultado e validação da segunda correção
+
+- O coletor passou a classificar o `href` literal antes de resolvê-lo e exclui fragmentos, noterefs, backlinks, footnotes e seções de referências. Um link HTTP legítimo dentro de `<sup>` conserva seu sobrescrito e recebe a chamada de URL como irmão externo.
+- Tela e impressão fixam `line-height: 0` na caixa de sobrescrito; o perfil IEEE posiciona o glifo relativamente a uma linha cuja métrica continua sendo definida pelo bloco textual.
+- A fixture estrutural cobre chamada única, 4/5/6 consecutivas, referências separadas, número 10, reuso, destino, backlink, fragmento, URL repetida e `<sup>` legítimo, inclusive com link.
+- O runtime percorreu quatro artigos reais em desktop e mobile: nenhum `<sup>` de footnote aninhado, marcador de URL interno, destino ausente, backlink inválido ou URL `#fn` espúria.
+- Sete linhas alternadas com e sem `<sup>` mantiveram altura e passo uniformes de `14,40625 px`; caixas continuaram visíveis, sem clipping nem saída da faixa tipográfica segura.
+- O build produtivo isolado em `.tmp/ft077-footnotes-site` aprovou em 215,6 s. `check:print`, `check:print:runtime`, `check:ts`, `check:footnotes`, `check:accessibility`, `check:publication`, `check:documentation` e `git diff --check` aprovaram.
+- O PDF A4 real de `Devaneios` manteve sete páginas; inspeção raster da página 1 confirmou chamadas 4, 5 e 6 independentes, sem numeração secundária e com ritmo vertical contínuo.
+- Commit causal da segunda correção: `3cb143ed2e`. O finalizador oficial não sincronizou as três sentenças novas porque interrompe primeiro na pendência preexistente da FT-066 `9fd169d66f75a7866950f6d5`, cujos artefatos não pertencem a este commit.
