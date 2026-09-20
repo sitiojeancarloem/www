@@ -230,13 +230,24 @@ for (const webOnlySelector of [
 	'.jcem-date-flag',
 	'.pagination',
 	'> summary',
+	'[data-print-web-control]',
+	'[data-jcem-read-aloud]',
+	'button',
+	'select',
+	'input:not([type="hidden"])',
+	'[role="progressbar"]',
 ]) {
 	assert.match(
 		adapterCss,
-		new RegExp(webOnlySelector.replaceAll('.', '\\.')),
+		new RegExp(webOnlySelector.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')),
 		`auxiliar web sem neutralização impressa: ${webOnlySelector}`,
 	);
 }
+const readAloudInclude = await readFile(
+	path.join(repositoryRoot, '_includes', 'jcem', 'read-aloud.html'),
+	'utf8',
+);
+assert.match(readAloudInclude, /data-jcem-read-aloud\s+data-print-web-control/);
 
 const layout = await readFile(
 	path.join(repositoryRoot, '_layouts', 'single.html'),

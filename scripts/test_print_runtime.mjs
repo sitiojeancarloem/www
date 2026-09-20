@@ -77,6 +77,8 @@ const chromeSelectors = [
 	'.page__share',
 	'.jcem-theme-toggle',
 	'.jcem-scroll-top',
+	'[data-print-web-control]',
+	'[data-jcem-read-aloud]',
 	'#silktide-wrapper',
 	'#silktide-cookie-icon',
 ];
@@ -190,6 +192,9 @@ try {
 				fixture.dataset.printDecorationFixture = '';
 				fixture.innerHTML = '<a data-print-plain-link href="https://example.test/runtime-fixture">comum</a> <u data-print-u-decoration><a href="#print-decoration-target">semântico</a></u> <span class="print-decoration-fixture" data-print-class-decoration><a href="#print-decoration-target">classe</a></span><span id="print-decoration-target"></span>';
 				body.append(fixture);
+				const controls = document.createElement('div');
+				controls.innerHTML = '<div data-print-control-fixture data-print-web-control>widget</div><form data-print-control-fixture><input value="campo"><button type="button">ação</button></form><progress data-print-control-fixture value="1" max="2"></progress><div data-print-control-fixture role="button" tabindex="0">botão ARIA</div>';
+				body.append(...controls.children);
 				const { prepareArticle } = await import('/assets/jcem/print-ieee/index.js');
 				prepareArticle(article).prepare();
 			});
@@ -216,6 +221,21 @@ try {
 			assert.match(linkDecoration.semantic, /underline/, `${label} ${articlePath}: <u> externo perdeu underline`);
 			assert.match(linkDecoration.classed, /underline/, `${label} ${articlePath}: classe ancestral perdeu underline`);
 			assert.equal(linkDecoration.classCaptured, true, `${label} ${articlePath}: classe não foi classificada`);
+			const controlGeometry = await page.evaluate(() =>
+				Array.from(document.querySelectorAll('[data-print-control-fixture], [data-jcem-read-aloud]')).map((control) => {
+					const rect = control.getBoundingClientRect();
+					return {
+						display: getComputedStyle(control).display,
+						width: rect.width,
+						height: rect.height,
+					};
+				}),
+			);
+			assert.ok(controlGeometry.length >= 5, `${label} ${articlePath}: matriz de controles incompleta`);
+			assert.ok(
+				controlGeometry.every(({ display, width, height }) => display === 'none' && width === 0 && height === 0),
+				`${label} ${articlePath}: controle web deixou caixa residual ${JSON.stringify(controlGeometry)}`,
+			);
 			const lineMetrics = await page.evaluate(() => {
 				const article = document.querySelector('[data-print-article]');
 				const fixture = document.createElement('section');

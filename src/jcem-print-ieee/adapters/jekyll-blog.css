@@ -58,9 +58,29 @@
 			.jcem-cover,
 			.jcem-date-flag,
 			.jcem-post-date-flag,
-			.jcem-post-read-time
+			.jcem-post-read-time,
+			[data-print-web-control],
+			[data-jcem-read-aloud],
+			form,
+			button,
+			select,
+			textarea,
+			input:not([type="hidden"]),
+			progress,
+			meter,
+			audio,
+			video[controls],
+			[contenteditable="true"],
+			[role="button"],
+			[role="switch"],
+			[role="slider"],
+			[role="progressbar"],
+			[role="menu"],
+			[role="menubar"],
+			[role="tablist"],
+			[role="status"]
 		) {
-		/* PROTECAO: o guard de especificidade prevalece sobre o reset `all: revert`. */
+		/* PROTECAO: o guard de especificidade prevalece sobre o reset e remove chrome e controles web. */
 		display: none !important;
 	}
 

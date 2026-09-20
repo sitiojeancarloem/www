@@ -5567,11 +5567,11 @@
     },
     {
       "artifacts": [
+        "_includes/jcem/read-aloud.html",
+        "assets/jcem/print-ieee/jekyll-blog.css",
         "scripts/test_print_ieee.mjs",
         "scripts/test_print_runtime.mjs",
-        "src/jcem-print-ieee/adapters/jekyll-blog.css",
-        "src/jcem-print-ieee/src/index.ts",
-        "src/jcem-print-ieee/styles/ieee.css"
+        "src/jcem-print-ieee/adapters/jekyll-blog.css"
       ],
       "commit": "",
       "ft": "FT-077",
