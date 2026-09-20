@@ -332,3 +332,182 @@
     - correção de frase/sentença inteira indevidamente em CAIXA ALTA;
     - ausência de capitalização redundante em cadeias correferentes;
     - ausência de regressão nas demais regras editoriais e de pré-publicação.
+
+- [ ] Implementar figuras de largura total no modo de impressão IEEE, com marcação explícita, inferência automática e normatização permanente
+  - O modo de impressão IEEE DEVE permitir que determinadas imagens/figuras ocupem, excepcionalmente, **a largura útil das duas colunas**, sem romper, sobrepor, embaralhar ou prejudicar:
+    - o fluxo natural do texto;
+    - a ordem de leitura;
+    - a continuidade das colunas;
+    - a paginação;
+    - as margens imprimíveis;
+    - legendas, referências e demais elementos vinculados à figura.
+  - Essa capacidade constitui **exceção deliberada ao modelo IEEE adotado pelo projeto** e DEVE ser formalmente normatizada, documentada, testada e preservada em refatorações/ajustes futuros.
+  - A exceção aplica-se **exclusivamente ao modo de impressão IEEE**. A marcação, inferência ou metadado associado NÃO DEVE alterar aparência, dimensões, fluxo, layout ou comportamento da mesma imagem/figura na visualização web.
+
+  - A implementação DEVE inspecionar previamente:
+    - pipeline real de Markdown/HTML/build/impressão;
+    - mecanismo atual de imagens, figuras, legendas e atributos customizados;
+    - CSS/engine responsável pelo layout IEEE em colunas;
+    - RCFs, `AGENTS.md`, `README.md`, documentação e demais normas aplicáveis;
+    - bibliotecas/dependências já disponíveis que possam atender à análise automática.
+  - NÃO DEVE ser criada solução paralela, markup incompatível, parser redundante ou mecanismo ad hoc quando já existir extensão, atributo, hook ou abstração adequada no projeto.
+
+  - Devem existir **dois mecanismos complementares**:
+    1. marcação explícita/manual da figura;
+    2. inferência automática, em build, para automarcação de figuras inequivocamente adequadas.
+
+  - ## Marcação explícita
+    - DEVE existir um marcador/atributo customizado, semanticamente adequado à arquitetura existente, que identifique a imagem/figura como apta a ocupar a largura útil das duas colunas no modo IEEE.
+    - A sintaxe concreta NÃO DEVE ser inventada antes de inspecionar os mecanismos de atributos/extensões já existentes; DEVE reutilizar a solução nativa/preexistente mais compatível.
+    - Quando explicitamente marcado:
+      - o elemento DEVE ocupar até toda a largura imprimível disponível entre as margens laterais;
+      - sua altura DEVE ser ajustada proporcionalmente, preservando o aspect ratio;
+      - NÃO DEVE haver distorção, crop arbitrário ou extrapolação das margens;
+      - figura, imagem, legenda e elementos semanticamente vinculados DEVEM permanecer coerentes;
+      - o texto anterior e posterior DEVE continuar no fluxo correto das colunas;
+      - a marcação NÃO DEVE produzir qualquer alteração na versão web.
+    - A marcação explícita DEVE ter precedência sobre a inferência automática: uma decisão manual válida NÃO DEVE ser removida ou contrariada pelo classificador automático.
+
+  - ## Objetivo de uso
+    - O recurso destina-se principalmente a imagens/figuras:
+      - predominantemente horizontais;
+      - de baixa altura relativa quando impressas em largura total;
+      - que NÃO consumam parcela excessiva da página;
+      - com alta densidade informacional;
+      - contendo textos, rótulos, diagramas, esquemas, gráficos ou detalhes cuja redução à largura de uma única coluna comprometa legibilidade ou distinção.
+    - O propósito é **aumentar tamanho físico e qualidade útil de leitura na impressão**, e NÃO simplesmente ampliar imagens decorativas ou de baixa densidade informacional.
+
+  - ## Inferência automática / automarcação
+    - O build DEVE possuir mecanismo de análise automática capaz de identificar, com forte preferência por **precisão e baixo falso positivo**, imagens/figuras adequadas ao modo de largura total.
+    - A análise DEVE ocorrer em tempo de build quando uma imagem for **inserida ou alterada**, evitando reanálise desnecessária de arquivos inalterados sempre que a arquitetura permitir detecção determinística por hash, timestamp confiável, cache ou mecanismo equivalente já existente.
+    - A inferência DEVE avaliar, no mínimo, as seguintes questões:
+      1. **Geometria:** a imagem possui aspect ratio predominantemente horizontal e, quando ajustada à largura útil total de impressão, sua altura projetada permanece em até **35% da altura útil da página**, desconsideradas as margens superior e inferior?
+      2. **Densidade textual/informacional:** há quantidade/densidade de informação — especialmente texto, rótulos, anotações ou elementos equivalentes — cuja redução à largura de uma coluna dificulte significativamente ou inviabilize leitura?
+      3. **Densidade visual não textual:** há detalhes visuais relevantes — como gráficos, diagramas, linhas, símbolos, pequenos componentes ou estruturas — cuja redução à largura de uma coluna dificulte significativamente ou inviabilize distinção?
+    - O critério geométrico da questão `1` DEVE ser obrigatório.
+    - A automarcação DEVE ocorrer somente quando houver evidência inequívoca de necessidade de ampliação por densidade informacional, textual e/ou visual, conforme `2` e/ou `3`; em caso de incerteza, DEVE prevalecer **não automarcar**.
+    - O limiar de `35%` refere-se à **altura útil da página impressa**, isto é, à altura disponível após descontar as margens superior e inferior definidas para o modo IEEE.
+    - A decisão DEVE considerar a dimensão física/projetada no layout de impressão, e NÃO apenas dimensões em pixels isoladamente.
+    - A automarcação NÃO DEVE modificar destrutivamente o arquivo-fonte da imagem.
+    - O resultado da inferência DEVE ser determinístico para o mesmo conteúdo, configuração, versão do classificador e ambiente suportado.
+    - Caso o projeto já possua mecanismo adequado de metadados gerados, cache de análise ou manifesto de build, DEVE ser reutilizado.
+    - NÃO DEVE haver inferência baseada apenas no aspect ratio: ser horizontal e baixo, isoladamente, NÃO basta.
+    - Imagens decorativas, fotografias simples, ilustrações de baixa densidade ou elementos que permaneçam claramente legíveis em uma coluna NÃO DEVEM ser automarcados.
+
+  - ## Algoritmos, bibliotecas e dependências
+    - Para análise de geometria, densidade textual e densidade visual, DEVEM ser priorizados **algoritmos consolidados e bibliotecas open source maduras, mantidas e adequadas ao problema**, em vez de reimplementações próprias.
+    - Antes de implementar qualquer algoritmo, DEVE-SE verificar se a funcionalidade necessária:
+      - já existe no projeto;
+      - já é fornecida por dependência atual;
+      - pode ser atendida por biblioteca consolidada e compatível.
+    - É PROIBIDO reimplementar sem necessidade comprovada algo que já exista de forma madura, funcional e integrável.
+    - Implementação própria somente PODE ocorrer quando:
+      - não houver solução existente adequada;
+      - houver limitação objetiva de integração/licenciamento/manutenção;
+      - ou a solução externa introduzir custo/complexidade desproporcional.
+    - Linguagens adicionais às já utilizadas pelo projeto PODEM ser empregadas **somente quando tecnicamente justificadas e integráveis aos pontos necessários do build**, sem criar pipeline frágil, dependência operacional desnecessária ou requisito de ambiente incompatível.
+    - A escolha técnica DEVE privilegiar:
+      - precisão;
+      - baixo falso positivo;
+      - determinismo;
+      - manutenção;
+      - integração simples;
+      - custo de build aceitável;
+      - compatibilidade com os ambientes já suportados.
+    - NÃO DEVE haver improvisação, heurística arbitrária ou suposição sobre capacidades já existentes: o estado real DEVE ser inspecionado.
+
+  - ## Layout e fluxo de impressão
+    - A figura em largura total DEVE funcionar como um elemento de interrupção controlada do fluxo de duas colunas:
+      - o conteúdo anterior DEVE encerrar-se corretamente;
+      - a figura DEVE ocupar a largura útil total permitida;
+      - o conteúdo posterior DEVE retomar corretamente o layout em duas colunas;
+      - a ordem lógica do documento DEVE permanecer inalterada.
+    - A solução DEVE utilizar, quando suportado e adequado ao pipeline real, os recursos padronizados do mecanismo de layout/impressão em vez de simulações frágeis por posicionamento absoluto ou deslocamentos manuais.
+    - É PROIBIDO obter o efeito por:
+      - sobreposição;
+      - `position` absoluto usado como contorno do fluxo;
+      - margens negativas arbitrárias;
+      - duplicação da figura;
+      - remoção/reinserção fora da ordem sem preservação semântica;
+      - JavaScript de pós-layout quando houver mecanismo declarativo/CSS confiável que resolva corretamente.
+    - A figura DEVE respeitar integralmente as margens laterais imprimíveis.
+    - Sua altura DEVE permanecer proporcional à largura aplicada.
+    - Caso, por características reais da página/figura, a expansão resulte em altura incompatível com o limite ou fluxo seguro, o sistema NÃO DEVE forçar largura total automaticamente.
+
+  - ## Precedência e comportamento
+    - Marcação manual válida DEVE prevalecer sobre inferência automática.
+    - A inferência automática DEVE ser conservadora e NÃO DEVE remover uma marcação explícita.
+    - A inferência automática NÃO DEVE produzir efeito na versão web.
+    - Caso exista mecanismo de override/atributos já normatizado no projeto, DEVE ser reutilizado para permitir controle explícito, sem criação de sintaxe paralela.
+    - A ausência de marcação manual e de inferência positiva DEVE preservar exatamente o comportamento IEEE atual da figura.
+    - A nova exceção NÃO DEVE alterar o comportamento de imagens que não participem dela.
+
+  - ## Normatização
+    - O RCF aplicável DEVE ser atualizado para definir explicitamente:
+      - a existência da exceção ao layout IEEE;
+      - seu escopo exclusivo de impressão;
+      - semântica do marcador manual;
+      - precedência entre marcação manual e inferência;
+      - critérios mínimos da automarcação;
+      - limite de `35%` da altura útil;
+      - preservação de margens e aspect ratio;
+      - exigência de continuidade correta das colunas;
+      - proibição de impacto na visualização web;
+      - obrigação de preservação desse comportamento em mudanças futuras.
+    - A norma NÃO DEVE ser alterada apenas para legitimar implementação divergente; a implementação DEVE seguir a norma consolidada.
+
+  - ## Documentação de uso
+    - DEVE ser criado um guia **claro, direto, curto e ilustrado** ensinando:
+      - finalidade do recurso;
+      - quando usá-lo;
+      - quando NÃO usá-lo;
+      - como aplicar a marcação manual;
+      - como funciona a automarcação;
+      - quais são seus critérios;
+      - diferença entre web e impressão IEEE;
+      - exemplos de figura normal versus figura em largura total;
+      - comportamento esperado do fluxo de colunas.
+    - O guia DEVE ficar na pasta apropriada de `docs/`, conforme a estrutura documental real do repositório.
+    - O guia DEVE ser referenciado/linkado:
+      - pelo RCF correspondente;
+      - pelo `README.md` apropriado.
+    - NÃO DEVE ser criada nova hierarquia documental arbitrária se já existir localização adequada.
+    - As ilustrações/exemplos DEVEM ser suficientes para que um mantenedor ou autor compreenda o uso sem precisar inspecionar a implementação.
+
+  - ## Validação obrigatória
+    - Testar, no mínimo:
+      - figura comum sem marcador, preservando o comportamento IEEE atual;
+      - figura explicitamente marcada;
+      - figura automarcada por alta densidade textual;
+      - figura automarcada por alta densidade visual;
+      - imagem horizontal que satisfaça geometria, mas NÃO densidade informacional, confirmando ausência de falso positivo;
+      - fotografia/ilustração simples horizontal, confirmando ausência de automarcação indevida;
+      - imagem cuja altura projetada seja exatamente próxima ao limite de `35%`;
+      - imagem cuja altura projetada ultrapasse `35%`, confirmando ausência de automarcação;
+      - preservação do aspect ratio;
+      - respeito às margens laterais;
+      - figura com legenda;
+      - figura entre parágrafos;
+      - figura próxima a quebra de página;
+      - múltiplas figuras normais e de largura total no mesmo artigo;
+      - retomada correta das duas colunas após a figura;
+      - ausência de sobreposição, salto, duplicação ou troca de ordem do texto;
+      - ausência de qualquer alteração visual/funcional na versão web;
+      - reanálise em build após alteração da imagem;
+      - ausência de reprocessamento desnecessário quando a imagem não mudar, se suportado pelo pipeline;
+      - determinismo da decisão automática;
+      - funcionamento em diferentes artigos, NÃO apenas no caso usado para desenvolvimento;
+      - regressão visual do modo IEEE existente.
+
+  - ## Critérios de aceite
+    - A tarefa somente estará concluída quando:
+      - houver uma forma explícita e normatizada de marcar figuras para largura total;
+      - a figura marcada puder ocupar a largura útil das duas colunas sem romper o fluxo do documento;
+      - a visualização web permanecer integralmente inalterada;
+      - a imagem respeitar margens e aspect ratio;
+      - existir inferência automática conservadora em tempo de build;
+      - o classificador utilizar o critério geométrico e análise de densidade informacional relevante, evitando falsos positivos;
+      - bibliotecas/algoritmos consolidados forem reutilizados sempre que adequados, sem reimplementação desnecessária;
+      - a exceção estiver formalizada no RCF;
+      - o guia ilustrado existir em `docs/` e estiver linkado pelo RCF e pelo `README.md`;
+      - testes demonstrarem preservação do fluxo, da impressão IEEE, da web e da integridade visual em múltiplos artigos.
