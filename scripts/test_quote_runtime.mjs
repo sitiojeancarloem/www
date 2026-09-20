@@ -181,8 +181,8 @@ try {
 		assert.equal(defaultQuoteState.model, 'thematic-rail');
 		assert.equal(defaultQuoteState.alias, 'primary');
 		assert.ok(
-			Math.abs(defaultQuoteState.marginInlineStart - 28) <= 0.1,
-			`${viewport.width}: recuo externo do modelo padrão divergiu de 28px: ${JSON.stringify(defaultQuoteState)}`,
+			Math.abs(defaultQuoteState.marginInlineStart - 18.2) <= 0.1,
+			`${viewport.width}: recuo externo do modelo padrão divergiu de 18.2px: ${JSON.stringify(defaultQuoteState)}`,
 		);
 
 		// Regride a nota editorial que revelou a soma indevida do modelo primário
@@ -289,8 +289,8 @@ try {
 			assert.ok(pullQuoteEntries.every((entry) => entry.bodyAlignments.every((alignment) => ['left', 'start'].includes(alignment))), `${theme}/${viewport.width}: parágrafo do pull-quote não é esquerdo`);
 			const thematicEntries = state.models.filter(({ model }) => model === 'thematic-rail');
 			assert.ok(
-				thematicEntries.every(({ marginInlineStart }) => Math.abs(marginInlineStart - 28) <= 0.1),
-				`${theme}/${viewport.width}: recuo externo thematic-rail divergiu de 28px: ${JSON.stringify(thematicEntries.map(({ marginInlineStart }) => marginInlineStart))}`,
+				thematicEntries.every(({ marginInlineStart }) => Math.abs(marginInlineStart - 18.2) <= 0.1),
+				`${theme}/${viewport.width}: recuo externo thematic-rail divergiu de 18.2px: ${JSON.stringify(thematicEntries.map(({ marginInlineStart }) => marginInlineStart))}`,
 			);
 			assert.ok(thematicEntries.every((entry) => entry.bodyAlignments.every((alignment) => alignment === 'justify')), `${theme}/${viewport.width}: corpo do thematic-rail não está justificado`);
 			assert.ok(thematicEntries.every((entry) => entry.referenceAlignments.every((alignment) => ['left', 'start'].includes(alignment))), `${theme}/${viewport.width}: autoria do thematic-rail não está à esquerda`);

@@ -2970,8 +2970,8 @@ body
 		);
 		position: relative;
 		min-height: 7rem;
-		// 30% menor que os 40px nativos do blockquote, sem alterar a geometria interna.
-		margin-inline-start: 28px;
+		// 35% menor que os 28px anteriores, sem alterar a geometria interna.
+		margin-inline-start: 18.2px;
 		padding: clamp(0.85rem, 2.5vw, 1.2rem) clamp(0.5rem, 2vw, 1rem)
 			clamp(0.85rem, 2.5vw, 1.2rem)
 			calc(

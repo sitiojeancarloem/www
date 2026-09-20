@@ -49,7 +49,7 @@ O bloco sem atributo usa o alias `primary`, hoje resolvido para `thematic-rail`.
 | `editorial-statement` | `{: data-jcem-quote-model="editorial-statement"}` |
 | `thematic-rail` | `{: data-jcem-quote-model="thematic-rail"}` |
 
-O `thematic-rail` padrão mantém um único glifo de aspas duplas (`”`), integralmente contido entre as duas hastes e opticamente centralizado no intervalo. Seu recuo externo inicial é de `28px`, 30% menor que os `40px` nativos do `blockquote`, sem alterar a haste ou o espaço interno do conteúdo. A última linha de um corpo justificado pode terminar antes da margem direita, como é próprio da composição tipográfica; a autoria segue à esquerda e em itálico.
+O `thematic-rail` padrão mantém um único glifo de aspas duplas (`”`), integralmente contido entre as duas hastes e opticamente centralizado no intervalo. Seu recuo externo inicial é de `18.2px`, 35% menor que os `28px` anteriores, sem alterar a haste ou o espaço interno do conteúdo. A última linha de um corpo justificado pode terminar antes da margem direita, como é próprio da composição tipográfica; a autoria segue à esquerda e em itálico.
 
 Somente `framed-accent` aceita `data-jcem-quote-accent`. O inventário fechado é `cyan` (`#12b8c8`), `amber` (`#d59a24`), `violet` (`#8b6fd6`) e `green` (`#3c9b78`); nome diferente falha no build. Exemplo copiável da parametrização:
 
