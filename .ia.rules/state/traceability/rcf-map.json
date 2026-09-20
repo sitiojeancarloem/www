@@ -5501,6 +5501,23 @@
     },
     {
       "artifacts": [
+        "scripts/test_print_ieee.mjs",
+        "scripts/test_print_runtime.mjs",
+        "src/jcem-print-ieee/adapters/jekyll-blog.css",
+        "src/jcem-print-ieee/src/index.ts",
+        "src/jcem-print-ieee/styles/ieee.css"
+      ],
+      "commit": "",
+      "ft": "FT-077",
+      "id": "b940a8d6f58e84ab5a1f204e",
+      "line": 83,
+      "rcf": "RCFs/impressao-ieee.md",
+      "sentenceSha256": "8bac8c445b324928ad53e2c599283b4fbb5926ef98217bbdc7c65da0de6ad088",
+      "state": "pending",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
         "RCFs/impressao-ieee.md"
       ],
       "commit": "1a7226f6e31917e1d10104aedda4d323254a9a7d",
@@ -5514,6 +5531,23 @@
     },
     {
       "artifacts": [
+        "scripts/test_print_ieee.mjs",
+        "scripts/test_print_runtime.mjs",
+        "src/jcem-print-ieee/adapters/jekyll-blog.css",
+        "src/jcem-print-ieee/src/index.ts",
+        "src/jcem-print-ieee/styles/ieee.css"
+      ],
+      "commit": "",
+      "ft": "FT-077",
+      "id": "51c144345c013d2e6298e213",
+      "line": 84,
+      "rcf": "RCFs/impressao-ieee.md",
+      "sentenceSha256": "8c9d12e2cfaeae892eec991c09abf5227a3451b5ddec85aabb5a65eff23a0836",
+      "state": "pending",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
         "RCFs/impressao-ieee.md"
       ],
       "commit": "cd19a001737be8456d0f5a5eb05dfa979a6f052e",
@@ -5523,6 +5557,23 @@
       "rcf": "RCFs/impressao-ieee.md",
       "sentenceSha256": "570d2af2d9b1c7e55a5a8d5f9d30eaabcb3ad07232ff826eca4f056c34649dca",
       "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "scripts/test_print_ieee.mjs",
+        "scripts/test_print_runtime.mjs",
+        "src/jcem-print-ieee/adapters/jekyll-blog.css",
+        "src/jcem-print-ieee/src/index.ts",
+        "src/jcem-print-ieee/styles/ieee.css"
+      ],
+      "commit": "",
+      "ft": "FT-077",
+      "id": "7c6af44d197bebdf1d37b23f",
+      "line": 85,
+      "rcf": "RCFs/impressao-ieee.md",
+      "sentenceSha256": "155f2bb5bb6ca99892facb42b37531f5de106eb9980bc5ce381afbe44c5142f0",
+      "state": "pending",
       "syncCommit": ""
     },
     {
@@ -6718,6 +6769,22 @@
       "line": 20,
       "rcf": "RCFs/referencias-e-footnotes.md",
       "sentenceSha256": "6ee8ca7f49e0f60924e3961453c10a534561b26455a3990bd19ffd752a62ba20",
+      "state": "pending",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "_plugins/jcem_zz_accessible_reading.rb",
+        "_sass/minimal-mistakes/skins/_variables-custom.scss",
+        "scripts/test_accessible_reading.rb",
+        "scripts/test_print_runtime.mjs"
+      ],
+      "commit": "",
+      "ft": "FT-077",
+      "id": "206deb7f5764984ec4fb45cb",
+      "line": 20,
+      "rcf": "RCFs/referencias-e-footnotes.md",
+      "sentenceSha256": "a4a233d5a359bf6fdfc5a90ae78ffeb0a6370367872717a317982c3fc78fb6cd",
       "state": "pending",
       "syncCommit": ""
     },
