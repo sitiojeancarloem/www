@@ -17,6 +17,8 @@ Escopo: notas de rodapé, referências e bibliografia renderizadas por Jekyll/Kr
 - Referências reutilizadas devem usar o padrão visual da Wikipédia: identificadores alfabéticos `a`, `b`, `c`, ... apontando para cada ocorrência da chamada no documento.
 - O modelo de múltiplas setas de retorno não deve ser exibido ao leitor.
 - Em impressão, as seções `Referências` e `Bibliografia` devem permanecer semanticamente expandidas com atributo `open` ativo.
+- A chamada de footnote já renderizada é uma referência semântica final: preparação, lista de URLs ou transformação de impressão NÃO DEVE reprocessá-la, renumerá-la, duplicá-la nem inserir outro `<sup>` em seu interior; número, ordem, `href`, `id`, destino e backlinks DEVEM permanecer em correspondência 1:1. [PENDENTE-CODIGO]
+- Em tela e impressão, a caixa de um `<sup>` editorial NÃO DEVE alterar o ritmo vertical do bloco textual; o sobrescrito DEVE permanecer legível, elevado e sem clipping ou colisão, enquanto a altura de linha continua determinada pelo bloco, inclusive em chamadas isoladas, consecutivas e usos semânticos não ligados a footnotes. [PENDENTE-CODIGO]
 
 ## Implementação
 
@@ -31,4 +33,3 @@ Escopo: notas de rodapé, referências e bibliografia renderizadas por Jekyll/Kr
 - `npm run check` deve incluir regressão específica para `[^*]`, pareamento de definições, preservação de blocos de código e comportamento Kramdown com referências reutilizadas.
 - `npm run build:prod` deve confirmar integração Jekyll completa.
 - Alterações visíveis em footnotes devem ser validadas em página renderizada com post que possua reutilização de nota.
-

@@ -1,6 +1,6 @@
 # FT-077 — Isolamento inter páginas da impressão
 
-Estado: tecnicamente corrigida e integrada, pendente de validação humana. Fonte: `.ia.rules/state/requests/FT-077/prompt.md`.
+Estado: reaberta para segunda correção humana. Fontes: `.ia.rules/state/requests/FT-077/prompt.md` e `.ia.rules/state/requests/FT-077/segunda-correcao-footnotes-impressao.md`.
 
 ## Objetivo
 
@@ -64,3 +64,12 @@ Eliminar, pela camada compartilhada do adaptador IEEE, qualquer chrome, decoraç
 
 - Commits integrados: registro `087f2d5d08`, causal `11a0fc7f24` e rastreabilidade `0218a7e49d`.
 - Manter a TO-DO de impressão em avaliação humana, sem marcar conclusão ou removê-la.
+
+## Segunda correção humana — footnotes e ritmo vertical
+
+- O DOM real de `/p/devaneios/` confirmou 57 chamadas de footnote e 57 `<sup data-print-link-note>` indevidamente aninhados nelas.
+- A causa estrutural é a materialização de URLs: `href="#fn:…"` é resolvido contra `document.baseURI`, passa a parecer HTTP e recebe uma nova referência impressa dentro do `<sup>` já existente.
+- O reset IEEE também devolve aos sobrescritos a métrica vertical nativa; sem normalização impressa própria, a caixa do `<sup>` pode alterar a altura efetiva da linha.
+- A correção deve classificar o `href` original antes de resolvê-lo, excluir referências semânticas e fragmentos intradocumentais, impedir qualquer `<sup>` descendente de outro `<sup>` e manter links sobrescritos legítimos sem perda.
+- A métrica deve partir do `line-height` do bloco textual: sobrescritos permanecem legíveis e elevados, mas com `line-height: 0` e posicionamento relativo proporcional, inclusive para marcadores de URL.
+- A regressão deve combinar prova estrutural em fixture genérica, auditoria interartigos do DOM real e medição geométrica em mídia de impressão.

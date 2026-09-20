@@ -5472,6 +5472,22 @@
     },
     {
       "artifacts": [
+        "scripts/test_print_ieee.mjs",
+        "scripts/test_print_runtime.mjs",
+        "src/jcem-print-ieee/src/index.ts",
+        "src/jcem-print-ieee/styles/ieee.css"
+      ],
+      "commit": "",
+      "ft": "FT-077",
+      "id": "08510e0d7c8ae286f3ce6ebd",
+      "line": 82,
+      "rcf": "RCFs/impressao-ieee.md",
+      "sentenceSha256": "1f3518d72b05447f266cee91706c2f17430bd6113c9697d27b2cd30557e7b444",
+      "state": "pending",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
         "RCFs/impressao-ieee.md"
       ],
       "commit": "cd19a001737be8456d0f5a5eb05dfa979a6f052e",
@@ -6686,6 +6702,40 @@
       "rcf": "RCFs/leitura-acessivel-e-tts.md",
       "sentenceSha256": "24b34d1d47d244fc718ef0336239ff737bbcb889be7d43252523b51398a41cb0",
       "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "_sass/minimal-mistakes/skins/_variables-custom.scss",
+        "scripts/test_print_ieee.mjs",
+        "scripts/test_print_runtime.mjs",
+        "src/jcem-print-ieee/src/index.ts",
+        "src/jcem-print-ieee/styles/ieee.css"
+      ],
+      "commit": "",
+      "ft": "FT-077",
+      "id": "c66ed4bd30b495a999d2fb30",
+      "line": 20,
+      "rcf": "RCFs/referencias-e-footnotes.md",
+      "sentenceSha256": "6ee8ca7f49e0f60924e3961453c10a534561b26455a3990bd19ffd752a62ba20",
+      "state": "pending",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "_sass/minimal-mistakes/skins/_variables-custom.scss",
+        "scripts/test_print_ieee.mjs",
+        "scripts/test_print_runtime.mjs",
+        "src/jcem-print-ieee/src/index.ts",
+        "src/jcem-print-ieee/styles/ieee.css"
+      ],
+      "commit": "",
+      "ft": "FT-077",
+      "id": "1818d21925ac8c42ac28d340",
+      "line": 21,
+      "rcf": "RCFs/referencias-e-footnotes.md",
+      "sentenceSha256": "2a9d9e1f297f56cba3ec273c8dc8a6d3a5db5f81f582579663a737d1648274b0",
+      "state": "pending",
       "syncCommit": ""
     },
     {

@@ -50,9 +50,19 @@ const materializePrintLinks = (article) => {
     references.append(title, list);
     const seen = new Map();
     article.querySelectorAll('[data-print-body] a[href]').forEach((link) => {
-        if (link.closest('.footnotes, [data-print-link-references]'))
+        const rawHref = (link.getAttribute('href') || '').trim();
+        if (!rawHref || rawHref.startsWith('#'))
             return;
-        const url = new URL(link.href, document.baseURI).href;
+        if (link.matches('[role="doc-noteref"], [role="doc-backlink"], .footnote, .reversefootnote, .jcem-footnote-backref') ||
+            link.closest('.footnotes, [role="doc-footnote"], .jcem-references, [data-print-link-references], sup[id^="fnref"]'))
+            return;
+        let url;
+        try {
+            url = new URL(rawHref, document.baseURI).href;
+        }
+        catch {
+            return;
+        }
         if (!/^https?:/i.test(url))
             return;
         let index = seen.get(url);
@@ -68,7 +78,13 @@ const materializePrintLinks = (article) => {
         marker.dataset.printOnly = '';
         marker.textContent = `[${index}]`;
         marker.setAttribute('aria-label', `URL ${index} na lista final`);
-        link.after(marker);
+        let markerAnchor = link;
+        let superscript = link.closest('sup');
+        while (superscript) {
+            markerAnchor = superscript;
+            superscript = superscript.parentElement?.closest('sup') || null;
+        }
+        markerAnchor.after(marker);
     });
     if (seen.size)
         article.append(references);

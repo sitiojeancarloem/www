@@ -39,6 +39,14 @@ assert.match(
 	css,
 	/:is\(blockquote, \[role="blockquote"\]\)\s*\{[^}]*break-inside:\s*auto\s*!important[^}]*page-break-inside:\s*auto\s*!important/s,
 );
+assert.match(
+	css,
+	/\[data-print-article\]\) sup\s*\{[^}]*position:\s*relative\s*!important[^}]*top:\s*-0\.42em\s*!important[^}]*line-height:\s*0\s*!important[^}]*vertical-align:\s*baseline\s*!important/s,
+);
+assert.match(
+	css,
+	/\[data-print-link-note\]\s*\{[^}]*font-size:\s*6\.5pt\s*!important[^}]*line-height:\s*0\s*!important/s,
+);
 assert.match(css, /\[data-print-body\][^{]*:where\(p, li\)\s*\{[^}]*text-align:\s*justify\s*!important/s);
 assert.match(css, /\[data-print-body\]\s*\{[^}]*display:\s*contents\s*!important/s);
 assert.match(css, /\[data-print-body\]\s*\{[^}]*column-count:\s*auto\s*!important/s);
@@ -69,7 +77,27 @@ assert.doesNotMatch(siteSource, /setTimeout\(scheduleIdle,\s*5000\)/);
 assert.doesNotMatch(siteSource, /userAgent|navigator\.platform|maxTouchPoints/);
 
 const dom = new JSDOM(
-	'<main><article data-print-article data-print-state="legivel"><div data-print-span="all"></div><section data-print-body><p><a href="https://example.test/fonte">Fonte</a></p></section></article><footer data-print-institutional><time data-print-acquired-at></time></footer></main>',
+	`<main>
+		<article data-print-article data-print-state="legivel">
+			<div data-print-span="all"></div>
+			<section data-print-body>
+				<p data-case="single">Única<sup id="fnref:1"><a class="footnote" role="doc-noteref" href="#fn:1">1</a></sup>.</p>
+				<p data-case="consecutive">Consecutivas<sup id="fnref:4"><a class="footnote" role="doc-noteref" href="#fn:4">4</a></sup><sup id="fnref:5"><a class="footnote" role="doc-noteref" href="#fn:5">5</a></sup><sup id="fnref:6"><a class="footnote" role="doc-noteref" href="#fn:6">6</a></sup>.</p>
+				<p data-case="separated">Separada<sup id="fnref:10"><a class="footnote" role="doc-noteref" href="#fn:10">10</a></sup> e outra chamada<sup id="fnref:1:1"><a class="footnote" role="doc-noteref" href="#fn:1">1</a></sup>.</p>
+				<p data-case="legitimate">Área m<sup data-legitimate-sup>2</sup> e <sup data-legitimate-link><a href="https://example.test/elevada">fonte elevada</a></sup>.</p>
+				<p><a data-external href="https://example.test/fonte">Fonte</a> <a data-external-duplicate href="https://example.test/fonte">Fonte repetida</a> <a data-internal href="/interno/">Interno</a> <a data-fragment href="#secao">Seção</a></p>
+				<h2 id="secao">Seção</h2>
+				<div class="footnotes"><ol>
+					<li id="fn:1" role="doc-footnote">Nota 1 <a role="doc-backlink" class="reversefootnote" href="#fnref:1">retorno</a></li>
+					<li id="fn:4" role="doc-footnote">Nota 4</li>
+					<li id="fn:5" role="doc-footnote">Nota 5</li>
+					<li id="fn:6" role="doc-footnote">Nota 6</li>
+					<li id="fn:10" role="doc-footnote">Nota 10</li>
+				</ol></div>
+			</section>
+		</article>
+		<footer data-print-institutional><time data-print-acquired-at></time></footer>
+	</main>`,
 	{ url: 'https://example.test/post/' },
 );
 Object.assign(globalThis, {
@@ -98,9 +126,33 @@ assert.equal(document.querySelector('time').getAttribute('datetime'), '2026-08-0
 assert.match(document.querySelector('[data-print-page-footer-style]').textContent, /@bottom-center/);
 assert.match(document.querySelector('[data-print-page-footer-style]').textContent, /09\/08\/2026/);
 assert.equal(article.querySelector('[data-print-span]').dataset.printSpan, 'all');
-assert.equal(article.querySelectorAll('[data-print-link-note]').length, 1);
-assert.equal(article.querySelectorAll('[data-print-link-references] li').length, 1);
+assert.equal(article.querySelectorAll('sup[id^="fnref"] [data-print-link-note]').length, 0);
+assert.equal(article.querySelectorAll('sup sup').length, 0);
+assert.deepEqual(
+	[...article.querySelectorAll('sup[id^="fnref"] > a[role="doc-noteref"]')].map((link) => [
+		link.textContent,
+		link.getAttribute('href'),
+	]),
+	[['1', '#fn:1'], ['4', '#fn:4'], ['5', '#fn:5'], ['6', '#fn:6'], ['10', '#fn:10'], ['1', '#fn:1']],
+);
+assert.ok(
+	[...article.querySelectorAll('a[role="doc-noteref"]')].every((link) =>
+		document.getElementById(link.getAttribute('href').slice(1)),
+	),
+	'toda chamada deve conservar o destino da footnote',
+);
+assert.equal(document.querySelector('[role="doc-backlink"]').getAttribute('href'), '#fnref:1');
+assert.equal(article.querySelector('[data-fragment] + [data-print-link-note]'), null);
+assert.equal(article.querySelector('[data-legitimate-sup]').textContent, '2');
+assert.equal(article.querySelector('[data-legitimate-link] [data-print-link-note]'), null);
+assert.ok(article.querySelector('[data-legitimate-link] + [data-print-link-note]'));
+assert.equal(article.querySelectorAll('[data-print-link-note]').length, 4);
+assert.equal(article.querySelectorAll('[data-print-link-references] li').length, 3);
 assert.match(article.querySelector('[data-print-link-references]').textContent, /https:\/\/example\.test\/fonte/);
+assert.doesNotMatch(article.querySelector('[data-print-link-references]').textContent, /#fn:/);
+controller.prepare();
+assert.equal(article.querySelectorAll('[data-print-link-note]').length, 4, 'preparação repetida deve ser idempotente');
+assert.equal(article.querySelectorAll('sup sup').length, 0, 'preparação repetida não pode aninhar sobrescritos');
 controller.dispose();
 
 const publicModule = await readFile(

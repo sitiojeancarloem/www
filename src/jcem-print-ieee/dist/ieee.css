@@ -158,12 +158,19 @@
 		display: none !important;
 	}
 
+	:is(#print-isolation-specificity-guard, [data-print-article]) sup {
+		position: relative !important;
+		top: -0.42em !important;
+		font-size: 0.72em !important;
+		line-height: 0 !important;
+		vertical-align: baseline !important;
+	}
+
 	:is(#print-isolation-specificity-guard, [data-print-article])
 		[data-print-link-note] {
 		display: inline !important;
 		font-size: 6.5pt !important;
-		line-height: 1 !important;
-		vertical-align: super !important;
+		line-height: 0 !important;
 	}
 
 	:is(#print-isolation-specificity-guard, [data-print-article])

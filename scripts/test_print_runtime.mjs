@@ -121,7 +121,120 @@ try {
 			assert.ok(state.resources.some((url) => url.endsWith('/assets/jcem/print-ieee/jekyll-blog.css')));
 			assert.ok(state.resources.some((url) => url.endsWith('/assets/jcem/print-ieee/index.js')));
 
+			const footnoteStructure = await page.evaluate(() => {
+				const article = document.querySelector('[data-print-article]');
+				const refs = Array.from(
+					article?.querySelectorAll('sup[id^="fnref"] > a[role="doc-noteref"], sup[id^="fnref"] > a.footnote') || [],
+				);
+				const missingTargets = refs.filter((link) => {
+					const href = link.getAttribute('href') || '';
+					return !href.startsWith('#') || !document.getElementById(href.slice(1));
+				});
+				const invalidBacklinks = Array.from(
+					article?.querySelectorAll('.footnotes a[role="doc-backlink"], .footnotes .reversefootnote, .footnotes .jcem-footnote-backref') || [],
+				).filter((link) => {
+					const href = link.getAttribute('href') || '';
+					return !href.startsWith('#') || !document.getElementById(href.slice(1));
+				});
+				return {
+					refs: refs.length,
+					nestedFootnoteSup: article?.querySelectorAll('sup[id^="fnref"] sup').length || 0,
+					printMarkersInsideFootnotes:
+						article?.querySelectorAll('sup[id^="fnref"] [data-print-link-note]').length || 0,
+					missingTargets: missingTargets.length,
+					invalidBacklinks: invalidBacklinks.length,
+					spuriousFootnoteUrls: Array.from(
+						article?.querySelectorAll('[data-print-link-references] li') || [],
+					).filter((item) => /#fn(?::|ref)/.test(item.textContent || '')).length,
+				};
+			});
+			assert.equal(
+				footnoteStructure.nestedFootnoteSup,
+				0,
+				`${label} ${articlePath}: chamada de footnote contém <sup> aninhado`,
+			);
+			assert.equal(
+				footnoteStructure.printMarkersInsideFootnotes,
+				0,
+				`${label} ${articlePath}: footnote foi reprocessada como URL impressa`,
+			);
+			assert.equal(footnoteStructure.missingTargets, 0, `${label} ${articlePath}: destino de footnote ausente`);
+			assert.equal(footnoteStructure.invalidBacklinks, 0, `${label} ${articlePath}: backlink de footnote inválido`);
+			assert.equal(footnoteStructure.spuriousFootnoteUrls, 0, `${label} ${articlePath}: URL espúria de footnote`);
+
 			await page.emulateMedia({ media: 'print' });
+			const lineMetrics = await page.evaluate(() => {
+				const article = document.querySelector('[data-print-article]');
+				const fixture = document.createElement('section');
+				fixture.dataset.printSupMetricFixture = '';
+				fixture.setAttribute(
+					'style',
+					'position:absolute!important;left:-10000px!important;top:0!important;width:240px!important;margin:0!important;padding:0!important;overflow:visible!important;',
+				);
+				const cases = [
+					'Texto sem sobrescrito',
+					'<sup>1</sup> no início da linha',
+					'Texto com <sup>4</sup><sup>5</sup><sup>6</sup> no meio',
+					'Texto com nota acima de nove <sup>10</sup>',
+					'Texto com unidade legítima m<sup>2</sup>',
+					'Texto no fim da linha <sup>7</sup>',
+					'Outra linha sem sobrescrito',
+				];
+				for (const content of cases) {
+					const line = document.createElement('span');
+					line.dataset.printSupMetricLine = '';
+					line.setAttribute(
+						'style',
+						'display:block!important;margin:0!important;padding:0!important;border:0!important;font-size:9pt!important;line-height:10.8pt!important;white-space:nowrap!important;overflow:visible!important;',
+					);
+					line.innerHTML = content;
+					fixture.append(line);
+				}
+				article?.append(fixture);
+				const lines = Array.from(fixture.querySelectorAll('[data-print-sup-metric-line]'));
+				const rects = lines.map((line) => line.getBoundingClientRect());
+				const superscripts = Array.from(fixture.querySelectorAll('sup'));
+				const steps = rects.slice(1).map((rect, index) => rect.top - rects[index].top);
+				const outOfEnvelope = superscripts.filter((sup) => {
+					const line = sup.closest('[data-print-sup-metric-line]');
+					const lineIndex = lines.indexOf(line);
+					const rect = sup.getBoundingClientRect();
+					const lineRect = rects[lineIndex];
+					return rect.top < lineRect.top - 2 || rect.bottom > lineRect.bottom + 0.5;
+				});
+				return {
+					heights: rects.map((rect) => rect.height),
+					steps,
+					lineOverflows: lines.map((line) => getComputedStyle(line).overflow),
+					supLineHeights: superscripts.map((sup) => getComputedStyle(sup).lineHeight),
+					supVisibility: superscripts.map((sup) => {
+						const rect = sup.getBoundingClientRect();
+						return { width: rect.width, height: rect.height };
+					}),
+					outOfEnvelope: outOfEnvelope.length,
+				};
+			});
+			const metricBaseline = lineMetrics.heights[0];
+			assert.ok(metricBaseline > 0, `${label} ${articlePath}: linha de controle sem altura`);
+			assert.ok(
+				lineMetrics.heights.every((height) => Math.abs(height - metricBaseline) <= 0.1),
+				`${label} ${articlePath}: alturas de linha divergentes ${lineMetrics.heights.join(', ')}`,
+			);
+			assert.ok(
+				lineMetrics.steps.every((step) => Math.abs(step - metricBaseline) <= 0.1),
+				`${label} ${articlePath}: ritmo vertical divergente ${lineMetrics.steps.join(', ')}`,
+			);
+			assert.ok(lineMetrics.supLineHeights.every((height) => height === '0px'));
+			assert.ok(lineMetrics.lineOverflows.every((overflow) => overflow === 'visible'));
+			assert.ok(
+				lineMetrics.supVisibility.every(({ width, height }) => width > 0 && height > 0),
+				`${label} ${articlePath}: sobrescrito sem caixa legível`,
+			);
+			assert.equal(
+				lineMetrics.outOfEnvelope,
+				0,
+				`${label} ${articlePath}: sobrescrito saiu da faixa tipográfica segura ${JSON.stringify(lineMetrics)}`,
+			);
 			const visibleChrome = await page.evaluate((selectors) =>
 				selectors.flatMap((selector) =>
 					Array.from(document.querySelectorAll(selector)).flatMap((node) => {

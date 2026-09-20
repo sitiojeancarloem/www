@@ -1692,6 +1692,10 @@ body
 	line-height: 1.45;
 }
 
+.main_jcem_wrapper article.jcem-post .page__content sup {
+	line-height: 0;
+}
+
 .main_jcem_wrapper sup[id^='fnref'] {
 	position: relative;
 	top: -0.35em;

@@ -979,9 +979,9 @@ plano:
   - id: FT-077
     classe: correcao_codigo_validacao
     criado_em: 2026-09-16
-    estado: concluida_tecnicamente_pendente_validacao_humana
+    estado: em_correcao_apos_rejeicao_humana
     depende_de: FT-071, FT-074
-    fonte: .ia.rules/state/requests/FT-077/prompt.md
+    fonte: .ia.rules/state/requests/FT-077/prompt.md e segunda-correcao-footnotes-impressao.md
     fonte_autorizacao: prompts humanos de 2026-09-16 para corrigir e concluir de forma inter paginas
     contexto: .ia.rules/state/contexts/FT-077/master.md
     objetivo: Corrigir o isolamento de chrome web na impressao pela camada compartilhada e fortalecer a regressao inter paginas.
@@ -1000,11 +1000,12 @@ plano:
       - accessible runtime reproduziu somente a lacuna TTS preexistente dos marcadores falados de citacao, sem nexo causal
       - seis sentencas materiais foram vinculadas ao commit causal e a rastreabilidade foi validada com 435 entradas e 394 sentencas materiais
       - TO-DO de impressao permanece em avaliacao humana e nao foi marcada como concluida
+      - segunda rejeicao confirmou reprocessamento de footnotes pela lista impressa de URLs e variacao da metrica vertical de sobrescritos
     commits:
       registro: 087f2d5d08
       causal: 11a0fc7f24
       rastreabilidade: 0218a7e49d
-    proximo_passo: validacao humana da correcao inter paginas; manter a TO-DO em andamento ate aceite efetivo
+    proximo_passo: corrigir footnotes e ritmo vertical globalmente, revalidar DOM e impressao inter artigos e manter a TO-DO em andamento ate aceite efetivo
   - id: FT-078
     classe: implementacao_normativa
     criado_em: 2026-09-18
