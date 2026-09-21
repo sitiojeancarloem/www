@@ -1,0 +1,621 @@
+{
+  "assets": {
+    "/assets/images/fixtures/covers/triptych-central.svg": {
+      "autoFullWidth": false,
+      "evidence": {
+        "detailElements": 4,
+        "text": false,
+        "textCharacters": 0,
+        "textElements": 0,
+        "visual": false
+      },
+      "geometry": {
+        "aspectRatio": 1.904762,
+        "eligible": false,
+        "maximumHeightMm": 82.2325,
+        "projectedHeightMm": 95.211375,
+        "usableHeightMm": 234.95
+      },
+      "height": 630,
+      "reason": "geometry-rejected",
+      "sourceHash": "bdd01b758ff479fbefb53a53c6fdea890735dc7d0229b3ef3cdfb65bd270797a",
+      "width": 1200
+    },
+    "/assets/images/fixtures/covers/triptych-left.svg": {
+      "autoFullWidth": false,
+      "evidence": {
+        "detailElements": 1,
+        "text": false,
+        "textCharacters": 0,
+        "textElements": 0,
+        "visual": false
+      },
+      "geometry": {
+        "aspectRatio": 0.380952,
+        "eligible": false,
+        "maximumHeightMm": 82.2325,
+        "projectedHeightMm": 476.056875,
+        "usableHeightMm": 234.95
+      },
+      "height": 630,
+      "reason": "geometry-rejected",
+      "sourceHash": "6931a5a276cc4805c1b749f2744b3d39102b879b761c54b3f5dd11a871dd32cc",
+      "width": 240
+    },
+    "/assets/images/fixtures/covers/triptych-right.svg": {
+      "autoFullWidth": false,
+      "evidence": {
+        "detailElements": 1,
+        "text": false,
+        "textCharacters": 0,
+        "textElements": 0,
+        "visual": false
+      },
+      "geometry": {
+        "aspectRatio": 0.380952,
+        "eligible": false,
+        "maximumHeightMm": 82.2325,
+        "projectedHeightMm": 476.056875,
+        "usableHeightMm": 234.95
+      },
+      "height": 630,
+      "reason": "geometry-rejected",
+      "sourceHash": "980f74339d92200b85fc71549d0dbeb75d1237262e2ba82d52e812f5269ee719",
+      "width": 240
+    },
+    "/assets/images/fixtures/print-ieee/near-limit.svg": {
+      "autoFullWidth": true,
+      "evidence": {
+        "detailElements": 4,
+        "text": true,
+        "textCharacters": 109,
+        "textElements": 3,
+        "visual": false
+      },
+      "geometry": {
+        "aspectRatio": 2.205882,
+        "eligible": true,
+        "maximumHeightMm": 82.2325,
+        "projectedHeightMm": 82.214267,
+        "usableHeightMm": 234.95
+      },
+      "height": 544,
+      "reason": "geometry-and-text-density",
+      "sourceHash": "edc98f1a6a2332f735ecf11909ef1d8eeefeff7c8ac6d4c04b0f3337c83c4b1b",
+      "width": 1200
+    },
+    "/assets/images/fixtures/print-ieee/over-height.svg": {
+      "autoFullWidth": false,
+      "evidence": {
+        "detailElements": 2,
+        "text": true,
+        "textCharacters": 158,
+        "textElements": 4,
+        "visual": false
+      },
+      "geometry": {
+        "aspectRatio": 1.714286,
+        "eligible": false,
+        "maximumHeightMm": 82.2325,
+        "projectedHeightMm": 105.790417,
+        "usableHeightMm": 234.95
+      },
+      "height": 700,
+      "reason": "geometry-rejected",
+      "sourceHash": "f9aae0903171085c6020afc898f97cfcafbfc39f8ac7341fb574e5edd7d079f3",
+      "width": 1200
+    },
+    "/assets/images/fixtures/print-ieee/simple-wide.svg": {
+      "autoFullWidth": false,
+      "evidence": {
+        "detailElements": 2,
+        "text": false,
+        "textCharacters": 0,
+        "textElements": 0,
+        "visual": false
+      },
+      "geometry": {
+        "aspectRatio": 3.333333,
+        "eligible": true,
+        "maximumHeightMm": 82.2325,
+        "projectedHeightMm": 54.4065,
+        "usableHeightMm": 234.95
+      },
+      "height": 360,
+      "reason": "information-density-insufficient",
+      "sourceHash": "0e87fb67f4ce60bbe0989264deb5c1dd63555a27d752439e9aa2056fd5a60825",
+      "width": 1200
+    },
+    "/assets/images/fixtures/print-ieee/text-dense.svg": {
+      "autoFullWidth": true,
+      "evidence": {
+        "detailElements": 3,
+        "text": true,
+        "textCharacters": 95,
+        "textElements": 6,
+        "visual": false
+      },
+      "geometry": {
+        "aspectRatio": 3.333333,
+        "eligible": true,
+        "maximumHeightMm": 82.2325,
+        "projectedHeightMm": 54.4065,
+        "usableHeightMm": 234.95
+      },
+      "height": 360,
+      "reason": "geometry-and-text-density",
+      "sourceHash": "1ee20a10e18e8ee3f6dfcdea762b69c52128a6bc9cc8b02a2e079e094751edd2",
+      "width": 1200
+    },
+    "/assets/images/fixtures/print-ieee/visual-dense.svg": {
+      "autoFullWidth": true,
+      "evidence": {
+        "detailElements": 25,
+        "text": false,
+        "textCharacters": 0,
+        "textElements": 0,
+        "visual": true
+      },
+      "geometry": {
+        "aspectRatio": 3.333333,
+        "eligible": true,
+        "maximumHeightMm": 82.2325,
+        "projectedHeightMm": 54.4065,
+        "usableHeightMm": 234.95
+      },
+      "height": 360,
+      "reason": "geometry-and-visual-density",
+      "sourceHash": "0bae906a655e86fba8727660b2105613d43d2eb71e92308c265b7ff30385fc39",
+      "width": 1200
+    },
+    "/assets/images/posts/devaneios/CONHECIMENTO.svg": {
+      "autoFullWidth": false,
+      "evidence": {
+        "detailElements": 378,
+        "text": false,
+        "textCharacters": 0,
+        "textElements": 0,
+        "visual": true
+      },
+      "geometry": {
+        "aspectRatio": 1,
+        "eligible": false,
+        "maximumHeightMm": 82.2325,
+        "projectedHeightMm": 181.355,
+        "usableHeightMm": 234.95
+      },
+      "height": 720,
+      "reason": "geometry-rejected",
+      "sourceHash": "552df1b0a240baec4883532c7c00eeeccbb39f85acc70a20ecaeae6b7ffa582b",
+      "width": 720
+    },
+    "/assets/images/posts/devaneios/CopoDagua.svg": {
+      "autoFullWidth": false,
+      "evidence": {
+        "detailElements": 12,
+        "text": false,
+        "textCharacters": 0,
+        "textElements": 0,
+        "visual": false
+      },
+      "geometry": {
+        "aspectRatio": 0.740955,
+        "eligible": false,
+        "maximumHeightMm": 82.2325,
+        "projectedHeightMm": 244.758408,
+        "usableHeightMm": 234.95
+      },
+      "height": 691,
+      "reason": "geometry-rejected",
+      "sourceHash": "d3331f9ef94e5089439e1657ed62f4ffbd6085256eb774f9e83fd137410c1211",
+      "width": 512
+    },
+    "/assets/images/posts/devaneios/devaneios-grande.png": {
+      "autoFullWidth": false,
+      "evidence": {
+        "edgeDensity": 0.110409,
+        "entropy": 5.944069,
+        "text": false,
+        "visual": false
+      },
+      "geometry": {
+        "aspectRatio": 13.793478,
+        "eligible": true,
+        "maximumHeightMm": 82.2325,
+        "projectedHeightMm": 13.14788,
+        "usableHeightMm": 234.95
+      },
+      "height": 460,
+      "reason": "information-density-insufficient",
+      "sourceHash": "cd7641c16c67db0e40a726d4851aad431cf68c6db122623bb820b25621394933",
+      "width": 6345
+    },
+    "/assets/images/posts/devaneios/observador-restaurantes-jcem-ccbysa.png": {
+      "autoFullWidth": false,
+      "evidence": {
+        "edgeDensity": 0.202306,
+        "entropy": 6.236374,
+        "text": false,
+        "visual": true
+      },
+      "geometry": {
+        "aspectRatio": 1.776833,
+        "eligible": false,
+        "maximumHeightMm": 82.2325,
+        "projectedHeightMm": 102.06642,
+        "usableHeightMm": 234.95
+      },
+      "height": 941,
+      "reason": "geometry-rejected",
+      "sourceHash": "b72876ee2dfb6a7e8de4f82d41c2831a542d4ee0aa98fffdbae8598f83bcb742",
+      "width": 1672
+    },
+    "/assets/images/posts/devaneios/OrigemDaConvicao-jcem-ccbysanc.png": {
+      "autoFullWidth": false,
+      "evidence": {
+        "edgeDensity": 0.243118,
+        "entropy": 5.708066,
+        "text": false,
+        "visual": true
+      },
+      "geometry": {
+        "aspectRatio": 2.083738,
+        "eligible": false,
+        "maximumHeightMm": 82.2325,
+        "projectedHeightMm": 87.0335,
+        "usableHeightMm": 234.95
+      },
+      "height": 824,
+      "reason": "geometry-rejected",
+      "sourceHash": "d3da9b3707a12c5af78ecbaeec773fb8783c4520811f1372b54cc9fc8167bf78",
+      "width": 1717
+    },
+    "/assets/images/posts/devaneios/vistas-lua-terra-visao2-ccbysa-jcem.png": {
+      "autoFullWidth": false,
+      "evidence": {
+        "edgeDensity": 0.140246,
+        "entropy": 4.951704,
+        "text": false,
+        "visual": false
+      },
+      "geometry": {
+        "aspectRatio": 1.333333,
+        "eligible": false,
+        "maximumHeightMm": 82.2325,
+        "projectedHeightMm": 136.01625,
+        "usableHeightMm": 234.95
+      },
+      "height": 1086,
+      "reason": "geometry-rejected",
+      "sourceHash": "44619512fe2e0d46858e8733836b061d2d0498b02da93bde1dc4aa915322a292",
+      "width": 1448
+    },
+    "/assets/images/posts/eventos-finais/a-heranca-dos-santos.png": {
+      "autoFullWidth": false,
+      "evidence": {
+        "edgeDensity": 0.129991,
+        "entropy": 7.655853,
+        "text": false,
+        "visual": false
+      },
+      "geometry": {
+        "aspectRatio": 1.90429,
+        "eligible": false,
+        "maximumHeightMm": 82.2325,
+        "projectedHeightMm": 95.234948,
+        "usableHeightMm": 234.95
+      },
+      "height": 909,
+      "reason": "geometry-rejected",
+      "sourceHash": "ab6af2485d2242a079e4da9fa80c3ef5d07d37f3bfb05550cc4820692cdf3561",
+      "width": 1731
+    },
+    "/assets/images/posts/eventos-finais/eventos-finais.svg": {
+      "autoFullWidth": false,
+      "evidence": {
+        "detailElements": 23,
+        "text": false,
+        "textCharacters": 0,
+        "textElements": 0,
+        "visual": true
+      },
+      "geometry": {
+        "aspectRatio": 1.904762,
+        "eligible": false,
+        "maximumHeightMm": 82.2325,
+        "projectedHeightMm": 95.211375,
+        "usableHeightMm": 234.95
+      },
+      "height": 630,
+      "reason": "geometry-rejected",
+      "sourceHash": "1f2f94dc50a888963a14d7e51bfac596b8e54e3e947448cfd21659547ca22538",
+      "width": 1200
+    },
+    "/assets/images/posts/eventos-finais/rumo-ao-lar-viagem-dos-remidos.png": {
+      "autoFullWidth": false,
+      "evidence": {
+        "edgeDensity": 0.158595,
+        "entropy": 7.830424,
+        "text": false,
+        "visual": false
+      },
+      "geometry": {
+        "aspectRatio": 1.90429,
+        "eligible": false,
+        "maximumHeightMm": 82.2325,
+        "projectedHeightMm": 95.234948,
+        "usableHeightMm": 234.95
+      },
+      "height": 909,
+      "reason": "geometry-rejected",
+      "sourceHash": "67a033fc560a384a4d664cc061a0a67a5e3a2ad697673126374eda977494dc30",
+      "width": 1731
+    },
+    "/assets/images/posts/recuperados/cinco-verdades-de-genesis-2-7.png": {
+      "autoFullWidth": false,
+      "evidence": {
+        "edgeDensity": 0.993269,
+        "entropy": 7.460169,
+        "text": false,
+        "visual": true
+      },
+      "geometry": {
+        "aspectRatio": 1.916168,
+        "eligible": false,
+        "maximumHeightMm": 82.2325,
+        "projectedHeightMm": 94.644641,
+        "usableHeightMm": 234.95
+      },
+      "height": 1002,
+      "reason": "geometry-rejected",
+      "sourceHash": "ef8417e7fc8419e338aa956d5a0cc294f0e1fc1ac50902db80b9f3380eed9695",
+      "width": 1920
+    },
+    "/assets/images/posts/recuperados/como-identificar-falacias.png": {
+      "autoFullWidth": false,
+      "evidence": {
+        "edgeDensity": 0.082161,
+        "entropy": 5.605271,
+        "text": false,
+        "visual": false
+      },
+      "geometry": {
+        "aspectRatio": 1.777778,
+        "eligible": false,
+        "maximumHeightMm": 82.2325,
+        "projectedHeightMm": 102.012187,
+        "usableHeightMm": 234.95
+      },
+      "height": 1080,
+      "reason": "geometry-rejected",
+      "sourceHash": "c702494dc3c80dec443b9e4dcaec80764d222a562bd079949598fa89bb594a93",
+      "width": 1920
+    },
+    "/assets/images/posts/recuperados/como-identificar-falacias/quicklatex-1.png": {
+      "autoFullWidth": false,
+      "evidence": {
+        "edgeDensity": 0.964694,
+        "entropy": 0.726885,
+        "text": false,
+        "visual": false
+      },
+      "geometry": {
+        "aspectRatio": 5.944444,
+        "eligible": true,
+        "maximumHeightMm": 82.2325,
+        "projectedHeightMm": 30.508318,
+        "usableHeightMm": 234.95
+      },
+      "height": 18,
+      "reason": "information-density-insufficient",
+      "sourceHash": "c63ba807de59f4cc472c57f774e0ef1ef7615324ab823d82538d919b122ac4bc",
+      "width": 107
+    },
+    "/assets/images/posts/recuperados/como-identificar-falacias/quicklatex-2.png": {
+      "autoFullWidth": false,
+      "evidence": {
+        "edgeDensity": 0.971324,
+        "entropy": 0.627346,
+        "text": false,
+        "visual": false
+      },
+      "geometry": {
+        "aspectRatio": 13.047619,
+        "eligible": true,
+        "maximumHeightMm": 82.2325,
+        "projectedHeightMm": 13.899471,
+        "usableHeightMm": 234.95
+      },
+      "height": 21,
+      "reason": "information-density-insufficient",
+      "sourceHash": "dc34f08827daeefece3c6583579c4b6c3798bd9d591cfcbf67402e58c779edbc",
+      "width": 274
+    },
+    "/assets/images/posts/recuperados/como-identificar-falacias/quicklatex-3.png": {
+      "autoFullWidth": false,
+      "evidence": {
+        "edgeDensity": 0.972307,
+        "entropy": 0.638125,
+        "text": false,
+        "visual": false
+      },
+      "geometry": {
+        "aspectRatio": 13.428571,
+        "eligible": true,
+        "maximumHeightMm": 82.2325,
+        "projectedHeightMm": 13.50516,
+        "usableHeightMm": 234.95
+      },
+      "height": 21,
+      "reason": "information-density-insufficient",
+      "sourceHash": "0a768b4cdb8ccd99c748dae6d156e2c3ee22bf943454b70d70b75be875139cca",
+      "width": 282
+    },
+    "/assets/images/posts/recuperados/como-identificar-falacias/tabela-verdade-exemplo-frase-1.svg": {
+      "autoFullWidth": true,
+      "evidence": {
+        "detailElements": 61,
+        "text": false,
+        "textCharacters": 0,
+        "textElements": 0,
+        "visual": true
+      },
+      "geometry": {
+        "aspectRatio": 2.785637,
+        "eligible": true,
+        "maximumHeightMm": 82.2325,
+        "projectedHeightMm": 65.103611,
+        "usableHeightMm": 234.95
+      },
+      "height": 91.9,
+      "reason": "geometry-and-visual-density",
+      "sourceHash": "abf03fcdcea2420e7912690421cca03e904eb2c68393c38271b9f0d778d60fbc",
+      "width": 256
+    },
+    "/assets/images/posts/recuperados/como-identificar-falacias/tabela-verdade-exemplo-frase-2.svg": {
+      "autoFullWidth": true,
+      "evidence": {
+        "detailElements": 61,
+        "text": false,
+        "textCharacters": 0,
+        "textElements": 0,
+        "visual": true
+      },
+      "geometry": {
+        "aspectRatio": 2.785637,
+        "eligible": true,
+        "maximumHeightMm": 82.2325,
+        "projectedHeightMm": 65.103611,
+        "usableHeightMm": 234.95
+      },
+      "height": 91.9,
+      "reason": "geometry-and-visual-density",
+      "sourceHash": "7a898dd56689cb11f698e43e42e0da65b808d91dc30452ff4647a8c487742848",
+      "width": 256
+    },
+    "/assets/images/posts/recuperados/nenhum-nivel-de-alcool-faz-bem-a-saude.jpg": {
+      "autoFullWidth": false,
+      "evidence": {
+        "edgeDensity": 0.089624,
+        "entropy": 7.49678,
+        "text": false,
+        "visual": false
+      },
+      "geometry": {
+        "aspectRatio": 1.910828,
+        "eligible": false,
+        "maximumHeightMm": 82.2325,
+        "projectedHeightMm": 94.909117,
+        "usableHeightMm": 234.95
+      },
+      "height": 628,
+      "reason": "geometry-rejected",
+      "sourceHash": "4a83e6bb211791963d897f4c1f8562407542b35f9fa8f46430ee654981dc896f",
+      "width": 1200
+    },
+    "/assets/images/posts/recuperados/nove-motivos-para-guardar-o-sabado.png": {
+      "autoFullWidth": false,
+      "evidence": {
+        "edgeDensity": 0.053382,
+        "entropy": 5.703865,
+        "text": false,
+        "visual": false
+      },
+      "geometry": {
+        "aspectRatio": 1.916168,
+        "eligible": false,
+        "maximumHeightMm": 82.2325,
+        "projectedHeightMm": 94.644641,
+        "usableHeightMm": 234.95
+      },
+      "height": 1002,
+      "reason": "geometry-rejected",
+      "sourceHash": "3b4283c3866badb1b7f9a0bcc0129fe7db39606e80e27743d5c6114b76a79b23",
+      "width": 1920
+    },
+    "/assets/images/posts/recuperados/salvacao-importa-ser-perfeito.png": {
+      "autoFullWidth": false,
+      "evidence": {
+        "edgeDensity": 0.0568,
+        "entropy": 6.705282,
+        "text": false,
+        "visual": false
+      },
+      "geometry": {
+        "aspectRatio": 1.916168,
+        "eligible": false,
+        "maximumHeightMm": 82.2325,
+        "projectedHeightMm": 94.644641,
+        "usableHeightMm": 234.95
+      },
+      "height": 1002,
+      "reason": "geometry-rejected",
+      "sourceHash": "8b108e05c3368adb57e8f71633c1f5726acb683e25cfd6794cb7bc40272d2286",
+      "width": 1920
+    },
+    "/assets/images/posts/recuperados/salvacao-importa-ser-perfeito/quicklatex-1.png": {
+      "autoFullWidth": false,
+      "evidence": {
+        "edgeDensity": 0.972019,
+        "entropy": 0.634875,
+        "text": false,
+        "visual": false
+      },
+      "geometry": {
+        "aspectRatio": 13.047619,
+        "eligible": true,
+        "maximumHeightMm": 82.2325,
+        "projectedHeightMm": 13.899471,
+        "usableHeightMm": 234.95
+      },
+      "height": 21,
+      "reason": "information-density-insufficient",
+      "sourceHash": "a6313a8debc3777a945d1d232e484ef02afc542969dbe136ac07fe4d2c954ddd",
+      "width": 274
+    },
+    "/assets/images/posts/recuperados/sola-scriptura-farol.png": {
+      "autoFullWidth": false,
+      "evidence": {
+        "edgeDensity": 0.082312,
+        "entropy": 6.485904,
+        "text": false,
+        "visual": false
+      },
+      "geometry": {
+        "aspectRatio": 1.904762,
+        "eligible": false,
+        "maximumHeightMm": 82.2325,
+        "projectedHeightMm": 95.211375,
+        "usableHeightMm": 234.95
+      },
+      "height": 630,
+      "reason": "geometry-rejected",
+      "sourceHash": "bd7ddaef26ebba60af30199839cc6f5915c70e5d527942ee596d6065fcb1f7f0",
+      "width": 1200
+    },
+    "/assets/images/posts/recuperados/tradicao-vs-biblia.png": {
+      "autoFullWidth": false,
+      "evidence": {
+        "edgeDensity": 0.261122,
+        "entropy": 6.643705,
+        "text": false,
+        "visual": true
+      },
+      "geometry": {
+        "aspectRatio": 1.904762,
+        "eligible": false,
+        "maximumHeightMm": 82.2325,
+        "projectedHeightMm": 95.211375,
+        "usableHeightMm": 234.95
+      },
+      "height": 630,
+      "reason": "geometry-rejected",
+      "sourceHash": "9e529c1661c96d98da540ecfd57855b0d7dcb419637771fe62de80b594d2ac12",
+      "width": 1200
+    }
+  },
+  "classifierKey": "0e3e2152600c75969013291d72134569a86774e25a148fa0e6e53a0caf165698",
+  "classifierVersion": "1.0.0",
+  "profileId": "ieee-conference-a4-ieeetran-1.8b",
+  "schema": 1
+}

@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="360" viewBox="0 0 1200 360" role="img" aria-labelledby="title desc">
+  <title id="title">Diagrama textual de controle</title>
+  <desc id="desc">Fluxo técnico com seis etapas rotuladas, usado para validar automarcação por densidade textual.</desc>
+  <rect width="1200" height="360" rx="24" fill="#f8fafc" stroke="#334155" stroke-width="6"/>
+  <text x="40" y="72" font-family="Arial, sans-serif" font-size="34" fill="#0f172a">Entrada editorial</text>
+  <text x="410" y="72" font-family="Arial, sans-serif" font-size="34" fill="#0f172a">Análise determinística</text>
+  <text x="850" y="72" font-family="Arial, sans-serif" font-size="34" fill="#0f172a">Saída IEEE</text>
+  <text x="40" y="270" font-family="Arial, sans-serif" font-size="27" fill="#334155">hash + perfil</text>
+  <text x="440" y="270" font-family="Arial, sans-serif" font-size="27" fill="#334155">geometria + densidade</text>
+  <text x="890" y="270" font-family="Arial, sans-serif" font-size="27" fill="#334155">duas colunas</text>
+  <path d="M270 90H400L370 65M400 90L370 115" fill="none" stroke="#2563eb" stroke-width="8"/>
+  <path d="M770 90H840L810 65M840 90L810 115" fill="none" stroke="#2563eb" stroke-width="8"/>
+</svg>

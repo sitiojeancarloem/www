@@ -15,7 +15,7 @@ Os artigos em desenvolvimento estão no repositório privado [https://github.com
 | [COVER e Hero](docs/MODO-DE-USO-COVER-E-HERO.md)                       | Configurar os dez comportamentos visuais de imagem destacada, composição tripla, aliases, enquadramento, Hero e fontes sociais. |
 | [Blockquote](docs/MODO-DE-USO-BLOCKQUOTE.md)                           | Escrever citações e selecionar os 11 modelos concretos, aliases, accents, ícones, acessibilidade e impressão.                   |
 | [Leitura acessível e TTS](docs/MODO-DE-USO-LEITURA-ACESSIVEL-E-TTS.md) | Declarar idiomas, pronúncia, referências faladas e alternativas textuais para tabelas, imagens e gráficos.                      |
-| [Impressão editorial IEEE](docs/MODO-DE-USO-IMPRESSAO-IEEE.md)         | Imprimir artigos em desktop ou mobile com o perfil A4 em duas colunas e carregamento pós-crítico.                               |
+| [Impressão editorial IEEE](docs/MODO-DE-USO-IMPRESSAO-IEEE.md)         | Imprimir artigos em A4/duas colunas, inclusive figuras largas manuais ou automáticas, sem alterar a web.                        |
 | [Índice normativo](RCF.md)                                             | Localizar requisitos, contratos e validações autoritativos por domínio do produto.                                              |
 
 ## Build local
@@ -181,6 +181,8 @@ O guia canônico [`docs/MODO-DE-USO-BLOCKQUOTE.md`](docs/MODO-DE-USO-BLOCKQUOTE.
 O modo de uso canônico está em [`docs/MODO-DE-USO-IMPRESSAO-IEEE.md`](docs/MODO-DE-USO-IMPRESSAO-IEEE.md); a documentação interna da biblioteca permanece em [`src/jcem-print-ieee/README.md`](src/jcem-print-ieee/README.md).
 
 Posts completos carregam sob demanda a biblioteca agnóstica `@jcem/print-ieee`, localizada em `src/jcem-print-ieee`; home, mapas, arquivos, 404 e listagens não carregam seus recursos. A importação não produz efeito colateral, e o estado automático máximo é `nativo-preparado`. O módulo é postergado para fora da janela inicial e antecipado imediatamente por `beforeprint`, sem comprometer a primeira impressão.
+
+Figuras informacionalmente densas podem atravessar as duas colunas por `data-print-span="all"` ou por classificação conservadora no build. O mesmo atributo com valor `column` impede a automarcação de uma ocorrência. Sintaxe, critérios, cache e fluxo visual estão no [guia canônico de impressão](docs/MODO-DE-USO-IMPRESSAO-IEEE.md#figuras-em-largura-total).
 
 Tela e impressão possuem contratos de apresentação isolados, obrigatórios também para recursos futuros e componentes de terceiros. A impressão reutiliza somente conteúdo e marcadores semânticos declarados, neutraliza tipografia, títulos, recuos, bordas, fundos, sombras, pseudo-elementos e estruturas decorativas da web e então aplica o perfil impresso. Componentes exclusivos de impressão permanecem ocultos em tela. `blockquote` usa exclusivamente o estilo IEEE por padrão; exceção precisa de autorização expressa, aplicação seletiva e registro no ponto único de exceções do `RCF-JCEM-IMPRESSAO-IEEE-001`.
 

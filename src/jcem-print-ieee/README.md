@@ -4,6 +4,8 @@ Biblioteca sem efeito colateral na importação para preparar artigos editoriais
 
 O uso no produto, inclusive em dispositivos móveis e seu carregamento pós-crítico, está documentado na página canônica [`docs/MODO-DE-USO-IMPRESSAO-IEEE.md`](../../docs/MODO-DE-USO-IMPRESSAO-IEEE.md).
 
+O contrato `data-print-span="all"` declara figura de largura integral; `data-print-span="column"` bloqueia a automarcação de uma ocorrência. O adaptador Jekyll promove a decisão ao `figure`/`picture`, e o classificador de build reutiliza `sharp/libvips` e `jsdom` com cache por conteúdo. Nenhuma dessas marcações possui regra fora de `@media print`.
+
 ```js
 import { prepareArticle } from '@jcem/print-ieee';
 

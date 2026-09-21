@@ -1,0 +1,19 @@
+{
+  "schema": 1,
+  "classifierVersion": "1.0.0",
+  "sourceDirectories": ["_posts", "_pages"],
+  "geometry": {
+    "maximumUsableHeightRatio": 0.35
+  },
+  "svg": {
+    "minimumTextCharacters": 24,
+    "minimumTextElements": 2,
+    "minimumDetailElements": 20
+  },
+  "raster": {
+    "sampleMaximumWidth": 800,
+    "edgeThreshold": 36,
+    "minimumEdgeDensity": 0.16,
+    "minimumEntropy": 4
+  }
+}

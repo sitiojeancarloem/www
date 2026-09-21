@@ -173,16 +173,21 @@ assert(private_package == { "private" => true, "type" => "commonjs" }, "manifest
 todo_operational = read("TODO.ia.md").split(/^# TO-DOs\s*$/, 2).last
 status_markers = "⬜|📌|📜|⚖️|⏳|🔄|🔎|✅"
 assert(!todo_operational.match?(/^- \[[ x]\]/), "item operacional ainda usa checkbox em vez de emoji isolado")
-assert(!todo_operational.match?(/^- (?:#{status_markers}) \*\*[^*]+:\*\*/), "item operacional ainda repete o nome textual do status")
-operational_items = todo_operational.lines.grep(/^- /)
+assert(!todo_operational.match?(/^(?:#{status_markers}) \*\*[^*]+:\*\*/), "item operacional ainda repete o nome textual do status")
+operational_items = todo_operational.lines.grep(/^(?:#{status_markers}) /)
 assert(!operational_items.empty?, "TO-DO operacional sem item")
 operational_items.each do |line|
-  assert(line.match?(/^[ \t]*- (?:#{status_markers}) \S/), "item operacional sem emoji de status isolado: #{line.strip}")
+  assert(line.match?(/^(?:#{status_markers}) \S/), "item operacional sem emoji de status isolado: #{line.strip}")
 end
 
 print_doc = read(print_doc_path)
 assert(print_doc.include?("desktop e mobile"), "equivalência móvel da impressão não documentada")
 assert(print_doc.include?("`window.load`") && print_doc.include?("`requestIdleCallback`"), "ciclo pós-crítico da impressão não documentado")
+assert(print_doc.include?('data-print-span="all"') && print_doc.include?('data-print-span="column"'), "marcação manual de figura larga não documentada")
+assert(print_doc.include?("35%") && print_doc.include?("sharp/libvips") && print_doc.include?("jsdom"), "automarcação conservadora não documentada")
+print_illustration = "assets/images/documentacao/impressao-ieee/figura-largura-total.svg"
+assert(print_doc.include?("../#{print_illustration}") || print_doc.include?("/#{print_illustration}"), "ilustração de figura larga não ligada")
+assert(File.file?(File.join(ROOT, print_illustration)), "ilustração de figura larga ausente")
 
 %w[README.md docs/MODO-DE-USO-COVER-E-HERO.md docs/MODO-DE-USO-BLOCKQUOTE.md docs/MODO-DE-USO-IMPRESSAO-IEEE.md RCFs/carregamento-progressivo.md RCFs/citacoes.md].each do |path|
   verify_local_links(path)

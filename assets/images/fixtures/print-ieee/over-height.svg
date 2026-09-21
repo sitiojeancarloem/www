@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="700" viewBox="0 0 1200 700" role="img" aria-labelledby="title desc">
+  <title id="title">Diagrama acima do limite geométrico</title>
+  <desc id="desc">Figura textual densa que deve permanecer em uma coluna porque excede trinta e cinco por cento da altura útil.</desc>
+  <rect width="1200" height="700" fill="#fef2f2" stroke="#991b1b" stroke-width="6"/>
+  <text x="40" y="90" font-family="Arial, sans-serif" font-size="34">Altura projetada incompatível</text>
+  <text x="40" y="180" font-family="Arial, sans-serif" font-size="30">Mesmo com densidade textual inequívoca</text>
+  <text x="40" y="270" font-family="Arial, sans-serif" font-size="30">a geometria obrigatória rejeita largura total</text>
+  <text x="40" y="360" font-family="Arial, sans-serif" font-size="30">e preserva o comportamento atual de uma coluna</text>
+  <path d="M80 470H1120M80 540H1120M80 610H1120" stroke="#dc2626" stroke-width="8"/>
+</svg>

@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="544" viewBox="0 0 1200 544" role="img" aria-labelledby="title desc">
+  <title id="title">Diagrama próximo ao limite geométrico</title>
+  <desc id="desc">Figura densa cuja projeção permanece imediatamente abaixo de trinta e cinco por cento da altura útil.</desc>
+  <rect width="1200" height="544" fill="#f8fafc" stroke="#334155" stroke-width="6"/>
+  <text x="40" y="80" font-family="Arial, sans-serif" font-size="34">Limite geométrico inferior</text>
+  <text x="40" y="160" font-family="Arial, sans-serif" font-size="30">A largura total preserva rótulos e detalhes</text>
+  <text x="40" y="240" font-family="Arial, sans-serif" font-size="30">sem ultrapassar a altura útil autorizada</text>
+  <line x1="40" y1="300" x2="1160" y2="300" stroke="#2563eb" stroke-width="6"/>
+  <line x1="40" y1="350" x2="1160" y2="350" stroke="#2563eb" stroke-width="6"/>
+  <line x1="40" y1="400" x2="1160" y2="400" stroke="#2563eb" stroke-width="6"/>
+</svg>

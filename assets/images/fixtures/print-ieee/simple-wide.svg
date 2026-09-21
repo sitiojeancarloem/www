@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="360" viewBox="0 0 1200 360" role="img" aria-labelledby="title desc">
+  <title id="title">Ilustração horizontal simples</title>
+  <desc id="desc">Paisagem geométrica simples que não deve ser automarcada apenas por ser horizontal.</desc>
+  <rect width="1200" height="360" rx="24" fill="#dbeafe"/>
+  <circle cx="600" cy="180" r="110" fill="#f59e0b"/>
+</svg>

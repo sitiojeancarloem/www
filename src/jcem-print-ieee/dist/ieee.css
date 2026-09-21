@@ -68,6 +68,43 @@
 	:is(#print-isolation-specificity-guard, [data-print-article])
 		[data-print-span="all"] {
 		column-span: all !important;
+		display: block !important;
+		width: 100% !important;
+		max-width: 100% !important;
+		height: auto !important;
+		margin: 6pt 0 !important;
+		break-inside: avoid !important;
+		page-break-inside: avoid !important;
+	}
+
+	:is(#print-isolation-specificity-guard, [data-print-article])
+		[data-print-span="all"]
+		:is(img, svg, canvas),
+	:is(#print-isolation-specificity-guard, [data-print-article])
+		:is(figure, picture)[data-print-span="all"]
+		> :is(img, svg, canvas, picture),
+	:is(#print-isolation-specificity-guard, [data-print-article])
+		figure[data-print-span="all"]
+		> picture
+		> :is(img, svg, canvas) {
+		display: block !important;
+		width: 100% !important;
+		max-width: 100% !important;
+		height: auto !important;
+		object-fit: contain !important;
+		margin-inline: auto !important;
+	}
+
+	:is(#print-isolation-specificity-guard, [data-print-article])
+		figure[data-print-span="all"]
+		> figcaption {
+		display: block !important;
+		width: 100% !important;
+		max-width: 100% !important;
+		margin: 3pt 0 0 !important;
+		font-size: 7pt !important;
+		line-height: 8.4pt !important;
+		text-align: center !important;
 	}
 
 	:is(#print-isolation-specificity-guard, [data-print-article]) p {

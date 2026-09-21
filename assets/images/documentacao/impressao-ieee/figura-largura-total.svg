@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">Fluxo de colunas com figura em largura total</title>
+  <desc id="desc">Duas colunas de texto são interrompidas por uma figura horizontal que ocupa a largura útil e retomadas abaixo dela.</desc>
+  <style>
+    .page{fill:#fff;stroke:#334155;stroke-width:4}.line{stroke:#64748b;stroke-width:8;stroke-linecap:round}.figure{fill:#dbeafe;stroke:#2563eb;stroke-width:5}.label{fill:#0f172a;font:700 28px Arial,sans-serif}.caption{fill:#334155;font:24px Arial,sans-serif}@media(prefers-color-scheme:dark){.page{fill:#111827;stroke:#cbd5e1}.line{stroke:#94a3b8}.figure{fill:#1e3a8a;stroke:#60a5fa}.label,.caption{fill:#f8fafc}}
+  </style>
+  <rect class="page" x="80" y="35" width="1040" height="560" rx="18"/>
+  <text class="label" x="110" y="80">Fluxo anterior em duas colunas</text>
+  <path class="line" d="M115 115H525M115 145H525M115 175H525M115 205H525M675 115H1085M675 145H1085M675 175H1085M675 205H1085"/>
+  <rect class="figure" x="115" y="245" width="970" height="145" rx="12"/>
+  <path d="M155 345L285 275L410 345L555 285L695 345L820 270L1045 345" fill="none" stroke="#0ea5e9" stroke-width="12"/>
+  <text class="caption" x="370" y="425">figura + legenda atravessam as duas colunas</text>
+  <path class="line" d="M115 465H525M115 495H525M115 525H525M115 555H525M675 465H1085M675 495H1085M675 525H1085M675 555H1085"/>
+</svg>

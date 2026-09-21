@@ -14,7 +14,7 @@
   "scripts": {
     "check:ts": "tsc --noEmit && tsc -p src/jcem-print-ieee/tsconfig.json --noEmit",
     "build:ts": "tsc && node scripts/inject-code-headers.mjs assets/jcem/js/site.js",
-    "build:print": "tsc -p src/jcem-print-ieee/tsconfig.json && node scripts/build-print-ieee.mjs",
+    "build:print": "node scripts/analyze-print-full-width.mjs && tsc -p src/jcem-print-ieee/tsconfig.json && node scripts/build-print-ieee.mjs",
     "check:html": "bundle exec ruby scripts/test_html_compactor.rb",
     "check:footnotes": "bundle exec ruby scripts/test_footnotes.rb",
     "check:math": "bundle exec ruby scripts/test_math.rb",
@@ -27,7 +27,8 @@
     "check:biblical-speech": "node scripts/test_biblical_reference_speech.mjs",
     "check:accessible-runtime": "node scripts/test_accessible_runtime.mjs",
     "check:inline-quotes": "npm run build:ts && node scripts/test_inline_quotes.mjs",
-    "check:print": "npm run build:print && node scripts/test_print_ieee.mjs",
+    "check:print:full-width": "node scripts/test_print_full_width.mjs && bundle exec ruby scripts/test_print_full_width.rb",
+    "check:print": "npm run check:print:full-width && npm run build:print && node scripts/test_print_ieee.mjs",
     "check:print:runtime": "node scripts/test_print_runtime.mjs",
     "check:performance": "node scripts/test_web_performance.mjs",
     "check:social-images": "node scripts/generate-social-images.mjs --check && bundle exec ruby scripts/test_social_metadata.rb",

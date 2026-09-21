@@ -50,6 +50,11 @@ assert.match(
 assert.match(css, /\[data-print-body\][^{]*:where\(p, li\)\s*\{[^}]*text-align:\s*justify\s*!important/s);
 assert.match(css, /\[data-print-body\]\s*\{[^}]*display:\s*contents\s*!important/s);
 assert.match(css, /\[data-print-body\]\s*\{[^}]*column-count:\s*auto\s*!important/s);
+assert.match(
+	css,
+	/\[data-print-span="all"\]\s*\{[^}]*column-span:\s*all\s*!important[^}]*width:\s*100%\s*!important[^}]*height:\s*auto\s*!important[^}]*break-inside:\s*avoid\s*!important/s,
+);
+assert.match(css, /figure\[data-print-span="all"\][\s\S]*?>\s*figcaption\s*\{[^}]*text-align:\s*center\s*!important/s);
 assert.match(css, /#print-isolation-specificity-guard/);
 assert.match(css, /all:\s*revert\s*!important/);
 assert.match(css, /\*::before[^{]*\*::after\s*\{[^}]*all:\s*revert\s*!important/s);
@@ -82,6 +87,30 @@ assert.match(siteSource, /new MessageChannel\(\)/);
 assert.match(siteSource, /window\.addEventListener\('beforeprint', prepareNow\)/);
 assert.doesNotMatch(siteSource, /setTimeout\(scheduleIdle,\s*5000\)/);
 assert.doesNotMatch(siteSource, /userAgent|navigator\.platform|maxTouchPoints/);
+
+const fullWidthConfiguration = JSON.parse(
+	await readFile(path.join(repositoryRoot, 'config', 'print-full-width.json'), 'utf8'),
+);
+const fullWidthManifest = JSON.parse(
+	await readFile(path.join(repositoryRoot, '_data', 'jcem_print_full_width.json'), 'utf8'),
+);
+const fullWidthPlugin = await readFile(
+	path.join(repositoryRoot, '_plugins', 'jcem_print_full_width.rb'),
+	'utf8',
+);
+assert.equal(fullWidthConfiguration.geometry.maximumUsableHeightRatio, 0.35);
+assert.equal(fullWidthManifest.profileId, profile.id);
+assert.equal(
+	fullWidthManifest.assets['/assets/images/fixtures/print-ieee/text-dense.svg'].autoFullWidth,
+	true,
+);
+assert.equal(
+	fullWidthManifest.assets['/assets/images/fixtures/print-ieee/simple-wide.svg'].autoFullWidth,
+	false,
+);
+assert.match(fullWidthPlugin, /data-print-span-source/);
+assert.match(fullWidthPlugin, /documents, :post_render/);
+assert.match(fullWidthPlugin, /pages, :post_render/);
 
 const dom = new JSDOM(
 	`<style>.editorial-decoration { text-decoration: underline wavy rgb(120, 20, 30); text-underline-offset: 3px; }</style><main>

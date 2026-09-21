@@ -5,6 +5,8 @@ Status: vigente; implementação material validada em 2026-08-11.
 
 Escopo: biblioteca Web agnóstica para impressão ou exportação PDF de artigo editorial completo, integração inicial com este blog e adaptadores futuros de plataforma.
 
+Modo de uso canônico: [`docs/MODO-DE-USO-IMPRESSAO-IEEE.md`](../docs/MODO-DE-USO-IMPRESSAO-IEEE.md).
+
 ## Resultado e níveis de conformidade
 
 - Somente artigo, `article` ou post editorial completo identificado pelo contrato público da biblioteca DEVE receber a composição IEEE; home, arquivo, mapa, 404, listagem e página sem artigo integral DEVEM manter impressão natural. [860dfdf]
