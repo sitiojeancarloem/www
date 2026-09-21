@@ -1,0 +1,12 @@
+FT-087|nome=Validação de figuras IEEE em largura total|escopo=tecnico|status=concluida|autorizacao=humana|conclusao=2026-09-21T16:10:00-03:00
+objetivo=Provar positivos, negativos, limites, cache, fluxo, web e regressão interartigos em saída real.
+origem=TODO.ia.md e .ia.rules/state/contexts/FT-085/master.md
+resultado=Aguardando a implementação da FT-086.
+verificacoes=Pendente de páginas reais, PDF e gates integrados.
+resultado=Matriz positiva, negativa e limítrofe validada em HTML real, runtime, web inerte e PDF A4.
+verificacoes=Quatro positivos e dois negativos aprovados; regressão em quatro artigos desktop/mobile, TypeScript, acessibilidade, publicação e documentação aprovados.
+pendencias=Validação humana visual efetiva permanece externa.
+1/1 Integração e validação [concluido]
+  1/3 Executar matriz automatizada [concluido]
+  2/3 Aferir páginas reais e PDF [concluido]
+  3/3 Consolidar estado e TO-DO [concluido]

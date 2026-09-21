@@ -1,0 +1,13 @@
+FT-086|nome=Implementação de figuras IEEE em largura total|escopo=tecnico|status=concluida|autorizacao=humana|conclusao=2026-09-21T16:10:00-03:00
+objetivo=Implementar marcação manual, inferência automática conservadora, cache e guia ilustrado canônico.
+origem=TODO.ia.md e .ia.rules/state/contexts/FT-085/master.md
+resultado=Em execução após conclusão normativa da FT-085.
+verificacoes=Pendente de implementação e gates focados.
+resultado=Analisador determinístico, cache, adaptador Jekyll, CSS, fixtures e guia canônico implementados.
+verificacoes=Testes unitários, build isolado, gate IEEE e documentação aprovados.
+pendencias=Validação humana efetiva da TO-DO permanece externa.
+1/1 Implementação e documentação [concluido]
+  1/4 Implementar análise e cache [concluido]
+  2/4 Integrar marcação semântica e CSS [concluido]
+  3/4 Criar guia e ilustração [concluido]
+  4/4 Executar gates focados [concluido]

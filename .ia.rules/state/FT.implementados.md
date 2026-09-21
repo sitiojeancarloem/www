@@ -1,6 +1,6 @@
 # FTs implementadas
 
-Índice mínimo para pedidos e evidências canônicas.
+Índice mínimo; carregue somente o histórico da FT pertinente.
 
-- Migração de 2026-09-21: o estado YAML legado com 60 FTs foi preservado integralmente em `history/legacy-continue-2026-09-21.ia` (`sha256:101afaf82a4ca2de8938616863aedc46972d818b8f34665a6eebb66cd4482c45`).
-- O estado corrente retém somente dependências imediatas, implementação ativa e frentes tecnicamente concluídas ainda pendentes de validação humana; detalhes históricos permanecem carregáveis pelo arquivo acima e pelo Git.
+- FT-086 — Implementação de figuras IEEE em largura total; estado: pendente-validacao; histórico: `history/FT-086.ia`; sha256: `a9b8774d7f0cf3ad7d83bb06882530a9f52e24c53a899f3cb1ee0d44dd92ed39`.
+- FT-087 — Validação de figuras IEEE em largura total; estado: pendente-validacao; histórico: `history/FT-087.ia`; sha256: `64d72fd439e08b71cd7fb4c35eec4b9adb9e0827e3ba2f15f74b823b8946a20c`.

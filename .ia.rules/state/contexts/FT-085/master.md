@@ -1,6 +1,6 @@
 # Contexto mestre — FT-085 a FT-087
 
-Estado: fases registradas, ainda não iniciadas; FT-086 e FT-087 bloqueadas por dependência e autorização. Fonte material: `TODO.ia.md` no commit `d4e1465075c021fd2919c4cf020d5645cf8fd62b`. Pedido de inicialização: `.ia.rules/state/requests/FT-085/prompt.md`.
+Estado: FT-085, FT-086 e FT-087 tecnicamente concluídas; validação humana efetiva permanece pendente. Fonte material: `TODO.ia.md` no commit `d4e1465075c021fd2919c4cf020d5645cf8fd62b`. Pedido de inicialização: `.ia.rules/state/requests/FT-085/prompt.md`.
 
 ## Objetivo
 
@@ -33,4 +33,13 @@ Permitir, exclusivamente na impressão IEEE, que figuras adequadas atravessem as
 
 ## Próxima retomada
 
-Começar pela FT-085 somente após autorização humana para equalização e normatização. A retomada deve ler este contexto e a fonte integral em `TODO.ia.md`, inventariar implementação, configuração, testes, dependências e RCFs reais, e permanecer sem código até o commit normativo.
+Submeter a implementação ao aceite visual humano. A TO-DO permanece `✅` e as FTs 086/087 permanecem no estado canônico como concluídas pendentes de validação; somente aprovação humana efetiva autoriza removê-las do estado corrente e retirar a raiz da TO-DO.
+
+## Resultado técnico consolidado
+
+- FT-085: contrato normativo concluído nos commits `a442470a14` e `27064f034e`.
+- FT-086: analisador determinístico, cache por conteúdo/configuração/perfil/classificador, adaptador Jekyll, CSS, fixtures e guia ilustrado canônico implementados no commit `701e3dc752`.
+- FT-087: parser de documento completo endurecido e matriz de runtime/PDF registrada no commit `e251233977`.
+- Evidência real: quatro positivos (manual, texto, visual e limítrofe), dois negativos (geometria isolada e altura excedida), web inerte, PDF A4 de duas páginas e regressão IEEE em quatro artigos, desktop e mobile.
+- Gates aprovados: `check:print`, `check:print:full-width-runtime`, `check:print:runtime`, `check:ts`, `check:accessibility`, `check:publication` e `check:documentation`.
+- Build e artefatos de inspeção ficaram isolados sob `.tmp/`; `_site` não foi alterado.

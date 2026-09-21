@@ -341,7 +341,7 @@ Este arquivo preserva demandas do desenvolvedor. Estados operacionais seguem a g
     - ausência de capitalização redundante em cadeias correferentes;
     - ausência de regressão nas demais regras editoriais e de pré-publicação.
 
-⏳ Implementar figuras de largura total no modo de impressão IEEE, com marcação explícita, inferência automática e normatização permanente
+✅ Implementar figuras de largura total no modo de impressão IEEE, com marcação explícita, inferência automática e normatização permanente
   - O modo de impressão IEEE DEVE permitir que determinadas imagens/figuras ocupem, excepcionalmente, **a largura útil das duas colunas**, sem romper, sobrepor, embaralhar ou prejudicar:
     - o fluxo natural do texto;
     - a ordem de leitura;

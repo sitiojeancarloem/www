@@ -74,25 +74,18 @@ pendencias=Rastreabilidade oficial permanece pendente de finalizador causal sele
 1/1 Equalização e normatização [concluido]
   1/1 Inventariar e consolidar o contrato [concluido]
 
-FT-086|nome=Implementação de figuras IEEE em largura total|escopo=tecnico|status=em_andamento|autorizacao=humana
+FT-086|nome=Implementação de figuras IEEE em largura total|escopo=tecnico|status=concluida|autorizacao=humana|conclusao=2026-09-21T16:10:00-03:00|validacao=pendente_desenvolvedor
 objetivo=Implementar marcação manual, inferência automática conservadora, cache e guia ilustrado canônico.
 origem=TODO.ia.md e .ia.rules/state/contexts/FT-085/master.md
-resultado=Em execução após conclusão normativa da FT-085.
-verificacoes=Pendente de implementação e gates focados.
-pendencias=Implementar analisador, integração Jekyll, CSS, testes e documentação.
-1/1 Implementação e documentação [em_andamento]
-  1/4 Implementar análise e cache [em_andamento]
-  2/4 Integrar marcação semântica e CSS [pendente]
-  3/4 Criar guia e ilustração [pendente]
-  4/4 Executar gates focados [pendente]
+resultado=Analisador determinístico, cache, adaptador Jekyll, CSS, fixtures e guia canônico implementados.
+verificacoes=Testes unitários, build isolado, gate IEEE e documentação aprovados.
+pendencias=Validação humana efetiva da TO-DO permanece externa.
+historico=.ia.rules/state/history/FT-086.ia|sha256=a9b8774d7f0cf3ad7d83bb06882530a9f52e24c53a899f3cb1ee0d44dd92ed39
 
-FT-087|nome=Validação de figuras IEEE em largura total|escopo=tecnico|status=pendente|autorizacao=humana
+FT-087|nome=Validação de figuras IEEE em largura total|escopo=tecnico|status=concluida|autorizacao=humana|conclusao=2026-09-21T16:10:00-03:00|validacao=pendente_desenvolvedor
 objetivo=Provar positivos, negativos, limites, cache, fluxo, web e regressão interartigos em saída real.
 origem=TODO.ia.md e .ia.rules/state/contexts/FT-085/master.md
-resultado=Aguardando a implementação da FT-086.
-verificacoes=Pendente de páginas reais, PDF e gates integrados.
-pendencias=Depende da FT-086.
-1/1 Integração e validação [pendente]
-  1/3 Executar matriz automatizada [pendente]
-  2/3 Aferir páginas reais e PDF [pendente]
-  3/3 Consolidar estado e TO-DO [pendente]
+resultado=Matriz positiva, negativa e limítrofe validada em HTML real, runtime, web inerte e PDF A4.
+verificacoes=Quatro positivos e dois negativos aprovados; regressão em quatro artigos desktop/mobile, TypeScript, acessibilidade, publicação e documentação aprovados.
+pendencias=Validação humana visual efetiva permanece externa.
+historico=.ia.rules/state/history/FT-087.ia|sha256=64d72fd439e08b71cd7fb4c35eec4b9adb9e0827e3ba2f15f74b823b8946a20c

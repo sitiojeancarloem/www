@@ -1,0 +1,19 @@
+{
+  "schema": "agents-feature-history-index/v1",
+  "entries": [
+    {
+      "id": "FT-086",
+      "name": "Implementação de figuras IEEE em largura total",
+      "path": ".ia.rules/state/history/FT-086.ia",
+      "sha256": "a9b8774d7f0cf3ad7d83bb06882530a9f52e24c53a899f3cb1ee0d44dd92ed39",
+      "state": "pendente-validacao"
+    },
+    {
+      "id": "FT-087",
+      "name": "Validação de figuras IEEE em largura total",
+      "path": ".ia.rules/state/history/FT-087.ia",
+      "sha256": "64d72fd439e08b71cd7fb4c35eec4b9adb9e0827e3ba2f15f74b823b8946a20c",
+      "state": "pendente-validacao"
+    }
+  ]
+}
