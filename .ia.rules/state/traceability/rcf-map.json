@@ -5422,6 +5422,19 @@
       "artifacts": [
         "RCFs/impressao-ieee.md"
       ],
+      "commit": "",
+      "ft": "FT-085",
+      "id": "ca862d595f8437b13c11f67b",
+      "line": 75,
+      "rcf": "RCFs/impressao-ieee.md",
+      "sentenceSha256": "ad0d801e44082cb3ec60aa2044e676732dc1d214137f6a50a93be0c19dd8fd8f",
+      "state": "pending",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/impressao-ieee.md"
+      ],
       "commit": "cd19a001737be8456d0f5a5eb05dfa979a6f052e",
       "ft": "FT-053",
       "id": "24fc0a9bcb3b6e211e421684",
