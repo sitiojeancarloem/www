@@ -1,0 +1,1251 @@
+schema: jcem-continue/v1
+machine_id: JEAN-DESKTOP
+data_ref: 2026-09-18T23:10:35.1377330-03:00
+fonte: TODO.ia.md
+objetivo: Processar as frentes em avaliacao humana e implementar a capitalizacao reverencial e a preservacao de enfases autorais pela extensao editorial local minima.
+autorizacao_ft_068_074:
+  origem: prompt humano
+  data: 2026-09-16T01:35:00-03:00
+  fonte: prompt humano de continuacao com pre-autorizacao normativa para implementacao e esclarecimento posterior para prosseguir sem encerrar TO-DOs em avaliacao humana
+  escopo: equalizar, normatizar, implementar, testar e documentar as tres TO-DOs novas, iniciando codigo imediatamente depois de cada norma validada
+  restricao: preservar integralmente capacidades locais e as frentes ainda em avaliacao humana
+autorizacao_ft_082_084:
+  origem: .ia.rules/state/requests/FT-082/prompt.md
+  fonte_sha256: F0E653EAA7897BFA83AD2BC6CC0DFDFCABD8B73126C1C96BB56519D8DF695D09
+  data: 2026-09-18T23:10:35.1377330-03:00
+  escopo: encerrar a TO-DO de COVER aprovada; registrar, normatizar, implementar, testar e integrar todas as fases ainda nao iniciadas da frente de capitalizacao reverencial
+  autorizacao_codigo: previa e expressa, exercivel depois da conclusao e do commit da FT normativa
+  restricao: nao reiniciar fases existentes, nao executar dependencia insatisfeita e nao inventar requisito diante de lacuna material
+plano:
+  - id: FT-020
+    classe: implementacao_normativa
+    criado_em: 2026-08-11T13:55:44.4157934-03:00
+    estado: concluido
+    objetivo: Equalizar os novos itens com os contratos vigentes.
+    escopo: RCF-JCEM-BATE-PAPOS-001, RCF-JCEM-NAMESPACES-EDITORIAIS-001, RCF-JCEM-PUBLICACAO-001 e RCF-JCEM-PERFORMANCE-DEPENDENCIAS-001.
+    resultado: A normatizacao vigente ja cobre sintese fiel, subnamespace, publicacao e medicao PageSpeed; nenhuma nova regra de produto e necessaria.
+    aceite:
+      - fonte integral lida
+      - precedencias conciliadas
+      - ausencia de conflito material
+  - id: FT-021
+    classe: implementacao_conteudo
+    criado_em: 2026-08-11T13:55:44.4157934-03:00
+    estado: concluido
+    depende_de: FT-020
+    objetivo: Produzir a sintese fiel, corrigir o path fisico do outro bate-papo e publicar ambos.
+    aceite:
+      - detalhes, nuances, divergencias, citacoes e referencias preservados
+      - disclaimer alerta1 e front matter conformes
+      - ambos sob o subnamespace eventos-finais
+      - build, validacao editorial e URLs publicadas aprovados
+  - id: FT-022
+    classe: implementacao_codigo
+    criado_em: 2026-08-11T13:55:44.4157934-03:00
+    estado: concluido
+    depende_de: FT-020
+    objetivo: Consumir PAGESPEED_API_KEY de forma opaca no medidor e no workflow.
+    aceite:
+      - segredo ausente nao vaza nem altera validacoes locais sem API
+      - chave nunca aparece em log, cache ou artefato
+      - API autenticada mede a amostra representativa em mobile e desktop
+      - CI e gates locais permanecem sem regressao
+    progresso:
+      - segredo consumido de forma opaca no GitHub Actions e primeira amostra autenticada concluida
+      - repeticao limitada de falha transitoria 5xx e diagnostico FCP, LCP e TBT incorporados ao medidor
+      - afericao autenticada da revisao a252c20bd4 aprovou 12 de 14 combinacoes; artigo mobile obteve 84 e categorias mobile 89
+      - afericao autenticada da revisao 14c5708045 elevou categorias mobile a 92; artigo permaneceu em 84 e assuntos variou para 89
+      - afericao autenticada da revisao ce09a4071a aprovou 12 de 14 combinacoes; artigo mobile subiu a 86 e assuntos permaneceu em 89
+      - paragrafo LCP monolitico do artigo e repeticao de 65 cards completos em assuntos foram identificados como causas estruturais da proxima correcao
+      - primeira afericao da revisao 3810ca80a1 ficou inconclusiva por timeout de transporte sem resultado final; repeticao isolada do job foi acionada
+      - repeticao isolada tambem expirou sem pontuacoes; medidor passou a repetir timeout e usar concorrencia limitada a dois com progresso por alvo
+  - id: FT-023
+    classe: implementacao_normativa_codigo
+    criado_em: 2026-08-11T15:04:00-03:00
+    estado: concluido
+    depende_de: FT-020
+    objetivo: Corrigir a semantica visual hierarquica de citacoes e subcitacoes sem vazamento de bordas.
+    escopo: RCF-JCEM-CITACOES-001 e isolamento de RCF-JCEM-IMPRESSAO-IEEE-001.
+    aceite:
+      - corpo do bloco permanece sem italico automatico
+      - subcitacao imediata usa apenas italico e nenhum fundo proprio
+      - fundo discreto aparece somente em profundidades citacionais adicionais
+      - borda pertence somente ao conteiner semanticamente previsto
+      - claro, escuro, nesting, painel e impressao validados sem regressao
+  - id: FT-024
+    classe: implementacao_normativa_codigo
+    criado_em: 2026-08-11T16:40:00-03:00
+    estado: concluido
+    depende_de: FT-020
+    objetivo: Corrigir a composicao estrutural do cabecalho academico e a justificacao efetiva do corpo impresso.
+    escopo: RCF-JCEM-IMPRESSAO-IEEE-001 e adaptador Jekyll da biblioteca de impressao.
+    aceite:
+      - titulo principal ocupa a largura integral antes do fluxo em colunas
+      - autoria e metadados associados aparecem abaixo do titulo e antes do corpo
+      - Resumo em portugues e Abstract equivalente em ingles existem em todos os artigos
+      - paragrafos do corpo em colunas usam alinhamento justificado computado
+      - estruturas exclusivas de impressao permanecem ausentes da visualizacao web
+      - PDF, claro, escuro, build e validacao visual aprovados sem regressao
+    progresso:
+      - composicao titulo, autores, metadados, Resumo, Abstract e corpo justificado implementada no adaptador Jekyll
+      - saida A4 de 7 paginas aferida sem pagina vazia, corte ou sobreposicao no relatorio 2026-08-11-devaneios-chromium-148.json
+      - regressao intermitente da mascara do terminal 404 identificada no runner Linux e corrigida antes da republicacao
+      - contrato estrutural e isolamento revalidados na matriz visual integral apos a separacao dos conectores pos-pintura
+  - id: FT-025
+    classe: implementacao_normativa
+    criado_em: 2026-08-11T23:10:00-03:00
+    estado: concluido
+    depende_de: FT-020
+    objetivo: Corrigir o contrato de desempenho para afericao estrutural por modelo, sem degradacao editorial.
+    escopo: RCF-JCEM-PERFORMANCE-DEPENDENCIAS-001 e equalizer vigente.
+    aceite:
+      - meta PageSpeed igual ou superior a 90 aplicada a cada layout, nao a cada publicacao
+      - cada layout aferido por multiplas amostras representativas e custo editorial separado do estrutural
+      - conteudo e assets editoriais proibidos como alvos de otimizacao iterativa por pagina
+      - excecao de cards e thumbnails limitada a uma unica derivacao rastreavel por hash e estado da origem
+    resultado: RCF corrigido para mediana de multiplas amostras por layout, separacao de custo editorial e proibicao de otimizar publicacao individual.
+  - id: FT-026
+    classe: implementacao_codigo
+    criado_em: 2026-08-11T23:10:01-03:00
+    estado: concluido
+    depende_de: FT-025
+    objetivo: Restaurar regressoes editoriais e implementar o gate PageSpeed por layout com proveniencia das variantes autorizadas.
+    aceite:
+      - alteracoes editoriais motivadas por pontuacao de pagina restauradas ao estado anterior
+      - imagens do corpo excluidas da transformacao responsiva automatica
+      - cards e thumbnails usam variantes derivadas diretamente do original imutavel
+      - gerador recusa reprocessamento cumulativo ou origem divergente
+      - matriz local, PageSpeed autenticado, claro, escuro e impressao aprovados sem regressao
+    progresso:
+      - fragmentacao do paragrafo introdutorio de Devaneios restaurada integralmente ao estado editorial anterior
+      - imagem destacada e imagens internas voltaram a consumir os originais, sem variantes geradas para o corpo
+      - tres familias WebP exclusivas do corpo removidas; variantes de capa permanecem restritas a cards e thumbnails
+      - nove origens autorizadas vinculadas a SHA-256, tamanho e commit; segunda execucao comprovou zero alteracao de bytes ou timestamp
+      - medidor atualizado para schema 2, multiplas amostras e mediana por layout e estrategia
+      - fixtures de mapa e institucional publicas, noindex e ausentes de sitemap, feed e navegacao
+      - npm run check, build de producao e matriz visual integral aprovados
+      - raster editorial e suas ligacoes preservados; dois WebP compartilhados derivados uma unica vez com fonte, timestamp e hashes registrados e segunda execucao com changed=0
+      - nove thumbnails sociais de 630 px geradas diretamente das fontes originais, com selecao deterministica JPEG/PNG, manifesto e segunda execucao com changed=0
+      - cards limitados a tres colunas, flag de data recomposta, metadado redundante removido, visited escuro legivel e botoes sem indicador de link
+      - imagem de destaque limitada a viewport somente no artigo e somente em tela
+      - PDF A4 de 8 paginas confirmou Resumo, Abstract, corpo justificado, lista final de URLs e caixa de margem institucional em todas as paginas; SHA-256 1c89ad537c2a0dfe3b2ed7158c87014d9fed6ca7a6e589a3a1f4c72505419b24
+  - id: FT-027
+    classe: implementacao_normativa_codigo
+    criado_em: 2026-08-12T02:10:00-03:00
+    estado: concluido
+    depende_de: FT-026
+    objetivo: Integrar WebP, Open Graph, cards, imagem destacada e rodape paginado ao equalizer vigente.
+    escopo: RCF-JCEM-CARREGAMENTO-PROGRESSIVO-001, RCF-JCEM-COMPONENTES-COMPARTILHADOS-001 e RCF-JCEM-IMPRESSAO-IEEE-001.
+    resultado: Implementacao integrada aos conectores e builds existentes, sem fluxo editorial de otimizacao por pagina e sem alterar o item perene equalizer.
+    aceite:
+      - originais editoriais preservados e derivados rastreados
+      - OG e metadados equivalentes consomem variante social local de 630 px
+      - regressao dos cards e limite da imagem destacada corrigidos
+      - URLs de links e rodape institucional materializados exclusivamente na impressao
+      - gates locais e matriz visual aprovados
+  - id: FT-028
+    classe: implementacao_normativa_codigo
+    criado_em: 2026-08-12T10:25:00-03:00
+    estado: concluido
+    depende_de: FT-027
+    fonte: .ia.rules/state/requests/FT-028/prompt.md
+    objetivo: Corrigir cirurgicamente as regressoes documentadas nas evidencias 6 a 9 sem afetar contratos consolidados.
+    escopo: RCF-JCEM-CARREGAMENTO-PROGRESSIVO-001, RCF-JCEM-COMPONENTES-COMPARTILHADOS-001, RCF-JCEM-CITACOES-001 e RCF-JCEM-IMPRESSAO-IEEE-001.
+    aceite:
+      - imagem destacada preserva proporcao, limite vertical e preenchimento sem deformacao
+      - flags de cards permanecem sobrepostas, ancoradas e integralmente visiveis
+      - citacoes extensas fragmentam naturalmente entre colunas impressas
+      - modelos tipados nao mantem vazio inferior artificial e preservam padding legitimo
+      - claro, escuro, impressao e matriz adjacente aprovados sem regressao
+    progresso:
+      - caixa da imagem destacada passou a respeitar a proporcao intrinseca com altura automatica e teto responsivo, sem crop ou deformacao
+      - content-visibility removido somente dos itens da grade cujas flags extrapolam semanticamente o card; demais alvos de carregamento progressivo preservados
+      - blockquotes removidos da regra de indivisibilidade e fixados em fragmentacao automatica exclusivamente no perfil de impressao IEEE
+      - icones dos modelos tipados deixaram de criar linhas implicitas, eliminando o vazio inferior sem alterar o padding do conteiner
+      - build de producao, checks focados e matriz visual integral aprovados; PDF A4 de sete paginas confirmou continuidade da citacao entre colunas sem corte ou sobreposicao
+  - id: FT-029
+    classe: implementacao_normativa
+    criado_em: 2026-08-12T14:30:00-03:00
+    estado: concluido
+    depende_de: FT-028
+    fonte: .ia.rules/state/requests/FT-029/prompt.md
+    objetivo: Equalizar e normatizar as correcoes de 404, tabelas escuras e ampliacao acessivel de imagens.
+    escopo: RCF-JCEM-COMPONENTES-COMPARTILHADOS-001 e RCF-JCEM-CARREGAMENTO-PROGRESSIVO-001.
+    aceite:
+      - causa especifica do clipping do logotipo na 404 normatizada sem alterar paginas validas
+      - tabelas escuras com contraste coerente e sem regressao no tema claro
+      - imagens de conteudo com ampliacao geral, acessivel e sem reflow
+      - item equalizer preservado intacto e desmarcado
+    resultado: Contratos de masthead especial, tabelas tematicas e ampliacao progressiva foram centralizados nas RCFs vigentes, sem fluxo paralelo.
+  - id: FT-030
+    classe: implementacao_codigo
+    criado_em: 2026-08-12T14:30:01-03:00
+    estado: concluido
+    depende_de: FT-029
+    fonte: .ia.rules/state/requests/FT-029/prompt.md
+    objetivo: Implementar e validar integralmente as tres frentes visuais equalizadas.
+    escopo: 404, tabelas editoriais em tela, imagens de conteudo, testes e validacao visual.
+    aceite:
+      - logotipo extrapola a masthead da 404 como nas demais paginas
+      - tabela possui contraste e legibilidade em claro e escuro
+      - controle de ampliacao funciona por mouse, toque e teclado e retorna ao contexto
+      - impressao e componentes com tratamento especifico permanecem isolados
+      - build, checks e matriz visual aprovados sem regressao
+    progresso:
+      - clipping vertical da masthead 404 eliminado no wrapper especifico, mantendo contencao horizontal no body da pagina
+      - tabelas editoriais receberam tokens tematicos claros e escuros, bordas validas e troca sem estado visual transitorio
+      - ampliador progressivo aplicado somente a imagens editoriais do corpo, com fullscreen nativo, fallback local, toque, teclado e restauracao de foco
+      - imagem destacada, skeleton, paineis, cards, avatares, icones e impressao permaneceram fora do conector
+      - npm run check, build de producao, validacao mobile focada e matriz visual integral em seis viewports foram aprovados
+  - id: FT-031
+    classe: integracao_publicacao
+    criado_em: 2026-08-12T14:30:02-03:00
+    estado: concluido
+    depende_de: FT-030
+    fonte: .ia.rules/state/requests/FT-029/prompt.md
+    objetivo: Integrar, limpar TO-DOs concluidas, publicar e validar o resultado no GitHub Pages.
+    aceite:
+      - TODO.ia.md conserva apenas governanca e equalizer perene apos conclusao
+      - commits de fase preservam rastreabilidade
+      - branch principal e remoto convergem
+      - publicacao oficial e pagina publica validadas
+    progresso:
+      - TO-DOs operacionais concluidas removidas e item equalizer perene preservado literalmente
+      - implementacao, contrato, fonte da FT e validacoes separados em commits rastreaveis
+      - commit-fonte 918ac24b6add66556b8513c0a0a16278dece4de9 integrado por fast-forward em main e publicado pelo fluxo oficial
+      - gh-pages registrou source_sha exato, deploy serviu o novo conector e cleanup removeu branch temporario e gatilho publicar
+      - commit automatico b79df3a7f9c65624ced2ea34a292c42f47e39497 sincronizado localmente antes do encerramento
+  - id: FT-032
+    classe: implementacao_normativa
+    criado_em: 2026-08-25T17:24:44.0679538-03:00
+    estado: concluido
+    fonte: .ia.rules/state/requests/FT-032/prompt.md
+    contexto: .ia.rules/state/contexts/FT-032/master.md
+    objetivo: Equalizar integralmente as novas TO-DOs e consolidar os contratos de operacao especializada, 404 e leitura acessivel/TTS.
+    escopo: RCF.md, RCFs especializados aplicaveis e nova especializacao de leitura acessivel/TTS.
+    aceite:
+      - fonte integral, precedencias, sobreposicoes, lacunas e dependencias conciliadas
+      - regra vigente da 404 preservada sem duplicacao
+      - semantica, fala complementar, citacoes, referencias, idiomas, tabelas, imagens e graficos normatizados
+      - dependencia grafica comparada e decisao arquitetural rastreavel
+      - validacao normativa aprovada e interrupcao antes de qualquer implementacao
+    resultado: RCF-JCEM-OPERACAO-IA-001 e RCF-JCEM-LEITURA-ACESSIVEL-TTS-001 criadas e roteadas; contrato 404 vigente preservado; Chart.js 4.5.1+ selecionado apenas como renderer condicional com HTML acessivel independente.
+    progresso:
+      - todas as nove TO-DOs operacionais foram lidas, vinculadas e marcadas em andamento sem alterar o equalizer perene
+      - modus operandi detalhado centralizado no RCF e projecao agents.local.md adiada para FT-033
+      - semantica estatica, fala complementar, citacoes, referencias, idiomas, pronuncia, tabelas, imagens e graficos normatizados
+      - Chart.js, ECharts e Vega-Lite comparados em fontes oficiais; dependencia maior rejeitada sem perda de capacidade acessivel
+      - npm run agent:rcf aprovou RCF_OK e rcf-trace validate retornou zero divergencias
+  - id: FT-033
+    classe: implementacao_governanca_local
+    criado_em: 2026-08-25T17:24:45.0679538-03:00
+    estado: concluido
+    depende_de: FT-032
+    fonte: .ia.rules/state/requests/FT-032/prompt.md
+    fonte_autorizacao: .ia.rules/state/requests/FT-033/prompt.md
+    objetivo: Projetar o modus operandi especializado no agents.local.md canônico e em subrotas mínimas compatíveis com a raiz vigente.
+    aceite:
+      - RCF permanece detalhada e autoritativa
+      - adaptador local apenas roteia ou condensa sem divergencia
+      - predecessor .agents nao e reintroduzido como fonte
+      - reducao real de contexto e cobertura semantica comprovadas
+    resultado: agents.local.md raiz materializado como roteador compacto das sub-RCFs vigentes, sem subarquivo redundante e sem usar a arvore predecessora como fonte ou fallback.
+    progresso:
+      - precedencia, estado canonico, rotas cumulativas e invariantes de execucao projetados sem copiar os contratos detalhados
+      - rotas de editorial, bate-papo, citacoes, TTS, PageSpeed, 404, impressao e publicacao vinculadas a arquivos existentes
+      - subarquivo local dispensado porque a modularizacao RCF atual ja entrega a reducao de contexto exigida
+  - id: FT-034
+    classe: implementacao_codigo
+    criado_em: 2026-08-25T17:24:46.0679538-03:00
+    estado: concluido
+    depende_de: FT-032
+    fonte: .ia.rules/state/requests/FT-032/prompt.md
+    fonte_autorizacao: .ia.rules/state/requests/FT-033/prompt.md
+    objetivo: Corrigir a causa real da regressao do logotipo da 404 e validar o artefato efetivamente publicado.
+    aceite:
+      - referencias visuais autoritativas recuperadas ou substituidas por evidencia humana equivalente
+      - extrapolacao vertical do logotipo sem crop e com contencao horizontal preservada
+      - fonte, build local, matriz visual e GitHub Pages convergentes
+    progresso:
+      - evidencia1a.png e evidencia1b.png recuperadas do commit 07282076f6 com objetos Git identicos
+      - inspecao confirmou que ambas documentam flags de cards, nao a masthead 404
+      - evidencia1.png permanece como defeito 404 observado; masthead normal renderizada sera a referencia normativa real
+      - causa raiz confirmada no bootstrap exclusivo da 404: o fallback img.parentElement aplicava jcem-skeleton ao link site-logo e a regra mais especifica recortava sua extrapolacao
+      - binding limitado a imagens com conteiner de skeleton declarado, sem alterar masthead compartilhada nem a contencao horizontal da pagina
+      - build Jekyll de producao, check de performance e matriz visual dark/light em desktop/mobile aprovados
+    resultado: Logotipo da 404 voltou a extrapolar verticalmente a masthead; o contrato de skeleton passou a respeitar somente conteineres explicitamente marcados.
+  - id: FT-035
+    classe: implementacao_conteudo
+    criado_em: 2026-08-25T17:24:47.0679538-03:00
+    estado: concluido
+    depende_de: FT-032
+    fonte: .ia.rules/state/requests/FT-032/prompt.md
+    fonte_autorizacao: .ia.rules/state/requests/FT-033/prompt.md
+    objetivo: Classificar e completar metadados acessiveis do acervo editorial sem alterar texto visivel nem inventar significado.
+    aceite:
+      - idiomas, citacoes, referencias, imagens, tabelas e graficos do acervo classificados por evidencia
+      - casos ambiguos falham com diagnostico ou seguem revisao humana
+      - futuras publicacoes usam o mesmo contrato deterministico
+    resultado: Acervo publicado normalizado sem reescrita editorial, com captions, alternativas informativas e idiomas antigos comprovados; ambiguidades de referência preservam o texto integral.
+    progresso:
+      - dez posts publicados auditados, incluindo 12 tabelas de dados, 11 imagens de corpo e 424 ocorrencias de footnote
+      - doze captions semanticamente suficientes adicionados sem alterar a composicao visual legada
+      - duas imagens logicas com alt vazio receberam alternativas derivadas das frases e nomes de asset adjacentes
+      - termos hebraicos e gregos da tabela de Genesis 2:7 receberam he e grc, respectivamente, sem transliteracao inventada
+      - referencias biblicas inequivocas usam passagem e versao por ocorrencia; demais casos preservam a definicao integral
+  - id: FT-036
+    classe: implementacao_codigo
+    criado_em: 2026-08-25T17:24:48.0679538-03:00
+    estado: concluido
+    depende_de: FT-032
+    fonte: .ia.rules/state/requests/FT-032/prompt.md
+    fonte_autorizacao: .ia.rules/state/requests/FT-033/prompt.md
+    objetivo: Implementar semantica acessivel, fala complementar, referencias por ocorrencia, graficos e assets condicionais no pipeline vigente.
+    aceite:
+      - HTML essencial permanece completo sem JavaScript e sem motor TTS especifico
+      - marcadores falados nao duplicam nem ocultam texto editorial
+      - graficos possuem sintese, dados acessiveis e renderer opcional somente onde usado
+      - dependencias ausentes em paginas sem uso e carregamento fora do caminho critico
+    resultado: Pipeline deterministico de acessibilidade e leitura opcional implementado com HTML estatico autoritativo, manifesto por pagina e Chart.js 4.5.1 fixado como renderer estritamente condicional.
+    progresso:
+      - normalizador pos-render valida artigo, tabelas, imagens, idiomas, citacoes e referencias sem reescrever o texto editorial
+      - referencias reutilizadas sao resolvidas por ocorrencia antes da mutacao do DOM e preservam a definicao completa quando ambiguas
+      - controle de leitura usa Web Speech API apenas como aprimoramento e degrada para a estrutura acessivel sem ocultar conteudo
+      - grafico nasce de dataset canonico validado, conserva resumo, conclusao e tabela sem JavaScript e oculta o canvas duplicado da arvore acessivel
+      - Chart.js 4.5.1 e sincronizado localmente com versao e licenca verificadas e carregado somente na pagina elegivel
+      - fixture, testes estruturais, teste runtime em Chromium e modo de uso permanente foram adicionados ao pipeline oficial
+  - id: FT-037
+    classe: integracao_validacao_publicacao
+    criado_em: 2026-08-25T17:24:49.0679538-03:00
+    estado: concluido
+    depende_de: FT-033, FT-034, FT-035, FT-036
+    fonte: .ia.rules/state/requests/FT-032/prompt.md
+    fonte_autorizacao: .ia.rules/state/requests/FT-033/prompt.md
+    objetivo: Validar a matriz real de acessibilidade/TTS e 404, publicar e comprovar ausencia de regressao.
+    aceite:
+      - leitores de tela e sintese representativos exercitam fluxo sequencial e navegacao estrutural
+      - teclado, temas, viewports, SEO, impressao, PageSpeed e build aprovados separadamente
+      - artefato publicado corresponde ao commit-fonte validado
+      - TO-DOs concluidas removidas e equalizer perene preservado literal e desmarcado
+    resultado: Commit-fonte bfbac5f71b008307aea8bf0b8cc80b1ebfaac004 publicado com build e deploy aprovados, PageSpeed focal aprovado e main/dev convergidos; gh-pages temporario removido.
+    progresso:
+      - gate agregado npm run check aprovado, incluindo HTML, footnotes, citacoes, acessibilidade, runtime, impressao, desempenho, imagens sociais e publicacao
+      - matriz estrita aprovada em cinco paginas, dois temas e seis viewports de 320 a 1920 px, alem da rota 404
+      - Chromium com Web Speech API controlada comprovou 21 unidades faladas, idiomas, citacoes, referencia, tabela, grafico e ausencia condicional de assets
+      - matriz detectou e bloqueou perfil de impressao ausente na fixture e classe visually-hidden sem implementacao; causas corrigidas com regressoes permanentes
+      - npm audit de producao aprovou zero vulnerabilidades; alerta alto em sharp permanece restrito ao desenvolvimento e sem correcao disponivel
+      - TO-DOs operacionais concluidas removidas; governanca e equalizer perene permaneceram literais e desmarcados
+      - artefato 4db494ebb7335b4c9db9c1184d19d29e88235be7 publicou o commit-fonte exato e o workflow 32965069505 aprovou build, visual, deploy, limpeza e PageSpeed
+      - PageSpeed foi limitado a fixture TTS estritamente pertinente: mobile 95/93/100 e desktop 100/97/100 em desempenho/acessibilidade/boas praticas
+      - dominio servido respondeu 200 para fixture, manifesto e Chart.js; manifesto registrou um grafico e somente os dois assets condicionais, ausentes na home
+      - refs remotos main e dev convergiram em bfbac5f71b008307aea8bf0b8cc80b1ebfaac004 e gh-pages foi removido
+  - id: FT-038
+    classe: implementacao_normativa
+    criado_em: 2026-08-27T20:03:40.6307358-03:00
+    estado: concluido
+    fonte: .ia.rules/state/requests/FT-038/prompt.md
+    objetivo: Equalizar integralmente as novas TO-DOs de TTS, covers, assets, metadados sociais, namespaces, atribuicoes e paginas especiais.
+    escopo: RCFs vigentes de leitura acessivel, referencias, carregamento, componentes, namespaces, bate-papo e publicacao.
+    aceite:
+      - todas as TO-DOs lidas e conciliadas sem alterar o equalizer perene
+      - contradicoes de formato, rota, crawler e asset resolvidas por contrato verificavel
+      - FTs tecnicas segregadas por dependencia e rastreabilidade
+      - validacao normativa aprovada e interrupcao antes de codigo
+    resultado: Novas TO-DOs equalizadas em contratos verificaveis e FTs 039 a 044 segregadas; nenhuma implementacao iniciada.
+    progresso:
+      - TTS continuo definido como padrao com modos resumido e completo sob demanda, sem achatamento automatico de nota estruturada
+      - covers conciliadas por superficie integral, conteudo central preservado, limites centralizados e composicao wide unica ou tripla
+      - WebP corrigiu a imprecisao WebM; _site foi excluido como origem e assets arquivados foram limitados a dependencias incorporadas
+      - Open Graph passou a ter wide primaria e square adicional sem promessa de selecao por plataforma; X recebeu contrato proprio coerente
+      - rota logica com dois-pontos foi preservada e a traducao para destino fisico ficou restrita ao servidor local
+      - pagina de atribuicoes recebeu contrato proprio limitado a obrigacoes reais do artefato distribuido
+      - npm run agent:rcf retornou RCF_OK e rcf-trace validate retornou zero divergencias
+  - id: FT-039
+    classe: implementacao_codigo
+    criado_em: 2026-08-27T20:03:41.6307358-03:00
+    estado: concluido
+    depende_de: FT-038
+    fonte: .ia.rules/state/requests/FT-038/prompt.md
+    fonte_autorizacao: .ia.rules/state/requests/FT-039/prompt.md
+    objetivo: Refinar controles e modos de leitura de referencias do TTS com fluxo continuo por padrao.
+    aceite:
+      - controles compactos por icones preservam alvo de toque, nome, dica, teclado e estados
+      - fluxo continuo sinaliza referencias por fronteira sem narracao integral automatica
+      - modos resumido e completo permanecem disponiveis sob demanda
+      - links, notas, leitores de tela e conteudo visivel permanecem integrais
+    resultado: Controles compactos e os modos continuo, resumido e completo foram implementados; referencias permanecem semanticamente navegaveis e a expansao integral ficou sob demanda.
+    progresso:
+      - marcadores visuais deixaram de achatar notas longas por aria-describedby e conservaram link, aria-details e destino operavel
+      - modo continuo agrupa multiplas referencias por unidade e emite um unico aviso breve apos a proposicao
+      - troca de modo invalida somente a fala corrente, reconstrói as unidades e retoma da fronteira preservada
+      - testes estrutural e runtime Chromium aprovaram 21 unidades, tres modos, icones e ausencia de Chart.js em pagina sem grafico
+  - id: FT-040
+    classe: implementacao_codigo
+    criado_em: 2026-08-27T20:03:42.6307358-03:00
+    estado: concluido
+    depende_de: FT-038
+    fonte: .ia.rules/state/requests/FT-038/prompt.md
+    fonte_autorizacao: .ia.rules/state/requests/FT-039/prompt.md
+    objetivo: Corrigir geometria responsiva e ampliar os modos de cover wide sem distorcao ou perda.
+    aceite:
+      - flag permanece sobreposta e visivel
+      - cover ocupa a zona integral e respeita limites de viewport e proporcao
+      - modo unico e composicao central-left-right mantem continuidade sem costuras
+      - tela, orientacao, tema e impressao preservam os contratos vigentes
+    resultado: Cover wide usa superficie periferica integral e imagem central proporcional no eixo limitante; o modo triplo ganhou contrato de fallback, dimensoes e costuras pixel a pixel.
+    progresso:
+      - token unico de altura governa stage responsivo e a flag permanece na camada 3 acima da superficie e da imagem
+      - desktop limita pela altura; viewport estreita limita pela largura; em ambos a razao natural e o centro sao preservados
+      - build falha para triptych parcial, alturas divergentes, juncoes divergentes ou segmentos laterais sem repeticao continua
+      - matriz visual focada aprovou desktop e mobile, claro e escuro, impressao e noscript
+  - id: FT-041
+    classe: implementacao_codigo_conteudo
+    criado_em: 2026-08-27T20:03:43.6307358-03:00
+    estado: concluido
+    depende_de: FT-038, FT-040
+    fonte: .ia.rules/state/requests/FT-038/prompt.md
+    fonte_autorizacao: .ia.rules/state/requests/FT-039/prompt.md
+    objetivo: Consolidar originais e derivados 1200x630 e 1x1, metadados sociais, assets locais e WebP de paginas especiais.
+    aceite:
+      - originais preservados e derivados gerados uma unica vez com rastreabilidade
+      - Open Graph expõe wide primaria e square adicional sem prometer selecao por crawler
+      - X usa card e imagem coerentes com o contrato declarado
+      - drafts e posts nao dependem de assets editoriais do web.archive.org
+      - covers da 404 e noscript usam derivados WebP autorizados e fallback valido
+    progresso:
+      - dez covers publicadas geram OG wide 1200x630 e square 400x400 diretamente dos originais; segunda execucao registrou changed=0
+      - duas novas covers originais foram versionadas em 16d55c4eb274bb1d6ef6a8c78b703ae3bc336d5f e integradas aos catalogos social e responsivo
+      - sete covers recuperadas, dois SVGs e quatro formulas publicadas foram promovidas byte a byte e relincadas localmente
+      - Open Graph final emite wide antes da square com URL absoluta, tipo, dimensoes e alt; X usa summary_large_image coerente
+      - 404 e noscript mantem os WebP rastreados e o visual focado confirmou seus fallbacks
+      - o asset original a-traicao-de-cypher.jpg permaneceu ausente apos busca local, Git e arquivos publicos
+      - evidencia nova recuperou frame nao generativo de 1280x720 da mesma cena Ignorance is Bliss; proveniencia, hash, dimensoes, origem audiovisual e revisao visual foram manifestados
+      - convertido.md e reconstruido.md passaram a consumir a copia local com alternativa acessivel, eliminando a ultima incorporacao remota bloqueante
+    resultado: Assets editoriais incorporados estao locais e rastreados; derivados sociais, responsivos e WebP especiais permanecem idempotentes, e o ultimo quadro ausente foi substituido por evidencia audiovisual inequivocamente equivalente sem geracao por IA.
+  - id: FT-042
+    classe: implementacao_codigo
+    criado_em: 2026-08-27T20:03:44.6307358-03:00
+    estado: concluido
+    depende_de: FT-038
+    fonte: .ia.rules/state/requests/FT-038/prompt.md
+    fonte_autorizacao: .ia.rules/state/requests/FT-039/prompt.md
+    objetivo: Corrigir a equivalencia entre URL logica e destino fisico dos namespaces Bate-papo.
+    aceite:
+      - URL canonica literal com dois-pontos resolve em desenvolvimento e GitHub Pages
+      - destino fisico portavel nao vaza para canonical, cards ou navegacao
+      - zero, um e multiplos subnamespaces permanecem deterministas
+      - nenhuma rota paralela ou hardcode por artigo e introduzida
+    resultado: O servidor local resolve a URL logica por candidatos fisicos derivados da configuracao central, inclusive subnamespaces, sem alterar canonical ou artefato publicavel.
+    progresso:
+      - causa raiz removida do servlet generico que substituia somente o prefixo de topo e ignorava a arvore fisica de subnamespaces
+      - testes cobrem rota aninhada real, inexistencia, seguranca de destino e configuracao de namespace
+      - build produziu ambos os artigos sob p/bate-papo/eventos-finais com canonical logica preservada
+  - id: FT-043
+    classe: implementacao_conteudo
+    criado_em: 2026-08-27T20:03:45.6307358-03:00
+    estado: concluido
+    depende_de: FT-038
+    fonte: .ia.rules/state/requests/FT-038/prompt.md
+    fonte_autorizacao: .ia.rules/state/requests/FT-039/prompt.md
+    objetivo: Criar a pagina publica de atribuicoes a partir de obrigacoes reais das dependencias efetivamente distribuidas.
+    aceite:
+      - somente recursos com obrigacao aplicavel sao listados
+      - cada entrada preserva texto, autor, origem e licenca exigidos
+      - pagina reutiliza layout vigente, e responsiva, acessivel e imprimivel
+      - rota /atribuicoes integra build e publicacao sem mecanismo paralelo
+    resultado: Pagina /atribuicoes/ foi criada a partir de inventario estruturado das quatro obrigacoes efetivamente distribuidas e integrada ao rodape vigente.
+    progresso:
+      - Minimal Mistakes, Chart.js, Silktide Consent Manager e Font Awesome Free foram confrontados com locks, artefatos e textos oficiais
+      - texto MIT literal e avisos aplicaveis residem em dados versionados consumidos pelo Liquid, sem HTML duplicado
+      - gate de atribuicoes aprovou quatro entradas e build confirmou rota, link institucional, semantica e ausencia de JavaScript obrigatorio
+      - matriz visual focada aprovou responsividade, temas e impressao
+  - id: FT-044
+    classe: integracao_validacao_publicacao
+    criado_em: 2026-08-27T20:03:46.6307358-03:00
+    estado: concluido
+    depende_de: FT-039, FT-040, FT-041, FT-042, FT-043, FT-046
+    fonte: .ia.rules/state/requests/FT-038/prompt.md
+    fonte_autorizacao: .ia.rules/state/requests/FT-039/prompt.md
+    objetivo: Validar, limpar TO-DOs concluidas, publicar no GitHub Pages e convergir dev/main.
+    aceite:
+      - gates estruturais, de assets, metadados, rotas, acessibilidade e visual aprovados
+      - PageSpeed limitado aos layouts diretamente afetados quando estritamente necessario
+      - artefato publicado corresponde ao commit-fonte validado
+      - TO-DOs concluidas removidas e equalizer perene preservado literal e desmarcado
+    resultado: Commit-fonte b4d2d16dd2cbf7f63a89e73debd71ca1ae45bdcd publicado pelo workflow 33281062881 com build, matriz visual, deploy, PageSpeed focal e limpeza aprovados; gh-pages temporario removido e dev/main convergidos.
+    progresso:
+      - build produtivo isolado em tmp/ft044-site aprovado sem sobrescrever o _site preexistente
+      - gates de TypeScript, HTML, footnotes, matematica, assets, autores, namespaces, citacoes, TTS, runtime, impressao, performance, social, covers, atribuicoes e publicacao aprovados
+      - matriz visual focada aprovou /atribuicoes/, artigo Eventos Finais e Devaneios em desktop/mobile, claro/escuro, impressao e noscript
+      - PageSpeed nao foi executado manualmente nem por pagina; o workflow oficial aferiu somente a fixture TTS diretamente afetada
+      - auditoria de producao aprovou zero vulnerabilidades; auditoria completa registra sharp restrito ao desenvolvimento e sem correcao disponivel
+      - FT-041 e FT-046 concluidas removeram todas as dependencias funcionais pendentes
+      - gate agregado aprovado contra build produtivo isolado atual; runtime confirmou 21 unidades faladas e Chart.js 4.5.1
+      - matriz visual focada aprovou tres paginas, dois temas e desktop/mobile no artefato atual
+      - TO-DOs operacionais concluidas removidas; governanca e equalizer perene preservados literalmente
+      - primeira tentativa de publicacao revelou dois cards sem excerto porque post.excerpt era semanticamente vazio; o include compartilhado passou a usar description ou conteudo somente nesse caso
+      - check de performance e matriz visual integral local aprovaram a regressao; workflow de main 33280838710 confirmou build, visual e caminhos de implantacao no mesmo SHA
+      - publicacao oficial gerou o artefato 08773049666d318a563e8c9f85ac93faa6dcfe52 e implantou o commit-fonte exato
+      - primeira afericao focal em cache frio marcou 89 no mobile; a unica repeticao necessaria aprovou mobile 95 e desktop 100, sem ampliar a amostra
+      - dominio publicado respondeu 200 na home, em /atribuicoes/, /p/devaneios/ e na rota canonica com subnamespace Eventos Finais
+      - cleanup removeu gh-pages e refs locais e remotos dev/main convergiram no commit-fonte validado
+  - id: FT-045
+    classe: implementacao_normativa
+    criado_em: 2026-08-29T19:38:25.6675170-03:00
+    estado: concluido
+    fonte: TODO.ia.md
+    fonte_autorizacao: .ia.rules/state/requests/FT-045/prompt.md
+    objetivo: Equalizar e normatizar a conversao automatica de marcador ASCII de autoria em inicio de fala de blockquote Markdown.
+    escopo: RCF-JCEM-CITACOES-001, autoria Markdown e pipeline Jekyll vigente.
+    aceite:
+      - somente linha Markdown iniciada por marcador de blockquote e espacos ou tabs antes de dois hifens e normalizada
+      - conteudo subsequente, aninhamento, EOL e demais estruturas Markdown permanecem integrais
+      - dois hifens fora desse contexto nao sao alterados
+      - contrato, validacao normativa e rastreabilidade aprovados
+    resultado: RCF-JCEM-CITACOES-001 passou a definir o prefixo elegivel, a ordem pre-conversao, a idempotencia e as exclusoes que preservam Markdown nao relacionado.
+    progresso:
+      - modo de uso documenta o travessao canonico e as tres formas legadas equivalentes
+      - horizontal rule, bloco aninhado, codigo, front matter e dois hifens fora do prefixo foram explicitamente excluidos
+  - id: FT-046
+    classe: implementacao_codigo
+    criado_em: 2026-08-29T19:38:25.6675171-03:00
+    estado: concluido
+    depende_de: FT-045
+    fonte: TODO.ia.md
+    fonte_autorizacao: .ia.rules/state/requests/FT-045/prompt.md
+    objetivo: Implementar, aplicar e validar a normalizacao de inicio de fala em blockquote Markdown pelo pipeline existente.
+    aceite:
+      - mecanismo automatizado e idempotente atua antes da conversao Markdown
+      - espacos e tabs arbitrarios entre o marcador e os dois hifens convergem para um unico espaco e travessao
+      - conteudo posterior e estrutura do bloco sao preservados byte a byte fora do prefixo normalizado
+      - corpus vigente e testes positivos, negativos, aninhados e de EOL aprovados sem regressao
+    resultado: O pipeline Jekyll normaliza em memoria o prefixo legado antes do Kramdown, e o acervo controlado passou a usar diretamente o travessao canonico.
+    progresso:
+      - nove ocorrencias reais em amar-como-jesus.md foram migradas sem reescrita editorial
+      - teste cobre espacos, tabs, CRLF, sufixo, idempotencia, HTML estatico e contextos negativos
+      - build global com drafts encontrou binarios legados tratados como texto e imagem sem alt fora do escopo; o gate unitario da transformacao aprovou integralmente
+  - id: FT-047
+    classe: correcao_conformidade_codigo
+    criado_em: 2026-08-29T23:52:17.1266947-03:00
+    estado: concluido
+    fonte: .ia.rules/state/requests/FT-047/prompt.md
+    objetivo: Tornar a barra de TTS efetivamente compacta, horizontal, alinhada a direita e visualmente secundaria.
+    escopo: Include, estilos, runtime e validacoes focadas dos controles TTS vigentes.
+    aceite:
+      - barra ocupa somente a largura e a altura necessarias aos controles e permanece alinhada a direita
+      - nenhum rotulo textual permanente aparece na composicao visual
+      - play, pause, resume, stop e modo de referencias conservam icones, hints, nomes acessiveis, foco, toque e estados
+      - layout permanece horizontal e sem overflow em 320 px, nos temas claro e escuro
+      - comportamento dos tres modos de referencias e leitura existente permanece integral
+      - build isolado e testes focados aprovados sem PageSpeed por pagina
+    resultado: Commit material 377936875a37d5f2fac84011e8fa4ff8daec567c removeu o cartao e os rotulos visiveis, reduziu a barra a quatro alvos iconograficos de 40 px em 169,6 x 40 px e preservou seletor nativo, hints, nomes acessiveis e estados.
+    progresso:
+      - include passou a renderizar somente icones Font Awesome para play, pause ou resume, stop e modo de referencias
+      - seletor nativo permanece sobre o icone de referencias, e seu title e aria-label acompanham continuo, resumido e completo
+      - CSS usa uma unica linha sem wrap, largura max-content, margem automatica a direita, fundo transparente e nenhum padding ou borda no conteiner
+      - regressao automatizada em 320 px bloqueia texto permanente, overflow, desalinhamento, barra acima de 176 x 41 px e alvo abaixo ou acima de 40 x 40 px
+      - runtime confirmou 21 unidades faladas e preservou play, pausa, retomada, parada, aria-pressed, status e os tres modos
+      - build produtivo isolado, acessibilidade estrutural, compactacao HTML e matriz visual focada em desktop e 320 px, claro e escuro, foram aprovados
+      - inspecao visual real confirmou barra de 169,6 x 40 px, fundo transparente, borda ausente e zero overflow horizontal
+      - PageSpeed nao foi executado porque a correcao possui prova estrutural, funcional e visual direta e nao altera o layout medido de forma material
+  - id: FT-048
+    classe: implementacao_normativa
+    criado_em: 2026-08-30T00:30:29.0901116-03:00
+    estado: concluido
+    fonte: .ia.rules/state/requests/FT-048/prompt.md
+    objetivo: Restaurar no RCF a separacao inequivoca entre cover comum alinhada ao artigo e os modos wide infinito simples e triplo.
+    escopo: RCF-JCEM-CARREGAMENTO-PROGRESSIVO-001 e rastreabilidade da regressao introduzida pela FT-040.
+    aceite:
+      - contrato comum/content preserva zona do artigo, proporcao, enquadramento e limites responsivos proprios
+      - wide single permanece infinito, centralizado e limitado por altura sem contaminar outros modos
+      - wide triptych permanece variante opcional de single com central, left e right coordenados
+      - default legado, aliases, tela, responsividade e impressao permanecem explicitamente distintos
+      - auditoria confronta solicitacao, RCF, historico, comportamento anterior e estado atual
+    resultado: O RCF voltou a separar hero legado, content, wide single e wide triptych, restringiu sangria e superficie periferica a wide e proibiu reclassificacao de posts por fix localizado.
+    progresso:
+      - historico confirmou que a FT-040 adicionou a superficie wide ao markup comum, substituiu header.image por og_image na exibicao e reclassificou dois posts novos como wide
+      - content ficou vinculado a zona visivel do artigo e ao token responsivo de altura sem 100vw ou sangria
+      - wide single preserva centralizacao e periferia de uma fonte; triptych continua opcional e especializado
+      - hero sem estilo, aliases legados, metadados sociais e impressao receberam limites explicitos contra vazamento
+  - id: FT-049
+    classe: implementacao_codigo
+    criado_em: 2026-08-30T00:30:29.0901117-03:00
+    estado: concluido
+    depende_de: FT-048
+    fonte: .ia.rules/state/requests/FT-048/prompt.md
+    fonte_autorizacao: .ia.rules/state/requests/FT-048/prompt.md
+    objetivo: Corrigir somente a selecao e o vazamento de estilos que generalizaram o cover infinito, preservando os fixes legitimos da FT-040.
+    aceite:
+      - markup e CSS aplicam superficie periferica somente a wide single ou triptych
+      - content ocupa exatamente a zona visivel do artigo e respeita o token responsivo de altura sem distorcao
+      - posts alterados indevidamente recuperam a modalidade anterior ou comum aplicavel sem reclassificar os demais
+      - testes cobrem default legado, content, wide single e wide triptych separadamente em tela, responsividade e impressao
+      - build isolado e matriz visual focada aprovam sem PageSpeed por pagina
+    resultado: Commit material 1f22349b2f020859dcf88ad7b537e504658dcdd5 restaurou hero legado, content, wide single e wide triptych, eliminou a duplicacao de hero e impediu que campos especializados reclassifiquem outras modalidades.
+    progresso:
+      - markup deixou de trocar a imagem editorial por og_image e passou a emitir superficie somente em content local ou wide
+      - content ocupa 100% da zona do artigo com altura responsiva compartilhada, sem 100vw, sangria ou distorcao; wide preserva viewport e centralizacao
+      - dois posts reclassificados pela regressao recuperaram o hero legado sem alterar os posts wide preexistentes
+      - contrato rejeita campos wide fora de estilo wide, modo invalido, triptych parcial, dimensoes ou bordas incompativeis
+      - fixtures renderizadas aprovaram as quatro modalidades com leakage=0, sem hero duplicado nem derivado social visivel
+      - build produtivo isolado e gates agregado, HTML, performance, impressao, covers e runtime acessivel foram aprovados
+      - inspecao visual direta no navegador interno foi bloqueada pela politica de permissao do ambiente; nenhuma superficie alternativa foi usada
+      - PageSpeed nao foi executado por nao haver necessidade estrita diante das provas estruturais, renderizadas e funcionais focadas
+  - id: FT-050
+    classe: implementacao_normativa
+    criado_em: 2026-08-30T18:35:25.5019155-03:00
+    estado: concluida
+    fonte: .ia.rules/state/requests/FT-050/prompt.md
+    objetivo: Corrigir o contrato de cover a partir das evidencias 7b, 9, 10, 11 e 12 e do comportamento anterior comprovado no Git.
+    escopo: RCF-JCEM-CARREGAMENTO-PROGRESSIVO-001, modalidades content, wide single, wide triptych e hero legado adaptativo.
+    aceite:
+      - content termina nas bordas da zona do artigo sem sangria, blur ou superficie artificial
+      - flag permanece integralmente visivel fora de qualquer recorte de stage ou skeleton
+      - wide single restaura altura governante, centro no viewport e crop horizontal natural sem fit width
+      - wide triptych preserva central, left e right sem fundir-se ao single
+      - hero legado integral alterna para geometria content somente quando sua altura natural excederia o primeiro viewport util
+      - contrato proibe scroll, flicker, oscilacao, reflow frequente e recalculo continuo
+    conclusao:
+      - pedido original, evidencias, RCF vigente, historico Git e implementacao atual foram confrontados
+      - contrato content foi limitado a zona do artigo e desacoplado de blur, superficie duplicada e recorte da flag
+      - wide single recuperou altura governante, centro no viewport e crop horizontal natural sem fit de largura
+      - wide triptych permaneceu modalidade propria e separada do single
+      - hero legado recebeu decisao adaptativa deterministica entre largura integral e geometria do artigo, sem scroll ou oscilacao
+  - id: FT-051
+    classe: implementacao_codigo
+    criado_em: 2026-08-30T18:35:25.5019156-03:00
+    estado: concluida
+    depende_de: FT-050
+    fonte: .ia.rules/state/requests/FT-050/prompt.md
+    fonte_autorizacao: .ia.rules/state/requests/FT-050/prompt.md
+    objetivo: Restaurar markup, enquadramento, camadas, classificacao editorial e fallback responsivo dos modos de cover.
+    aceite:
+      - evidencia7b e evidencia10 convergem para content contido na zona do artigo
+      - evidencia9 perde blur e recupera flag integral
+      - evidencia11 recupera crop horizontal centralizado com altura minima e maxima
+      - variante triptych conserva repeticao e juncoes
+      - evidencia12 alterna sem scroll, jank, flicker ou cover parcialmente invisivel
+      - outros posts, temas, orientacoes, impressao, noscript e acessibilidade permanecem conformes
+    conclusao:
+      - Sola Scriptura voltou ao modo content limitado a zona do artigo
+      - superficies artificiais e blur foram removidos de content e wide single
+      - skeleton foi transferido ao stage para preservar a flag fora do recorte
+      - wide single recuperou altura fixa, largura intrinseca, centro no viewport e crop horizontal natural
+      - wide triptych preservou superficie e segmentos exclusivos sem fundir-se ao single
+      - hero legado passou a alternar por medicao consolidada entre largura integral e geometria content
+  - id: FT-052
+    classe: integracao_validacao
+    criado_em: 2026-08-30T18:35:25.5019157-03:00
+    estado: concluida
+    depende_de: FT-051
+    fonte: .ia.rules/state/requests/FT-050/prompt.md
+    fonte_autorizacao: .ia.rules/state/requests/FT-050/prompt.md
+    objetivo: Demonstrar cada evidencia, estabilidade de resize, custo controlado e ausencia de regressao antes de convergir e publicar.
+    aceite:
+      - fixtures e paginas reais cobrem content, wide single, wide triptych e hero adaptativo nos dois estados
+      - teste mede limites, centros, crop, flag, ausencia de blur, estabilidade e scroll invariavel
+      - build isolado, gates estruturais, runtime, impressao e matriz visual focada aprovados
+      - PageSpeed somente se surgir necessidade estrita nao coberta por prova direta
+      - dev e main convergem apenas com todas as frentes concluidas
+    resultado: As quatro modalidades foram comprovadas em build isolado, contratos renderizados, runtime deterministico e matriz visual focada, sem PageSpeed e sem convergencia prematura de branches.
+    conclusao:
+      - build Jekyll isolado aprovou e gerou manifesto acessivel valido no Windows
+      - fixtures e paginas reais cobriram content, wide single, wide triptych e hero legado adaptativo
+      - matriz visual aprovou 56 combinacoes em ultrawide, wide, desktop e mobile, nos temas claro e escuro
+      - wide single preservou proporcao, altura governante, recorte horizontal central e zero overflow inclusive em 2560 px
+      - content permaneceu na zona do artigo, sem superficie ou blur, com flag fora do stage recortado
+      - skeleton permaneceu no stage interno durante o runtime e nao voltou a recortar o figure externo
+      - hero legado confirmou os estados full e content, limite do primeiro viewport, decisao estavel e invariancia a scroll
+      - gate agregado, TypeScript, HTML, performance, impressao, covers, acessibilidade e publicacao foram aprovados
+      - PageSpeed nao foi executado porque as provas diretas cobriram integralmente a mudanca
+      - navegador interno permaneceu indisponivel por falha de inicializacao dos assets do kernel; a prova visual foi executada pelo gate Playwright canonico do repositorio
+      - dev e main nao foram alterados ou convergidos durante a validacao, preservando o limite da autorizacao vigente
+  - id: FT-053
+    classe: implementacao_normativa
+    criado_em: 2026-09-03T02:32:33.4097652-03:00
+    estado: concluida
+    fonte: .ia.rules/state/requests/FT-053/prompt.md
+    objetivo: Normatizar TOC automatico de build e sua projecao seletiva nos modos TTS, sem alterar Markdown-fonte ou impressao IEEE.
+    escopo: RCF-JCEM-LEITURA-ACESSIVEL-TTS-001, RCF-JCEM-IMPRESSAO-IEEE-001 e modo de uso editorial.
+    aceite:
+      - TOC nasce somente no build e entra depois do primeiro paragrafo real fora de citacao
+      - componente e tematico, responsivo, retraido por padrao, acessivel e visualmente subordinado
+      - continuo preserva aviso quantitativo por paragrafo sem narrar marcadores individuais
+      - resumido e completo prefixam cada referencia com marcador semantico; somente completo le o TOC
+      - impressao omite TOC e nenhuma fonte Markdown e alterada
+    resultado:
+      - RCF de leitura define geração de build, posição, semântica e projeção seletiva do TOC
+      - modos TTS preservam contínuo e especializam marcadores falados em resumido/completo
+      - isolamento IEEE omite TOC e elementos visuais web sem exceção nova
+  - id: FT-054
+    classe: implementacao_codigo
+    criado_em: 2026-09-03T02:32:33.4097653-03:00
+    estado: concluida
+    depende_de: FT-053, FT-055
+    fonte: .ia.rules/state/requests/FT-053/prompt.md
+    fonte_autorizacao: .ia.rules/state/requests/FT-053/prompt.md
+    objetivo: Implementar TOC automatico no pipeline vigente e equalizar sua leitura com todos os modos TTS.
+    aceite:
+      - transformacao HTML de build e idempotente e preserva o Markdown byte a byte
+      - posicao estrutural ignora blockquote inicial e trata ausencia de paragrafo com fallback deterministico
+      - details/summary funciona sem JavaScript, com teclado, temas e 320 px
+      - runtime TTS preserva estado e emite exatamente a fala prevista para cada modo
+      - testes renderizados, acessiveis, de impressao e regressao aprovam
+    resultado:
+      - normalizador de build gera TOC idempotente depois do primeiro paragrafo real, com fallback deterministico e sem alterar Markdown-fonte
+      - details/summary tematico permanece retraido e funcional sem JavaScript; impressao o omite
+      - modos continuo, resumido e completo preservam estados e diferenciam aviso quantitativo, marcador falado e leitura seletiva do TOC
+      - testes unitario, TypeScript, build isolado e runtime Playwright aprovaram; PageSpeed nao foi necessario
+  - id: FT-055
+    classe: implementacao_normativa
+    criado_em: 2026-09-03T02:32:33.4097654-03:00
+    estado: concluida
+    fonte: .ia.rules/state/requests/FT-053/prompt.md
+    objetivo: Normatizar COVER responsivo, patterns, modos de viewport, barras/flag, OG independente e Hero editorial declarativo.
+    escopo: RCF-JCEM-CARREGAMENTO-PROGRESSIVO-001, RCF-JCEM-COMPONENTES-COMPARTILHADOS-001 e evidencia projeto-cover.pdf.
+    aceite:
+      - zona do artigo e zona da janela permanecem distintas e a area util central usa 1,91:1
+      - content, wide single, wide triptych e hero legado permanecem integralmente preservados
+      - FullWindow, windowHeight, windowWidth e variantes inner possuem semantica, aliases e limites deterministas
+      - triptych aceita pattern por imagem, hexadecimal ou linear-gradient sem gap ou overflow
+      - Hero usa area util, seis zonas e propriedades ortogonais, com CTA e protecao de contraste acessiveis
+      - barras/flag, header translucido, OG independente, impressao e fallback possuem precedencia explicita
+    resultado:
+      - schema, precedência, geometrias, aliases e seis modos de viewport foram normatizados cumulativamente
+      - patterns, OG independente, barras/flag e Hero de seis zonas possuem contratos explícitos
+      - modo de uso preserva todos os campos legados e documenta somente extensões opt-in
+  - id: FT-056
+    classe: implementacao_codigo
+    criado_em: 2026-09-03T02:32:33.4097655-03:00
+    estado: concluida_pendente_validacao
+    depende_de: FT-055
+    fonte: .ia.rules/state/requests/FT-053/prompt.md
+    fonte_autorizacao: .ia.rules/state/requests/FT-053/prompt.md
+    objetivo: Implementar schema, build, markup, CSS e runtime minimo do sistema COVER/Hero sem remover modalidades existentes.
+    aceite:
+      - configuracao central valida modos, aliases, fit, patterns, OG e Hero antes de renderizar
+      - implementacao CSS-first cobre geometrias comuns, infinite e viewport/inner
+      - header externo alterna translucido para solido no scroll sem contaminar modos inner
+      - Hero renderiza Markdown, CTA e seis zonas sem ocupar excedentes decorativos
+      - fixtures e testes preservam os quatro comportamentos vigentes e cobrem todas as extensoes
+    resultado:
+      - schema central e resolver de build preservam os quatro comportamentos legados e materializam seis modos opt-in sem mutar Markdown
+      - single/triptych, patterns por imagem/cor/gradiente, viewport externo/inner e header translucido para solido possuem geometria CSS-first validada
+      - Hero sanitizado suporta Markdown, CTA, seis zonas e propriedades ortogonais somente na area util 1200:630
+      - estrutura editorial unica reúne duas barras e flag; impressão omite COVER/Hero e metadados sociais aceitam overrides descobertos automaticamente
+      - contratos Ruby, TypeScript, build isolado, matriz Playwright, impressão e pipeline social aprovaram; navegador interno foi impedido pela politica automatica de localhost, sem indicar falha do produto
+  - id: FT-057
+    classe: integracao_validacao_publicacao
+    criado_em: 2026-09-03T02:32:33.4097656-03:00
+    estado: concluida_pendente_validacao
+    depende_de: FT-054, FT-056
+    fonte: .ia.rules/state/requests/FT-053/prompt.md
+    fonte_autorizacao: .ia.rules/state/requests/FT-053/prompt.md
+    objetivo: Validar integralmente TOC/TTS e COVER/Hero, sincronizar rastreabilidade, publicar e convergir dev/main.
+    aceite:
+      - contratos unitarios, build, runtime, visual, acessibilidade, impressao e regressao agregada aprovam
+      - matriz visual cobre modos, patterns, zonas Hero, textos, CTA, temas, viewports, resize e header scroll
+      - PageSpeed ocorre somente diante de necessidade estrita nao coberta por prova direta
+      - TO-DOs operacionais concluidas sao removidas e equalizer perene permanece literal e desmarcado
+      - commits, artefato publicado, dev e main convergem sem incluir _site preexistente
+    resultado: TOC/TTS e COVER/Hero foram aprovados local e remotamente, publicados pelo workflow 33810019978 a partir do commit-fonte e3d5975f66d3029bace1444014cc6089ade08ffe; PageSpeed ficou sob acionamento explicito, gh-pages foi removido e dev/main convergiram sem absorver _site.
+    conclusao:
+      - build Jekyll isolado e gate agregado npm run check aprovaram contratos, acessibilidade, impressao, performance estrutural, imagens sociais, atribuicoes e publicacao
+      - matriz visual estrita local aprovou todos os temas, sete viewports, impressao e noscript; matriz COVER cobriu modos legados e estendidos, seis zonas Hero, resize, orientacao e header scroll
+      - primeira tentativa remota revelou recuo duplicado do tempo de leitura; a causa foi corrigida e a expectativa ultrawide do mapa foi reconciliada com o CSS vigente sem relaxar o gate
+      - rastreabilidade RCF validou 280 sentencas materiais e a politica PageSpeed sob demanda foi normatizada, implementada e vinculada ao commit causal b2effbdc06bc4a2bdc5ffc255697cd729287137e
+      - workflow final 33810019978 aprovou build, visual, caminhos de raiz, deploy, URLs publicadas, distribuicao e cleanup; PageSpeed permaneceu skipped por ausencia de necessidade estrita
+      - artefato 7d1108a2e6cde5f07065a8f4687503ace583c102 registrou source_sha e3d5975f66d3029bace1444014cc6089ade08ffe e gh-pages temporario foi removido
+      - dev e main convergiram por fast-forward no commit-fonte publicado antes do fechamento operacional
+      - _site preexistente permaneceu integralmente fora de staging, commits, push e publicacao
+      - TO-DOs operacionais concluidas foram removidas e o equalizer perene permaneceu literal e desmarcado
+  - id: FT-061
+    classe: manutencao_mecanica
+    criado_em: 2026-09-06T00:17:26.9616361-03:00
+    estado: concluida
+    fonte: .ia.rules/state/requests/FT-061/prompt.md
+    objetivo: Restabelecer o build local com drafts sem alterar o conteudo editorial ou os assets preservados.
+    escopo: Descoberta Jekyll dos artefatos auxiliares mantidos sob _drafts.
+    aceite:
+      - npm run dev-live -- --drafts inicia sem erro fatal
+      - drafts autorais permanecem elegiveis e artefatos de importacao deixam de ser tratados como posts
+      - nenhum conteudo editorial ou asset sob _drafts e removido
+      - _site preexistente permanece fora do commit
+    resultado:
+      - exclusoes cirurgicas impedem que auxiliares de recuperacao e midia sejam tratados como drafts
+      - captions locais materializam a semantica das tabelas sem reescrever o conteudo
+      - build isolado com --drafts aprovou em 141.283 segundos, sem diagnostico fatal ou colisao de destino
+      - check:footnotes e scripts/test_accessible_reading.rb aprovaram; _site permaneceu fora do commit
+  - id: FT-062
+    classe: implementacao_normativa
+    criado_em: 2026-09-09T21:18:25.0606107-03:00
+    estado: concluida
+    fonte: TODO.ia.md
+    objetivo: Equalizar e normatizar a manutencao sincronizada da documentacao de uso, referencias normativas, exemplos, ilustracoes e metadados do projeto.
+    escopo: RCF.md, RCF-JCEM-DOCUMENTACAO-METADADOS-001 e RCF-JCEM-CARREGAMENTO-PROGRESSIVO-001, preservando citacoes e operacao da IA como autoridades referenciadas.
+    aceite:
+      - README permanece indice compacto e liga paginas de uso por contexto e funcao
+      - COVER e blockquote possuem contratos documentais unicos, completos, praticos e vinculados as respectivas RCFs
+      - ilustracoes comparaveis cobrem modos canonicos de COVER e todos os modelos registrados de blockquote sem confundir aliases com modalidades
+      - exemplos copiaveis sao validados contra configuracao, schema e pipeline reais
+      - metadados de repositorio, licenca e autoria possuem fonte e valores canonicos explicitos
+      - regra local carrega esta rota somente quando documentacao ou interface de uso for afetada
+    resultado:
+      - nova sub-RCF centraliza arquitetura documental, exemplos, ilustracoes, metadados e validacao sem duplicar os contratos de COVER ou citacoes
+      - COVER foi equalizada em dez comportamentos visuais, separando modos e composicoes de aliases e propriedades ortogonais
+      - blockquote passou a exigir pagina unica derivada do registro, cobertura visual de todos os modelos e tratamento explicito de cores e icones
+      - upstream, MPL-2.0 e autoria principal possuem valores canonicos, com excecao proporcional para manifesto puramente privado
+      - rota operacional foi normatizada, mas sua projecao e toda documentacao permanecem reservadas a FT-063 e a nova autorizacao humana
+      - toda pagina canonica de modo de uso foi restringida fisicamente a ./docs/, sem manual concorrente na raiz ou em outro diretorio
+  - id: FT-063
+    classe: implementacao_documental
+    criado_em: 2026-09-09T21:18:25.0606108-03:00
+    estado: concluida_pendente_validacao
+    depende_de: FT-062
+    fonte: TODO.ia.md
+    fonte_autorizacao: prompt humano de 2026-09-09T21:41:17.4036644-03:00, com autorizacao expressa para continuar
+    objetivo: Implementar sob ./docs/ as paginas unicas de uso de COVER e blockquote, suas ilustracoes, o indice do README, os metadados do projeto e a projecao documental em agents.local.md conforme o contrato normatizado.
+    aceite:
+      - documentacao deriva do registro e dos schemas vigentes sem inventar modo, nome, cor, icone ou configuracao
+      - exemplos de COVER e blockquote sao copiaveis, funcionais e suficientes para uso real
+      - SVGs compartilham dimensoes e linguagem visual, distinguem cada conceito e permanecem legiveis em temas claro e escuro no GitHub
+      - README liga diretamente as paginas e o upstream sem voltar a concentrar documentacao densa
+      - package.json e equivalentes aplicaveis declaram upstream, MPL-2.0 e JeanCarloEM com URL institucional
+      - agents.local.md roteia mudanca documental somente aos contratos aplicaveis e exige sincronismo de paginas, exemplos e ilustracoes
+      - todas as paginas canonicas MODO-DE-USO residem exclusivamente em ./docs/
+    resultado:
+      - README tornou-se indice compacto e explicita o upstream sitiojeancarloem/www
+      - paginas canonicas de COVER, blockquote e leitura acessivel residem exclusivamente em ./docs/
+      - dez SVGs de COVER e seis SVGs de blockquote foram inspecionados em representacoes clara e escura
+      - exemplos de COVER e blockquote atravessam os resolvers reais e usam somente assets versionados existentes
+      - manifestos publicaveis convergem em upstream, MPL-2.0 e autoria JeanCarloEM; manifesto tecnico privado permaneceu minimo
+      - gate documental, quotes, acessibilidade, COVER, publicacao e build de producao aprovaram; _site derivado foi restaurado e excluido da mudanca
+  - id: FT-064
+    classe: integracao_validacao
+    criado_em: 2026-09-09T21:18:25.0606109-03:00
+    estado: concluida_pendente_validacao
+    depende_de: FT-063
+    fonte: TODO.ia.md
+    fonte_autorizacao: prompt humano de 2026-09-10T11:42:51.2760549-03:00 para continuar TO-DOs e FTs em andamento
+    objetivo: Provar sincronismo, cobertura, legibilidade e ausencia de regressao da documentacao e dos metadados antes de submetê-los a validacao humana.
+    aceite:
+      - links, inventarios, modos, modelos, aliases, icones, paletas e exemplos convergem com as fontes reais
+      - SVGs sao validos, comparaveis e inspecionados em representacoes clara e escura
+      - gates documentais, RCF, build e dominios afetados aprovam sem alterar fontes editoriais ou absorver _site
+      - TO-DO operacional permanece ate aprovacao humana e o equalizer perene permanece literal e desmarcado
+    resultado:
+      - governanca operacional convergiu ao marcador exclusivo por emoji; checkbox e nome textual do status foram removidos sem alterar o equalizer perene
+      - gate documental foi atualizado para recusar checkbox e nome textual de status, preservando a exigencia de emoji isolado em cada item operacional
+      - status da RCF documental foi sincronizado com FT-063 implementada e FT-064 concluida, pendente de validacao humana
+      - gerador social normaliza terminadores de linha de SVG antes de hash e renderizacao, eliminando divergencia Windows/Linux sem regenerar qualquer uma das 24 variantes vigentes
+      - npm run check aprovou todos os dominios; npm run build:prod aprovou em 73.6 segundos com 12 assets sociais, 24 variantes e zero regeneracoes
+      - os 16 SVGs documentais permanecem inalterados desde a inspecao clara/escura da FT-063; dimensoes, viewBox, tema escuro e tokens foram revalidados estruturalmente
+      - npm audit --omit=dev encontrou zero vulnerabilidades de producao; _site e demais artefatos derivados foram restaurados e excluidos da mudanca
+      - npm audit integral registrou uma vulnerabilidade alta herdada pelo sharp em libvips, restrita a dependencia de desenvolvimento/build e sem correcao disponivel no relatorio atual
+    proximo_passo: validacao humana da TO-DO; apos aprovacao efetiva, remover integralmente o item operacional e manter a secao perene
+  - id: FT-068
+    classe: implementacao_normativa
+    criado_em: 2026-09-16T01:46:32.9929559-03:00
+    estado: concluida
+    fonte: TODO.ia.md
+    contexto: .ia.rules/state/contexts/FT-068/master.md
+    objetivo: Equalizar e normatizar a migracao de TTS e edicao redacional para as capacidades canonicas de agents.md, conservando somente o delta local de produto.
+    escopo: agents.local.md, RCFs/operacao-da-ia.md, RCFs/leitura-acessivel-e-tts.md, comandos canonicos e matriz de equivalencia.
+    aceite:
+      - toda capacidade local classificada como canonica, parcial ou estritamente local
+      - precedencia das capacidades editorial-authoring e spoken-normalization explicita
+      - nenhuma regra, feature de produto, teste ou documentacao local perdida
+    resultado:
+      - recursos gerenciados passam a preceder explicitamente as especializacoes Web do produto
+      - pipeline acessivel, controles TTS, modos de referencia e graficos permanecem locais por ausencia de equivalente material no nucleo
+      - rcf-trace aprovou 365 entradas e 338 sentencas materiais, com quatro pendencias causais da FT-069
+  - id: FT-069
+    classe: implementacao_governanca_local
+    criado_em: 2026-09-16T01:46:32.9939559-03:00
+    estado: concluida
+    depende_de: FT-068
+    fonte: TODO.ia.md
+    fonte_autorizacao: prompt humano de 2026-09-16
+    objetivo: Implementar a projecao local minima da migracao TTS/redacional e remover somente duplicacoes comprovadamente absorvidas.
+    aceite:
+      - agents.local.md roteia capacidades canonicas antes das sub-RCFs locais
+      - comandos gerenciados existentes permanecem a unica implementacao operacional generica
+      - pipeline TTS e editorial especifico do produto permanece funcional e testado
+    resultado:
+      - adaptador local passou a carregar editorial-authoring e spoken-normalization antes dos deltas do produto
+      - comandos agent:editorial e agent:spoken permaneceram delegados ao runtime gerenciado
+      - teste acessivel comprova preservacao dos plugins, includes, assets e runtime TTS locais
+    commits:
+      normativo: ed3d7d3efb
+      causal: 884d4c925e
+      rastreabilidade: 4751e18218
+  - id: FT-070
+    classe: implementacao_normativa
+    criado_em: 2026-09-16T01:46:32.9949559-03:00
+    estado: concluida
+    fonte: TODO.ia.md
+    contexto: .ia.rules/state/contexts/FT-070/master.md
+    objetivo: Normatizar equivalencia IEEE em desktop e mobile com carga exclusivamente pos-critica baseada em estado real, sem heuristica de dispositivo.
+    escopo: RCFs/impressao-ieee.md, RCFs/desempenho-e-dependencias.md e RCFs/carregamento-progressivo.md.
+    aceite:
+      - ausencia de exclusao por user-agent, largura ou orientacao
+      - carga aguarda documento completo e recursos relevantes e usa idle com fallback
+      - beforeprint permanece rota imediata e funcional
+    resultado:
+      - norma exige equivalencia desktop/mobile sem heuristica de dispositivo
+      - CSS e modulo IEEE ficam fora da descoberta carregavel do head ate load, recursos relevantes e idle
+      - beforeprint e matchMedia preemptam a espera e preservam conteudo legivel em falha
+      - rcf-trace aprovou 371 entradas e 340 sentencas materiais, com seis pendencias causais da FT-071
+  - id: FT-071
+    classe: implementacao_codigo
+    criado_em: 2026-09-16T01:46:32.9959559-03:00
+    estado: concluida
+    depende_de: FT-070
+    fonte: TODO.ia.md
+    fonte_autorizacao: prompt humano de 2026-09-16
+    objetivo: Implementar e validar a inicializacao IEEE pos-critica equivalente em mobile e desktop.
+    aceite:
+      - nenhum atraso arbitrario isolado agenda a importacao
+      - carga, imagens relevantes, idle, beforeprint e repeticao idempotente cobertos
+      - rede, main thread, impressao, resize e orientacao sem regressao
+    resultado:
+      - metadados inertes substituem stylesheets IEEE no head e a carga ocorre apos load, fontes, imagens e idle real
+      - beforeprint e matchMedia preservam a rota preemptiva, com idempotencia e fallback legivel
+      - gates estruturais, build isolado e runtime Chromium aprovaram desktop e mobile com o mesmo perfil
+    commits:
+      normativo: 03bf312c1b
+      causal: 2dd99ad4bb
+      rastreabilidade: be4a1d89a7
+  - id: FT-072
+    classe: implementacao_normativa
+    criado_em: 2026-09-16T01:46:32.9969559-03:00
+    estado: concluida
+    fonte: TODO.ia.md
+    contexto: .ia.rules/state/contexts/FT-072/master.md
+    objetivo: Normatizar cinco modelos visuais derivados de e1 a e6, temas, parametros, aliases dinamicos e isolamento absoluto da impressao IEEE.
+    escopo: RCFs/citacoes.md, RCFs/documentacao-e-metadados.md, RCFs/impressao-ieee.md e registro central.
+    aceite:
+      - e1/e2 unificados por cor e e3, e4, e5 e e6 modelados separadamente
+      - aliases primary e destaque centralizados com precedencia explicita
+      - todos os modelos novos e existentes validos em claro, escuro, mobile e impressao
+    resultado:
+      - cinco identificadores concretos semanticamente estaveis definidos para e1 a e6
+      - aliases primary e destaque centralizados com destinos thematic-rail e futuristic
+      - tokens cromaticos nomeados, temas, build-time e isolamento IEEE tornados obrigatorios
+  - id: FT-073
+    classe: implementacao_codigo_documentacao
+    criado_em: 2026-09-16T01:46:32.9979559-03:00
+    estado: concluida
+    depende_de: FT-072
+    fonte: TODO.ia.md
+    fonte_autorizacao: prompt humano de 2026-09-16
+    objetivo: Implementar os cinco modelos, aliases dinamicos, temas, testes e modo de uso ilustrado sem regredir selecao explicita ou IEEE.
+    aceite:
+      - registro, plugin, CSS, fixtures, testes, documentacao e ilustracoes convergem
+      - default resolve para o modelo e6 e destaque para futuristic
+      - mudanca central de alias reflete no build sem reescrever conteudo
+    resultado:
+      - registro central schema 2 preserva os seis modelos anteriores e acrescenta cinco modelos concretos, aliases primary e destaque e quatro accents fechados
+      - plugin e runtime resolvem aliases no build e no cliente, preservam flags legadas e selecao nominal e rejeitam modelo ou accent invalido
+      - estilos claro, escuro, 1280 px e 320 px foram aferidos; content-visibility foi preservado e materializado somente no ensaio visual agregado
+      - adaptador IEEE remove adornos web e conserva o tratamento impresso; documentacao canônica registra os onze modelos com cinco novas ilustracoes
+      - build produtivo isolado concluiu em 197,863 segundos e runtimes de citacao e impressao aprovaram desktop e mobile
+    commits:
+      normativo: 2eb3cadf48
+      rastreio_previo: dd27d13a81
+      causal: 0c9e2c0cb5
+      rastreabilidade: f153bf0b52
+  - id: FT-074
+    classe: integracao_validacao
+    criado_em: 2026-09-16T01:46:32.9989559-03:00
+    estado: concluida_tecnicamente_pendente_validacao_humana
+    depende_de: FT-069, FT-071, FT-073
+    fonte: TODO.ia.md
+    fonte_autorizacao: prompt humano de 2026-09-16
+    objetivo: Integrar e comparar o estado anterior e posterior das tres frentes, executar gates e registrar pendencias de aceite humano sem encerrar TO-DOs.
+    aceite:
+      - testes focados, build produtivo, matriz visual e gates globais executados
+      - capacidades e forca normativa anteriores preservadas ou superadas
+      - TODOs permanecem em avaliacao humana sem marcacao de conclusao
+    resultado:
+      - antes, TTS e autoria carregavam primeiro rotas locais; depois, as capacidades gerenciadas editorial-authoring e spoken-normalization precedem somente os deltas Web preservados
+      - antes, IEEE era descoberto no head e possuia tratamento desigual; depois, desktop e mobile compartilham carga posterior a load, fontes, imagens e idle, com preempcao imediata de beforeprint
+      - antes, seis modelos concretos e default futuristic eram preservados; depois, os seis continuam selecionaveis e cinco novos modelos, aliases e accents ampliam o conjunto sem contaminar IEEE
+      - build produtivo isolado concluiu em 197,863 segundos; runtime aprovou citacoes em 1280 e 320, claro e escuro, e impressao desktop e mobile
+      - npm run check aprovou todos os gates ate check:editorial-assets e parou somente no ENOENT preexistente de _drafts; COVER, atribuicoes, publicacao e documentacao posteriores aprovaram separadamente
+      - check:covers foi executado contra o build isolado atual e aprovou dez modos, sem vazamento, em Chrome e Brave; o _site compartilhado desatualizado permaneceu intocado
+      - rcf-trace final aprovou 422 entradas e 391 sentencas materiais; nenhum artefato de build isolado integrou Git
+      - as quatro TO-DOs operacionais aguardavam aceite humano; COVER e blockquote foram posteriormente aprovadas e removidas pelo ciclo de encerramento
+  - id: FT-077
+    classe: correcao_codigo_validacao
+    criado_em: 2026-09-16
+    estado: terceira_correcao_concluida_tecnicamente_pendente_rastreabilidade_e_validacao_humana
+    depende_de: FT-071, FT-074
+    fonte: .ia.rules/state/requests/FT-077/prompt.md, segunda-correcao-footnotes-impressao.md e terceira-correcao-referencias-links-controles.md
+    fonte_autorizacao: prompts humanos de 2026-09-16 e 2026-09-20 para corrigir e concluir de forma inter paginas, com commits obrigatorios por microetapa concluida
+    contexto: .ia.rules/state/contexts/FT-077/master.md
+    objetivo: Corrigir o isolamento de chrome web na impressao pela camada compartilhada e fortalecer a regressao inter paginas.
+    aceite:
+      - nenhum hardcode por rota ou conteudo
+      - diagnostico identifica os elementos visiveis
+      - artigos estruturalmente distintos aprovam desktop e mobile
+      - paginas sem artigo preservam impressao natural
+      - TO-DO de impressao permanece em avaliacao humana
+    resultado:
+      - causa confirmada na guarda de especificidade do reset IEEE, que restaurava a COVER wide agora descendente do artigo apesar das regras anteriores de ocultacao
+      - adaptador compartilhado neutraliza Hero, COVER e imagem acima do reset, sem hardcode por rota e sem alterar a tela
+      - diagnostico visual passa a listar elementos visiveis e estado real das folhas e da midia
+      - runtime cobre quatro artigos reais em desktop e mobile; validate visual integral aprovou em 405,8 segundos sob limite de 420
+      - build isolado, print, TypeScript, COVER, desempenho, acessibilidade estrutural, documentacao e publicacao aprovaram
+      - accessible runtime reproduziu somente a lacuna TTS preexistente dos marcadores falados de citacao, sem nexo causal
+      - seis sentencas materiais foram vinculadas ao commit causal e a rastreabilidade foi validada com 435 entradas e 394 sentencas materiais
+      - TO-DO de impressao permanece em avaliacao humana e nao foi marcada como concluida
+      - segunda rejeicao confirmou reprocessamento de footnotes pela lista impressa de URLs e variacao da metrica vertical de sobrescritos
+      - coletor de URLs passou a classificar href original e excluir fragmentos, chamadas, backlinks e secoes de referencias antes da resolucao
+      - 57 chamadas reais de Devaneios conservaram cardinalidade, destinos e um unico sup; quatro artigos aprovaram desktop e mobile
+      - linhas alternadas com e sem sup mantiveram altura e passo de 14,40625 px; PDF A4 de sete paginas confirmou legibilidade e ritmo continuo
+      - check print, runtime, TypeScript, footnotes, acessibilidade, publicacao, documentacao e build produtivo isolado aprovaram
+      - finalizacao oficial da rastreabilidade foi bloqueada pela pendencia preexistente FT-066 9fd169d66f75a7866950f6d5, alheia ao commit causal
+      - terceira correcao deve materializar colchetes no DOM das referencias ordinarias, separar links impressos em namespace alfabetico, preservar decoracao editorial externa e excluir controles web da impressao
+      - terceira correcao materializou colchetes no DOM das referencias ordinarias sem aninhamento de sup e preservou 57 chamadas reais de Devaneios
+      - links impressos usam namespace alfabetico deterministico independente, com marcadores reais, associacao por aria-details e lista final ordenada
+      - decoracao originada no hyperlink foi neutralizada na impressao, enquanto sublinhado semantico e decoracao editorial ancestral permaneceram
+      - controles web internos ao artigo, inclusive leitura acessivel, ficaram estruturalmente ausentes da impressao e com caixa geometrica nula
+      - quatro artigos reais em desktop e mobile aprovaram check print runtime; check print, TypeScript, footnotes, acessibilidade e publicacao aprovaram
+      - build produtivo final isolado aprovou e PDF A4 real de sete paginas confirmou colchetes numericos, referencias alfabeticas, ausencia de controles e composicao em duas colunas
+      - check documentation preserva falha alheia desta FT porque a nova frente de figuras IEEE ainda usa checkbox legado antes da inicializacao
+      - finalizador RCF tentou atribuir quatorze sentencas pendentes ao primeiro commit causal por sobreposicao de artefatos; a saida nao commitada foi integralmente revertida para impedir rastreabilidade falsa
+    commits:
+      registro: 087f2d5d08
+      causal: 11a0fc7f24
+      rastreabilidade: 0218a7e49d
+      causal_segunda_correcao: 3cb143ed2e
+      registro_terceira_correcao: 420944ebd4
+      normativo_terceira_correcao: 2e6f7f4533
+      causal_gramatica: 60b7fb4f67
+      causal_links_alfabeticos: 4320db1d06
+      causal_decoracao_editorial: b6121864a4
+      causal_controles_web: ef94f6c9a8
+    proximo_passo: sincronizar cada sentenca RCF somente quando o finalizador suportar selecao causal segura; manter a TO-DO em andamento ate aceite humano efetivo
+  - id: FT-078
+    classe: implementacao_normativa
+    criado_em: 2026-09-18
+    estado: concluida
+    fonte: .ia.rules/state/requests/FT-078/prompt.md
+    contexto: .ia.rules/state/contexts/FT-078/master.md
+    objetivo: Refinar o contrato da projecao falada para referencias de footnote, links, headings e TOC sem alterar a representacao visual ou a acessibilidade estatica.
+    escopo: RCFs/leitura-acessivel-e-tts.md e rastreabilidade aplicavel.
+    aceite:
+      - numero ou glifo de footnote nunca e pronunciado isoladamente
+      - links editoriais e headings recebem contexto humano no TTS opcional
+      - links e referencias internos a headings e numeros estruturais do TOC nao sao pronunciados
+      - modos de referencia e demais capacidades vigentes permanecem preservados
+    resultado:
+      - RCF distingue link editorial no corpo de links permanentes internos a headings
+      - h2, h3 e h4 usam somente conteudo editorial e omitem referencias e semantica de links descendentes
+      - TOC projeta somente rotulo e nomes de secoes, sem link, referencia ou ordinal
+  - id: FT-079
+    classe: correcao_codigo_validacao
+    criado_em: 2026-09-18
+    estado: concluida_tecnicamente_pendente_validacao_humana
+    depende_de: FT-078
+    fonte: .ia.rules/state/requests/FT-078/prompt.md
+    fonte_autorizacao: prompt humano de 2026-09-18 para aplicar as correcoes e continuacao expressa no mesmo contexto
+    autorizacao_codigo: humana
+    contexto: .ia.rules/state/contexts/FT-078/master.md
+    objetivo: Corrigir o runtime TTS e cobrir referencias, links, headings e TOC por regressao focada sem regredir os demais pontos.
+    aceite:
+      - fixture combina paragrafo, sup de footnote, link editorial, headings com links/referencias e TOC
+      - runtime nao produz numeros soltos nem anuncios proibidos
+      - continuous, summary e full, controles, citacoes, tabelas, graficos e idiomas aprovam
+    resultado:
+      - seletor unico reconhece doc-noteref e equivalentes de footnote em sup sem depender apenas do role preexistente
+      - links editoriais do corpo recebem indicacao humana e titulos omitem semantica de link e expansao de referencia
+      - TOC deriva nomes limpos dos headings e no modo full nao pronuncia link, referencia ou ordinal
+      - build produtivo isolado, acessibilidade estrutural, footnotes e TypeScript aprovaram
+      - runtime percorreu continuous, summary e full com toda cobertura nova aprovada e parou somente na lacuna preexistente de marcadores de blockquote registrada pela FT-077
+      - rastreabilidade escopada da RCF TTS aprovou 68 entradas e 68 sentencas materiais; o gate global preserva pendencias preexistentes de FT-066 e RCFs/citacoes.md
+    commits:
+      registro: c280116064
+      normativo: 28d8092e7b
+      causal: 99f5ba63c2
+    proximo_passo: validacao auditiva humana da fala corrigida; tratar marcadores de blockquote somente em frente causal propria
+  - id: FT-080
+    classe: implementacao_normativa
+    criado_em: 2026-09-18
+    estado: concluida
+    depende_de: FT-078, FT-079
+    fonte: .ia.rules/state/requests/FT-080/prompt.md
+    contexto: .ia.rules/state/contexts/FT-080/master.md
+    objetivo: Consolidar a gramatica falada global de referencias biblicas, preservando o contrato anterior e distinguindo modos curto e longo.
+    escopo: RCFs/leitura-acessivel-e-tts.md e rastreabilidade aplicavel.
+    aceite:
+      - dois-pontos representa somente a estrutura capitulo-versiculo e nunca a palavra para
+      - modos curto e longo derivam da mesma referencia interpretada
+      - listas, intervalos, grupos, mudancas de capitulo, contexto herdado e pausas permanecem semanticamente fieis
+      - exemplos comprovam a regra global sem hardcode por artigo ou livro
+    resultado:
+      - contrato anterior de reducao por ocorrencia, agrupamentos e classificacao anterior a horario foi preservado e especializado sem hardcode
+      - curto usa numeros, pausas e conectivos necessarios; longo explicita capitulo, versiculo, listas, intervalos e grupos a partir da mesma estrutura
+      - seis sentencas materiais foram vinculadas ao commit causal a1a42f1093
+  - id: FT-081
+    classe: correcao_codigo_validacao
+    criado_em: 2026-09-18
+    estado: concluida_tecnicamente_pendente_validacao_humana
+    depende_de: FT-080
+    fonte: .ia.rules/state/requests/FT-080/prompt.md
+    fonte_autorizacao: prompts humanos de 2026-09-18 para corrigir, generalizar, implementar, testar, criar commits e enviar ao remoto
+    autorizacao_codigo: humana
+    contexto: .ia.rules/state/contexts/FT-080/master.md
+    objetivo: Implementar parser comum e validar globalmente as projecoes curta e longa de referencias biblicas.
+    aceite:
+      - AST unica cobre livros simples, compostos, numerados e abreviados
+      - referencias simples e compostas, intervalos, listas, grupos e conectivos aprovam
+      - horarios e segmentos tecnicos nao sofrem normalizacao biblica
+      - payload falado nao contem para entre capitulo e versiculo
+      - runtime e gates acessiveis preservam as capacidades vigentes
+    resultado:
+      - parser modular comum reconhece livros simples, compostos, numerados em arábico ou romano, abreviacoes, variantes sem acento e versoes
+      - uma AST unica preserva grupos, capitulos, versiculos, intervalos, separadores e conectivos nas projecoes curta e longa
+      - fixture global, onze casos unitarios e o artigo real de exemplo aprovaram sem regra por artigo
+      - build produtivo isolado e gates focados aprovaram; runtime percorreu os tres modos e parou somente na lacuna preexistente de blockquote da FT-077
+      - rastreabilidade TTS aprovou 74 entradas e 74 sentencas; gate global conserva pendencias da FT-066 e de RCFs/citacoes.md
+    commits:
+      registro: ff7fa0f1a7
+      normativo: ed5a8987a3
+      causal: a1a42f1093
+    proximo_passo: validacao auditiva humana das pausas e naturalidade; tratar blockquote e pendencias globais somente em frentes causais proprias
+  - id: FT-082
+    classe: implementacao_normativa
+    criado_em: 2026-09-18T23:10:35.1377330-03:00
+    estado: concluida
+    fonte: TODO.ia.md
+    fonte_autorizacao: .ia.rules/state/requests/FT-082/prompt.md
+    contexto: .ia.rules/state/contexts/FT-082/master.md
+    objetivo: Equalizar e normatizar a revisao reverencial contextual, a preservacao de enfase autoral e a precedencia de citacoes sem duplicar a capacidade editorial gerenciada.
+    escopo: RCFs/operacao-da-ia.md, contrato editorial local aplicavel, agents.local.md somente na fase de projecao e extensao oficial local.
+    aceite:
+      - referencia cristã inequivoca, outra divindade, ambiguidade, citacao, correfencia e caixa alta integral possuem precedencia verificavel
+      - capacidade gerenciada editorial-authoring permanece autoridade e a regra de produto ocupa somente extensao local
+      - Skill e Subagent sao comparados e o menor mecanismo suficiente e escolhido sem duplicacao
+      - nenhuma implementacao de Skill, teste ou adaptador integra o commit normativo
+    resultado:
+      - nova sub-RCF centraliza precedencia, referente, citacao, enfase, caixa alta integral e correfencia sem copiar editorial-authoring
+      - Skill local foi confirmada como menor mecanismo suficiente; Subagent foi rejeitado por ausencia de objetivo independente ou ganho de paralelismo
+      - RCF.md e operacao-da-ia roteiam a especializacao somente para revisao autoral ou pre-publicacao materialmente pertinente
+      - FT-083 permanece dependente deste commit normativo e ja possui autorizacao humana previa
+    commits:
+      registro: 27e5dc7712
+      normativo: e440bc3bf3
+  - id: FT-083
+    classe: implementacao_skill_local
+    criado_em: 2026-09-18T23:10:35.1387330-03:00
+    estado: concluida
+    depende_de: FT-082
+    fonte: TODO.ia.md
+    fonte_autorizacao: .ia.rules/state/requests/FT-082/prompt.md
+    autorizacao_codigo: humana_previa
+    contexto: .ia.rules/state/contexts/FT-082/master.md
+    objetivo: Implementar a Skill editorial local minima, seu descritor, roteamento e regressao sem editar o nucleo gerenciado nem criar Subagent redundante.
+    aceite:
+      - Skill local ativa somente para edicao, revisao autoral ou pre-publicacao materialmente pertinentes
+      - decisao contextual preserva forma ambigua, citacoes e enfase autoral e evita capitalizacao redundante
+      - casos positivos, negativos, mistos, correferentes e de sentenca integral em caixa alta estao cobertos
+      - operacao sem a Skill conserva a capacidade editorial gerenciada essencial
+    resultado:
+      - Skill local e descritor declaram gatilhos, precedencia, saida, limites e falha preservadora sem hook ou automacao cega
+      - interface OpenAI permite invocacao implicita somente nos sinais editoriais descritos e preserva editorial-authoring como primeira autoridade
+      - agents.local.md roteia a extensao depois da capacidade gerenciada sem criar Subagent
+      - regressao focada cobre matriz positiva, negativa e combinada, integridade estrutural e ausencia de mutacao do nucleo
+    commits:
+      causal: 04cd0d829d
+      rastreabilidade: 6bd5c83da0
+  - id: FT-084
+    classe: integracao_validacao
+    criado_em: 2026-09-18T23:10:35.1397330-03:00
+    estado: concluida_tecnicamente_pendente_validacao_humana
+    depende_de: FT-083
+    fonte: TODO.ia.md
+    fonte_autorizacao: .ia.rules/state/requests/FT-082/prompt.md
+    autorizacao_codigo: humana_previa
+    contexto: .ia.rules/state/contexts/FT-082/master.md
+    objetivo: Integrar a extensao editorial, provar cobertura e ausencia de regressao e deixar a TO-DO implementada para validacao humana.
+    aceite:
+      - testes focados, validacao normativa, documental e de rastreabilidade aprovam
+      - matriz de casos da TO-DO possui cobertura bidirecional sem inferencia semantica fabricada
+      - TODO transita para implementada pendente de validacao humana sem encerrar outras frentes
+    resultado:
+      - validador oficial da Skill, check editorial focado, publicacao e documentacao aprovaram
+      - regressao de assets editoriais aprovou com _drafts vazio temporario porque o checkout nao possui esse diretorio esperado pelo script
+      - rastreabilidade escopada aprovou 22 entradas e 22 sentencas vinculadas ao commit causal; o gate global conserva a lacuna preexistente RCFs/citacoes.md:53 e sete pendencias da FT-066
+      - TODO transitou para implementada pendente de validacao humana sem alterar as demais frentes
+    proximo_passo: validacao humana da aplicabilidade editorial da Skill; apos aprovacao, remover integralmente esta TO-DO
+  - id: FT-085
+    classe: equalizacao_normativa
+    criado_em: 2026-09-20T21:26:38.6263339-03:00
+    estado: registrada_nao_iniciada
+    fonte: TODO.ia.md@d4e1465075c021fd2919c4cf020d5645cf8fd62b
+    fonte_autorizacao: .ia.rules/state/requests/FT-085/prompt.md
+    contexto: .ia.rules/state/contexts/FT-085/master.md
+    objetivo: Equalizar e normatizar a excecao de figuras em largura total no perfil IEEE, definindo marcacao manual, inferencia conservadora, fluxo de colunas, cache e limites sem alterar a web.
+    escopo: RCFs/impressao-ieee.md, pipeline Markdown e build, contratos publicos data-print, mecanismo de imagens e documentacao canonica sob docs/.
+    aceite:
+      - inventario real identifica extensoes, atributos, hooks, imagens, figuras, legendas, engine multicoluna e dependencias reutilizaveis
+      - contrato separa marcacao explicita e inferencia automatica, com precedencia manual e criterio geometrico obrigatorio de ate 35 por cento da altura util
+      - inferencia exige evidencia inequivoca de densidade textual ou visual, falha preservadoramente e permanece deterministica
+      - norma preserva aspect ratio, margens, ordem de leitura, continuidade das colunas, web e comportamento das figuras nao participantes
+      - nenhuma implementacao, dependencia ou documentacao de uso e introduzida antes da conclusao normativa e da autorizacao humana correspondente
+    proximo_passo: executar equalizacao e normatizacao somente mediante continuacao humana que autorize esta nova frente
+  - id: FT-086
+    classe: implementacao_codigo_documentacao
+    criado_em: 2026-09-20T21:26:38.6273339-03:00
+    estado: registrada_bloqueada_por_dependencia_e_autorizacao
+    depende_de: FT-085
+    fonte: TODO.ia.md@d4e1465075c021fd2919c4cf020d5645cf8fd62b
+    fonte_autorizacao: .ia.rules/state/requests/FT-085/prompt.md
+    contexto: .ia.rules/state/contexts/FT-085/master.md
+    objetivo: Implementar a marcacao manual e a inferencia automatica conservadora no pipeline existente, com cache reutilizavel e guia ilustrado canonico sob docs/.
+    aceite:
+      - marcador reutiliza mecanismo nativo e afeta exclusivamente a impressao IEEE
+      - classificador usa bibliotecas maduras quando adequadas e nao automarca somente por proporcao horizontal
+      - imagem, figura e legenda atravessam as duas colunas sem sobreposicao, duplicacao, reposicionamento absoluto ou perda de ordem
+      - cache invalida por conteudo ou configuracao e evita reanalise desnecessaria de fonte inalterada
+      - guia curto e ilustrado sob docs/ e ligado pelo RCF e README descreve uso manual, automarcacao, limites e diferenca entre web e impressao
+    proximo_passo: aguardar conclusao da FT-085 e autorizacao humana de implementacao
+  - id: FT-087
+    classe: integracao_validacao
+    criado_em: 2026-09-20T21:26:38.6283339-03:00
+    estado: registrada_bloqueada_por_dependencia_e_autorizacao
+    depende_de: FT-086
+    fonte: TODO.ia.md@d4e1465075c021fd2919c4cf020d5645cf8fd62b
+    fonte_autorizacao: .ia.rules/state/requests/FT-085/prompt.md
+    contexto: .ia.rules/state/contexts/FT-085/master.md
+    objetivo: Provar criterios positivos, negativos, limites, cache, fluxo, web e regressao interartigos da capacidade de figuras IEEE em largura total.
+    aceite:
+      - matriz cobre marcacao manual, densidade textual, densidade visual, negativos, limite de 35 por cento, legendas, quebras e multiplas figuras
+      - medidas e PDF real comprovam margens, proporcao, ordem, retomada das colunas e ausencia de sobreposicao ou duplicacao
+      - artigos distintos e visualizacao web aprovam sem alteracao de figuras nao participantes
+      - gates normativos, documentais, de build, impressao, publicacao e rastreabilidade aplicaveis aprovam
+      - TO-DO transita para implementada pendente de validacao humana, sem remocao automatica
+    proximo_passo: aguardar conclusao da FT-086 e autorizacao humana de integracao
+lacunas:
+  - id: GAP-RCF-MODULE-2026-001
+    estado: isolada_fora_do_escopo
+    evidencia: npm run agent:rcf e a invocacao direta pelo Node 24.19.0 falham antes da validacao porque package-registry.js e CommonJS carregado como ES module sob o package type module
+    reproducao: Node 22.21.0 e Node 24.19.0 na maquina JEAN-DESKTOP; rcf-trace validate permanece aprovado com entries 347 e material 332
+    restricao: nao alterar runtime de governanca gerenciado nem package.json nesta FT visual; exigir FT e autorizacao proprias para reparar a incompatibilidade
+  - id: GAP-SHARP-LIBVIPS-2026-001
+    estado: isolada_aguardando_upstream
+    evidencia: npm audit reporta uma vulnerabilidade alta em sharp por CVEs herdadas de libvips e declara no fix available
+    restricao: nao aplicar npm audit fix --force nem trocar dependencia sem FT normativa e validacao de compatibilidade
+    impacto: arvore de producao possui zero vulnerabilidades em npm audit --omit=dev; risco permanece no ferramental local e de build que processa imagens nao confiaveis
+  - id: GAP-AGENTS-CJS-ESM-001
+    estado: isolada
+    evidencia: update:agents --check falha ao carregar package-registry.js CommonJS sob package.json type=module
+    restricao: nucleo gerenciado nao sera editado neste repositorio Final
+    impacto: nao bloqueia as FTs de produto acima
+  - id: GAP-STATE-COMPACTION-2026-001
+    estado: isolada_aguardando_convergencia_da_governanca_gerenciada
+    evidencia: npm run agent:compress exige .ia.rules/state/continue.ia, enquanto AGENTS.md vigente declara .ia.rules/continue.ia; npm run agent:state -- migrate recusa o TODO legado com TODO_GOVERNANCA_INVALIDA antes de escrever
+    restricao: nao forcar migracao estrutural nem gerar handoff falso sem rota normativa convergente
+    impacto: estado vigente e FTs permanecem preservados; somente a projecao compacta handoff.md nao pode ser regenerada pelo comando oficial

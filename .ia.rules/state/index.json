@@ -1,0 +1,11 @@
+{
+  "schema": "agents-state-index/v1",
+  "active": "continue.ia",
+  "todo": "TODO.ia.md",
+  "durable": "memory.md",
+  "corrections": "fix.md",
+  "completed": "FT.implementados.md",
+  "history": "history/legacy-continue-2026-09-21.ia",
+  "formatMigration": "format-migration-2026-09-21.json",
+  "governanceHash": "9ff630a32bbd29c0f1281f8f74383d3f5196935fbc662fdd446261b4ff2aeb51"
+}

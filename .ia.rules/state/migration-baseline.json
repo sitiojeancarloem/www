@@ -1,0 +1,16 @@
+{
+  "schema": "agents-state-migration/v1",
+  "generatedAt": "2026-09-21T12:57:21.353Z",
+  "entries": [
+    {
+      "source": "TODO.ia.md",
+      "destination": ".ia.rules/state/TODO.ia.md",
+      "sha256": "aae13b42db54a6f8e6ee1323a05138fe40f2821d11e887692712f09100c6ed19"
+    },
+    {
+      "source": ".ia.rules/continue.ia",
+      "destination": ".ia.rules/state/continue.ia",
+      "sha256": "31f272f3fd5fb47e0ef96d02f22afd1d7558e7e0dc0f5ca661eb7fddfee328d9"
+    }
+  ]
+}

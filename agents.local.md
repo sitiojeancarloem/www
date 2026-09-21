@@ -4,7 +4,7 @@ Autoridade: `AGENTS.md` → `RCF.md` → sub-RCF aplicável → este adaptador. 
 
 ## Entrada obrigatória
 
-- Ler `.ia.rules/continue.ia` e a fonte/FT ativa antes de operação material.
+- Ler `.ia.rules/state/continue.ia` como estado canônico e a fonte/FT ativa antes de operação material; `.ia.rules/continue.ia` é somente projeção legada sincronizada.
 - Consultar `.ia.rules/normative-index.json`, papéis cumulativos e recusas conforme `AGENTS.md`.
 - Carregar `RCF.md` e apenas as sub-RCFs disparadas pela tarefa; rotas são cumulativas quando o escopo cruza domínios.
 - A árvore predecessora `.agents/` não é fonte, fallback nem destino. Núcleo ativo, estado e adaptação usam exclusivamente `AGENTS.md`, `.ia.rules/` e este arquivo raiz.

@@ -1,0 +1,42 @@
+{
+  "schema": "agents-state-format-migration/v1",
+  "migratedAt": "2026-09-21T12:57:21.353Z",
+  "source": {
+    "path": ".ia.rules/state/history/legacy-continue-2026-09-21.ia",
+    "sha256": "101afaf82a4ca2de8938616863aedc46972d818b8f34665a6eebb66cd4482c45",
+    "format": "yaml-legado",
+    "frontCount": 60
+  },
+  "destination": {
+    "path": ".ia.rules/state/continue.ia",
+    "sha256": "5ea4b96fd7ea1e38418029ff4e282867132be89758c7ff1cc10de9d53c2af866",
+    "format": "agents-operational-state/v1",
+    "frontCount": 12,
+    "active": ["FT-086"],
+    "pendingDependency": ["FT-087"],
+    "retainedDependency": ["FT-085"],
+    "pendingHumanValidation": [
+      "FT-056",
+      "FT-057",
+      "FT-063",
+      "FT-064",
+      "FT-074",
+      "FT-077",
+      "FT-079",
+      "FT-081",
+      "FT-084"
+    ]
+  },
+  "projections": {
+    ".ia.rules/continue.ia": "5ea4b96fd7ea1e38418029ff4e282867132be89758c7ff1cc10de9d53c2af866",
+    ".ia.rules/state/TODO.ia.md": "c6cd3184453902ff2f2136e6aee91cb8fed1723e0b4119703e72bf57d543af70",
+    "TODO.ia.md": "c6cd3184453902ff2f2136e6aee91cb8fed1723e0b4119703e72bf57d543af70",
+    "handoff.md": "gerado_por_agent_compress"
+  },
+  "invariants": [
+    "conteudo legado preservado integralmente por hash",
+    "estado corrente contem somente frentes retomaveis",
+    "projecoes legadas permanecem sincronizadas",
+    "handoff identifica FT-086 ativa e FT-087 pendente"
+  ]
+}
