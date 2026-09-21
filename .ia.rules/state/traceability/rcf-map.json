@@ -5357,6 +5357,19 @@
       "artifacts": [
         "RCFs/impressao-ieee.md"
       ],
+      "commit": "",
+      "ft": "FT-085",
+      "id": "10dffd9f8c793707167dd14d",
+      "line": 73,
+      "rcf": "RCFs/impressao-ieee.md",
+      "sentenceSha256": "de1b51384f16cd4719f5ef9a09f1b811901807dd548a499369d80d5cc4b3972a",
+      "state": "pending",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/impressao-ieee.md"
+      ],
       "commit": "fd868deae6908264aaa6444c015bf8937cfb1409",
       "ft": "FT-053",
       "id": "04ccc4c94e92f5f5d6f62982",
@@ -5370,6 +5383,19 @@
       "artifacts": [
         "RCFs/impressao-ieee.md"
       ],
+      "commit": "",
+      "ft": "FT-085",
+      "id": "68e3b2e96373452119756ecc",
+      "line": 74,
+      "rcf": "RCFs/impressao-ieee.md",
+      "sentenceSha256": "b473c8d2b3b28f104ea7f1c65cec3bf28de2ebb8a400b557873c6d3018d7b30c",
+      "state": "pending",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/impressao-ieee.md"
+      ],
       "commit": "cd19a001737be8456d0f5a5eb05dfa979a6f052e",
       "ft": "FT-053",
       "id": "225f279e09cdd57d6fb92042",
@@ -5377,6 +5403,19 @@
       "rcf": "RCFs/impressao-ieee.md",
       "sentenceSha256": "bfa328b8cab376fa7a1c6bb512333f9aaaf6c97900f441c9b0a54bcf6c21285f",
       "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/impressao-ieee.md"
+      ],
+      "commit": "",
+      "ft": "FT-085",
+      "id": "e9fe0c486e93bd6d6787144a",
+      "line": 75,
+      "rcf": "RCFs/impressao-ieee.md",
+      "sentenceSha256": "c8b16212e418c1aab39ba1ecf38fadab74e4420f8254f75bda5436aae6f771b8",
+      "state": "pending",
       "syncCommit": ""
     },
     {
@@ -5409,6 +5448,19 @@
       "artifacts": [
         "RCFs/impressao-ieee.md"
       ],
+      "commit": "",
+      "ft": "FT-085",
+      "id": "d9a4c7a9d18c053d70b5ac54",
+      "line": 77,
+      "rcf": "RCFs/impressao-ieee.md",
+      "sentenceSha256": "0f6d7a7ce54c3cebf74150c7f61476ded474bfcacb25495ef7a492c3a6d14ebb",
+      "state": "pending",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/impressao-ieee.md"
+      ],
       "commit": "cd19a001737be8456d0f5a5eb05dfa979a6f052e",
       "ft": "FT-053",
       "id": "0eea797fb7d8ec38a99989c3",
@@ -5416,6 +5468,19 @@
       "rcf": "RCFs/impressao-ieee.md",
       "sentenceSha256": "79fafe671ac681fd0f9c7ace18018488789d4a76f52e9d61486a577eb50c1cbb",
       "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/impressao-ieee.md"
+      ],
+      "commit": "",
+      "ft": "FT-085",
+      "id": "d4fda3c21024910cc734881e",
+      "line": 78,
+      "rcf": "RCFs/impressao-ieee.md",
+      "sentenceSha256": "e8b42e0792a3ef18af3010e8b98f622703dd2e8c65ed04131ec9d46d4082c824",
+      "state": "pending",
       "syncCommit": ""
     },
     {
@@ -5435,6 +5500,19 @@
       "artifacts": [
         "RCFs/impressao-ieee.md"
       ],
+      "commit": "",
+      "ft": "FT-085",
+      "id": "11e88e725a4ffe9416579b67",
+      "line": 79,
+      "rcf": "RCFs/impressao-ieee.md",
+      "sentenceSha256": "1355c9964cc6f2867a0868167a56bcc3c9f15f0b057454f374c1cdd6853ad04c",
+      "state": "pending",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/impressao-ieee.md"
+      ],
       "commit": "98da33ea029605b1a3cfd6bec39c251e381772fa",
       "ft": "FT-053",
       "id": "0644408f9e86eca66507cc64",
@@ -5442,6 +5520,19 @@
       "rcf": "RCFs/impressao-ieee.md",
       "sentenceSha256": "14b789e559ead80eec86a576bc04bccf9d91477122d40a8d8e89c7ba3bdf523a",
       "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "RCFs/impressao-ieee.md"
+      ],
+      "commit": "",
+      "ft": "FT-085",
+      "id": "f7e669a25874e9465f405029",
+      "line": 80,
+      "rcf": "RCFs/impressao-ieee.md",
+      "sentenceSha256": "6c7da9beef0425a5535e83da6b0920461e751aa9044f317846850da5b26b43e4",
+      "state": "pending",
       "syncCommit": ""
     },
     {
