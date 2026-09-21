@@ -89,3 +89,17 @@ resultado=Matriz positiva, negativa e limítrofe validada em HTML real, runtime,
 verificacoes=Quatro positivos e dois negativos aprovados; regressão em quatro artigos desktop/mobile, TypeScript, acessibilidade, publicação e documentação aprovados.
 pendencias=Validação humana visual efetiva permanece externa.
 historico=.ia.rules/state/history/FT-087.ia|sha256=64d72fd439e08b71cd7fb4c35eec4b9adb9e0827e3ba2f15f74b823b8946a20c
+
+FT-088|nome=Normatização dos marcadores falados de citação|escopo=tecnico|status=em_andamento|autorizacao=humana
+objetivo=Definir reconhecimento semântico agnóstico da materialização e uma única fronteira falada por bloco externo.
+origem=.ia.rules/state/requests/FT-088/prompt.md
+contexto=.ia.rules/state/contexts/FT-088/master.md
+dependencias=FT-077, FT-079, FT-081
+pendencias=Consolidar a sentença aplicável em RCFs/leitura-acessivel-e-tts.md e sua rastreabilidade.
+
+FT-089|nome=Implementação e validação dos marcadores falados de citação|escopo=tecnico|status=aguardando_norma|autorizacao=humana
+objetivo=Corrigir o adaptador TTS local e provar ausência de regressão nos três modos e páginas reais.
+origem=.ia.rules/state/requests/FT-088/prompt.md
+contexto=.ia.rules/state/contexts/FT-088/master.md
+dependencias=FT-088
+pendencias=Aguardar conclusão normativa da FT-088 antes de alterar runtime e testes.
