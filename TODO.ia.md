@@ -52,7 +52,7 @@ Este arquivo preserva demandas do desenvolvedor. Estados operacionais seguem a g
     - ✅ Preservar/adicionar demais metadados equivalentes aplicáveis ao formato.
   - ✅ Adicionar ao `README.md` link explícito para o repositório upstream.
 
-⏳ **Migrar TTS e edição redacional para a governança canônica de `agents.md`, preservando especializações locais**
+✅ **Migrar TTS e edição redacional para a governança canônica de `agents.md`, preservando especializações locais**
   - **Objetivo**
     - A governança `agents.md` passou a incorporar grande parte, possivelmente a totalidade, das regras, diretrizes, capacidades e/ou scripts relacionados a **TTS** e **edição redacional/autoral**.
     - Este repositório DEVE passar a consumir **prioritariamente os mecanismos oficiais fornecidos por `agents.md`**, preservando apenas especializações realmente locais pelas vias oficiais de extensão.
@@ -154,7 +154,7 @@ Este arquivo preserva demandas do desenvolvedor. Estados operacionais seguem a g
       8. testes comprovarem equivalência ou superioridade após a migração;
       9. o repositório estiver plenamente aderente à estratégia `agents.md + extensões/hooks locais`.
 
-⏳ **Disponibilizar a impressão IEEE também em dispositivos móveis, preservando carregamento pós-crítico e desempenho**
+✅ **Disponibilizar a impressão IEEE também em dispositivos móveis, preservando carregamento pós-crítico e desempenho**
   - Verificar se existe regra, detecção de dispositivo, norma ou implementação que **impeça em mobile o download/inicialização da formatação de impressão IEEE**. Se existir, removê-la/adaptá-la para que o recurso funcione em dispositivos móveis **com equivalência funcional ao desktop**, considerando a compatibilidade atual entre navegadores móveis e impressoras.
 
   - O recurso IEEE DEVE:

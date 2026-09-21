@@ -1,6 +1,6 @@
 # FT-068 — Migração TTS e edição redacional
 
-Estado normativo: concluído. Implementação da projeção local: FT-069 em andamento. Fonte: `TODO.ia.md`. Dependências: capacidades gerenciadas `resource.editorial-authoring` e `resource.spoken-normalization`.
+Estado normativo: concluído. Implementação da projeção local: FT-069 concluída tecnicamente pelo commit `884d4c925e` e integrada pela FT-074; validação humana da frente permanece externa. Fonte: `TODO.ia.md`. Dependências: capacidades gerenciadas `resource.editorial-authoring` e `resource.spoken-normalization`.
 
 ## Matriz de equivalência inicial
 
@@ -26,3 +26,11 @@ Estado normativo: concluído. Implementação da projeção local: FT-069 em and
 - ausência de regra local que preceda ou substitua a capacidade gerenciada.
 
 Resultado normativo: equivalência genérica confirmada para os dois recursos gerenciados; as capacidades Web do produto são deltas legítimos e não serão removidas. `rcf-trace validate` aprovou `entries=365` e `material=338`.
+
+## Resultado técnico consolidado
+
+- FT-069 passou a rotear `editorial-authoring` e `spoken-normalization` antes dos deltas locais, sem substituir os runtimes gerenciados.
+- `agent:editorial` e `agent:spoken` continuam delegados exclusivamente ao núcleo; plugin, includes, assets e runtime TTS específicos do produto foram preservados.
+- O commit causal é `884d4c925e`; a sincronização causal correspondente é `4751e18218`.
+- A integração posterior FT-074 e as FTs FT-079, FT-081 e FT-084 ampliaram validação e especialização sem reabrir nem regredir FT-069.
+- Na reconciliação de 2026-09-21, `check:accessibility`, `check:editorial-policy`, `check:ts` e o build Jekyll isolado aprovaram. O gate de runtime falado mantém a lacuna preexistente e separada `MARCADORES_CITACAO_AUSENTES`, já atribuída fora de FT-069.

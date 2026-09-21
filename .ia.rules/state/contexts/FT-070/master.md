@@ -1,6 +1,6 @@
 # FT-070 — Impressão IEEE mobile e pós-crítica
 
-Estado normativo: concluído. Implementação: FT-071 em andamento. Fonte: `TODO.ia.md`.
+Estado normativo: concluído. Implementação: FT-071 concluída tecnicamente pelo commit `2dd99ad4bb` e integrada pela FT-074; validação humana da frente permanece externa. Fonte: `TODO.ia.md`.
 
 ## Baseline e inventário
 
@@ -24,3 +24,11 @@ Estado normativo: concluído. Implementação: FT-071 em andamento. Fonte: `TODO
 - executar desktop/mobile, orientação/resize, impressão e testes estruturais; comparar bytes/requisições críticas quando disponível.
 
 Resultado normativo: o perfil IEEE é único para desktop/mobile; metadados inertes substituem links de stylesheet no caminho crítico; `load` + fontes + imagens relevantes + idle formam a preparação preventiva, e `beforeprint`/`matchMedia` são preempções obrigatórias. `rcf-trace validate`: `entries=371`, `material=340`.
+
+## Resultado técnico consolidado
+
+- FT-071 materializou CSS IEEE como metadado inerte e passou a carregar estilos, módulo e preparação somente após `load`, fontes, imagens relevantes e idle, com preempção imediata por `beforeprint`/`matchMedia('print')`.
+- A mesma capacidade atende desktop e mobile sem decisão por user-agent, largura, orientação, toque ou DPR; falha parcial preserva o artigo legível.
+- O commit causal é `2dd99ad4bb`; a sincronização causal correspondente é `be4a1d89a7`.
+- As FTs FT-074, FT-077, FT-086 e FT-087 alteraram e ampliaram a impressão posteriormente sem reabrir nem regredir FT-071.
+- Na reconciliação de 2026-09-21, `check:print`, `check:performance`, `check:documentation`, `check:ts`, build Jekyll isolado e runtime real em quatro páginas nos perfis desktop/mobile aprovaram.
