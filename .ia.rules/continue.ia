@@ -1180,6 +1180,54 @@ plano:
       - rastreabilidade escopada aprovou 22 entradas e 22 sentencas vinculadas ao commit causal; o gate global conserva a lacuna preexistente RCFs/citacoes.md:53 e sete pendencias da FT-066
       - TODO transitou para implementada pendente de validacao humana sem alterar as demais frentes
     proximo_passo: validacao humana da aplicabilidade editorial da Skill; apos aprovacao, remover integralmente esta TO-DO
+  - id: FT-085
+    classe: equalizacao_normativa
+    criado_em: 2026-09-20T21:26:38.6263339-03:00
+    estado: registrada_nao_iniciada
+    fonte: TODO.ia.md@d4e1465075c021fd2919c4cf020d5645cf8fd62b
+    fonte_autorizacao: .ia.rules/state/requests/FT-085/prompt.md
+    contexto: .ia.rules/state/contexts/FT-085/master.md
+    objetivo: Equalizar e normatizar a excecao de figuras em largura total no perfil IEEE, definindo marcacao manual, inferencia conservadora, fluxo de colunas, cache e limites sem alterar a web.
+    escopo: RCFs/impressao-ieee.md, pipeline Markdown e build, contratos publicos data-print, mecanismo de imagens e documentacao canonica sob docs/.
+    aceite:
+      - inventario real identifica extensoes, atributos, hooks, imagens, figuras, legendas, engine multicoluna e dependencias reutilizaveis
+      - contrato separa marcacao explicita e inferencia automatica, com precedencia manual e criterio geometrico obrigatorio de ate 35 por cento da altura util
+      - inferencia exige evidencia inequivoca de densidade textual ou visual, falha preservadoramente e permanece deterministica
+      - norma preserva aspect ratio, margens, ordem de leitura, continuidade das colunas, web e comportamento das figuras nao participantes
+      - nenhuma implementacao, dependencia ou documentacao de uso e introduzida antes da conclusao normativa e da autorizacao humana correspondente
+    proximo_passo: executar equalizacao e normatizacao somente mediante continuacao humana que autorize esta nova frente
+  - id: FT-086
+    classe: implementacao_codigo_documentacao
+    criado_em: 2026-09-20T21:26:38.6273339-03:00
+    estado: registrada_bloqueada_por_dependencia_e_autorizacao
+    depende_de: FT-085
+    fonte: TODO.ia.md@d4e1465075c021fd2919c4cf020d5645cf8fd62b
+    fonte_autorizacao: .ia.rules/state/requests/FT-085/prompt.md
+    contexto: .ia.rules/state/contexts/FT-085/master.md
+    objetivo: Implementar a marcacao manual e a inferencia automatica conservadora no pipeline existente, com cache reutilizavel e guia ilustrado canonico sob docs/.
+    aceite:
+      - marcador reutiliza mecanismo nativo e afeta exclusivamente a impressao IEEE
+      - classificador usa bibliotecas maduras quando adequadas e nao automarca somente por proporcao horizontal
+      - imagem, figura e legenda atravessam as duas colunas sem sobreposicao, duplicacao, reposicionamento absoluto ou perda de ordem
+      - cache invalida por conteudo ou configuracao e evita reanalise desnecessaria de fonte inalterada
+      - guia curto e ilustrado sob docs/ e ligado pelo RCF e README descreve uso manual, automarcacao, limites e diferenca entre web e impressao
+    proximo_passo: aguardar conclusao da FT-085 e autorizacao humana de implementacao
+  - id: FT-087
+    classe: integracao_validacao
+    criado_em: 2026-09-20T21:26:38.6283339-03:00
+    estado: registrada_bloqueada_por_dependencia_e_autorizacao
+    depende_de: FT-086
+    fonte: TODO.ia.md@d4e1465075c021fd2919c4cf020d5645cf8fd62b
+    fonte_autorizacao: .ia.rules/state/requests/FT-085/prompt.md
+    contexto: .ia.rules/state/contexts/FT-085/master.md
+    objetivo: Provar criterios positivos, negativos, limites, cache, fluxo, web e regressao interartigos da capacidade de figuras IEEE em largura total.
+    aceite:
+      - matriz cobre marcacao manual, densidade textual, densidade visual, negativos, limite de 35 por cento, legendas, quebras e multiplas figuras
+      - medidas e PDF real comprovam margens, proporcao, ordem, retomada das colunas e ausencia de sobreposicao ou duplicacao
+      - artigos distintos e visualizacao web aprovam sem alteracao de figuras nao participantes
+      - gates normativos, documentais, de build, impressao, publicacao e rastreabilidade aplicaveis aprovam
+      - TO-DO transita para implementada pendente de validacao humana, sem remocao automatica
+    proximo_passo: aguardar conclusao da FT-086 e autorizacao humana de integracao
 lacunas:
   - id: GAP-RCF-MODULE-2026-001
     estado: isolada_fora_do_escopo
@@ -1196,3 +1244,8 @@ lacunas:
     evidencia: update:agents --check falha ao carregar package-registry.js CommonJS sob package.json type=module
     restricao: nucleo gerenciado nao sera editado neste repositorio Final
     impacto: nao bloqueia as FTs de produto acima
+  - id: GAP-STATE-COMPACTION-2026-001
+    estado: isolada_aguardando_convergencia_da_governanca_gerenciada
+    evidencia: npm run agent:compress exige .ia.rules/state/continue.ia, enquanto AGENTS.md vigente declara .ia.rules/continue.ia; npm run agent:state -- migrate recusa o TODO legado com TODO_GOVERNANCA_INVALIDA antes de escrever
+    restricao: nao forcar migracao estrutural nem gerar handoff falso sem rota normativa convergente
+    impacto: estado vigente e FTs permanecem preservados; somente a projecao compacta handoff.md nao pode ser regenerada pelo comando oficial
