@@ -979,7 +979,7 @@ plano:
   - id: FT-077
     classe: correcao_codigo_validacao
     criado_em: 2026-09-16
-    estado: terceira_correcao_registrada_pendente_implementacao_rastreabilidade_e_validacao_humana
+    estado: terceira_correcao_concluida_tecnicamente_pendente_rastreabilidade_e_validacao_humana
     depende_de: FT-071, FT-074
     fonte: .ia.rules/state/requests/FT-077/prompt.md, segunda-correcao-footnotes-impressao.md e terceira-correcao-referencias-links-controles.md
     fonte_autorizacao: prompts humanos de 2026-09-16 e 2026-09-20 para corrigir e concluir de forma inter paginas, com commits obrigatorios por microetapa concluida
@@ -1007,12 +1007,26 @@ plano:
       - check print, runtime, TypeScript, footnotes, acessibilidade, publicacao, documentacao e build produtivo isolado aprovaram
       - finalizacao oficial da rastreabilidade foi bloqueada pela pendencia preexistente FT-066 9fd169d66f75a7866950f6d5, alheia ao commit causal
       - terceira correcao deve materializar colchetes no DOM das referencias ordinarias, separar links impressos em namespace alfabetico, preservar decoracao editorial externa e excluir controles web da impressao
+      - terceira correcao materializou colchetes no DOM das referencias ordinarias sem aninhamento de sup e preservou 57 chamadas reais de Devaneios
+      - links impressos usam namespace alfabetico deterministico independente, com marcadores reais, associacao por aria-details e lista final ordenada
+      - decoracao originada no hyperlink foi neutralizada na impressao, enquanto sublinhado semantico e decoracao editorial ancestral permaneceram
+      - controles web internos ao artigo, inclusive leitura acessivel, ficaram estruturalmente ausentes da impressao e com caixa geometrica nula
+      - quatro artigos reais em desktop e mobile aprovaram check print runtime; check print, TypeScript, footnotes, acessibilidade e publicacao aprovaram
+      - build produtivo final isolado aprovou e PDF A4 real de sete paginas confirmou colchetes numericos, referencias alfabeticas, ausencia de controles e composicao em duas colunas
+      - check documentation preserva falha alheia desta FT porque a nova frente de figuras IEEE ainda usa checkbox legado antes da inicializacao
+      - finalizador RCF tentou atribuir quatorze sentencas pendentes ao primeiro commit causal por sobreposicao de artefatos; a saida nao commitada foi integralmente revertida para impedir rastreabilidade falsa
     commits:
       registro: 087f2d5d08
       causal: 11a0fc7f24
       rastreabilidade: 0218a7e49d
       causal_segunda_correcao: 3cb143ed2e
-    proximo_passo: normatizar e implementar em microetapas commitadas a terceira correcao; validar DOM, web, impressao e PDF interartigos; sincronizar rastreabilidade quando o gate oficial permitir e manter a TO-DO em andamento ate aceite humano efetivo
+      registro_terceira_correcao: 420944ebd4
+      normativo_terceira_correcao: 2e6f7f4533
+      causal_gramatica: 60b7fb4f67
+      causal_links_alfabeticos: 4320db1d06
+      causal_decoracao_editorial: b6121864a4
+      causal_controles_web: ef94f6c9a8
+    proximo_passo: sincronizar cada sentenca RCF somente quando o finalizador suportar selecao causal segura; manter a TO-DO em andamento ate aceite humano efetivo
   - id: FT-078
     classe: implementacao_normativa
     criado_em: 2026-09-18

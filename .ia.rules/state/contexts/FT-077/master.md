@@ -1,6 +1,6 @@
 # FT-077 — Isolamento inter páginas da impressão
 
-Estado: terceira correção humana registrada e autorizada; implementação, rastreabilidade e validação humana pendentes. Fontes: `.ia.rules/state/requests/FT-077/prompt.md`, `.ia.rules/state/requests/FT-077/segunda-correcao-footnotes-impressao.md` e `.ia.rules/state/requests/FT-077/terceira-correcao-referencias-links-controles.md`.
+Estado: terceira correção tecnicamente concluída; rastreabilidade seletiva e validação humana pendentes. Fontes: `.ia.rules/state/requests/FT-077/prompt.md`, `.ia.rules/state/requests/FT-077/segunda-correcao-footnotes-impressao.md` e `.ia.rules/state/requests/FT-077/terceira-correcao-referencias-links-controles.md`.
 
 ## Objetivo
 
@@ -94,3 +94,20 @@ Eliminar, pela camada compartilhada do adaptador IEEE, qualquer chrome, decoraç
 - O componente de leitura e outros controles interativos internos ao artigo não pertencem à classificação estrutural de chrome atualmente neutralizada pelo adaptador.
 - A implementação autorizada deve consolidar texto real `[N]` nas chamadas ordinárias, reservar identificadores alfabéticos determinísticos aos links impressos, manter associações e sequências independentes, neutralizar somente a decoração própria do link e excluir controles web sem resíduo geométrico.
 - Cada microetapa funcional concluída deve receber commit próprio e validação correspondente; `_site` compartilhado permanece intocado.
+
+## Resultado da terceira correção
+
+- As chamadas ordinárias passaram a conter colchetes reais no DOM na forma `<sup>[N]</sup>`; o runtime conserva o número canônico e impede aninhamento ou duplicação de sobrescritos.
+- URLs impressas usam namespace alfabético independente (`[a]` a `[z]`, `[aa]` em diante), com associação determinística por `aria-details`, identificador próprio e lista final ordenada; notas numéricas e links repetidos não contaminam as sequências.
+- O perfil impresso neutraliza cor, sublinhado e sombra próprios do hyperlink, mas preserva `<u>` e decoração editorial herdada de ancestral semântico ou estilizado.
+- Controles e formulários web internos ao artigo, inclusive leitura acessível, são excluídos por marcador semântico e seletores genéricos, com `display: none` e caixa nula na mídia impressa; a tela permanece inalterada.
+- Commits por microetapa: registro `420944ebd4`, norma `2e6f7f4533`, gramática `60b7fb4f67`, namespace alfabético `4320db1d06`, decoração `b6121864a4` e controles `ef94f6c9a8`.
+
+## Validação final da terceira correção
+
+- `check:print`, `check:print:runtime`, `check:ts`, `check:footnotes`, `check:accessibility` e `check:publication`: aprovados.
+- O runtime percorreu quatro artigos reais em desktop e mobile; em `Devaneios`, preservou 57 chamadas ordinárias, a cadeia `[4][5][6]`, 40 marcadores alfabéticos e o componente de leitura intacto na tela e ausente na impressão.
+- Build produtivo isolado em `.tmp/ft077-final-site`: aprovado em 155,26 s.
+- PDF A4 real de sete páginas: controles ausentes, referências numéricas e alfabéticas presentes, links sem decoração própria e fluxo em duas colunas preservado.
+- `check:documentation` mantém somente a falha alheia desta FT: a nova frente de figuras IEEE em largura total ainda estava registrada como checkbox legado e aguardava inicialização canônica.
+- O finalizador RCF tentou sincronizar quatorze sentenças pendentes ao primeiro commit causal devido à sobreposição de caminhos entre microetapas. Como essa atribuição seria falsa, todas as alterações não commitadas do finalizador foram revertidas; as sentenças permanecem pendentes até existir seleção causal segura.
