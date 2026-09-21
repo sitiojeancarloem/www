@@ -61,9 +61,14 @@ module Jcem
       return html unless manifest.is_a?(Hash) && manifest["schema"] == 1
       return html unless html.to_s.include?("<img")
 
-      fragment = Nokogiri::HTML::DocumentFragment.parse(html.to_s)
-      fragment.css("img[src]").each { |image| decorate_image!(image, manifest) }
-      fragment.to_html
+      source = html.to_s
+      tree = if source.match?(/<!doctype|<html[\s>]/i)
+               Nokogiri::HTML.parse(source, nil, "UTF-8")
+             else
+               Nokogiri::HTML::DocumentFragment.parse(source)
+             end
+      tree.css("img[src]").each { |image| decorate_image!(image, manifest) }
+      tree.to_html
     end
 
     def apply!(document)

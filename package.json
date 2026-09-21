@@ -28,6 +28,7 @@
     "check:accessible-runtime": "node scripts/test_accessible_runtime.mjs",
     "check:inline-quotes": "npm run build:ts && node scripts/test_inline_quotes.mjs",
     "check:print:full-width": "node scripts/test_print_full_width.mjs && bundle exec ruby scripts/test_print_full_width.rb",
+    "check:print:full-width-runtime": "node scripts/test_print_full_width_runtime.mjs",
     "check:print": "npm run check:print:full-width && npm run build:print && node scripts/test_print_ieee.mjs",
     "check:print:runtime": "node scripts/test_print_runtime.mjs",
     "check:performance": "node scripts/test_web_performance.mjs",

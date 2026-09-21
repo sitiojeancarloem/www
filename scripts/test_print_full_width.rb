@@ -54,4 +54,14 @@ assert(negative["data-print-span"].nil?, "falso positivo em figura simples")
 assert(override["data-print-span"].nil?, "override de uma coluna foi desrespeitado")
 assert(second == first, "transformação estática não é idempotente")
 
-puts "print_full_width_adapter=ok manual=1 auto=1 negative=2 idempotent=true"
+full_html = "<!doctype html><html lang=\"pt-BR\"><head><title>Fixture</title></head><body>#{html}</body></html>"
+full_first = Jcem::PrintFullWidth.decorate_html(full_html, manifest)
+full_second = Jcem::PrintFullWidth.decorate_html(full_first, manifest)
+full_document = Nokogiri::HTML.parse(full_first)
+
+assert(full_first.match?(/\A<!DOCTYPE html>/i), "doctype foi perdido no documento completo")
+assert(full_document.at_css("html")["lang"] == "pt-BR", "atributos do documento foram perdidos")
+assert(full_document.at_css("#automatic")["data-print-span"] == "all", "documento completo não foi decorado")
+assert(full_second == full_first, "transformação do documento completo não é idempotente")
+
+puts "print_full_width_adapter=ok manual=1 auto=1 negative=2 full_document=1 idempotent=true"
