@@ -96,11 +96,14 @@ origem=.ia.rules/state/requests/FT-088/prompt.md
 contexto=.ia.rules/state/contexts/FT-088/master.md
 dependencias=FT-077, FT-079, FT-081
 resultado=Contrato consolidado em RCFs/leitura-acessivel-e-tts.md com identidade semântica agnóstica e deduplicação por bloco externo.
-pendencias=Rastreabilidade preparada para o commit causal da FT-089.
+verificacoes=Norma registrada pelo commit 42764912c3 e sincronizada ao commit causal 9111da9d5f.
+pendencias=Validação humana da regra falada acompanha a FT-089.
 
-FT-089|nome=Implementação e validação dos marcadores falados de citação|escopo=tecnico|status=em_andamento|autorizacao=humana
+FT-089|nome=Implementação e validação dos marcadores falados de citação|escopo=tecnico|status=concluida|autorizacao=humana|conclusao=2026-09-21T22:33:57-03:00|validacao=pendente_desenvolvedor
 objetivo=Corrigir o adaptador TTS local e provar ausência de regressão nos três modos e páginas reais.
 origem=.ia.rules/state/requests/FT-088/prompt.md
 contexto=.ia.rules/state/contexts/FT-088/master.md
 dependencias=FT-088
-pendencias=Implementar o seletor semântico, cobrir limites e executar a matriz integral de regressão.
+resultado=Seletor semântico comum implementado; blocos externos recebem um único par de fronteiras e subcitações não geram cascata.
+verificacoes=Build isolado, runtime nos três modos, navegador e npm run check integral aprovados; rastreabilidade escopada 75/75.
+pendencias=Validação auditiva humana da naturalidade das fronteiras faladas.

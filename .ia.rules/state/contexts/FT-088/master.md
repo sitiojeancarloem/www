@@ -1,6 +1,6 @@
 # FT-088/FT-089 — Fronteiras faladas de citação em bloco
 
-Estado: FT-088 concluída; FT-089 em andamento com autorização humana. Fonte: `.ia.rules/state/requests/FT-088/prompt.md`.
+Estado: FT-088 concluída; FT-089 tecnicamente concluída e pendente de validação auditiva humana. Fonte: `.ia.rules/state/requests/FT-088/prompt.md`.
 
 ## Objetivo
 
@@ -42,3 +42,18 @@ Normatizar e implementar a verbalização determinística das fronteiras de cita
 - O RCF passou a reconhecer a identidade semântica do bloco por `<blockquote>`, `role="blockquote"` ou `data-jcem-blockquote`, independentemente da materialização visual.
 - Seletores coexistentes no mesmo elemento resultam em uma única fronteira falada.
 - Apenas o bloco externo recebe o par completo; citação inline e subcitação conservam suas projeções próprias sem cascata redundante.
+
+## Implementação e validação
+
+- `assets/jcem/js/read-aloud.js` reutiliza um único seletor semântico para `<blockquote>`, `[data-jcem-blockquote]` e `[role="blockquote"]`; o walker continua encerrando a descida ao formar a unidade do bloco externo.
+- A regressão runtime combina o bloco real da fixture com um bloco sintético que possui seletores coexistentes e subcitação, exigindo exatamente dois pares de fronteiras nos modos `continuous`, `summary` e `full`.
+- `check:accessible-runtime` passou com `spoken_units=23`; a falha `MARCADORES_CITACAO_AUSENTES` deixou de ocorrer.
+- O build isolado em `.tmp/ft089-site` e o gate agregado `npm run check` passaram integralmente, incluindo TypeScript, footnotes, citações, acessibilidade, impressão, desempenho, COVER, política editorial, publicação e documentação.
+- A página renderizada confirmou o caso real como `<blockquote data-jcem-blockquote>` sem `role`, com leitor pronto, runtime local carregado e ausência de erros no console.
+- A rastreabilidade escopada da RCF TTS aprovou 75 entradas e 75 sentenças materiais. A validação global conserva pendências antigas de outras FTs e a sentença preexistente não mapeada em `RCFs/citacoes.md:53`.
+
+## Commits
+
+- Registro: `4b3e3f278c`.
+- Norma: `42764912c3`.
+- Causal: `9111da9d5f`.
