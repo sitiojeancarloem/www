@@ -90,16 +90,17 @@ verificacoes=Quatro positivos e dois negativos aprovados; regressão em quatro a
 pendencias=Validação humana visual efetiva permanece externa.
 historico=.ia.rules/state/history/FT-087.ia|sha256=64d72fd439e08b71cd7fb4c35eec4b9adb9e0827e3ba2f15f74b823b8946a20c
 
-FT-088|nome=Normatização dos marcadores falados de citação|escopo=tecnico|status=em_andamento|autorizacao=humana
+FT-088|nome=Normatização dos marcadores falados de citação|escopo=tecnico|status=concluida|autorizacao=humana
 objetivo=Definir reconhecimento semântico agnóstico da materialização e uma única fronteira falada por bloco externo.
 origem=.ia.rules/state/requests/FT-088/prompt.md
 contexto=.ia.rules/state/contexts/FT-088/master.md
 dependencias=FT-077, FT-079, FT-081
-pendencias=Consolidar a sentença aplicável em RCFs/leitura-acessivel-e-tts.md e sua rastreabilidade.
+resultado=Contrato consolidado em RCFs/leitura-acessivel-e-tts.md com identidade semântica agnóstica e deduplicação por bloco externo.
+pendencias=Rastreabilidade preparada para o commit causal da FT-089.
 
-FT-089|nome=Implementação e validação dos marcadores falados de citação|escopo=tecnico|status=aguardando_norma|autorizacao=humana
+FT-089|nome=Implementação e validação dos marcadores falados de citação|escopo=tecnico|status=em_andamento|autorizacao=humana
 objetivo=Corrigir o adaptador TTS local e provar ausência de regressão nos três modos e páginas reais.
 origem=.ia.rules/state/requests/FT-088/prompt.md
 contexto=.ia.rules/state/contexts/FT-088/master.md
 dependencias=FT-088
-pendencias=Aguardar conclusão normativa da FT-088 antes de alterar runtime e testes.
+pendencias=Implementar o seletor semântico, cobrir limites e executar a matriz integral de regressão.

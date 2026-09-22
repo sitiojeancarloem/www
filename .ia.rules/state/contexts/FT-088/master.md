@@ -1,6 +1,6 @@
 # FT-088/FT-089 — Fronteiras faladas de citação em bloco
 
-Estado: FT-088 em andamento; FT-089 aguardando consolidação normativa. Fonte: `.ia.rules/state/requests/FT-088/prompt.md`.
+Estado: FT-088 concluída; FT-089 em andamento com autorização humana. Fonte: `.ia.rules/state/requests/FT-088/prompt.md`.
 
 ## Objetivo
 
@@ -36,3 +36,9 @@ Normatizar e implementar a verbalização determinística das fronteiras de cita
 - Subcitação permanece hierárquica sem cascata redundante.
 - Citação inline e parágrafo comum não recebem marcadores de bloco.
 - Os três modos TTS e todos os gates vigentes aprovam sem regressão.
+
+## Norma consolidada
+
+- O RCF passou a reconhecer a identidade semântica do bloco por `<blockquote>`, `role="blockquote"` ou `data-jcem-blockquote`, independentemente da materialização visual.
+- Seletores coexistentes no mesmo elemento resultam em uma única fronteira falada.
+- Apenas o bloco externo recebe o par completo; citação inline e subcitação conservam suas projeções próprias sem cascata redundante.

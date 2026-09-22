@@ -6520,6 +6520,21 @@
     },
     {
       "artifacts": [
+        "assets/jcem/js/read-aloud.js",
+        "scripts/test_accessible_reading.rb",
+        "scripts/test_accessible_runtime.mjs"
+      ],
+      "commit": "",
+      "ft": "FT-089",
+      "id": "3412789afe7fbe6a48aa6765",
+      "line": 81,
+      "rcf": "RCFs/leitura-acessivel-e-tts.md",
+      "sentenceSha256": "d586486bc673033ae99e7141f70541e71d951e104c0c93661c58162a01fe5d1f",
+      "state": "pending",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
         "RCFs/leitura-acessivel-e-tts.md"
       ],
       "commit": "57e473b7e3ce404552bac1d40ed281bc1e8e5b5f",
