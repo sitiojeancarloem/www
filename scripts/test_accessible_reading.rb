@@ -141,5 +141,10 @@ read_aloud_include = File.read(File.join(root, "_includes", "jcem", "read-aloud.
 read_aloud_runtime = File.read(File.join(root, "assets", "jcem", "js", "read-aloud.js"), encoding: "UTF-8")
 assert(read_aloud_include.include?('type="module"'), "parser bíblico modular não será carregado")
 assert(read_aloud_runtime.include?("./biblical-reference-speech.js"), "runtime não usa o parser bíblico comum")
+assert(
+  read_aloud_runtime.include?('blockquote, [data-jcem-blockquote], [role="blockquote"]'),
+  "runtime não reconhece todas as materializações semânticas de citação em bloco"
+)
+assert(read_aloud_runtime.include?("element.matches(blockquoteSelector)"), "fronteira falada não usa o seletor semântico comum")
 
 puts "accessible_reading=ok"

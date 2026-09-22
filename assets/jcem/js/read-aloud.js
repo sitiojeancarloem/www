@@ -37,6 +37,7 @@ import { normalizeBiblicalReferences } from './biblical-reference-speech.js';
 	const languageFor = (element) =>
 		element.closest('[lang]')?.getAttribute('lang') || document.documentElement.lang || 'pt-BR';
 	const noterefSelector = '[role="doc-noteref"], sup > a.footnote[href^="#fn:"], sup[id^="fnref"] > a[href^="#fn:"]';
+	const blockquoteSelector = 'blockquote, [data-jcem-blockquote], [role="blockquote"]';
 
 	/** Obtém referências normalizadas pertencentes à unidade falada. */
 	const referencesFor = (element) => [...element.querySelectorAll('[data-jcem-reference-full]')].map((link) => ({
@@ -125,7 +126,7 @@ import { normalizeBiblicalReferences } from './biblical-reference-speech.js';
 			add(element, `${title}. ${summary} ${conclusion}`, 'Gráfico:');
 			return;
 		}
-		if (element.matches('[role="blockquote"]')) {
+		if (element.matches(blockquoteSelector)) {
 			add(element, textFor(element), 'Início da citação.', 'Fim da citação.');
 			return;
 		}
@@ -143,7 +144,7 @@ import { normalizeBiblicalReferences } from './biblical-reference-speech.js';
 		}
 		if (element.matches('li')) {
 			const clone = element.cloneNode(true);
-			clone.querySelectorAll('ol, ul, table, [role="blockquote"], [data-jcem-chart]').forEach((node) => node.remove());
+			clone.querySelectorAll(`ol, ul, table, ${blockquoteSelector}, [data-jcem-chart]`).forEach((node) => node.remove());
 			add(element, textFor(clone));
 		}
 		[...element.children].forEach(walk);

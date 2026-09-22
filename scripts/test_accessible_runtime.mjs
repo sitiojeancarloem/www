@@ -16,6 +16,8 @@ const types = new Map([
 	['.css', 'text/css; charset=utf-8'],
 ]);
 
+const countToken = (value, token) => value.split(token).length - 1;
+
 const targetFor = (requestPath) => {
 	const clean = decodeURIComponent(requestPath.split('?')[0]).replace(/^[/\\]+/, '');
 	let target = path.join(root, clean || 'index.html');
@@ -76,6 +78,15 @@ try {
 	});
 
 	await page.goto(`http://127.0.0.1:${port}/_fixtures/tts-accessibility/`, { waitUntil: 'load' });
+	await page.evaluate(() => {
+		const root = document.querySelector('[data-jcem-readable-root]');
+		if (!(root instanceof HTMLElement)) throw new Error('RAIZ_LEITURA_AUSENTE');
+		const semanticQuote = document.createElement('div');
+		semanticQuote.setAttribute('role', 'blockquote');
+		semanticQuote.setAttribute('data-jcem-blockquote', '');
+		semanticQuote.innerHTML = '<p>Bloco com seletores semânticos coexistentes.</p><blockquote><p>Subcitação sem cascata de marcadores.</p></blockquote>';
+		root.append(semanticQuote);
+	});
 	const controls = await page.evaluate(() => ({
 		playIcon: document.querySelector('[data-jcem-read-action="play"] i')?.className,
 		pauseIcon: document.querySelector('[data-jcem-read-action="pause"] i')?.className,
@@ -147,7 +158,10 @@ try {
 		canvasHidden: document.querySelector('[data-jcem-chart-canvas]')?.closest('[aria-hidden="true"]') !== null,
 	}));
 	const speech = fixture.spoken.map(({ text }) => text).join(' ');
-	const quotationMarkersPresent = speech.includes('Início da citação.') && speech.includes('Fim da citação.');
+	const quotationMarkers = {
+		open: countToken(speech, 'Início da citação.'),
+		close: countToken(speech, 'Fim da citação.'),
+	};
 	const continuousHeading = fixture.spoken.find(({ text }) => text.includes('Citações e referência'))?.text || '';
 	const continuousReference = fixture.spoken.find(({ text }) => text.includes('Fixture técnica JCEM'))?.text || '';
 	const continuousBiblical = fixture.spoken.find(({ text }) => text.startsWith('Casos bíblicos:'))?.text || '';
@@ -202,6 +216,9 @@ try {
 		throw new Error(`MARCADOR_FOOTNOTE_ISOLADO ${continuousReference}`);
 	}
 	if (speech.includes('Sumário do artigo.')) throw new Error('TOC_INTERROMPEU_MODO_CONTINUO');
+	if (quotationMarkers.open !== 2 || quotationMarkers.close !== 2) {
+		throw new Error(`MARCADORES_CITACAO_INVALIDOS ${JSON.stringify(quotationMarkers)}`);
+	}
 	const tocStructure = await page.evaluate(() => {
 		const toc = document.querySelector('[data-jcem-article-toc]');
 		return {
@@ -224,6 +241,9 @@ try {
 	if (!summarySpeech.includes('Referência 1:') || summarySpeech.includes('Sumário do artigo.')) {
 		throw new Error(`MODO_REFERENCIA_RESUMIDA_INVALIDO ${summarySpeech}`);
 	}
+	if (countToken(summarySpeech, 'Início da citação.') !== 2 || countToken(summarySpeech, 'Fim da citação.') !== 2) {
+		throw new Error(`MARCADORES_CITACAO_RESUMIDA_INVALIDOS ${summarySpeech}`);
+	}
 	if (expectedShortBiblical.some((reference) => !summarySpeech.includes(reference)) || /Gênesis\s+2\s+para\s+7/iu.test(summarySpeech)) {
 		throw new Error(`REFERENCIA_BIBLICA_RESUMIDA_INVALIDA ${summarySpeech}`);
 	}
@@ -237,6 +257,9 @@ try {
 	const fullFixture = await page.evaluate(() => window.__jcemSpokenFixture);
 	const fullSpeech = fullFixture.map(({ text }) => text).join(' ');
 	if (!fullSpeech.includes('Referência 1: JCEM. Fixture de leitura acessível. 2026.')) throw new Error(`MODO_REFERENCIA_COMPLETA_AUSENTE ${fullSpeech}`);
+	if (countToken(fullSpeech, 'Início da citação.') !== 2 || countToken(fullSpeech, 'Fim da citação.') !== 2) {
+		throw new Error(`MARCADORES_CITACAO_COMPLETA_INVALIDOS ${fullSpeech}`);
+	}
 	const expectedLongBiblical = [
 		'Gênesis, capítulo 2, versículo 7',
 		'Apocalipse, capítulo 14, versículo 12',
@@ -313,8 +336,6 @@ try {
 	if (await page.locator('[data-jcem-chart-renderer], [data-jcem-chart-adapter], [data-jcem-read-aloud-runtime]').count()) {
 		throw new Error('ASSET_CONDICIONAL_NA_HOME');
 	}
-	if (!quotationMarkersPresent) throw new Error('MARCADORES_CITACAO_AUSENTES');
-
 	console.log(`accessible_runtime=ok spoken_units=${fixture.spoken.length} chart=${fixture.chartVersion}`);
 } finally {
 	await browser.close();
