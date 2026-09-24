@@ -1,192 +1,224 @@
-Gere **exclusivamente o overlay**, com **PNG e canal Alpha/transparência real**, destinado a ser sobreposto posteriormente a imagens temáticas diferentes.
+# Overlay editorial reutilizável para série de bate-papos sobre livro
 
-Devem ser geradas **duas variantes do mesmo overlay**, ambas coerentes entre si como identidade visual da mesma série:
+## Parâmetros — definir somente aqui
 
-1. **versão horizontal** em **1200×630 px** (proporção **40:21**);
-2. **versão quadrada** em **1:1**, destinada a **cover de Instagram**.
+Toda informação variável DEVE ser definida exclusivamente neste cabeçalho e, no restante do prompt, apenas referenciada. NÃO crie novos parâmetros salvo necessidade material imprevisível; informações inequivocamente deriváveis destes NÃO justificam nova variável.
 
-O overlay representa a identidade visual geral da série de **bate-papos sobre o livro _Primeiros Escritos_**.  
-A imagem de fundo, **NÃO** fornecida aqui, conterá o **tema específico de cada episódio**; portanto, o overlay DEVE preservar ampla área útil para que esse conteúdo posterior — especialmente **ilustração de fundo** e **título do tópico do dia** — tenha o maior destaque da composição final.
+- **LIVRO:** `[título/nome exato da obra]` — obrigatório.
+- **DETALHES_LIVRO:** `[edição, capa, cor, acabamento, lombo, tipografia e/ou características relevantes]` — opcional; ausência = inferir somente de referência confiável.
+- **CONTEXTO_ESPIRITUAL:** `[SIM/NÃO]` — opcional; ausência = `SIM`.
+- **USAR_SIMBOLO_IASD:** `[SIM/NÃO]` — opcional; ausência = `SIM`.
 
-## Conceito editorial obrigatório
-
-A composição DEVE deixar claro que:
-
-- o **livro _Primeiros Escritos_** é o **contexto macro** da série;
-- o **assunto específico do dia** é o **contexto principal** de cada peça final;
-- o overlay DEVE possuir identidade, presença e relevância, porém **em proporção inferior ao conteúdo futuro**;
-- o livro e os elementos fixos compõem a identidade-base;
-- o **título do tópico** e a **imagem temática** adicionados posteriormente DEVEM permanecer como os elementos de maior destaque da peça final.
-
-Em outras palavras: o livro DEVE ser visualmente importante, mas **não pode competir em protagonismo com o tópico específico de cada episódio**.
+O título exibido DEVE ser exatamente `LIVRO`.
 
 ---
 
-## Referência visual obrigatória do livro
+## Objetivo
 
-O livro representado DEVE ser o **livro _Primeiros Escritos_**, em sua apresentação visual característica de:
+Gere **exclusivamente o overlay**, em **PNG com canal Alpha/transparência real**, destinado à sobreposição posterior sobre imagens temáticas distintas.
 
-- **capa cinza**;
-- aparência de **edição antiga**, tipo **bodô / capa dura antiga / brochura antiga**;
-- visual fiel, realista e coerente com edições conhecidas da obra.
+Crie **duas variantes em alta definição, coerentes como a mesma identidade visual**:
 
-Se houver imagem anexa do livro, ela DEVE ser utilizada como referência principal.
+1. **horizontal:** proporção `40:21`, com no mínimo **1200×630 px**;
+2. **quadrada:** proporção **4:5**, destinada a **cover de Instagram**, com no mínimo **1440×1800 px**.
 
-Se não houver anexo suficiente, PODE-SE pesquisar na internet por imagens **oficiais, autênticas ou confiáveis** de _Primeiros Escritos_ para identificar corretamente:
+O overlay identifica uma série de **bate-papos sobre `LIVRO`**. A **imagem/ilustração temática** e o **título do tópico específico de cada episódio** serão adicionados posteriormente e DEVEM constituir o maior destaque da composição final.
+
+Hierarquia obrigatória:
+
+1. título/tópico específico do episódio;
+2. imagem/ilustração temática do episódio;
+3. representação de `LIVRO`, como contexto macro e identidade recorrente;
+4. título `LIVRO` e expressão **“Bate-papo”** como identificação complementar.
+
+O overlay DEVE possuir presença editorial clara e relevante, sem competir com o assunto do dia.
+
+---
+
+## Fidelidade do livro
+
+A representação de `LIVRO` DEVE ser fiel à obra/edição pretendida.
+
+Precedência de referência:
+
+1. imagem anexa do livro, quando existente e suficiente;
+2. `DETALHES_LIVRO`, para complementar ou delimitar a referência;
+3. pesquisa de imagens **oficiais, autênticas ou confiáveis**, exclusivamente para suprir informações ausentes ou insuficientes.
+
+Quando existentes, preservar corretamente:
 
 - capa;
+- lombo/borda lateral;
 - proporções;
-- acabamento;
+- acabamento/materialidade;
 - tipografia;
-- lombo;
-- posicionamento dos elementos;
-- símbolo presente na capa.
+- elementos gráficos/editoriais característicos.
 
-O nome **“Primeiros Escritos”** DEVE estar:
+`LIVRO` DEVE aparecer:
 
-- corretamente grafado;
-- legível;
-- sem letras trocadas, omitidas ou deformadas;
-- correto também no **lombo/lateral do livro**.
+- exatamente grafado;
+- perfeitamente legível;
+- sem letras omitidas, trocadas, deformadas ou inventadas;
+- igualmente correto no **lombo/lateral**, quando ali constar.
 
----
-
-## Logotipo/símbolo da Igreja Adventista do Sétimo Dia
-
-O símbolo oficial da **Igreja Adventista do Sétimo Dia** DEVE ser utilizado **exclusivamente como parte da confecção/reprodução visual da capa do livro**, quando essa identidade estiver presente ou for necessária para representar corretamente a edição usada como referência.
-
-### Uso obrigatório
-
-- DEVE ser usada a **versão oficial composta apenas pelo símbolo/desenho**, **sem o nome escrito da igreja, sem letras e sem assinatura tipográfica institucional**;
-- o símbolo DEVE corresponder visualmente ao emblema oficial verdadeiro da Igreja Adventista do Sétimo Dia;
-- NÃO DEVE ser redesenhado de maneira arbitrária, estilizado a ponto de perder fidelidade ou substituído por símbolo genérico semelhante;
-- sua aplicação DEVE respeitar proporção, orientação e aparência institucional adequadas;
-- seu uso é destinado **à composição da capa do livro**, e NÃO como elemento independente de branding do overlay.
-
-Portanto, o overlay **NÃO DEVE apresentar um segundo logotipo adventista separado da capa**, salvo se isso fizer parte inequívoca da referência real do próprio livro.
-
-O objetivo é reproduzir de modo coerente e reconhecível a identidade editorial da capa, utilizando o símbolo oficial em contexto editorial/referencial e sob a diretriz de **uso justo**.
+NÃO invente características da edição sem evidência suficiente.
 
 ---
 
-## Elementos obrigatórios do overlay
+## Símbolo oficial da IASD
 
-O overlay DEVE incluir, de forma equilibrada:
+Somente se `USAR_SIMBOLO_IASD = SIM`:
 
-- a **capa/livro _Primeiros Escritos_**;
-- o título **“Primeiros Escritos”**;
-- a expressão **“Bate-papo”**, podendo receber iconização discreta e pertinente.
+- PODE ser utilizado o **símbolo oficial verdadeiro da Igreja Adventista do Sétimo Dia**;
+- usar exclusivamente sua versão **gráfica/símbolo, sem nome, letras ou assinatura tipográfica institucional**;
+- DEVE ser integrado **ao próprio livro**, na **capa e/ou lombo/borda lateral**, conforme coerência visual com a edição representada;
+- NÃO DEVE funcionar como logotipo independente, assinatura institucional ou branding externo do overlay;
+- NÃO DEVE existir segunda aplicação solta do símbolo;
+- desenho, proporção e orientação oficiais DEVEM ser preservados, sem reinvenção ou descaracterização.
 
-O símbolo adventista, quando utilizado, DEVE estar **integrado à capa do livro**, e NÃO funcionar como elemento independente concorrendo com o restante da composição.
-
-Esses elementos DEVEM constituir a **identidade editorial fixa da série**, sem assumir o protagonismo do tópico específico do episódio.
+Se `USAR_SIMBOLO_IASD != SIM`, NÃO o utilize.
 
 ---
 
-## Ocupação visual e transparência
+## Conteúdo fixo
 
-O overlay NÃO DEVE cobrir excessivamente a imagem que será posicionada abaixo.
+O overlay DEVE conter, de forma complementar e sem redundância:
 
-### Conteúdo útil
+- representação de `LIVRO`;
+- título `LIVRO`;
+- expressão **“Bate-papo”**, admitindo iconização discreta e pertinente.
 
-O conteúdo visual efetivo do overlay — livro, título, “Bate-papo” e demais elementos informativos principais — DEVE terminar, no máximo, em aproximadamente **40% da largura**, considerando o lado em que estiver ancorado.
+Esses elementos constituem a identidade fixa da série; **NÃO** o assunto principal do episódio.
 
-O conteúdo principal do overlay NÃO DEVE avançar além dessa faixa.
+---
 
-### Limite de interferência
+## Robustez sobre qualquer fundo
 
-O overlay NÃO DEVE bloquear de maneira visualmente densa mais que **50% da largura total**.
+O overlay DEVE manter alta legibilidade e consistência quando sobreposto a fundos:
 
-Efeitos de transição, degradê, brilho, sombra ou fade PODEM ultrapassar os 40%, desde que:
+- claros ou escuros;
+- simples ou detalhados;
+- fotográficos ou ilustrados;
+- monocromáticos ou multicoloridos;
+- de baixo ou alto contraste.
 
-- sejam apenas elementos de integração visual;
+PODEM ser usados, com moderação:
+
+- sombra;
+- halo/glow;
+- degradê;
+- contraste localizado;
+- transição de opacidade;
+- elementos flat/infográficos;
+- recurso equivalente.
+
+Esses recursos DEVEM proteger a legibilidade e integrar o overlay ao fundo sem criar massas opacas excessivas nem reduzir desnecessariamente a área reservada ao episódio.
+
+---
+
+## Ocupação e transparência
+
+O **conteúdo útil real** — livro, título, “Bate-papo” e demais informações fixas — DEVE terminar, no máximo, em aproximadamente **40% do eixo de ocupação do overlay**:
+
+- **largura**, quando a composição for lateral/horizontal;
+- **altura**, quando a variante 4:5 adotar composição vertical.
+
+O overlay NÃO DEVE bloquear densamente mais de **50% desse mesmo eixo**.
+
+Efeitos exclusivamente transitórios — fade, degradê, sombra, brilho ou equivalentes — PODEM ultrapassar 40%, desde que:
+
 - NÃO contenham informação principal;
-- a partir da marca de **50% da largura**, já estejam em **no máximo 50% de alpha/opacidade**;
-- continuem reduzindo sua opacidade de maneira suave;
-- NÃO prejudiquem a futura ilustração nem o título do episódio.
+- ao atingir 50% do eixo, possuam **alpha/opacidade ≤ 50%**;
+- depois disso, caminhem progressivamente para maior transparência;
+- NÃO prejudiquem a futura ilustração ou o título do episódio.
 
-Assim:
+Regra:
 
-- **até 40%** → pode existir conteúdo editorial útil;
-- **40–50%** → apenas transição/integração visual, quando necessária;
-- **a partir de 50%** → efeitos já DEVEM estar com alpha ≤ 50% e caminhando para transparência.
+- **0–40%:** conteúdo editorial útil permitido;
+- **40–50%:** somente integração/transição visual;
+- **≥50%:** apenas transição com alpha ≤ 50%, reduzindo progressivamente.
 
-A transparência DEVE ser **real**, com canal Alpha verdadeiro.
+A transparência DEVE ser **real**. É PROIBIDO simulá-la com branco, preto, quadriculado ou qualquer preenchimento.
 
 ---
 
-# Variante 1 — Horizontal 1200×630
+## Variante horizontal — `40:21`
 
-A versão horizontal DEVE:
+DEVE:
 
-- possuir exatamente **1200×630 px**;
-- preferencialmente concentrar o overlay em **um único lado**;
-- reservar a maior área visual para:
-  - ilustração temática do episódio;
-  - título principal do tópico;
+- possuir no mínimo **1200×630 px**;
+- preferencialmente concentrar o overlay em um único lado;
+- manter o núcleo informacional nos primeiros ~40% da largura;
+- reservar a maior área nobre para:
+  - imagem/ilustração temática;
+  - título do episódio;
   - eventual informação complementar futura.
 
-O núcleo útil do overlay DEVE terminar até aproximadamente **40% da largura**.
-
-A transição visual PODE avançar além desse limite somente conforme as regras de transparência anteriormente definidas.
-
-O restante da composição DEVE permanecer suficientemente livre e visualmente adequado para receber o conteúdo principal de cada episódio.
+A transição visual PODE ultrapassar 40% somente conforme a regra global de ocupação/transparência.
 
 ---
 
-# Variante 2 — Quadrada 1:1 para Instagram
+## Variante 4:5 — Instagram
 
-A versão **1:1** DEVE manter a mesma identidade visual, porém ser **realmente recomposta para o formato quadrado**, e NÃO simplesmente redimensionada ou comprimida a partir da versão horizontal.
+DEVE preservar a mesma identidade visual, porém ser **recomposta especificamente para 4:5**, e NÃO apenas redimensionada/comprimida e ter no mínimo 1440x1800px.
 
-A composição DEVE determinar de forma visualmente adequada se o overlay ficará:
+A composição PODE:
 
-- predominantemente lateral/horizontal; ou
-- organizado verticalmente.
+- permanecer lateral/horizontal; ou
+- ser reorganizada verticalmente,
 
-A decisão DEVE privilegiar:
+conforme a solução que melhor preserve:
 
-- área útil para o conteúdo futuro;
-- destaque adequado do tópico;
-- leitura em dispositivos móveis;
-- equilíbrio da capa do livro;
-- consistência com a versão horizontal.
+- protagonismo do tópico futuro;
+- ampla área para título e ilustração;
+- leitura mobile;
+- equilíbrio e legibilidade do livro;
+- coerência com a versão horizontal;
+- baixa interferência visual do overlay.
 
-As proporções de ocupação DEVEM ser adaptadas ao formato quadrado de forma equivalente ao princípio original:
+Se permanecer horizontal, aplique os limites de 40/50% à **largura**.  
+Se adotar orientação vertical, aplique-os proporcionalmente à **altura**.
 
-- o conteúdo útil do overlay NÃO DEVE dominar a composição;
-- a transição visual PODE ultrapassar sua área estrutural somente de maneira suave e transparente;
-- a maior área nobre DEVE permanecer destinada ao **título e à imagem do episódio**.
-
-A versão quadrada é destinada especificamente a **cover de Instagram** e DEVE reservar espaço visual suficiente para leitura clara do tópico em tela pequena.
-
----
-
-## Hierarquia editorial
-
-A hierarquia visual DEVE obedecer:
-
-1. **tema/título específico do episódio** — maior protagonismo futuro;
-2. **imagem/ilustração temática do episódio**;
-3. **livro _Primeiros Escritos_** como identidade macro da série;
-4. **“Primeiros Escritos” / “Bate-papo”** como identificação complementar.
-
-O overlay DEVE, portanto, ser suficientemente marcante para estabelecer identidade recorrente, mas suficientemente contido para NÃO dominar cada peça.
+Em qualquer caso, prevalece o princípio: **identidade concentrada; conteúdo futuro dominante**.
 
 ---
 
 ## Direção estética
 
-Ambas as variantes DEVEM apresentar:
+Ambas as variantes DEVEM ser:
 
-- composição profissional;
-- aparência editorial premium;
-- elegância;
-- contemporaneidade;
-- coerência entre si;
-- ótima legibilidade;
-- riqueza visual controlada;
-- integração suave com a transparência;
-- excelente funcionamento sobre imagens temáticas variadas.
+- profissionais;
+- editoriais;
+- premium;
+- elegantes;
+- contemporâneas;
+- visualmente ricas sem poluição;
+- consistentes entre si;
+- reutilizáveis sobre temas variados.
+
+### Contexto espiritual
+
+Se `CONTEXTO_ESPIRITUAL = SIM`, a linguagem visual DEVE sugerir, com sobriedade:
+
+- inspiração;
+- espiritualidade reverente;
+- fé;
+- revelação;
+- profecia;
+- contemplação;
+- solenidade.
+
+DEVE evitar associações visuais com:
+
+- espiritualismo;
+- espiritismo;
+- ocultismo;
+- esoterismo;
+- misticismo genérico;
+- sincretismo;
+- fantasia espiritual ambígua.
+
+Se `CONTEXTO_ESPIRITUAL = NÃO`, NÃO force essa camada semântica.
 
 ---
 
@@ -194,30 +226,25 @@ Ambas as variantes DEVEM apresentar:
 
 É PROIBIDO:
 
-- ocupar excessivamente a área reservada ao tema do episódio;
-- competir visualmente com o título futuro;
 - transformar o overlay em thumbnail completa;
-- repetir informação sem função;
+- ocupar excessivamente a área destinada ao episódio;
+- competir com título/ilustração futuros;
+- colocar conteúdo útil além do limite de 40%;
 - usar grandes massas opacas;
-- criar aparência de faixa/moldura rígida sem integração;
-- utilizar ornamentos excessivos ou genéricos;
-- simular transparência com branco, preto, quadriculado ou outro fundo;
-- usar o logotipo completo da Igreja Adventista com nome/letras;
-- usar o símbolo adventista como elemento solto de branding quando sua função aqui é **compor corretamente a capa do livro**;
-- distorcer, reinventar ou descaracterizar o símbolo oficial.
+- criar faixa/moldura rígida sem integração visual;
+- repetir elementos sem função;
+- usar ornamentos genéricos excessivos;
+- comprometer legibilidade sobre fundos variados;
+- inventar características do livro sem referência;
+- usar o símbolo da IASD fora das condições definidas.
 
 ---
 
-## Objetivo final
+## Resultado
 
-O resultado DEVE parecer uma **identidade editorial reutilizável de alto nível para uma série de bate-papos sobre _Primeiros Escritos_**, composta por:
+Entregue **somente as duas variantes do overlay**:
 
-- uma versão **1200×630**;
-- uma versão **1:1 para Instagram**.
+- **40:21**;
+- **4:5 para Instagram**.
 
-Em ambas:
-
-- o livro estabelece o **contexto macro**;
-- o símbolo oficial adventista, em sua versão **somente símbolo, sem letras**, integra corretamente a **capa do livro**;
-- o overlay permanece importante, mas secundário ao conteúdo específico;
-- ampla área visual é preservada para a **imagem e o título do tópico do dia**, que constituirão o principal foco da peça final.
+Ambas DEVEM estabelecer `LIVRO` como **contexto macro recorrente**, preservando ampla área visual dominante para a **imagem e o título do tópico específico de cada episódio**, que serão adicionados posteriormente.
