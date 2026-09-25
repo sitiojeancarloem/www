@@ -107,3 +107,66 @@ dependencias=FT-088
 resultado=Seletor semântico comum implementado; blocos externos recebem um único par de fronteiras e subcitações não geram cascata.
 verificacoes=Build isolado, runtime nos três modos, navegador e npm run check integral aprovados; rastreabilidade escopada 75/75.
 pendencias=Validação auditiva humana da naturalidade das fronteiras faladas.
+
+FT-090|nome=Normatização de COVER, OG e overlays 4:5|escopo=tecnico|status=registrada_nao_iniciada
+objetivo=Equalizar e normatizar a evolução da proporção vertical para 4:5, o catálogo de overlays, a composição segura, os metadados e a prevenção de dupla otimização sem regredir COVER, OG ou web.
+origem=TODO.ia.md@d6e48a9b90defd21b6ff07760b82cec1456c4362 e .ia.rules/state/requests/FT-090/prompt.md
+contexto=.ia.rules/state/contexts/FT-090/master.md
+dependencias=nenhuma
+pendencias=Executar inventário integral e consolidar o contrato normativo; nenhuma implementação pertence a esta FT.
+
+FT-091|nome=Implementação de COVER, OG e overlays 4:5|escopo=tecnico|status=registrada_bloqueada_por_dependencia_e_autorizacao
+objetivo=Implementar discovery, resolução, composição, geração, formatos, metadados, cache e documentação de uso no pipeline existente.
+origem=TODO.ia.md@d6e48a9b90defd21b6ff07760b82cec1456c4362 e .ia.rules/state/requests/FT-090/prompt.md
+contexto=.ia.rules/state/contexts/FT-090/master.md
+dependencias=FT-090
+pendencias=Aguardar conclusão e commit da FT-090 e autorização humana posterior de implementação.
+
+FT-092|nome=Integração e validação de COVER, OG e overlays 4:5|escopo=tecnico|status=registrada_bloqueada_por_dependencia_e_autorizacao
+objetivo=Provar resolução, dominância, ambiguidade, formatos, metadados, cache, casos reais e ausência de regressão visual e funcional.
+origem=TODO.ia.md@d6e48a9b90defd21b6ff07760b82cec1456c4362 e .ia.rules/state/requests/FT-090/prompt.md
+contexto=.ia.rules/state/contexts/FT-090/master.md
+dependencias=FT-091
+pendencias=Aguardar implementação e autorização humana posterior de integração e validação.
+
+FT-093|nome=Normatização de síntese, edição e acessibilidade de leitura|escopo=tecnico|status=registrada_nao_iniciada
+objetivo=Equalizar e normatizar a distinção entre síntese conversacional e edição autoral, a preservação de voz e a acessibilidade para baixa escolaridade sem reduzir conteúdo.
+origem=TODO.ia.md@d6e48a9b90defd21b6ff07760b82cec1456c4362 e .ia.rules/state/requests/FT-090/prompt.md
+contexto=.ia.rules/state/contexts/FT-093/master.md
+dependencias=nenhuma
+pendencias=Inventariar capacidades canônicas e deltas locais e consolidar o contrato normativo; nenhuma implementação pertence a esta FT.
+
+FT-094|nome=Implementação de síntese, edição e acessibilidade de leitura|escopo=tecnico|status=registrada_bloqueada_por_dependencia_e_autorizacao
+objetivo=Materializar somente o delta local necessário em mecanismo oficial reutilizável, preservando a capacidade canônica editorial e a voz autoral.
+origem=TODO.ia.md@d6e48a9b90defd21b6ff07760b82cec1456c4362 e .ia.rules/state/requests/FT-090/prompt.md
+contexto=.ia.rules/state/contexts/FT-093/master.md
+dependencias=FT-093
+pendencias=Aguardar conclusão e commit da FT-093 e autorização humana posterior de implementação.
+
+FT-095|nome=Integração e validação de síntese, edição e acessibilidade de leitura|escopo=tecnico|status=registrada_bloqueada_por_dependencia_e_autorizacao
+objetivo=Provar síntese conversacional, preservação autoral, alternativa explicitamente marcada, glossas técnicas e ausência de enfraquecimento normativo.
+origem=TODO.ia.md@d6e48a9b90defd21b6ff07760b82cec1456c4362 e .ia.rules/state/requests/FT-090/prompt.md
+contexto=.ia.rules/state/contexts/FT-093/master.md
+dependencias=FT-094
+pendencias=Aguardar implementação e autorização humana posterior de integração e validação.
+
+FT-096|nome=Normatização da revisão automatizada e portabilidade local|escopo=tecnico|status=registrada_bloqueada_por_dependencia
+objetivo=Definir gatilhos, escopo, salvaguardas, contratos modulares e fronteira local da revisão por IA, incluindo material de proposta upstream sem publicação externa.
+origem=TODO.ia.md@d6e48a9b90defd21b6ff07760b82cec1456c4362 e .ia.rules/state/requests/FT-090/prompt.md
+contexto=.ia.rules/state/contexts/FT-096/master.md
+dependencias=FT-090,FT-093
+pendencias=Aguardar a consolidação normativa das capacidades de imagem e edição que a revisão deverá orquestrar.
+
+FT-097|nome=Implementação da revisão automatizada e pacote de proposta upstream|escopo=tecnico|status=registrada_bloqueada_por_dependencia_e_autorizacao
+objetivo=Implementar a Action e os adaptadores locais mínimos e gerar material sanitizado de proposta, sem abrir issue nem atuar no upstream.
+origem=TODO.ia.md@d6e48a9b90defd21b6ff07760b82cec1456c4362 e .ia.rules/state/requests/FT-090/prompt.md
+contexto=.ia.rules/state/contexts/FT-096/master.md
+dependencias=FT-091,FT-094,FT-096
+pendencias=Aguardar capacidades locais e norma da Action concluídas, além de autorização humana posterior de implementação.
+
+FT-098|nome=Integração e validação da revisão automatizada e portabilidade|escopo=tecnico|status=registrada_bloqueada_por_dependencia_e_autorizacao
+objetivo=Provar seleção mínima de artigos, salvaguardas, integração das normas, sanitização e ausência de qualquer ação no upstream.
+origem=TODO.ia.md@d6e48a9b90defd21b6ff07760b82cec1456c4362 e .ia.rules/state/requests/FT-090/prompt.md
+contexto=.ia.rules/state/contexts/FT-096/master.md
+dependencias=FT-092,FT-095,FT-097
+pendencias=Aguardar todas as implementações e validações predecessoras e autorização humana posterior de integração.

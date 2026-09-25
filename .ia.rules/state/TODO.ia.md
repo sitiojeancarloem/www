@@ -519,3 +519,136 @@ Este arquivo preserva demandas do desenvolvedor. Estados operacionais seguem a g
       - a exceção estiver formalizada no RCF;
       - o guia ilustrado existir em `docs/` e estiver linkado pelo RCF e pelo `README.md`;
       - testes demonstrarem preservação do fluxo, da impressão IEEE, da web e da integridade visual em múltiplos artigos.
+
+📌 Evoluir norma e implementação de cover/OG/overlay para 4:5, sem regressão
+  - Premissa nuclear:
+    - Isto EXIGE apenas evolução/aprimoramento; NÃO EXIGE regressão.
+    - Se qualquer norma, código ou agente interpretar o pedido como regressão, DEVE interromper e questionar o desenvolvedor antes de prosseguir.
+    - A implementação DEVE partir de inspeção do estado real; É PROIBIDO presumir arquitetura, paths, hooks, scripts, APIs, nomes ou comportamento não comprovados.
+  - Inspeção obrigatória:
+    - Mapear normas, hooks, skills, subAgents, scripts, templates, testes, pipelines, geração de imagem, composição de overlay, otimização e publicação hoje existentes.
+    - Identificar onde a OG “análoga a 1:1” está normatizada, parametrizada, gerada, validada, derivada, publicada ou testada.
+  - Atualização normativa:
+    - Substituir, em toda a governança e implementação correlata, a OG de proporção análoga a `1:1` por `4:5`.
+    - Atualizar textos, defaults, exemplos, validações, testes e automações, preservando compatibilidade semântica com os demais fluxos.
+    - Onde houver conceito “quadrado/análogo ao quadrado”, redefini-lo para “proporção vertical vigente”, atualmente `4:5`, sem cristalizar `1:1` como regra futura.
+  - Overlay canônico:
+    - Canonizar `./assets/images/overlays/<namespace>[/<subnamespace-1>/.../<subnamespace-N>]/` como path de overlays a partir do root do repositório.
+    - O path é canônico, NÃO necessariamente público.
+    - Cada diretório DEVE conter overlays usados para sobrepor imagens de artigos/posts/séries/bate-papos daquele contexto.
+    - Overlays são read-only para IA/subAgents.
+  - Arquivos de overlay:
+    - Em cada diretório elegível DEVE haver ao menos:
+      - 1 overlay horizontal `wide` (proporção atual `40:21`);
+      - 1 overlay não-`wide` (proporção vigente análoga ao quadrado, agora `4:5`; antes `1:1`; no futuro, a que a substituir).
+    - A nomenclatura DEVE seguir basename case-insensitive compatível com `YYYY([\-_,\. ]?XXX)?([\-_,\. ]?wide)?`, onde:
+      - `YYYY` = ano com 4 dígitos;
+      - `XXX` = string opcional, tamanho livre, derivada de um dos subnamespaces finais quando isso estiver explícito;
+      - `wide` = variante horizontal;
+      - ausência de `wide` = variante não-horizontal vigente.
+    - Podem existir múltiplos arquivos; para uso, APENAS o ano mais recente é vigente.
+  - Resolução/dominância:
+    - A cadeia completa `<subnamespace-1>/.../<subnamespace-N>` NÃO é obrigatória.
+    - Estruturas superiores dominam inferiores, mas isso NÃO autoriza inferir `XXX` quando ele não estiver explícito.
+    - Se mais de um arquivo do mesmo ano no mesmo diretório for elegível para o mesmo post/artigo:
+      - DEVE falhar em hard error;
+      - o erro DEVE ser inequívoco, direto, rastreável e explicar: o que ocorreu, onde, quando, quais arquivos concorreram, qual regra foi violada, a causa provável, a origem da ambiguidade e como corrigir.
+    - Se a regra de dominância/resolução não puder ser implementada sem arbitrariedade a partir do estado real, DEVE parar e pedir decisão explícita ao desenvolvedor.
+  - Estratégia obrigatória para cover/OG:
+    - Toda cover e OG DEVE ser gerada ou derivada para receber overlay.
+    - Quando gerada automaticamente por IA, a imagem DEVE nascer já prevendo a área ocupada pelo overlay.
+    - O conteúdo principal útil — inclusive elemento principal da ilustração, título e demais elementos críticos — NÃO DEVE cair sob o overlay - entretanto, isso NÃO DEVE gerar descontinuidade ou ausência de fluidez.
+    - A imagem inteira DEVE permanecer fluida, completa e coerente, com fundo pertinente em toda a área; É PROIBIDO “reservar vazio”, criar sensação de corte, quebra ou interrupção visual para a área do overlay.
+    - A composição DEVE orientar a atenção para regiões seguras, sem concentrar artificialmente tudo em um único ponto (regiões seguras).
+  - Qualidade visual obrigatória:
+    - Cover e OG geradas por IA DEVEM ser profissionais, elegantes, atraentes, adequadas a marketing e coerentes com o artigo.
+    - O título do post/artigo DEVE ser legível, destacado e posicionado fora da área de ofuscamento do overlay.
+    - A ilustração DEVE ser bela, coerente com tema/contexto e priorizar a preservação visível dos elementos que realmente transmitem a ideia central.
+    - Elegância/profissionalismo NÃO PROÍBEM humor, sarcasmo, criatividade ou audácia; tais recursos PODEM ser usados quando o contexto do artigo os justificar.
+  - Baseline normativa de prompting para imagem:
+    - Formalizar template/skill/prompt-base reutilizável para cover/OG/thumbnail, exigindo no mínimo:
+      - objetivo da peça;
+      - tipo (`cover`, `OG`, `thumbnail`);
+      - proporção alvo;
+      - contexto do artigo/post;
+      - público;
+      - assunto central;
+      - tom/estilo;
+      - elementos obrigatórios;
+      - elementos proibidos;
+      - hierarquia visual;
+      - safe area livre para overlay;
+      - posição/legibilidade do título;
+      - instruções de composição, continuidade visual e não-obscurecimento;
+      - requisitos de qualidade/renderização;
+      - formato de saída;
+      - critérios de aceite.
+    - O prompt DEVE ser específico, orientado a resultado, conter prioridades explícitas, restrições negativas claras e usar referências visuais quando existirem; a pipeline DEVE suportar imagens de referência e controle de formato/compressão【turn534240view3†L3190-L3200】【turn534240view2†L5291-L5295】.
+    - Aplicar o mesmo rigor de prompting, quando couber, às demais solicitações correlatas, sem inflar escopo.
+  - Implementação:
+    - Atualizar discovery, seleção, composição e aplicação de overlays.
+    - Atualizar geradores automáticos, templates, prompts, validadores e derivadores para `4:5`.
+    - A implementação PODE combinar skill, subAgent e script; deve privilegiar reaproveitamento, especialização reutilizável e bibliotecas OSS maduras/manutenidas; evitar reimplementar o que já exista com qualidade suficiente.
+  - Otimização/formato:
+    - A imagem-base gerada DEVE usar `png` ou formato objetivamente superior ao caso.
+    - Após a sobreposição:
+      - `cover` DEVE ser exportada em `webp` ou equivalente de alta compressão com mínima perda perceptível;
+      - `OG` DEVE permanecer em `png` ou `jpg`, com compressão máxima compatível com a melhor qualidade possível.
+    - Uma mesma imagem NUNCA DEVE ser otimizada duas vezes, salvo se o binário tiver sido alterado.
+    - Registrar/derivar metadado suficiente para impedir dupla otimização acidental.
+    - É obrigatório que todo arquivo gerado inclua metadados estruturados (EXIF ou formato equivalente) contendo as seguintes propriedades:
+      1. **Licença (License):** `CC-BY-NC-SA-4.0`
+      2. **URL da Licença (License URL):** `https://creativecommons.org/licenses/by-nc-sa/4.0/` (se houver suporte no formato do metadado)
+      3. **Autor (Author/Creator):** `[Nome Original]`
+      4. **Data de Criação (Creation Date):** `[Data de Criação Original]`
+      5. **Mapeamento Dinâmico de Autor:** Verifique o repositório em busca de um arquivo `CNAME` ou indicador de domínio equivalente em outro lugar apropriado. Se encontrado, extraia o site de publicação e inclua-o junto às informações do autor.
+  - Validação/aceite:
+    - Testar resolução de overlay, dominância, escolha do ano vigente, distinção `wide`/não-`wide`, ambiguidade por `XXX`, falhas com erro explícito e prevenção de dupla otimização. Fail-safe. Sempre em qualquer situação entanda fail-safe como não falhar, mas contornar todas as possíveis falhas, garantindo execução para tudo que é programaticamente possível de ser resolvido.
+    - Testar ao menos um caso real por série/bate-papo/artigo afetado.
+    - Verificar visualmente que o overlay não encobre título nem elementos centrais.
+    - Verificar que toda referência residual a OG `1:1` foi removida ou conscientemente mantida como histórico, nunca como regra vigente.
+
+📌 Evoluir regras e pipeline de edição/sintetização por IA com acessibilidade de leitura
+  - Premissas:
+    - Inspecionar normas existentes (`agents`, hooks locais, especializações, skills, prompts, revisores e afins) antes de alterar.
+  - Sintetização:
+    - O recurso de sintetização DEVE abranger qualquer conceito análogo de conversa, bate-papo, gravação, áudio transcrito ou conteúdo conversacional correlato.
+    - Conteúdo sintetizado por IA NÃO está preso ao estilo linguístico/literário de autor humano, pois não há autor originário a preservar.
+  - Edição de conteúdo não sintetizado:
+    - Toda revisão/edição/redação assistida de posts, artigos e demais textos não gerados pela IA/subAgents DEVE preservar, quando aplicável, o estilo linguístico, redacional e literário do autor, inclusive modo de se expressar e pontuar.
+    - A preservação de estilo NEM SEMPRE implica manter redação desnecessariamente difícil quando houver reescrita possível sem perda de voz autoral - versões alternativa do mesmo parágrafo podem ser geradas preservando o original comentado, DESDE que seja criado marcação clara e inequivoca identifdicando ambos, e explicitando que houve adulteração/alteração do estilo linguistico. Tratar isso como excessão pontual.
+  - Acessibilidade de leitura:
+    - Formalizar e ampliar a diretriz de “acessibilidade de leitura” para leitores com escolaridade baixa e provável analfabetismo funcional.
+    - Toda edição redacional feita por IA/subAgents DEVE:
+      - usar formulações tão simples quanto possível;
+      - preservar integralmente conteúdo, força, nuances e complexidade do tema;
+      - facilitar interpretação, sem reducionismo;
+      - preferir frases/parágrafos mais claros e diretos, sem empobrecimento conceitual.
+    - Termos técnicos/rebuscados PODEM ser mantidos quando necessários; no primeiro uso, DEVEM trazer explicação simples e curta entre parênteses, imediatamente após.
+    - Assuntos complexos DEVEM ser tratados com plenitude; a simplificação é de linguagem, não de substância.
+  - Arquitetura:
+    - Evoluir a governança principal e/ou especializações locais via hook/skill/subAgent/script, isolando a regra de acessibilidade de leitura para reaproveitamento e ampliação futura.
+    - Tudo que for relativo a edição/revisão/auxílio de redação DEVE ser pensado, tanto quanto viável, para uso duplo:
+      - especializado neste repositório;
+      - facilmente adaptável depois para `agents.md`/governança principal.
+  - Validação/aceite:
+    - Testar síntese conversacional, edição preservando voz autoral e aplicação de glossas simples em termos técnicos.
+    - Validar que a nova diretriz ficou mais abrangente/eficiente sem enfraquecer as normas anteriores.
+    - Validar que conteúdo sintetizado e conteúdo autoral obedecem regras distintas, sem mistura indevida.
+
+📌 Implantar revisão por IA de artigos e preparar portabilidade/upstream sem prosseguir no upstream
+  - GitHub Action:
+    - Criar/ajustar Action de revisão por IA/subAgents para artigos em draft ou já publicados que tenham sido alterados/editados.
+    - A Action DEVE operar sobre o estado real e aplicar as normas de edição, acessibilidade de leitura e, quando pertinente, regras de cover/OG/overlay.
+    - Definir gatilhos, escopo e salvaguardas somente após inspeção do fluxo real do repositório.
+  - Portabilidade:
+    - Tudo que for implementado para revisão, edição e auxílio redacional DEVE, tanto quanto tecnicamente viável, já nascer modularizado para reaproveitamento posterior em `agents.md`, como hook, skill, cenário, subAgent ou fluxo principal equivalente.
+    - Priorizar contratos e interfaces estáveis entre norma, prompt, skill, script e Action.
+  - Upstream:
+    - Após a implementação estar concluída, DEVE ser preparada uma ou mais sugestões de issue para o repositório upstream de `agents.md`.
+    - Essas sugestões DEVEM incluir, quando não houver dado sensível/crítico, normas, termos, código, prompts, scripts e demais artefatos úteis (ainda que parciais [trechos pertinentes]) para reduzir retrabalho no upstream de `agents.md`.
+    - NÃO abrir, NÃO publicar e NÃO dar prosseguimento na issue em `agents.md`; gerar apenas material pronto/sugerido/local.
+  - Validação/aceite:
+    - Confirmar que a Action revisa apenas o necessário e não impõe regressões.
+    - Confirmar que o material upstream ficou sanitizado, modular e reaproveitável.
+    - Confirmar que nenhuma ação automática foi executada no repositório upstream.
