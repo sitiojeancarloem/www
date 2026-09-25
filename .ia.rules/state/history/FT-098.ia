@@ -1,0 +1,8 @@
+FT-098|nome=Integração e validação da revisão automatizada e portabilidade|escopo=tecnico|status=concluida|autorizacao=humana|conclusao=2026-09-24T23:25:05-03:00
+objetivo=Provar seleção mínima de artigos, salvaguardas, integração das normas, sanitização e ausência de qualquer ação no upstream.
+origem=TODO.ia.md@d6e48a9b90defd21b6ff07760b82cec1456c4362 e .ia.rules/state/requests/FT-090/prompt.md
+contexto=.ia.rules/state/contexts/FT-096/master.md
+dependencias=FT-092,FT-095,FT-097
+resultado=Revisão automatizada integrada e validada sem efeitos em corpus, Git, publicação ou upstream.
+verificacoes=Matriz cobre seleção, renomeação, remoção, traversal, symlink, limites, base inválida, corpus intacto, sanitização e execução local real.
+pendencias=Provedor de IA não configurado por desenho; pacote registra provider=pending sem fabricar aprovação.

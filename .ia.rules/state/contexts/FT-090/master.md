@@ -1,6 +1,6 @@
 # Contexto mestre — FT-090 a FT-092
 
-Estado: FT-090 concluída normativamente; FT-091 autorizada e pronta; FT-092 autorizada e bloqueada somente pela FT-091. Fonte material: `TODO.ia.md` no commit `d6e48a9b90defd21b6ff07760b82cec1456c4362`.
+Estado: FT-090, FT-091 e FT-092 concluídas tecnicamente; TODO implementado aguardando aceite humano visual. Fonte material: `TODO.ia.md` no commit `d6e48a9b90defd21b6ff07760b82cec1456c4362`.
 
 ## Objetivo
 
@@ -34,6 +34,8 @@ Evoluir COVER, OG e overlays para a proporção vertical vigente 4:5, com resolu
 - Catálogo ausente preserva o fluxo anterior; catálogo parcial ou ambíguo falha com diagnóstico integral.
 - O overlay é entrada autoral read-only e integra a identidade hash do derivado para impedir composição ou otimização duplicada.
 
-## Próxima retomada
+## Resultado
 
-Implementar FT-091 no pipeline social existente, documentar o prompt-base e então executar a matriz FT-092.
+- Pipeline social canônico usa `portrait` 1080x1350 e preserva aliases e binários `square` históricos sem selecioná-los em novas projeções.
+- Resolver, composição, COVER WebP, manifesto, metadados, prompt-base, fixture e matriz automatizada foram implementados e aprovados por `npm run check`.
+- Inspeção visual cobriu wide, portrait e COVER; o aceite humano da aparência final permanece externo.

@@ -520,7 +520,7 @@ Este arquivo preserva demandas do desenvolvedor. Estados operacionais seguem a g
       - o guia ilustrado existir em `docs/` e estiver linkado pelo RCF e pelo `README.md`;
       - testes demonstrarem preservação do fluxo, da impressão IEEE, da web e da integridade visual em múltiplos artigos.
 
-📌 Evoluir norma e implementação de cover/OG/overlay para 4:5, sem regressão
+✅ Evoluir norma e implementação de cover/OG/overlay para 4:5, sem regressão
   - Premissa nuclear:
     - Isto EXIGE apenas evolução/aprimoramento; NÃO EXIGE regressão.
     - Se qualquer norma, código ou agente interpretar o pedido como regressão, DEVE interromper e questionar o desenvolvedor antes de prosseguir.
@@ -608,7 +608,7 @@ Este arquivo preserva demandas do desenvolvedor. Estados operacionais seguem a g
     - Verificar visualmente que o overlay não encobre título nem elementos centrais.
     - Verificar que toda referência residual a OG `1:1` foi removida ou conscientemente mantida como histórico, nunca como regra vigente.
 
-📌 Evoluir regras e pipeline de edição/sintetização por IA com acessibilidade de leitura
+✅ Evoluir regras e pipeline de edição/sintetização por IA com acessibilidade de leitura
   - Premissas:
     - Inspecionar normas existentes (`agents`, hooks locais, especializações, skills, prompts, revisores e afins) antes de alterar.
   - Sintetização:
@@ -636,7 +636,7 @@ Este arquivo preserva demandas do desenvolvedor. Estados operacionais seguem a g
     - Validar que a nova diretriz ficou mais abrangente/eficiente sem enfraquecer as normas anteriores.
     - Validar que conteúdo sintetizado e conteúdo autoral obedecem regras distintas, sem mistura indevida.
 
-📌 Implantar revisão por IA de artigos e preparar portabilidade/upstream sem prosseguir no upstream
+✅ Implantar revisão por IA de artigos e preparar portabilidade/upstream sem prosseguir no upstream
   - GitHub Action:
     - Criar/ajustar Action de revisão por IA/subAgents para artigos em draft ou já publicados que tenham sido alterados/editados.
     - A Action DEVE operar sobre o estado real e aplicar as normas de edição, acessibilidade de leitura e, quando pertinente, regras de cover/OG/overlay.

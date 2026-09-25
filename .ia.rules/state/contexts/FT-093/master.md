@@ -1,6 +1,6 @@
 # Contexto mestre — FT-093 a FT-095
 
-Estado: FT-093 concluída normativamente; FT-094 autorizada e pronta; FT-095 autorizada e bloqueada somente pela FT-094. Fonte material: `TODO.ia.md` no commit `d6e48a9b90defd21b6ff07760b82cec1456c4362`.
+Estado: FT-093, FT-094 e FT-095 concluídas tecnicamente; TODO implementado aguardando aceite humano editorial. Fonte material: `TODO.ia.md` no commit `d6e48a9b90defd21b6ff07760b82cec1456c4362`.
 
 ## Objetivo
 
@@ -33,6 +33,7 @@ Formalizar e materializar uma política editorial que diferencie síntese conver
 - Síntese conversacional não imita autor inexistente, mas preserva autoria intelectual e toda nuance material documentada.
 - Alternativa estilística é exceção pontual, adjacente, marcada e incapaz de substituir silenciosamente o original.
 
-## Próxima retomada
+## Resultado
 
-Materializar FT-094 como especialização local declarativa e testes de política, sem criar runtime editorial que reescreva o corpus.
+- Skill declarativa local distingue síntese, texto autoral e origem ambígua; preserva voz e substância, formaliza glossas e marca alternativa estilística excepcional.
+- A matriz editorial aprovou as políticas acessível e reverencial em conjunto, sem hook ou runtime de reescrita automática do corpus.

@@ -23,6 +23,20 @@
       "state": "pendente-validacao"
     },
     {
+      "id": "FT-091",
+      "name": "Implementação de COVER, OG e overlays 4:5",
+      "path": ".ia.rules/state/history/FT-091.ia",
+      "sha256": "56d069a4244e4663011bd2930673fc69279e9afb76b49fdeae651aa1fe3b873c",
+      "state": "pendente-validacao"
+    },
+    {
+      "id": "FT-092",
+      "name": "Integração e validação de COVER, OG e overlays 4:5",
+      "path": ".ia.rules/state/history/FT-092.ia",
+      "sha256": "d332b3053b13e8b5bea578758cb7f11c8c1f4276d68dab8d0863d6349dbc5590",
+      "state": "pendente-validacao"
+    },
+    {
       "id": "FT-093",
       "name": "Normatização de síntese, edição e acessibilidade de leitura",
       "path": ".ia.rules/state/history/FT-093.ia",
@@ -30,10 +44,38 @@
       "state": "pendente-validacao"
     },
     {
+      "id": "FT-094",
+      "name": "Implementação de síntese, edição e acessibilidade de leitura",
+      "path": ".ia.rules/state/history/FT-094.ia",
+      "sha256": "99160f5c3ac105310aee573a9035e7eab2eb71615e3aeb36505937d6fee938a1",
+      "state": "pendente-validacao"
+    },
+    {
+      "id": "FT-095",
+      "name": "Integração e validação de síntese, edição e acessibilidade de leitura",
+      "path": ".ia.rules/state/history/FT-095.ia",
+      "sha256": "e526f2d7d7eb7e4eac557f518142ba87997a4564b770a00d2c7d8fa749cd292b",
+      "state": "pendente-validacao"
+    },
+    {
       "id": "FT-096",
       "name": "Normatização da revisão automatizada e portabilidade local",
       "path": ".ia.rules/state/history/FT-096.ia",
       "sha256": "c44334c9014b72970bd94298154fa53c277fd8cc6196facaf0a9da91ce8268d9",
+      "state": "pendente-validacao"
+    },
+    {
+      "id": "FT-097",
+      "name": "Implementação da revisão automatizada e pacote de proposta upstream",
+      "path": ".ia.rules/state/history/FT-097.ia",
+      "sha256": "df37a160e32aa6c99fc1f27788aa46bdedcb796ac89dfcd599f0c3032673231e",
+      "state": "pendente-validacao"
+    },
+    {
+      "id": "FT-098",
+      "name": "Integração e validação da revisão automatizada e portabilidade",
+      "path": ".ia.rules/state/history/FT-098.ia",
+      "sha256": "785f02973a3ffdb3646435d07430025a7a77bae2a404bd3db202fbe9e75e1da1",
       "state": "pendente-validacao"
     }
   ]

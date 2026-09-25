@@ -1,0 +1,8 @@
+FT-091|nome=Implementação de COVER, OG e overlays 4:5|escopo=tecnico|status=concluida|autorizacao=humana|conclusao=2026-09-24T23:25:05-03:00
+objetivo=Implementar discovery, resolução, composição, geração, formatos, metadados, cache e documentação de uso no pipeline existente.
+origem=TODO.ia.md@d6e48a9b90defd21b6ff07760b82cec1456c4362 e .ia.rules/state/requests/FT-090/prompt.md
+contexto=.ia.rules/state/contexts/FT-090/master.md
+dependencias=FT-090
+resultado=Pipeline social migrado para portrait 1080x1350, catálogo contextual de overlays, COVER WebP, metadados e Skills de prompting implementados; aliases e binários square históricos preservados.
+verificacoes=Gerador idempotente com 12 assets e 27 variantes; manifesto, plugins, fixture contextual e inspeção dos derivados aprovados.
+pendencias=Nenhuma pendência funcional; aceite humano visual do TODO permanece externo.

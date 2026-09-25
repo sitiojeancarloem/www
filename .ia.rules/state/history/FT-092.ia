@@ -1,0 +1,8 @@
+FT-092|nome=Integração e validação de COVER, OG e overlays 4:5|escopo=tecnico|status=concluida|autorizacao=humana|conclusao=2026-09-24T23:25:05-03:00
+objetivo=Provar resolução, dominância, ambiguidade, formatos, metadados, cache, casos reais e ausência de regressão visual e funcional.
+origem=TODO.ia.md@d6e48a9b90defd21b6ff07760b82cec1456c4362 e .ia.rules/state/requests/FT-090/prompt.md
+contexto=.ia.rules/state/contexts/FT-090/master.md
+dependencias=FT-091
+resultado=Resolução, dominância, ano, ambiguidade, par incompleto, traversal, metadados, cache e composição contextual validados.
+verificacoes=npm run check integral aprovado; runtime COVER legado e estendido aprovado em Chrome e Brave; inspeção visual das variantes wide, portrait e WebP realizada.
+pendencias=Aceite humano visual do TODO permanece externo.

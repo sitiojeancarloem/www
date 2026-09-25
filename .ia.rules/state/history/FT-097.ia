@@ -1,0 +1,8 @@
+FT-097|nome=Implementação da revisão automatizada e pacote de proposta upstream|escopo=tecnico|status=concluida|autorizacao=humana|conclusao=2026-09-24T23:25:05-03:00
+objetivo=Implementar a Action e os adaptadores locais mínimos e gerar material sanitizado de proposta, sem abrir issue nem atuar no upstream.
+origem=TODO.ia.md@d6e48a9b90defd21b6ff07760b82cec1456c4362 e .ia.rules/state/requests/FT-090/prompt.md
+contexto=.ia.rules/state/contexts/FT-096/master.md
+dependencias=FT-091,FT-094,FT-096
+resultado=Adaptador determinístico, workflow somente leitura e proposta upstream local sanitizada implementados.
+verificacoes=Seleção mínima, manifesto, prompt, limites, permissões, SHAs de Actions, modo sem provedor e ausência de atuação upstream validados.
+pendencias=Nenhuma issue upstream foi aberta; integração com provedor permanece extensão futura opcional.

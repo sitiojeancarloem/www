@@ -1,6 +1,6 @@
 # Contexto mestre — FT-096 a FT-098
 
-Estado: FT-096 concluída normativamente; FT-097 autorizada e bloqueada pelas FTs 091 e 094; FT-098 autorizada e bloqueada pelas predecessoras de integração. Fonte material: `TODO.ia.md` no commit `d6e48a9b90defd21b6ff07760b82cec1456c4362`.
+Estado: FT-096, FT-097 e FT-098 concluídas tecnicamente; TODO implementado aguardando aceite humano. Fonte material: `TODO.ia.md` no commit `d6e48a9b90defd21b6ff07760b82cec1456c4362`.
 
 ## Objetivo
 
@@ -32,6 +32,8 @@ Implantar revisão automatizada de artigos alterados com seleção mínima, salv
 - O adaptador determinístico funciona sem provedor, produzindo manifesto, prompt e cópias limitadas; a IA futura entra por interface explícita.
 - A proposta upstream é arquivo local sanitizado, sem publicação ou acompanhamento externo.
 
-## Próxima retomada
+## Resultado
 
-Após FT-091 e FT-094, implementar adaptador, workflow, testes e pacote local da FT-097; então executar a integração FT-098.
+- Adaptador local seleciona somente Markdown alterado e produz pacote limitado, hashado e revisável sem provedor obrigatório.
+- Workflow usa permissões somente leitura, checkout sem credencial persistida e Actions fixadas por SHA; não escreve em corpus, Git, publicação ou upstream.
+- Material upstream sanitizado existe apenas localmente. Nenhuma issue foi aberta nem acompanhada.
