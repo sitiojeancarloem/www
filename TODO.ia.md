@@ -771,7 +771,7 @@ Este arquivo preserva demandas do desenvolvedor. Estados operacionais seguem a g
       - imagem central e patterns DEVEM possuir **casamento visual perfeito, continuidade e fluidez**, sem emendas perceptíveis, cortes abruptos ou diferenças incompatíveis de cor, luz, textura, escala ou perspectiva;
       - a geração/derivação dos três segmentos DEVE considerar conjuntamente o resultado final, não tratá-los como imagens independentes desconectadas.
 
-    - Se a integração do PayPal permitir configurar o retorno no próprio repositório/fluxo existente, apontá-lo para `/doe/obrigado`; se depender de configuração externa não disponível no estado real, NÃO presumir alteração e deixar o destino inequivocamente preparado/documentado.
+    - Se a integração do PayPal permitir configurar o retorno no próprio repositório/fluxo existente, apontá-lo para `/doe/obrigado` (nota: já está configurado diretamente no paypal o retorno); se depender de configuração externa não disponível no estado real, NÃO presumir alteração e deixar o destino inequivocamente preparado/documentado.
 
   - [ ] **Automatizar iconização confiável e verificação periódica**
     - Moedas, **redes e provedores/meios de pagamento**, incluindo PayPal, DEVEM compartilhar o mesmo sistema de resolução/validação de ícones quando aplicável.
