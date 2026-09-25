@@ -677,6 +677,16 @@ Este arquivo preserva demandas do desenvolvedor. Estados operacionais seguem a g
   - Confirmar que a issue criada corresponde ao artefato sanitizado e que nenhuma outra mutação externa ocorreu.
   - Preservar integralmente as capacidades, contratos e comportamentos existentes.
 
+* [ ] **Normatizar e aplicar globalmente semântica forte de `fail-safe`/resiliência**
+  - Na governança aplicável, `fail-safe`, `resiliente` e equivalentes DEVEM significar **concluir efetivamente o objetivo solicitado apesar de falhas contornáveis**, não apenas “falhar sem quebrar”.
+  - Uma falha de método, comando, fonte ou estratégia NÃO encerra a operação se existir alternativa programática legítima.
+  - A implementação DEVE tentar, de forma limitada e determinística, alternativas técnicas até:
+    1. concluir corretamente; ou
+    2. esgotar possibilidades tecnicamente plausíveis.
+
+  - É PROIBIDO converter resiliência em loop infinito, tentativa ilimitada ou violação de segurança, contrato, governança ou escopo.
+  - Somente após esgotamento real das alternativas a operação PODE encerrar sem concluir; nesse caso, DEVE preservar o último estado
+
 * [ ] **Criar/atualizar `/doe` como página pública de doações, responsiva, moderna e orientada por dados**
   - Inspecionar primeiro tema, arquitetura, rotas, assets, componentes e governança existentes; NÃO presumir tecnologia, paths internos ou contratos não comprovados.
 
@@ -684,86 +694,110 @@ Este arquivo preserva demandas do desenvolvedor. Estados operacionais seguem a g
 
   - Layout DEVE ser **profissional, elegante, bonito, agradável, moderno, totalmente responsivo e aderente ao tema**, inclusive modos claro/escuro.
 
-  - Otimizar simultaneamente espaço horizontal/vertical em linguagem **infográfica**, com hierarquia, iconização e escaneabilidade, sem poluir, comprimir excessivamente ou recorrer a layout tradicional desnecessário.
+  - Otimizar espaço horizontal/vertical em linguagem **infográfica**, com hierarquia, iconização e escaneabilidade, sem poluir, condensar excessivamente ou recorrer desnecessariamente a layout tradicional.
 
-  - Criar **uma única fonte de verdade JSON**, em localização canônica adequada à arquitetura real, contendo todos os dados de doação, moedas, redes, endereços e metadados; alteração válida nesse JSON DEVE refletir no site sem duplicação manual.
+  - Criar **uma única fonte de verdade JSON**, em localização canônica adequada à arquitetura real, contendo meios de doação, provedores, moedas, redes, endereços e metadados; alteração válida nesse JSON DEVE refletir no site sem duplicação manual.
 
-  - Estrutura DEVE suportar inclusão futura de novos meios/moedas/redes sem exigir alteração estrutural da página.
+  - A estrutura DEVE permitir inclusão futura de novos meios/moedas/redes sem alteração estrutural da página.
 
-  - **PIX**
+  - [ ] **PIX**
     - Disponibilizar PIX com payload exato:
       `00020126630014br.gov.bcb.pix0119doe@jeancarloem.com0218Doacao_JeanCarloEM5204000053039865802BR5925JEAN_CARLO_DE_ELIAS_MOREI6012PIRASSUNUNGA62180514DOEJEANCARLOEM63040675`
-    - Disponibilizar chave PIX (`<chave-pix>`), com payload exato, por ícone de copia para área de transferência: `doe@jeancarloem.com`
-    - Gerar o QR Code **client-side**, em alta resolução/qualidade, sem depender de serviço remoto para codificar o conteúdo.
-    - A apresentação inicial PODE ser compacta, mas o QR DEVE ser clicável e expandível para tamanho suficiente à leitura confiável por outro celular.
-    - Disponibilizar download do QR composto em **PNG ou JPG**, adequado para salvar/carregar no aplicativo bancário.
+    - Disponibilizar chave PIX (`<chave-pix>`), com cópia por ícone para área de transferência: `doe@jeancarloem.com`.
+    - Gerar QR Code **client-side**, em alta resolução/qualidade, sem serviço remoto para codificação.
+    - Exibição inicial PODE ser compacta, mas DEVE permitir expansão clicável para leitura confiável por outro celular.
+    - Permitir download do QR composto em **PNG ou JPG**, adequado ao carregamento pelo app bancário.
     - O QR composto DEVE conter:
-      - QR Code funcional;
-      - somente a **figura/símbolo** do logotipo já utilizado pelo site, sem texto/wordmark;
-      - logotipo centralizado, com contraste acentuado e área branca mínima necessária;
-      - moldura visual elegante e segura;
+      - QR funcional;
+      - apenas a **figura/símbolo** do logotipo já usado no site, sem texto/wordmark;
+      - logo centralizado, com contraste acentuado e área branca mínima necessária;
+      - moldura elegante e segura;
       - legenda centralizada em toda a largura útil: `PIX: <chave-pix>`.
 
-    - A inserção do logo NÃO PODE comprometer leitura: usar nível adequado de correção de erro, preservar quiet zone/módulos funcionais e validar automaticamente o QR final após composição.
+    - A inserção do logo NÃO PODE comprometer leitura: usar correção de erro adequada, preservar quiet zone/módulos funcionais e validar automaticamente o QR final após composição.
 
-  - **Criptomoedas**
+  - [ ] **Criptomoedas**
     - Criar seção própria; cada ativo DEVE exibir, no mínimo:
       - logo/ícone real da moeda;
       - nome;
       - sigla;
       - rede;
-      - endereço copiável (resumido, máximo 10 caracteres, estilos `absxded...der`) - com ícone adequado de copia para área de transferência (clicável);
+      - endereço resumido, com **máximo de 10 caracteres visíveis**, em padrão análogo a `absxded...der`, mantendo o valor integral acessível;
+      - ícone clicável para copiar o endereço integral;
       - QR Code do endereço.
 
     - Dados iniciais:
-      - `USDT` — endereço `0xeb68c866073abd82e5c2e41831db57f8718f91e7` — rede `BNB`;
+      - `USDT` — `0xeb68c866073abd82e5c2e41831db57f8718f91e7` — rede `BNB`;
       - `BTC` / Bitcoin — `1JwTkF1HTd1isctQ7jumfCVQxhxVqKuMzN` — rede `Bitcoin`;
       - `XEC` / eCash — `ecash:qqwtv7lfm6nn2u3vrrjuqtcfzc36y29ueshw9svgrt` — rede `XEC`;
       - `BTTC` / BitTorrent — `TFRTMVtsoxXsdCXaPJx6jCEep9eeKaZNH2` — rede `TRON`.
 
-    - Quando necessária para evitar envio incorreto, a UI DEVE informar claramente **rede/tipo de endereço/carteira**; inferência automática somente PODE ocorrer quando tecnicamente inequívoca, caso contrário usar dados explícitos.
-    - QR de criptomoeda DEVE seguir o mesmo pipeline visual/técnico do PIX, substituindo a legenda por:
+    - Quando necessário para evitar envio incorreto, informar claramente **rede/tipo de endereço/carteira**; inferência automática somente PODE ocorrer se o dado estiver ausente e a conclusão for tecnicamente inequívoca.
+    - O QR DEVE seguir o mesmo pipeline visual/técnico do PIX, com legenda:
       `<SIGLA> | <DOM>`
       - `<SIGLA>` = sigla capitalizada;
-      - `<DOM>` = domínio canônico do site, obtido da configuração real, sem `www`, protocolo, path, query ou fragmento.
+      - `<DOM>` = domínio canônico real, sem `www`, protocolo, path, query ou fragmento.
 
     - O QR DEVE codificar o endereço correspondente sem alteração semântica.
 
-  - **UX/segurança**
-    - Endereços/chaves DEVEM oferecer cópia explícita com feedback visual.
-    - Rede e moeda DEVEM permanecer visualmente distinguíveis.
-    - NÃO truncar visualmente endereço quando isso puder induzir erro; se a UI resumir, o valor integral DEVE permanecer facilmente acessível/copíavel.
-    - Validar responsividade, contraste, teclado, foco, zoom/modal e modos claro/escuro.
-    - Nenhum tratamento visual PODE reduzir a confiabilidade de leitura dos QR Codes.
+  - [ ] **PayPal**
+    - Criar seção específica, **bonita, elegante, sucinta e inequivocamente identificada como PayPal**, mantendo coerência visual com `/doe`.
+    - Usar link exato:
+      `https://www.paypal.com/donate/?hosted_button_id=6V7J86DQ9VQBS`
+    - Comunicar claramente que são aceitas doações de **R$ 10,00 ou mais**, com **valor livre à escolha do doador**.
+    - Usar **logotipo oficial do PayPal**, em alta qualidade, sem aproximações gráficas.
+    - O logo do PayPal DEVE integrar o mesmo mecanismo automatizado de resolução, verificação e atualização dos demais assets externos.
+    - CTA DEVE ser claro, cordial, seguro e abrir o fluxo oficial do PayPal sem intermediários indevidos.
 
-* [ ] **Automatizar iconização confiável de moedas/redes e verificação periódica**
-  - Moedas **e redes** DEVEM seguir o mesmo sistema de resolução de ícones.
-  - Para novos itens, resolver automaticamente logos reais em alta qualidade, preferencialmente **SVG transparente**; para raster, preferir equivalentes na faixa de **64×64 a 256×256 px** ou superior quando necessário.
-  - Fontes externas DEVEM ser confiáveis e, quando possível, **imutáveis/versionadas/pinadas**, evitando URLs mutáveis sem controle.
-  - NÃO usar ícones aproximados, inventados ou semanticamente incorretos.
-  - Criar **um único workflow GitHub Actions** para moedas e redes, executado **ao menos mensalmente**, que:
-    - valide disponibilidade, tipo/MIME e integridade dos assets;
-    - confirme, tanto quanto programaticamente possível, que o recurso continua representando o ativo correto;
-    - tente fontes/estratégias alternativas válidas quando a principal falhar;
-    - atualize referências/metadata quando necessário;
-    - preserve resultado válido existente enquanto procura substituição segura;
-    - registre claramente correções e falhas não contornáveis.
+  - [ ] **Criar `/doe/obrigado` como retorno/agradecimento do PayPal**
+    - Criar URI pública exata `/doe/obrigado`.
+    - A página DEVE **espelhar continuamente a página inicial do domínio**, inclusive após futuras alterações na home; É PROIBIDO manter uma cópia estática sujeita a divergência.
+    - A implementação DEVE reutilizar/derivar a estrutura, conteúdo e componentes canônicos da home conforme a arquitetura real, evitando duplicação e drift.
+    - Única especialização estrutural:
+      - substituir o destaque/hero atual da home — inclusive eventual imagem, slider ou carrossel presente ou futuro — por um bloco de agradecimento;
+      - remover nesse contexto o título principal próprio do hero/slider/carrossel substituído;
+      - após o bloco de agradecimento, o restante da home DEVE seguir normalmente e permanecer equivalente à raiz.
 
-  - Mudanças automáticas DEVEM ser determinísticas, auditáveis e evitar churn sem alteração material.
+    - O bloco superior DEVE conter, nesta ordem:
+      1. imagem **edge-to-edge**, em estilo visual “infinito”;
+      2. título, como título normal de artigo: **`Obrigado`**;
+      3. mensagem de agradecimento **cordial, simples, direta, clara, objetiva e sucinta**.
 
-* [ ] **Normatizar e aplicar globalmente semântica forte de `fail-safe`/resiliência**
-  - Na governança aplicável, `fail-safe`, `resiliente` e equivalentes DEVEM significar **concluir efetivamente o objetivo solicitado apesar de falhas contornáveis**, não apenas “falhar sem quebrar”.
-  - Uma falha de método/comando/fonte NÃO encerra a operação se houver alternativa programática legítima.
-  - A implementação DEVE tentar, de forma limitada e determinística, métodos/fontes/comandos alternativos até:
-    1. concluir corretamente; ou
-    2. esgotar alternativas tecnicamente plausíveis.
+    - A imagem:
+      - DEVE ser atraente, bonita, profissional, elegante, amistosa e acolhedora, **sem parecer fria ou distante**;
+      - DEVE ser predominantemente ilustrativa/simbólica de agradecimento e **evitar texto embutido**;
+      - DEVE obedecer às normas vigentes de proporção, composição e adequação ao efeito infinito;
+      - PODE usar composição central + `pattern-left` + `pattern-right`, inclusive patterns predominantemente cromáticos, se tecnicamente mais adequado;
+      - imagem central e patterns DEVEM possuir **casamento visual perfeito, continuidade e fluidez**, sem emendas perceptíveis, cortes abruptos ou diferenças incompatíveis de cor, luz, textura, escala ou perspectiva;
+      - a geração/derivação dos três segmentos DEVE considerar conjuntamente o resultado final, não tratá-los como imagens independentes desconectadas.
 
-  - É PROIBIDO transformar resiliência em loop infinito, tentativa ilimitada, violação de segurança, contrato ou escopo.
-  - Somente após esgotamento real das alternativas a operação PODE encerrar sem concluir; nesse caso, DEVE preservar estado válido, não causar regressão e emitir diagnóstico inequívoco das tentativas, causas e impedimento final.
+    - Se a integração do PayPal permitir configurar o retorno no próprio repositório/fluxo existente, apontá-lo para `/doe/obrigado`; se depender de configuração externa não disponível no estado real, NÃO presumir alteração e deixar o destino inequivocamente preparado/documentado.
 
-* [ ] **Validar integralmente `/doe` e seus artefatos**
-  - Testar geração client-side, expansão, download e leitura real dos QR Codes PIX/cripto.
-  - Verificar por decodificação que cada QR final reproduz **exatamente** o payload/endereço esperado, inclusive após inserção de logo/moldura.
-  - Testar JSON→UI, inclusão de nova moeda/rede sem duplicação estrutural, resolução de ícones e workflow mensal.
-  - Validar claro/escuro, desktop/mobile, acessibilidade, responsividade, cópia de endereços e ausência de overflow/poluição.
-  - Confirmar que nenhuma alteração introduz regressão, fonte duplicada de dados ou dependência remota desnecessária para geração dos QR Codes.
+  - [ ] **Automatizar iconização confiável e verificação periódica**
+    - Moedas, **redes e provedores/meios de pagamento**, incluindo PayPal, DEVEM compartilhar o mesmo sistema de resolução/validação de ícones quando aplicável.
+    - Resolver automaticamente logos **oficiais/reais**, preferencialmente em **SVG transparente**; para raster, preferir aproximadamente **64×64 a 256×256 px** ou superior quando necessário.
+    - Fontes externas DEVEM ser confiáveis e, quando possível, **imutáveis/versionadas/pinadas**.
+    - NÃO usar ícones aproximados, inventados ou semanticamente incorretos.
+    - Criar **um único workflow GitHub Actions**, executado **ao menos mensalmente**, para moedas, redes e provedores, que:
+      - valide disponibilidade, MIME, integridade e correspondência do asset;
+      - confirme, tanto quanto programaticamente possível, que continua representando o item correto;
+      - tente fontes/estratégias alternativas válidas se a principal falhar;
+      - atualize referências/metadados quando necessário;
+      - preserve o último resultado válido enquanto procura substituição segura;
+      - registre claramente correções e falhas efetivamente incontornáveis.
+
+    - Mudanças automáticas DEVEM ser determinísticas, auditáveis e evitar churn sem alteração material.
+
+  - [ ] **UX, segurança e validação integral de `/doe`**
+    - Chaves/endereços DEVEM oferecer cópia explícita com feedback visual.
+    - Rede, moeda e meio de pagamento DEVEM permanecer visualmente distinguíveis.
+    - Endereço resumido NUNCA PODE alterar o valor copiado; cópia DEVE usar o conteúdo integral.
+    - Validar responsividade, contraste, teclado, foco, expansão/modal, claro/escuro e ausência de overflow/poluição.
+    - Nenhum tratamento visual PODE reduzir a confiabilidade dos QR Codes.
+    - Testar geração client-side, expansão, download e leitura real dos QRs PIX/cripto.
+    - Decodificar os QRs finais e confirmar **exatamente** payload/endereço esperado, inclusive após logo/moldura.
+    - Testar JSON→UI, inclusão de novo meio/moeda/rede sem duplicação estrutural, resolução de assets e workflow mensal.
+    - Validar PayPal, CTA/link oficial e `/doe/obrigado`.
+    - Validar que `/doe/obrigado` acompanha alterações futuras da home sem duplicação manual, preservando exclusivamente sua especialização de agradecimento.
+    - Validar visualmente e tecnicamente a continuidade da imagem infinita/patterns.
+    - Confirmar ausência de regressão, duplicação de fonte de dados ou dependência remota desnecessária para geração dos QR Codes.
