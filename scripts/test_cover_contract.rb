@@ -131,6 +131,16 @@ Jcem::CoverContract.validate(patterned)
 raise "pattern hexadecimal ausente" unless patterned.data.dig("jcem_cover", "patterns", "left", "kind") == "hex"
 raise "pattern gradiente ausente" unless patterned.data.dig("jcem_cover", "patterns", "right", "kind") == "linear-gradient"
 
+legacy_vertical = document(
+  {
+    "featured_image" => { "path" => "/assets/images/fixtures/covers/triptych-central.svg" },
+    "cover" => { "og" => { "square_source" => "/assets/images/fixtures/covers/triptych-right.svg" } }
+  },
+  "legacy-vertical.md"
+)
+Jcem::CoverContract.validate(legacy_vertical)
+raise "alias square não convergiu para portrait" unless legacy_vertical.data.dig("jcem_cover", "og", "portrait_source")&.end_with?("triptych-right.svg")
+
 invalid_pattern = document(
   {
     "featured_image" => { "path" => "/assets/images/fixtures/covers/triptych-central.svg" },

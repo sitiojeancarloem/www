@@ -21,7 +21,7 @@ cover:
     right: "linear-gradient(90deg, #14233d 0%, #254f7c 100%)"
   og:
     wide_source: /assets/images/fixtures/covers/triptych-central.svg
-    square_source: /assets/images/fixtures/covers/triptych-right.svg
+    portrait_source: /assets/images/fixtures/covers/triptych-right.svg
   hero:
     zone: top-left
     content: |

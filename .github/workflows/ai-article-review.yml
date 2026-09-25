@@ -1,0 +1,52 @@
+name: Revisão assistida de artigos
+
+on:
+  pull_request:
+    paths:
+      - '_posts/**/*.md'
+      - '_drafts/**/*.md'
+      - '_pages/**/*.md'
+      - 'RCFs/**'
+      - '.ia.rules/resources/editorial-authoring.md'
+  workflow_dispatch:
+    inputs:
+      base:
+        description: 'Commit base'
+        required: true
+        type: string
+      head:
+        description: 'Commit a revisar'
+        required: true
+        type: string
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ai-article-review-${{ github.event.pull_request.number || github.run_id }}
+  cancel-in-progress: true
+
+jobs:
+  prepare-review:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout sem credencial persistida
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Preparar pacote de revisão
+        env:
+          REVIEW_BASE: ${{ github.event.pull_request.base.sha || inputs.base }}
+          REVIEW_HEAD: ${{ github.event.pull_request.head.sha || inputs.head }}
+        run: node scripts/review-articles.mjs --base "$REVIEW_BASE" --head "$REVIEW_HEAD"
+
+      - name: Publicar pacote revisável
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: ai-article-review-${{ github.run_id }}
+          path: .jcem-ai-review/
+          if-no-files-found: error
+          retention-days: 7

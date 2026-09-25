@@ -1,0 +1,35 @@
+# Proposta local: revisão editorial portável
+
+Status: material sanitizado para avaliação futura. Não publicado e sem ação no upstream.
+
+## Problema genérico
+
+Repositórios editoriais precisam revisar somente documentos materialmente alterados, aplicar políticas distintas a texto humano e síntese conversacional e produzir parecer auditável sem conceder escrita automática ao corpus.
+
+## Contrato sugerido
+
+- Entrada: base/head Git ou lista explícita, roots e limites declarados.
+- Seleção: Markdown regular existente, sem symlink, traversal, remoção ou arquivo fora dos roots.
+- Pacote: manifesto versionado, prompt normativo e cópias somente dos documentos selecionados.
+- Provedor: interface opcional posterior; a preparação funciona sem credencial e informa estado pendente.
+- Saída: achados com arquivo, região, severidade, norma, explicação e sugestão.
+- Efeitos proibidos: alteração de corpus, commit, PR, issue, publicação ou atuação em outro repositório.
+
+## Interfaces reutilizáveis
+
+```text
+changedPaths(base, head) -> Change[]
+classifyPath(path, policy) -> Selected | Excluded
+prepareReviewPackage(selection, limits) -> Manifest + Prompt + Files
+review(package, provider?) -> Findings | Pending
+```
+
+O manifesto registra hashes e bytes, mas o material portável não incorpora conteúdo editorial, segredo, URL privada, identificador de consumidor ou metadado de execução. Roots, limites, rotas normativas e provedor são parâmetros do consumidor.
+
+## Salvaguardas mínimas
+
+Permissões somente leitura; checkout sem credencial persistida; cardinalidade e bytes limitados antes de chamada externa; seleção baseada em diff validado; nenhuma interpretação positiva diante de provedor ausente; artifact de curta retenção e revisão humana obrigatória.
+
+## Testes sugeridos
+
+Cobrir alteração, não alteração, draft, página, renomeação, remoção, traversal, symlink, arquivo e lote excessivos, base inválida, ausência de provedor, corpus inalterado e sanitização do material portável.

@@ -178,10 +178,11 @@ for (const [sourcePath, record] of Object.entries(trackedWebpManifest.assets)) {
 	assert.equal((await stat(targetUrl)).size, record.targetBytes);
 	assert.equal(createHash('sha256').update(targetBytes).digest('hex'), record.targetSha256);
 }
-assert.match(socialImageGenerator, /height !== 630/);
+assert.match(socialImageGenerator, /height !== 1350|height !== size\.height/);
 assert.match(socialImageGenerator, /sourceSha256/);
 assert.match(socialImageGenerator, /parametersSha256/);
 assert.match(socialImageGenerator, /jpeg\.length < png\.length/);
+assert.match(socialImageGenerator, /overlaySha256/);
 assert.match(socialImageConnector, /header\["og_image"\]/);
 assert.match(socialImageConnector, /jcem_social_images/);
 assert.match(masthead, /width="630"[\s\S]*height="256"/);

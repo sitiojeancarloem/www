@@ -28,9 +28,10 @@ const safeSegment = (value, field) => {
 };
 
 export const parseOverlayFilename = (filename) => {
-	const extension = path.extname(filename).toLowerCase();
+	const rawExtension = path.extname(filename);
+	const extension = rawExtension.toLowerCase();
 	if (!SUPPORTED_EXTENSIONS.has(extension)) return null;
-	const basename = path.basename(filename, extension);
+	const basename = path.basename(filename).slice(0, -rawExtension.length);
 	const yearMatch = /^(\d{4})(.*)$/i.exec(basename);
 	if (!yearMatch) return null;
 

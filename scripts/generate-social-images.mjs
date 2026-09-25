@@ -312,7 +312,7 @@ for (const record of Object.values(next.assets)) {
 	}
 }
 for (const entry of await readdir(outputDirectory)) {
-	if (!/(?:-og-(?:wide|portrait|square)|-cover)\.(?:jpe?g|png|webp)$/i.test(entry) || expectedTargets.has(entry)) continue;
+	if (!/(?:-og-(?:wide|portrait)|-cover)\.(?:jpe?g|png|webp)$/i.test(entry) || expectedTargets.has(entry)) continue;
 	if (checkOnly) throw new Error(`SOCIAL_IMAGE_LEGADA:${entry}`);
 	await unlink(path.join(outputDirectory, entry));
 	changed += 1;

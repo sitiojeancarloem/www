@@ -17,7 +17,7 @@ Escopo: modus operandi da IA específico deste produto, roteamento local e rela�
 
 | Gatilho material | Rotas mínimas obrigatórias, após `AGENTS.md`, índice e papéis aplicáveis |
 |---|---|
-| alteração editorial comum | recurso canônico `.ia.rules/resources/editorial-authoring.md`, capacidade `WEB-EDITORIAL`, `RCFs/revisao-editorial-reverencial.md` quando houver revisão autoral/pré-publicação e demais sub-RCFs diretamente afetadas |
+| alteração editorial comum | recurso canônico `.ia.rules/resources/editorial-authoring.md`, Skill local `.ia.rules/local/skills/editorial-accessibility-review/SKILL.md`, capacidade `WEB-EDITORIAL`, `RCFs/revisao-editorial-reverencial.md` quando houver revisão autoral/pré-publicação e demais sub-RCFs diretamente afetadas |
 | síntese de conversa, bate-papo, gravação ou áudio transcrito, inclusive `bate-papo:` | recurso canônico `.ia.rules/resources/editorial-authoring.md`, `RCFs/bate-papo.md`, `RCFs/namespaces-editoriais.md` e publicação quando aplicável |
 | citação, nota ou bibliografia | `RCFs/citacoes.md`, `RCFs/referencias-e-footnotes.md` e leitura acessível quando houver projeção falada |
 | TTS, leitor de tela, idioma, pronúncia, tabela, imagem ou gráfico acessível | recurso canônico `.ia.rules/resources/spoken-normalization.md`, `RCFs/leitura-acessivel-e-tts.md` e contratos semânticos de origem citados por ela |

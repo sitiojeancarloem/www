@@ -1,0 +1,6 @@
+interface:
+  display_name: "Revisão editorial acessível"
+  short_description: "Síntese e autoria com clareza sem perda"
+  default_prompt: "Use $editorial-accessibility-review para classificar a origem e revisar com rigor acessível sem reduzir substância ou voz."
+policy:
+  allow_implicit_invocation: true

@@ -1,0 +1,6 @@
+interface:
+  display_name: "Prompt de COVER e OG"
+  short_description: "Imagem editorial com proporção e safe area"
+  default_prompt: "Use $cover-image-prompt para preparar uma imagem editorial com proporção e safe area verificáveis."
+policy:
+  allow_implicit_invocation: true

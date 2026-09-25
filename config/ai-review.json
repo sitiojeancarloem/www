@@ -1,0 +1,9 @@
+{
+  "schema": 1,
+  "roots": ["_posts", "_drafts", "_pages"],
+  "extensions": [".md", ".markdown"],
+  "maxFiles": 40,
+  "maxFileBytes": 524288,
+  "maxTotalBytes": 4194304,
+  "outputDirectory": ".jcem-ai-review"
+}
