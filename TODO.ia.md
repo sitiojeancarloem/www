@@ -712,7 +712,7 @@ Este arquivo preserva demandas do desenvolvedor. Estados operacionais seguem a g
       - nome;
       - sigla;
       - rede;
-      - endereço copiável (resumido, máximo 10 caracteres, estilos `absxded...der`) - com ícone adequado de cópia clicável;
+      - endereço copiável (resumido, máximo 10 caracteres, estilos `absxded...der`) - com ícone adequado de copia para área de transferência (clicável);
       - QR Code do endereço.
 
     - Dados iniciais:
