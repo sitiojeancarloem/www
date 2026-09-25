@@ -751,7 +751,7 @@ Este arquivo preserva demandas do desenvolvedor. Estados operacionais seguem a g
 
   - [ ] **Criar `/doe/obrigado` como retorno/agradecimento do PayPal**
     - Criar URI pública exata `/doe/obrigado`.
-    - A página DEVE **espelhar continuamente a página inicial do domínio**, inclusive após futuras alterações na home; É PROIBIDO manter uma cópia estática sujeita a divergência.
+    - A página DEVE **espelhar continuamente a página inicial do domínio**, inclusive após futuras alterações na home; É PROIBIDO manter uma cópia estática sujeita a divergência tanto quanto tecnicamente possível, viável e eficiente, caso conrário, implemente em tempo de build replica já alterada e adaptada.
     - A implementação DEVE reutilizar/derivar a estrutura, conteúdo e componentes canônicos da home conforme a arquitetura real, evitando duplicação e drift.
     - Única especialização estrutural:
       - substituir o destaque/hero atual da home — inclusive eventual imagem, slider ou carrossel presente ou futuro — por um bloco de agradecimento;
