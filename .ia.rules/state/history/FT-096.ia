@@ -1,0 +1,8 @@
+FT-096|nome=Normatização da revisão automatizada e portabilidade local|escopo=tecnico|status=concluida|autorizacao=humana|conclusao=2026-09-24T23:40:00-03:00
+objetivo=Definir gatilhos, escopo, salvaguardas, contratos modulares e fronteira local da revisão por IA, incluindo material de proposta upstream sem publicação externa.
+origem=TODO.ia.md@d6e48a9b90defd21b6ff07760b82cec1456c4362 e .ia.rules/state/requests/FT-090/prompt.md
+contexto=.ia.rules/state/contexts/FT-096/master.md
+dependencias=FT-090,FT-093
+resultado=Gatilhos, seleção mínima, privilégios, pacote determinístico, interface de provedor e fronteira upstream consolidados em RCF próprio.
+verificacoes=Contrato ligado ao índice e aos adaptadores; nenhuma ação externa ou mutação automática foi autorizada.
+pendencias=Implementação e validação permanecem nas FTs 097 e 098.

@@ -18,13 +18,14 @@ Escopo: modus operandi da IA específico deste produto, roteamento local e rela�
 | Gatilho material | Rotas mínimas obrigatórias, após `AGENTS.md`, índice e papéis aplicáveis |
 |---|---|
 | alteração editorial comum | recurso canônico `.ia.rules/resources/editorial-authoring.md`, capacidade `WEB-EDITORIAL`, `RCFs/revisao-editorial-reverencial.md` quando houver revisão autoral/pré-publicação e demais sub-RCFs diretamente afetadas |
-| síntese `bate-papo:` | `RCFs/bate-papo.md`, `RCFs/namespaces-editoriais.md` e publicação quando aplicável |
+| síntese de conversa, bate-papo, gravação ou áudio transcrito, inclusive `bate-papo:` | recurso canônico `.ia.rules/resources/editorial-authoring.md`, `RCFs/bate-papo.md`, `RCFs/namespaces-editoriais.md` e publicação quando aplicável |
 | citação, nota ou bibliografia | `RCFs/citacoes.md`, `RCFs/referencias-e-footnotes.md` e leitura acessível quando houver projeção falada |
 | TTS, leitor de tela, idioma, pronúncia, tabela, imagem ou gráfico acessível | recurso canônico `.ia.rules/resources/spoken-normalization.md`, `RCFs/leitura-acessivel-e-tts.md` e contratos semânticos de origem citados por ela |
 | PageSpeed, nova dependência ou asset client-side | `RCFs/desempenho-e-dependencias.md` e `RCFs/carregamento-progressivo.md` |
 | 404, masthead, rodapé, navegação ou componente comum | `RCFs/componentes-compartilhados.md` |
 | impressão ou PDF | `RCFs/impressao-ieee.md` e a sub-RCF semântica do conteúdo afetado |
 | build, GitHub Pages ou publicação | `RCFs/publicacao.md` e o cenário operacional correspondente em `.ia.rules/` |
+| revisão automatizada de artigo, pacote de revisão ou proposta portável | `RCFs/revisao-automatizada-por-ia.md`, recurso `editorial-authoring` e sub-RCFs disparadas pelos arquivos selecionados |
 
 Rotas são cumulativas quando uma tarefa cruza domínios; o adaptador NÃO PODE escolher apenas uma rota e omitir dependência material.
 
@@ -38,6 +39,8 @@ RCF, plugin, include, TypeScript e teste deste produto PODEM especializar apenas
 - Equalização de TO-DO DEVE preservar o item perene literal e desmarcado, criar FTs distintas para norma e implementação e concluir todas as normatizações antes do gate humano de código.
 - Criação ou edição editorial DEVE preservar voz, texto, marcações autorais e referências; transformação semântica ou falada é camada adicional e rastreável, nunca reescrita invisível do original.
 - Síntese de bate-papo DEVE distinguir fala, síntese e inferência, preservar nuances, divergências, identificadores de referência e disclaimers cumulativos.
+- Edição de conteúdo humano e síntese conversacional são categorias distintas. A primeira preserva voz, pontuação e peculiaridades válidas; a segunda não imita estilo inexistente, mas preserva integralmente autoria intelectual e conteúdo documentado. Ambas aplicam o rigor acessível canônico sem infantilização nem redução de substância.
+- Uma alternativa estilística para trecho autoral é exceção pontual: o original permanece comentado e inequivocamente identificado, a alternativa fica em região adjacente igualmente identificada e a saída declara que houve alteração de estilo. Substituição invisível, aplicação em massa ou promoção automática da alternativa são proibidas. [PENDENTE-CODIGO]
 - Otimização DEVE avaliar continuamente o contrato PageSpeed por layout e amostras representativas, sem usar uma publicação isolada para degradar conteúdo editorial.
 - Alteração visível DEVE validar o artefato renderizado nos estados aplicáveis. Alteração publicada só conclui quando o commit-fonte, o artefato servido e a evidência pública convergirem.
 - Gate executado parcialmente, bloqueado ou externo inconclusivo DEVE permanecer declarado separadamente; resultado focado aprovado não equivale a aprovação global.

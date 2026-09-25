@@ -1,6 +1,6 @@
 # Contexto mestre — FT-090 a FT-092
 
-Estado: fases registradas; FT-090 apta à equalização após o commit exclusivo de inicialização; FT-091 e FT-092 bloqueadas por dependência e autorização. Fonte material: `TODO.ia.md` no commit `d6e48a9b90defd21b6ff07760b82cec1456c4362`.
+Estado: FT-090 concluída normativamente; FT-091 autorizada e pronta; FT-092 autorizada e bloqueada somente pela FT-091. Fonte material: `TODO.ia.md` no commit `d6e48a9b90defd21b6ff07760b82cec1456c4362`.
 
 ## Objetivo
 
@@ -27,6 +27,13 @@ Evoluir COVER, OG e overlays para a proporção vertical vigente 4:5, com resolu
 - Overlays são read-only para IA/Subagents; implementação pode ler e validar, nunca gerar, substituir ou editar esses binários sem pedido específico.
 - O texto do TODO contém referências externas de ferramenta (`turn...`) não resolvíveis no repositório; elas não serão promovidas a requisito factual sem fonte determinística.
 
+## Decisão normativa consolidada
+
+- A COVER web mantém sua geometria `1200:630`; a evolução 4:5 pertence à variante social vertical e à variante não-`wide` de overlay.
+- `portrait` é o conceito canônico; `square` permanece apenas como alias de entrada transitório e resolve para `1080x1350`.
+- Catálogo ausente preserva o fluxo anterior; catálogo parcial ou ambíguo falha com diagnóstico integral.
+- O overlay é entrada autoral read-only e integra a identidade hash do derivado para impedir composição ou otimização duplicada.
+
 ## Próxima retomada
 
-Após autorização explícita do commit de inicialização, criar o commit exclusivo das FTs. Só então iniciar FT-090, atualizar RCFs aplicáveis e interromper novamente no gate normativo antes de FT-091.
+Implementar FT-091 no pipeline social existente, documentar o prompt-base e então executar a matriz FT-092.

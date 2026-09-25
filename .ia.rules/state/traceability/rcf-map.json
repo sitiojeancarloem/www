@@ -4,6 +4,51 @@
   "entries": [
     {
       "artifacts": [
+        ".ia.rules/local/skills/editorial-accessibility-review/SKILL.md",
+        ".ia.rules/local/skills/editorial-accessibility-review/descriptor.json",
+        "scripts/test_editorial_accessibility_policy.rb"
+      ],
+      "commit": "",
+      "ft": "FT-093",
+      "id": "523acdff5ae8d6a1e4c7d21f",
+      "line": 15,
+      "rcf": "RCFs/bate-papo.md",
+      "sentenceSha256": "1fbd473706c8284e8451dbf034ce34ec3727bf9536c0fa4a26ac366f7128a3c8",
+      "state": "pending",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        ".ia.rules/local/skills/editorial-accessibility-review/SKILL.md",
+        ".ia.rules/local/skills/editorial-accessibility-review/descriptor.json",
+        "scripts/test_editorial_accessibility_policy.rb"
+      ],
+      "commit": "",
+      "ft": "FT-093",
+      "id": "52e3ea7ca225bf9896e0c0ae",
+      "line": 16,
+      "rcf": "RCFs/bate-papo.md",
+      "sentenceSha256": "d581930215f658a1b106f4a50bf2c6b65ed8967d745ac04296fb36372325f7d7",
+      "state": "pending",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        ".ia.rules/local/skills/editorial-accessibility-review/SKILL.md",
+        ".ia.rules/local/skills/editorial-accessibility-review/descriptor.json",
+        "scripts/test_editorial_accessibility_policy.rb"
+      ],
+      "commit": "",
+      "ft": "FT-093",
+      "id": "9604e4f534dd3ae4e03810ce",
+      "line": 24,
+      "rcf": "RCFs/bate-papo.md",
+      "sentenceSha256": "4642faef059f7a2ff8c7b8b392dca17675034c9895431da6fe2372b0de476ddd",
+      "state": "pending",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
         "RCFs/carregamento-progressivo.md"
       ],
       "commit": "dc501d1798b8ff3875d37b7d886170258c35b277",
@@ -1779,6 +1824,26 @@
     },
     {
       "artifacts": [
+        "_plugins/jcem_cover_contract.rb",
+        "_plugins/jcem_social_images.rb",
+        "config/social-images.json",
+        "docs/MODO-DE-USO-COVER-E-HERO.md",
+        "scripts/generate-social-images.mjs",
+        "scripts/lib/overlay-catalog.mjs",
+        "scripts/test_overlay_catalog.mjs",
+        "scripts/test_social_metadata.rb"
+      ],
+      "commit": "",
+      "ft": "FT-090",
+      "id": "1c941f9ab2269532a34f5461",
+      "line": 105,
+      "rcf": "RCFs/carregamento-progressivo.md",
+      "sentenceSha256": "a6098a0e78885da77c8c7ffcec13e75524740be6d7c2cf6f80d6e6e03547a486",
+      "state": "pending",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
         "RCFs/carregamento-progressivo.md"
       ],
       "commit": "7cc307176289dc64176988e5d734988f232cb5f8",
@@ -1788,6 +1853,26 @@
       "rcf": "RCFs/carregamento-progressivo.md",
       "sentenceSha256": "c1c9e554def4a11d468612d3220839ef033cf47b282b4e0ee76f95eacadbcf09",
       "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "_plugins/jcem_cover_contract.rb",
+        "_plugins/jcem_social_images.rb",
+        "config/social-images.json",
+        "docs/MODO-DE-USO-COVER-E-HERO.md",
+        "scripts/generate-social-images.mjs",
+        "scripts/lib/overlay-catalog.mjs",
+        "scripts/test_overlay_catalog.mjs",
+        "scripts/test_social_metadata.rb"
+      ],
+      "commit": "",
+      "ft": "FT-090",
+      "id": "a8ea668625e5842d2aad2276",
+      "line": 106,
+      "rcf": "RCFs/carregamento-progressivo.md",
+      "sentenceSha256": "956104a6ac4d6559c2b2f6fc21091d39533f8eada29e158b997e94abf29e00cd",
+      "state": "pending",
       "syncCommit": ""
     },
     {
@@ -1805,6 +1890,26 @@
     },
     {
       "artifacts": [
+        "_plugins/jcem_cover_contract.rb",
+        "_plugins/jcem_social_images.rb",
+        "config/social-images.json",
+        "docs/MODO-DE-USO-COVER-E-HERO.md",
+        "scripts/generate-social-images.mjs",
+        "scripts/lib/overlay-catalog.mjs",
+        "scripts/test_overlay_catalog.mjs",
+        "scripts/test_social_metadata.rb"
+      ],
+      "commit": "",
+      "ft": "FT-090",
+      "id": "125579daf45643ba932ddb3b",
+      "line": 107,
+      "rcf": "RCFs/carregamento-progressivo.md",
+      "sentenceSha256": "4857bf4a7fb3a8fe71153ed61b0d609b0e6ff77e6190969bf82dd325c294b711",
+      "state": "pending",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
         "RCFs/carregamento-progressivo.md"
       ],
       "commit": "cf9a947ef0b643cb1ee7d3f47d10ecec2e983edf",
@@ -1814,6 +1919,26 @@
       "rcf": "RCFs/carregamento-progressivo.md",
       "sentenceSha256": "e0c5ffd7640702aebf73ae111a500b1dd05c957d1b12e430105ef8e5caa242a3",
       "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "_plugins/jcem_cover_contract.rb",
+        "_plugins/jcem_social_images.rb",
+        "config/social-images.json",
+        "docs/MODO-DE-USO-COVER-E-HERO.md",
+        "scripts/generate-social-images.mjs",
+        "scripts/lib/overlay-catalog.mjs",
+        "scripts/test_overlay_catalog.mjs",
+        "scripts/test_social_metadata.rb"
+      ],
+      "commit": "",
+      "ft": "FT-090",
+      "id": "592af74c0699eada920a3877",
+      "line": 108,
+      "rcf": "RCFs/carregamento-progressivo.md",
+      "sentenceSha256": "c800b6360ecb15a4ae67a9d8d2fea16fd7460de0ba9cf263ea6dd134d4d615a6",
+      "state": "pending",
       "syncCommit": ""
     },
     {
@@ -1844,6 +1969,66 @@
     },
     {
       "artifacts": [
+        "_plugins/jcem_cover_contract.rb",
+        "_plugins/jcem_social_images.rb",
+        "config/social-images.json",
+        "docs/MODO-DE-USO-COVER-E-HERO.md",
+        "scripts/generate-social-images.mjs",
+        "scripts/lib/overlay-catalog.mjs",
+        "scripts/test_overlay_catalog.mjs",
+        "scripts/test_social_metadata.rb"
+      ],
+      "commit": "",
+      "ft": "FT-090",
+      "id": "d3b9a3d9e3071c8fc6ec6bd0",
+      "line": 114,
+      "rcf": "RCFs/carregamento-progressivo.md",
+      "sentenceSha256": "d62ea383bea5f42ed9c8454c17ab4d21cc3beeb219c5ebdae384ea34a114cae1",
+      "state": "pending",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "_plugins/jcem_cover_contract.rb",
+        "_plugins/jcem_social_images.rb",
+        "config/social-images.json",
+        "docs/MODO-DE-USO-COVER-E-HERO.md",
+        "scripts/generate-social-images.mjs",
+        "scripts/lib/overlay-catalog.mjs",
+        "scripts/test_overlay_catalog.mjs",
+        "scripts/test_social_metadata.rb"
+      ],
+      "commit": "",
+      "ft": "FT-090",
+      "id": "40fd1c0bcfb46cb79f4f21e0",
+      "line": 116,
+      "rcf": "RCFs/carregamento-progressivo.md",
+      "sentenceSha256": "0a197947ef7b4d4bfba76c757faec17f4d1b9f43c78003cc03d5f93f1211a213",
+      "state": "pending",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "_plugins/jcem_cover_contract.rb",
+        "_plugins/jcem_social_images.rb",
+        "config/social-images.json",
+        "docs/MODO-DE-USO-COVER-E-HERO.md",
+        "scripts/generate-social-images.mjs",
+        "scripts/lib/overlay-catalog.mjs",
+        "scripts/test_overlay_catalog.mjs",
+        "scripts/test_social_metadata.rb"
+      ],
+      "commit": "",
+      "ft": "FT-090",
+      "id": "315be8b5578fcfc8575abedb",
+      "line": 117,
+      "rcf": "RCFs/carregamento-progressivo.md",
+      "sentenceSha256": "11be4d2f5d13f31c458abbbaf8c33c926cb1adc309e7c1b04dd39a71f0dc6cbe",
+      "state": "pending",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
         "_includes/head/custom.html",
         "assets/jcem/js/site.js",
         "assets/jcem/ts/site.ts",
@@ -1858,6 +2043,66 @@
       "rcf": "RCFs/carregamento-progressivo.md",
       "sentenceSha256": "780efd553e0dbfe09d9940db985cbacc76443e0d5c1b4c566b801487d26fa3da",
       "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "_plugins/jcem_cover_contract.rb",
+        "_plugins/jcem_social_images.rb",
+        "config/social-images.json",
+        "docs/MODO-DE-USO-COVER-E-HERO.md",
+        "scripts/generate-social-images.mjs",
+        "scripts/lib/overlay-catalog.mjs",
+        "scripts/test_overlay_catalog.mjs",
+        "scripts/test_social_metadata.rb"
+      ],
+      "commit": "",
+      "ft": "FT-090",
+      "id": "2fa546c061d4427b74a3dca8",
+      "line": 119,
+      "rcf": "RCFs/carregamento-progressivo.md",
+      "sentenceSha256": "a267e7ccfb2ae2048b8c74b1e34d5b835f4643e8be0513724f447b345c34e73c",
+      "state": "pending",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "_plugins/jcem_cover_contract.rb",
+        "_plugins/jcem_social_images.rb",
+        "config/social-images.json",
+        "docs/MODO-DE-USO-COVER-E-HERO.md",
+        "scripts/generate-social-images.mjs",
+        "scripts/lib/overlay-catalog.mjs",
+        "scripts/test_overlay_catalog.mjs",
+        "scripts/test_social_metadata.rb"
+      ],
+      "commit": "",
+      "ft": "FT-090",
+      "id": "e92a33fa1a372c73ec44f252",
+      "line": 120,
+      "rcf": "RCFs/carregamento-progressivo.md",
+      "sentenceSha256": "8a0e204b9b61f14113083efd74d37d9952b9d55112317044adcf45b2b775df79",
+      "state": "pending",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "_plugins/jcem_cover_contract.rb",
+        "_plugins/jcem_social_images.rb",
+        "config/social-images.json",
+        "docs/MODO-DE-USO-COVER-E-HERO.md",
+        "scripts/generate-social-images.mjs",
+        "scripts/lib/overlay-catalog.mjs",
+        "scripts/test_overlay_catalog.mjs",
+        "scripts/test_social_metadata.rb"
+      ],
+      "commit": "",
+      "ft": "FT-090",
+      "id": "5e9d7736a1900b0a74ff99d9",
+      "line": 121,
+      "rcf": "RCFs/carregamento-progressivo.md",
+      "sentenceSha256": "3f49bc5c9b660fea716165016d23655dbee93e1091800d4b1e722444a7b0992b",
+      "state": "pending",
       "syncCommit": ""
     },
     {
@@ -1890,6 +2135,66 @@
       "rcf": "RCFs/carregamento-progressivo.md",
       "sentenceSha256": "e108cd3d550c1eff4e81bf52e6de83fb658a1caf6a2f5a3038ce1a94002aafaa",
       "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "_plugins/jcem_cover_contract.rb",
+        "_plugins/jcem_social_images.rb",
+        "config/social-images.json",
+        "docs/MODO-DE-USO-COVER-E-HERO.md",
+        "scripts/generate-social-images.mjs",
+        "scripts/lib/overlay-catalog.mjs",
+        "scripts/test_overlay_catalog.mjs",
+        "scripts/test_social_metadata.rb"
+      ],
+      "commit": "",
+      "ft": "FT-090",
+      "id": "ece904461de5165583ad3ef1",
+      "line": 135,
+      "rcf": "RCFs/carregamento-progressivo.md",
+      "sentenceSha256": "88b53f906b0caedcb43fb453d7526f5690131ddb62d0642afb89ae3a4c2881bf",
+      "state": "pending",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "_plugins/jcem_cover_contract.rb",
+        "_plugins/jcem_social_images.rb",
+        "config/social-images.json",
+        "docs/MODO-DE-USO-COVER-E-HERO.md",
+        "scripts/generate-social-images.mjs",
+        "scripts/lib/overlay-catalog.mjs",
+        "scripts/test_overlay_catalog.mjs",
+        "scripts/test_social_metadata.rb"
+      ],
+      "commit": "",
+      "ft": "FT-090",
+      "id": "1e036b2fd814850ce820520a",
+      "line": 136,
+      "rcf": "RCFs/carregamento-progressivo.md",
+      "sentenceSha256": "8378f3d13b95f670689e59fd6f4e3dc51b5727b9cc9fb7e31a48cedf10282403",
+      "state": "pending",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "_plugins/jcem_cover_contract.rb",
+        "_plugins/jcem_social_images.rb",
+        "config/social-images.json",
+        "docs/MODO-DE-USO-COVER-E-HERO.md",
+        "scripts/generate-social-images.mjs",
+        "scripts/lib/overlay-catalog.mjs",
+        "scripts/test_overlay_catalog.mjs",
+        "scripts/test_social_metadata.rb"
+      ],
+      "commit": "",
+      "ft": "FT-090",
+      "id": "1cf951aecc3f7880cf8e60f2",
+      "line": 137,
+      "rcf": "RCFs/carregamento-progressivo.md",
+      "sentenceSha256": "f51098da2355aa52021b366b0eb4b8db81fa9d79deaa0309964fbf0add0da83c",
+      "state": "pending",
       "syncCommit": ""
     },
     {
@@ -1962,6 +2267,66 @@
       "rcf": "RCFs/carregamento-progressivo.md",
       "sentenceSha256": "5e017209778da9fb354d66a7e78066159cf86688f12ae6c82d1b96df67f54e28",
       "state": "synchronized",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "_plugins/jcem_cover_contract.rb",
+        "_plugins/jcem_social_images.rb",
+        "config/social-images.json",
+        "docs/MODO-DE-USO-COVER-E-HERO.md",
+        "scripts/generate-social-images.mjs",
+        "scripts/lib/overlay-catalog.mjs",
+        "scripts/test_overlay_catalog.mjs",
+        "scripts/test_social_metadata.rb"
+      ],
+      "commit": "",
+      "ft": "FT-090",
+      "id": "a8b167855a12b815c642ecd6",
+      "line": 161,
+      "rcf": "RCFs/carregamento-progressivo.md",
+      "sentenceSha256": "c7b4ed50006b6d7b6fbf2e6fc5976a2c23cbbddd131bef95b38272daef35cdd2",
+      "state": "pending",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "_plugins/jcem_cover_contract.rb",
+        "_plugins/jcem_social_images.rb",
+        "config/social-images.json",
+        "docs/MODO-DE-USO-COVER-E-HERO.md",
+        "scripts/generate-social-images.mjs",
+        "scripts/lib/overlay-catalog.mjs",
+        "scripts/test_overlay_catalog.mjs",
+        "scripts/test_social_metadata.rb"
+      ],
+      "commit": "",
+      "ft": "FT-090",
+      "id": "723748163821a6fcc3511821",
+      "line": 162,
+      "rcf": "RCFs/carregamento-progressivo.md",
+      "sentenceSha256": "dc76bf0d48f56d078c3982a521ae14fbbde80ed4da477df6befee2e75b5802cd",
+      "state": "pending",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        "_plugins/jcem_cover_contract.rb",
+        "_plugins/jcem_social_images.rb",
+        "config/social-images.json",
+        "docs/MODO-DE-USO-COVER-E-HERO.md",
+        "scripts/generate-social-images.mjs",
+        "scripts/lib/overlay-catalog.mjs",
+        "scripts/test_overlay_catalog.mjs",
+        "scripts/test_social_metadata.rb"
+      ],
+      "commit": "",
+      "ft": "FT-090",
+      "id": "924d174ea34b260adcd16d99",
+      "line": 163,
+      "rcf": "RCFs/carregamento-progressivo.md",
+      "sentenceSha256": "2978b8a7c7df2c82ed7d387199bb1e3eee26a70c754d2786d839cbf3b074127b",
+      "state": "pending",
       "syncCommit": ""
     },
     {
@@ -6882,6 +7247,20 @@
     },
     {
       "artifacts": [
+        ".ia.rules/local/skills/editorial-accessibility-review/SKILL.md",
+        "scripts/test_editorial_accessibility_policy.rb"
+      ],
+      "commit": "",
+      "ft": "FT-093",
+      "id": "a947600e12a0d7227e044474",
+      "line": 43,
+      "rcf": "RCFs/operacao-da-ia.md",
+      "sentenceSha256": "a126502ee4d993d5ba1b968e58ef96120671112aee91a695cdf23a03199c70fa",
+      "state": "pending",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
         "_sass/minimal-mistakes/skins/_variables-custom.scss",
         "scripts/test_print_ieee.mjs",
         "scripts/test_print_runtime.mjs",
@@ -6930,6 +7309,244 @@
       "line": 21,
       "rcf": "RCFs/referencias-e-footnotes.md",
       "sentenceSha256": "2a9d9e1f297f56cba3ec273c8dc8a6d3a5db5f81f582579663a737d1648274b0",
+      "state": "pending",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        ".github/workflows/ai-article-review.yml",
+        "config/ai-review.json",
+        "docs/propostas-upstream/revisao-editorial-portavel.md",
+        "scripts/review-articles.mjs",
+        "scripts/test_ai_article_review.mjs"
+      ],
+      "commit": "",
+      "ft": "FT-096",
+      "id": "63fa6e34f5246d3af0a4eaec",
+      "line": 12,
+      "rcf": "RCFs/revisao-automatizada-por-ia.md",
+      "sentenceSha256": "e11e46158f57e5c4515812e0864fcad0ec1229407252ec6ec808099487d4b143",
+      "state": "pending",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        ".github/workflows/ai-article-review.yml",
+        "config/ai-review.json",
+        "docs/propostas-upstream/revisao-editorial-portavel.md",
+        "scripts/review-articles.mjs",
+        "scripts/test_ai_article_review.mjs"
+      ],
+      "commit": "",
+      "ft": "FT-096",
+      "id": "2a7c18adbc6d5b1a72caddbd",
+      "line": 13,
+      "rcf": "RCFs/revisao-automatizada-por-ia.md",
+      "sentenceSha256": "2d59bd64371811f21b973c6b47b6e79dd2bc91de4ef31a73ec37e2588e5f2b59",
+      "state": "pending",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        ".github/workflows/ai-article-review.yml",
+        "config/ai-review.json",
+        "docs/propostas-upstream/revisao-editorial-portavel.md",
+        "scripts/review-articles.mjs",
+        "scripts/test_ai_article_review.mjs"
+      ],
+      "commit": "",
+      "ft": "FT-096",
+      "id": "8884ff17b73091c06721f095",
+      "line": 15,
+      "rcf": "RCFs/revisao-automatizada-por-ia.md",
+      "sentenceSha256": "5d80fcdea8de278fbea14b208d5d9f8a558ea42128c3cd81faa1ccde67ced5db",
+      "state": "pending",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        ".github/workflows/ai-article-review.yml",
+        "config/ai-review.json",
+        "docs/propostas-upstream/revisao-editorial-portavel.md",
+        "scripts/review-articles.mjs",
+        "scripts/test_ai_article_review.mjs"
+      ],
+      "commit": "",
+      "ft": "FT-096",
+      "id": "dfc3daddbe046a15976df353",
+      "line": 21,
+      "rcf": "RCFs/revisao-automatizada-por-ia.md",
+      "sentenceSha256": "597a4d02902ca234a7490c913c83473e3625e21e6825d73342f05317953b0718",
+      "state": "pending",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        ".github/workflows/ai-article-review.yml",
+        "config/ai-review.json",
+        "docs/propostas-upstream/revisao-editorial-portavel.md",
+        "scripts/review-articles.mjs",
+        "scripts/test_ai_article_review.mjs"
+      ],
+      "commit": "",
+      "ft": "FT-096",
+      "id": "f4f8438737854717728ac043",
+      "line": 22,
+      "rcf": "RCFs/revisao-automatizada-por-ia.md",
+      "sentenceSha256": "12961c6d622eb166253d84c9892473ae915d7a922bab74b36608da9571065fcf",
+      "state": "pending",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        ".github/workflows/ai-article-review.yml",
+        "config/ai-review.json",
+        "docs/propostas-upstream/revisao-editorial-portavel.md",
+        "scripts/review-articles.mjs",
+        "scripts/test_ai_article_review.mjs"
+      ],
+      "commit": "",
+      "ft": "FT-096",
+      "id": "ead8c23fe1dc1fd79db4e857",
+      "line": 23,
+      "rcf": "RCFs/revisao-automatizada-por-ia.md",
+      "sentenceSha256": "ceb943d0fe91f6c695e0585a2e080ab02ae6acc51d5f0a5c7f70ac558ca2f780",
+      "state": "pending",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        ".github/workflows/ai-article-review.yml",
+        "config/ai-review.json",
+        "docs/propostas-upstream/revisao-editorial-portavel.md",
+        "scripts/review-articles.mjs",
+        "scripts/test_ai_article_review.mjs"
+      ],
+      "commit": "",
+      "ft": "FT-096",
+      "id": "d651228efcac0d1ba8cdb977",
+      "line": 27,
+      "rcf": "RCFs/revisao-automatizada-por-ia.md",
+      "sentenceSha256": "056dee2f32fa67be403808f5883adb2061856867574c37fc1c71900ef53aedc8",
+      "state": "pending",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        ".github/workflows/ai-article-review.yml",
+        "config/ai-review.json",
+        "docs/propostas-upstream/revisao-editorial-portavel.md",
+        "scripts/review-articles.mjs",
+        "scripts/test_ai_article_review.mjs"
+      ],
+      "commit": "",
+      "ft": "FT-096",
+      "id": "89b7e62ca2512e970754a09e",
+      "line": 28,
+      "rcf": "RCFs/revisao-automatizada-por-ia.md",
+      "sentenceSha256": "f11b368e51cd1e9911f6cabc28fe6f63738c2e027c59b80b446da18e508af412",
+      "state": "pending",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        ".github/workflows/ai-article-review.yml",
+        "config/ai-review.json",
+        "docs/propostas-upstream/revisao-editorial-portavel.md",
+        "scripts/review-articles.mjs",
+        "scripts/test_ai_article_review.mjs"
+      ],
+      "commit": "",
+      "ft": "FT-096",
+      "id": "0834657132c25548e9ce028a",
+      "line": 34,
+      "rcf": "RCFs/revisao-automatizada-por-ia.md",
+      "sentenceSha256": "92cdcb07b9a55dd586bf5141c7521ff901802cfbce6fd7f4ffb3d1e7cf192310",
+      "state": "pending",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        ".github/workflows/ai-article-review.yml",
+        "config/ai-review.json",
+        "docs/propostas-upstream/revisao-editorial-portavel.md",
+        "scripts/review-articles.mjs",
+        "scripts/test_ai_article_review.mjs"
+      ],
+      "commit": "",
+      "ft": "FT-096",
+      "id": "cc491c06e3604dc241f432ef",
+      "line": 35,
+      "rcf": "RCFs/revisao-automatizada-por-ia.md",
+      "sentenceSha256": "cfd53d41f3f9875d4fab597514cd50a369122600a08cc4a8962a673b826a1b58",
+      "state": "pending",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        ".github/workflows/ai-article-review.yml",
+        "config/ai-review.json",
+        "docs/propostas-upstream/revisao-editorial-portavel.md",
+        "scripts/review-articles.mjs",
+        "scripts/test_ai_article_review.mjs"
+      ],
+      "commit": "",
+      "ft": "FT-096",
+      "id": "fcaae300cecd5d9981c2d866",
+      "line": 36,
+      "rcf": "RCFs/revisao-automatizada-por-ia.md",
+      "sentenceSha256": "59dc6c512f5b3a47a80afc462f3bd9b57b32a2c6647197b4e3bc8013ef0352d7",
+      "state": "pending",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        ".github/workflows/ai-article-review.yml",
+        "config/ai-review.json",
+        "docs/propostas-upstream/revisao-editorial-portavel.md",
+        "scripts/review-articles.mjs",
+        "scripts/test_ai_article_review.mjs"
+      ],
+      "commit": "",
+      "ft": "FT-096",
+      "id": "6218f2c1c9068b787f311aab",
+      "line": 40,
+      "rcf": "RCFs/revisao-automatizada-por-ia.md",
+      "sentenceSha256": "8449c83c620c768e8795654897f950c66023ae435a565455748be282ac3570cf",
+      "state": "pending",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        ".github/workflows/ai-article-review.yml",
+        "config/ai-review.json",
+        "docs/propostas-upstream/revisao-editorial-portavel.md",
+        "scripts/review-articles.mjs",
+        "scripts/test_ai_article_review.mjs"
+      ],
+      "commit": "",
+      "ft": "FT-096",
+      "id": "ab73d4d27951836d557c4953",
+      "line": 41,
+      "rcf": "RCFs/revisao-automatizada-por-ia.md",
+      "sentenceSha256": "03e7691a0fffd096b099af467f3917237f7743b31d4a86bcba5d785f02eda3ed",
+      "state": "pending",
+      "syncCommit": ""
+    },
+    {
+      "artifacts": [
+        ".github/workflows/ai-article-review.yml",
+        "config/ai-review.json",
+        "docs/propostas-upstream/revisao-editorial-portavel.md",
+        "scripts/review-articles.mjs",
+        "scripts/test_ai_article_review.mjs"
+      ],
+      "commit": "",
+      "ft": "FT-096",
+      "id": "2f122fec5245cc6c55e48b23",
+      "line": 42,
+      "rcf": "RCFs/revisao-automatizada-por-ia.md",
+      "sentenceSha256": "ce8cc0643fb028641436292f0090ff1014afd1a5c1f125206ebed7667067f63e",
       "state": "pending",
       "syncCommit": ""
     },

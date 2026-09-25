@@ -1,6 +1,6 @@
 # Contexto mestre — FT-096 a FT-098
 
-Estado: fases registradas e bloqueadas pelas normas/implementações predecessoras. Fonte material: `TODO.ia.md` no commit `d6e48a9b90defd21b6ff07760b82cec1456c4362`.
+Estado: FT-096 concluída normativamente; FT-097 autorizada e bloqueada pelas FTs 091 e 094; FT-098 autorizada e bloqueada pelas predecessoras de integração. Fonte material: `TODO.ia.md` no commit `d6e48a9b90defd21b6ff07760b82cec1456c4362`.
 
 ## Objetivo
 
@@ -26,6 +26,12 @@ Implantar revisão automatizada de artigos alterados com seleção mínima, salv
 - Segredos, conteúdo privado, logs sensíveis e metadados do consumidor não podem integrar proposta upstream.
 - É proibido abrir, publicar, atribuir, rotular, implementar ou acompanhar issue no upstream nesta frente.
 
+## Decisão normativa consolidada
+
+- A Action seleciona somente Markdown alterado em roots editoriais, usa permissões somente leitura e nunca muta corpus, Git, PR, publicação ou upstream.
+- O adaptador determinístico funciona sem provedor, produzindo manifesto, prompt e cópias limitadas; a IA futura entra por interface explícita.
+- A proposta upstream é arquivo local sanitizado, sem publicação ou acompanhamento externo.
+
 ## Próxima retomada
 
-FT-096 só inicia após a conclusão normativa de FT-090 e FT-093. FT-097 e FT-098 permanecem bloqueadas até as implementações predecessoras e autorizações humanas correspondentes.
+Após FT-091 e FT-094, implementar adaptador, workflow, testes e pacote local da FT-097; então executar a integração FT-098.

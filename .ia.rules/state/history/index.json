@@ -14,6 +14,27 @@
       "path": ".ia.rules/state/history/FT-087.ia",
       "sha256": "64d72fd439e08b71cd7fb4c35eec4b9adb9e0827e3ba2f15f74b823b8946a20c",
       "state": "pendente-validacao"
+    },
+    {
+      "id": "FT-090",
+      "name": "Normatização de COVER, OG e overlays 4:5",
+      "path": ".ia.rules/state/history/FT-090.ia",
+      "sha256": "d0c339d038bc2e0e64314525db76533d250420ba397dd36f0f42f74677805404",
+      "state": "pendente-validacao"
+    },
+    {
+      "id": "FT-093",
+      "name": "Normatização de síntese, edição e acessibilidade de leitura",
+      "path": ".ia.rules/state/history/FT-093.ia",
+      "sha256": "267e729a1039e64466e638d5cf8b912870ce7126f56a21e918eb1dd94a6fb999",
+      "state": "pendente-validacao"
+    },
+    {
+      "id": "FT-096",
+      "name": "Normatização da revisão automatizada e portabilidade local",
+      "path": ".ia.rules/state/history/FT-096.ia",
+      "sha256": "c44334c9014b72970bd94298154fa53c277fd8cc6196facaf0a9da91ce8268d9",
+      "state": "pendente-validacao"
     }
   ]
 }

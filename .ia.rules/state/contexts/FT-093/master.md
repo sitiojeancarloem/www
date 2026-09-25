@@ -1,6 +1,6 @@
 # Contexto mestre — FT-093 a FT-095
 
-Estado: fases registradas; FT-093 apta à equalização após o commit exclusivo de inicialização; FT-094 e FT-095 bloqueadas por dependência e autorização. Fonte material: `TODO.ia.md` no commit `d6e48a9b90defd21b6ff07760b82cec1456c4362`.
+Estado: FT-093 concluída normativamente; FT-094 autorizada e pronta; FT-095 autorizada e bloqueada somente pela FT-094. Fonte material: `TODO.ia.md` no commit `d6e48a9b90defd21b6ff07760b82cec1456c4362`.
 
 ## Objetivo
 
@@ -27,6 +27,12 @@ Formalizar e materializar uma política editorial que diferencie síntese conver
 - Reescrita alternativa de trecho autoral é exceção pontual e deve preservar o original comentado, marcar inequivocamente a alternativa e declarar a alteração de estilo.
 - Regra genérica reutilizável não será adicionada ao núcleo gerenciado deste repositório Final; eventual proposta upstream pertence à FT-097 e será apenas material local.
 
+## Decisão normativa consolidada
+
+- `editorial-authoring` já contém preservação autoral, rigor acessível e glossas; o produto apenas roteia e especializa.
+- Síntese conversacional não imita autor inexistente, mas preserva autoria intelectual e toda nuance material documentada.
+- Alternativa estilística é exceção pontual, adjacente, marcada e incapaz de substituir silenciosamente o original.
+
 ## Próxima retomada
 
-Após autorização explícita do commit de inicialização, criar o commit exclusivo das FTs. Só então iniciar FT-093, normatizar o delta do produto e interromper novamente antes da implementação.
+Materializar FT-094 como especialização local declarativa e testes de política, sem criar runtime editorial que reescreva o corpus.

@@ -14,7 +14,7 @@ Autoridade: `AGENTS.md` → `RCF.md` → sub-RCF aplicável → este adaptador. 
 | Gatilho | Rota mínima após o núcleo |
 |---|---|
 | conteúdo editorial ou revisão autoral | recurso canônico `.ia.rules/resources/editorial-authoring.md` + capacidade `WEB-EDITORIAL` + sub-RCFs do conteúdo alterado; havendo referência potencialmente divina, cadeia correferente ou caixa alta material, carregar depois `RCFs/revisao-editorial-reverencial.md` + Skill local `.ia.rules/local/skills/reverential-editorial-review/SKILL.md` |
-| síntese `bate-papo:` | `RCFs/bate-papo.md` + namespaces + publicação quando aplicável |
+| síntese de conversa, bate-papo, gravação ou áudio transcrito, inclusive `bate-papo:` | recurso canônico `.ia.rules/resources/editorial-authoring.md` + `RCFs/bate-papo.md` + namespaces + publicação quando aplicável |
 | citação, nota ou bibliografia | `RCFs/citacoes.md` + `RCFs/referencias-e-footnotes.md` |
 | TTS, forma falada, idioma, pronúncia, tabela, imagem ou gráfico acessível | recurso canônico `.ia.rules/resources/spoken-normalization.md` + `RCFs/leitura-acessivel-e-tts.md` + contrato semântico de origem; carregar `editorial-authoring.md` também somente quando houver transformação autoral |
 | PageSpeed, dependência ou asset client-side | `RCFs/desempenho-e-dependencias.md` + `RCFs/carregamento-progressivo.md` |
@@ -22,13 +22,14 @@ Autoridade: `AGENTS.md` → `RCF.md` → sub-RCF aplicável → este adaptador. 
 | impressão/PDF | `RCFs/impressao-ieee.md` + contrato do conteúdo afetado |
 | build, Pages ou publicação | `RCFs/publicacao.md` + cenário operacional correspondente |
 | documentação `.md`, metadado público ou interface de uso alterada | `RCFs/documentacao-e-metadados.md` + sub-RCF do recurso documentado |
+| revisão automatizada de artigo, pacote de revisão ou proposta portável | `RCFs/revisao-automatizada-por-ia.md` + `editorial-authoring.md` + sub-RCFs disparadas pelos arquivos selecionados |
 
 ## Invariantes de execução
 
 - Auditar e reutilizar fonte, configuração, implementação, testes, build e artefato publicado antes de criar mecanismo.
 - Equalizer é perene, literal e desmarcado; frentes subordinadas convergem sem alterá-lo.
 - Norma e implementação permanecem em FTs distintas; gate não executado, bloqueado ou inconclusivo nunca é apresentado como aprovado.
-- Conteúdo editorial preserva texto, voz, referências e nuances. Camada acessível/falada é aditiva e não reescreve o original visual.
+- Conteúdo editorial humano preserva texto, voz, pontuação, referências e nuances; síntese conversacional não fabrica autor ou estilo inexistente. Rigor acessível simplifica linguagem, não substância, e explica termo técnico necessário na primeira ocorrência pertinente. Camada acessível/falada é aditiva e não reescreve o original visual.
 - Capacidades genéricas de edição autoral e normalização falada pertencem ao núcleo gerenciado; a adaptação local contém somente roteamento e requisitos de produto que não existam nele.
 - Bate-papo distingue fala, síntese e inferência; preserva divergências, citações e disclaimers cumulativos.
 - PageSpeed é aferido por layout e amostras representativas, sem degradar publicação individual.

@@ -39,6 +39,7 @@ Escopo: autoridade arquitetural superior, precedência e roteamento dos contrato
 | Documentação de uso, exemplos, ilustrações e metadados do projeto | [Documentação e metadados](./RCFs/documentacao-e-metadados.md) |
 | Modus operandi especializado da IA e projeção local | [Operação especializada da IA](./RCFs/operacao-da-ia.md) |
 | Revisão autoral, capitalização reverencial e preservação de ênfases | [Revisão editorial reverencial](./RCFs/revisao-editorial-reverencial.md) |
+| Revisão automatizada de artigos por IA e pacote portável | [Revisão automatizada por IA](./RCFs/revisao-automatizada-por-ia.md) |
 | Leitura acessível, TTS, pronúncia e gráficos semânticos | [Leitura acessível e TTS](./RCFs/leitura-acessivel-e-tts.md) |
 
 ## Validação do roteamento
