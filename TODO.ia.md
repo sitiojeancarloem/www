@@ -693,7 +693,7 @@ Este arquivo preserva demandas do desenvolvedor. Estados operacionais seguem a g
   - **PIX**
     - Disponibilizar PIX com payload exato:
       `00020126630014br.gov.bcb.pix0119doe@jeancarloem.com0218Doacao_JeanCarloEM5204000053039865802BR5925JEAN_CARLO_DE_ELIAS_MOREI6012PIRASSUNUNGA62180514DOEJEANCARLOEM63040675`
-    - Disponibilizar chave PIX (`<chave-pix>`): `doe@jeancarloem.com`
+    - Disponibilizar chave PIX (`<chave-pix>`), com payload exato, por ícone de copia para área de transferência: `doe@jeancarloem.com`
     - Gerar o QR Code **client-side**, em alta resolução/qualidade, sem depender de serviço remoto para codificar o conteúdo.
     - A apresentação inicial PODE ser compacta, mas o QR DEVE ser clicável e expandível para tamanho suficiente à leitura confiável por outro celular.
     - Disponibilizar download do QR composto em **PNG ou JPG**, adequado para salvar/carregar no aplicativo bancário.
