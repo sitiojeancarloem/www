@@ -1,0 +1,23 @@
+{
+  "title": "Revisão editorial portável para documentos alterados",
+  "context": "Repositórios editoriais precisam revisar somente documentos materialmente alterados, aplicar políticas distintas a texto humano e síntese conversacional e produzir parecer auditável sem conceder escrita automática ao corpus.",
+  "gap": "A governança já oferece mecanismos de contexto, workflow e extensão, mas não há um contrato portável que una seleção mínima por diff, empacotamento determinístico, provedor opcional e achados estruturados sob permissões somente leitura.",
+  "conditions": "A capacidade deve ser opt-in, funcionar em papel consumidor, limitar roots, quantidade e bytes antes de qualquer provedor e permanecer útil sem credencial. Symlink, traversal, remoção, arquivo fora dos roots, base inválida e lote excessivo devem ser excluídos ou produzir diagnóstico explícito. O fluxo não pode alterar corpus, Git, PR, issue ou publicação.",
+  "proposal": "Adicionar uma capacidade oficial modular com quatro interfaces: `changedPaths(base, head) -> Change[]`; `classifyPath(path, policy) -> Selected | Excluded`; `prepareReviewPackage(selection, limits) -> Manifest + Prompt + Files`; e `review(package, provider?) -> Findings | Pending`. O pacote deve conter manifesto versionado, hashes, limites, prompt normativo e somente cópias dos documentos selecionados. A saída deve identificar arquivo, região, severidade, norma, explicação e sugestão, sempre sujeita a revisão humana.",
+  "reuse": "Separar seleção, política editorial, empacotamento e provedor permite reutilização por hooks, workflows e comandos locais sem duplicar a governança. Roots, limites, rotas normativas e provedor permanecem parâmetros do consumidor; a ausência de provedor resulta em estado pendente, nunca em aprovação fabricada.",
+  "reference": "Há uma implementação consumidora validada como referência conceitual. O material compartilhado limita-se ao contrato e à matriz de testes; não inclui conteúdo editorial, segredos, caminhos privados, URLs privadas nem metadados identificadores do consumidor.",
+  "impact": "A proposta reduz revisão desnecessária, mantém privilégio mínimo e cria uma fronteira estável para provedores futuros. A adoção pode ser aditiva e não exige substituir capacidades existentes.",
+  "acceptance": "Testes devem cobrir alteração e não alteração, draft, página, renomeação, remoção, traversal, symlink, arquivo e lote excessivos, base inválida, ausência de provedor, corpus inalterado e sanitização. O aceite exige seleção mínima determinística, permissões somente leitura, pacote reproduzível e nenhum efeito de escrita fora do diretório temporário de artefatos.",
+  "evidence": {
+    "ft": "FT-099",
+    "basis": [
+      "seleção mínima por diff validado",
+      "pacote determinístico com hashes e limites",
+      "execução local sem provedor obrigatório",
+      "matriz de salvaguardas e corpus inalterado"
+    ]
+  },
+  "language": "pt-BR",
+  "scenario": "scenario.governance.upstream-sharing",
+  "version": "revisao-editorial-portavel/v1"
+}

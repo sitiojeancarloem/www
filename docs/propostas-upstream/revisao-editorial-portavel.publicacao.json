@@ -1,0 +1,48 @@
+{
+  "schema": 1,
+  "consumer": "jeancarloem.com.blog",
+  "destination": "jcempro/agents.md",
+  "issue": 14,
+  "url": "https://github.com/jcempro/agents.md/issues/14",
+  "publishedAt": "2026-09-25T08:19:04.527Z",
+  "observedCreatedAt": "2026-09-25T08:19:34Z",
+  "sourceVersion": "revisao-editorial-portavel/v1",
+  "preparedVersion": "revisao-editorial-portavel[PATH_REDACTED]",
+  "proposalHash": "19290e096835f50792134e9bc7bd012f3c31ea53cb59562b420759c0507dedd1",
+  "evidenceHash": "32b0b5c34415264ea5a66e5965e4004ec7bd8baaf8ee2411c69aeacf054af3c1",
+  "scenario": "scenario.governance.upstream-sharing",
+  "ft": "FT-099",
+  "status": "published_open",
+  "effects": {
+    "consumer": [
+      "duplicate_check",
+      "issue_creation",
+      "authorized_technical_attachment_comment"
+    ],
+    "upstreamAutomation": [
+      {
+        "actor": "github-actions[bot]",
+        "event": "labeled",
+        "value": "agents:highly-recommended",
+        "at": "2026-09-25T08:19:43Z"
+      },
+      {
+        "actor": "github-actions[bot]",
+        "event": "commented",
+        "at": "2026-09-25T08:19:44Z"
+      }
+    ]
+  },
+  "technicalAttachment": {
+    "url": "https://github.com/jcempro/agents.md/issues/14#issuecomment-5829303460",
+    "content": [
+      "normative_excerpt",
+      "read_only_workflow",
+      "safe_path_selection",
+      "deterministic_manifest",
+      "acceptance_tests"
+    ],
+    "authorization": "explicit_human_follow_up"
+  },
+  "nextReview": "Somente mediante nova solicitação e autorização humana."
+}

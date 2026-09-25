@@ -13,3 +13,4 @@
 - FT-096 — Normatização da revisão automatizada e portabilidade local; estado: pendente-validacao; histórico: `history/FT-096.ia`; sha256: `c44334c9014b72970bd94298154fa53c277fd8cc6196facaf0a9da91ce8268d9`.
 - FT-097 — Implementação da revisão automatizada e pacote de proposta upstream; estado: pendente-validacao; histórico: `history/FT-097.ia`; sha256: `df37a160e32aa6c99fc1f27788aa46bdedcb796ac89dfcd599f0c3032673231e`.
 - FT-098 — Integração e validação da revisão automatizada e portabilidade; estado: pendente-validacao; histórico: `history/FT-098.ia`; sha256: `785f02973a3ffdb3646435d07430025a7a77bae2a404bd3db202fbe9e75e1da1`.
+- FT-099 — Publicação controlada da proposta upstream; estado: pendente-validacao; histórico: `history/FT-099.ia`; sha256: `f464462839f9b7f759037c7460bc5d89737e56d7bfc592c88601df03b32f6c9f`.

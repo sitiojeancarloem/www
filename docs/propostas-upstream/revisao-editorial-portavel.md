@@ -1,6 +1,6 @@
 # Proposta local: revisão editorial portável
 
-Status: material sanitizado para avaliação futura. Não publicado e sem ação no upstream.
+Status: publicado como [jcempro/agents.md#14](https://github.com/jcempro/agents.md/issues/14) em 2026-09-25; acompanhamento depende de nova solicitação e autorização.
 
 ## Problema genérico
 
@@ -33,3 +33,15 @@ Permissões somente leitura; checkout sem credencial persistida; cardinalidade e
 ## Testes sugeridos
 
 Cobrir alteração, não alteração, draft, página, renomeação, remoção, traversal, symlink, arquivo e lote excessivos, base inválida, ausência de provedor, corpus inalterado e sanitização do material portável.
+
+## Registro de publicação
+
+- Destino: `jcempro/agents.md`.
+- Issue: [#14 — Revisão editorial portável para documentos alterados](https://github.com/jcempro/agents.md/issues/14).
+- FT: `FT-099`.
+- Cenário: `scenario.governance.upstream-sharing`.
+- Estado observado: aberta, sem responsável e sem marco.
+- Efeitos desta FT: verificação de duplicidade e criação da issue pelo publicador oficial.
+- Complemento autorizado: [anexo técnico com norma, workflow, código e testes](https://github.com/jcempro/agents.md/issues/14#issuecomment-5829303460).
+- Efeitos do upstream: `github-actions[bot]` aplicou `agents:highly-recommended` e publicou um parecer automático; a FT não solicitou, alterou nem removeu esses efeitos.
+- Próxima revisão: somente mediante nova solicitação e autorização humana.

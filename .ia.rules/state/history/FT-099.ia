@@ -1,0 +1,9 @@
+FT-099|nome=Publicação controlada da proposta upstream|escopo=operacional|status=concluida|autorizacao=humana|atualizacao=2026-09-25T05:42:00-03:00|conclusao=2026-09-25T05:42:00-03:00
+objetivo=Verificar, publicar e registrar uma única issue sanitizada de revisão editorial portável no upstream configurado.
+origem=.ia.rules/state/requests/FT-099/prompt.md
+contexto=.ia.rules/state/contexts/FT-099/master.md
+dependencias=FT-096,FT-097,FT-098
+plano=[concluido] validar destino, identidade, sanitização e duplicidade; [concluido] publicar pelo mecanismo oficial; [concluido] anexar exemplos técnicos autorizados; [concluido] registrar evidências e validar ausência de outros efeitos
+resultado=Proposta sanitizada publicada como jcempro/agents.md#14 e complementada, por autorização humana explícita, com anexo técnico de norma, workflow, código e testes.
+verificacoes=Check online e duplicidade aprovados; issue aberta sem responsável ou marco; anexo sanitizado publicado no comentário 5829303460; label e parecer iniciais atribuídos pela timeline ao github-actions[bot].
+pendencias=Aceite humano do TODO e qualquer acompanhamento futuro da issue permanecem externos e exigem nova autorização.

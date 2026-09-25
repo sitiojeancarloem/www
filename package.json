@@ -246,6 +246,7 @@
   },
   "agentsUpstream": {
     "schema": 1,
+    "role": "consumer",
     "upstreamRepository": "jcempro/agents.md",
     "predecessorRepositories": [
       "JeanCarloEM/agents.md"

@@ -77,6 +77,13 @@
       "path": ".ia.rules/state/history/FT-098.ia",
       "sha256": "785f02973a3ffdb3646435d07430025a7a77bae2a404bd3db202fbe9e75e1da1",
       "state": "pendente-validacao"
+    },
+    {
+      "id": "FT-099",
+      "name": "Publicação controlada da proposta upstream",
+      "path": ".ia.rules/state/history/FT-099.ia",
+      "sha256": "f464462839f9b7f759037c7460bc5d89737e56d7bfc592c88601df03b32f6c9f",
+      "state": "pendente-validacao"
     }
   ]
 }

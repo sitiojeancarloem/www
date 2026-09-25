@@ -11,12 +11,15 @@
 
 > continue
 
+> Você anexou trechos de normas de exemplo e código à issue para evitar retrabalho no upstrem? Senão, faça
+
 ## Autoridade aplicável
 
 - A solicitação mais recente autoriza criar a nova raiz de TODO e publicar a issue preparada no upstream configurado.
 - A autorização anterior permite normatização, implementação das FTs relacionadas, commits parciais e push após cada FT efetivamente implementada.
 - A atuação permanece limitada ao repositório corrente e ao efeito externo estritamente necessário para criar a issue pelo canal oficial.
 - Não estão autorizados atribuição, rótulo, comentário, implementação, movimentação, fechamento ou qualquer acompanhamento da issue no upstream.
+- A solicitação posterior autoriza um único comentário técnico sanitizado com normas, workflow, código e testes para reduzir retrabalho; os demais limites pós-publicação permanecem vigentes.
 - Nenhuma capacidade, contrato ou comportamento existente pode ser removido, enfraquecido ou regredido.
 
 ## Auditoria de não duplicação

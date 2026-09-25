@@ -78,7 +78,17 @@ try {
 	const proposal = await readFile(path.join(root, 'docs', 'propostas-upstream', 'revisao-editorial-portavel.md'), 'utf8');
 	assert.doesNotMatch(proposal, /AKIA[0-9A-Z]{16}|gh[pousr]_[A-Za-z0-9_]{20,}|BEGIN (?:RSA |OPENSSH )?PRIVATE KEY/);
 	assert.doesNotMatch(proposal, /jeancarloem\.com|sitiojeancarloem|D:\\trampo|C:\\Users/i);
-	assert.match(proposal, /Não publicado e sem ação no upstream/);
+	assert.match(proposal, /jcempro\/agents\.md\/issues\/14/);
+	const publication = JSON.parse(await readFile(path.join(root, 'docs', 'propostas-upstream', 'revisao-editorial-portavel.publicacao.json'), 'utf8'));
+	assert.equal(publication.issue, 14);
+	assert.equal(publication.status, 'published_open');
+	assert.equal(publication.technicalAttachment.authorization, 'explicit_human_follow_up');
+	const attachment = await readFile(path.join(root, 'docs', 'propostas-upstream', 'revisao-editorial-portavel-anexo.md'), 'utf8');
+	assert.doesNotMatch(attachment, /AKIA[0-9A-Z]{16}|gh[pousr]_[A-Za-z0-9_]{20,}|BEGIN (?:RSA |OPENSSH )?PRIVATE KEY/);
+	assert.doesNotMatch(attachment, /jeancarloem\.com|sitiojeancarloem|D:\\trampo|C:\\Users/i);
+	assert.match(attachment, /Norma de referência/);
+	assert.match(attachment, /Workflow de referência/);
+	assert.match(attachment, /Seleção segura e pacote determinístico/);
 
 	console.log(`ai_article_review=ok selection=1 rename=1 removal=1 traversal=1 symlink=${symlinkCovered ? 'runtime' : 'source'} limits=2 provider=pending upstream=local`);
 } finally {

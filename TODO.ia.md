@@ -653,7 +653,7 @@ Este arquivo preserva demandas do desenvolvedor. Estados operacionais seguem a g
     - Confirmar que o material upstream ficou sanitizado, modular e reaproveitável.
     - Confirmar que nenhuma ação automática foi executada no repositório upstream.
 
-⏳ Publicar a proposta sanitizada de revisão editorial no upstream de agents.md
+✅ Publicar a proposta sanitizada de revisão editorial no upstream de agents.md
   - Publicação controlada:
     - Usar exclusivamente `agent:upstream:check`, `agent:upstream:prepare` e `agent:upstream:publish --authorize`.
     - Confirmar destino, papel consumidor, disponibilidade, permissão, sanitização e ausência de duplicidade antes da criação.
@@ -662,7 +662,7 @@ Este arquivo preserva demandas do desenvolvedor. Estados operacionais seguem a g
     - Registrar repositório consumidor, destino upstream, número e URL da issue, data, versão/hash da proposta, cenário, FT e estado.
     - Manter o material local coerente com a publicação efetivamente realizada.
   - Limites pós-publicação:
-    - Não atribuir, rotular, comentar, implementar, movimentar ou encerrar a issue no upstream.
+    - Não atribuir, rotular, implementar, movimentar ou encerrar a issue no upstream; comentário limita-se ao anexo técnico sanitizado solicitado expressamente durante a validação da FT-099.
     - Qualquer ação posterior no upstream exige solicitação e autorização próprias.
   - Validação/aceite:
     - Confirmar que a issue criada corresponde ao artefato sanitizado e que nenhuma outra mutação externa ocorreu.
