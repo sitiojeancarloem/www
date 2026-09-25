@@ -652,3 +652,18 @@ Este arquivo preserva demandas do desenvolvedor. Estados operacionais seguem a g
     - Confirmar que a Action revisa apenas o necessário e não impõe regressões.
     - Confirmar que o material upstream ficou sanitizado, modular e reaproveitável.
     - Confirmar que nenhuma ação automática foi executada no repositório upstream.
+
+⏳ Publicar a proposta sanitizada de revisão editorial no upstream de agents.md
+  - Publicação controlada:
+    - Usar exclusivamente `agent:upstream:check`, `agent:upstream:prepare` e `agent:upstream:publish --authorize`.
+    - Confirmar destino, papel consumidor, disponibilidade, permissão, sanitização e ausência de duplicidade antes da criação.
+    - Publicar somente a proposta portável concluída nas FTs 096 a 098, sem conteúdo editorial, segredo, path privado ou metadado identificador do consumidor.
+  - Rastreabilidade:
+    - Registrar repositório consumidor, destino upstream, número e URL da issue, data, versão/hash da proposta, cenário, FT e estado.
+    - Manter o material local coerente com a publicação efetivamente realizada.
+  - Limites pós-publicação:
+    - Não atribuir, rotular, comentar, implementar, movimentar ou encerrar a issue no upstream.
+    - Qualquer ação posterior no upstream exige solicitação e autorização próprias.
+  - Validação/aceite:
+    - Confirmar que a issue criada corresponde ao artefato sanitizado e que nenhuma outra mutação externa ocorreu.
+    - Preservar integralmente as capacidades, contratos e comportamentos existentes.
