@@ -248,7 +248,13 @@ module Jcem
 
       og = raw["og"].is_a?(Hash) ? raw["og"] : {}
       wide_source = og["wide_source"] && validate_public_image(document, og["wide_source"], "og_wide_invalida")
-      square_source = og["square_source"] && validate_public_image(document, og["square_source"], "og_square_invalida")
+      portrait_value = og["portrait_source"]
+      legacy_square_value = og["square_source"]
+      if portrait_value && legacy_square_value && portrait_value.to_s != legacy_square_value.to_s
+        fatal(document, "og_vertical_ambigua", "portrait_source=#{portrait_value} square_source=#{legacy_square_value}")
+      end
+      portrait_source = (portrait_value || legacy_square_value) &&
+                        validate_public_image(document, portrait_value || legacy_square_value, "og_portrait_invalida")
       resolved = {
         "schema" => config["schema"],
         "mode" => mode,
@@ -261,7 +267,7 @@ module Jcem
         "aspect_ratio" => "#{config.dig('aspect_ratio', 'width')} / #{config.dig('aspect_ratio', 'height')}",
         "patterns" => { "left" => left, "right" => right },
         "hero" => hero_for(document, raw["hero"], config),
-        "og" => { "wide_source" => wide_source, "square_source" => square_source }.compact
+        "og" => { "wide_source" => wide_source, "portrait_source" => portrait_source }.compact
       }
       document.data["jcem_cover"] = resolved
     rescue ArgumentError, TypeError

@@ -18,6 +18,7 @@ Autoridade: `AGENTS.md` → `RCF.md` → sub-RCF aplicável → este adaptador. 
 | citação, nota ou bibliografia | `RCFs/citacoes.md` + `RCFs/referencias-e-footnotes.md` |
 | TTS, forma falada, idioma, pronúncia, tabela, imagem ou gráfico acessível | recurso canônico `.ia.rules/resources/spoken-normalization.md` + `RCFs/leitura-acessivel-e-tts.md` + contrato semântico de origem; carregar `editorial-authoring.md` também somente quando houver transformação autoral |
 | PageSpeed, dependência ou asset client-side | `RCFs/desempenho-e-dependencias.md` + `RCFs/carregamento-progressivo.md` |
+| geração ou adaptação de COVER, OG ou thumbnail | `RCFs/carregamento-progressivo.md` + Skill local `.ia.rules/local/skills/cover-image-prompt/SKILL.md` |
 | 404, masthead, rodapé, navegação ou componente comum | `RCFs/componentes-compartilhados.md` |
 | impressão/PDF | `RCFs/impressao-ieee.md` + contrato do conteúdo afetado |
 | build, Pages ou publicação | `RCFs/publicacao.md` + cenário operacional correspondente |

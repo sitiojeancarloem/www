@@ -1,10 +1,15 @@
 {
-	"schema": 2,
+	"schema": 3,
 	"wide": { "width": 1200, "height": 630 },
-	"square": { "width": 400, "height": 400 },
+	"portrait": { "width": 1080, "height": 1350 },
+	"cover": { "width": 1200, "height": 630, "format": "webp", "quality": 90 },
 	"jpegQuality": 88,
 	"pngCompressionLevel": 9,
 	"peripheralBlur": 18,
+	"overlayRoot": "assets/images/overlays",
+	"license": "CC-BY-NC-SA-4.0",
+	"licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+	"creator": "Jean Carlo EM",
 	"assets": [
 		{
 			"id": "devaneios-grande",

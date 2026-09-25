@@ -11,7 +11,9 @@ layout: default
   {% assign jcem_featured_style = "wide" %}
 {% endif %}
 {% assign jcem_featured_image_path = "" %}
-{% if page.featured_image.path %}
+{% if page.jcem_cover_image %}
+  {% assign jcem_featured_image_path = page.jcem_cover_image %}
+{% elsif page.featured_image.path %}
   {% assign jcem_featured_image_path = page.featured_image.path %}
 {% elsif page.featured_image.url %}
   {% assign jcem_featured_image_path = page.featured_image.url %}

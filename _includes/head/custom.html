@@ -26,7 +26,7 @@
 {% assign jcem_lcp_image = page.jcem_lcp_image %}
 {% if page.layout == 'home' %}
 	{% assign jcem_lcp_post = site.posts | first %}
-	{% assign jcem_lcp_image = jcem_lcp_post.header.image | default: jcem_lcp_post.image %}
+	{% assign jcem_lcp_image = jcem_lcp_post.jcem_cover_image | default: jcem_lcp_post.header.image | default: jcem_lcp_post.image %}
 {% endif %}
 {% if jcem_lcp_image %}
 	{% assign jcem_lcp_meta = jcem_lcp_image | jcem_asset_metadata %}

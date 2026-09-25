@@ -22,6 +22,7 @@ Escopo: modus operandi da IA específico deste produto, roteamento local e rela�
 | citação, nota ou bibliografia | `RCFs/citacoes.md`, `RCFs/referencias-e-footnotes.md` e leitura acessível quando houver projeção falada |
 | TTS, leitor de tela, idioma, pronúncia, tabela, imagem ou gráfico acessível | recurso canônico `.ia.rules/resources/spoken-normalization.md`, `RCFs/leitura-acessivel-e-tts.md` e contratos semânticos de origem citados por ela |
 | PageSpeed, nova dependência ou asset client-side | `RCFs/desempenho-e-dependencias.md` e `RCFs/carregamento-progressivo.md` |
+| geração ou adaptação de COVER, OG ou thumbnail | `RCFs/carregamento-progressivo.md` e Skill local `.ia.rules/local/skills/cover-image-prompt/SKILL.md` |
 | 404, masthead, rodapé, navegação ou componente comum | `RCFs/componentes-compartilhados.md` |
 | impressão ou PDF | `RCFs/impressao-ieee.md` e a sub-RCF semântica do conteúdo afetado |
 | build, GitHub Pages ou publicação | `RCFs/publicacao.md` e o cenário operacional correspondente em `.ia.rules/` |

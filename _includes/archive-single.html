@@ -8,7 +8,9 @@
   {% assign archive_featured_style = "wide" %}
 {% endif %}
 {% assign archive_image_path = "" %}
-{% if post.featured_image.path %}
+{% if post.jcem_cover_image %}
+  {% assign archive_image_path = post.jcem_cover_image %}
+{% elsif post.featured_image.path %}
   {% assign archive_image_path = post.featured_image.path %}
 {% elsif post.featured_image.url %}
   {% assign archive_image_path = post.featured_image.url %}

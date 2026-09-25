@@ -104,7 +104,24 @@ O conteúdo fica sempre na área útil central, nunca nos patterns. `auto` e `so
 
 ## Open Graph
 
-`cover.og.wide_source` e `cover.og.square_source` são overrides sociais opcionais e devem apontar para imagens públicas existentes. Na ausência deles, o pipeline reutiliza as fontes legadas e gera `header.og_image` e `header.og_image_square`. O override social nunca troca a imagem visível da publicação.
+`cover.og.wide_source` e `cover.og.portrait_source` são overrides sociais opcionais e devem apontar para imagens públicas existentes. Na ausência deles, o pipeline reutiliza a fonte da COVER e gera `header.og_image` em `1200×630` e `header.og_image_portrait` em `1080×1350` (`4:5`). `cover.og.square_source`, `header.image_square` e `header.og_image_square` são aliases de leitura para conteúdo antigo; eles resolvem para a variante vertical e não significam mais `1:1`. O override social nunca troca a fonte autoral da publicação.
+
+```yaml
+cover:
+  og:
+    wide_source: /assets/images/posts/exemplo-wide.png
+    portrait_source: /assets/images/posts/exemplo-portrait.png
+```
+
+## Overlays por namespace
+
+O catálogo reside em `assets/images/overlays/<namespace>[/<subnamespace>/...]`. A resolução usa apenas `content_namespace` e `content_subnamespaces` declarados. O primeiro diretório da cadeia que contenha um par anual completo domina os níveis inferiores; dentro dele, o maior ano é vigente.
+
+Cada ano possui exatamente um arquivo não-`wide` 4:5 e um `wide` 40:21. Exemplos válidos: `2026.png`, `2026-wide.png`, `2026-eventos-finais.png` e `2026-eventos-finais-wide.png`. O qualificador precisa corresponder a subnamespace explícito. Par incompleto ou mais de um candidato equivalente interrompe o build com diagnóstico; ausência total preserva a imagem anterior sem inventar overlay.
+
+Os binários do catálogo são read-only para IA e automações. O gerador compõe a fonte original com o overlay, produz COVER WebP e OG PNG/JPEG, e registra hashes de fonte, overlay, parâmetros, licença, autor, data e domínio no manifesto `_data/jcem_social_images.json`. Segunda execução sem mudança reutiliza bytes e timestamp.
+
+Para criar uma nova imagem-base, use a Skill local `.ia.rules/local/skills/cover-image-prompt/SKILL.md`. O prompt deve informar objetivo, tipo, proporção, artigo, público, assunto, tom, elementos, hierarquia, safe area, título, continuidade, renderização, formato e aceite. O fundo continua sob o overlay; título e elemento central ficam fora da área material da camada.
 
 ## Manutenção
 

@@ -1,7 +1,9 @@
 {% assign cover = page.jcem_cover %}
 {% assign featured_style = include.style | default: cover.style | default: page.featured_image_style | default: page.featured_image.style | default: page.header.image_style | default: page.header.featured_style | default: "" | downcase %}
 {% assign image_path = "" %}
-{% if page.featured_image.path %}
+{% if page.jcem_cover_image %}
+  {% assign image_path = page.jcem_cover_image %}
+{% elsif page.featured_image.path %}
   {% assign image_path = page.featured_image.path %}
 {% elsif page.featured_image.url %}
   {% assign image_path = page.featured_image.url %}
