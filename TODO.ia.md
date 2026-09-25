@@ -693,6 +693,7 @@ Este arquivo preserva demandas do desenvolvedor. Estados operacionais seguem a g
   - **PIX**
     - Disponibilizar PIX com payload exato:
       `00020126630014br.gov.bcb.pix0119doe@jeancarloem.com0218Doacao_JeanCarloEM5204000053039865802BR5925JEAN_CARLO_DE_ELIAS_MOREI6012PIRASSUNUNGA62180514DOEJEANCARLOEM63040675`
+    - Disponibilizar chave PIX (`<chave-pix>`): `doe@jeancarloem.com`
     - Gerar o QR Code **client-side**, em alta resolução/qualidade, sem depender de serviço remoto para codificar o conteúdo.
     - A apresentação inicial PODE ser compacta, mas o QR DEVE ser clicável e expandível para tamanho suficiente à leitura confiável por outro celular.
     - Disponibilizar download do QR composto em **PNG ou JPG**, adequado para salvar/carregar no aplicativo bancário.
@@ -701,7 +702,7 @@ Este arquivo preserva demandas do desenvolvedor. Estados operacionais seguem a g
       - somente a **figura/símbolo** do logotipo já utilizado pelo site, sem texto/wordmark;
       - logotipo centralizado, com contraste acentuado e área branca mínima necessária;
       - moldura visual elegante e segura;
-      - legenda centralizada em toda a largura útil: `PIX: doe@jeancarloem.com`.
+      - legenda centralizada em toda a largura útil: `PIX: <chave-pix>`.
 
     - A inserção do logo NÃO PODE comprometer leitura: usar nível adequado de correção de erro, preservar quiet zone/módulos funcionais e validar automaticamente o QR final após composição.
 
@@ -711,7 +712,7 @@ Este arquivo preserva demandas do desenvolvedor. Estados operacionais seguem a g
       - nome;
       - sigla;
       - rede;
-      - endereço copiável;
+      - endereço copiável (resumido, máximo 10 caracteres, estilos `absxded...der`) - com ícone adequado de cópia clicável;
       - QR Code do endereço.
 
     - Dados iniciais:
