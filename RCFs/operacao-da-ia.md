@@ -27,6 +27,9 @@ Escopo: modus operandi da IA específico deste produto, roteamento local e rela�
 | impressão ou PDF | `RCFs/impressao-ieee.md` e a sub-RCF semântica do conteúdo afetado |
 | build, GitHub Pages ou publicação | `RCFs/publicacao.md` e o cenário operacional correspondente em `.ia.rules/` |
 | revisão automatizada de artigo, pacote de revisão ou proposta portável | `RCFs/revisao-automatizada-por-ia.md`, recurso `editorial-authoring` e sub-RCFs disparadas pelos arquivos selecionados |
+| busca, localização ou confirmação de fonte de Ellen G. White | `RCFs/verificacao-fontes-egw.md` e Skill local `.ia.rules/local/skills/egw-source-verification/SKILL.md` |
+| falha contornável durante operação material | `RCFs/resiliencia-operacional.md`, além da rota original da operação |
+| `/doe`, meio de doação, QR ou retorno de agradecimento | `RCFs/doacoes.md`, `RCFs/desempenho-e-dependencias.md`, `RCFs/carregamento-progressivo.md` e publicação quando aplicável |
 
 Rotas são cumulativas quando uma tarefa cruza domínios; o adaptador NÃO PODE escolher apenas uma rota e omitir dependência material.
 

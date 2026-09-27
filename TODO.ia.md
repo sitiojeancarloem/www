@@ -677,7 +677,7 @@ Este arquivo preserva demandas do desenvolvedor. Estados operacionais seguem a g
   - Confirmar que a issue criada corresponde ao artefato sanitizado e que nenhuma outra mutação externa ocorreu.
   - Preservar integralmente as capacidades, contratos e comportamentos existentes.
 
-📌 **Normatizar e aplicar globalmente semântica forte de `fail-safe`/resiliência**
+⏳ **Normatizar e aplicar globalmente semântica forte de `fail-safe`/resiliência**
   - Na governança aplicável, `fail-safe`, `resiliente` e equivalentes DEVEM significar **concluir efetivamente o objetivo solicitado apesar de falhas contornáveis**, não apenas “falhar sem quebrar”.
   - Uma falha de método, comando, fonte ou estratégia NÃO encerra a operação se existir alternativa programática legítima.
   - A implementação DEVE tentar, de forma limitada e determinística, alternativas técnicas até:
@@ -687,7 +687,7 @@ Este arquivo preserva demandas do desenvolvedor. Estados operacionais seguem a g
   - É PROIBIDO converter resiliência em loop infinito, tentativa ilimitada ou violação de segurança, contrato, governança ou escopo.
   - Somente após esgotamento real das alternativas a operação PODE encerrar sem concluir; nesse caso, DEVE preservar o último estado
 
-📌 **Criar/atualizar `/doe` como página pública de doações, responsiva, moderna e orientada por dados**
+⏳ **Criar/atualizar `/doe` como página pública de doações, responsiva, moderna e orientada por dados**
   - Inspecionar primeiro tema, arquitetura, rotas, assets, componentes e governança existentes; NÃO presumir tecnologia, paths internos ou contratos não comprovados.
 
   - `/doe` DEVE explicar, de forma cordial e sucinta, **por que doar, como doar e meios disponíveis**, sem prolixidade.
@@ -802,7 +802,7 @@ Este arquivo preserva demandas do desenvolvedor. Estados operacionais seguem a g
     - Validar visualmente e tecnicamente a continuidade da imagem infinita/patterns.
     - Confirmar ausência de regressão, duplicação de fonte de dados ou dependência remota desnecessária para geração dos QR Codes.
 
-📌 Implementar verificação reutilizável de fontes de Ellen G. White
+⏳ Implementar verificação reutilizável de fontes de Ellen G. White
   - Escopo exclusivo:
     - Implementar somente a solicitação de Skill, script ou recurso análogo contida no cabeçalho comentado do draft `carta-aberta-hierarquia-romanda-na-igreja`.
     - Não editar, reestruturar, revisar, pesquisar referências específicas nem publicar o conteúdo do draft nesta frente.

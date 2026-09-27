@@ -1,0 +1,9 @@
+FT-106|nome=Normatização da experiência pública de doações|escopo=tecnico|status=concluida|autorizacao=humana|atualizacao=2026-09-26T23:59:00-03:00|conclusao=2026-09-26T23:59:00-03:00
+objetivo=Inventariar e definir dados, rotas, QR, assets, acessibilidade, temas, segurança e derivação da home.
+origem=.ia.rules/state/requests/FT-106/prompt.md
+contexto=.ia.rules/state/contexts/FT-106/master.md
+dependencias=FT-090,FT-091,FT-092
+plano=[concluido] inventariar arquitetura e dependências; [concluido] consolidar contrato e critérios
+resultado=Contrato integral da experiência pública de doações consolidado em RCFs/doacoes.md e roteado pelo índice.
+verificacoes=SSOT JSON, UX, QR decodificável, assets, PayPal, retorno derivado da home, segurança e aceite definidos; link e identificador validados.
+pendencias=Implementações e integração seguem nas FTs 107 a 111 já autorizadas.

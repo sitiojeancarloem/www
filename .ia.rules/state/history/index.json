@@ -84,6 +84,27 @@
       "path": ".ia.rules/state/history/FT-099.ia",
       "sha256": "f464462839f9b7f759037c7460bc5d89737e56d7bfc592c88601df03b32f6c9f",
       "state": "pendente-validacao"
+    },
+    {
+      "id": "FT-100",
+      "name": "Normatização da verificação reutilizável de fontes EGW",
+      "path": ".ia.rules/state/history/FT-100.ia",
+      "sha256": "29a6d16d5de73d38c54aaaed2af97ca9ec4a3d40fcfbb4703dd50ec8478277cf",
+      "state": "validada"
+    },
+    {
+      "id": "FT-103",
+      "name": "Normatização da semântica forte de resiliência",
+      "path": ".ia.rules/state/history/FT-103.ia",
+      "sha256": "a11f0b4003da95e0f66c1e5a7ccf99a92eb14fa0eaa218ae3bfdfee4e3c44f2f",
+      "state": "validada"
+    },
+    {
+      "id": "FT-106",
+      "name": "Normatização da experiência pública de doações",
+      "path": ".ia.rules/state/history/FT-106.ia",
+      "sha256": "289f85dbcedd24ff46ef552c4444e8cfe29cb4b0ac210d4102242c42a2dd8334",
+      "state": "validada"
     }
   ]
 }

@@ -41,6 +41,9 @@ Escopo: autoridade arquitetural superior, precedência e roteamento dos contrato
 | Revisão autoral, capitalização reverencial e preservação de ênfases | [Revisão editorial reverencial](./RCFs/revisao-editorial-reverencial.md) |
 | Revisão automatizada de artigos por IA e pacote portável | [Revisão automatizada por IA](./RCFs/revisao-automatizada-por-ia.md) |
 | Leitura acessível, TTS, pronúncia e gráficos semânticos | [Leitura acessível e TTS](./RCFs/leitura-acessivel-e-tts.md) |
+| Localização e confirmação de fontes de Ellen G. White | [Verificação de fontes EGW](./RCFs/verificacao-fontes-egw.md) |
+| Falhas contornáveis, alternativas e preservação do último estado válido | [Resiliência operacional](./RCFs/resiliencia-operacional.md) |
+| Página `/doe`, meios de doação, QR e retorno de agradecimento | [Doações](./RCFs/doacoes.md) |
 
 ## Validação do roteamento
 
