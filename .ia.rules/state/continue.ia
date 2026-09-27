@@ -187,3 +187,90 @@ resultado=Proposta sanitizada publicada como jcempro/agents.md#14 e complementad
 verificacoes=Check online e duplicidade aprovados; issue aberta sem responsável ou marco; anexo sanitizado publicado no comentário 5829303460; label e parecer iniciais atribuídos pela timeline ao github-actions[bot].
 pendencias=Aceite humano do TODO e qualquer acompanhamento futuro da issue permanecem externos e exigem nova autorização.
 historico=.ia.rules/state/history/FT-099.ia|sha256=f464462839f9b7f759037c7460bc5d89737e56d7bfc592c88601df03b32f6c9f
+
+FT-100|nome=Normatização da verificação reutilizável de fontes EGW|escopo=tecnico|status=em_andamento|autorizacao=humana|atualizacao=2026-09-26T23:45:00-03:00
+objetivo=Definir entrada, estratégia EPUB/PDF, estados de evidência, paginação, limites e falha preservadora da capacidade reutilizável.
+origem=.ia.rules/state/requests/FT-100/prompt.md
+contexto=.ia.rules/state/contexts/FT-100/master.md
+dependencias=FT-093,FT-094,FT-096
+plano=[em_andamento] consolidar contrato local; [pendente] validar não duplicação e fronteiras
+pendencias=Concluir norma antes de materializar a Skill e o script já autorizados.
+
+FT-101|nome=Implementação da verificação reutilizável de fontes EGW|escopo=tecnico|status=registrada_bloqueada_por_dependencia|autorizacao=humana
+objetivo=Implementar Skill local, descritor, configuração e script determinístico somente leitura para EPUB/PDF.
+origem=.ia.rules/state/requests/FT-100/prompt.md
+contexto=.ia.rules/state/contexts/FT-100/master.md
+dependencias=FT-100
+pendencias=Aguardar a conclusão da FT-100.
+
+FT-102|nome=Integração e validação da verificação de fontes EGW|escopo=tecnico|status=registrada_bloqueada_por_dependencia|autorizacao=humana
+objetivo=Provar fixtures, caso real, roteamento, estados de evidência, limites e preservação do draft e da biblioteca externa.
+origem=.ia.rules/state/requests/FT-100/prompt.md
+contexto=.ia.rules/state/contexts/FT-100/master.md
+dependencias=FT-101
+pendencias=Aguardar a implementação da FT-101.
+
+FT-103|nome=Normatização da semântica forte de resiliência|escopo=tecnico|status=em_andamento|autorizacao=humana|atualizacao=2026-09-26T23:50:00-03:00
+objetivo=Consolidar fallback finito e determinístico para falhas contornáveis, sem reduzir segurança, contrato ou autorização.
+origem=.ia.rules/state/requests/FT-103/prompt.md
+contexto=.ia.rules/state/contexts/FT-103/master.md
+dependencias=nenhuma
+plano=[em_andamento] inventariar contratos existentes; [pendente] consolidar semântica e aceite
+pendencias=Concluir a FT-103 antes da implementação já autorizada.
+
+FT-104|nome=Implementação da semântica forte de resiliência|escopo=tecnico|status=registrada_bloqueada_por_dependencia|autorizacao=humana
+objetivo=Aplicar o contrato no mecanismo reutilizável e nos validadores sem criar retry ilimitado.
+origem=.ia.rules/state/requests/FT-103/prompt.md
+contexto=.ia.rules/state/contexts/FT-103/master.md
+dependencias=FT-103
+pendencias=Aguardar a FT-103.
+
+FT-105|nome=Integração e validação da resiliência|escopo=tecnico|status=registrada_bloqueada_por_dependencia|autorizacao=humana
+objetivo=Provar conclusão por alternativa, esgotamento real, preservação de estado e ausência de bypass.
+origem=.ia.rules/state/requests/FT-103/prompt.md
+contexto=.ia.rules/state/contexts/FT-103/master.md
+dependencias=FT-104
+pendencias=Aguardar a FT-104.
+
+FT-106|nome=Normatização da experiência pública de doações|escopo=tecnico|status=em_andamento|autorizacao=humana|atualizacao=2026-09-26T23:50:00-03:00
+objetivo=Inventariar e definir dados, rotas, QR, assets, acessibilidade, temas, segurança e derivação da home.
+origem=.ia.rules/state/requests/FT-106/prompt.md
+contexto=.ia.rules/state/contexts/FT-106/master.md
+dependencias=FT-090,FT-091,FT-092
+plano=[em_andamento] inventariar arquitetura e dependências; [pendente] consolidar contrato e critérios
+pendencias=Concluir a FT-106 antes das implementações já autorizadas.
+
+FT-107|nome=Implementação da fonte de dados e pipeline de QR|escopo=tecnico|status=registrada_bloqueada_por_dependencia|autorizacao=humana
+objetivo=Implementar JSON canônico, QR client-side, cópia, expansão, download, decodificação e assets comuns.
+origem=.ia.rules/state/requests/FT-106/prompt.md
+contexto=.ia.rules/state/contexts/FT-106/master.md
+dependencias=FT-106
+pendencias=Aguardar a FT-106.
+
+FT-108|nome=Implementação da página pública de doações|escopo=tecnico|status=registrada_bloqueada_por_dependencia|autorizacao=humana
+objetivo=Implementar `/doe` responsiva, orientada por dados e integrada aos temas.
+origem=.ia.rules/state/requests/FT-106/prompt.md
+contexto=.ia.rules/state/contexts/FT-106/master.md
+dependencias=FT-107
+pendencias=Aguardar a FT-107.
+
+FT-109|nome=Implementação do retorno de agradecimento|escopo=tecnico|status=registrada_bloqueada_por_dependencia|autorizacao=humana
+objetivo=Implementar `/doe/obrigado` derivada continuamente da home com substituição exclusiva do hero.
+origem=.ia.rules/state/requests/FT-106/prompt.md
+contexto=.ia.rules/state/contexts/FT-106/master.md
+dependencias=FT-106,FT-108
+pendencias=Aguardar as FTs 106 e 108.
+
+FT-110|nome=Automação de assets de doação|escopo=tecnico|status=registrada_bloqueada_por_dependencia|autorizacao=humana
+objetivo=Implementar workflow mensal único para validar ícones oficiais, MIME, integridade, identidade e fallback.
+origem=.ia.rules/state/requests/FT-106/prompt.md
+contexto=.ia.rules/state/contexts/FT-106/master.md
+dependencias=FT-107
+pendencias=Aguardar a FT-107.
+
+FT-111|nome=Integração e validação da experiência de doações|escopo=tecnico|status=registrada_bloqueada_por_dependencia|autorizacao=humana
+objetivo=Validar JSON→UI, QR, payloads, temas, responsividade, teclado, retorno PayPal, assets, workflow e build.
+origem=.ia.rules/state/requests/FT-106/prompt.md
+contexto=.ia.rules/state/contexts/FT-106/master.md
+dependencias=FT-108,FT-109,FT-110
+pendencias=Aguardar as FTs 108 a 110.
