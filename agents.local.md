@@ -24,6 +24,9 @@ Autoridade: `AGENTS.md` → `RCF.md` → sub-RCF aplicável → este adaptador. 
 | build, Pages ou publicação | `RCFs/publicacao.md` + cenário operacional correspondente |
 | documentação `.md`, metadado público ou interface de uso alterada | `RCFs/documentacao-e-metadados.md` + sub-RCF do recurso documentado |
 | revisão automatizada de artigo, pacote de revisão ou proposta portável | `RCFs/revisao-automatizada-por-ia.md` + `editorial-authoring.md` + sub-RCFs disparadas pelos arquivos selecionados |
+| fonte, trecho ou paginação de Ellen G. White | `RCFs/verificacao-fontes-egw.md` + Skill local `.ia.rules/local/skills/egw-source-verification/SKILL.md` |
+| falha contornável com alternativa técnica | `RCFs/resiliencia-operacional.md` + rota original da operação |
+| `/doe`, QR de doação, PayPal ou retorno de agradecimento | `RCFs/doacoes.md` + desempenho + carregamento progressivo + publicação quando aplicável |
 
 ## Invariantes de execução
 
@@ -37,5 +40,6 @@ Autoridade: `AGENTS.md` → `RCF.md` → sub-RCF aplicável → este adaptador. 
 - Alteração visível valida claro/escuro, viewport, teclado e artefato renderizado aplicáveis. Publicação conclui somente com commit-fonte, artefato e URL servida convergentes.
 - Alteração de sintaxe, configuração, comportamento público ou aparência documentada atualiza no mesmo ciclo a página temática, o exemplo funcional, a ilustração aplicável e o índice do `README.md`; inventários fechados derivam dos schemas e registros canônicos.
 - Página canônica de modo de uso reside obrigatoriamente em `./docs/`; nenhuma equivalente é criada na raiz, em `RCFs/` ou em outro diretório.
+- Operação resiliente tenta alternativas legítimas, finitas e ordenadas até validar a pós-condição; preserva o último estado válido e nunca usa fallback para ampliar escopo, reduzir contrato ou contornar autorização.
 
 Detalhamento autoritativo: `RCFs/operacao-da-ia.md`.
