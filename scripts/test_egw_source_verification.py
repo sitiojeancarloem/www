@@ -39,6 +39,8 @@ def fake_pdf_engine(directory: Path) -> None:
         class PdfDocument:
             def __init__(self, path):
                 self.pages = open(path, encoding="utf-8").read().split("\\f")
+            def get_metadata(self):
+                return {"title": "Caminho a Cristo", "language": "pt"}
             def __len__(self): return len(self.pages)
             def __getitem__(self, index): return Page(self.pages[index])
             def close(self): pass
