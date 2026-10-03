@@ -40,6 +40,8 @@ def fake_pdf_engine(directory: Path) -> None:
             def __init__(self, path):
                 self.pages = open(path, encoding="utf-8").read().split("\\f")
             def get_metadata(self):
+                if __import__("os").environ.get("EGW_TEST_NO_METADATA") == "1":
+                    return {}
                 return {"title": "Caminho a Cristo", "language": "pt"}
             def __len__(self): return len(self.pages)
             def __getitem__(self, index): return Page(self.pages[index])
@@ -78,8 +80,19 @@ def main() -> int:
         assert code == 0 and result["status"] == "confirmed"
         assert result["crossCheck"]["pdfPages"] == [2]
 
+        missing_metadata = env.copy()
+        missing_metadata["EGW_TEST_NO_METADATA"] = "1"
+        code, result = invoke(root, "A fé vê além das dificuldades", "--formats", "epub,pdf", "--title", "caminho", "--cross-check", env=missing_metadata)
+        assert code == 2 and result["status"] == "ambiguous"
+        assert result["crossCheck"]["confirmedBookKeys"] == []
+
         code, result = invoke(root, "A fé olha além das dificuldade", "--formats", "epub", "--title", "Caminho", "--tolerance", "0.25")
         assert code == 0 and result["occurrences"][0]["method"] == "fuzzy-window"
+
+        # Aproximação isolada não comprova confirmação entre formatos.
+        code, result = invoke(root, "A fé olha além das dificuldade", "--formats", "epub,pdf", "--title", "Caminho", "--tolerance", "0.25", "--cross-check", env=env)
+        assert code == 2 and result["status"] == "ambiguous"
+        assert result["crossCheck"]["confirmedBookKeys"] == []
 
         code, result = invoke(root, "texto inexistente", "--formats", "epub")
         assert code == 2 and result["status"] == "absent"
