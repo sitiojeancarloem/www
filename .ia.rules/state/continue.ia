@@ -250,3 +250,10 @@ origem=.ia.rules/state/requests/FT-106/prompt.md
 contexto=.ia.rules/state/contexts/FT-106/master.md
 dependencias=FT-108,FT-109,FT-110
 pendencias=Aguardar as FTs 108 a 110.
+
+FT-112|nome=Revisão integral da carta aberta|escopo=negocio|status=em_execucao|autorizacao=humana|criado_em=2026-10-03T12:00:00-03:00
+origem=.ia.rules/state/requests/FT-112/prompt.md
+contexto=.ia.rules/state/contexts/FT-112/master.md
+objetivo=Executar o cabeçalho integral no mesmo draft, com fontes verificadas, preservação autoral e correções factuais autorizadas; sem localWorker.
+pendencias=Conferência, edição e validação.
+
