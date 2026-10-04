@@ -129,6 +129,30 @@ def main() -> int:
         assert "EPUB_LIMIT_EXCEEDED" in result["diagnostics"]["warnings"]
         assert digest == __import__("hashlib").sha256(oversized.read_bytes()).hexdigest()
 
+
+    # Spine repetido: cada XHTML é lido uma vez, na primeira ordem declarada.
+    import runpy
+    from unittest.mock import patch
+    extractor = runpy.run_path(str(Path(__file__).resolve().parents[1] / ".ia.rules/local/skills/egw-source-verification/scripts/egw_source_verification.py"))
+    with tempfile.TemporaryDirectory(prefix="egw-spine-") as temporary:
+        fixture = Path(temporary) / "repeated.epub"
+        with zipfile.ZipFile(fixture, "w") as archive:
+            archive.writestr("META-INF/container.xml", '<container><rootfiles><rootfile full-path="book.opf"/></rootfiles></container>')
+            archive.writestr("book.opf", '<package><manifest><item id="a" href="a.xhtml"/><item id="b" href="b.xhtml"/></manifest><spine><itemref idref="b"/><itemref idref="a"/><itemref idref="b"/><itemref idref="a"/></spine></package>')
+            archive.writestr("a.xhtml", "<p>Primeiro capítulo</p>")
+            archive.writestr("b.xhtml", "<p>Segundo capítulo</p>")
+        before = fixture.read_bytes()
+        reads = []
+        original_read = zipfile.ZipFile.read
+        def counted_read(archive, name, *args, **kwargs):
+            reads.append(name)
+            return original_read(archive, name, *args, **kwargs)
+        with patch.object(zipfile.ZipFile, "read", counted_read):
+            _, documents = extractor["epub_documents"](fixture)
+        assert documents == [("b.xhtml", "Segundo capítulo"), ("a.xhtml", "Primeiro capítulo")]
+        assert [name for name in reads if name.endswith(".xhtml")] == ["b.xhtml", "a.xhtml"]
+        assert fixture.read_bytes() == before
+
     print("EGW_SOURCE_VERIFICATION_OK")
     return 0
 
