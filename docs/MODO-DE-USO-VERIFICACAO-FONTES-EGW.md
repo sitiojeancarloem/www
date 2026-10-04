@@ -67,3 +67,9 @@ Antes de descomprimir entradas, o leitor rejeita EPUBs com mais de 4096 entradas
 Use `--help` para consultar os limites e valores padrão disponíveis na versão instalada. Os testes com fixtures não substituem a validação de integração em biblioteca real.
 
 Contrato: [verificação de fontes EGW](../RCFs/verificacao-fontes-egw.md). Procedimento do agente: [Skill EGW](../.ia.rules/local/skills/egw-source-verification/SKILL.md).
+
+### Limite inicial de tamanho PDF
+
+Cada PDF pode ter até 64 MiB (`PDF_MAX_FILE_BYTES`). Arquivos maiores são recusados antes da abertura do mecanismo PDF: a resposta usa `unavailable`, código de saída 3 e aviso `PDF_LIMIT_EXCEEDED`. A fonte permanece inalterada.
+
+Esse limite cobre o tamanho do arquivo; ainda não limita a quantidade de páginas nem o volume de texto extraído. A integração com a biblioteca real permanece pendente.
