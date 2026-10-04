@@ -16,6 +16,7 @@ Os artigos em desenvolvimento estão no repositório privado [https://github.com
 | [Blockquote](docs/MODO-DE-USO-BLOCKQUOTE.md)                           | Escrever citações e selecionar os 11 modelos concretos, aliases, accents, ícones, acessibilidade e impressão.                   |
 | [Leitura acessível e TTS](docs/MODO-DE-USO-LEITURA-ACESSIVEL-E-TTS.md) | Declarar idiomas, pronúncia, referências faladas e alternativas textuais para tabelas, imagens e gráficos.                      |
 | [Impressão editorial IEEE](docs/MODO-DE-USO-IMPRESSAO-IEEE.md)         | Imprimir artigos em A4/duas colunas, inclusive figuras largas manuais ou automáticas, sem alterar a web.                        |
+| [Verificação de fontes EGW](docs/MODO-DE-USO-VERIFICACAO-FONTES-EGW.md) | Localizar trechos em EPUB/PDF, interpretar evidências e confirmar paginação sem alterar a biblioteca. |
 | [Índice normativo](RCF.md)                                             | Localizar requisitos, contratos e validações autoritativos por domínio do produto.                                              |
 
 ## Build local

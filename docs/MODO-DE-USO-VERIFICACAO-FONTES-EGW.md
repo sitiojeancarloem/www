@@ -51,6 +51,7 @@ Use um interpretador com `pypdfium2` para leitura de PDF. Se ele não estiver di
 - `unavailable`: entrada, formato ou mecanismo necessário não pôde ser lido.
 
 Cada ocorrência preserva o trecho extraído e usa path relativo à raiz. A chave `diagnostics` informa limites, formatos lidos e impedimentos sem expor path absoluto.
+
 ## Códigos de saída
 
 | Código | Estados |
