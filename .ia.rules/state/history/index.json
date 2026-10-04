@@ -105,6 +105,13 @@
       "path": ".ia.rules/state/history/FT-106.ia",
       "sha256": "289f85dbcedd24ff46ef552c4444e8cfe29cb4b0ac210d4102242c42a2dd8334",
       "state": "validada"
+    },
+    {
+      "id": "FT-112",
+      "name": "Revisão integral da carta aberta",
+      "path": ".ia.rules/state/history/FT-112.ia",
+      "sha256": "6a48dbeea769e4322404e4448e6f6d93a157fe6dcec4311bc772cd6f7e8ecda8",
+      "state": "pendente-validacao"
     }
   ]
 }

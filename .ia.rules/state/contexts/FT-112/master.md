@@ -1,6 +1,6 @@
 # FT-112 — Revisão integral da carta
 
-Criado em: 2026-10-03T12:00:00-03:00. Estado: em execução. Autorização: solicitação humana e correção factual explicitamente autorizada.
+Criado em: 2026-10-03T12:00:00-03:00. Estado: execução concluída; aprovação autoral posterior. Autorização: solicitação humana e correção factual explicitamente autorizada.
 
 Alvo exclusivo editorial: `_drafts/carta-aberta-hierarquia-romanda-na-igreja`; preservar nome e cabeçalho. Biblioteca externa somente leitura. Sem publicação, envio a terceiros, alteração de mecanismos, localWorker ou delegação.
 
@@ -13,3 +13,5 @@ Mecanismos: Skills locais editorial-accessibility-review, reverential-editorial-
 Triagem: índice de recusas ausente; cenário declara acervo vazio nessa situação. Branch inicial dev; árvore limpa. FT-101/102 históricas ainda aparecem bloqueadas no estado, mas Skill/script EGW existem fisicamente; sua capacidade será aferida diretamente. Python do sistema sem pypdfium2; runtime bundled possui a dependência.
 
 Aceite: requisitos 1–8 do cabeçalho cumpridos, toda referência sustentada, sem inserções editoriais disfarçadas de citação e sem perda das nuances. Questões não resolvidas impedem afirmar conclusão integral.
+
+Resultado: revisão aplicada no mesmo draft; relatório em `relatorio.md`. 73 conferências lexicais aprovadas; Kramdown sem avisos; testes de notas e citações aprovados. localWorker não utilizado.

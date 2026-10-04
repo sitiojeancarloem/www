@@ -1,0 +1,1644 @@
+{
+  "biblioteca": "D:/trampo/egwSearch/src/publications/egw",
+  "acesso": "somente leitura",
+  "consultas": [
+    {
+      "livro": "testemunhos-para-a-igreja-5",
+      "busca": "Que ninguém entretenha",
+      "ocorrencias": [
+        {
+          "format": "epub",
+          "path": "pt-br/livros/testemunhos-para-a-igreja-5/tpai5.epub",
+          "location": "OEBPS/content02.xhtml",
+          "sha256": "7fcbf4d86a2d411d27e5e36ccc9a6d57380fd967ace043a322fd2c8f75f3c93f"
+        },
+        {
+          "format": "epub",
+          "path": "pt-br/livros/testemunhos-para-a-igreja-5/tpai5.epub",
+          "location": "OEBPS/content84.xhtml",
+          "sha256": "7fcbf4d86a2d411d27e5e36ccc9a6d57380fd967ace043a322fd2c8f75f3c93f"
+        },
+        {
+          "format": "pdf",
+          "path": "pt-br/livros/testemunhos-para-a-igreja-5/tpai5.pdf",
+          "location": "26",
+          "page": 26,
+          "sha256": "4e97274c8571905aa6e7a1427742e2fa870d301716f85a58147d558af17199d9"
+        },
+        {
+          "format": "pdf",
+          "path": "pt-br/livros/testemunhos-para-a-igreja-5/tpai5.pdf",
+          "location": "649",
+          "page": 649,
+          "sha256": "4e97274c8571905aa6e7a1427742e2fa870d301716f85a58147d558af17199d9"
+        }
+      ]
+    },
+    {
+      "livro": "testemunhos-para-a-igreja-5",
+      "busca": "Os que querem",
+      "ocorrencias": [
+        {
+          "format": "epub",
+          "path": "pt-br/livros/testemunhos-para-a-igreja-5/tpai5.epub",
+          "location": "OEBPS/content02.xhtml",
+          "sha256": "7fcbf4d86a2d411d27e5e36ccc9a6d57380fd967ace043a322fd2c8f75f3c93f"
+        },
+        {
+          "format": "epub",
+          "path": "pt-br/livros/testemunhos-para-a-igreja-5/tpai5.epub",
+          "location": "OEBPS/content15.xhtml",
+          "sha256": "7fcbf4d86a2d411d27e5e36ccc9a6d57380fd967ace043a322fd2c8f75f3c93f"
+        },
+        {
+          "format": "epub",
+          "path": "pt-br/livros/testemunhos-para-a-igreja-5/tpai5.epub",
+          "location": "OEBPS/content25.xhtml",
+          "sha256": "7fcbf4d86a2d411d27e5e36ccc9a6d57380fd967ace043a322fd2c8f75f3c93f"
+        },
+        {
+          "format": "epub",
+          "path": "pt-br/livros/testemunhos-para-a-igreja-5/tpai5.epub",
+          "location": "OEBPS/content28.xhtml",
+          "sha256": "7fcbf4d86a2d411d27e5e36ccc9a6d57380fd967ace043a322fd2c8f75f3c93f"
+        },
+        {
+          "format": "epub",
+          "path": "pt-br/livros/testemunhos-para-a-igreja-5/tpai5.epub",
+          "location": "OEBPS/content67.xhtml",
+          "sha256": "7fcbf4d86a2d411d27e5e36ccc9a6d57380fd967ace043a322fd2c8f75f3c93f"
+        },
+        {
+          "format": "epub",
+          "path": "pt-br/livros/testemunhos-para-a-igreja-5/tpai5.epub",
+          "location": "OEBPS/content84.xhtml",
+          "sha256": "7fcbf4d86a2d411d27e5e36ccc9a6d57380fd967ace043a322fd2c8f75f3c93f"
+        },
+        {
+          "format": "pdf",
+          "path": "pt-br/livros/testemunhos-para-a-igreja-5/tpai5.pdf",
+          "location": "27",
+          "page": 27,
+          "sha256": "4e97274c8571905aa6e7a1427742e2fa870d301716f85a58147d558af17199d9"
+        },
+        {
+          "format": "pdf",
+          "path": "pt-br/livros/testemunhos-para-a-igreja-5/tpai5.pdf",
+          "location": "154",
+          "page": 154,
+          "sha256": "4e97274c8571905aa6e7a1427742e2fa870d301716f85a58147d558af17199d9"
+        }
+      ]
+    },
+    {
+      "livro": "testemunhos-para-a-igreja-5",
+      "busca": "A indignação",
+      "ocorrencias": [
+        {
+          "format": "epub",
+          "path": "pt-br/livros/testemunhos-para-a-igreja-5/tpai5.epub",
+          "location": "OEBPS/content24.xhtml",
+          "sha256": "7fcbf4d86a2d411d27e5e36ccc9a6d57380fd967ace043a322fd2c8f75f3c93f"
+        },
+        {
+          "format": "epub",
+          "path": "pt-br/livros/testemunhos-para-a-igreja-5/tpai5.epub",
+          "location": "OEBPS/content53.xhtml",
+          "sha256": "7fcbf4d86a2d411d27e5e36ccc9a6d57380fd967ace043a322fd2c8f75f3c93f"
+        },
+        {
+          "format": "epub",
+          "path": "pt-br/livros/testemunhos-para-a-igreja-5/tpai5.epub",
+          "location": "OEBPS/content84.xhtml",
+          "sha256": "7fcbf4d86a2d411d27e5e36ccc9a6d57380fd967ace043a322fd2c8f75f3c93f"
+        },
+        {
+          "format": "pdf",
+          "path": "pt-br/livros/testemunhos-para-a-igreja-5/tpai5.pdf",
+          "location": "204",
+          "page": 204,
+          "sha256": "4e97274c8571905aa6e7a1427742e2fa870d301716f85a58147d558af17199d9"
+        },
+        {
+          "format": "pdf",
+          "path": "pt-br/livros/testemunhos-para-a-igreja-5/tpai5.pdf",
+          "location": "435",
+          "page": 435,
+          "sha256": "4e97274c8571905aa6e7a1427742e2fa870d301716f85a58147d558af17199d9"
+        },
+        {
+          "format": "pdf",
+          "path": "pt-br/livros/testemunhos-para-a-igreja-5/tpai5.pdf",
+          "location": "505",
+          "page": 505,
+          "sha256": "4e97274c8571905aa6e7a1427742e2fa870d301716f85a58147d558af17199d9"
+        },
+        {
+          "format": "pdf",
+          "path": "pt-br/livros/testemunhos-para-a-igreja-5/tpai5.pdf",
+          "location": "650",
+          "page": 650,
+          "sha256": "4e97274c8571905aa6e7a1427742e2fa870d301716f85a58147d558af17199d9"
+        }
+      ]
+    },
+    {
+      "livro": "testemunhos-para-a-igreja-5",
+      "busca": "Nunca houve maior",
+      "ocorrencias": [
+        {
+          "format": "epub",
+          "path": "pt-br/livros/testemunhos-para-a-igreja-5/tpai5.epub",
+          "location": "OEBPS/content84.xhtml",
+          "sha256": "7fcbf4d86a2d411d27e5e36ccc9a6d57380fd967ace043a322fd2c8f75f3c93f"
+        },
+        {
+          "format": "pdf",
+          "path": "pt-br/livros/testemunhos-para-a-igreja-5/tpai5.pdf",
+          "location": "648",
+          "page": 648,
+          "sha256": "4e97274c8571905aa6e7a1427742e2fa870d301716f85a58147d558af17199d9"
+        }
+      ]
+    },
+    {
+      "livro": "testemunhos-para-a-igreja-5",
+      "busca": "Ao menosprezar",
+      "ocorrencias": [
+        {
+          "format": "epub",
+          "path": "pt-br/livros/testemunhos-para-a-igreja-5/tpai5.epub",
+          "location": "OEBPS/content84.xhtml",
+          "sha256": "7fcbf4d86a2d411d27e5e36ccc9a6d57380fd967ace043a322fd2c8f75f3c93f"
+        },
+        {
+          "format": "pdf",
+          "path": "pt-br/livros/testemunhos-para-a-igreja-5/tpai5.pdf",
+          "location": "659",
+          "page": 659,
+          "sha256": "4e97274c8571905aa6e7a1427742e2fa870d301716f85a58147d558af17199d9"
+        }
+      ]
+    },
+    {
+      "livro": "testemunhos-para-a-igreja-5",
+      "busca": "A luz é enviada",
+      "ocorrencias": [
+        {
+          "format": "epub",
+          "path": "pt-br/livros/testemunhos-para-a-igreja-5/tpai5.epub",
+          "location": "OEBPS/content84.xhtml",
+          "sha256": "7fcbf4d86a2d411d27e5e36ccc9a6d57380fd967ace043a322fd2c8f75f3c93f"
+        },
+        {
+          "format": "pdf",
+          "path": "pt-br/livros/testemunhos-para-a-igreja-5/tpai5.pdf",
+          "location": "659",
+          "page": 659,
+          "sha256": "4e97274c8571905aa6e7a1427742e2fa870d301716f85a58147d558af17199d9"
+        }
+      ]
+    },
+    {
+      "livro": "testemunhos-para-a-igreja-5",
+      "busca": "Alguns que professam",
+      "ocorrencias": [
+        {
+          "format": "epub",
+          "path": "pt-br/livros/testemunhos-para-a-igreja-5/tpai5.epub",
+          "location": "OEBPS/content65.xhtml",
+          "sha256": "7fcbf4d86a2d411d27e5e36ccc9a6d57380fd967ace043a322fd2c8f75f3c93f"
+        },
+        {
+          "format": "epub",
+          "path": "pt-br/livros/testemunhos-para-a-igreja-5/tpai5.epub",
+          "location": "OEBPS/content70.xhtml",
+          "sha256": "7fcbf4d86a2d411d27e5e36ccc9a6d57380fd967ace043a322fd2c8f75f3c93f"
+        },
+        {
+          "format": "epub",
+          "path": "pt-br/livros/testemunhos-para-a-igreja-5/tpai5.epub",
+          "location": "OEBPS/content84.xhtml",
+          "sha256": "7fcbf4d86a2d411d27e5e36ccc9a6d57380fd967ace043a322fd2c8f75f3c93f"
+        },
+        {
+          "format": "pdf",
+          "path": "pt-br/livros/testemunhos-para-a-igreja-5/tpai5.pdf",
+          "location": "520",
+          "page": 520,
+          "sha256": "4e97274c8571905aa6e7a1427742e2fa870d301716f85a58147d558af17199d9"
+        },
+        {
+          "format": "pdf",
+          "path": "pt-br/livros/testemunhos-para-a-igreja-5/tpai5.pdf",
+          "location": "540",
+          "page": 540,
+          "sha256": "4e97274c8571905aa6e7a1427742e2fa870d301716f85a58147d558af17199d9"
+        },
+        {
+          "format": "pdf",
+          "path": "pt-br/livros/testemunhos-para-a-igreja-5/tpai5.pdf",
+          "location": "661",
+          "page": 661,
+          "sha256": "4e97274c8571905aa6e7a1427742e2fa870d301716f85a58147d558af17199d9"
+        }
+      ]
+    },
+    {
+      "livro": "testemunhos-para-a-igreja-5",
+      "busca": "Correções, admoestações",
+      "ocorrencias": [
+        {
+          "format": "epub",
+          "path": "pt-br/livros/testemunhos-para-a-igreja-5/tpai5.epub",
+          "location": "OEBPS/content84.xhtml",
+          "sha256": "7fcbf4d86a2d411d27e5e36ccc9a6d57380fd967ace043a322fd2c8f75f3c93f"
+        },
+        {
+          "format": "pdf",
+          "path": "pt-br/livros/testemunhos-para-a-igreja-5/tpai5.pdf",
+          "location": "660",
+          "page": 660,
+          "sha256": "4e97274c8571905aa6e7a1427742e2fa870d301716f85a58147d558af17199d9"
+        }
+      ]
+    },
+    {
+      "livro": "testemunhos-para-a-igreja-5",
+      "busca": "Os que são repreendidos",
+      "ocorrencias": [
+        {
+          "format": "epub",
+          "path": "pt-br/livros/testemunhos-para-a-igreja-5/tpai5.epub",
+          "location": "OEBPS/content84.xhtml",
+          "sha256": "7fcbf4d86a2d411d27e5e36ccc9a6d57380fd967ace043a322fd2c8f75f3c93f"
+        },
+        {
+          "format": "pdf",
+          "path": "pt-br/livros/testemunhos-para-a-igreja-5/tpai5.pdf",
+          "location": "653",
+          "page": 653,
+          "sha256": "4e97274c8571905aa6e7a1427742e2fa870d301716f85a58147d558af17199d9"
+        }
+      ]
+    },
+    {
+      "livro": "primeiros-escritos",
+      "busca": "Quando o Senhor no início",
+      "ocorrencias": [
+        {
+          "format": "epub",
+          "path": "pt-br/livros/primeiros-escritos/pe.epub",
+          "location": "OEBPS/content21.xhtml",
+          "sha256": "1f18b2f5291cb4469977b028e01f871f68bf81805afd516a5a5f25c7087f9d01"
+        },
+        {
+          "format": "pdf",
+          "path": "pt-br/livros/primeiros-escritos/pe.pdf",
+          "location": "100",
+          "page": 100,
+          "sha256": "d234a6ad41fd66f6e3f1be206006897e5a909f20bc6b9c9c504a5f8e4e6a214a"
+        }
+      ]
+    },
+    {
+      "livro": "primeiros-escritos",
+      "busca": "Começou a forte sacudidura",
+      "ocorrencias": [
+        {
+          "format": "epub",
+          "path": "pt-br/livros/primeiros-escritos/pe.epub",
+          "location": "OEBPS/content11.xhtml",
+          "sha256": "1f18b2f5291cb4469977b028e01f871f68bf81805afd516a5a5f25c7087f9d01"
+        },
+        {
+          "format": "pdf",
+          "path": "pt-br/livros/primeiros-escritos/pe.pdf",
+          "location": "74",
+          "page": 74,
+          "sha256": "d234a6ad41fd66f6e3f1be206006897e5a909f20bc6b9c9c504a5f8e4e6a214a"
+        }
+      ]
+    },
+    {
+      "livro": "primeiros-escritos",
+      "busca": "Depois que saí da visão",
+      "ocorrencias": [
+        {
+          "format": "epub",
+          "path": "pt-br/livros/primeiros-escritos/pe.epub",
+          "location": "OEBPS/content79.xhtml",
+          "sha256": "1f18b2f5291cb4469977b028e01f871f68bf81805afd516a5a5f25c7087f9d01"
+        },
+        {
+          "format": "pdf",
+          "path": "pt-br/livros/primeiros-escritos/pe.pdf",
+          "location": "302",
+          "page": 302,
+          "sha256": "d234a6ad41fd66f6e3f1be206006897e5a909f20bc6b9c9c504a5f8e4e6a214a"
+        }
+      ]
+    },
+    {
+      "livro": "o-grande-conflito",
+      "busca": "Ao aproximar-se a tempestade",
+      "ocorrencias": [
+        {
+          "format": "epub",
+          "path": "pt-br/livros/o-grande-conflito/ogc.epub",
+          "location": "OEBPS/content38.xhtml",
+          "sha256": "e99f4e5b00a36d4b908d9aa194260fd0b7d7a494fb90c3fc6bfb82c9e0878420"
+        },
+        {
+          "format": "pdf",
+          "path": "pt-br/livros/o-grande-conflito/ogc.pdf",
+          "location": "535",
+          "page": 535,
+          "sha256": "062a2fb11fac55539af0a50eaacb1260cb6f284ce78468c59b370f9c3b4db92f"
+        }
+      ]
+    },
+    {
+      "livro": "o-grande-conflito",
+      "busca": "Se todos os que trabalharam",
+      "ocorrencias": [
+        {
+          "format": "epub",
+          "path": "pt-br/livros/o-grande-conflito/ogc.epub",
+          "location": "OEBPS/content26.xhtml",
+          "sha256": "e99f4e5b00a36d4b908d9aa194260fd0b7d7a494fb90c3fc6bfb82c9e0878420"
+        },
+        {
+          "format": "pdf",
+          "path": "pt-br/livros/o-grande-conflito/ogc.pdf",
+          "location": "402",
+          "page": 402,
+          "sha256": "062a2fb11fac55539af0a50eaacb1260cb6f284ce78468c59b370f9c3b4db92f"
+        }
+      ]
+    },
+    {
+      "livro": "o-grande-conflito",
+      "busca": "Vivemos hoje",
+      "ocorrencias": [
+        {
+          "format": "epub",
+          "path": "pt-br/livros/o-grande-conflito/ogc.epub",
+          "location": "OEBPS/content28.xhtml",
+          "sha256": "e99f4e5b00a36d4b908d9aa194260fd0b7d7a494fb90c3fc6bfb82c9e0878420"
+        },
+        {
+          "format": "pdf",
+          "path": "pt-br/livros/o-grande-conflito/ogc.pdf",
+          "location": "431",
+          "page": 431,
+          "sha256": "062a2fb11fac55539af0a50eaacb1260cb6f284ce78468c59b370f9c3b4db92f"
+        }
+      ]
+    },
+    {
+      "livro": "o-grande-conflito",
+      "busca": "apontara novos deveres",
+      "ocorrencias": [
+        {
+          "format": "epub",
+          "path": "pt-br/livros/o-grande-conflito/ogc.epub",
+          "location": "OEBPS/content24.xhtml",
+          "sha256": "e99f4e5b00a36d4b908d9aa194260fd0b7d7a494fb90c3fc6bfb82c9e0878420"
+        }
+      ]
+    },
+    {
+      "livro": "o-grande-conflito",
+      "busca": "obra especial de purificação",
+      "ocorrencias": [
+        {
+          "format": "epub",
+          "path": "pt-br/livros/o-grande-conflito/ogc.epub",
+          "location": "OEBPS/content24.xhtml",
+          "sha256": "e99f4e5b00a36d4b908d9aa194260fd0b7d7a494fb90c3fc6bfb82c9e0878420"
+        },
+        {
+          "format": "pdf",
+          "path": "pt-br/livros/o-grande-conflito/ogc.pdf",
+          "location": "376",
+          "page": 376,
+          "sha256": "062a2fb11fac55539af0a50eaacb1260cb6f284ce78468c59b370f9c3b4db92f"
+        }
+      ]
+    },
+    {
+      "livro": "o-grande-conflito",
+      "busca": "Solenes são as cenas",
+      "ocorrencias": [
+        {
+          "format": "epub",
+          "path": "pt-br/livros/o-grande-conflito/ogc.epub",
+          "location": "OEBPS/content28.xhtml",
+          "sha256": "e99f4e5b00a36d4b908d9aa194260fd0b7d7a494fb90c3fc6bfb82c9e0878420"
+        },
+        {
+          "format": "pdf",
+          "path": "pt-br/livros/o-grande-conflito/ogc.pdf",
+          "location": "431",
+          "page": 431,
+          "sha256": "062a2fb11fac55539af0a50eaacb1260cb6f284ce78468c59b370f9c3b4db92f"
+        }
+      ]
+    },
+    {
+      "livro": "o-grande-conflito",
+      "busca": "Mais do que em qualquer",
+      "ocorrencias": [
+        {
+          "format": "epub",
+          "path": "pt-br/livros/o-grande-conflito/ogc.epub",
+          "location": "OEBPS/content09.xhtml",
+          "sha256": "e99f4e5b00a36d4b908d9aa194260fd0b7d7a494fb90c3fc6bfb82c9e0878420"
+        },
+        {
+          "format": "epub",
+          "path": "pt-br/livros/o-grande-conflito/ogc.epub",
+          "location": "OEBPS/content28.xhtml",
+          "sha256": "e99f4e5b00a36d4b908d9aa194260fd0b7d7a494fb90c3fc6bfb82c9e0878420"
+        },
+        {
+          "format": "epub",
+          "path": "pt-br/livros/o-grande-conflito/ogc.epub",
+          "location": "OEBPS/content35.xhtml",
+          "sha256": "e99f4e5b00a36d4b908d9aa194260fd0b7d7a494fb90c3fc6bfb82c9e0878420"
+        },
+        {
+          "format": "pdf",
+          "path": "pt-br/livros/o-grande-conflito/ogc.pdf",
+          "location": "154",
+          "page": 154,
+          "sha256": "062a2fb11fac55539af0a50eaacb1260cb6f284ce78468c59b370f9c3b4db92f"
+        },
+        {
+          "format": "pdf",
+          "path": "pt-br/livros/o-grande-conflito/ogc.pdf",
+          "location": "431",
+          "page": 431,
+          "sha256": "062a2fb11fac55539af0a50eaacb1260cb6f284ce78468c59b370f9c3b4db92f"
+        },
+        {
+          "format": "pdf",
+          "path": "pt-br/livros/o-grande-conflito/ogc.pdf",
+          "location": "497",
+          "page": 497,
+          "sha256": "062a2fb11fac55539af0a50eaacb1260cb6f284ce78468c59b370f9c3b4db92f"
+        }
+      ]
+    },
+    {
+      "livro": "mensagens-escolhidas-2",
+      "busca": "A igreja talvez pareça",
+      "ocorrencias": [
+        {
+          "format": "epub",
+          "path": "pt-br/livros/mensagens-escolhidas-2/me2.epub",
+          "location": "OEBPS/content66.xhtml",
+          "sha256": "f7d5c59200057e46b8632f41b34b512a9d16d06c482973d81377c047d774b739"
+        },
+        {
+          "format": "pdf",
+          "path": "pt-br/livros/mensagens-escolhidas-2/me2.pdf",
+          "location": "379",
+          "page": 379,
+          "sha256": "8a05a174a658729333127fecb3fc57345d8bc2355fee6d487675448bead5c918"
+        }
+      ]
+    },
+    {
+      "livro": "mensagens-escolhidas-2",
+      "busca": "A igreja pode parecer",
+      "ocorrencias": []
+    },
+    {
+      "livro": "testemunhos-seletos-2",
+      "busca": "Permanecer em defesa",
+      "ocorrencias": [
+        {
+          "format": "epub",
+          "path": "pt-br/livros/testemunhos-seletos-2/ts2.epub",
+          "location": "OEBPS/content04.xhtml",
+          "sha256": "aa1755dca48d9e5c8f762319540fb33eadf7dacd9134dbeea3174f3a38bb85ed"
+        },
+        {
+          "format": "pdf",
+          "path": "pt-br/livros/testemunhos-seletos-2/ts2.pdf",
+          "location": "35",
+          "page": 35,
+          "sha256": "258bde73c27003db46879de53dee7e07fd6ee6696a83db31af160f92a4203820"
+        }
+      ]
+    },
+    {
+      "livro": "evangelismo",
+      "busca": "Talvez tenhamos",
+      "ocorrencias": [
+        {
+          "format": "epub",
+          "path": "pt-br/livros/evangelismo/evangelismo.epub",
+          "location": "OEBPS/content12.xhtml",
+          "sha256": "3720f0c71042fdc7f81a4f9288074a5fe842ce4059de24c96d9ac383ccee0f29"
+        },
+        {
+          "format": "epub",
+          "path": "pt-br/livros/evangelismo/evangelismo.epub",
+          "location": "OEBPS/content17.xhtml",
+          "sha256": "3720f0c71042fdc7f81a4f9288074a5fe842ce4059de24c96d9ac383ccee0f29"
+        },
+        {
+          "format": "epub",
+          "path": "pt-br/livros/evangelismo/evangelismo.epub",
+          "location": "OEBPS/content20.xhtml",
+          "sha256": "3720f0c71042fdc7f81a4f9288074a5fe842ce4059de24c96d9ac383ccee0f29"
+        },
+        {
+          "format": "pdf",
+          "path": "pt-br/livros/evangelismo/evangelismo.pdf",
+          "location": "342",
+          "page": 342,
+          "sha256": "5fedcf033509f9a5fb6b2f23726de79c2649529b7dfc88fd1be0c3459f71c6bd"
+        },
+        {
+          "format": "pdf",
+          "path": "pt-br/livros/evangelismo/evangelismo.pdf",
+          "location": "458",
+          "page": 458,
+          "sha256": "5fedcf033509f9a5fb6b2f23726de79c2649529b7dfc88fd1be0c3459f71c6bd"
+        },
+        {
+          "format": "pdf",
+          "path": "pt-br/livros/evangelismo/evangelismo.pdf",
+          "location": "550",
+          "page": 550,
+          "sha256": "5fedcf033509f9a5fb6b2f23726de79c2649529b7dfc88fd1be0c3459f71c6bd"
+        }
+      ]
+    },
+    {
+      "livro": "evangelismo",
+      "busca": "batismo",
+      "ocorrencias": [
+        {
+          "format": "epub",
+          "path": "pt-br/livros/evangelismo/evangelismo.epub",
+          "location": "OEBPS/content04.xhtml",
+          "sha256": "3720f0c71042fdc7f81a4f9288074a5fe842ce4059de24c96d9ac383ccee0f29"
+        },
+        {
+          "format": "epub",
+          "path": "pt-br/livros/evangelismo/evangelismo.epub",
+          "location": "OEBPS/content08.xhtml",
+          "sha256": "3720f0c71042fdc7f81a4f9288074a5fe842ce4059de24c96d9ac383ccee0f29"
+        },
+        {
+          "format": "epub",
+          "path": "pt-br/livros/evangelismo/evangelismo.epub",
+          "location": "OEBPS/content09.xhtml",
+          "sha256": "3720f0c71042fdc7f81a4f9288074a5fe842ce4059de24c96d9ac383ccee0f29"
+        },
+        {
+          "format": "epub",
+          "path": "pt-br/livros/evangelismo/evangelismo.epub",
+          "location": "OEBPS/content10.xhtml",
+          "sha256": "3720f0c71042fdc7f81a4f9288074a5fe842ce4059de24c96d9ac383ccee0f29"
+        },
+        {
+          "format": "epub",
+          "path": "pt-br/livros/evangelismo/evangelismo.epub",
+          "location": "OEBPS/content16.xhtml",
+          "sha256": "3720f0c71042fdc7f81a4f9288074a5fe842ce4059de24c96d9ac383ccee0f29"
+        },
+        {
+          "format": "epub",
+          "path": "pt-br/livros/evangelismo/evangelismo.epub",
+          "location": "OEBPS/content17.xhtml",
+          "sha256": "3720f0c71042fdc7f81a4f9288074a5fe842ce4059de24c96d9ac383ccee0f29"
+        },
+        {
+          "format": "epub",
+          "path": "pt-br/livros/evangelismo/evangelismo.epub",
+          "location": "OEBPS/content20.xhtml",
+          "sha256": "3720f0c71042fdc7f81a4f9288074a5fe842ce4059de24c96d9ac383ccee0f29"
+        },
+        {
+          "format": "pdf",
+          "path": "pt-br/livros/evangelismo/evangelismo.pdf",
+          "location": "13",
+          "page": 13,
+          "sha256": "5fedcf033509f9a5fb6b2f23726de79c2649529b7dfc88fd1be0c3459f71c6bd"
+        }
+      ]
+    },
+    {
+      "livro": "evangelismo",
+      "busca": "números",
+      "ocorrencias": [
+        {
+          "format": "epub",
+          "path": "pt-br/livros/evangelismo/evangelismo.epub",
+          "location": "OEBPS/content00.xhtml",
+          "sha256": "3720f0c71042fdc7f81a4f9288074a5fe842ce4059de24c96d9ac383ccee0f29"
+        },
+        {
+          "format": "epub",
+          "path": "pt-br/livros/evangelismo/evangelismo.epub",
+          "location": "OEBPS/content01.xhtml",
+          "sha256": "3720f0c71042fdc7f81a4f9288074a5fe842ce4059de24c96d9ac383ccee0f29"
+        },
+        {
+          "format": "epub",
+          "path": "pt-br/livros/evangelismo/evangelismo.epub",
+          "location": "OEBPS/content04.xhtml",
+          "sha256": "3720f0c71042fdc7f81a4f9288074a5fe842ce4059de24c96d9ac383ccee0f29"
+        },
+        {
+          "format": "epub",
+          "path": "pt-br/livros/evangelismo/evangelismo.epub",
+          "location": "OEBPS/content06.xhtml",
+          "sha256": "3720f0c71042fdc7f81a4f9288074a5fe842ce4059de24c96d9ac383ccee0f29"
+        },
+        {
+          "format": "epub",
+          "path": "pt-br/livros/evangelismo/evangelismo.epub",
+          "location": "OEBPS/content09.xhtml",
+          "sha256": "3720f0c71042fdc7f81a4f9288074a5fe842ce4059de24c96d9ac383ccee0f29"
+        },
+        {
+          "format": "epub",
+          "path": "pt-br/livros/evangelismo/evangelismo.epub",
+          "location": "OEBPS/content11.xhtml",
+          "sha256": "3720f0c71042fdc7f81a4f9288074a5fe842ce4059de24c96d9ac383ccee0f29"
+        },
+        {
+          "format": "epub",
+          "path": "pt-br/livros/evangelismo/evangelismo.epub",
+          "location": "OEBPS/content12.xhtml",
+          "sha256": "3720f0c71042fdc7f81a4f9288074a5fe842ce4059de24c96d9ac383ccee0f29"
+        },
+        {
+          "format": "epub",
+          "path": "pt-br/livros/evangelismo/evangelismo.epub",
+          "location": "OEBPS/content15.xhtml",
+          "sha256": "3720f0c71042fdc7f81a4f9288074a5fe842ce4059de24c96d9ac383ccee0f29"
+        }
+      ]
+    },
+    {
+      "livro": "atos-dos-apostolos",
+      "busca": "A igreja é o instrumento",
+      "ocorrencias": [
+        {
+          "format": "epub",
+          "path": "pt-br/livros/atos-dos-apostolos/ada.epub",
+          "location": "OEBPS/content01.xhtml",
+          "sha256": "46d2ed2d02977d96d625c6c0d2ad65de4f769cece56b2e45f64f65555f5eba29"
+        },
+        {
+          "format": "epub",
+          "path": "pt-br/livros/atos-dos-apostolos/ada.epub",
+          "location": "OEBPS/content63.xhtml",
+          "sha256": "46d2ed2d02977d96d625c6c0d2ad65de4f769cece56b2e45f64f65555f5eba29"
+        },
+        {
+          "format": "pdf",
+          "path": "pt-br/livros/atos-dos-apostolos/ada.pdf",
+          "location": "10",
+          "page": 10,
+          "sha256": "91e2d4ea3e74a3ec55ecd61fb659f57927ef90ae413ea699cd8b4e92c7d9051a"
+        },
+        {
+          "format": "pdf",
+          "path": "pt-br/livros/atos-dos-apostolos/ada.pdf",
+          "location": "424",
+          "page": 424,
+          "sha256": "91e2d4ea3e74a3ec55ecd61fb659f57927ef90ae413ea699cd8b4e92c7d9051a"
+        }
+      ]
+    },
+    {
+      "livro": "atos-dos-apostolos",
+      "busca": "Deus investiu",
+      "ocorrencias": [
+        {
+          "format": "epub",
+          "path": "pt-br/livros/atos-dos-apostolos/ada.epub",
+          "location": "OEBPS/content18.xhtml",
+          "sha256": "46d2ed2d02977d96d625c6c0d2ad65de4f769cece56b2e45f64f65555f5eba29"
+        },
+        {
+          "format": "pdf",
+          "path": "pt-br/livros/atos-dos-apostolos/ada.pdf",
+          "location": "120",
+          "page": 120,
+          "sha256": "91e2d4ea3e74a3ec55ecd61fb659f57927ef90ae413ea699cd8b4e92c7d9051a"
+        }
+      ]
+    },
+    {
+      "livro": "testemunhos-para-a-igreja-9",
+      "busca": "Deus ordenou que os representantes",
+      "ocorrencias": [
+        {
+          "format": "epub",
+          "path": "pt-br/livros/testemunhos-para-a-igreja-9/tpai9.epub",
+          "location": "OEBPS/content40.xhtml",
+          "sha256": "b430d1a5bfcf6bec47ba2d79aa94d95cdfa877b255e7876e6dd9219360592015"
+        },
+        {
+          "format": "pdf",
+          "path": "pt-br/livros/testemunhos-para-a-igreja-9/tpai9.pdf",
+          "location": "233",
+          "page": 233,
+          "sha256": "6b0090f3f15a8a1d44048117f36be41727844448f1e90fc778b9e9ca57a39282"
+        }
+      ]
+    },
+    {
+      "livro": "testemunhos-para-a-igreja-3",
+      "busca": "Deus considera Seu povo",
+      "ocorrencias": [
+        {
+          "format": "epub",
+          "path": "pt-br/livros/testemunhos-para-a-igreja-3/tpai3.epub",
+          "location": "OEBPS/content30.xhtml",
+          "sha256": "a548731db8e29fdfb86b4e393f9f8161a4cc4eff01dc3dd87e967f9ab4e6077d"
+        },
+        {
+          "format": "pdf",
+          "path": "pt-br/livros/testemunhos-para-a-igreja-3/tpai3.pdf",
+          "location": "265",
+          "page": 265,
+          "sha256": "db03b12f70a856ff17630e4f497279c42c594f3a1463ff322624566d4b1440b3"
+        }
+      ]
+    },
+    {
+      "livro": "o-lar-adventista",
+      "busca": "culpa é tanto maior",
+      "ocorrencias": [
+        {
+          "format": "epub",
+          "path": "pt-br/livros/o-lar-adventista/ola.epub",
+          "location": "OEBPS/content70.xhtml",
+          "sha256": "865b9704a2414fca348d74e6333ded20bfc141aba975e6748275ee68a3c2a102"
+        },
+        {
+          "format": "pdf",
+          "path": "pt-br/livros/o-lar-adventista/ola.pdf",
+          "location": "322",
+          "page": 322,
+          "sha256": "c03e9efddf2883d0046e183b8ef42762b1df0360643a38b077e93a61c803973d"
+        }
+      ]
+    },
+    {
+      "livro": "educacao",
+      "busca": "A maior necessidade",
+      "ocorrencias": [
+        {
+          "format": "epub",
+          "path": "pt-br/livros/educacao/educacao.epub",
+          "location": "OEBPS/content05.xhtml",
+          "sha256": "a34d32d8c2cdf82f00cdedb9a1837d9bddcd2c9b1a89f46819ce7fdb4b458598"
+        },
+        {
+          "format": "epub",
+          "path": "pt-br/livros/educacao/educacao.epub",
+          "location": "OEBPS/content09.xhtml",
+          "sha256": "a34d32d8c2cdf82f00cdedb9a1837d9bddcd2c9b1a89f46819ce7fdb4b458598"
+        },
+        {
+          "format": "epub",
+          "path": "pt-br/livros/educacao/educacao.epub",
+          "location": "OEBPS/content11.xhtml",
+          "sha256": "a34d32d8c2cdf82f00cdedb9a1837d9bddcd2c9b1a89f46819ce7fdb4b458598"
+        },
+        {
+          "format": "pdf",
+          "path": "pt-br/livros/educacao/educacao.pdf",
+          "location": "27",
+          "page": 27,
+          "sha256": "7786125dadc57d17b6a0e9c84500410417848ba497530aa2641f9a0a22a4952f"
+        },
+        {
+          "format": "pdf",
+          "path": "pt-br/livros/educacao/educacao.pdf",
+          "location": "49",
+          "page": 49,
+          "sha256": "7786125dadc57d17b6a0e9c84500410417848ba497530aa2641f9a0a22a4952f"
+        },
+        {
+          "format": "pdf",
+          "path": "pt-br/livros/educacao/educacao.pdf",
+          "location": "62",
+          "page": 62,
+          "sha256": "7786125dadc57d17b6a0e9c84500410417848ba497530aa2641f9a0a22a4952f"
+        }
+      ]
+    },
+    {
+      "livro": "testemunhos-para-a-igreja-6",
+      "busca": "Estamos no tempo da sacudidura",
+      "ocorrencias": [
+        {
+          "format": "epub",
+          "path": "pt-br/livros/testemunhos-para-a-igreja-6/tpai6.epub",
+          "location": "OEBPS/content47.xhtml",
+          "sha256": "068a341127cb542b6fe9a97f624ca1f54879d0656cb38e0e87db5d5f2839f091"
+        },
+        {
+          "format": "pdf",
+          "path": "pt-br/livros/testemunhos-para-a-igreja-6/tpai6.pdf",
+          "location": "308",
+          "page": 308,
+          "sha256": "25175ae20ff75fc872dbd0acc92ddf90696f4da45bcfd3ef2e57107588eabf42"
+        }
+      ]
+    }
+  ],
+  "biblia": [
+    {
+      "version": "ACF",
+      "ref": "ap/14",
+      "url": "https://www.bibliaonline.com.br/acf/ap/14"
+    },
+    {
+      "version": "ACF",
+      "ref": "ap/19",
+      "url": "https://www.bibliaonline.com.br/acf/ap/19"
+    },
+    {
+      "version": "ACF",
+      "ref": "hb/12",
+      "url": "https://www.bibliaonline.com.br/acf/hb/12"
+    },
+    {
+      "version": "ACF",
+      "ref": "mt/23",
+      "url": "https://www.bibliaonline.com.br/acf/mt/23"
+    },
+    {
+      "version": "ACF",
+      "ref": "lc/13",
+      "url": "https://www.bibliaonline.com.br/acf/lc/13"
+    },
+    {
+      "version": "ACF",
+      "ref": "jo/1",
+      "url": "https://www.bibliaonline.com.br/acf/jo/1"
+    },
+    {
+      "version": "ACF",
+      "ref": "dn/8",
+      "url": "https://www.bibliaonline.com.br/acf/dn/8"
+    },
+    {
+      "version": "ACF",
+      "ref": "lv/16",
+      "url": "https://www.bibliaonline.com.br/acf/lv/16"
+    },
+    {
+      "version": "ACF",
+      "ref": "lv/23",
+      "url": "https://www.bibliaonline.com.br/acf/lv/23"
+    },
+    {
+      "version": "ACF",
+      "ref": "am/2",
+      "url": "https://www.bibliaonline.com.br/acf/am/2"
+    },
+    {
+      "version": "ACF",
+      "ref": "jr/29",
+      "url": "https://www.bibliaonline.com.br/acf/jr/29"
+    },
+    {
+      "version": "ACF",
+      "ref": "1jo/5",
+      "url": "https://www.bibliaonline.com.br/acf/1jo/5"
+    },
+    {
+      "version": "ARA",
+      "ref": "fp/1",
+      "url": "https://www.bibliaonline.com.br/ara/fp/1"
+    },
+    {
+      "version": "ARA",
+      "ref": "fp/2",
+      "url": "https://www.bibliaonline.com.br/ara/fp/2"
+    },
+    {
+      "version": "ARA",
+      "ref": "ap/3",
+      "url": "https://www.bibliaonline.com.br/ara/ap/3"
+    },
+    {
+      "version": "ARA",
+      "ref": "jo/6",
+      "url": "https://www.bibliaonline.com.br/ara/jo/6"
+    },
+    {
+      "version": "ARA",
+      "ref": "jo/1",
+      "url": "https://www.bibliaonline.com.br/ara/jo/1"
+    },
+    {
+      "version": "ARA",
+      "ref": "jo/2",
+      "url": "https://www.bibliaonline.com.br/ara/jo/2"
+    },
+    {
+      "version": "ARA",
+      "ref": "jo/15",
+      "url": "https://www.bibliaonline.com.br/ara/jo/15"
+    },
+    {
+      "version": "ARA",
+      "ref": "rm/12",
+      "url": "https://www.bibliaonline.com.br/ara/rm/12"
+    },
+    {
+      "version": "ARA",
+      "ref": "rm/13",
+      "url": "https://www.bibliaonline.com.br/ara/rm/13"
+    },
+    {
+      "version": "ARA",
+      "ref": "ef/2",
+      "url": "https://www.bibliaonline.com.br/ara/ef/2"
+    },
+    {
+      "version": "ARA",
+      "ref": "ef/5",
+      "url": "https://www.bibliaonline.com.br/ara/ef/5"
+    },
+    {
+      "version": "ARA",
+      "ref": "tt/1",
+      "url": "https://www.bibliaonline.com.br/ara/tt/1"
+    },
+    {
+      "version": "ARA",
+      "ref": "at/13",
+      "url": "https://www.bibliaonline.com.br/ara/at/13"
+    },
+    {
+      "version": "ARA",
+      "ref": "at/5",
+      "url": "https://www.bibliaonline.com.br/ara/at/5"
+    },
+    {
+      "version": "ARA",
+      "ref": "mt/7",
+      "url": "https://www.bibliaonline.com.br/ara/mt/7"
+    },
+    {
+      "version": "ARA",
+      "ref": "mt/10",
+      "url": "https://www.bibliaonline.com.br/ara/mt/10"
+    },
+    {
+      "version": "ARA",
+      "ref": "mt/16",
+      "url": "https://www.bibliaonline.com.br/ara/mt/16"
+    },
+    {
+      "version": "ARA",
+      "ref": "mt/23",
+      "url": "https://www.bibliaonline.com.br/ara/mt/23"
+    },
+    {
+      "version": "ARA",
+      "ref": "mt/24",
+      "url": "https://www.bibliaonline.com.br/ara/mt/24"
+    },
+    {
+      "version": "ARA",
+      "ref": "lc/12",
+      "url": "https://www.bibliaonline.com.br/ara/lc/12"
+    },
+    {
+      "version": "ARA",
+      "ref": "lc/14",
+      "url": "https://www.bibliaonline.com.br/ara/lc/14"
+    },
+    {
+      "version": "ARA",
+      "ref": "hb/8",
+      "url": "https://www.bibliaonline.com.br/ara/hb/8"
+    },
+    {
+      "version": "ARA",
+      "ref": "hb/9",
+      "url": "https://www.bibliaonline.com.br/ara/hb/9"
+    },
+    {
+      "version": "ARA",
+      "ref": "1co/6",
+      "url": "https://www.bibliaonline.com.br/ara/1co/6"
+    },
+    {
+      "version": "ARA",
+      "ref": "1co/10",
+      "url": "https://www.bibliaonline.com.br/ara/1co/10"
+    },
+    {
+      "version": "ARA",
+      "ref": "2co/13",
+      "url": "https://www.bibliaonline.com.br/ara/2co/13"
+    },
+    {
+      "version": "ARA",
+      "ref": "pv/6",
+      "url": "https://www.bibliaonline.com.br/ara/pv/6"
+    },
+    {
+      "version": "ARA",
+      "ref": "pv/21",
+      "url": "https://www.bibliaonline.com.br/ara/pv/21"
+    },
+    {
+      "version": "ARA",
+      "ref": "sl/73",
+      "url": "https://www.bibliaonline.com.br/ara/sl/73"
+    },
+    {
+      "version": "ARA",
+      "ref": "1rs/18",
+      "url": "https://www.bibliaonline.com.br/ara/1rs/18"
+    },
+    {
+      "version": "ARA",
+      "ref": "is/5",
+      "url": "https://www.bibliaonline.com.br/ara/is/5"
+    },
+    {
+      "version": "ARA",
+      "ref": "1tm/1",
+      "url": "https://www.bibliaonline.com.br/ara/1tm/1"
+    },
+    {
+      "version": "ARA",
+      "ref": "2pe/3",
+      "url": "https://www.bibliaonline.com.br/ara/2pe/3"
+    },
+    {
+      "version": "ARC",
+      "ref": "1co/12",
+      "url": "https://www.bibliaonline.com.br/arc/1co/12"
+    },
+    {
+      "version": "ARC",
+      "ref": "cl/1",
+      "url": "https://www.bibliaonline.com.br/arc/cl/1"
+    },
+    {
+      "version": "ARC",
+      "ref": "1pe/2",
+      "url": "https://www.bibliaonline.com.br/arc/1pe/2"
+    },
+    {
+      "version": "ARC",
+      "ref": "ef/5",
+      "url": "https://www.bibliaonline.com.br/arc/ef/5"
+    },
+    {
+      "version": "ARC",
+      "ref": "mt/10",
+      "url": "https://www.bibliaonline.com.br/arc/mt/10"
+    },
+    {
+      "version": "ARC",
+      "ref": "mt/24",
+      "url": "https://www.bibliaonline.com.br/arc/mt/24"
+    },
+    {
+      "version": "ARC",
+      "ref": "ap/13",
+      "url": "https://www.bibliaonline.com.br/arc/ap/13"
+    },
+    {
+      "version": "ARC",
+      "ref": "ml/4",
+      "url": "https://www.bibliaonline.com.br/arc/ml/4"
+    },
+    {
+      "version": "ARC",
+      "ref": "lc/1",
+      "url": "https://www.bibliaonline.com.br/arc/lc/1"
+    },
+    {
+      "version": "ARC",
+      "ref": "at/5",
+      "url": "https://www.bibliaonline.com.br/arc/at/5"
+    },
+    {
+      "version": "ARC",
+      "ref": "1ts/5",
+      "url": "https://www.bibliaonline.com.br/arc/1ts/5"
+    },
+    {
+      "version": "ARC",
+      "ref": "dn/9",
+      "url": "https://www.bibliaonline.com.br/arc/dn/9"
+    },
+    {
+      "version": "ARC",
+      "ref": "js/7",
+      "url": "https://www.bibliaonline.com.br/arc/js/7"
+    },
+    {
+      "version": "ARC",
+      "ref": "tg/4",
+      "url": "https://www.bibliaonline.com.br/arc/tg/4"
+    },
+    {
+      "version": "ARC",
+      "ref": "ez/33",
+      "url": "https://www.bibliaonline.com.br/arc/ez/33"
+    },
+    {
+      "version": "ARC",
+      "ref": "is/62",
+      "url": "https://www.bibliaonline.com.br/arc/is/62"
+    },
+    {
+      "version": "NVI",
+      "ref": "2pe/2",
+      "url": "https://www.bibliaonline.com.br/nvi/2pe/2"
+    },
+    {
+      "version": "NVI",
+      "ref": "sl/55",
+      "url": "https://www.bibliaonline.com.br/nvi/sl/55"
+    },
+    {
+      "version": "NVI",
+      "ref": "jr/9",
+      "url": "https://www.bibliaonline.com.br/nvi/jr/9"
+    },
+    {
+      "version": "NVI",
+      "ref": "pv/26",
+      "url": "https://www.bibliaonline.com.br/nvi/pv/26"
+    },
+    {
+      "version": "NVI",
+      "ref": "pv/6",
+      "url": "https://www.bibliaonline.com.br/nvi/pv/6"
+    },
+    {
+      "version": "NVI",
+      "ref": "2tm/4",
+      "url": "https://www.bibliaonline.com.br/nvi/2tm/4"
+    },
+    {
+      "version": "NVI",
+      "ref": "am/9",
+      "url": "https://www.bibliaonline.com.br/nvi/am/9"
+    },
+    {
+      "version": "NVI",
+      "ref": "lc/22",
+      "url": "https://www.bibliaonline.com.br/nvi/lc/22"
+    },
+    {
+      "version": "NVI",
+      "ref": "hb/12",
+      "url": "https://www.bibliaonline.com.br/nvi/hb/12"
+    },
+    {
+      "version": "NVI",
+      "ref": "mq/2",
+      "url": "https://www.bibliaonline.com.br/nvi/mq/2"
+    },
+    {
+      "version": "NVI",
+      "ref": "is/30",
+      "url": "https://www.bibliaonline.com.br/nvi/is/30"
+    },
+    {
+      "version": "BKJ",
+      "ref": "sl/101",
+      "url": "https://www.bibliaonline.com.br/bkj/sl/101"
+    }
+  ],
+  "referenciasFinais": {
+    "ap14": [
+      "ACF",
+      "ap/14",
+      "Apocalipse 14:6-12"
+    ],
+    "ap1910": [
+      "ACF",
+      "ap/19",
+      "Apocalipse 19:10"
+    ],
+    "elias": [
+      "ARA",
+      "1rs/18",
+      "1 Reis 18:17-18"
+    ],
+    "jo660": [
+      "ARA",
+      "jo/6",
+      "João 6:60-69"
+    ],
+    "hb1211": [
+      "ACF",
+      "hb/12",
+      "Hebreus 12:11"
+    ],
+    "mt23": [
+      "ARA",
+      "mt/23",
+      "Mateus 23:13-33"
+    ],
+    "at1310": [
+      "ARA",
+      "at/13",
+      "Atos 13:9-11"
+    ],
+    "tt113": [
+      "ARA",
+      "tt/1",
+      "Tito 1:13"
+    ],
+    "2pe212": [
+      "NVI",
+      "2pe/2",
+      "2 Pedro 2:12"
+    ],
+    "jo215": [
+      "ARA",
+      "jo/2",
+      "João 2:13-17"
+    ],
+    "2tm42": [
+      "NVI",
+      "2tm/4",
+      "2 Timóteo 4:2"
+    ],
+    "at539": [
+      "ARC",
+      "at/5",
+      "Atos 5:38-39"
+    ],
+    "at541": [
+      "ARA",
+      "at/5",
+      "Atos 5:41"
+    ],
+    "ap3": [
+      "ARA",
+      "ap/3",
+      "Apocalipse 3:14-22"
+    ],
+    "mt10": [
+      "ARA",
+      "mt/10",
+      "Mateus 10:21,34-39"
+    ],
+    "lc1251": [
+      "ARA",
+      "lc/12",
+      "Lucas 12:51-53"
+    ],
+    "lc1426": [
+      "ARA",
+      "lc/14",
+      "Lucas 14:26-27"
+    ],
+    "mt2436": [
+      "ARA",
+      "mt/24",
+      "Mateus 24:36"
+    ],
+    "2pe3": [
+      "ARA",
+      "2pe/3",
+      "2 Pedro 3:9-13"
+    ],
+    "lc13contexto": [
+      "ACF",
+      "lc/13",
+      "Lucas 13:22-30"
+    ],
+    "jo111": [
+      "ARA",
+      "jo/1",
+      "João 1:11"
+    ],
+    "jo15": [
+      "ACF",
+      "jo/1",
+      "João 1:5"
+    ],
+    "fp121": [
+      "ARA",
+      "fp/1",
+      "Filipenses 1:21-25"
+    ],
+    "rm122": [
+      "ARA",
+      "rm/12",
+      "Romanos 12:2"
+    ],
+    "jo154": [
+      "ARA",
+      "jo/15",
+      "João 15:4"
+    ],
+    "fp213": [
+      "ARA",
+      "fp/2",
+      "Filipenses 2:13"
+    ],
+    "dn814": [
+      "ACF",
+      "dn/8",
+      "Daniel 8:14"
+    ],
+    "lvexp": [
+      "ACF",
+      "lv/16",
+      "Levítico 16:29-31; 23:27-32"
+    ],
+    "hb8": [
+      "ARA",
+      "hb/8",
+      "Hebreus 8:1-2"
+    ],
+    "hb9": [
+      "ARA",
+      "hb/9",
+      "Hebreus 9:23-24"
+    ],
+    "1co612": [
+      "ARA",
+      "1co/6",
+      "1 Coríntios 6:12"
+    ],
+    "1co1023": [
+      "ARA",
+      "1co/10",
+      "1 Coríntios 10:23"
+    ],
+    "lc1248": [
+      "ARA",
+      "lc/12",
+      "Lucas 12:48"
+    ],
+    "2co135": [
+      "ARA",
+      "2co/13",
+      "2 Coríntios 13:5"
+    ],
+    "rm1311": [
+      "ARA",
+      "rm/13",
+      "Romanos 13:11"
+    ],
+    "ef514": [
+      "ARA",
+      "ef/5",
+      "Efésios 5:14"
+    ],
+    "mt716": [
+      "ARA",
+      "mt/7",
+      "Mateus 7:15-20"
+    ],
+    "1co63": [
+      "ARA",
+      "1co/6",
+      "1 Coríntios 6:3"
+    ],
+    "dn95": [
+      "ARC",
+      "dn/9",
+      "Daniel 9:5-8"
+    ],
+    "js711": [
+      "ARC",
+      "js/7",
+      "Josué 7:1-26"
+    ],
+    "tg417": [
+      "ARC",
+      "tg/4",
+      "Tiago 4:17"
+    ],
+    "ez338": [
+      "ARC",
+      "ez/33",
+      "Ezequiel 33:7-9"
+    ],
+    "1tm13": [
+      "ARA",
+      "1tm/1",
+      "1 Timóteo 1:3-4"
+    ],
+    "ez337": [
+      "ARC",
+      "ez/33",
+      "Ezequiel 33:7"
+    ],
+    "is626": [
+      "ARC",
+      "is/62",
+      "Isaías 62:6"
+    ],
+    "mt16": [
+      "ARA",
+      "mt/16",
+      "Mateus 16:16-23"
+    ],
+    "pv2130": [
+      "ARA",
+      "pv/21",
+      "Provérbios 21:30"
+    ],
+    "1co1227": [
+      "ARC",
+      "1co/12",
+      "1 Coríntios 12:27"
+    ],
+    "cl118": [
+      "ARC",
+      "cl/1",
+      "Colossenses 1:18"
+    ],
+    "1pe25": [
+      "ARC",
+      "1pe/2",
+      "1 Pedro 2:5"
+    ],
+    "ef525": [
+      "ARC",
+      "ef/5",
+      "Efésios 5:25,27"
+    ],
+    "mt1022": [
+      "ARC",
+      "mt/10",
+      "Mateus 10:22"
+    ],
+    "mt249": [
+      "ARC",
+      "mt/24",
+      "Mateus 24:9"
+    ],
+    "ap13": [
+      "ARC",
+      "ap/13",
+      "Apocalipse 13:15-17"
+    ],
+    "ml45": [
+      "ARC",
+      "ml/4",
+      "Malaquias 4:5-6"
+    ],
+    "lc117": [
+      "ARC",
+      "lc/1",
+      "Lucas 1:17"
+    ],
+    "1ts521": [
+      "ARC",
+      "1ts/5",
+      "1 Tessalonicenses 5:21"
+    ],
+    "at529": [
+      "ARC",
+      "at/5",
+      "Atos 5:29"
+    ],
+    "me2380": [
+      "EGW",
+      "mensagens-escolhidas-2",
+      "Mensagens Escolhidas, v. 2 - É necessária uma obra de purificação, p. 380"
+    ],
+    "pe20": [
+      "EGW",
+      "primeiros-escritos",
+      "Primeiros Escritos - Minha primeira visão, p. 20"
+    ],
+    "gc1844": [
+      "EGW",
+      "o-grande-conflito",
+      "O Grande Conflito - Quando começa o julgamento divino, p. 423, 424, 425, 426"
+    ],
+    "gc490": [
+      "EGW",
+      "o-grande-conflito",
+      "O Grande Conflito - O grande juízo investigativo, p. 490"
+    ],
+    "gc423": [
+      "EGW",
+      "o-grande-conflito",
+      "O Grande Conflito - Quando começa o julgamento divino, p. 423"
+    ],
+    "gc425": [
+      "EGW",
+      "o-grande-conflito",
+      "O Grande Conflito - Quando começa o julgamento divino, p. 425"
+    ],
+    "t9261": [
+      "EGW",
+      "testemunhos-para-a-igreja-9",
+      "Testemunhos para a Igreja, v. 9 - Espírito de independência, p. 260, 261"
+    ],
+    "aa164": [
+      "EGW",
+      "atos-dos-apostolos",
+      "Atos dos Apóstolos - Arautos do evangelho, p. 163, 164, 165"
+    ],
+    "t3269": [
+      "EGW",
+      "testemunhos-para-a-igreja-3",
+      "Testemunhos para a Igreja, v. 3 - A igreja de Laodicéia, p. 269, 270"
+    ],
+    "lar354": [
+      "EGW",
+      "o-lar-adventista",
+      "O Lar Adventista - A família do pastor, p. 354"
+    ],
+    "aa9": [
+      "EGW",
+      "atos-dos-apostolos",
+      "Atos dos Apóstolos - O propósito de Deus para Sua igreja, p. 9"
+    ],
+    "gc608": [
+      "EGW",
+      "o-grande-conflito",
+      "O Grande Conflito - O último convite divino, p. 608"
+    ],
+    "t6332": [
+      "EGW",
+      "testemunhos-para-a-igreja-6",
+      "Testemunhos para a Igreja, v. 6 - Reavivamento da obra de colportagem, p. 332"
+    ],
+    "eliasegw": [
+      "EGW",
+      "mensagens-escolhidas-2",
+      "Mensagens Escolhidas, v. 2 - Ouvir-se-ão admoestações, p. 150, 151"
+    ],
+    "me1372": [
+      "EGW",
+      "mensagens-escolhidas-1",
+      "Mensagens Escolhidas, v. 1 - “Deixaste o teu primeiro amor”, p. 372"
+    ],
+    "ev344": [
+      "EGW",
+      "evangelismo",
+      "Evangelismo - Firmar e conservar novos conversos, p. 343, 344"
+    ],
+    "mar200": [
+      "EGW",
+      "../devocionais/maranata-o-senhor-vem",
+      "Maranata — O Senhor Vem! - O tempo da sacudidura, 11 de julho, p. 201"
+    ],
+    "nato": [
+      "URL",
+      "https://www.nato.int/en/what-we-do/deterrence-and-defence/countering-hybrid-threats",
+      "OTAN. Countering hybrid threats. Definição de ameaças híbridas; não afirma que uma guerra mundial esteja em curso."
+    ],
+    "sipri": [
+      "URL",
+      "https://www.sipri.org/media/press-release/2025/unprecedented-rise-global-military-expenditure-european-and-middle-east-spending-surges",
+      "SIPRI. Unprecedented rise in global military expenditure as European and Middle East spending surges, 28 abr. 2025. Dados de 2024; corroboram o aumento dos gastos, não a interpretação profética."
+    ],
+    "coreia": [
+      "URL",
+      "https://apnews.com/article/10b2bf40d0ba85fe6d24bf689336c4e2",
+      "Associated Press. North Korean and Russian military officials discuss further cooperation in Pyongyang, 7 nov. 2025. Documenta a cooperação; não comprova todas as transferências tecnológicas cogitadas."
+    ],
+    "domingo": [
+      "URL",
+      "https://www.vatican.va/content/john-paul-ii/pt/apost_letters/1998/documents/hf_jp-ii_apl_05071998_dies-domini.html",
+      "João Paulo II. Carta apostólica Dies Domini, §§19 e 26, 31 maio 1998. Fonte primária usada exclusivamente para conferir o que o documento católico declara, não como autoridade teológica."
+    ],
+    "pt1850": [
+      "URL",
+      "https://text.egwwritings.org/amp/read/517.53",
+      "Ellen G. White. The Present Truth, 1 abr. 1850, par. 9."
+    ],
+    "ms1902": [
+      "URL",
+      "https://text.egwwritings.org/amp/read/14067.9055001",
+      "Ellen G. White. Manuscrito 173, 1902, par. 25."
+    ],
+    "2tm43": [
+      "NVI",
+      "2tm/4",
+      "2 Timóteo 4:3"
+    ]
+  },
+  "observacao": "Ocorrências são localizações de pesquisa, não equivalência automática de edições. A resolução contextual e a paginação editorial estão no relatório e no draft."
+}

@@ -1,0 +1,19 @@
+{
+  "before": "02ea8bb6d2a63d0d5a9eb8d9deecedb48ed2138d181fffa058cdf7210352d478",
+  "after": "5b85721780042d978ac4829075706be556593eb75546fd19892ff04167de05cf",
+  "header": "1e4edd433b37e61a8202dee2b408d783e2016d1334e4824a2e61d371c75a2032",
+  "headerPreserved": true,
+  "regions": [
+    {
+      "kind": "editorial",
+      "sourceStart": 14561,
+      "sourceEnd": 87994,
+      "outputStart": 14561,
+      "outputEnd": 87860,
+      "transformed": true,
+      "reason": "FT-112: introdução, integração, fontes e correções factuais autorizadas"
+    }
+  ],
+  "diagnostics": [],
+  "markdownCorrection": "Escapes de omissão e strong dentro de u; conteúdo e ênfases visuais preservados"
+}
