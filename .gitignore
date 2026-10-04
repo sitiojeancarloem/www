@@ -353,3 +353,9 @@ Thumbs.db
 !/.ia.rules/state/requests/FT-077/terceira-correcao-referencias-links-controles.md
 !/.ia.rules/state/requests/FT-077/terceira-correcao-referencias-links-controles.txt
 !/.ia.rules/state/requests/FT-077/terceira-correcao-referencias-links-controles.png
+
+!/.ia.rules/local/skills/egw-source-verification/SKILL.md
+!/.ia.rules/local/skills/egw-source-verification/descriptor.json
+!/.ia.rules/local/skills/egw-source-verification/agents/
+/.ia.rules/local/skills/egw-source-verification/agents/*
+!/.ia.rules/local/skills/egw-source-verification/agents/openai.yaml

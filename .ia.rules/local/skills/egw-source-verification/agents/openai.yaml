@@ -1,0 +1,6 @@
+interface:
+  display_name: "Verificação de fontes EGW"
+  short_description: "Localiza e confirma trechos em EPUB/PDF"
+  default_prompt: "Use $egw-source-verification para localizar evidência em uma biblioteca EGW explícita, sem editar o conteúdo pesquisado."
+policy:
+  allow_implicit_invocation: true
