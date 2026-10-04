@@ -118,6 +118,17 @@ def main() -> int:
         code, result = invoke(root, "A fé vê além das dificuldades", "--formats", "epub")
         assert code == 2 and result["status"] == "ambiguous"
 
+    with tempfile.TemporaryDirectory(prefix="egw-limit-") as temporary:
+        limited_root = Path(temporary)
+        oversized = limited_root / "oversized.epub"
+        with zipfile.ZipFile(oversized, "w", compression=zipfile.ZIP_DEFLATED) as archive:
+            archive.writestr("oversized.xhtml", b"x" * (8 * 1024 * 1024 + 1))
+        digest = __import__("hashlib").sha256(oversized.read_bytes()).hexdigest()
+        code, result = invoke(limited_root, "texto", "--formats", "epub")
+        assert code == 3 and result["status"] == "unavailable"
+        assert "EPUB_LIMIT_EXCEEDED" in result["diagnostics"]["warnings"]
+        assert digest == __import__("hashlib").sha256(oversized.read_bytes()).hexdigest()
+
     print("EGW_SOURCE_VERIFICATION_OK")
     return 0
 

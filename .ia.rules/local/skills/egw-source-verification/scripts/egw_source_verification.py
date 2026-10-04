@@ -20,6 +20,15 @@ import xml.etree.ElementTree as ET
 EXIT_BY_STATUS = {"located": 0, "confirmed": 0, "divergent": 2, "ambiguous": 2, "absent": 2, "unavailable": 3}
 
 
+EPUB_MAX_MEMBER_BYTES = 8 * 1024 * 1024
+EPUB_MAX_TOTAL_BYTES = 64 * 1024 * 1024
+EPUB_MAX_ENTRIES = 4096
+
+
+class EpubLimitError(ValueError):
+    """EPUB ultrapassa orçamento de leitura descomprimida."""
+
+
 class TextExtractor(HTMLParser):
     """Extrai texto visível de XHTML sem dependência externa."""
 
@@ -105,6 +114,11 @@ def best_match(text: str, query: str, tolerance: float) -> tuple[int, int, float
 def epub_documents(path: Path) -> tuple[dict[str, str], list[tuple[str, str]]]:
     metadata = {"title": path.stem, "language": ""}
     with zipfile.ZipFile(path) as archive:
+        entries = archive.infolist()
+        if (len(entries) > EPUB_MAX_ENTRIES
+                or any(entry.file_size > EPUB_MAX_MEMBER_BYTES for entry in entries)
+                or sum(entry.file_size for entry in entries) > EPUB_MAX_TOTAL_BYTES):
+            raise EpubLimitError("EPUB_LIMIT_EXCEEDED")
         names = set(archive.namelist())
         opf_path = ""
         if "META-INF/container.xml" in names:
@@ -257,6 +271,9 @@ def run(args: argparse.Namespace) -> tuple[dict[str, object], int]:
                     item = occurrence(path, root, fmt, str(page), text, args.query, args.tolerance, args.context, pdf_metadata["title"], pdf_metadata["language"])
                     if item:
                         found.append(item)
+        except EpubLimitError:
+            diagnostics["warnings"].append("EPUB_LIMIT_EXCEEDED")
+            return base, EXIT_BY_STATUS["unavailable"]
         except ModuleNotFoundError:
             pdf_unavailable = True
             diagnostics["warnings"].append("PDF_ENGINE_UNAVAILABLE")

@@ -188,12 +188,14 @@ verificacoes=Check online e duplicidade aprovados; issue aberta sem responsável
 pendencias=Aceite humano do TODO e qualquer acompanhamento futuro da issue permanecem externos e exigem nova autorização.
 historico=.ia.rules/state/history/FT-099.ia|sha256=f464462839f9b7f759037c7460bc5d89737e56d7bfc592c88601df03b32f6c9f
 
-FT-101|nome=Implementação da verificação reutilizável de fontes EGW|escopo=tecnico|status=registrada_bloqueada_por_dependencia|autorizacao=humana
+FT-101|nome=Implementação da verificação reutilizável de fontes EGW|escopo=tecnico|status=em_andamento|autorizacao=humana
 objetivo=Implementar Skill local, descritor, configuração e script determinístico somente leitura para EPUB/PDF.
 origem=.ia.rules/state/requests/FT-100/prompt.md
 contexto=.ia.rules/state/contexts/FT-100/master.md
 dependencias=FT-100
-pendencias=Aguardar a conclusão da FT-100.
+resultado=Script, Skill, descritor, guia e índice documental versionados; identidade EPUB/PDF e limites descomprimidos corrigidos.
+verificacoes=Fixtures EGW aprovadas; descritor e validador oficial da Skill aprovados; EPUB acima do limite rejeitado sem mutação da fonte.
+pendencias=Concluir conferência dos limites restantes e transição para FT-102; integração real aguarda caminho explícito da biblioteca. FT-100 concluída conforme histórico.
 
 FT-102|nome=Integração e validação da verificação de fontes EGW|escopo=tecnico|status=registrada_bloqueada_por_dependencia|autorizacao=humana
 objetivo=Provar fixtures, caso real, roteamento, estados de evidência, limites e preservação do draft e da biblioteca externa.

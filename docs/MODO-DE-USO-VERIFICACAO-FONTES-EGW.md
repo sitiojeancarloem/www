@@ -52,6 +52,10 @@ Use um interpretador com `pypdfium2` para leitura de PDF. Se ele não estiver di
 
 Cada ocorrência preserva o trecho extraído e usa path relativo à raiz. A chave `diagnostics` informa limites, formatos lidos e impedimentos sem expor path absoluto.
 
+## Limites de leitura EPUB
+
+Antes de descomprimir entradas, o leitor rejeita EPUBs com mais de 4096 entradas, entrada maior que 8 MiB ou soma descomprimida maior que 64 MiB. O resultado é `unavailable`, código 3, com aviso `EPUB_LIMIT_EXCEEDED`. A fonte permanece intacta.
+
 ## Códigos de saída
 
 | Código | Estados |
