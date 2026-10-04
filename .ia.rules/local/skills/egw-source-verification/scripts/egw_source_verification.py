@@ -23,6 +23,12 @@ EXIT_BY_STATUS = {"located": 0, "confirmed": 0, "divergent": 2, "ambiguous": 2, 
 EPUB_MAX_MEMBER_BYTES = 8 * 1024 * 1024
 EPUB_MAX_TOTAL_BYTES = 64 * 1024 * 1024
 EPUB_MAX_ENTRIES = 4096
+PDF_MAX_FILE_BYTES = 64 * 1024 * 1024
+
+
+class PdfLimitError(ValueError):
+    """PDF ultrapassa orçamento de leitura."""
+
 
 
 class EpubLimitError(ValueError):
@@ -154,6 +160,8 @@ def epub_documents(path: Path) -> tuple[dict[str, str], list[tuple[str, str]]]:
 
 
 def pdf_documents(path: Path) -> tuple[dict[str, str], list[tuple[int, str]]]:
+    if path.stat().st_size > PDF_MAX_FILE_BYTES:
+        raise PdfLimitError("PDF_LIMIT_EXCEEDED")
     if os.environ.get("EGW_DISABLE_PDF_ENGINE") == "1":
         raise ModuleNotFoundError("pypdfium2 disabled for validation")
     import pypdfium2  # type: ignore[import-not-found]
@@ -273,6 +281,9 @@ def run(args: argparse.Namespace) -> tuple[dict[str, object], int]:
                         found.append(item)
         except EpubLimitError:
             diagnostics["warnings"].append("EPUB_LIMIT_EXCEEDED")
+            return base, EXIT_BY_STATUS["unavailable"]
+        except PdfLimitError:
+            diagnostics["warnings"].append("PDF_LIMIT_EXCEEDED")
             return base, EXIT_BY_STATUS["unavailable"]
         except ModuleNotFoundError:
             pdf_unavailable = True

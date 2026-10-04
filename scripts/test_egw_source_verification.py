@@ -153,6 +153,17 @@ def main() -> int:
         assert [name for name in reads if name.endswith(".xhtml")] == ["b.xhtml", "a.xhtml"]
         assert fixture.read_bytes() == before
 
+
+    # PDF acima do orçamento deve ser recusado antes de carregar o mecanismo.
+    from types import SimpleNamespace
+    oversized_pdf = SimpleNamespace(stat=lambda: SimpleNamespace(st_size=64 * 1024 * 1024 + 1))
+    try:
+        extractor["pdf_documents"](oversized_pdf)
+    except extractor["PdfLimitError"] as error:
+        assert str(error) == "PDF_LIMIT_EXCEEDED"
+    else:
+        raise AssertionError("PDF acima do limite foi aceito")
+
     print("EGW_SOURCE_VERIFICATION_OK")
     return 0
 
