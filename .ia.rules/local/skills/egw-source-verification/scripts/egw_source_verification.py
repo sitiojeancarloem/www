@@ -142,7 +142,7 @@ def epub_documents(path: Path) -> tuple[dict[str, str], list[tuple[str, str]]]:
         if not ordered:
             ordered = sorted(name for name in names if name.lower().endswith((".xhtml", ".html", ".htm")))
         documents: list[tuple[str, str]] = []
-        for name in ordered:
+        for name in dict.fromkeys(ordered):
             if name not in names:
                 continue
             parser = TextExtractor()
