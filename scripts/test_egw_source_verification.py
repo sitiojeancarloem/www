@@ -110,6 +110,11 @@ def main() -> int:
         code, result = invoke(root, "A fé vê além das dificuldades", "--formats", "epub,pdf", "--title", "caminho", "--cross-check", env=env)
         assert code == 2 and result["status"] == "divergent"
 
+        # PDF sem trecho e sem identidade não prova divergência entre edições.
+        code, result = invoke(root, "A fé vê além das dificuldades", "--formats", "epub,pdf", "--title", "caminho", "--cross-check", env=missing_metadata)
+        assert code == 2 and result["status"] == "ambiguous"
+        assert result["crossCheck"]["confirmedBookKeys"] == []
+
         code, result = invoke(root, "A fé vê além das dificuldades", "--formats", "epub")
         assert code == 2 and result["status"] == "ambiguous"
 

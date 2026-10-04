@@ -311,7 +311,17 @@ def run(args: argparse.Namespace) -> tuple[dict[str, object], int]:
     elif args.cross_check and epub_keys & pdf_keys:
         status = "ambiguous"
     elif args.cross_check and epub_keys and any(key in read_pdf_keys or key in paired_pdf_keys for key in epub_keys):
-        status = "divergent"
+        # Ausência textual só diverge de uma edição com identidade comprovada.
+        verified_identity = any(
+            item.get("language") and meta.get("language")
+            and item["language"] == meta["language"]
+            and item.get("title") and meta.get("title")
+            and normalize(str(item["title"])) == normalize(str(meta["title"]))
+            for key in epub_keys & read_pdf_keys
+            for item in epub_items_by_key.get(key, [])
+            for meta in [pdf_metadata_by_key.get(key, {})]
+        )
+        status = "divergent" if verified_identity else "ambiguous"
     elif len({str(item["bookKey"]) for item in found}) > 1 and len(found) > 1 and float(found[0]["score"]) == float(found[1]["score"]):
         status = "ambiguous"
     elif found:
