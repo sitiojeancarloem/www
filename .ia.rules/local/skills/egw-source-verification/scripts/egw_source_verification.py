@@ -24,6 +24,7 @@ EPUB_MAX_MEMBER_BYTES = 8 * 1024 * 1024
 EPUB_MAX_TOTAL_BYTES = 64 * 1024 * 1024
 EPUB_MAX_ENTRIES = 4096
 PDF_MAX_FILE_BYTES = 64 * 1024 * 1024
+PDF_MAX_PAGES = 4096
 
 
 class PdfLimitError(ValueError):
@@ -169,6 +170,9 @@ def pdf_documents(path: Path) -> tuple[dict[str, str], list[tuple[int, str]]]:
     document = pypdfium2.PdfDocument(str(path))
     metadata: dict[str, str] = {"title": path.stem, "language": ""}
     try:
+        page_count = len(document)
+        if page_count > PDF_MAX_PAGES:
+            raise PdfLimitError("PDF_LIMIT_EXCEEDED")
         get_metadata = getattr(document, "get_metadata", None)
         if get_metadata:
             meta = get_metadata()
@@ -183,7 +187,7 @@ def pdf_documents(path: Path) -> tuple[dict[str, str], list[tuple[int, str]]]:
             if title:
                 metadata["title"] = str(title)
         pages: list[tuple[int, str]] = []
-        for index in range(len(document)):
+        for index in range(page_count):
             page = document[index]
             text_page = page.get_textpage()
             try:

@@ -164,6 +164,23 @@ def main() -> int:
     else:
         raise AssertionError("PDF acima do limite foi aceito")
 
+
+    # PDF com páginas excessivas é fechado sem extrair nenhuma página.
+    from unittest.mock import MagicMock
+    import sys
+    limited_document = MagicMock()
+    limited_document.__len__.return_value = 4097
+    oversized_page_engine = SimpleNamespace(PdfDocument=lambda path: limited_document)
+    with patch.dict(sys.modules, {"pypdfium2": oversized_page_engine}), patch.dict(os.environ, {"EGW_DISABLE_PDF_ENGINE": "0"}):
+        try:
+            extractor["pdf_documents"](SimpleNamespace(stat=lambda: SimpleNamespace(st_size=1), stem="fixture"))
+        except extractor["PdfLimitError"]:
+            pass
+        else:
+            raise AssertionError("PDF com páginas excessivas foi aceito")
+    limited_document.__getitem__.assert_not_called()
+    limited_document.close.assert_called_once()
+
     print("EGW_SOURCE_VERIFICATION_OK")
     return 0
 
