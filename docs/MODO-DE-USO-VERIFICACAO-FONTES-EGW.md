@@ -72,4 +72,4 @@ Contrato: [verificação de fontes EGW](../RCFs/verificacao-fontes-egw.md). Proc
 
 Cada PDF pode ter até 64 MiB (`PDF_MAX_FILE_BYTES`). Arquivos maiores são recusados antes da abertura do mecanismo PDF: a resposta usa `unavailable`, código de saída 3 e aviso `PDF_LIMIT_EXCEEDED`. A fonte permanece inalterada.
 
-Esse limite cobre o tamanho do arquivo; ainda não limita a quantidade de páginas nem o volume de texto extraído. A integração com a biblioteca real permanece pendente.
+Além do tamanho, cada PDF pode ter até 4.096 páginas (`PDF_MAX_PAGES`). O excesso gera `unavailable`, código 3 e `PDF_LIMIT_EXCEEDED`, sem extrair páginas e com fechamento do documento. O volume de texto extraído ainda não possui orçamento próprio. A integração com a biblioteca real permanece pendente.
