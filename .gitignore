@@ -359,3 +359,7 @@ Thumbs.db
 !/.ia.rules/local/skills/egw-source-verification/agents/
 /.ia.rules/local/skills/egw-source-verification/agents/*
 !/.ia.rules/local/skills/egw-source-verification/agents/openai.yaml
+# FT-104: apenas fonte local do executor de resiliencia.
+!/.ia.rules/local/runtime/
+/.ia.rules/local/runtime/*
+!/.ia.rules/local/runtime/resilient-operation.ts
