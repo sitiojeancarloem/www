@@ -93,6 +93,13 @@
       "state": "validada"
     },
     {
+      "id": "FT-101",
+      "name": "Implementação da verificação reutilizável de fontes EGW",
+      "path": ".ia.rules/state/history/FT-101.ia",
+      "sha256": "a4a785b52928cea2f81b45eb646f1ce97e977f65c7ebfc7913b2976947d3911d",
+      "state": "pendente-validacao"
+    },
+    {
       "id": "FT-103",
       "name": "Normatização da semântica forte de resiliência",
       "path": ".ia.rules/state/history/FT-103.ia",

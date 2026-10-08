@@ -1,6 +1,6 @@
 # Contexto mestre — FTs 100 a 102
 
-Estado: inicializadas; FT-100 em equalização normativa, implementação expressamente autorizada após sua conclusão.
+Estado: FT-100 concluída; FT-101 tecnicamente concluída, pendente de validação humana. FT-102 em integração: falta execução real somente leitura com raiz e consulta explícitas. Limites PDF cobertos pelos commits eb811a60e1, 4ba1433b06 e 89d7ffa7af; guia sincronizado.
 
 ## Objetivo
 

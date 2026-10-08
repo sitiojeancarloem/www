@@ -1,0 +1,10 @@
+FT-101|nome=Implementação da verificação reutilizável de fontes EGW|escopo=tecnico|status=concluida|autorizacao=humana|conclusao=2026-10-08T03:13:00.454Z
+objetivo=Implementar Skill local, descritor, configuração e script determinístico somente leitura para EPUB/PDF.
+origem=.ia.rules/state/requests/FT-100/prompt.md
+contexto=.ia.rules/state/contexts/FT-100/master.md
+dependencias=FT-100
+resultado=Script, Skill, descritor, guia e índice documental versionados; identidade EPUB/PDF e limites descomprimidos corrigidos.
+verificacoes=Fixtures EGW aprovadas; descritor e validador oficial da Skill aprovados; EPUB acima do limite rejeitado sem mutação da fonte.
+resultado=Skill, descritor, script e guia implementados; limites EPUB/PDF e identidade entre formatos preservados.
+verificacoes=Fixtures EGW aprovadas nos jobs b5f0a09a, abe917cd e 7be626fb; commits eb811a60e1, 4ba1433b06 e 89d7ffa7af. Descritor e Skill previamente validados; guia revisado e diff-check aprovado.
+pendencias=Integracao em biblioteca real e aceite global pertencem a FT-102; validacao humana permanece pendente.

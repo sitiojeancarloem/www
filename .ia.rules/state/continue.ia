@@ -188,28 +188,27 @@ verificacoes=Check online e duplicidade aprovados; issue aberta sem responsável
 pendencias=Aceite humano do TODO e qualquer acompanhamento futuro da issue permanecem externos e exigem nova autorização.
 historico=.ia.rules/state/history/FT-099.ia|sha256=f464462839f9b7f759037c7460bc5d89737e56d7bfc592c88601df03b32f6c9f
 
-FT-101|nome=Implementação da verificação reutilizável de fontes EGW|escopo=tecnico|status=em_andamento|autorizacao=humana
+FT-101|nome=Implementação da verificação reutilizável de fontes EGW|escopo=tecnico|status=concluida|autorizacao=humana|conclusao=2026-10-08T03:13:00.454Z|validacao=pendente_desenvolvedor
 objetivo=Implementar Skill local, descritor, configuração e script determinístico somente leitura para EPUB/PDF.
 origem=.ia.rules/state/requests/FT-100/prompt.md
-contexto=.ia.rules/state/contexts/FT-100/master.md
-dependencias=FT-100
 resultado=Script, Skill, descritor, guia e índice documental versionados; identidade EPUB/PDF e limites descomprimidos corrigidos.
 verificacoes=Fixtures EGW aprovadas; descritor e validador oficial da Skill aprovados; EPUB acima do limite rejeitado sem mutação da fonte.
-pendencias=Concluir conferência dos limites restantes e transição para FT-102; integração real aguarda caminho explícito da biblioteca. FT-100 concluída conforme histórico.
+pendencias=Integracao em biblioteca real e aceite global pertencem a FT-102; validacao humana permanece pendente.
+historico=.ia.rules/state/history/FT-101.ia|sha256=a4a785b52928cea2f81b45eb646f1ce97e977f65c7ebfc7913b2976947d3911d
 
-FT-102|nome=Integração e validação da verificação de fontes EGW|escopo=tecnico|status=registrada_bloqueada_por_dependencia|autorizacao=humana
+FT-102|nome=Integração e validação da verificação de fontes EGW|escopo=tecnico|status=em_andamento|autorizacao=humana
 objetivo=Provar fixtures, caso real, roteamento, estados de evidência, limites e preservação do draft e da biblioteca externa.
 origem=.ia.rules/state/requests/FT-100/prompt.md
 contexto=.ia.rules/state/contexts/FT-100/master.md
 dependencias=FT-101
-pendencias=Aguardar a implementação da FT-101.
+pendencias=FT-101 tecnicamente concluída; executar integração real somente leitura com raiz e consulta explícitas, hashes antes/depois e diagnóstico de dependência PDF.
 
-FT-104|nome=Implementação da semântica forte de resiliência|escopo=tecnico|status=registrada_bloqueada_por_dependencia|autorizacao=humana
+FT-104|nome=Implementação da semântica forte de resiliência|escopo=tecnico|status=em_andamento|autorizacao=humana
 objetivo=Aplicar o contrato no mecanismo reutilizável e nos validadores sem criar retry ilimitado.
 origem=.ia.rules/state/requests/FT-103/prompt.md
 contexto=.ia.rules/state/contexts/FT-103/master.md
 dependencias=FT-103
-pendencias=Aguardar a FT-103.
+pendencias=FT-103 concluída no histórico; localizar ponto de extensão local e delimitar executor reutilizável antes de implementar.
 
 FT-105|nome=Integração e validação da resiliência|escopo=tecnico|status=registrada_bloqueada_por_dependencia|autorizacao=humana
 objetivo=Provar conclusão por alternativa, esgotamento real, preservação de estado e ausência de bypass.

@@ -15,6 +15,7 @@
 - FT-098 — Integração e validação da revisão automatizada e portabilidade; estado: pendente-validacao; histórico: `history/FT-098.ia`; sha256: `785f02973a3ffdb3646435d07430025a7a77bae2a404bd3db202fbe9e75e1da1`.
 - FT-099 — Publicação controlada da proposta upstream; estado: pendente-validacao; histórico: `history/FT-099.ia`; sha256: `f464462839f9b7f759037c7460bc5d89737e56d7bfc592c88601df03b32f6c9f`.
 - FT-100 — Normatização da verificação reutilizável de fontes EGW; estado: validada; histórico: `history/FT-100.ia`; sha256: `29a6d16d5de73d38c54aaaed2af97ca9ec4a3d40fcfbb4703dd50ec8478277cf`.
+- FT-101 — Implementação da verificação reutilizável de fontes EGW; estado: pendente-validacao; histórico: `history/FT-101.ia`; sha256: `a4a785b52928cea2f81b45eb646f1ce97e977f65c7ebfc7913b2976947d3911d`.
 - FT-103 — Normatização da semântica forte de resiliência; estado: validada; histórico: `history/FT-103.ia`; sha256: `a11f0b4003da95e0f66c1e5a7ccf99a92eb14fa0eaa218ae3bfdfee4e3c44f2f`.
 - FT-106 — Normatização da experiência pública de doações; estado: validada; histórico: `history/FT-106.ia`; sha256: `289f85dbcedd24ff46ef552c4444e8cfe29cb4b0ac210d4102242c42a2dd8334`.
 - FT-112 — Revisão integral da carta aberta; estado: pendente-validacao; histórico: `history/FT-112.ia`; sha256: `6a48dbeea769e4322404e4448e6f6d93a157fe6dcec4311bc772cd6f7e8ecda8`.
