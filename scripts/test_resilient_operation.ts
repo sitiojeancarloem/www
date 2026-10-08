@@ -42,4 +42,47 @@ for (const expected of ['completed', 'exhausted', 'blocked'] as const) {
   assert.equal(result.attempts.length, 1);
   assert.equal(result.attempts[0].outcome, expected === 'exhausted' ? 'failed' : expected);
 }
+// Teste de isolamento e fallback: primeira estratégia falha, segunda é elegível e completa.
+{
+  const initial: JsonValue = { value: 1 };
+  let secondExecuteReceived: JsonValue | null = null;
+  let secondVerifyReceived: JsonValue | null = null;
+  const strategies: Strategy[] = [{
+    id: 'first', eligible: true, blocked: false,
+    execute(state) {
+      (state as { value: number }).value = 99;
+      throw new Error('segredo-teste');
+    },
+    verify() {
+      return false;
+    }
+  }, {
+    id: 'second', eligible: true, blocked: false,
+    execute(state) {
+      secondExecuteReceived = JSON.parse(JSON.stringify(state)) as JsonValue;
+      return { value: 2 };
+    },
+    verify(candidate) {
+      secondVerifyReceived = JSON.parse(JSON.stringify(candidate)) as JsonValue;
+      (candidate as { value: number }).value = 77;
+      return true;
+    }
+  }];
+  const result = api.executeResilientOperation(initial, strategies);
+  assert.equal(result.status, 'completed');
+  assert.deepEqual(result.state, { value: 2 });
+  assert.equal(result.attempts.length, 2);
+  assert.equal(result.attempts[0].outcome, 'failed');
+  assert.equal(result.attempts[1].outcome, 'completed');
+  assert.deepEqual(initial, { value: 1 });
+  assert.ok(secondExecuteReceived);
+  assert.deepEqual(secondExecuteReceived, { value: 1 });
+  assert.ok(secondVerifyReceived);
+  assert.deepEqual(secondVerifyReceived, { value: 2 });
+  assert.ok(!JSON.stringify(result).includes('segredo-teste'));
+  console.log('ISOLATION_TEST_OK');
+}
+
 console.log('RESILIENT_OPERATION_TERMINAL_TESTS_OK');
+
+// FT-104: isolamento dos argumentos, snapshots independentes.
