@@ -232,6 +232,29 @@ def main() -> int:
     negative_page.close.assert_called_once()
     negative_document.close.assert_called_once()
 
+    # Orçamento de texto: recusa por limite de caracteres com count_chars positivo.
+    limited_chars = MagicMock()
+    limited_chars.count_chars.return_value = 1
+    limited_chars.get_text_range.return_value = "abcdefghijk"
+    limited_page = MagicMock()
+    limited_page.get_textpage.return_value = limited_chars
+    limited_document = MagicMock()
+    limited_document.__len__.return_value = 1
+    limited_document.__getitem__.return_value = limited_page
+    limited_engine = SimpleNamespace(PdfDocument=lambda path: limited_document)
+    with patch.dict(sys.modules, {"pypdfium2": limited_engine}), patch.dict(os.environ, {"EGW_DISABLE_PDF_ENGINE": "0"}), patch.dict(extractor["pdf_documents"].__globals__, {"PDF_MAX_PAGE_CHARS": 10}):
+        try:
+            extractor["pdf_documents"](SimpleNamespace(stat=lambda: SimpleNamespace(st_size=1), stem="limited_chars"))
+        except extractor["PdfLimitError"]:
+            pass
+        else:
+            raise AssertionError("PDF com count_chars=1 e PDF_MAX_PAGE_CHARS=10 foi aceito")
+    limited_chars.count_chars.assert_called_once()
+    limited_chars.get_text_range.assert_called_once()
+    limited_chars.close.assert_called_once()
+    limited_page.close.assert_called_once()
+    limited_document.close.assert_called_once()
+
     print("EGW_SOURCE_VERIFICATION_OK")
     return 0
 
