@@ -255,6 +255,32 @@ def main() -> int:
     limited_page.close.assert_called_once()
     limited_document.close.assert_called_once()
 
+    # Orçamento de texto: recusa por limite acumulado com duas páginas.
+    # Cada página: count_chars=1, get_text_range='abcdef' (6 chars).
+    # PDF_MAX_PAGE_CHARS=10, PDF_MAX_TOTAL_CHARS=10.
+    # Primeira página: 6 <= 10 (aceita). Segunda: 6+6=12 > 10 (PdfLimitError após extração).
+    limited_chars_2 = MagicMock()
+    limited_chars_2.count_chars.return_value = 1
+    limited_chars_2.get_text_range.return_value = "abcdef"
+    limited_page_2 = MagicMock()
+    limited_page_2.get_textpage.return_value = limited_chars_2
+    limited_document_2 = MagicMock()
+    limited_document_2.__len__.return_value = 2
+    limited_document_2.__getitem__.return_value = limited_page_2
+    limited_engine_2 = SimpleNamespace(PdfDocument=lambda path: limited_document_2)
+    with patch.dict(sys.modules, {"pypdfium2": limited_engine_2}), patch.dict(os.environ, {"EGW_DISABLE_PDF_ENGINE": "0"}), patch.dict(extractor["pdf_documents"].__globals__, {"PDF_MAX_PAGE_CHARS": 10, "PDF_MAX_TOTAL_CHARS": 10}):
+        try:
+            extractor["pdf_documents"](SimpleNamespace(stat=lambda: SimpleNamespace(st_size=1), stem="limited_chars_2"))
+        except extractor["PdfLimitError"]:
+            pass
+        else:
+            raise AssertionError("PDF com duas páginas e limite acumulado foi aceito")
+    assert limited_chars_2.count_chars.call_count == 2
+    assert limited_chars_2.get_text_range.call_count == 2
+    assert limited_chars_2.close.call_count == 2
+    assert limited_page_2.close.call_count == 2
+    assert limited_document_2.close.call_count == 1
+
     print("EGW_SOURCE_VERIFICATION_OK")
     return 0
 
