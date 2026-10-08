@@ -1,5 +1,107 @@
 // FT-104: tipos e validação para operação resiliente.
 
+/**
+ * Resultado da operação resiliente.
+ * - completed: verify(candidato) === true encerra com candidato preservado.
+ * - exhausted: esgotou estratégias elegíveis sem sucesso; estado = clone inicial.
+ * - blocked: estratégia elegível bloqueada termina imediatamente; estado = clone inicial.
+ * - attempt: id, order (1-based), startedAt/finishedAt ISO, outcome (skipped/blocked/failed/completed), errorCode fixo em falha.
+ */
+
+/**
+ * Tenta executar estratégias em ordem com validação e preservação de estado.
+ * - initialState: clonado antes de qualquer callback.
+ * - strategies: validadas por validateStrategies; snapshot de lista/flags/callbacks impede alterações futuras.
+ * - Iteração única, síncrona, sem retries, async, I/O ou efeitos de commit.
+ * - ineligible: outcome = 'skipped'.
+ * - elegível + blocked: outcome = 'blocked', status = 'blocked', estado = clone inicial.
+ * - execute: recebe clone do estado inicial; rejeição/throw/verify(clone) !== true: outcome = 'failed', errorCode fixo.
+ * - verify: estritamente true encerra com status = 'completed', state = cópia validada do candidato.
+ * - Esgotamento: status = 'exhausted', state = clone inicial.
+ */
+export function executeResilientOperation(
+  initialState: unknown,
+  strategies: unknown
+): Result {
+  // Validação da lista de estratégias
+  validateStrategies(strategies);
+
+  // Clona estado inicial antes de qualquer callback
+  const initialClone = cloneJsonState(initialState);
+  const snapshotStrategies = strategies.map(s => ({ ...s }));
+
+  const attempts: Attempt[] = [];
+
+
+  for (let i = 0; i < snapshotStrategies.length; i++) {
+    const strategy = snapshotStrategies[i];
+    const attempt: Attempt = {
+      id: strategy.id,
+      order: i + 1,
+      startedAt: new Date().toISOString(),
+      finishedAt: '',
+      outcome: '',
+    };
+
+    // ineligible → skipped
+    if (!strategy.eligible) {
+      attempt.outcome = 'skipped';
+      attempt.finishedAt = new Date().toISOString();
+      attempts.push(attempt);
+      continue;
+    }
+
+    // elegível + blocked → blocked, termina
+    if (strategy.blocked === true) {
+      attempt.outcome = 'blocked';
+      attempt.finishedAt = new Date().toISOString();
+      attempts.push(attempt);
+      return {
+        status: 'blocked',
+        state: initialClone,
+        attempts,
+      };
+    }
+
+    // Execução
+    try {
+      const candidate = cloneJsonState(strategy.execute(cloneJsonState(initialClone)));
+
+
+      // Verify
+      const valid = strategy.verify(cloneJsonState(candidate));
+      if (valid !== true) {
+        throw Object.assign(new TypeError('EXECUTE_RESILIENT_FAILED'), { code: 'EXECUTE_RESILIENT_FAILED' });
+      }
+
+      // Sucesso: retorna candidato já clonado e validado
+
+      attempt.outcome = 'completed';
+      attempt.finishedAt = new Date().toISOString();
+      attempts.push(attempt);
+
+      return {
+        status: 'completed',
+        state: candidate,
+        attempts,
+      };
+    } catch (err) {
+      attempt.outcome = 'failed';
+      attempt.errorCode = 'EXECUTE_RESILIENT_FAILED';
+      attempt.finishedAt = new Date().toISOString();
+      attempts.push(attempt);
+      // Continua para próxima estratégia
+    }
+  }
+
+  // Esgotamento
+  return {
+    status: 'exhausted',
+    state: initialClone,
+    attempts,
+  };
+}
+
 export type JsonValue =
   | null
   | boolean
