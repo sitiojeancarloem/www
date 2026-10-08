@@ -86,3 +86,25 @@ for (const expected of ['completed', 'exhausted', 'blocked'] as const) {
 console.log('RESILIENT_OPERATION_TERMINAL_TESTS_OK');
 
 // FT-104: isolamento dos argumentos, snapshots independentes.
+
+{
+  const child = { value: 1 };
+  const original = { left: child, right: child };
+  const cloned = api.cloneJsonState(original) as { left: JsonValue; right: JsonValue };
+  assert.deepEqual(cloned, original);
+  assert.notStrictEqual(cloned.left, child);
+  assert.notStrictEqual(cloned.right, child);
+  assert.notStrictEqual(cloned.left, cloned.right);
+  const invalid = { name: 'TypeError', code: 'INVALID_JSON_STATE' };
+  const cycle: { self?: unknown } = {};
+  cycle.self = cycle;
+  assert.throws(() => api.cloneJsonState(cycle), invalid);
+  let getterCalls = 0;
+  const withGetter = Object.defineProperty({}, 'value', {
+    enumerable: true, get() { getterCalls++; return 1; }
+  });
+  assert.throws(() => api.cloneJsonState(withGetter), invalid);
+  assert.equal(getterCalls, 0);
+  assert.throws(() => api.cloneJsonState(new Array(2)), invalid);
+}
+console.log('JSON_CLONE_TESTS_OK');
