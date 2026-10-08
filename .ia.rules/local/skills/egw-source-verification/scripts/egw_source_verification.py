@@ -25,6 +25,8 @@ EPUB_MAX_TOTAL_BYTES = 64 * 1024 * 1024
 EPUB_MAX_ENTRIES = 4096
 PDF_MAX_FILE_BYTES = 64 * 1024 * 1024
 PDF_MAX_PAGES = 4096
+PDF_MAX_PAGE_CHARS = 1024 * 1024
+PDF_MAX_TOTAL_CHARS = 8 * 1024 * 1024
 
 
 class PdfLimitError(ValueError):
@@ -187,11 +189,22 @@ def pdf_documents(path: Path) -> tuple[dict[str, str], list[tuple[int, str]]]:
             if title:
                 metadata["title"] = str(title)
         pages: list[tuple[int, str]] = []
+        total_chars = 0
         for index in range(page_count):
             page = document[index]
             text_page = page.get_textpage()
             try:
-                text = clean_text(text_page.get_text_range())
+                char_count = text_page.count_chars()
+                if (char_count < 0 or char_count > PDF_MAX_PAGE_CHARS
+                        or total_chars + char_count > PDF_MAX_TOTAL_CHARS):
+                    raise PdfLimitError("PDF_LIMIT_EXCEEDED")
+                raw_text = text_page.get_text_range()
+                charged_chars = max(char_count, len(raw_text))
+                if (charged_chars > PDF_MAX_PAGE_CHARS
+                        or total_chars + charged_chars > PDF_MAX_TOTAL_CHARS):
+                    raise PdfLimitError("PDF_LIMIT_EXCEEDED")
+                total_chars += charged_chars
+                text = clean_text(raw_text)
             finally:
                 close = getattr(text_page, "close", None)
                 if close:

@@ -30,6 +30,7 @@ def fake_pdf_engine(directory: Path) -> None:
     (directory / "pypdfium2.py").write_text(textwrap.dedent('''
         class TextPage:
             def __init__(self, text): self.text = text
+            def count_chars(self): return len(self.text)
             def get_text_range(self): return self.text
             def close(self): pass
         class Page:
@@ -180,6 +181,56 @@ def main() -> int:
             raise AssertionError("PDF com páginas excessivas foi aceito")
     limited_document.__getitem__.assert_not_called()
     limited_document.close.assert_called_once()
+
+
+    # Orçamento de texto: recusa antecipada e fronteira inclusiva.
+    for char_count, page_count, rejected, reads_expected in [
+        (1024 * 1024 + 1, 1, True, 0),
+        (1024 * 1024, 9, True, 8),
+        (1024 * 1024, 8, False, 8),
+    ]:
+        budget_text = MagicMock()
+        budget_text.count_chars.return_value = char_count
+        budget_text.get_text_range.return_value = "texto"
+        budget_page = MagicMock()
+        budget_page.get_textpage.return_value = budget_text
+        budget_document = MagicMock()
+        budget_document.__len__.return_value = page_count
+        budget_document.__getitem__.return_value = budget_page
+        budget_engine = SimpleNamespace(PdfDocument=lambda path: budget_document)
+        caught = False
+        with patch.dict(sys.modules, {"pypdfium2": budget_engine}), patch.dict(os.environ, {"EGW_DISABLE_PDF_ENGINE": "0"}):
+            try:
+                extractor["pdf_documents"](SimpleNamespace(stat=lambda: SimpleNamespace(st_size=1), stem="budget"))
+            except extractor["PdfLimitError"]:
+                caught = True
+        assert caught == rejected
+        assert budget_text.get_text_range.call_count == reads_expected
+        assert budget_text.close.call_count == page_count
+        assert budget_page.close.call_count == page_count
+        budget_document.close.assert_called_once()
+
+    # Orçamento de texto com count_chars=-1: recusa antecipada sem extração.
+    negative_count = MagicMock()
+    negative_count.count_chars.return_value = -1
+    negative_page = MagicMock()
+    negative_page.get_textpage.return_value = negative_count
+    negative_document = MagicMock()
+    negative_document.__len__.return_value = 1
+    negative_document.__getitem__.return_value = negative_page
+    negative_engine = SimpleNamespace(PdfDocument=lambda path: negative_document)
+    with patch.dict(sys.modules, {"pypdfium2": negative_engine}), patch.dict(os.environ, {"EGW_DISABLE_PDF_ENGINE": "0"}):
+        try:
+            extractor["pdf_documents"](SimpleNamespace(stat=lambda: SimpleNamespace(st_size=1), stem="negative"))
+        except extractor["PdfLimitError"]:
+            pass
+        else:
+            raise AssertionError("PDF com count_chars negativo foi aceito")
+    negative_count.count_chars.assert_called_once()
+    negative_count.get_text_range.assert_not_called()
+    negative_count.close.assert_called_once()
+    negative_page.close.assert_called_once()
+    negative_document.close.assert_called_once()
 
     print("EGW_SOURCE_VERIFICATION_OK")
     return 0
