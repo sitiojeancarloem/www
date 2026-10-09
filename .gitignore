@@ -364,3 +364,4 @@ Thumbs.db
 /.ia.rules/local/runtime/*
 !/.ia.rules/local/runtime/resilient-operation.ts
 !/.ia.rules/local/runtime/resilient-operation.js
+!/.ia.rules/local/runtime/README.md
