@@ -367,3 +367,5 @@ Thumbs.db
 !/.ia.rules/local/runtime/README.md
 !/.ia.rules/local/runtime/process-outcome.ts
 !/.ia.rules/local/runtime/verified-process.ts
+!/.ia.rules/local/runtime/process-outcome.js
+!/.ia.rules/local/runtime/verified-process.js
