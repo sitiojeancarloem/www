@@ -108,3 +108,28 @@ console.log('RESILIENT_OPERATION_TERMINAL_TESTS_OK');
   assert.throws(() => api.cloneJsonState(new Array(2)), invalid);
 }
 console.log('JSON_CLONE_TESTS_OK');
+
+{
+  const calls: string[] = [];
+  const strategies: Strategy[] = ['skip', 'reject', 'success', 'unused'].map((id, index) => ({
+    id,
+    eligible: id !== 'skip',
+    blocked: id === 'skip',
+    execute(_state: JsonValue): JsonValue {
+      calls.push(id + '.execute');
+      return index;
+    },
+    verify(_candidate: JsonValue): boolean {
+      calls.push(id + '.verify');
+      return id !== 'reject';
+    }
+  }));
+  const result = api.executeResilientOperation(0, strategies);
+  assert.equal(result.status, 'completed');
+  assert.equal(result.state, 2);
+  assert.deepEqual(calls, ['reject.execute', 'reject.verify', 'success.execute', 'success.verify']);
+  assert.deepEqual(result.attempts.map(attempt => attempt.id), ['skip', 'reject', 'success']);
+  assert.deepEqual(result.attempts.map(attempt => attempt.order), [1, 2, 3]);
+  assert.deepEqual(result.attempts.map(attempt => attempt.outcome), ['skipped', 'failed', 'completed']);
+}
+console.log('FINITE_ORDER_TEST_OK');
