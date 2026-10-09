@@ -210,7 +210,8 @@ contexto=.ia.rules/state/contexts/FT-103/master.md
 dependencias=FT-103
 resultado=Motor síncrono de alternativas finitas, classificador e adaptador assíncrono de execução única implementados em .ia.rules/local/runtime, com builds CommonJS e testes permanentes.
 verificacoes=Tipos, matriz de estados/clones/elegibilidade, suíte do adaptador compilado e integração real runLongProcess/resumeLongProcess aprovados; integração versionada em 090649d1f5, job 698aee2b-a18f-40a1-935a-1cd1fd118da8.
-pendencias=Comprovar baseline Node24+, completar documentação da composição e gates de governança/rastreabilidade antes de concluir FT-104; regressão de alternativas e ausência de bypass permanece na FT-105.
+verificacoes_baseline=Node24.19.0; types e quatro suítes exit0 no job 88ae962c-9fc0-41a5-9bf0-dcc6797c6604; guia local documenta composição de execução única.
+pendencias=Fechar gates de governança/rastreabilidade antes de concluir FT-104; regressão de alternativas e ausência de bypass permanece na FT-105.
 
 FT-105|nome=Integração e validação da resiliência|escopo=tecnico|status=registrada_bloqueada_por_dependencia|autorizacao=humana
 objetivo=Provar conclusão por alternativa, esgotamento real, preservação de estado e ausência de bypass.

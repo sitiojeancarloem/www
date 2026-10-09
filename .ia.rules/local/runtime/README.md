@@ -42,5 +42,28 @@ node -e "const fs=require('node:fs'),p=require('node:path'),ts=require('typescri
 A checagem de tipos deve passar antes da geração; transpileModule sozinho não faz análise semântica.
 Os testes permanentes exercitam a fonte; o build recebeu validação separada de paridade e carregamento por require/import.
 Evidência atual: Node 22.21.0, testes e carregamento aprovados até o commit 5d2a6df661.
-Validação em Node 24+ e composição com long-running/FT-105 permanecem pendentes.
+A composição de execução única e o baseline Node24 foram validados; detalhes e limites abaixo.
 Este documento não declara a FT-104 concluída.
+
+## Composição com processos
+
+`executeVerifiedProcess(initialState, run, readCandidate, verify): Promise<Result>` está em `verified-process.js`.
+Importe-o por `require`; injete `run` como closure de `runLongProcess(command, args, options)` ou `resumeLongProcess(command, args, options)`, exportados por `../../core/runtime/scripts/long-running.js`.
+O chamador deve autorizar comando, argumentos, diretório e efeitos. O adaptador não cria permissões nem gerencia processos por conta própria.
+
+A entrada JSON e os callbacks são validados antes de chamar o runner uma única vez. O adaptador aguarda sua Promise.
+`completed` com código zero permite ler o candidato e exigir `verify === true`; `reused` também exige nova verificação.
+Saída inteira não zero com `failed` resulta em `exhausted`, preservando o snapshot inicial.
+Processo ativo, timeout, cancelamento, erro desconhecido ou evidência inválida resultam em `blocked`.
+Não há execução automática de outra alternativa. Clones preservam JSON, não desfazem efeitos externos; timeout/cancelamento não comprovam que o processo físico terminou.
+O classificador `process-outcome` retorna somente `verify`, `failed` ou `blocked`, sem expor mensagens brutas.
+O núcleo gerenciado permanece intacto.
+
+Para os três módulos, repetir a geração TypeScript acima com fontes `resilient-operation.ts`, `process-outcome.ts` e `verified-process.ts`, sempre CommonJS.
+Suítes permanentes: `scripts/test_resilient_operation.ts`, `scripts/test_process_outcome.ts`, `scripts/test_verified_process.ts` e `scripts/test_verified_process_integration.ts`.
+O mesmo comando de checagem de tipos e loader acima pode receber cada caminho de teste; o de integração usa builds JS existentes e dois processos Node curtos.
+A integração cria fixture exclusiva sob `tmp`, limpa somente seus arquivos após sucesso e informa o caminho para diagnóstico em falha.
+
+Baseline comprovado em 2026-10-09: Node 24.19.0; checagem estrita e quatro suítes exit0 no job `88ae962c-9fc0-41a5-9bf0-dcc6797c6604`.
+A integração real também passou em Node 22.21.0 (commit `090649d1f5`): sucesso, saída3 e reuse com candidato invalidado.
+Regressão de alternativas entre múltiplos processos e gates de governança/rastreabilidade permanecem pendentes; esta evidência não conclui as FTs.
