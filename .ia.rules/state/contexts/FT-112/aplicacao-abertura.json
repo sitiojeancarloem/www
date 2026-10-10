@@ -1,0 +1,18 @@
+{
+  "before": "1e059baacc5a167b21c06dc1d73a111e1bf0db003221c8178c513091a9ba21cd",
+  "after": "d431872272a10c126479f4c050766710fd89340a0bb2e7f87136d5d126888883",
+  "sourceEnd": 14161,
+  "regions": [
+    {
+      "kind": "editorial",
+      "sourceStart": 0,
+      "sourceEnd": 14161,
+      "outputStart": 0,
+      "outputEnd": 14384,
+      "transformed": true,
+      "reason": "FT-112 M02a: revisão da abertura com preservação explícita da intensidade"
+    }
+  ],
+  "notes": 15,
+  "quotes": 4
+}

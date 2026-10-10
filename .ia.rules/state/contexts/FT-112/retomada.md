@@ -7,7 +7,7 @@ Trabalhar diretamente pelo supervisor, sem localWorker direto/indireto e sem del
 ## Microtarefas e critérios de aceite
 
 1. [concluída] Fixar base e recuperar cabeçalho integral; registrar plano, histórico e estado. Aceite: hashes e snapshot recuperáveis, sem alterar trabalho externo à FT.
-2. [pendente] Revisar abertura e corpo principal: introdução, gramática, ênfases e referências. Aceite: mapa parágrafo a parágrafo, correções factuais justificadas e nenhuma redução de força por conveniência.
+2. [parcial: M02a concluída] Revisar abertura e corpo principal: introdução, gramática, ênfases e referências. Abertura até “Quando eu entrei na igreja” aplicada; restante aguarda M02b. Aceite: mapa parágrafo a parágrafo, correções factuais justificadas e nenhuma redução de força por conveniência.
 3. [pendente] Integrar grupos 1–3 no fluxo: vida futura, sacudidura, Elias, expiação e responsabilidade. Aceite: todas as unidades originais presentes e fontes reaproveitadas somente após conferir correspondência.
 4. [pendente] Integrar grupos 4–5: Igreja/instituição, ilustração médica e citações. Aceite: preservar argumentos, imagens retóricas e repetição intencional; corrigir afirmação sobre domingo.
 5. [pendente] Verificar e integrar grupo 6: duração profética, selamento, instituições e Daniel 12. Aceite: Bíblia/EGW verificadas, distinguir leitura pessoal de afirmação demonstrada, sem usar comentaristas como autoridade teológica.
@@ -19,4 +19,4 @@ Cada conclusão terá commit próprio de paths explícitos e entrada em historic
 
 Muitas mudanças herdadas em _site, runtime/resilient-operation e scripts/test_resilient_operation.ts; não editar/stagear. Draft inicialmente limpo. Sem hooks Git ativos em .git/hooks nem core.hooksPath configurado. Não publicar/push. Usar editorial-authoring.js para transformação editorial e state-manager.js sync para projeções. Evidências anteriores em arquivos JSON da FT são reutilizáveis; resultados de testes antigos não comprovam versão nova.
 
-Próximo passo: ler integralmente base-atual.md por segmentos; recuperar cabeçalho histórico; editar somente após mapa de preservação.
+Próximo passo: M02b, restante do corpo principal a partir de “Quando eu entrei na igreja” até grupo 1. Base lida integralmente em segmentos. Abertura aplicada via aplicar-abertura.cjs; citações reutilizadas de corpo-final.md apenas como trechos previamente verificados, jamais como base autoral. Quatro blocos, quinze notas. Validação lexical global e renderização são M06; não declarar atuais testes antigos.
