@@ -27,7 +27,7 @@ Microtarefas acrescentadas antes de M06 final:
 
 7. [concluída] Ler carta atual integralmente e confrontar deltas autorais; preservar escolhas novas, inventariar placeholders e fontes. Aceite: mapa de diferenças e plano atualizado, sem regressão aos textos anteriores.
 8. [concluída] Verificar e inserir vitória sobre pecado, distinções, cinco fontes EGW pedidas no draft, crescimento em Cristo e cena dramática PE. Neutralidade explícita: AINDA QUE, HIPOTETICAMENTE; temor não prova estado moral. Aceite: citações/contextos/páginas reais, sem cronologia de cessação do pecado; instituições apenas corroboram, conforme autorização nova.
-9. [pendente] Tratar demais adições/placeholder do HEAD: graça/obras, incoerência, tentação/escape, livre-arbítrio, história, profecia, disciplina e demais trechos novos. Aceite: nenhum argumento omitido; fontes sustentam alcance; correção factual registrada.
+9. [concluída] Tratar demais adições/placeholder do HEAD: graça/obras, incoerência, tentação/escape, livre-arbítrio, história, profecia, disciplina e demais trechos novos. Aceite: nenhum argumento omitido; fontes sustentam alcance; correção factual registrada.
 10. [pendente] Ênfases seletivas em três níveis e reativação contextual da premissa além de não pecar (convém/edifica/consagração). Aceite: não saturar frases completas; preservar citações, subcitações e marcas literais.
 6. [pendente] Auditoria final ampliada pelos oito critérios do suplemento; renderização e citações reais atuais.
 
@@ -36,3 +36,5 @@ Bloqueio ambiental: captura Python de seis capítulos falhou por DNS no sandbox.
 Próximo passo: M09, demais adições autorais; depois M10 e M06. Leitura integral do HEAD concluída. M08 aplicada com proteção SHA256 e preservação exata de todo o texto fora da inserção. Cinco testemunhos distintos; PE mantém pergunta/resposta/desfecho, hipótese neutra e sequência Advento/transformação. Validação parcial em validacao-M08.json. A aprovação anterior indicava recuperação às 19:14; agora 19:45 local, cabe uma tentativa de commit do checkpoint, sem contornar revisão.
 
 M09a concluída (abertura, coragem e graça); M09b pendente: história/obediência, tentação, destino do pecado, expiação e autoridade. Aprovação Git/rede restabelecida após horário informado; commits novamente disponíveis.
+
+M09b/c concluídas. Próximo: M10 (ênfase seletiva, pequenos reparos de grafia/tags e reiterações) e M06 (ordem de notas, citações e renderização atuais).

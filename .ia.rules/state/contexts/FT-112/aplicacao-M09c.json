@@ -1,0 +1,40 @@
+{
+  "regions": [
+    {
+      "kind": "editorial",
+      "sourceStart": 68896,
+      "sourceEnd": 70535,
+      "outputStart": 68896,
+      "outputEnd": 70184,
+      "transformed": true,
+      "reason": "FT-112 M09c: autoridade e hipótese institucional"
+    },
+    {
+      "kind": "editorial",
+      "sourceStart": 72361,
+      "sourceEnd": 72398,
+      "outputStart": 72010,
+      "outputEnd": 72035,
+      "transformed": true,
+      "reason": "FT-112 M09c: autoridade e hipótese institucional"
+    },
+    {
+      "kind": "editorial",
+      "sourceStart": 111130,
+      "sourceEnd": 111710,
+      "outputStart": 110767,
+      "outputEnd": 111395,
+      "transformed": true,
+      "reason": "FT-112 M09c: autoridade e hipótese institucional"
+    },
+    {
+      "kind": "editorial",
+      "sourceStart": 112274,
+      "sourceEnd": 112380,
+      "outputStart": 111959,
+      "outputEnd": 112088,
+      "transformed": true,
+      "reason": "FT-112 M09c: autoridade e hipótese institucional"
+    }
+  ]
+}

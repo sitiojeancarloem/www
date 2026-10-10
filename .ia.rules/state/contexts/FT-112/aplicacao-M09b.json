@@ -1,0 +1,141 @@
+{
+  "before": "baf7c11fff8ff98fe3a1dd9b1731d5306a4fba6f0710c9e43cda5e27328db73c",
+  "after": "eb442916f28581e2245578ba6cf2dc050f78721ac80cf52340c6973e159d2bc8",
+  "regions": [
+    {
+      "kind": "editorial",
+      "sourceStart": 44900,
+      "sourceEnd": 45573,
+      "outputStart": 44900,
+      "outputEnd": 45552,
+      "transformed": true,
+      "reason": "FT-112 M09b: alcance das novas inferências e fontes"
+    },
+    {
+      "kind": "editorial",
+      "sourceStart": 45575,
+      "sourceEnd": 45878,
+      "outputStart": 45554,
+      "outputEnd": 45883,
+      "transformed": true,
+      "reason": "FT-112 M09b: alcance das novas inferências e fontes"
+    },
+    {
+      "kind": "editorial",
+      "sourceStart": 45880,
+      "sourceEnd": 46305,
+      "outputStart": 45885,
+      "outputEnd": 46310,
+      "transformed": true,
+      "reason": "FT-112 M09b: alcance das novas inferências e fontes"
+    },
+    {
+      "kind": "editorial",
+      "sourceStart": 46307,
+      "sourceEnd": 48366,
+      "outputStart": 46312,
+      "outputEnd": 48393,
+      "transformed": true,
+      "reason": "FT-112 M09b: alcance das novas inferências e fontes"
+    },
+    {
+      "kind": "editorial",
+      "sourceStart": 48368,
+      "sourceEnd": 49020,
+      "outputStart": 48395,
+      "outputEnd": 49010,
+      "transformed": true,
+      "reason": "FT-112 M09b: alcance das novas inferências e fontes"
+    },
+    {
+      "kind": "editorial",
+      "sourceStart": 55554,
+      "sourceEnd": 55875,
+      "outputStart": 55544,
+      "outputEnd": 56050,
+      "transformed": true,
+      "reason": "FT-112 M09b: alcance das novas inferências e fontes"
+    },
+    {
+      "kind": "editorial",
+      "sourceStart": 55877,
+      "sourceEnd": 57366,
+      "outputStart": 56052,
+      "outputEnd": 57669,
+      "transformed": true,
+      "reason": "FT-112 M09b: alcance das novas inferências e fontes"
+    },
+    {
+      "kind": "editorial",
+      "sourceStart": 57368,
+      "sourceEnd": 58009,
+      "outputStart": 57671,
+      "outputEnd": 58249,
+      "transformed": true,
+      "reason": "FT-112 M09b: alcance das novas inferências e fontes"
+    },
+    {
+      "kind": "editorial",
+      "sourceStart": 58857,
+      "sourceEnd": 59423,
+      "outputStart": 59097,
+      "outputEnd": 59564,
+      "transformed": true,
+      "reason": "FT-112 M09b: alcance das novas inferências e fontes"
+    },
+    {
+      "kind": "editorial",
+      "sourceStart": 59425,
+      "sourceEnd": 60017,
+      "outputStart": 59566,
+      "outputEnd": 60341,
+      "transformed": true,
+      "reason": "FT-112 M09b: alcance das novas inferências e fontes"
+    },
+    {
+      "kind": "editorial",
+      "sourceStart": 60383,
+      "sourceEnd": 61224,
+      "outputStart": 60707,
+      "outputEnd": 61473,
+      "transformed": true,
+      "reason": "FT-112 M09b: alcance das novas inferências e fontes"
+    },
+    {
+      "kind": "editorial",
+      "sourceStart": 61226,
+      "sourceEnd": 62095,
+      "outputStart": 61475,
+      "outputEnd": 62434,
+      "transformed": true,
+      "reason": "FT-112 M09b: alcance das novas inferências e fontes"
+    },
+    {
+      "kind": "editorial",
+      "sourceStart": 63649,
+      "sourceEnd": 64188,
+      "outputStart": 63988,
+      "outputEnd": 64656,
+      "transformed": true,
+      "reason": "FT-112 M09b: alcance das novas inferências e fontes"
+    },
+    {
+      "kind": "editorial",
+      "sourceStart": 69393,
+      "sourceEnd": 69933,
+      "outputStart": 69861,
+      "outputEnd": 70438,
+      "transformed": true,
+      "reason": "FT-112 M09b: alcance das novas inferências e fontes"
+    },
+    {
+      "kind": "editorial",
+      "sourceStart": 74815,
+      "sourceEnd": 75552,
+      "outputStart": 75320,
+      "outputEnd": 76273,
+      "transformed": true,
+      "reason": "FT-112 M09b: alcance das novas inferências e fontes"
+    }
+  ]
+}

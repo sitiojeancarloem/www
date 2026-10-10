@@ -56,3 +56,8 @@ Checkpoint M07/M08: 48f177a4a1.
 
 ## M09a — abertura, coragem e graça
 12 intervenções delimitadas pelo mecanismo oficial. Preservados agridoce, metáfora cancerígena, advertência aos religiosos, hipótese WWIII, coragem diante de processos/sábado, saudade do Céu, porcentagens como figura retórica, Agripa e fé/obras. Corrigidas atribuição literal de moribunda, prova pelo alvoroço, audiência exclusiva de Lucas, diagnóstico retrospectivo de depressão e alegação de Paulo não ter alegria. Dois blocos bíblicos conferidos em ARA; novas notas. diff --check sem erros; verificação integral pendente. Aprovação restabelecida: captura dos seis capítulos concluída em biblia-retomada.json.
+
+Checkpoint M09a: 33d159cf9a.
+
+## M09b/c — história, vitória, expiação e autoridade
+Preservados todos os argumentos adicionais, com fontes e limites explícitos: cativeiro/formalismo (DTN16–17), reação antijudaica e sábado (GC52–53), Egito/Roma como processos, sapo como fábula, leitura interpretativa Ap12/17 sem identidade textual inventada, duas conclusões de 1Co10:13, escolha/juízo milenar/liberdade e fim do pecado, Pentecostes/solenidade/deveres da expiação, joio, segunda milha, autoridade representativa e convicção institucional. Correções: comum não significa banal/origem só humana; ação divina não exclui anjos; GC490 não contém glosa sobre festividades (movida para comentário); maior luz não altera lei moral; liberdade não implica independência divina. Último placeholder de frutos resolvido; manual vigente consultado para disciplina/competências. Notas novas preservam explicações exigidas. diff --check passou; literalidade integral e renderização pendentes M06.
