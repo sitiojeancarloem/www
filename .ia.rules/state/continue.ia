@@ -255,10 +255,11 @@ contexto=.ia.rules/state/contexts/FT-106/master.md
 dependencias=FT-108,FT-109,FT-110
 pendencias=Aguardar as FTs 108 a 110.
 
-FT-112|nome=Revisão integral da carta aberta|escopo=negocio|status=concluida|autorizacao=humana|criado_em=2026-10-03T12:00:00-03:00|conclusao=2026-10-04T04:33:37.588Z|validacao=pendente_desenvolvedor
+FT-112|nome=Revisão integral da carta aberta|escopo=negocio|status=em_execucao|autorizacao=humana|retomada=2026-10-10
 objetivo=Executar o cabeçalho integral no mesmo draft, com fontes verificadas, preservação autoral e correções factuais autorizadas; sem localWorker.
 origem=.ia.rules/state/requests/FT-112/prompt.md
 resultado=Carta revisada no mesmo draft; cabeçalho íntegro; relatório em .ia.rules/state/contexts/FT-112/relatorio.md.
 verificacoes=73 conferências lexicais; 38 blocos, 82 notas, 102 chamadas; Kramdown sem avisos; testes footnotes e quote_semantics aprovados.
-pendencias=Sem pendência técnica; aprovação autoral posterior.
+pendencias=Revisão reaberta por redução retórica; executar microtarefas em .ia.rules/state/contexts/FT-112/retomada.md.
+contexto=.ia.rules/state/contexts/FT-112/retomada.md
 historico=.ia.rules/state/history/FT-112.ia|sha256=6a48dbeea769e4322404e4448e6f6d93a157fe6dcec4311bc772cd6f7e8ecda8

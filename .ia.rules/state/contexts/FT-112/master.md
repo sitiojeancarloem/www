@@ -15,3 +15,7 @@ Triagem: índice de recusas ausente; cenário declara acervo vazio nessa situaç
 Aceite: requisitos 1–8 do cabeçalho cumpridos, toda referência sustentada, sem inserções editoriais disfarçadas de citação e sem perda das nuances. Questões não resolvidas impedem afirmar conclusão integral.
 
 Resultado: revisão aplicada no mesmo draft; relatório em `relatorio.md`. 73 conferências lexicais aprovadas; Kramdown sem avisos; testes de notas e citações aprovados. localWorker não utilizado.
+
+## Retomada em 2026-10-10
+
+A conclusão acima é histórica. Revisão reaberta pelo autor: base atual restaurada, seção 6 incluída e intensidade integral. Estado e plano atuais: [retomada.md](retomada.md); histórico: [historico-retomada.md](historico-retomada.md).
