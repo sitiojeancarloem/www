@@ -51,3 +51,8 @@ Checkpoint M05: aaeb8bfaf6.
 ## 2026-10-10 — M07 e M08, suplemento autoral
 
 Base ff9f255678 lida integralmente e preservada em snapshot; sete commits humanos desde M05 prevalecem. Suplemento integral arquivado. M08 substitui exclusivamente o placeholder sobre vitória: cinco passagens distintas (MAJ, DTN duas, OE, ST), dependência da graça, distinção de perfeccionismo/pós-lapsarianismo, neutralidade sobre cronologia, visão completa PE e corroboração institucional. Mantidos argumentos da nota doutrinária; eliminada equivalência automática entre discordância cronológica e negação da onipotência. Disciplina condicionada ao procedimento oficial. Paginação das edições identificada; testemunhos cotejados EPUB/PDF. Fora da inserção, texto autoral preservado exatamente; validacao-M08 registra conferência lexical, auditoria integral ainda pendente.
+
+Checkpoint M07/M08: 48f177a4a1.
+
+## M09a — abertura, coragem e graça
+12 intervenções delimitadas pelo mecanismo oficial. Preservados agridoce, metáfora cancerígena, advertência aos religiosos, hipótese WWIII, coragem diante de processos/sábado, saudade do Céu, porcentagens como figura retórica, Agripa e fé/obras. Corrigidas atribuição literal de moribunda, prova pelo alvoroço, audiência exclusiva de Lucas, diagnóstico retrospectivo de depressão e alegação de Paulo não ter alegria. Dois blocos bíblicos conferidos em ARA; novas notas. diff --check sem erros; verificação integral pendente. Aprovação restabelecida: captura dos seis capítulos concluída em biblia-retomada.json.
