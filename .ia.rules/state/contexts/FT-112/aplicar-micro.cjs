@@ -3,7 +3,7 @@ const fs=require('fs'),path=require('path'),crypto=require('crypto');
 const root=path.resolve(__dirname,'../../../..');
 const {applyEditorialEdits}=require(path.join(root,'.ia.rules/core/runtime/scripts/editorial-authoring.js'));
 const task=process.argv[2];
-const configs={M02b:{source:'corpo-retomada.md',start:'Quando eu entrei na igreja,',end:'## 1. O texto'},M03:{source:'grupos123-retomada.md',start:'## 1. O texto',end:'## 4. O texto'},M04:{source:'grupos45-retomada.md',start:'## 4. O texto',end:'## 6. Novo conceito'}};
+const configs={M02b:{source:'corpo-retomada.md',start:'Quando eu entrei na igreja,',end:'## 1. O texto'},M03:{source:'grupos123-retomada.md',start:'## 1. O texto',end:'## 4. O texto'},M04:{source:'grupos45-retomada.md',start:'## 4. O texto',end:'## 6. Novo conceito'},M05:{source:'grupo6-retomada.md',start:'## 6. Novo conceito',end:'[^ap14]:'}};
 const c=configs[task];if(!c)throw Error('Microtarefa desconhecida');
 const receipt=path.join(__dirname,'aplicacao-'+task+'.json');
 if(fs.existsSync(receipt))throw Error('Já aplicada; não repetir');
