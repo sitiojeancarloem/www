@@ -3,7 +3,7 @@ const fs=require('fs'),path=require('path'),crypto=require('crypto');
 const root=path.resolve(__dirname,'../../../..');
 const {applyEditorialEdits}=require(path.join(root,'.ia.rules/core/runtime/scripts/editorial-authoring.js'));
 const task=process.argv[2];
-const configs={M02b:{source:'corpo-retomada.md',start:'Quando eu entrei na igreja,',end:'## 1. O texto'},M03:{source:'grupos123-retomada.md',start:'## 1. O texto',end:'## 4. O texto'}};
+const configs={M02b:{source:'corpo-retomada.md',start:'Quando eu entrei na igreja,',end:'## 1. O texto'},M03:{source:'grupos123-retomada.md',start:'## 1. O texto',end:'## 4. O texto'},M04:{source:'grupos45-retomada.md',start:'## 4. O texto',end:'## 6. Novo conceito'}};
 const c=configs[task];if(!c)throw Error('Microtarefa desconhecida');
 const receipt=path.join(__dirname,'aplicacao-'+task+'.json');
 if(fs.existsSync(receipt))throw Error('Já aplicada; não repetir');
@@ -11,6 +11,17 @@ const file=path.join(root,'_drafts/carta-aberta-hierarquia-romanda-na-igreja');
 const original=fs.readFileSync(file,'utf8');
 const previous=fs.readFileSync(path.join(__dirname,'corpo-final.md'),'utf8').replace(/\r\n/g,'\n');
 let replacement=fs.readFileSync(path.join(__dirname,c.source),'utf8');
+if(replacement.includes('@@IGREJAABERTURA@@')){
+ const a=previous.indexOf('Virou quase um tabu'),b=previous.indexOf('A distinção também pode ser expressa',a);
+ if(a<0||b<0)throw Error('Igreja ausente');
+ let block=previous.slice(a,b).replace('A organização serve à missão. Essa frase não é uma definição jurídica nem resolve, sozinha, toda questão sobre a natureza da Igreja; é compatível com a distinção entre o povo e os meios que utiliza.','A ordem importa: a Igreja é organizada **PARA SERVIR**. A organização serve à Igreja e à sua missão; não substitui aquilo que a Igreja é. Essa é a inferência defendida aqui, em harmonia com a definição bíblica do corpo de CRISTO.');
+ replacement=replacement.replace('@@IGREJAABERTURA@@',block);
+}
+if(replacement.includes('@@ELIAS@@')){
+ const a=previous.indexOf('Isso ajuda a compreender a expressão **Elias atuais**'),b=previous.indexOf('Na compreensão adventista, vivemos, desde 1844,',a);
+ if(a<0||b<0)throw Error('Elias ausente');
+ replacement=replacement.replace('@@ELIAS@@',previous.slice(a,b));
+}
 if(replacement.includes('@@RESPONSABILIDADE@@')){
  const a=previous.indexOf('**O pecado não é apenas individual quando alcança');
  const b=previous.indexOf('A reflexão alcança todos e, de modo',a);
@@ -49,7 +60,8 @@ const result=applyEditorialEdits(original,[{start,end,expected:original.slice(st
 let output=result.markedOutput;
 const defined=new Set([...output.matchAll(/^\[\^([^\]]+)\]:/gm)].map(m=>m[1]));
 const used=new Set([...replacement.matchAll(/\[\^([^\]]+)\]/g)].map(m=>m[1]));
-const notes=previous.split('\n').filter(l=>/^\[\^/.test(l)&&used.has(l.match(/^\[\^([^\]]+)/)[1])&&!defined.has(l.match(/^\[\^([^\]]+)/)[1]));
+const extras=fs.existsSync(path.join(__dirname,'notas-retomada.md'))?fs.readFileSync(path.join(__dirname,'notas-retomada.md'),'utf8'):'';
+const notes=(previous+'\n'+extras).split(/\r?\n/).filter(l=>/^\[\^/.test(l)&&used.has(l.match(/^\[\^([^\]]+)/)[1])&&!defined.has(l.match(/^\[\^([^\]]+)/)[1]));
 output+='\n'+notes.join('\n')+'\n';
 const missing=[...used].filter(k=>!new RegExp('^\\[\\^'+k+'\\]:','m').test(output));
 if(missing.length)throw Error('Notas ausentes: '+missing);

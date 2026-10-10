@@ -29,3 +29,11 @@ Checkpoint M02b: ba7d8117f4.
 Preservadas denúncias de reuniões secretas/sem ata/Caifás/romanismo, quatro irmãos e três líderes, pseudodisciplina/tapinhas, comparação com Acabe, alcance coletivo do pecado, DEVEMOS reiterado, culpa maior, atalaias, dureza (“imbecis” ligada à conduta), Pedro, sacudidura, bombeiro/casa em chamas, cirurgia integral, semente, profetas silenciados e destino dos opositores. Três citações repetidas retomadas expressamente, sem supressão de argumento. Citações restantes preservadas a partir da transcrição verificada anterior. Responsabilidade e ilustração reaproveitadas por trechos conferidos contra original; restaurada força de “omissão será cobrada”.
 
 Correções justificadas: competência da Associação Geral não equivale a manual de comissão; alcance mundial é avaliação autoral, não pesquisa; terceiro anjo inclui justificação pela fé (ME1 372), não exclui cruz; agentes dos três textos sobre abalo não são todos idênticos; nazireu não equivale a pastor; Jeremias 29 preserva contexto dos exilados. Aplicação oficial, 17 notas adicionais; git diff --check sem erro. Próximo passo M04: grupos 4–5 e Igreja/instituição. Depois M05 seção 6; M06 auditoria final atual.
+
+Checkpoint M03: f4bb9c2d46.
+
+## 2026-10-10 — M04, grupos 4–5
+
+Mantidos todos os objetos/instituições enumerados, família/casa e escola/prédio, internacionalidade, anterioridade do movimento ao CNPJ, pessoas arrebatadas, paralelismos pessoas/objetos, perseguição, confisco/continuidade econômica, classe numerosa/apostasia, hipótese de TODOS os controladores infiéis, promessa/igreja moribunda, permanência sem nova instituição, sacudidura 1850/1902 e Elias, “qual Igreja?”, hierarquia papal brasileira, pergunta final e ambas as citações do grupo 5. Exemplos jurídicos sustentam distinção, não autoridade teológica. CNPJ verificado em Receita/BNDES; fuga conferida EPUB/PDF em GC626–627 por extratores oficiais.
+
+Correções: igreja não substituída por pessoas dentro de citação; promessa não reduzida a criação de pessoa jurídica; continuidade continua hipótese enfática; Dies Domini chama domingo primeiro/oitavo dia, não sétimo. Referência SR140 não confirmada substituída pelo fundamento ME2 150–151 já conferido. 22 notas adicionais; diff --check sem erro. Próximo passo M05 seção 6; fontes novas em evidencias-secao6.json.

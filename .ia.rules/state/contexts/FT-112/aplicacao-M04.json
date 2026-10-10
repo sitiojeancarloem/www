@@ -1,0 +1,17 @@
+{
+  "task": "M04",
+  "before": "e08b5a6dee1c65cd6f4aea2e31e87d9e33d990e084dc451218190bf59d1ed2f6",
+  "after": "c60d350948f31ce13b05052c78bd2c18c9f23ccc222671ab7ea85784c588d797",
+  "regions": [
+    {
+      "kind": "editorial",
+      "sourceStart": 68014,
+      "sourceEnd": 84925,
+      "outputStart": 68014,
+      "outputEnd": 83035,
+      "transformed": true,
+      "reason": "FT-112 M04: preservação autoral, fontes e integração"
+    }
+  ],
+  "newNotes": 22
+}
