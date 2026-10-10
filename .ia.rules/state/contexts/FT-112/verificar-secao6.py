@@ -6,6 +6,10 @@ spec=importlib.util.spec_from_file_location('egw',repo/'.ia.rules/local/skills/e
 queries={'mensagens-escolhidas-2':['nenhum tempo definido','igreja é Babilônia'], 'primeiros-escritos':['sete dias ascendendo'], 'o-grande-conflito':['cidades e vilas','Urias Smith']}
 extra=len(sys.argv)>2 and sys.argv[2]=='complemento'
 if extra:queries={'testemunhos-seletos-2':['igrejas adventistas do sétimo dia constituem Babilônia'], 'o-colportor-evangelista':['Há em O Desejado','Eles contêm exatamente'], 'mensagens-escolhidas-1':['tempo definido','baseada em tempo']}
+vitoria=len(sys.argv)>2 and sys.argv[2]=='vitoria'
+if vitoria:queries={'mensagens-aos-jovens':['Assumir a vitória','vitória sobre o pecado'], 'primeiros-escritos':['Todos os rostos empalideceram'], 'obreiros-evangelicos':['vitória sobre o pecado'], 'o-desejado-de-todas-as-nacoes':['vencer o pecado','vitória sobre o pecado'], 'a-ciencia-do-bom-viver':['vitória sobre o pecado']}
+adicional=len(sys.argv)>2 and sys.argv[2]=='vitoria2'
+if adicional:queries={'o-desejado-de-todas-as-nacoes':['O pecado só','Não há desculpa','Toda verdadeira obediência'], 'o-grande-conflito':['É impossível explicar','Não se levantará','Todos os que','modo de agir'], 'mensagens-aos-jovens':['Se um dia entrarmos']}
 out=[]
 for book,terms in queries.items():
  for p in (lib/'pt-br/livros'/book).iterdir():
@@ -20,4 +24,4 @@ for book,terms in queries.items():
    out.append({'book':book,'query':term,'sha256':before,'hits':hits})
    print(book,p.suffix,term,len(hits))
   assert before==hashlib.sha256(p.read_bytes()).hexdigest()
-(here/('evidencias-secao6-complemento.json' if extra else 'evidencias-secao6.json')).write_text(json.dumps(out,ensure_ascii=False,indent=2),encoding='utf8')
+(here/('evidencias-vitoria2.json' if adicional else 'evidencias-vitoria.json' if vitoria else 'evidencias-secao6-complemento.json' if extra else 'evidencias-secao6.json')).write_text(json.dumps(out,ensure_ascii=False,indent=2),encoding='utf8')

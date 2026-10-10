@@ -19,4 +19,18 @@ Cada conclusão terá commit próprio de paths explícitos e entrada em historic
 
 Muitas mudanças herdadas em _site, runtime/resilient-operation e scripts/test_resilient_operation.ts; não editar/stagear. Draft inicialmente limpo. Sem hooks Git ativos em .git/hooks nem core.hooksPath configurado. Não publicar/push. Usar editorial-authoring.js para transformação editorial e state-manager.js sync para projeções. Evidências anteriores em arquivos JSON da FT são reutilizáveis; resultados de testes antigos não comprovam versão nova.
 
-Próximo passo: M03, integrar grupos 1–3, preservando denúncia de reuniões secretas, quatro irmãos/três líderes, responsabilidade coletiva, dureza e metáforas. Base lida integralmente. M02b preserva WWIII como hipótese, moribundo/UTI/maioria, sacudidura, culpa pela negligência, anseio do Céu e expiação. Partes da expiação anterior reutilizadas após confronto, restaurando perguntas e paralelismos finais que haviam sido reduzidos. Aplicações oficiais em aplicar-abertura.cjs e aplicar-micro.cjs; recibos SHA-256 específicos. Validação lexical global e renderização são M06; não declarar atuais testes antigos.
+## Suplemento autoral e nova base — HEAD ff9f255678
+
+Após M05 (aaeb8bfaf6), o autor fez sete commits: 2755c3f16d, d4e653cae4, 9b4b7d5803, baca203a1f, 38bba9ef14, e7772f70f9, ff9f255678. O HEAD atual PREVALECE sobre nossas versões anteriores. Novo pedido integral em suplemento-autoral.md; snapshot base-autoral-ff9f255678.md. Não reaplicar scripts M02–M05: já executados e superados por revisões humanas.
+
+Microtarefas acrescentadas antes de M06 final:
+
+7. [concluída] Ler carta atual integralmente e confrontar deltas autorais; preservar escolhas novas, inventariar placeholders e fontes. Aceite: mapa de diferenças e plano atualizado, sem regressão aos textos anteriores.
+8. [concluída] Verificar e inserir vitória sobre pecado, distinções, cinco fontes EGW pedidas no draft, crescimento em Cristo e cena dramática PE. Neutralidade explícita: AINDA QUE, HIPOTETICAMENTE; temor não prova estado moral. Aceite: citações/contextos/páginas reais, sem cronologia de cessação do pecado; instituições apenas corroboram, conforme autorização nova.
+9. [pendente] Tratar demais adições/placeholder do HEAD: graça/obras, incoerência, tentação/escape, livre-arbítrio, história, profecia, disciplina e demais trechos novos. Aceite: nenhum argumento omitido; fontes sustentam alcance; correção factual registrada.
+10. [pendente] Ênfases seletivas em três níveis e reativação contextual da premissa além de não pecar (convém/edifica/consagração). Aceite: não saturar frases completas; preservar citações, subcitações e marcas literais.
+6. [pendente] Auditoria final ampliada pelos oito critérios do suplemento; renderização e citações reais atuais.
+
+Bloqueio ambiental: captura Python de seis capítulos falhou por DNS no sandbox. Escalonamento foi recusado por FALHA da revisão automática devido a limite de uso da conta (não juízo de insegurança). Não contornar nem repetir sem mudança. Git também depende de escalonamento porque .git é somente leitura; novos commits ainda não tentados após a falha. Arquivos podem ser preparados no workspace; não declarar commit novo sem sucesso. Fontes já obtidas e ferramentas autorizadas de leitura permanecem aproveitáveis.
+
+Próximo passo: M09, demais adições autorais; depois M10 e M06. Leitura integral do HEAD concluída. M08 aplicada com proteção SHA256 e preservação exata de todo o texto fora da inserção. Cinco testemunhos distintos; PE mantém pergunta/resposta/desfecho, hipótese neutra e sequência Advento/transformação. Validação parcial em validacao-M08.json. A aprovação anterior indicava recuperação às 19:14; agora 19:45 local, cabe uma tentativa de commit do checkpoint, sem contornar revisão.

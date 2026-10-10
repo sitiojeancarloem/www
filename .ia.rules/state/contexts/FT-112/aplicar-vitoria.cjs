@@ -1,0 +1,15 @@
+const fs=require('fs'),path=require('path'),crypto=require('crypto');
+const root=path.resolve(__dirname,'../../../..');
+const {applyEditorialEdits}=require(path.join(root,'.ia.rules/core/runtime/scripts/editorial-authoring.js'));
+const file=path.join(root,'_drafts/carta-aberta-hierarquia-romanda-na-igreja');
+const hash=s=>crypto.createHash('sha256').update(s).digest('hex');
+const original=fs.readFileSync(file,'utf8');
+if(hash(original)!=='f9171f02c7ac0f15d3609e038498db54a7cd755a104ee40cdc4d1550e36ee16b')throw Error('Base autoral mudou; revisar antes de aplicar.');
+const start=original.indexOf('Não ser incoerente:'),end=original.indexOf('> ¹³ **NÃO** sobreveio',start);
+if(start<0||end<start)throw Error('Fronteiras ausentes');
+const replacement=fs.readFileSync(path.join(__dirname,'vitoria-insercao.md'),'utf8')+'\n';
+const result=applyEditorialEdits(original,[{start,end,expected:original.slice(start,end),replacement,kind:'editorial',reason:'FT-112 M08: suplemento autoral, cinco testemunhos EGW e visão da volta de Cristo'}]);
+const output=result.markedOutput+'\n'+fs.readFileSync(path.join(__dirname,'vitoria-notas.md'),'utf8');
+fs.writeFileSync(file,output);
+fs.writeFileSync(path.join(__dirname,'aplicacao-M08.json'),JSON.stringify({before:hash(original),after:hash(output),regions:result.regions},null,2)+'\n');
+console.log('M08 aplicada sobre base autoral verificada.');
