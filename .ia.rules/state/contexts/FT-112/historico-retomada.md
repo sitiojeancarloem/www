@@ -61,3 +61,8 @@ Checkpoint M09a: 33d159cf9a.
 
 ## M09b/c — história, vitória, expiação e autoridade
 Preservados todos os argumentos adicionais, com fontes e limites explícitos: cativeiro/formalismo (DTN16–17), reação antijudaica e sábado (GC52–53), Egito/Roma como processos, sapo como fábula, leitura interpretativa Ap12/17 sem identidade textual inventada, duas conclusões de 1Co10:13, escolha/juízo milenar/liberdade e fim do pecado, Pentecostes/solenidade/deveres da expiação, joio, segunda milha, autoridade representativa e convicção institucional. Correções: comum não significa banal/origem só humana; ação divina não exclui anjos; GC490 não contém glosa sobre festividades (movida para comentário); maior luz não altera lei moral; liberdade não implica independência divina. Último placeholder de frutos resolvido; manual vigente consultado para disciplina/competências. Notas novas preservam explicações exigidas. diff --check passou; literalidade integral e renderização pendentes M06.
+
+Checkpoint M09b/c: 70208549e1.
+
+## M10 — contraste tipográfico e continuidade
+68 intervenções explícitas; eliminados destaques acima de oito palavras sem substituir palavras/conceitos (capitalização ajustada conforme hierarquia). Máxima ênfase reservada a expressões críticas. Tags sublinhadas reparadas; frases longas conservadas, apenas redistribuição dos destaques. Reativada premissa de edificação na conclusão, somada às retomadas da vitória e segunda milha. Primeiro render detectou omissões lidas como links: escapes corrigidos. Cabeçalho íntegro. Auditoria lexical atual encontrou 82 correspondências e duas lacunas de mapeamento, em correção na M06.

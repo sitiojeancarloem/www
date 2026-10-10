@@ -28,7 +28,7 @@ Microtarefas acrescentadas antes de M06 final:
 7. [concluída] Ler carta atual integralmente e confrontar deltas autorais; preservar escolhas novas, inventariar placeholders e fontes. Aceite: mapa de diferenças e plano atualizado, sem regressão aos textos anteriores.
 8. [concluída] Verificar e inserir vitória sobre pecado, distinções, cinco fontes EGW pedidas no draft, crescimento em Cristo e cena dramática PE. Neutralidade explícita: AINDA QUE, HIPOTETICAMENTE; temor não prova estado moral. Aceite: citações/contextos/páginas reais, sem cronologia de cessação do pecado; instituições apenas corroboram, conforme autorização nova.
 9. [concluída] Tratar demais adições/placeholder do HEAD: graça/obras, incoerência, tentação/escape, livre-arbítrio, história, profecia, disciplina e demais trechos novos. Aceite: nenhum argumento omitido; fontes sustentam alcance; correção factual registrada.
-10. [pendente] Ênfases seletivas em três níveis e reativação contextual da premissa além de não pecar (convém/edifica/consagração). Aceite: não saturar frases completas; preservar citações, subcitações e marcas literais.
+10. [concluída] Ênfases seletivas em três níveis e reativação contextual da premissa além de não pecar (convém/edifica/consagração). Aceite: não saturar frases completas; preservar citações, subcitações e marcas literais.
 6. [pendente] Auditoria final ampliada pelos oito critérios do suplemento; renderização e citações reais atuais.
 
 Bloqueio ambiental: captura Python de seis capítulos falhou por DNS no sandbox. Escalonamento foi recusado por FALHA da revisão automática devido a limite de uso da conta (não juízo de insegurança). Não contornar nem repetir sem mudança. Git também depende de escalonamento porque .git é somente leitura; novos commits ainda não tentados após a falha. Arquivos podem ser preparados no workspace; não declarar commit novo sem sucesso. Fontes já obtidas e ferramentas autorizadas de leitura permanecem aproveitáveis.
@@ -38,3 +38,5 @@ Próximo passo: M09, demais adições autorais; depois M10 e M06. Leitura integr
 M09a concluída (abertura, coragem e graça); M09b pendente: história/obediência, tentação, destino do pecado, expiação e autoridade. Aprovação Git/rede restabelecida após horário informado; commits novamente disponíveis.
 
 M09b/c concluídas. Próximo: M10 (ênfase seletiva, pequenos reparos de grafia/tags e reiterações) e M06 (ordem de notas, citações e renderização atuais).
+
+M10 concluída. Próximo M06: completar mapas de Ap9:15/1Co10, ordenar notas por primeira chamada, verificar fragmentação por marcadores, renderizar e auditar cobertura contra base autoral.

@@ -1,0 +1,629 @@
+{
+  "regions": [
+    {
+      "kind": "mechanical",
+      "sourceStart": 14747,
+      "sourceEnd": 14804,
+      "outputStart": 14747,
+      "outputEnd": 14808,
+      "transformed": false,
+      "reason": "FT-112 M10: destaque seletivo ou reparo tipográfico"
+    },
+    {
+      "kind": "mechanical",
+      "sourceStart": 18363,
+      "sourceEnd": 18462,
+      "outputStart": 18367,
+      "outputEnd": 18474,
+      "transformed": false,
+      "reason": "FT-112 M10: destaque seletivo ou reparo tipográfico"
+    },
+    {
+      "kind": "mechanical",
+      "sourceStart": 22075,
+      "sourceEnd": 22157,
+      "outputStart": 22087,
+      "outputEnd": 22169,
+      "transformed": false,
+      "reason": "FT-112 M10: destaque seletivo ou reparo tipográfico"
+    },
+    {
+      "kind": "mechanical",
+      "sourceStart": 25685,
+      "sourceEnd": 25704,
+      "outputStart": 25697,
+      "outputEnd": 25716,
+      "transformed": false,
+      "reason": "FT-112 M10: destaque seletivo ou reparo tipográfico"
+    },
+    {
+      "kind": "mechanical",
+      "sourceStart": 27143,
+      "sourceEnd": 27210,
+      "outputStart": 27155,
+      "outputEnd": 27233,
+      "transformed": false,
+      "reason": "FT-112 M10: destaque seletivo ou reparo tipográfico"
+    },
+    {
+      "kind": "mechanical",
+      "sourceStart": 33467,
+      "sourceEnd": 33489,
+      "outputStart": 33490,
+      "outputEnd": 33527,
+      "transformed": false,
+      "reason": "FT-112 M10: destaque seletivo ou reparo tipográfico"
+    },
+    {
+      "kind": "mechanical",
+      "sourceStart": 33599,
+      "sourceEnd": 33621,
+      "outputStart": 33637,
+      "outputEnd": 33658,
+      "transformed": false,
+      "reason": "FT-112 M10: destaque seletivo ou reparo tipográfico"
+    },
+    {
+      "kind": "mechanical",
+      "sourceStart": 33790,
+      "sourceEnd": 33834,
+      "outputStart": 33827,
+      "outputEnd": 33872,
+      "transformed": false,
+      "reason": "FT-112 M10: destaque seletivo ou reparo tipográfico"
+    },
+    {
+      "kind": "mechanical",
+      "sourceStart": 40603,
+      "sourceEnd": 40655,
+      "outputStart": 40641,
+      "outputEnd": 40697,
+      "transformed": false,
+      "reason": "FT-112 M10: destaque seletivo ou reparo tipográfico"
+    },
+    {
+      "kind": "mechanical",
+      "sourceStart": 42723,
+      "sourceEnd": 42750,
+      "outputStart": 42765,
+      "outputEnd": 42790,
+      "transformed": false,
+      "reason": "FT-112 M10: destaque seletivo ou reparo tipográfico"
+    },
+    {
+      "kind": "mechanical",
+      "sourceStart": 47187,
+      "sourceEnd": 47233,
+      "outputStart": 47227,
+      "outputEnd": 47273,
+      "transformed": false,
+      "reason": "FT-112 M10: destaque seletivo ou reparo tipográfico"
+    },
+    {
+      "kind": "mechanical",
+      "sourceStart": 56571,
+      "sourceEnd": 56633,
+      "outputStart": 56611,
+      "outputEnd": 56673,
+      "transformed": false,
+      "reason": "FT-112 M10: destaque seletivo ou reparo tipográfico"
+    },
+    {
+      "kind": "mechanical",
+      "sourceStart": 58947,
+      "sourceEnd": 59045,
+      "outputStart": 58987,
+      "outputEnd": 59089,
+      "transformed": false,
+      "reason": "FT-112 M10: destaque seletivo ou reparo tipográfico"
+    },
+    {
+      "kind": "mechanical",
+      "sourceStart": 59363,
+      "sourceEnd": 59438,
+      "outputStart": 59407,
+      "outputEnd": 59482,
+      "transformed": false,
+      "reason": "FT-112 M10: destaque seletivo ou reparo tipográfico"
+    },
+    {
+      "kind": "mechanical",
+      "sourceStart": 60093,
+      "sourceEnd": 60175,
+      "outputStart": 60137,
+      "outputEnd": 60227,
+      "transformed": false,
+      "reason": "FT-112 M10: destaque seletivo ou reparo tipográfico"
+    },
+    {
+      "kind": "mechanical",
+      "sourceStart": 63060,
+      "sourceEnd": 63212,
+      "outputStart": 63112,
+      "outputEnd": 63276,
+      "transformed": false,
+      "reason": "FT-112 M10: destaque seletivo ou reparo tipográfico"
+    },
+    {
+      "kind": "mechanical",
+      "sourceStart": 63563,
+      "sourceEnd": 63619,
+      "outputStart": 63627,
+      "outputEnd": 63687,
+      "transformed": false,
+      "reason": "FT-112 M10: destaque seletivo ou reparo tipográfico"
+    },
+    {
+      "kind": "mechanical",
+      "sourceStart": 63934,
+      "sourceEnd": 64063,
+      "outputStart": 64002,
+      "outputEnd": 64117,
+      "transformed": false,
+      "reason": "FT-112 M10: destaque seletivo ou reparo tipográfico"
+    },
+    {
+      "kind": "mechanical",
+      "sourceStart": 64267,
+      "sourceEnd": 64324,
+      "outputStart": 64321,
+      "outputEnd": 64382,
+      "transformed": false,
+      "reason": "FT-112 M10: destaque seletivo ou reparo tipográfico"
+    },
+    {
+      "kind": "mechanical",
+      "sourceStart": 66294,
+      "sourceEnd": 66423,
+      "outputStart": 66352,
+      "outputEnd": 66493,
+      "transformed": false,
+      "reason": "FT-112 M10: destaque seletivo ou reparo tipográfico"
+    },
+    {
+      "kind": "mechanical",
+      "sourceStart": 66625,
+      "sourceEnd": 66693,
+      "outputStart": 66695,
+      "outputEnd": 66767,
+      "transformed": false,
+      "reason": "FT-112 M10: destaque seletivo ou reparo tipográfico"
+    },
+    {
+      "kind": "mechanical",
+      "sourceStart": 66696,
+      "sourceEnd": 66759,
+      "outputStart": 66770,
+      "outputEnd": 66837,
+      "transformed": false,
+      "reason": "FT-112 M10: destaque seletivo ou reparo tipográfico"
+    },
+    {
+      "kind": "mechanical",
+      "sourceStart": 66762,
+      "sourceEnd": 66836,
+      "outputStart": 66840,
+      "outputEnd": 66918,
+      "transformed": false,
+      "reason": "FT-112 M10: destaque seletivo ou reparo tipográfico"
+    },
+    {
+      "kind": "mechanical",
+      "sourceStart": 67274,
+      "sourceEnd": 67360,
+      "outputStart": 67356,
+      "outputEnd": 67446,
+      "transformed": false,
+      "reason": "FT-112 M10: destaque seletivo ou reparo tipográfico"
+    },
+    {
+      "kind": "mechanical",
+      "sourceStart": 67383,
+      "sourceEnd": 67466,
+      "outputStart": 67469,
+      "outputEnd": 67556,
+      "transformed": false,
+      "reason": "FT-112 M10: destaque seletivo ou reparo tipográfico"
+    },
+    {
+      "kind": "mechanical",
+      "sourceStart": 67565,
+      "sourceEnd": 67628,
+      "outputStart": 67655,
+      "outputEnd": 67717,
+      "transformed": false,
+      "reason": "FT-112 M10: destaque seletivo ou reparo tipográfico"
+    },
+    {
+      "kind": "mechanical",
+      "sourceStart": 67831,
+      "sourceEnd": 67940,
+      "outputStart": 67920,
+      "outputEnd": 68037,
+      "transformed": false,
+      "reason": "FT-112 M10: destaque seletivo ou reparo tipográfico"
+    },
+    {
+      "kind": "mechanical",
+      "sourceStart": 69852,
+      "sourceEnd": 69919,
+      "outputStart": 69949,
+      "outputEnd": 70020,
+      "transformed": false,
+      "reason": "FT-112 M10: destaque seletivo ou reparo tipográfico"
+    },
+    {
+      "kind": "mechanical",
+      "sourceStart": 72933,
+      "sourceEnd": 72994,
+      "outputStart": 73034,
+      "outputEnd": 73095,
+      "transformed": false,
+      "reason": "FT-112 M10: destaque seletivo ou reparo tipográfico"
+    },
+    {
+      "kind": "mechanical",
+      "sourceStart": 74492,
+      "sourceEnd": 74621,
+      "outputStart": 74593,
+      "outputEnd": 74730,
+      "transformed": false,
+      "reason": "FT-112 M10: destaque seletivo ou reparo tipográfico"
+    },
+    {
+      "kind": "mechanical",
+      "sourceStart": 75217,
+      "sourceEnd": 75272,
+      "outputStart": 75326,
+      "outputEnd": 75381,
+      "transformed": false,
+      "reason": "FT-112 M10: destaque seletivo ou reparo tipográfico"
+    },
+    {
+      "kind": "mechanical",
+      "sourceStart": 79628,
+      "sourceEnd": 79718,
+      "outputStart": 79737,
+      "outputEnd": 79831,
+      "transformed": false,
+      "reason": "FT-112 M10: destaque seletivo ou reparo tipográfico"
+    },
+    {
+      "kind": "mechanical",
+      "sourceStart": 79891,
+      "sourceEnd": 79992,
+      "outputStart": 80004,
+      "outputEnd": 80109,
+      "transformed": false,
+      "reason": "FT-112 M10: destaque seletivo ou reparo tipográfico"
+    },
+    {
+      "kind": "mechanical",
+      "sourceStart": 82660,
+      "sourceEnd": 82729,
+      "outputStart": 82777,
+      "outputEnd": 82850,
+      "transformed": false,
+      "reason": "FT-112 M10: destaque seletivo ou reparo tipográfico"
+    },
+    {
+      "kind": "mechanical",
+      "sourceStart": 83231,
+      "sourceEnd": 83285,
+      "outputStart": 83352,
+      "outputEnd": 83410,
+      "transformed": false,
+      "reason": "FT-112 M10: destaque seletivo ou reparo tipográfico"
+    },
+    {
+      "kind": "mechanical",
+      "sourceStart": 85364,
+      "sourceEnd": 85458,
+      "outputStart": 85489,
+      "outputEnd": 85587,
+      "transformed": false,
+      "reason": "FT-112 M10: destaque seletivo ou reparo tipográfico"
+    },
+    {
+      "kind": "mechanical",
+      "sourceStart": 85558,
+      "sourceEnd": 85684,
+      "outputStart": 85687,
+      "outputEnd": 85825,
+      "transformed": false,
+      "reason": "FT-112 M10: destaque seletivo ou reparo tipográfico"
+    },
+    {
+      "kind": "mechanical",
+      "sourceStart": 91220,
+      "sourceEnd": 91467,
+      "outputStart": 91361,
+      "outputEnd": 91620,
+      "transformed": false,
+      "reason": "FT-112 M10: destaque seletivo ou reparo tipográfico"
+    },
+    {
+      "kind": "mechanical",
+      "sourceStart": 92082,
+      "sourceEnd": 92138,
+      "outputStart": 92235,
+      "outputEnd": 92295,
+      "transformed": false,
+      "reason": "FT-112 M10: destaque seletivo ou reparo tipográfico"
+    },
+    {
+      "kind": "mechanical",
+      "sourceStart": 92420,
+      "sourceEnd": 92470,
+      "outputStart": 92577,
+      "outputEnd": 92627,
+      "transformed": false,
+      "reason": "FT-112 M10: destaque seletivo ou reparo tipográfico"
+    },
+    {
+      "kind": "mechanical",
+      "sourceStart": 93129,
+      "sourceEnd": 93193,
+      "outputStart": 93286,
+      "outputEnd": 93350,
+      "transformed": false,
+      "reason": "FT-112 M10: destaque seletivo ou reparo tipográfico"
+    },
+    {
+      "kind": "mechanical",
+      "sourceStart": 93732,
+      "sourceEnd": 93851,
+      "outputStart": 93889,
+      "outputEnd": 94008,
+      "transformed": false,
+      "reason": "FT-112 M10: destaque seletivo ou reparo tipográfico"
+    },
+    {
+      "kind": "mechanical",
+      "sourceStart": 95266,
+      "sourceEnd": 95327,
+      "outputStart": 95423,
+      "outputEnd": 95488,
+      "transformed": false,
+      "reason": "FT-112 M10: destaque seletivo ou reparo tipográfico"
+    },
+    {
+      "kind": "mechanical",
+      "sourceStart": 95804,
+      "sourceEnd": 95909,
+      "outputStart": 95965,
+      "outputEnd": 96074,
+      "transformed": false,
+      "reason": "FT-112 M10: destaque seletivo ou reparo tipográfico"
+    },
+    {
+      "kind": "mechanical",
+      "sourceStart": 96137,
+      "sourceEnd": 96230,
+      "outputStart": 96302,
+      "outputEnd": 96399,
+      "transformed": false,
+      "reason": "FT-112 M10: destaque seletivo ou reparo tipográfico"
+    },
+    {
+      "kind": "mechanical",
+      "sourceStart": 96537,
+      "sourceEnd": 96594,
+      "outputStart": 96706,
+      "outputEnd": 96767,
+      "transformed": false,
+      "reason": "FT-112 M10: destaque seletivo ou reparo tipográfico"
+    },
+    {
+      "kind": "mechanical",
+      "sourceStart": 97432,
+      "sourceEnd": 97631,
+      "outputStart": 97605,
+      "outputEnd": 97816,
+      "transformed": false,
+      "reason": "FT-112 M10: destaque seletivo ou reparo tipográfico"
+    },
+    {
+      "kind": "mechanical",
+      "sourceStart": 98162,
+      "sourceEnd": 98242,
+      "outputStart": 98347,
+      "outputEnd": 98427,
+      "transformed": false,
+      "reason": "FT-112 M10: destaque seletivo ou reparo tipográfico"
+    },
+    {
+      "kind": "mechanical",
+      "sourceStart": 98624,
+      "sourceEnd": 98696,
+      "outputStart": 98809,
+      "outputEnd": 98881,
+      "transformed": false,
+      "reason": "FT-112 M10: destaque seletivo ou reparo tipográfico"
+    },
+    {
+      "kind": "mechanical",
+      "sourceStart": 98946,
+      "sourceEnd": 99015,
+      "outputStart": 99131,
+      "outputEnd": 99204,
+      "transformed": false,
+      "reason": "FT-112 M10: destaque seletivo ou reparo tipográfico"
+    },
+    {
+      "kind": "mechanical",
+      "sourceStart": 99481,
+      "sourceEnd": 99561,
+      "outputStart": 99670,
+      "outputEnd": 99750,
+      "transformed": false,
+      "reason": "FT-112 M10: destaque seletivo ou reparo tipográfico"
+    },
+    {
+      "kind": "mechanical",
+      "sourceStart": 100328,
+      "sourceEnd": 100531,
+      "outputStart": 100517,
+      "outputEnd": 100725,
+      "transformed": false,
+      "reason": "FT-112 M10: destaque seletivo ou reparo tipográfico"
+    },
+    {
+      "kind": "mechanical",
+      "sourceStart": 101235,
+      "sourceEnd": 101502,
+      "outputStart": 101429,
+      "outputEnd": 101715,
+      "transformed": false,
+      "reason": "FT-112 M10: destaque seletivo ou reparo tipográfico"
+    },
+    {
+      "kind": "mechanical",
+      "sourceStart": 101823,
+      "sourceEnd": 101939,
+      "outputStart": 102036,
+      "outputEnd": 102152,
+      "transformed": false,
+      "reason": "FT-112 M10: destaque seletivo ou reparo tipográfico"
+    },
+    {
+      "kind": "mechanical",
+      "sourceStart": 101964,
+      "sourceEnd": 102041,
+      "outputStart": 102177,
+      "outputEnd": 102258,
+      "transformed": false,
+      "reason": "FT-112 M10: destaque seletivo ou reparo tipográfico"
+    },
+    {
+      "kind": "mechanical",
+      "sourceStart": 102387,
+      "sourceEnd": 102484,
+      "outputStart": 102604,
+      "outputEnd": 102701,
+      "transformed": false,
+      "reason": "FT-112 M10: destaque seletivo ou reparo tipográfico"
+    },
+    {
+      "kind": "mechanical",
+      "sourceStart": 103151,
+      "sourceEnd": 103272,
+      "outputStart": 103368,
+      "outputEnd": 103497,
+      "transformed": false,
+      "reason": "FT-112 M10: destaque seletivo ou reparo tipográfico"
+    },
+    {
+      "kind": "mechanical",
+      "sourceStart": 104839,
+      "sourceEnd": 104901,
+      "outputStart": 105064,
+      "outputEnd": 105130,
+      "transformed": false,
+      "reason": "FT-112 M10: destaque seletivo ou reparo tipográfico"
+    },
+    {
+      "kind": "mechanical",
+      "sourceStart": 106203,
+      "sourceEnd": 106276,
+      "outputStart": 106432,
+      "outputEnd": 106509,
+      "transformed": false,
+      "reason": "FT-112 M10: destaque seletivo ou reparo tipográfico"
+    },
+    {
+      "kind": "mechanical",
+      "sourceStart": 107094,
+      "sourceEnd": 107178,
+      "outputStart": 107327,
+      "outputEnd": 107411,
+      "transformed": false,
+      "reason": "FT-112 M10: destaque seletivo ou reparo tipográfico"
+    },
+    {
+      "kind": "mechanical",
+      "sourceStart": 107367,
+      "sourceEnd": 107472,
+      "outputStart": 107600,
+      "outputEnd": 107709,
+      "transformed": false,
+      "reason": "FT-112 M10: destaque seletivo ou reparo tipográfico"
+    },
+    {
+      "kind": "mechanical",
+      "sourceStart": 108968,
+      "sourceEnd": 109043,
+      "outputStart": 109205,
+      "outputEnd": 109280,
+      "transformed": false,
+      "reason": "FT-112 M10: destaque seletivo ou reparo tipográfico"
+    },
+    {
+      "kind": "mechanical",
+      "sourceStart": 109464,
+      "sourceEnd": 109540,
+      "outputStart": 109701,
+      "outputEnd": 109777,
+      "transformed": false,
+      "reason": "FT-112 M10: destaque seletivo ou reparo tipográfico"
+    },
+    {
+      "kind": "mechanical",
+      "sourceStart": 109781,
+      "sourceEnd": 109862,
+      "outputStart": 110018,
+      "outputEnd": 110099,
+      "transformed": false,
+      "reason": "FT-112 M10: destaque seletivo ou reparo tipográfico"
+    },
+    {
+      "kind": "mechanical",
+      "sourceStart": 110962,
+      "sourceEnd": 111094,
+      "outputStart": 111199,
+      "outputEnd": 111335,
+      "transformed": false,
+      "reason": "FT-112 M10: destaque seletivo ou reparo tipográfico"
+    },
+    {
+      "kind": "mechanical",
+      "sourceStart": 111428,
+      "sourceEnd": 111506,
+      "outputStart": 111669,
+      "outputEnd": 111751,
+      "transformed": false,
+      "reason": "FT-112 M10: destaque seletivo ou reparo tipográfico"
+    },
+    {
+      "kind": "mechanical",
+      "sourceStart": 112297,
+      "sourceEnd": 112384,
+      "outputStart": 112542,
+      "outputEnd": 112626,
+      "transformed": false,
+      "reason": "FT-112 M10: destaque seletivo ou reparo tipográfico"
+    },
+    {
+      "kind": "mechanical",
+      "sourceStart": 112482,
+      "sourceEnd": 112652,
+      "outputStart": 112724,
+      "outputEnd": 112902,
+      "transformed": false,
+      "reason": "FT-112 M10: destaque seletivo ou reparo tipográfico"
+    }
+  ],
+  "contextual": [
+    {
+      "kind": "editorial",
+      "sourceStart": 105469,
+      "sourceEnd": 105469,
+      "outputStart": 105469,
+      "outputEnd": 105551,
+      "transformed": true,
+      "reason": "FT-112 M10: reativar premissa além de não pecar"
+    }
+  ],
+  "headerPreserved": true,
+  "sha256": "96e89524289c17cc7fe6ffaaaf5ac11fba0304e12c24cdf34eebd83f91acccc9"
+}
