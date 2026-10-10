@@ -1,0 +1,17 @@
+{
+  "task": "M03",
+  "before": "ce616784d42ed8570ffae885f88e9eed3b7862ccf52255dce0310a5712752129",
+  "after": "e08b5a6dee1c65cd6f4aea2e31e87d9e33d990e084dc451218190bf59d1ed2f6",
+  "regions": [
+    {
+      "kind": "editorial",
+      "sourceStart": 47440,
+      "sourceEnd": 70975,
+      "outputStart": 47440,
+      "outputEnd": 67962,
+      "transformed": true,
+      "reason": "FT-112 M03: preservação autoral, fontes e integração"
+    }
+  ],
+  "newNotes": 17
+}

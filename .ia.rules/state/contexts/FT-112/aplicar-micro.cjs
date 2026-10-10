@@ -3,7 +3,7 @@ const fs=require('fs'),path=require('path'),crypto=require('crypto');
 const root=path.resolve(__dirname,'../../../..');
 const {applyEditorialEdits}=require(path.join(root,'.ia.rules/core/runtime/scripts/editorial-authoring.js'));
 const task=process.argv[2];
-const configs={M02b:{source:'corpo-retomada.md',start:'Quando eu entrei na igreja,',end:'## 1. O texto'}};
+const configs={M02b:{source:'corpo-retomada.md',start:'Quando eu entrei na igreja,',end:'## 1. O texto'},M03:{source:'grupos123-retomada.md',start:'## 1. O texto',end:'## 4. O texto'}};
 const c=configs[task];if(!c)throw Error('Microtarefa desconhecida');
 const receipt=path.join(__dirname,'aplicacao-'+task+'.json');
 if(fs.existsSync(receipt))throw Error('Já aplicada; não repetir');
@@ -11,6 +11,20 @@ const file=path.join(root,'_drafts/carta-aberta-hierarquia-romanda-na-igreja');
 const original=fs.readFileSync(file,'utf8');
 const previous=fs.readFileSync(path.join(__dirname,'corpo-final.md'),'utf8').replace(/\r\n/g,'\n');
 let replacement=fs.readFileSync(path.join(__dirname,c.source),'utf8');
+if(replacement.includes('@@RESPONSABILIDADE@@')){
+ const a=previous.indexOf('**O pecado não é apenas individual quando alcança');
+ const b=previous.indexOf('A reflexão alcança todos e, de modo',a);
+ if(a<0||b<0)throw Error('Responsabilidade ausente');
+ let block=previous.slice(a,b);
+ block=block.replace('**omissão** importa. **DEVEMOS nos preocupar**, orar, **advertir** quando nos compete, agir dentro da ordem e buscar', '**omissão será cobrada por DEUS**. **Você e eu DEVEMOS nos preocupar**, DEVEMOS orar, **DEVEMOS advertir** quando nos compete advertir, DEVEMOS agir dentro da ordem e da responsabilidade que DEUS nos concedeu e DEVEMOS buscar');
+ replacement=replacement.replace('@@RESPONSABILIDADE@@',block);
+}
+if(replacement.includes('@@ILUSTRACAO@@')){
+ const a=previous.indexOf('*Considere esta ilustração, não o relato de um caso clínico:*');
+ const b=previous.indexOf('É exatamente por isso que a questão da Igreja',a);
+ if(a<0||b<0)throw Error('Ilustração ausente');
+ replacement=replacement.replace('@@ILUSTRACAO@@',previous.slice(a,b));
+}
 if(replacement.includes('@@EXPIACAO@@')){
  const a=previous.indexOf('Na compreensão adventista, vivemos, desde 1844,');
  const b=previous.indexOf('Estamos sendo **insubordinados** ou submissos a DEUS?',a);

@@ -8,7 +8,7 @@ Trabalhar diretamente pelo supervisor, sem localWorker direto/indireto e sem del
 
 1. [concluída] Fixar base e recuperar cabeçalho integral; registrar plano, histórico e estado. Aceite: hashes e snapshot recuperáveis, sem alterar trabalho externo à FT.
 2. [concluída: M02a e M02b] Revisar abertura e corpo principal: introdução, gramática, ênfases e referências. Corpo anterior ao grupo 1 aplicado; auditoria integral em M06.
-3. [pendente] Integrar grupos 1–3 no fluxo: vida futura, sacudidura, Elias, expiação e responsabilidade. Aceite: todas as unidades originais presentes e fontes reaproveitadas somente após conferir correspondência.
+3. [concluída] Integrar grupos 1–3 no fluxo: vida futura, sacudidura, Elias, expiação e responsabilidade. Grupos inseridos após pergunta sobre insubordinação; testemunhos repetidos retomados explicitamente. Auditoria integral em M06.
 4. [pendente] Integrar grupos 4–5: Igreja/instituição, ilustração médica e citações. Aceite: preservar argumentos, imagens retóricas e repetição intencional; corrigir afirmação sobre domingo.
 5. [pendente] Verificar e integrar grupo 6: duração profética, selamento, instituições e Daniel 12. Aceite: Bíblia/EGW verificadas, distinguir leitura pessoal de afirmação demonstrada, sem usar comentaristas como autoridade teológica.
 6. [pendente] Auditar conteúdo integral, literalidade/subcitações, notas, cabeçalho e renderização. Aceite: verificações atuais salvas, ausência de omissões/regressões e relatório honesto de limites.
