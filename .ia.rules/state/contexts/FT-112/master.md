@@ -23,3 +23,5 @@ A conclusão acima é histórica. Revisão reaberta pelo autor: base atual resta
 ## Fechamento da retomada
 
 M01–M10 e M06 final concluídas. Evidência vigente em relatorio.md e auditoria-final.json; resultados anteriores acima são históricos. Base prevalente ff9f255678. Sem Worker, publicação ou push.
+
+M11 posterior: corrigida modalização indevida conforme pedido humano. Versão vigente e evidências: retomada.md, relatorio.md, aplicacao-M11*.json.

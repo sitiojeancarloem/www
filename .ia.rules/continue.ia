@@ -258,7 +258,7 @@ pendencias=Aguardar as FTs 108 a 110.
 FT-112|nome=Revisão integral da carta aberta|escopo=negocio|status=concluida|autorizacao=humana|retomada=2026-10-10|conclusao=2026-10-11T04:07:20.028Z|validacao=pendente_desenvolvedor
 objetivo=Executar o cabeçalho integral no mesmo draft, com fontes verificadas, preservação autoral e correções factuais autorizadas; sem localWorker.
 origem=.ia.rules/state/requests/FT-112/prompt.md
-resultado=Carta revisada na base autoral ff9f255678; M01–M10 e auditoria M06 concluídas. Relatório e histórico atuais em .ia.rules/state/contexts/FT-112/relatorio.md e historico-retomada.md.
-verificacoes=100 conferências lexicais; 47 blocos, 123 notas, 154 chamadas; Kramdown sem avisos, referências quebradas ou destaques crus; testes footnotes e quote_semantics aprovados; hash em auditoria-final.json.
+resultado=Revisão M11 concluída: 26 restaurações da firmeza autoral, incluindo hipótese Ap12/17. Recibos e histórico em .ia.rules/state/contexts/FT-112/.
+verificacoes=M11: 100 correspondências lexicais; 47 blocos, 123 notas, 154 chamadas; renderização e auditoria estrutural atuais sem falhas; citações preservadas.
 pendencias=Sem pendência técnica; aceite autoral posterior. Estado de retomada em .ia.rules/state/contexts/FT-112/retomada.md. Sem publicação/push/localWorker.
 historico=.ia.rules/state/history/FT-112.ia|sha256=6a48dbeea769e4322404e4448e6f6d93a157fe6dcec4311bc772cd6f7e8ecda8

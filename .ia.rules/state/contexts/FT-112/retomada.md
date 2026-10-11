@@ -36,3 +36,7 @@ Microtarefas acrescentadas antes de M06 final:
 M07/M08: 48f177a4a1. M09a: 33d159cf9a. M09b/c: 70208549e1. M10: 15aa50d432. M06 concluída; commit contém este checkpoint. Não reaplicar scripts de edição: todos já executados. Relatório e verificações atuais em relatorio.md e auditoria-final.json. Não usar resultados antigos como prova do draft atual.
 
 Bloqueio anterior de aprovação/rede foi resolvido; nenhuma limitação técnica pendente. Próximo passo exclusivamente humano: leitura e aceite autoral, ou novo pedido de revisão. Sem publicação/push. Proibição do localWorker preservada nesta conversa.
+
+## Última unidade: M11 concluída
+
+Pedido de desfazer conversão de afirmações em suposições atendido em 26 intervenções; incluída hipótese teológica Ap12/17 com documentação. Estado anterior foi corrigido por manifestação humana. Recibos aplicacao-M11*.json; histórico detalhado em historico-retomada.md. Não reaplicar scripts M11. Verificações atuais vinculadas ao hash b983cab401e3fcae864d30825214e61b812aeecbfb364277345280b672f4161a. Próximo passo: leitura autoral ou nova correção indicada.

@@ -1,5 +1,5 @@
 {
-  "sha256_draft": "e6d8c10f3eba0c1c502ff7026185e3d57ab441855ff829bd2b504e2337d4552a",
+  "sha256_draft": "b983cab401e3fcae864d30825214e61b812aeecbfb364277345280b672f4161a",
   "base_autoral": "ff9f255678",
   "cabecalho_preservado": true,
   "notas": 123,
@@ -51,7 +51,7 @@
       "The S.D.A. Bible Commentary 4:1161"
     ]
   },
-  "paragrafos_base_exatos_conservados": 135,
+  "paragrafos_base_exatos_conservados": 130,
   "paragrafos_base": 223,
   "criterio": "Asserções de presença e estrutura não provam equivalência semântica. Cobertura editorial e correções descritas em historico-retomada.md e relatorio.md; base atual prevalece sobre versões anteriores.",
   "testes_existentes": {
