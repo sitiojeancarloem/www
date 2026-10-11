@@ -133,3 +133,26 @@ console.log('JSON_CLONE_TESTS_OK');
   assert.deepEqual(result.attempts.map(attempt => attempt.outcome), ['skipped', 'failed', 'completed']);
 }
 console.log('FINITE_ORDER_TEST_OK');
+
+{
+  const initial = { value: 0 };
+  const result = api.executeResilientOperation(initial, [
+    { id: 'technical', eligible: true, execute: () => {
+      throw Object.assign(new Error('PRIVATE_TECHNICAL'), { code: 'POSTCONDITION_REJECTED' });
+    }, verify: () => true },
+    { id: 'invalid-candidate', eligible: true, execute: () => undefined, verify: () => true },
+    { id: 'false-postcondition', eligible: true, execute: () => ({ value: 1 }),
+      verify: (candidate: JsonValue) => { (candidate as { value: number }).value = 9; return false; } },
+    { id: 'verification-error', eligible: true, execute: () => ({ value: 2 }),
+      verify: () => { throw new Error('PRIVATE_VERIFY'); } }
+  ]);
+  assert.equal(result.status, 'exhausted');
+  assert.deepEqual(result.state, initial);
+  assert.deepEqual(initial, { value: 0 });
+  assert.deepEqual(result.attempts.map(attempt => attempt.errorCode), [
+    'EXECUTE_RESILIENT_FAILED', 'CANDIDATE_CONTRACT_REJECTED',
+    'POSTCONDITION_REJECTED', 'EXECUTE_RESILIENT_FAILED'
+  ]);
+  assert.equal(JSON.stringify(result).includes('PRIVATE_'), false);
+}
+console.log('FAILURE_CLASSIFICATION_OK');

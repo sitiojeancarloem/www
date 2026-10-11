@@ -56,13 +56,19 @@ function executeResilientOperation(initialState, strategies) {
                 attempts,
             };
         }
+        // Classificação interna: mensagens/códigos de callbacks nunca são propagados.
+        let failureCode = 'EXECUTE_RESILIENT_FAILED';
         // Execução
         try {
-            const candidate = cloneJsonState(strategy.execute(cloneJsonState(initialClone)));
+            const rawCandidate = strategy.execute(cloneJsonState(initialClone));
+            failureCode = 'CANDIDATE_CONTRACT_REJECTED';
+            const candidate = cloneJsonState(rawCandidate);
+            failureCode = 'EXECUTE_RESILIENT_FAILED';
             // Verify
             const valid = strategy.verify(cloneJsonState(candidate));
             if (valid !== true) {
-                throw Object.assign(new TypeError('EXECUTE_RESILIENT_FAILED'), { code: 'EXECUTE_RESILIENT_FAILED' });
+                failureCode = 'POSTCONDITION_REJECTED';
+                throw new TypeError('POSTCONDITION_REJECTED');
             }
             // Sucesso: retorna candidato já clonado e validado
             attempt.outcome = 'completed';
@@ -76,7 +82,7 @@ function executeResilientOperation(initialState, strategies) {
         }
         catch (err) {
             attempt.outcome = 'failed';
-            attempt.errorCode = 'EXECUTE_RESILIENT_FAILED';
+            attempt.errorCode = failureCode;
             attempt.finishedAt = new Date().toISOString();
             attempts.push(attempt);
             // Continua para próxima estratégia

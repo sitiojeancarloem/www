@@ -19,7 +19,7 @@ Somente `verify(candidate) === true` conclui com sucesso; não há chamadas post
 Cada execução recebe um clone independente do estado inicial. A verificação recebe outro clone do candidato.
 Mutações na verificação não alteram o candidato retornado.
 As tentativas registram ID, ordem iniciada em 1, horários ISO, outcome e código fixo em falhas.
-Falhas de execução/verificação usam `EXECUTE_RESILIENT_FAILED`, sem expor a mensagem da exceção.
+Exceções de execução/verificação usam `EXECUTE_RESILIENT_FAILED`; candidato fora do contrato JSON usa `CANDIDATE_CONTRACT_REJECTED`; pós-condição diferente de true usa `POSTCONDITION_REJECTED`. Códigos são definidos internamente, sem expor mensagens ou aceitar códigos de callbacks.
 Entradas inválidas são rejeitadas antes dos callbacks com `INVALID_STRATEGIES` ou `INVALID_JSON_STATE`.
 
 O estado aceita JSON: null, booleanos, strings, números finitos, arrays densos e objetos simples.
