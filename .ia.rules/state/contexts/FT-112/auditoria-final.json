@@ -1,0 +1,61 @@
+{
+  "sha256_draft": "e6d8c10f3eba0c1c502ff7026185e3d57ab441855ff829bd2b504e2337d4552a",
+  "base_autoral": "ff9f255678",
+  "cabecalho_preservado": true,
+  "notas": 123,
+  "chamadas": 154,
+  "notas_sem_chamada": 0,
+  "ordem_primeira_chamada": true,
+  "grupos_documentais": {
+    "vitoria": [
+      "vitória sobre o pecado",
+      "NÃO pressupõe pós-lapsarianismo",
+      "Essa cronologia não está em julgamento aqui."
+    ],
+    "visao": [
+      "Todos os rostos **empalideceram**",
+      "Estão as minhas vestes sem mancha?",
+      "cessaram de cantar",
+      "terrível silêncio",
+      "mãos limpas e coração puro",
+      "Minha graça vos basta",
+      "alegria",
+      "tornaram a cantar"
+    ],
+    "hipotese": [
+      "AINDA QUE, <u>HIPOTETICAMENTE</u>",
+      "AINDA nesse cenário HIPOTÉTICO",
+      "não estou provando nem refutando a hipótese",
+      "antes da transformação e do arrebatamento"
+    ],
+    "continuidade": [
+      "nem todas edificam",
+      "segunda milha",
+      "Dia da Expiação"
+    ],
+    "argumentos": [
+      "Acã",
+      "Acabe",
+      "bombeiro",
+      "hemorragia",
+      "CNPJ",
+      "Babilônia",
+      "sete dias",
+      "doze meses",
+      "Daniel 12",
+      "3ª Guerra"
+    ],
+    "subcitacoes": [
+      "Carta 184, 1901",
+      "Testemunhos Para a Igreja 3:257 (1873).",
+      "The S.D.A. Bible Commentary 4:1161"
+    ]
+  },
+  "paragrafos_base_exatos_conservados": 135,
+  "paragrafos_base": 223,
+  "criterio": "Asserções de presença e estrutura não provam equivalência semântica. Cobertura editorial e correções descritas em historico-retomada.md e relatorio.md; base atual prevalece sobre versões anteriores.",
+  "testes_existentes": {
+    "scripts/test_footnotes.rb": "footnotes=ok; exit 0",
+    "scripts/test_quote_semantics.rb": "quote_semantics=ok; exit 0"
+  }
+}

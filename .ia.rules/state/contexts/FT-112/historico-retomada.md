@@ -66,3 +66,10 @@ Checkpoint M09b/c: 70208549e1.
 
 ## M10 — contraste tipográfico e continuidade
 68 intervenções explícitas; eliminados destaques acima de oito palavras sem substituir palavras/conceitos (capitalização ajustada conforme hierarquia). Máxima ênfase reservada a expressões críticas. Tags sublinhadas reparadas; frases longas conservadas, apenas redistribuição dos destaques. Reativada premissa de edificação na conclusão, somada às retomadas da vitória e segunda milha. Primeiro render detectou omissões lidas como links: escapes corrigidos. Cabeçalho íntegro. Auditoria lexical atual encontrou 82 correspondências e duas lacunas de mapeamento, em correção na M06.
+
+
+Checkpoint M10: 15aa50d432.
+
+## M06 — auditoria final
+
+Corrigidos itálicos/referências imediatas, versão das novas notas bíblicas, formato das referências EGW, sobrescrito Ap21:8 e fragmentação por marcadores. Preservadas 123 definições, ordenadas pela primeira chamada. Render final: 47 blocos, 154 chamadas, sete linhas de tabela, nenhum aviso/link quebrado/negrito cru. Um destaque dentro de `<u>` não era interpretado pelo Kramdown; reorganizada somente a sintaxe, preservando ambos os destaques. Cem conferências lexicais aprovadas; capítulos adicionais capturados e textos de apoio lidos; subcitações e cena PE conservadas. Testes existentes footnotes e quote_semantics exit 0. Nenhuma alteração alheia incluída. Relatório antigo substituído pelo resultado atual; histórico Git conserva as versões anteriores. Hash atual nos três registros de validação. Próxima ação humana: aceite autoral, não correção técnica pendente.

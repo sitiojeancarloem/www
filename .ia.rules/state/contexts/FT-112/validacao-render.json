@@ -1,9 +1,10 @@
 {
   "renderer": "Kramdown 2.5.2",
+  "sha256_draft": "e6d8c10f3eba0c1c502ff7026185e3d57ab441855ff829bd2b504e2337d4552a",
   "warnings": [],
-  "citations": 38,
-  "footnote_calls": 102,
-  "footnotes": 82,
+  "citations": 47,
+  "footnote_calls": 154,
+  "footnotes": 123,
   "table_rows": 7,
   "broken_references": 0
 }

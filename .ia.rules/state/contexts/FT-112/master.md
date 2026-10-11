@@ -19,3 +19,7 @@ Resultado: revisão aplicada no mesmo draft; relatório em `relatorio.md`. 73 co
 ## Retomada em 2026-10-10
 
 A conclusão acima é histórica. Revisão reaberta pelo autor: base atual restaurada, seção 6 incluída e intensidade integral. Estado e plano atuais: [retomada.md](retomada.md); histórico: [historico-retomada.md](historico-retomada.md).
+
+## Fechamento da retomada
+
+M01–M10 e M06 final concluídas. Evidência vigente em relatorio.md e auditoria-final.json; resultados anteriores acima são históricos. Base prevalente ff9f255678. Sem Worker, publicação ou push.

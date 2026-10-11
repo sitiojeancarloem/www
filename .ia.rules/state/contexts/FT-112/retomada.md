@@ -11,7 +11,7 @@ Trabalhar diretamente pelo supervisor, sem localWorker direto/indireto e sem del
 3. [concluída] Integrar grupos 1–3 no fluxo: vida futura, sacudidura, Elias, expiação e responsabilidade. Grupos inseridos após pergunta sobre insubordinação; testemunhos repetidos retomados explicitamente. Auditoria integral em M06.
 4. [concluída] Integrar grupos 4–5: Igreja/instituição e citações (ilustração médica integrada em M03). Preservados paralelismos, crítica à hierarquia papal e hipótese de continuidade; corrigida afirmação sobre domingo.
 5. [concluída] Verificar e integrar grupo 6: duração profética, selamento, instituições e Daniel 12. Fontes EPUB/PDF e Bíblia consultadas; interpretação temporal e funcionamento institucional explicitamente hipotéticos.
-6. [pendente] Auditar conteúdo integral, literalidade/subcitações, notas, cabeçalho e renderização. Aceite: verificações atuais salvas, ausência de omissões/regressões e relatório honesto de limites.
+6. [concluída] Auditar conteúdo integral, literalidade/subcitações, notas, cabeçalho e renderização. Aceite: verificações atuais salvas, ausência de omissões/regressões e relatório honesto de limites.
 
 Cada conclusão terá commit próprio de paths explícitos e entrada em historico-retomada.md. Estado parcial não equivale a conclusão integral. Salvar próximo passo e decisões neste arquivo antes de interrupção/compactação. A sessão não oferece comando explícito de compactação nem medidor confiável de 60%; checkpoints pequenos em Git garantem retomada sem prometer controle inexistente.
 
@@ -29,14 +29,10 @@ Microtarefas acrescentadas antes de M06 final:
 8. [concluída] Verificar e inserir vitória sobre pecado, distinções, cinco fontes EGW pedidas no draft, crescimento em Cristo e cena dramática PE. Neutralidade explícita: AINDA QUE, HIPOTETICAMENTE; temor não prova estado moral. Aceite: citações/contextos/páginas reais, sem cronologia de cessação do pecado; instituições apenas corroboram, conforme autorização nova.
 9. [concluída] Tratar demais adições/placeholder do HEAD: graça/obras, incoerência, tentação/escape, livre-arbítrio, história, profecia, disciplina e demais trechos novos. Aceite: nenhum argumento omitido; fontes sustentam alcance; correção factual registrada.
 10. [concluída] Ênfases seletivas em três níveis e reativação contextual da premissa além de não pecar (convém/edifica/consagração). Aceite: não saturar frases completas; preservar citações, subcitações e marcas literais.
-6. [pendente] Auditoria final ampliada pelos oito critérios do suplemento; renderização e citações reais atuais.
+6. [concluída] Auditoria final ampliada pelos oito critérios do suplemento; renderização e citações reais atuais.
 
-Bloqueio ambiental: captura Python de seis capítulos falhou por DNS no sandbox. Escalonamento foi recusado por FALHA da revisão automática devido a limite de uso da conta (não juízo de insegurança). Não contornar nem repetir sem mudança. Git também depende de escalonamento porque .git é somente leitura; novos commits ainda não tentados após a falha. Arquivos podem ser preparados no workspace; não declarar commit novo sem sucesso. Fontes já obtidas e ferramentas autorizadas de leitura permanecem aproveitáveis.
+## Estado final recuperável
 
-Próximo passo: M09, demais adições autorais; depois M10 e M06. Leitura integral do HEAD concluída. M08 aplicada com proteção SHA256 e preservação exata de todo o texto fora da inserção. Cinco testemunhos distintos; PE mantém pergunta/resposta/desfecho, hipótese neutra e sequência Advento/transformação. Validação parcial em validacao-M08.json. A aprovação anterior indicava recuperação às 19:14; agora 19:45 local, cabe uma tentativa de commit do checkpoint, sem contornar revisão.
+M07/M08: 48f177a4a1. M09a: 33d159cf9a. M09b/c: 70208549e1. M10: 15aa50d432. M06 concluída; commit contém este checkpoint. Não reaplicar scripts de edição: todos já executados. Relatório e verificações atuais em relatorio.md e auditoria-final.json. Não usar resultados antigos como prova do draft atual.
 
-M09a concluída (abertura, coragem e graça); M09b pendente: história/obediência, tentação, destino do pecado, expiação e autoridade. Aprovação Git/rede restabelecida após horário informado; commits novamente disponíveis.
-
-M09b/c concluídas. Próximo: M10 (ênfase seletiva, pequenos reparos de grafia/tags e reiterações) e M06 (ordem de notas, citações e renderização atuais).
-
-M10 concluída. Próximo M06: completar mapas de Ap9:15/1Co10, ordenar notas por primeira chamada, verificar fragmentação por marcadores, renderizar e auditar cobertura contra base autoral.
+Bloqueio anterior de aprovação/rede foi resolvido; nenhuma limitação técnica pendente. Próximo passo exclusivamente humano: leitura e aceite autoral, ou novo pedido de revisão. Sem publicação/push. Proibição do localWorker preservada nesta conversa.

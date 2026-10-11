@@ -1,0 +1,412 @@
+{
+  "ap14": [
+    "ACF",
+    "ap/14",
+    "Apocalipse 14:6-12"
+  ],
+  "ap1910": [
+    "ACF",
+    "ap/19",
+    "Apocalipse 19:10"
+  ],
+  "elias": [
+    "ARA",
+    "1rs/18",
+    "1 Reis 18:17-18"
+  ],
+  "jo660": [
+    "ARA",
+    "jo/6",
+    "João 6:60-69"
+  ],
+  "hb1211": [
+    "ACF",
+    "hb/12",
+    "Hebreus 12:11"
+  ],
+  "mt23": [
+    "ARA",
+    "mt/23",
+    "Mateus 23:13-33"
+  ],
+  "at1310": [
+    "ARA",
+    "at/13",
+    "Atos 13:9-11"
+  ],
+  "tt113": [
+    "ARA",
+    "tt/1",
+    "Tito 1:13"
+  ],
+  "2pe212": [
+    "NVI",
+    "2pe/2",
+    "2 Pedro 2:12"
+  ],
+  "jo215": [
+    "ARA",
+    "jo/2",
+    "João 2:13-17"
+  ],
+  "2tm42": [
+    "NVI",
+    "2tm/4",
+    "2 Timóteo 4:2"
+  ],
+  "at539": [
+    "ARC",
+    "at/5",
+    "Atos 5:38-39"
+  ],
+  "at541": [
+    "ARA",
+    "at/5",
+    "Atos 5:41"
+  ],
+  "ap3": [
+    "ARA",
+    "ap/3",
+    "Apocalipse 3:14-22"
+  ],
+  "mt10": [
+    "ARA",
+    "mt/10",
+    "Mateus 10:21,34-39"
+  ],
+  "lc1251": [
+    "ARA",
+    "lc/12",
+    "Lucas 12:51-53"
+  ],
+  "lc1426": [
+    "ARA",
+    "lc/14",
+    "Lucas 14:26-27"
+  ],
+  "mt2436": [
+    "ARA",
+    "mt/24",
+    "Mateus 24:36"
+  ],
+  "2pe3": [
+    "ARA",
+    "2pe/3",
+    "2 Pedro 3:9-13"
+  ],
+  "lc13contexto": [
+    "ACF",
+    "lc/13",
+    "Lucas 13:22-30"
+  ],
+  "jo111": [
+    "ARA",
+    "jo/1",
+    "João 1:11"
+  ],
+  "jo15": [
+    "ACF",
+    "jo/1",
+    "João 1:5"
+  ],
+  "fp121": [
+    "ARA",
+    "fp/1",
+    "Filipenses 1:21-25"
+  ],
+  "rm122": [
+    "ARA",
+    "rm/12",
+    "Romanos 12:2"
+  ],
+  "jo154": [
+    "ARA",
+    "jo/15",
+    "João 15:4"
+  ],
+  "fp213": [
+    "ARA",
+    "fp/2",
+    "Filipenses 2:13"
+  ],
+  "dn814": [
+    "ACF",
+    "dn/8",
+    "Daniel 8:14"
+  ],
+  "lvexp": [
+    "ACF",
+    "lv/16",
+    "Levítico 16:29-31; 23:27-32"
+  ],
+  "hb8": [
+    "ARA",
+    "hb/8",
+    "Hebreus 8:1-2"
+  ],
+  "hb9": [
+    "ARA",
+    "hb/9",
+    "Hebreus 9:23-24"
+  ],
+  "1co612": [
+    "ARA",
+    "1co/6",
+    "1 Coríntios 6:12"
+  ],
+  "1co1023": [
+    "ARA",
+    "1co/10",
+    "1 Coríntios 10:23"
+  ],
+  "lc1248": [
+    "ARA",
+    "lc/12",
+    "Lucas 12:48"
+  ],
+  "2co135": [
+    "ARA",
+    "2co/13",
+    "2 Coríntios 13:5"
+  ],
+  "rm1311": [
+    "ARA",
+    "rm/13",
+    "Romanos 13:11"
+  ],
+  "ef514": [
+    "ARA",
+    "ef/5",
+    "Efésios 5:14"
+  ],
+  "mt716": [
+    "ARA",
+    "mt/7",
+    "Mateus 7:15-20"
+  ],
+  "1co63": [
+    "ARA",
+    "1co/6",
+    "1 Coríntios 6:3"
+  ],
+  "dn95": [
+    "ARC",
+    "dn/9",
+    "Daniel 9:5-8"
+  ],
+  "js711": [
+    "ARC",
+    "js/7",
+    "Josué 7:1-26"
+  ],
+  "tg417": [
+    "ARC",
+    "tg/4",
+    "Tiago 4:17"
+  ],
+  "ez338": [
+    "ARC",
+    "ez/33",
+    "Ezequiel 33:7-9"
+  ],
+  "1tm13": [
+    "ARA",
+    "1tm/1",
+    "1 Timóteo 1:3-4"
+  ],
+  "ez337": [
+    "ARC",
+    "ez/33",
+    "Ezequiel 33:7"
+  ],
+  "is626": [
+    "ARC",
+    "is/62",
+    "Isaías 62:6"
+  ],
+  "mt16": [
+    "ARA",
+    "mt/16",
+    "Mateus 16:16-23"
+  ],
+  "pv2130": [
+    "ARA",
+    "pv/21",
+    "Provérbios 21:30"
+  ],
+  "1co1227": [
+    "ARC",
+    "1co/12",
+    "1 Coríntios 12:27"
+  ],
+  "cl118": [
+    "ARC",
+    "cl/1",
+    "Colossenses 1:18"
+  ],
+  "1pe25": [
+    "ARC",
+    "1pe/2",
+    "1 Pedro 2:5"
+  ],
+  "ef525": [
+    "ARC",
+    "ef/5",
+    "Efésios 5:25,27"
+  ],
+  "mt1022": [
+    "ARC",
+    "mt/10",
+    "Mateus 10:22"
+  ],
+  "mt249": [
+    "ARC",
+    "mt/24",
+    "Mateus 24:9"
+  ],
+  "ap13": [
+    "ARC",
+    "ap/13",
+    "Apocalipse 13:15-17"
+  ],
+  "ml45": [
+    "ARC",
+    "ml/4",
+    "Malaquias 4:5-6"
+  ],
+  "lc117": [
+    "ARC",
+    "lc/1",
+    "Lucas 1:17"
+  ],
+  "1ts521": [
+    "ARC",
+    "1ts/5",
+    "1 Tessalonicenses 5:21"
+  ],
+  "at529": [
+    "ARC",
+    "at/5",
+    "Atos 5:29"
+  ],
+  "me2380": [
+    "EGW",
+    "mensagens-escolhidas-2",
+    "Mensagens Escolhidas, v. 2 - É necessária uma obra de purificação, p. 380"
+  ],
+  "pe20": [
+    "EGW",
+    "primeiros-escritos",
+    "Primeiros Escritos - Minha primeira visão, p. 20"
+  ],
+  "gc1844": [
+    "EGW",
+    "o-grande-conflito",
+    "O Grande Conflito - Quando começa o julgamento divino, p. 423, 424, 425, 426"
+  ],
+  "gc490": [
+    "EGW",
+    "o-grande-conflito",
+    "O Grande Conflito - O grande juízo investigativo, p. 490"
+  ],
+  "gc423": [
+    "EGW",
+    "o-grande-conflito",
+    "O Grande Conflito - Quando começa o julgamento divino, p. 423"
+  ],
+  "gc425": [
+    "EGW",
+    "o-grande-conflito",
+    "O Grande Conflito - Quando começa o julgamento divino, p. 425"
+  ],
+  "t9261": [
+    "EGW",
+    "testemunhos-para-a-igreja-9",
+    "Testemunhos para a Igreja, v. 9 - Espírito de independência, p. 260, 261"
+  ],
+  "aa164": [
+    "EGW",
+    "atos-dos-apostolos",
+    "Atos dos Apóstolos - Arautos do evangelho, p. 163, 164, 165"
+  ],
+  "t3269": [
+    "EGW",
+    "testemunhos-para-a-igreja-3",
+    "Testemunhos para a Igreja, v. 3 - A igreja de Laodicéia, p. 269, 270"
+  ],
+  "lar354": [
+    "EGW",
+    "o-lar-adventista",
+    "O Lar Adventista - A família do pastor, p. 354"
+  ],
+  "aa9": [
+    "EGW",
+    "atos-dos-apostolos",
+    "Atos dos Apóstolos - O propósito de Deus para Sua igreja, p. 9"
+  ],
+  "gc608": [
+    "EGW",
+    "o-grande-conflito",
+    "O Grande Conflito - O último convite divino, p. 608"
+  ],
+  "t6332": [
+    "EGW",
+    "testemunhos-para-a-igreja-6",
+    "Testemunhos para a Igreja, v. 6 - Reavivamento da obra de colportagem, p. 332"
+  ],
+  "eliasegw": [
+    "EGW",
+    "mensagens-escolhidas-2",
+    "Mensagens Escolhidas, v. 2 - Ouvir-se-ão admoestações, p. 150, 151"
+  ],
+  "me1372": [
+    "EGW",
+    "mensagens-escolhidas-1",
+    "Mensagens Escolhidas, v. 1 - “Deixaste o teu primeiro amor”, p. 372"
+  ],
+  "ev344": [
+    "EGW",
+    "evangelismo",
+    "Evangelismo - Firmar e conservar novos conversos, p. 343, 344"
+  ],
+  "mar200": [
+    "EGW",
+    "../devocionais/maranata-o-senhor-vem",
+    "Maranata — O Senhor Vem! - O tempo da sacudidura, 11 de julho, p. 201"
+  ],
+  "nato": [
+    "URL",
+    "https://www.nato.int/en/what-we-do/deterrence-and-defence/countering-hybrid-threats",
+    "OTAN. Countering hybrid threats. Definição de ameaças híbridas; não afirma que uma guerra mundial esteja em curso."
+  ],
+  "sipri": [
+    "URL",
+    "https://www.sipri.org/media/press-release/2025/unprecedented-rise-global-military-expenditure-european-and-middle-east-spending-surges",
+    "SIPRI. Unprecedented rise in global military expenditure as European and Middle East spending surges, 28 abr. 2025. Dados de 2024; corroboram o aumento dos gastos, não a interpretação profética."
+  ],
+  "coreia": [
+    "URL",
+    "https://apnews.com/article/10b2bf40d0ba85fe6d24bf689336c4e2",
+    "Associated Press. North Korean and Russian military officials discuss further cooperation in Pyongyang, 7 nov. 2025. Documenta a cooperação; não comprova todas as transferências tecnológicas cogitadas."
+  ],
+  "domingo": [
+    "URL",
+    "https://www.vatican.va/content/john-paul-ii/pt/apost_letters/1998/documents/hf_jp-ii_apl_05071998_dies-domini.html",
+    "João Paulo II. Carta apostólica Dies Domini, §§19 e 26, 31 maio 1998. Fonte primária usada exclusivamente para conferir o que o documento católico declara, não como autoridade teológica."
+  ],
+  "pt1850": [
+    "URL",
+    "https://text.egwwritings.org/amp/read/517.53",
+    "Ellen G. White. The Present Truth, 1 abr. 1850, par. 9."
+  ],
+  "ms1902": [
+    "URL",
+    "https://text.egwwritings.org/amp/read/14067.9055001",
+    "Ellen G. White. Manuscrito 173, 1902, par. 25."
+  ],
+  "2tm43": [
+    "NVI",
+    "2tm/4",
+    "2 Timóteo 4:3"
+  ]
+}
