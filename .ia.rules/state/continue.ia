@@ -203,22 +203,20 @@ contexto=.ia.rules/state/contexts/FT-100/master.md
 dependencias=FT-101
 pendencias=FT-101 tecnicamente concluída; executar integração real somente leitura com raiz e consulta explícitas, hashes antes/depois e diagnóstico de dependência PDF.
 
-FT-104|nome=Implementação da semântica forte de resiliência|escopo=tecnico|status=em_andamento|autorizacao=humana
+FT-104|nome=Implementação da semântica forte de resiliência|escopo=tecnico|status=concluida|autorizacao=humana|conclusao=2026-10-12T01:59:00.847Z|validacao=pendente_desenvolvedor
 objetivo=Aplicar o contrato no mecanismo reutilizável e nos validadores sem criar retry ilimitado.
 origem=.ia.rules/state/requests/FT-103/prompt.md
-contexto=.ia.rules/state/contexts/FT-103/master.md
-dependencias=FT-103
-resultado=Motor síncrono de alternativas finitas, classificador e adaptador assíncrono de execução única implementados em .ia.rules/local/runtime, com builds CommonJS e testes permanentes.
-verificacoes=Tipos, matriz de estados/clones/elegibilidade, suíte do adaptador compilado e integração real runLongProcess/resumeLongProcess aprovados; integração versionada em 090649d1f5, job 698aee2b-a18f-40a1-935a-1cd1fd118da8.
-verificacoes_baseline=Node24.19.0; types e quatro suítes exit0 no job 88ae962c-9fc0-41a5-9bf0-dcc6797c6604; guia local documenta composição de execução única.
-pendencias=Fechar gates de governança/rastreabilidade antes de concluir FT-104; regressão de alternativas e ausência de bypass permanece na FT-105.
+resultado=Executor local, classificador e adaptador de execução única implementados; auditoria versionada em c759ba6dc7.
+verificacoes=Node24: tipos e quatro suítes exit0 (job56c15176); dez vínculos RCF validados (job7a4bfd71); auditoria de fonte e artefatos preservada.
+pendencias=Aceite humano; regressão entre múltiplos processos reservada à FT-105. Gate global possui falha externa conhecida em RCFs/bate-papo.md:12; sem alegação de aprovação global.
+historico=.ia.rules/state/history/FT-104.ia|sha256=ef15eddd6ce329d43e77458b2ef228ad70ef16885c189b3831af9f582c842ae5
 
-FT-105|nome=Integração e validação da resiliência|escopo=tecnico|status=registrada_bloqueada_por_dependencia|autorizacao=humana
+FT-105|nome=Integração e validação da resiliência|escopo=tecnico|status=em_andamento|autorizacao=humana
 objetivo=Provar conclusão por alternativa, esgotamento real, preservação de estado e ausência de bypass.
 origem=.ia.rules/state/requests/FT-103/prompt.md
 contexto=.ia.rules/state/contexts/FT-103/master.md
 dependencias=FT-104
-pendencias=Aguardar encerramento técnico da FT-104; integração de execução única já comprovada em 090649d1f5, sem antecipar aceite da regressão completa.
+pendencias=Executar regressão de alternativas finitas entre processos, esgotamento, preservação e ausência de bypass; FT-104 tecnicamente concluída, aceite humano pendente.
 
 FT-107|nome=Implementação da fonte de dados e pipeline de QR|escopo=tecnico|status=registrada_bloqueada_por_dependencia|autorizacao=humana
 objetivo=Implementar JSON canônico, QR client-side, cópia, expansão, download, decodificação e assets comuns.

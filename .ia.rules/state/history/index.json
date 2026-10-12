@@ -107,6 +107,13 @@
       "state": "validada"
     },
     {
+      "id": "FT-104",
+      "name": "Implementação da semântica forte de resiliência",
+      "path": ".ia.rules/state/history/FT-104.ia",
+      "sha256": "ef15eddd6ce329d43e77458b2ef228ad70ef16885c189b3831af9f582c842ae5",
+      "state": "pendente-validacao"
+    },
+    {
       "id": "FT-106",
       "name": "Normatização da experiência pública de doações",
       "path": ".ia.rules/state/history/FT-106.ia",

@@ -374,3 +374,7 @@ Thumbs.db
 !/.ia.rules/state/contexts/
 !/.ia.rules/state/contexts/FT-103/
 !/.ia.rules/state/contexts/FT-103/auditoria-ft104.md
+
+# FT-104: histórico técnico preservado
+!/.ia.rules/state/history/
+!/.ia.rules/state/history/FT-104.ia

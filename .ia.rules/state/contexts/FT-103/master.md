@@ -33,3 +33,7 @@ Integração real aprovada: scripts/test_verified_process_integration.ts, commit
 Fronteira: core intacto; executeVerifiedProcess aguarda uma execução, verifica candidato e preserva snapshot JSON, sem autorizar fallback ou desfazer IO. running/timeout/cancelamento/resultado desconhecido bloqueiam avanço automático. Alternativas finitas existem no motor puro; composição entre múltiplos processos não foi comprovada por este teste.
 Baseline Node24.19.0 aprovado: checagem estrita e quatro suítes exit0 no job 88ae962c-9fc0-41a5-9bf0-dcc6797c6604, incluindo integração real. Guia .ia.rules/local/runtime/README.md documenta composição e limites.
 Próximo: fechar gates de governança/rastreabilidade da FT-104; então completar regressão da FT-105. FTs permanecem abertas; sem push ou alteração de _site.
+
+## Transição técnica — FT-104 para FT-105
+
+FT-104 tecnicamente concluída; aceite humano pendente. Auditoria: c759ba6dc7 e auditoria-ft104.md. Dez vínculos RCF validados; tipos e quatro suítes Node24 aprovados. Gate global com falha externa conhecida permanece sem aprovação. FT-105 liberada: provar alternativas finitas entre processos, esgotamento, preservação e ausência de bypass; não repetir a integração de execução única já aceita.

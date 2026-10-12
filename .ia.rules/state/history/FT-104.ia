@@ -1,0 +1,8 @@
+FT-104|nome=Implementação da semântica forte de resiliência|escopo=tecnico|status=concluida|autorizacao=humana|conclusao=2026-10-12T01:59:00.847Z
+objetivo=Aplicar o contrato no mecanismo reutilizável e nos validadores sem criar retry ilimitado.
+origem=.ia.rules/state/requests/FT-103/prompt.md
+contexto=.ia.rules/state/contexts/FT-103/master.md
+dependencias=FT-103
+resultado=Executor local, classificador e adaptador de execução única implementados; auditoria versionada em c759ba6dc7.
+verificacoes=Node24: tipos e quatro suítes exit0 (job56c15176); dez vínculos RCF validados (job7a4bfd71); auditoria de fonte e artefatos preservada.
+pendencias=Aceite humano; regressão entre múltiplos processos reservada à FT-105. Gate global possui falha externa conhecida em RCFs/bate-papo.md:12; sem alegação de aprovação global.
