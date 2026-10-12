@@ -102,7 +102,7 @@ module Jcem
         caption.content = local_caption
         table.prepend_child(caption)
       end
-      fatal("tabela_sem_caption") unless caption && !compact_text(caption).empty?
+      fatal('tabela_sem_caption correcao=adicione {: data-jcem-caption="Legenda da tabela" } apos a tabela Markdown') unless caption && !compact_text(caption).empty?
       table["data-jcem-accessible-table"] = "true"
       table.xpath("./thead/tr/th").each_with_index do |header, index|
         header["scope"] ||= "col"
@@ -239,6 +239,9 @@ module Jcem
         toc: document.data["toc"] == true,
         toc_label: toc_label
       )
+    rescue Jekyll::Errors::FatalException => error
+      # Mantém classe e backtrace, identificando a fonte editorial no erro de build.
+      raise error.class, "#{error.message} arquivo=#{document.path}", error.backtrace
     end
 
     def public_url(relative)
