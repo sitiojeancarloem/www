@@ -138,5 +138,43 @@ run_test('HTML existente', '<table id="html"><caption>Real</caption><thead><tr><
   abort_with "tbody td1" unless tbody_td.length == 1 && tbody_td.first.text.strip == "1"
 end
 
+
+# Legendas vazias continuam inválidas, inclusive metadata só com espaços.
+["", "   "].each do |caption|
+  input = markdown_sem_caption.chomp + "\n{: data-jcem-caption=\"#{caption}\"}\n"
+  begin
+    rendered = Kramdown::Document.new(input, input: "GFM").to_html
+    Jcem::AccessibleReading.normalize_html(%(<article class="jcem-post"><h1>Tabelas</h1><section class="page__content">#{rendered}</section></article>))
+    abort_with "metadata de caption vazia foi aceita"
+  rescue Jekyll::Errors::FatalException => e
+    abort_with "erro inesperado de caption vazia: #{e.message}" unless e.message.include?("tabela_sem_caption")
+  end
+end
+
+# A normalização deve preservar os atributos e a autoria do parser.
+run_test("atributos e conteúdo preservados", markdown_preserva) do |doc, _|
+  table = doc.at_css("table#preserva")
+  abort_with "class perdida" unless table && table["class"].to_s.split.include?("compact")
+  abort_with "metadata não consumida" if table.key?("data-jcem-caption")
+  abort_with "caption duplicada ou alterada" unless table.css("caption").map(&:text) == ["Preserva formatação"]
+  abort_with "ênfase alterada" unless table.css("em").map(&:text) == ["e"]
+  abort_with "strong alterado" unless table.css("strong").map(&:text) == ["d"]
+  link = table.at_css("a")
+  abort_with "link alterado" unless link && link.text == "f" && link["href"] == "g"
+  %w[left right center].each_with_index do |alignment, i|
+    abort_with "alinhamento #{alignment} perdido" unless table.css("thead th")[i]["style"].to_s.match?(/text-align:\s*#{alignment}/)
+  end
+end
+
+run_test("legendas associadas à tabela correta", markdown) do |doc, _|
+  {"dados" => "Valores reais", "letras" => "Caracteres"}.each do |id, caption|
+    abort_with "caption associada incorretamente: #{id}" unless doc.at_css("table##{id}").css("caption").map(&:text) == [caption]
+  end
+end
+
+run_test("caption HTML única", '<table id="html"><caption>Real</caption><thead><tr><th>A</th></tr></thead><tbody><tr><td>1</td></tr></tbody></table>') do |doc, _|
+  abort_with "caption HTML duplicada" unless doc.at_css("table#html").css("caption").map(&:text) == ["Real"]
+end
+
 puts "markdown_tables=ok"
 exit 0
