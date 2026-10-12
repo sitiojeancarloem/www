@@ -92,15 +92,45 @@ import { normalizeBiblicalReferences } from './biblical-reference-speech.js';
 		if (value) units.push({ text: value, lang: languageFor(element) });
 	};
 
+	/** Deriva unidades faladas do DOM tabular, sem duplicar referências das células no caption. */
 	const addTable = (table) => {
 		const captionNode = table.querySelector(':scope > caption');
 		const caption = captionNode ? textFor(captionNode, { announceLinks: false }) : '';
-		const columnHeaders = [...table.querySelectorAll(':scope > thead > tr:first-child > th')]
-			.map((cell) => textFor(cell, { announceLinks: false }));
-		add(table, caption, 'Tabela:');
-		table.querySelectorAll(':scope > tbody > tr').forEach((row) => {
+		// Coleta headers: primeira linha de thead ou primeira linha inteiramente TH em tbody (sem thead)
+		const theadRows = [...table.querySelectorAll(':scope > thead > tr')];
+		const columnHeaders = theadRows.length
+			? [...theadRows[0].querySelectorAll(':scope > th')].map((cell) => textFor(cell, { announceLinks: false }))
+			: (() => {
+				const firstRow = table.querySelector(':scope > tbody > tr, :scope > tr');
+				if (!firstRow) return [];
+				const cells = [...firstRow.children].filter((cell) => /^(TH|TD)$/.test(cell.tagName));
+				if (cells.every((cell) => cell.tagName === 'TH')) {
+					return cells.map((cell) => textFor(cell, { announceLinks: false }));
+				}
+				return [];
+			})();
+		// Referências por célula: se caption ausente, não coletar refs da tabela inteira
+		if (caption) {
+			add(captionNode, caption, 'Tabela:');
+		}
+		// Processa tbody e tfoot em ordem DOM, excluindo linhas inteiramente headers
+		const rows = [...table.querySelectorAll(':scope > tbody > tr, :scope > tfoot > tr')];
+		rows.forEach((row) => {
 			const cells = [...row.children].filter((cell) => /^(TH|TD)$/.test(cell.tagName));
+			if (cells.length === 0) return;
+			// Linha inteiramente TH é header, não dados
+			if (!theadRows.length && row === rows[0] && columnHeaders.length && cells.every((cell) => cell.tagName === 'TH')) return;
 			const rowText = cells.map((cell, cellIndex) => {
+				// Se id/headers explícitos, obter texto do TH realmente apontado
+				if (cell.hasAttribute('headers')) {
+					const headerIds = cell.getAttribute('headers').split(/\s+/);
+					const headerCell = headerIds
+						.map((id) => table.querySelector(`:scope th#${CSS.escape(id)}`))
+						.filter((h) => h instanceof HTMLElement && h.tagName === 'TH' && h.closest('table') === table);
+					if (headerCell.length) {
+						return `${headerCell.map((h) => textFor(h, { announceLinks: false })).join(', ')}: ${textFor(cell, { announceLinks: false })}`;
+					}
+				}
 				const header = columnHeaders[cellIndex] || (cellIndex === 0 ? 'Linha' : `Coluna ${cellIndex + 1}`);
 				return `${header}: ${textFor(cell, { announceLinks: false })}`;
 			}).join('. ');
