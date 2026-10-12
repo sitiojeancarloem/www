@@ -7316,91 +7316,91 @@
       "artifacts": [
         ".ia.rules/local/runtime/resilient-operation.ts"
       ],
-      "commit": "",
+      "commit": "f7977d35b762d5d4825cb0aa207fa3d427e306dc",
       "ft": "FT-104",
       "id": "a3d240577291a5b765c1f754",
       "line": 10,
       "rcf": "RCFs/resiliencia-operacional.md",
       "sentenceSha256": "cff180e072708e90a15caa2d571d3ba06d6860776802c6c541d23d77d60e69f7",
-      "state": "pending",
+      "state": "synchronized",
       "syncCommit": ""
     },
     {
       "artifacts": [
         ".ia.rules/local/runtime/resilient-operation.ts"
       ],
-      "commit": "",
+      "commit": "f7977d35b762d5d4825cb0aa207fa3d427e306dc",
       "ft": "FT-104",
       "id": "4bd79b37b9a9622e6fa59833",
       "line": 12,
       "rcf": "RCFs/resiliencia-operacional.md",
       "sentenceSha256": "1e33ffa8a06b56155db389f03d8434c39d5ac02a7620015887440ee4402fc237",
-      "state": "pending",
+      "state": "synchronized",
       "syncCommit": ""
     },
     {
       "artifacts": [
         ".ia.rules/local/runtime/resilient-operation.ts"
       ],
-      "commit": "",
+      "commit": "f7977d35b762d5d4825cb0aa207fa3d427e306dc",
       "ft": "FT-104",
       "id": "40a7badf80a0df84e3671a8f",
       "line": 17,
       "rcf": "RCFs/resiliencia-operacional.md",
       "sentenceSha256": "67ddf820ea2b87ff0a8160bba5faef03cd35541162a029ef979694d08884d37c",
-      "state": "pending",
+      "state": "synchronized",
       "syncCommit": ""
     },
     {
       "artifacts": [
         ".ia.rules/local/runtime/resilient-operation.ts"
       ],
-      "commit": "",
+      "commit": "f7977d35b762d5d4825cb0aa207fa3d427e306dc",
       "ft": "FT-104",
       "id": "a40827b6a16310b1721bf8f3",
       "line": 18,
       "rcf": "RCFs/resiliencia-operacional.md",
       "sentenceSha256": "bcf4c1693f52c0f26f7ea98ed7ed331fc1ea9ffb483b1ae333c4e26c3030656e",
-      "state": "pending",
+      "state": "synchronized",
       "syncCommit": ""
     },
     {
       "artifacts": [
         ".ia.rules/local/runtime/resilient-operation.ts"
       ],
-      "commit": "",
+      "commit": "f7977d35b762d5d4825cb0aa207fa3d427e306dc",
       "ft": "FT-104",
       "id": "2144d12ff9384e03e9d6dbbd",
       "line": 19,
       "rcf": "RCFs/resiliencia-operacional.md",
       "sentenceSha256": "1e85ec1608b3e59ea4f6561e93822a369dbf0b93d3db2b74b46e05569b4227a6",
-      "state": "pending",
+      "state": "synchronized",
       "syncCommit": ""
     },
     {
       "artifacts": [
         ".ia.rules/local/runtime/resilient-operation.ts"
       ],
-      "commit": "",
+      "commit": "f7977d35b762d5d4825cb0aa207fa3d427e306dc",
       "ft": "FT-104",
       "id": "6c202d5d9327ee008b110544",
       "line": 23,
       "rcf": "RCFs/resiliencia-operacional.md",
       "sentenceSha256": "bfc341435cdd3ecf3f0f51dcb75477d7a28e1c5e0e20e4ea8010a1e251c327b1",
-      "state": "pending",
+      "state": "synchronized",
       "syncCommit": ""
     },
     {
       "artifacts": [
         ".ia.rules/local/runtime/resilient-operation.ts"
       ],
-      "commit": "",
+      "commit": "f7977d35b762d5d4825cb0aa207fa3d427e306dc",
       "ft": "FT-104",
       "id": "2b3468f1ce5e2816e51f594e",
       "line": 24,
       "rcf": "RCFs/resiliencia-operacional.md",
       "sentenceSha256": "aca532a0b4ec7d33e16a9c70e3f71684ebe762e53914bb483d14021c98ef586c",
-      "state": "pending",
+      "state": "synchronized",
       "syncCommit": ""
     },
     {
