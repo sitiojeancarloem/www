@@ -369,3 +369,8 @@ Thumbs.db
 !/.ia.rules/local/runtime/verified-process.ts
 !/.ia.rules/local/runtime/process-outcome.js
 !/.ia.rules/local/runtime/verified-process.js
+
+# FT-104: auditoria versionada, sem expor outros estados
+!/.ia.rules/state/contexts/
+!/.ia.rules/state/contexts/FT-103/
+!/.ia.rules/state/contexts/FT-103/auditoria-ft104.md
