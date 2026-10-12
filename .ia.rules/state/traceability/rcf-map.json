@@ -7420,26 +7420,26 @@
       "artifacts": [
         "scripts/test_resilient_operation.ts"
       ],
-      "commit": "",
+      "commit": "f37ba4db94b2323be9f0dd63185936839ff9aaf8",
       "ft": "FT-104",
       "id": "a362ec253c29c867a0c9beb1",
       "line": 31,
       "rcf": "RCFs/resiliencia-operacional.md",
       "sentenceSha256": "67ddf06d98466819e0ccce39a89ea96ec7adbb5a4a5c46e313689fe66866bb1d",
-      "state": "pending",
+      "state": "synchronized",
       "syncCommit": ""
     },
     {
       "artifacts": [
         "scripts/test_verified_process_integration.ts"
       ],
-      "commit": "",
+      "commit": "090649d1f5201ea1f29ac59d6c72097dc20fb94a",
       "ft": "FT-104",
       "id": "a61efb28017ad38fa42ae823",
       "line": 32,
       "rcf": "RCFs/resiliencia-operacional.md",
       "sentenceSha256": "064269e0489b8a3f7ee2952b797ea919bdc5b5e4d3df49199d16831e55c28aab",
-      "state": "pending",
+      "state": "synchronized",
       "syncCommit": ""
     },
     {

@@ -28,5 +28,5 @@ Escopo: semântica forte de `fail-safe`, resiliência e alternativas técnicas e
 
 - Novos fluxos com mais de uma estratégia DEVERÃO reutilizar o executor local comum ou implementar a mesma interface e estados quando outra linguagem for necessária.
 - Fluxos existentes são migrados quando alterados ou quando uma FT os selecionar explicitamente; esta norma não autoriza reexecução indiscriminada nem alteração retroativa de artefatos.
-- Testes DEVEM provar: sucesso inicial, sucesso por alternativa posterior, esgotamento finito, bloqueio, preservação do último estado válido, pós-condição falsa e ausência de bypass de estratégia inelegível. [PENDENTE-CODIGO]
-- A integração DEVE demonstrar que erros permanecem observáveis e que o mecanismo não converte exceção em sucesso silencioso. [PENDENTE-CODIGO]
+- Testes DEVEM provar: sucesso inicial, sucesso por alternativa posterior, esgotamento finito, bloqueio, preservação do último estado válido, pós-condição falsa e ausência de bypass de estratégia inelegível. [ff9aaf8]
+- A integração DEVE demonstrar que erros permanecem observáveis e que o mecanismo não converte exceção em sucesso silencioso. [20fb94a]
