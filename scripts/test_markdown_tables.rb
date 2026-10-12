@@ -123,5 +123,20 @@ tables_twice = doc_twice.css("table")
 captions_twice = doc_twice.css("caption")
 abort_with "normalização repetida deve manter 1 caption/tabela" if tables_twice.length != 2 || captions_twice.length != 2
 
+# Fixture: HTML existente com caption, thead th scope="col" e tbody td
+run_test('HTML existente', '<table id="html"><caption>Real</caption><thead><tr><th scope="col">A</th></tr></thead><tbody><tr><td>1</td></tr></tbody></table>') do |doc, html|
+  table = doc.css("table#html").first
+  abort_with "tabela #html não encontrada" unless table
+
+  caption = doc.css("caption").first
+  abort_with "caption único textoReal" unless caption && caption.text.strip == "Real"
+
+  thead_th = doc.css("thead th")
+  abort_with "thead th scope col" unless thead_th.length == 1 && thead_th.first["scope"] == "col"
+
+  tbody_td = doc.css("tbody td")
+  abort_with "tbody td1" unless tbody_td.length == 1 && tbody_td.first.text.strip == "1"
+end
+
 puts "markdown_tables=ok"
 exit 0
