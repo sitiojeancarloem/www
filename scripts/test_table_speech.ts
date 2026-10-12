@@ -76,6 +76,19 @@ try {
   }
   assert.equal(statusEl.textContent, 'Leitura concluída.');
   assert.deepEqual(lastCaptions, ['Tabela: Valores', 'Nome: A. Total: 2']);
+  // A primeira linha TH em tbody deve ter a mesma fala do thead.
+  const table = window.document.querySelector('table')!;
+  const tbody = table.querySelector('tbody')!;
+  tbody.prepend(table.querySelector('thead tr')!);
+  table.querySelector('thead')!.remove();
+  lastCaptions.length = 0;
+  playBtn.click();
+  const secondDeadline = Date.now() + 1000;
+  while (statusEl.textContent !== 'Leitura concluída.' && Date.now() < secondDeadline) {
+    await new Promise(resolve => setTimeout(resolve, 10));
+  }
+  assert.equal(statusEl.textContent, 'Leitura concluída.');
+  assert.deepEqual(lastCaptions, ['Tabela: Valores', 'Nome: A. Total: 2']);
   console.log('table_speech=ok');
 } finally {
   dom.window.close();
