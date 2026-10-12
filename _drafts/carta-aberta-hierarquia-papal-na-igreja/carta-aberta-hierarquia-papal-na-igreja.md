@@ -78,6 +78,7 @@ Ellen White também foi acusada de severidade. Ela NÃO se arrependeu de repreen
 | **Sepulcros caiados** | Aparência limpa escondendo corrupção interior                 | **Bonitos por fora e podres por dentro**, **santos de fachada**, **gente podre por dentro**             |
 | **Serpentes**         | Denúncia severa de perversidade e perigo moral                | **Cobras**, **traíras**, **canalhas**, **gente venenosa**                                               |
 | **Raça de víboras**   | Acusação coletiva de extrema gravidade                        | **Bando de cobras**, **bando de canalhas**, **gente venenosa**, **bando de desgraçados**                |
+{: data-jcem-caption="Termos de Mateus 23 e comparações retóricas do autor"}
 
 “Amor” não é, e **nunca foi**, a mesma coisa que **doçura**, fala mansa, complacência, **diplomacia** e obrigação de ser **politicamente correto**. JESUS não foi crucificado porque acomodava os líderes de SUA época. Paulo ordena: _“Tal testemunho é exato. Portanto, repreende-os **SEVERAMENTE**, para que sejam sadios na fé”_.[^tt113] A Bíblia está **repleta** de repreensões ofensivas ao orgulho de quem as recebe, pronunciadas por pessoas **inspiradas**. Pedro compara falsos mestres a **ANIMAIS irracionais** e denuncia sua corrupção.[^2pe212] Chamá-las de meras palavras suaves é apagar a dureza do texto.
 
