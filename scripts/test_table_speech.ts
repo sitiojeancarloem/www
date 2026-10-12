@@ -108,6 +108,29 @@ try {
     assert.equal(statusEl.textContent, 'Leitura concluída.');
     assert.deepEqual(lastCaptions, ['Tabela: Valores', 'Nome: A. Total: 2 ' + suffix]);
   }
+
+  // IDs simples nesta fixture: o stub de CSS.escape só supre a API ausente no JSDOM.
+  if (!window.CSS?.escape) {
+    (window as any).CSS = { escape: (id: string) => {
+      assert.match(id, /^[a-z]+$/);
+      return id;
+    } };
+  }
+  table.innerHTML = '<caption>Valores</caption><thead><tr><th id="nome">Nome</th><th id="total">Total</th></tr></thead><tbody><tr><th>A</th><th>2</th></tr><tr><td headers="total nome">B</td><td headers="total">3</td></tr></tbody><tfoot><tr><td>Soma</td><td>5</td></tr></tfoot>';
+  lastCaptions.length = 0;
+  playBtn.click();
+  const headersDeadline = Date.now() + 1000;
+  while (statusEl.textContent !== 'Leitura concluída.' && Date.now() < headersDeadline) {
+    await new Promise(resolve => setTimeout(resolve, 10));
+  }
+  assert.equal(statusEl.textContent, 'Leitura concluída.');
+  assert.deepEqual(lastCaptions, [
+    'Tabela: Valores',
+    'Nome: A. Total: 2',
+    'Total, Nome: B. Total: 3',
+    'Nome: Soma. Total: 5'
+  ]);
+
   console.log('table_speech=ok');
 } finally {
   dom.window.close();
