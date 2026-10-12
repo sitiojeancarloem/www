@@ -14,6 +14,7 @@ const html = `
   <button data-jcem-read-action="pause">Pause</button>
   <button data-jcem-read-action="stop">Stop</button>
   <span data-jcem-read-status></span>
+  <select data-jcem-read-reference-mode><option value="continuous">continuous</option><option value="summary">summary</option><option value="full">full</option></select>
 </div>
 <div data-jcem-readable-root><table><caption>Valores</caption><thead><tr><th>Nome</th><th>Total</th></tr></thead><tbody><tr><td>A</td><td>2</td></tr></tbody></table></div>
 </body>
@@ -89,6 +90,24 @@ try {
   }
   assert.equal(statusEl.textContent, 'Leitura concluída.');
   assert.deepEqual(lastCaptions, ['Tabela: Valores', 'Nome: A. Total: 2']);
+  // Referências de células pertencem à linha falada, nunca ao caption.
+  table.querySelector('td')!.insertAdjacentHTML('beforeend', '<a role="doc-noteref" data-jcem-reference-full="Fonte integral" data-jcem-reference-summary="Fonte, 2026">[1]</a>');
+  const referenceMode = window.document.querySelector('[data-jcem-read-reference-mode]')!;
+  for (const [mode, suffix] of [
+    ['continuous', 'Esta passagem possui uma referência.'],
+    ['summary', 'Referência 1: Fonte, 2026.'],
+    ['full', 'Referência 1: Fonte integral.'],
+  ]) {
+    referenceMode.value = mode;
+    lastCaptions.length = 0;
+    playBtn.click();
+    const referenceDeadline = Date.now() + 1000;
+    while (statusEl.textContent !== 'Leitura concluída.' && Date.now() < referenceDeadline) {
+      await new Promise(resolve => setTimeout(resolve, 10));
+    }
+    assert.equal(statusEl.textContent, 'Leitura concluída.');
+    assert.deepEqual(lastCaptions, ['Tabela: Valores', 'Nome: A. Total: 2 ' + suffix]);
+  }
   console.log('table_speech=ok');
 } finally {
   dom.window.close();
