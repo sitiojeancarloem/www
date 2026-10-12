@@ -22,7 +22,7 @@ Escopo: semântica forte de `fail-safe`, resiliência e alternativas técnicas e
 
 - Cada tentativa DEVE registrar identificador estável da estratégia, ordem, início, término, resultado e erro sanitizado, sem segredo ou dado privado. [PENDENTE-CODIGO]
 - A operação DEVE terminar em `completed`, `exhausted` ou `blocked`. `completed` exige pós-condição verificada; `exhausted` exige todas as alternativas elegíveis tentadas; `blocked` exige impedimento de autoridade, segurança ou pré-condição não substituível. [PENDENTE-CODIGO]
-- O registro DEVE distinguir falha técnica contornável de rejeição por contrato. Estratégia inelegível é registrada como ignorada e não conta como tentativa bem-sucedida. [PENDENTE-CODIGO]
+- O registro DEVE distinguir falha técnica contornável de rejeição por contrato. Estratégia inelegível é registrada como ignorada e não conta como tentativa bem-sucedida. [63d2333]
 
 ## Aplicação e validação
 
