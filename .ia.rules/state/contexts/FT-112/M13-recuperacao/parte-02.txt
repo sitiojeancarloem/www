@@ -1,0 +1,54 @@
+Evidência persistida delta; linhas 64-116. Fragmento 2/5; não representa inventário completo.
+-## 6. Citações e referências — regra absoluta
+-
+-- **Toda citação DEVE possuir referência verificável.**
+-- **Toda referência editorial do texto DEVE ser conferida na fonte e corresponder exatamente ao conteúdo ao qual está associada.**
+-- Citações ou referências ausentes DEVEM ser pesquisadas, verificadas e acrescentadas.
+-- Afirmações que clara ou implicitamente derivem da Bíblia ou de Ellen G. White DEVEM ser investigadas e, havendo fundamento verificável, receber referência explícita adequada.
+-- NÃO inventar, completar por memória, aproximar ou atribuir citação/referência sem confirmação.
+-- Quando a redação apenas parafrasear uma fonte, NÃO apresentá-la falsamente como citação literal.
+-- **Qualquer referência editorial já existente entre parênteses no texto-fonte DEVE obrigatoriamente ser identificada, verificada e convertida para o formato aplicável segundo estas regras e as normas/RCF vigentes do repositório.**
+-- A presença prévia de referência entre parênteses NÃO constitui evidência suficiente de correção: livro, capítulo, página, versão bíblica, capítulo, versículos e correspondência com a afirmação/citação DEVEM ser novamente verificados antes da conversão.
+-- Quando a norma vigente determinar footnote, a referência parentética DEVE ser substituída pela footnote correspondente; quando estas regras determinarem legitimamente referência parentética, ela DEVE ser normalizada para a sintaxe aqui definida.
+-- É PROIBIDO manter referência parentética editorial legada apenas porque já estava presente no texto.
+-- A conversão de formato NÃO autoriza alterar o alcance semântico da referência nem associá-la a trecho diferente daquele efetivamente comprovado.
+-
+-### 6.1. Preservação absoluta de subcitações e referências internas às citações
+-
+-- **Subcitações, referências, notas, indicações bibliográficas ou menções a outras obras que façam parte do conteúdo original de uma citação NÃO DEVEM ser alteradas, normalizadas, reformatadas, convertidas, corrigidas ou substituídas.**
+-- É comum que o **autor citado cite, por sua vez, outra obra, autor, texto bíblico ou referência**. Nesses casos, essa referência interna constitui parte do conteúdo histórico/documental da própria citação e DEVE ser preservada **exatamente na forma empregada pelo autor original**, inclusive:
+-  - sintaxe;
+-  - abreviações;
+-  - pontuação;
+-  - capitalização;
+-  - numeração;
+-  - forma bibliográfica;
+-  - indicação entre parênteses;
+-  - notas ou marcas existentes;
+-  - estilo de citação adotado na fonte.
+-- A regra de conversão de referências parentéticas da seção 6 aplica-se **somente às referências editoriais externas à citação**, adicionadas ou mantidas pelo texto/carta para documentar uma afirmação ou identificar a fonte citada.
+-- **Referência parentética localizada dentro do conteúdo literal de uma citação é EXCEÇÃO expressa à conversão** e DEVE permanecer intocada.
+-- A IA NÃO DEVE “corrigir” uma subcitação para adequá-la ao padrão atual do repositório, mesmo que sua forma seja diferente da norma editorial vigente.
+-- A IA NÃO DEVE substituir uma referência interna pelo formato moderno, pelo nome completo da obra, por footnote ou por qualquer forma considerada mais correta.
+-- Se houver aparente erro na subcitação original, a IA DEVE preservar o texto citado como está. Eventual observação editorial somente PODE ser feita fora da citação quando materialmente necessária, verificável e compatível com as normas do repositório; NUNCA mediante adulteração silenciosa do conteúdo citado.
+-- A referência **externa** que identifica de onde a citação principal foi extraída continua sujeita às regras normais de verificação e formatação.
+-- Portanto, DEVE ser distinguido rigorosamente:
+-  - **referência da citação** → editorial, identifica a fonte da citação principal, DEVE ser verificada/normalizada conforme estas normas;
+-  - **referência dentro da citação** → conteúdo do autor citado, DEVE ser preservada literalmente.
+-
+-### 6.2. Fontes Ellen G. White
+-
+-- Os livros citados são de **Ellen G. White**.
+-- Fontes locais prioritárias:
+-  `D:\trampo\egwSearch\src\publications\egw\`
+-  contendo PDFs/EPUBs aninhados.
+-- Fontes públicas auxiliares/conferência:
+-  - `https://egwwritings.org/`
+-  - `https://centrowhite.org.br/`
+-  - `https://ellenwhiteaudio.org/pt/`
+-- Citação inline DEVE ficar entre aspas e em itálico, seguida imediatamente da referência conforme padrão vigente do repositório.
+-- Se o repositório possuir padrão de footnote, utilizá-lo com `[^n]`, seguindo o RCF/normas.
+-- Para livro em footnote, usar como texto da referência:
+-  `<NomeLivro>[ - <NomeCapítulo>], p. <páginas-separadas-por-vírgula>`
+-  onde o trecho entre `[]` somente existe quando houver capítulo aplicável.
+-- NÃO aglutinar referências de livros distintos em uma única referência. Cada obra citada DEVE ser identificada separadamente.

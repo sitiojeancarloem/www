@@ -1,0 +1,44 @@
+Evidência persistida delta; linhas 117-159. Fragmento 3/5; não representa inventário completo.
+-- Evitar aglutinações excessivamente longas de páginas/citações, salvo quando todas comprovarem inequivocamente a mesma ideia/conceito.
+-- Se, dentro do trecho literal de Ellen G. White, houver referência a Bíblia, autor, livro ou qualquer outra fonte, **preservar exatamente a forma original usada por Ellen G. White**, conforme §6.1; essa subreferência NÃO se confunde com a referência editorial que identifica a obra de Ellen G. White da qual o trecho foi retirado.
+-
+-### 6.3. Bíblia
+-
+-- Para footnote bíblica, usar:
+-  `Bíblia, <VERSÃO>. <NomeLivro> <Capítulo>:<versículos>[; <Capítulo>:<versículos>]*`
+-- Para referência bíblica entre parênteses, quando esse formato for legitimamente aplicável pelas normas:
+-  `(<VERSÃO>. <SiglaLivro> <Capítulo>:<versículos>[; <Capítulo>:<versículos>]*)`
+-- `<VERSÃO>` DEVE estar capitalizada.
+-- Quando mais de um livro bíblico for citado, NÃO aglutinar tudo em uma referência indistinta; separar adequadamente cada livro.
+-- Evitar referências excessivamente extensas, salvo quando os textos citados comprovarem inequivocamente o mesmo conceito.
+-- Estas regras de normalização bíblica aplicam-se às **referências editoriais do texto**, NÃO às referências bíblicas que já façam parte literalmente de uma citação de outro autor; estas DEVEM permanecer conforme §6.1.
+-
+-### 6.4. Blockquotes
+-
+-- Em citação `>`, todo o trecho citado DEVE permanecer em **um único parágrafo**.
+-- Para Bíblia, cada versículo DEVE ser individualmente identificado pelo respectivo número em sobrescrito, por exemplo:
+-  `> ²³ E disse-lhe um: Senhor, são **poucos** os que se salvam? E ele lhe respondeu: ²⁴ Esforçai-vos para entrar pela porta estreita; porque eu vos digo que **muitos** procurarão entrar, **e não poderão**.`
+-- Imediatamente na linha seguinte, ainda dentro do blockquote, inserir:
+-  `> — <referência-completa>`
+-- Em blockquote, seja Bíblia ou outra obra, **NÃO usar footnote para a referência da própria citação**.
+-- Se o conteúdo original do blockquote contiver subcitação/referência interna do próprio autor, esta DEVE permanecer no mesmo ponto e exatamente na forma original, sem 
+
+[... conteúdo truncado ...]
+
+ecado**. São afirmações sobre **possibilidade, dever e poder divino**. Não autorizam transformar a rendição ao pecado em destino inevitável.
+ 
+ Essa vitória **NÃO equivale** a perfeccionismo autossuficiente, justiça meritória ou pretensão de impecabilidade pessoal. Também **NÃO pressupõe pós-lapsarianismo**: essa discussão trata da natureza humana assumida por CRISTO; não é sinônimo de vitória sobre o pecado nem, por si só, de perfeccionismo. Não faço dessas posições o fundamento desta exigência moral, nem atribuo indistintamente aos seus defensores conclusões que não demonstraram. O fundamento é **CRISTO**, SUA graça e o poder santificador do ESPÍRITO. A crença adventista nº 11, sobre crescimento em CRISTO, corrobora a vida transformada pelo ESPÍRITO, a comunhão diária e o serviço; não substitui a demonstração bíblica nem as declarações explícitas já citadas.[^crencacrescimento]
+ 
+@@ -411,7 +277,6 @@ E há uma cena que destrói a pretensão de trocar a graça pela autoglorificaç
+ 
+ Os anjos **cessam de cantar**; não se diz que todos os anjos do Céu ficaram aterrorizados. Os salvos perguntam pelas vestes; CRISTO responde com **mãos limpas e coração puro** e _**“Minha graça vos basta”**_[^pevisao]. Então a alegria volta e o cântico recomeça. **NEM licença para transgredir, NEM independência da graça.** A pureza não é apagada pela promessa; a promessa não é substituída pela exaltação da pureza própria. Eis a força do argumento: buscar a vitória **EM CRISTO**, sem jamais fazer da vitória uma razão para dispensá-LO. E a resposta positiva vai além de evitar a transgressão: é viver para o que **edifica**, pois _“nem todas edificam”_[^1co1023].
+ 
+-
+ <!-- AI-PROCESSED:END -->
+ 
+ > ¹³ **NÃO** sobreveio a vocês tentação que **não fosse comum aos homens**. Mas **DEUS é fiel**; ELE **não permitirá** que vocês sejam **tentados ALÉM** do que **podem suportar**. Antes, quando forem tentados, **ELE mesmo providenciará** um **escape**, para que a possam **suportar**.
+@@ -540,7 +405,7 @@ Ellen White escreveu: _“Deus ordenou que os representantes de Sua igreja de to
+ 
+ <!-- AI-PROCESSED:START -->
+ 
+-Por si mesmos e em segredo, aplicam disciplina como **SE** fossem a autoridade suprema. É precisamente isso que chamo de **romanismo** ou “hierarquia papal”: autoridade humana colocada acima da **VERDADE** e da consciência. Desprezam transparência, ordem, respeito, defesa e apuração, substituindo-os por suspeitas. A acusação é sobre esse **modo de agir**; não depende de afirmar que todas as estruturas históricas sejam idênticas. _Modus operandi_ é aqui minha expressão para esse procedimento, não uma citação literal atribuída a determinada tradução de *O Grande Conflito*.
