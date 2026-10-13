@@ -1,0 +1,134 @@
+RESULTADO  
+Inventário dos grupos de mudanças visíveis na evidência fornecida (parte 2/5 da remoção do cabeçalho comentado histórico da seção 6 do RCF editorial):
+
+1. **Seção 6 — Citações e referências (remoção total)**  
+   - Linhas prefixadas com `-` indicam remoção completa da seção 6 e seus subtópicos (6.1 e 6.2).  
+   - Trecho identificador: `## 6. Citações e referências — regra absoluta` e subsequente até o fim da seção 6.2.  
+   - Linhas prefixadas com `+` ausentes: não há adições nesta parte; apenas remoção.
+
+2. **Preservação de subcitações (seção 6.1)**  
+   - Remoção de regras específicas sobre subcitações, referências internas e exceções à conversão.  
+   - Trecho identificador: `### 6.1. Preservação absoluta de subcitações e referências internas às citações`.
+
+3. **Fontes Ellen G. White (seção 6.2)**  
+   - Remoção de regras para citações de Ellen G. White, incluindo fontes locais, públicas, formatação inline, footnote e formatação bibliográfica.  
+   - Trecho identificador: `### 6.2. Fontes Ellen G. White`.
+
+4. **Evidência persistida delta (notificação de fragmento)**  
+   - Linha `Evidência persistida delta; linhas 64-116.` indica que a seção 6 original ocupava linhas 64–116 no arquivo completo; esta parte cobre a remoção dessa faixa.
+
+5. **Contexto de fragmento**  
+   - Indicação explícita: `Fragmento 2/5; não representa inventário completo.`  
+   - Confirma que esta parte é contínua da parte 1 (que cobriu seções 1–5) e não inclui as demais seções (7+).
+
+EVIDÊNCIAS  
+- Evidência fornecida diretamente pelo supervisor, com origem em `AGENTS.md + agents.local.md + .ia.rules/state/contexts/FT-112/M13-recuperacao/parte-02.txt`, normalizada CRLF→LF e versionada em `1826ada374`.  
+- Linhas prefixadas com `-` indicam remoção; `+` indica adição (não presente nesta parte).  
+- `@@` ausente na evidência fornecida, mas contexto indica hunk único cobrindo a seção 6 completa.
+
+RISCOS/LIMITAÇÕES  
+- Cobertura limitada à seção 6 (6, 6.1 e 6.2); demais seções não analisadas.  
+- Não há adições nesta parte; apenas remoção de instruções normativas.  
+- Estado atual prevalece; não há restauração de versões anteriores nem atribuição de autoria.  
+- Fragmento cortado não foi completado imaginariamente; apenas inventariado conforme evidência.
+
+NEEDS_SUPERVISOR  
+—
+
+EXECUÇÃO COMPROVADA PELO RUNTIME
+Base fornecida pelo supervisor: "AGENTS.md + agents.local.md + .ia.rules/state/contexts/FT-112/M13-recuperacao/parte-02.txt; lidos pelo supervisor, apenas normalizados CRLF→LF. Fragmento versionado em 1826ada374, derivado de evidence.jsonl do job 0ceda154-03fc-4bd9-9fe1-0da624ebfb43."
+Leituras: []
+Comandos com exit_code=0: []
+Commits verificados: 0. Qualidade semântica sujeita ao aceite do supervisor.
+
+ESTADO GIT DETERMINÍSTICO (2026-10-13T02:36:56.712Z; prevalece se houver divergência):
+## dev...origin/dev [ahead 3]
+ M .ia.rules/continue.ia
+ M .ia.rules/state/contexts/FT-112/historico-retomada.md
+ M .ia.rules/state/contexts/FT-112/retomada.md
+ M .ia.rules/state/continue.ia
+ M _site/404.html
+ M _site/RCFs/bate-papo.md
+ M _site/RCFs/carregamento-progressivo.md
+ M _site/RCFs/citacoes.md
+ M _site/RCFs/componentes-compartilhados.md
+ M _site/RCFs/documentacao-e-metadados.md
+ M _site/RCFs/impressao-ieee.md
+ M _site/RCFs/leitura-acessivel-e-tts.md
+ M _site/RCFs/operacao-da-ia.md
+ M _site/RCFs/referencias-e-footnotes.md
+ M _site/_fixtures/blockquote-models/index.html
+ M _site/_fixtures/covers/content/index.html
+ M _site/_fixtures/covers/full-window/index.html
+ M _site/_fixtures/covers/inner-full-window/index.html
+ M _site/_fixtures/covers/inner-window-height/index.html
+ M _site/_fixtures/covers/inner-window-width/index.html
+ M _site/_fixtures/covers/legacy/index.html
+ M _site/_fixtures/covers/wide-single/index.html
+ M _site/_fixtures/covers/wide-triptych/index.html
+ M _site/_fixtures/covers/window-height/index.html
+ M _site/_fixtures/covers/window-width/index.html
+ M _site/_fixtures/pagespeed/about/index.html
+ M _site/_fixtures/pagespeed/article-basic/index.html
+ M _site/_fixtures/pagespeed/article-panel/index.html
+ M _site/_fixtures/pagespeed/map/index.html
+ M _site/_fixtures/tts-accessibility/index.html
+ M _site/assets/css/main.css
+ M _site/assets/css/main.css.map
+ M _site/assets/images/documentacao/blockquote/centered-mark.svg
+ M _site/assets/images/documentacao/blockquote/editorial-statement.svg
+ M _site/assets/jcem/accessibility-manifest.json
+ M _site/assets/jcem/asset-metadata.json
+ M _site/assets/jcem/css/jcmain.scss
+ M _site/assets/jcem/js/read-aloud.js
+ M _site/assets/jcem/js/site.js
+ M _site/assets/jcem/print-ieee/ieee.css
+ M _site/assets/jcem/print-ieee/index.js
+ M _site/assets/jcem/print-ieee/jekyll-blog.css
+ M _site/assets/js/lunr/lunr-en.js
+ M _site/assets/js/lunr/lunr-gr.js
+ M _site/assets/js/lunr/lunr-store.js
+ M _site/atribuicoes/index.html
+ M _site/c/index.html
+ M _site/index.html
+ M _site/mapa/index.html
+ M _site/p/5-verdades-de-genesis-27/index.html
+ M _site/p/bate-papo/eventos-finais/a-heranca-dos-santos/index.html
+ M _site/p/bate-papo/eventos-finais/rumo-ao-lar-viagem-dos-remidos-coroas-e-recompensa-celestial/index.html
+ M _site/p/como-identificar-falacias/index.html
+ M _site/p/devaneios/index.html
+ M _site/p/nenhum-nivel-de-alcool-faz-bem-a-saude/index.html
+ M _site/p/nove-motivos-para-guardar-o-sabado/index.html
+ M _site/p/salvacao-importa-ser-perfeito/index.html
+ M _site/p/sola-scriptura/index.html
+ M _site/p/tradicao-vs-biblia-tradicao-ou-biblia/index.html
+ M _site/page-2/index.html
+ M _site/sobre/index.html
+ M _site/t/index.html
+?? _site/RCFs/doacoes.md
+?? _site/RCFs/resiliencia-operacional.md
+?? _site/RCFs/revisao-automatizada-por-ia.md
+?? _site/RCFs/verificacao-fontes-egw.md
+?? _site/assets/images/documentacao/impressao-ieee/
+?? _site/assets/images/fixtures/print-ieee/
+?? _site/assets/images/overlays/
+?? _site/assets/images/posts/carta-aberta-hierarquia-papal-na-igreja/
+?? _site/assets/images/social/a-heranca-dos-santos-og-portrait.jpg
+?? _site/assets/images/social/cinco-verdades-genesis-og-portrait.jpg
+?? _site/assets/images/social/como-identificar-falacias-og-portrait.jpg
+?? _site/assets/images/social/cover-triptych-central-6bb3ecf5-3ca42f2391-cover.webp
+?? _site/assets/images/social/cover-triptych-central-6bb3ecf5-3ca42f2391-og-portrait.jpg
+?? _site/assets/images/social/cover-triptych-central-6bb3ecf5-3ca42f2391-og-wide.jpg
+?? _site/assets/images/social/cover-triptych-central-6bb3ecf5-og-portrait.jpg
+?? _site/assets/images/social/cover-triptych-right-1e6ed036-og-portrait.jpg
+?? _site/assets/images/social/devaneios-grande-og-portrait.jpg
+?? _site/assets/images/social/nenhum-alcool-og-portrait.jpg
+?? _site/assets/images/social/nove-motivos-sabado-og-portrait.jpg
+?? _site/assets/images/social/rumo-ao-lar-viagem-dos-remidos-og-portrait.jpg
+?? _site/assets/images/social/salvacao-importa-ser-perfeito-og-portrait.jpg
+?? _site/assets/images/social/sola-scriptura-og-portrait.jpg
+?? _site/assets/images/social/tradicao-vs-biblia-og-portrait.jpg
+?? _site/fixtures/
+?? _site/p/artigo_probabilidade_modelos_borel/
+?? _site/p/carta-aberta-hierarquia-papal-na-igreja/
+
