@@ -1,0 +1,140 @@
+RESULTADO  
+Inventário parcial do fragmento (complemento3/3 da FT-112/M13), com base em `provided_evidence`:
+
+- **Trecho citado de autora americana (sem nome)**:  
+  - Frase-chave: “**Aqueles** que têm escolhido **<u>seu próprio</u> caminho** e se têm erguido **contra** os **claros** testemunhos a eles dados, procurando **abalar a fé** dos demais **nessas mensagens, <u>DEVEM decidir a questão COM DEUS</u>**”  
+  - Footnote: *Testemunhos para a igreja – A reunião campal de Michigan, p. 23* (repetida duas vezes).  
+  - Citação subsequente direta: “_prefiro o caminho de Deus e NÃO o delas_” (mesma fonte).  
+  - Ênfase: “**está escrito**” como única base autoritativa, sem margem para gosto/opinião/cuidado/zelo/vontade própria.
+
+- **Autoexame individual obrigatório**:  
+  - Trecho: “**Está escrito** que o próprio indivíduo deve se **auto\"_examinar_\"**”  
+  - Footnote adicionada: lista de passagens (Gálatas 6:4; 1 Coríntios 11:28, 31; 2 Coríntios 13:5; Lamentações 3:40; Salmos 139:23–24), com justificativa: “passagens que estabelecem a responsabilidade individual de examinar a própria conduta, avaliar a própria fé e confrontar a própria vida com a vontade de Deus”.
+
+- **Denúncia de pecado/erro vs. apontamento de pessoas**:  
+  - Esclarecimento: “Aqui NÃO serão citadas, mencionadas nem acusadas pessoas pelo nome, algo que ocorre com **pouquíssimas exceções** na Bíblia.”  
+  - Destaque: “**NÃO serei eu** quem estará apontando o dedo, MAS o Espírito Santo, convencendo cada um de sua própria condição diante da Palavra de Deus.”  
+  - Footnote adicionada: distinção bíblica entre “discernir/examinar” (recomendado) e “condenar” (vedado), com lista de passagens (Provérbios 14:15; Mateus 10:16; João 7:24; 1 Coríntios 2:15; 5:12–13; 6:2–5; Mateus 7:1–5; Lucas 6:37; Romanos 14:4, 10–13; 1 Coríntios 4:5; Tiago 4:11–12).  
+  - Conclusão: “**discernir e repreender o erro NÃO equivale a condenar a pessoa**, tampouco a usurpar a autoridade divina.”
+
+- **Santificação e oposição de Satanás**:  
+  - Ênfase: “A mensagem da **santificação** — a transformação da vida pela ação de DEUS — SEMPRE causará impacto nas mentes humanas.”  
+  - Ação de Satanás: “odeia essa mensagem e luta com todas as suas forças contra ela.”  
+  - Vínculo com Apocalipse 14:12: “identifica os santos como aqueles que guardam os mandamentos de DEUS e têm a fé de JESUS.”  
+  - Referência a experiência local: 18 anos em Pirassununga/SP sem ver pregação de “perfeccionismo” ou “pós-lapsarianismo” como rótulos para desqualificar apelo à santificação.
+
+- **Qualificações e limites declarados**:  
+  - “Isso não me coloca, de forma alguma, como profeta, pois a situação é justamente a contrária: aqui, não me apresento como alguém que recebeu uma revelação sobrenatural diretamente de Deus, mas como alguém comum, como qualquer outro que recebeu de Deus o ‘**está escrito**’.”  
+  - “Voltarei a falar sobre isso mais adiante.” (placeholder de continuidade)
+
+EVIDÊNCIAS  
+- Fonte: `provided_evidence` (extraído de `delta-integral.patch`, linha 4d7692d2f6, CRLF→LF pelo supervisor).  
+- Fragmento: complemento3/3 da recuperação do primeiro hunk (parte 3/3).  
+- Não há leitura ou execução de ferramentas; apenas análise do conteúdo fornecido.
+
+RISCOS/LIMITAÇÕES  
+- Fragmento incompleto: início pode continuar linha cortada (sem contexto anterior).  
+- Não há verificação de consistência interna ou com outros documentos; apenas inventário descritivo.  
+- Não foi aplicada nenhuma correção, atenuação ou restauração; apenas registro de alterações.  
+- Não há autoria, fontes ou linhas atribuídas além do que consta no `provided_evidence`.
+
+NEEDS_SUPERVISOR  
+—
+
+EXECUÇÃO COMPROVADA PELO RUNTIME
+Base fornecida pelo supervisor: "AGENTS.md + agents.local.md + .ia.rules/state/contexts/FT-112/M13-recuperacao/complemento-cabecalho-03.txt, lidos pelo supervisor com CRLF→LF. Fragmento versionado em 4d7692d2f6, extraído de delta-integral.patch sem truncamento."
+Leituras: []
+Comandos com exit_code=0: []
+Commits verificados: 0. Qualidade semântica sujeita ao aceite do supervisor.
+
+ESTADO GIT DETERMINÍSTICO (2026-10-13T03:04:16.315Z; prevalece se houver divergência):
+## dev...origin/dev [ahead 1]
+ M .ia.rules/continue.ia
+ M .ia.rules/state/contexts/FT-112/historico-retomada.md
+ M .ia.rules/state/contexts/FT-112/retomada.md
+ M .ia.rules/state/continue.ia
+ M _site/404.html
+ M _site/RCFs/bate-papo.md
+ M _site/RCFs/carregamento-progressivo.md
+ M _site/RCFs/citacoes.md
+ M _site/RCFs/componentes-compartilhados.md
+ M _site/RCFs/documentacao-e-metadados.md
+ M _site/RCFs/impressao-ieee.md
+ M _site/RCFs/leitura-acessivel-e-tts.md
+ M _site/RCFs/operacao-da-ia.md
+ M _site/RCFs/referencias-e-footnotes.md
+ M _site/_fixtures/blockquote-models/index.html
+ M _site/_fixtures/covers/content/index.html
+ M _site/_fixtures/covers/full-window/index.html
+ M _site/_fixtures/covers/inner-full-window/index.html
+ M _site/_fixtures/covers/inner-window-height/index.html
+ M _site/_fixtures/covers/inner-window-width/index.html
+ M _site/_fixtures/covers/legacy/index.html
+ M _site/_fixtures/covers/wide-single/index.html
+ M _site/_fixtures/covers/wide-triptych/index.html
+ M _site/_fixtures/covers/window-height/index.html
+ M _site/_fixtures/covers/window-width/index.html
+ M _site/_fixtures/pagespeed/about/index.html
+ M _site/_fixtures/pagespeed/article-basic/index.html
+ M _site/_fixtures/pagespeed/article-panel/index.html
+ M _site/_fixtures/pagespeed/map/index.html
+ M _site/_fixtures/tts-accessibility/index.html
+ M _site/assets/css/main.css
+ M _site/assets/css/main.css.map
+ M _site/assets/images/documentacao/blockquote/centered-mark.svg
+ M _site/assets/images/documentacao/blockquote/editorial-statement.svg
+ M _site/assets/jcem/accessibility-manifest.json
+ M _site/assets/jcem/asset-metadata.json
+ M _site/assets/jcem/css/jcmain.scss
+ M _site/assets/jcem/js/read-aloud.js
+ M _site/assets/jcem/js/site.js
+ M _site/assets/jcem/print-ieee/ieee.css
+ M _site/assets/jcem/print-ieee/index.js
+ M _site/assets/jcem/print-ieee/jekyll-blog.css
+ M _site/assets/js/lunr/lunr-en.js
+ M _site/assets/js/lunr/lunr-gr.js
+ M _site/assets/js/lunr/lunr-store.js
+ M _site/atribuicoes/index.html
+ M _site/c/index.html
+ M _site/index.html
+ M _site/mapa/index.html
+ M _site/p/5-verdades-de-genesis-27/index.html
+ M _site/p/bate-papo/eventos-finais/a-heranca-dos-santos/index.html
+ M _site/p/bate-papo/eventos-finais/rumo-ao-lar-viagem-dos-remidos-coroas-e-recompensa-celestial/index.html
+ M _site/p/como-identificar-falacias/index.html
+ M _site/p/devaneios/index.html
+ M _site/p/nenhum-nivel-de-alcool-faz-bem-a-saude/index.html
+ M _site/p/nove-motivos-para-guardar-o-sabado/index.html
+ M _site/p/salvacao-importa-ser-perfeito/index.html
+ M _site/p/sola-scriptura/index.html
+ M _site/p/tradicao-vs-biblia-tradicao-ou-biblia/index.html
+ M _site/page-2/index.html
+ M _site/sobre/index.html
+ M _site/t/index.html
+?? _site/RCFs/doacoes.md
+?? _site/RCFs/resiliencia-operacional.md
+?? _site/RCFs/revisao-automatizada-por-ia.md
+?? _site/RCFs/verificacao-fontes-egw.md
+?? _site/assets/images/documentacao/impressao-ieee/
+?? _site/assets/images/fixtures/print-ieee/
+?? _site/assets/images/overlays/
+?? _site/assets/images/posts/carta-aberta-hierarquia-papal-na-igreja/
+?? _site/assets/images/social/a-heranca-dos-santos-og-portrait.jpg
+?? _site/assets/images/social/cinco-verdades-genesis-og-portrait.jpg
+?? _site/assets/images/social/como-identificar-falacias-og-portrait.jpg
+?? _site/assets/images/social/cover-triptych-central-6bb3ecf5-3ca42f2391-cover.webp
+?? _site/assets/images/social/cover-triptych-central-6bb3ecf5-3ca42f2391-og-portrait.jpg
+?? _site/assets/images/social/cover-triptych-central-6bb3ecf5-3ca42f2391-og-wide.jpg
+?? _site/assets/images/social/cover-triptych-central-6bb3ecf5-og-portrait.jpg
+?? _site/assets/images/social/cover-triptych-right-1e6ed036-og-portrait.jpg
+?? _site/assets/images/social/devaneios-grande-og-portrait.jpg
+?? _site/assets/images/social/nenhum-alcool-og-portrait.jpg
+?? _site/assets/images/social/nove-motivos-sabado-og-portrait.jpg
+?? _site/assets/images/social/rumo-ao-lar-viagem-dos-remidos-og-portrait.jpg
+?? _site/assets/images/social/salvacao-importa-ser-perfeito-og-portrait.jpg
+?? _site/assets/images/social/sola-scriptura-og-portrait.jpg
+?? _site/assets/images/social/tradicao-vs-biblia-og-portrait.jpg
+?? _site/fixtures/
+?? _site/p/artigo_probabilidade_modelos_borel/
+?? _site/p/carta-aberta-hierarquia-papal-na-igreja/
+
