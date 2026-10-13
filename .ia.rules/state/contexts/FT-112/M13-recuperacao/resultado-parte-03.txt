@@ -1,0 +1,131 @@
+RESULTADO  
+Inventário delimitado do bloco 3/5 da FT-112/M13a (continuação da seção 6.2):
+
+- **Remoção de trecho da seção 6.2** (linhas 117–159 da evidência):  
+  Fragmento que encerra a seção 6.2 com instruções sobre normalização bíblica e blockquotes. Trechos removidos:
+  - Linha 117–120: instrução para evitar aglutinações excessivas de citações, salvo quando todas comprovarem inequivocamente a mesma ideia/conceito.
+  - Linha 121–124: instrução para preservar exatamente a forma original de subreferências dentro de trechos literais de Ellen G. White (§6.1).
+  - Linha 125–126: início da seção 6.3, “Bíblia”, com regras para footnote e referência entre parênteses.
+  - Linha 127–130: regras de capitalização, separação por livro e evitação de referências excessivas.
+  - Linha 131–132: esclarecimento de que as regras aplicam-se às referências editoriais, não às referências já presentes literalmente em citações de outros autores.
+  - Linha 133–140: início da seção 6.4, “Blockquotes”, com regras para manter o trecho citado em um único parágrafo, identificar versículos em sobrescrito, incluir referência completa na linha seguinte, não usar footnote para referência da própria citação e preservar subcitações internas.
+
+- **Remoção de parágrafo vazio** (linha 277 da evidência):  
+  Linha em branco entre o parágrafo final da seção 6.2 e o comentário `<!-- AI-PROCESSED:END -->`.
+
+- **Remoção de parágrafo de conclusão da seção 6.2** (linhas 405–411 da evidência):  
+  Trecho que encerra a seção 6.2 com análise teológica sobre vitória sobre o pecado, distinção entre graça e autoglorificação, e menção à crença adventista nº 11.
+
+- **Remoção de parágrafo de conclusão da seção 6.2** (linhas 540–541 da evidência):  
+  Trecho que encerra a seção 6.2 com análise de trecho de Ellen White sobre autoridade humana colocada acima da Verdade e da consciência, definição de “romanismo”/“hierarquia papal” e esclarecimento de que a acusação recai sobre o *modus operandi*, não sobre estruturas históricas genéricas.
+
+EVIDÊNCIAS  
+- Fonte: `AGENTS.md + agents.local.md + .ia.rules/state/contexts/FT-112/M13-recuperacao/parte-03.txt`, extraída do job `0ceda154-03fc-4bd9-9fe1-0da624ebfb43`, versionada em `1826ada374`.  
+- Linhas 117–159 da evidência: fragmento 3/5 da seção 6.2, com instruções sobre normalização bíblica e blockquotes.  
+- Linhas 277, 405–411 e 540–541 da evidência: parágrafos removidos do corpo do artigo, identificados pelo prefixo `-` no diff.  
+
+RISCOS/LIMITAÇÕES  
+- Bloco 3/5 não representa inventário completo da seção 6.2; continuidade pendente nas partes 4–5.  
+- Não foi realizada inspeção adicional; análise limitada ao conteúdo fornecido no `provided_evidence`.  
+- Não foi possível verificar se os parágrafos removidos estão presentes em outras partes do documento.  
+
+NEEDS_SUPERVISOR  
+...
+
+EXECUÇÃO COMPROVADA PELO RUNTIME
+Base fornecida pelo supervisor: "AGENTS.md + agents.local.md + .ia.rules/state/contexts/FT-112/M13-recuperacao/parte-03.txt; lidos pelo supervisor, apenas CRLF→LF. Parte-03 versionada em 1826ada374, extraída da evidência do job 0ceda154-03fc-4bd9-9fe1-0da624ebfb43."
+Leituras: []
+Comandos com exit_code=0: []
+Commits verificados: 0. Qualidade semântica sujeita ao aceite do supervisor.
+
+ESTADO GIT DETERMINÍSTICO (2026-10-13T02:42:59.313Z; prevalece se houver divergência):
+## dev...origin/dev [ahead 4]
+ M .ia.rules/continue.ia
+ M .ia.rules/state/contexts/FT-112/historico-retomada.md
+ M .ia.rules/state/contexts/FT-112/retomada.md
+ M .ia.rules/state/continue.ia
+ M _site/404.html
+ M _site/RCFs/bate-papo.md
+ M _site/RCFs/carregamento-progressivo.md
+ M _site/RCFs/citacoes.md
+ M _site/RCFs/componentes-compartilhados.md
+ M _site/RCFs/documentacao-e-metadados.md
+ M _site/RCFs/impressao-ieee.md
+ M _site/RCFs/leitura-acessivel-e-tts.md
+ M _site/RCFs/operacao-da-ia.md
+ M _site/RCFs/referencias-e-footnotes.md
+ M _site/_fixtures/blockquote-models/index.html
+ M _site/_fixtures/covers/content/index.html
+ M _site/_fixtures/covers/full-window/index.html
+ M _site/_fixtures/covers/inner-full-window/index.html
+ M _site/_fixtures/covers/inner-window-height/index.html
+ M _site/_fixtures/covers/inner-window-width/index.html
+ M _site/_fixtures/covers/legacy/index.html
+ M _site/_fixtures/covers/wide-single/index.html
+ M _site/_fixtures/covers/wide-triptych/index.html
+ M _site/_fixtures/covers/window-height/index.html
+ M _site/_fixtures/covers/window-width/index.html
+ M _site/_fixtures/pagespeed/about/index.html
+ M _site/_fixtures/pagespeed/article-basic/index.html
+ M _site/_fixtures/pagespeed/article-panel/index.html
+ M _site/_fixtures/pagespeed/map/index.html
+ M _site/_fixtures/tts-accessibility/index.html
+ M _site/assets/css/main.css
+ M _site/assets/css/main.css.map
+ M _site/assets/images/documentacao/blockquote/centered-mark.svg
+ M _site/assets/images/documentacao/blockquote/editorial-statement.svg
+ M _site/assets/jcem/accessibility-manifest.json
+ M _site/assets/jcem/asset-metadata.json
+ M _site/assets/jcem/css/jcmain.scss
+ M _site/assets/jcem/js/read-aloud.js
+ M _site/assets/jcem/js/site.js
+ M _site/assets/jcem/print-ieee/ieee.css
+ M _site/assets/jcem/print-ieee/index.js
+ M _site/assets/jcem/print-ieee/jekyll-blog.css
+ M _site/assets/js/lunr/lunr-en.js
+ M _site/assets/js/lunr/lunr-gr.js
+ M _site/assets/js/lunr/lunr-store.js
+ M _site/atribuicoes/index.html
+ M _site/c/index.html
+ M _site/index.html
+ M _site/mapa/index.html
+ M _site/p/5-verdades-de-genesis-27/index.html
+ M _site/p/bate-papo/eventos-finais/a-heranca-dos-santos/index.html
+ M _site/p/bate-papo/eventos-finais/rumo-ao-lar-viagem-dos-remidos-coroas-e-recompensa-celestial/index.html
+ M _site/p/como-identificar-falacias/index.html
+ M _site/p/devaneios/index.html
+ M _site/p/nenhum-nivel-de-alcool-faz-bem-a-saude/index.html
+ M _site/p/nove-motivos-para-guardar-o-sabado/index.html
+ M _site/p/salvacao-importa-ser-perfeito/index.html
+ M _site/p/sola-scriptura/index.html
+ M _site/p/tradicao-vs-biblia-tradicao-ou-biblia/index.html
+ M _site/page-2/index.html
+ M _site/sobre/index.html
+ M _site/t/index.html
+?? _site/RCFs/doacoes.md
+?? _site/RCFs/resiliencia-operacional.md
+?? _site/RCFs/revisao-automatizada-por-ia.md
+?? _site/RCFs/verificacao-fontes-egw.md
+?? _site/assets/images/documentacao/impressao-ieee/
+?? _site/assets/images/fixtures/print-ieee/
+?? _site/assets/images/overlays/
+?? _site/assets/images/posts/carta-aberta-hierarquia-papal-na-igreja/
+?? _site/assets/images/social/a-heranca-dos-santos-og-portrait.jpg
+?? _site/assets/images/social/cinco-verdades-genesis-og-portrait.jpg
+?? _site/assets/images/social/como-identificar-falacias-og-portrait.jpg
+?? _site/assets/images/social/cover-triptych-central-6bb3ecf5-3ca42f2391-cover.webp
+?? _site/assets/images/social/cover-triptych-central-6bb3ecf5-3ca42f2391-og-portrait.jpg
+?? _site/assets/images/social/cover-triptych-central-6bb3ecf5-3ca42f2391-og-wide.jpg
+?? _site/assets/images/social/cover-triptych-central-6bb3ecf5-og-portrait.jpg
+?? _site/assets/images/social/cover-triptych-right-1e6ed036-og-portrait.jpg
+?? _site/assets/images/social/devaneios-grande-og-portrait.jpg
+?? _site/assets/images/social/nenhum-alcool-og-portrait.jpg
+?? _site/assets/images/social/nove-motivos-sabado-og-portrait.jpg
+?? _site/assets/images/social/rumo-ao-lar-viagem-dos-remidos-og-portrait.jpg
+?? _site/assets/images/social/salvacao-importa-ser-perfeito-og-portrait.jpg
+?? _site/assets/images/social/sola-scriptura-og-portrait.jpg
+?? _site/assets/images/social/tradicao-vs-biblia-og-portrait.jpg
+?? _site/fixtures/
+?? _site/p/artigo_probabilidade_modelos_borel/
+?? _site/p/carta-aberta-hierarquia-papal-na-igreja/
+
