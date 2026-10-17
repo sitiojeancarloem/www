@@ -51,6 +51,33 @@ const { executeVerifiedProcess }: typeof import('../.ia.rules/local/runtime/veri
   fs.unlinkSync(candidatePath);
   fs.rmdirSync(fixture);
   console.log('PROCESS_ALTERNATIVE_SUCCESS_OK');
+  // Duas alternativas previamente autorizadas, ambas falhas; limite fechado.
+  {
+    let exhaustedRuns = 0, exhaustedReads = 0;
+    const results: Awaited<ReturnType<typeof executeVerifiedProcess>>[] = [];
+    const exitCodes = [3, 4] as const;
+    for (const exitCode of exitCodes) {
+      if (results.length > 0 && results[results.length - 1].status !== 'exhausted') break;
+      const result = await executeVerifiedProcess(initial,
+        () => { exhaustedRuns++; return runLongProcess(process.execPath,
+          ['-e', 'process.exit(' + exitCode + ')'], { cwd: root, timeoutMs: 10000 }); },
+        () => { exhaustedReads++; return 99; }, () => true);
+      results.push(result);
+    }
+    assert.equal(exhaustedRuns, 2);
+    assert.equal(exhaustedReads, 0);
+    assert.equal(results.length, 2);
+    for (const result of results) {
+      assert.equal(result.status, 'exhausted');
+      assert.deepEqual(result.state, { value: 0 });
+      assert.equal(result.attempts.length, 1);
+      assert.equal(result.attempts[0].outcome, 'failed');
+      assert.equal(result.attempts[0].errorCode, 'EXECUTE_RESILIENT_FAILED');
+    }
+    assert.deepEqual(initial, { value: 0 });
+    console.log('PROCESS_ALTERNATIVES_EXHAUSTED_OK');
+  }
+
 
 })().catch(error => { console.error(error); process.exitCode = 1; });
 export {};
