@@ -79,5 +79,39 @@ const { executeVerifiedProcess }: typeof import('../.ia.rules/local/runtime/veri
   }
 
 
+
+  // Timeout é bloqueio: não autoriza iniciar outra estratégia.
+  {
+    let blockedRuns = 0, blockedReads = 0, forbiddenRuns = 0;
+    let timedOutEvidence = false;
+    const blocked = await executeVerifiedProcess(initial,
+      async () => {
+        blockedRuns++;
+        try {
+          return await runLongProcess(process.execPath,
+            ['-e', 'setTimeout(() => {}, 2000)'], { cwd: root, timeoutMs: 100 });
+        } catch (error) {
+          timedOutEvidence = (error as { result?: { status?: string } }).result?.status === 'timed_out';
+          throw error;
+        }
+      },
+      () => { blockedReads++; return 99; }, () => true);
+    if (blocked.status === 'exhausted') {
+      await executeVerifiedProcess(initial,
+        () => { forbiddenRuns++; return runLongProcess(process.execPath,
+          ['-e', 'process.exit(0)'], { cwd: root, timeoutMs: 10000 }); },
+        () => 1, value => value === 1);
+    }
+    assert.equal(timedOutEvidence, true);
+    assert.equal(blocked.status, 'blocked');
+    assert.equal(blockedRuns, 1);
+    assert.equal(blockedReads, 0);
+    assert.equal(forbiddenRuns, 0);
+    assert.equal(blocked.attempts.length, 1);
+    assert.equal(blocked.attempts[0].outcome, 'blocked');
+    assert.deepEqual(blocked.state, { value: 0 });
+    assert.deepEqual(initial, { value: 0 });
+    console.log('PROCESS_TIMEOUT_BLOCKS_ALTERNATIVE_OK');
+  }
 })().catch(error => { console.error(error); process.exitCode = 1; });
 export {};
