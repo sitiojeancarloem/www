@@ -1,0 +1,87 @@
+{
+  "elias_epub": {
+    "crossCheck": {
+      "confirmedBookKeys": [],
+      "pdfPages": [],
+      "requested": false
+    },
+    "diagnostics": {
+      "filesConsidered": 1,
+      "filesRead": 1,
+      "formatsRequested": [
+        "epub"
+      ],
+      "limits": {
+        "context": 1800,
+        "files": 2,
+        "results": 4
+      },
+      "warnings": []
+    },
+    "filters": {
+      "acronym": "",
+      "language": "",
+      "title": "",
+      "tolerance": 0
+    },
+    "occurrences": [
+      {
+        "bookKey": "tpai3",
+        "context": "te de seu tempo para sair entre seus vizinhos e cidades próximas como missionários de Deus. Eles devem levar nossas publicações e iniciar conversação, e, no espírito de Cristo, orar com e por aqueles a quem visitam. Este é o trabalho que despertará um espírito de pesquisa e reforma. Durante anos tem o Senhor estado a chamar a atenção de Seu povo para a reforma de saúde. Este é um dos grandes ramos da obra de preparação para a vinda do Filho do homem. João Batista surgiu no espírito e poder de Elias para preparar o caminho do Senhor [62] e converter as pessoas “à prudência dos justos”. Lucas 1:17. Era ele um representante daqueles que estariam vivendo nos últimos dias, aos quais Deus confiara sagradas verdades para serem apresentadas perante o povo, a fim de preparar o caminho para o segundo aparecimento de Cristo. João era um reformador. O anjo Gabriel, enviado do Céu, instruiu os pais de João sobre a reforma de saúde. Disse-lhes que o menino não deveria beber vinho, nem bebida forte, e que ele seria cheio do Espírito Santo desde o nascimento. João separou-se dos amigos e das ostentações da vida. A simplicidade de sua vestimenta, uma peça de vestuário tecida de pêlos de camelo, era uma reprovação direta à extravagância e pompa dos sacerdotes judaicos e do povo em geral. Seu regime alimentar, puramente vegetariano, composto de gafanhotos e mel silvestre, era uma censura à condescendência com o apetite e a glutonaria que prevaleciam por toda parte. Declara o profeta Malaquias: “Eis que Eu vos envio o profeta Elias, antes que venha o dia grande e terrível do Senhor; e converterá o coração dos pais aos filhos, e o coração dos filhos a seus pais.” Malaquias 4:5, 6. Aqui o profeta descreve o caráter da obra. Os que devem preparar o caminho para a segunda vinda de Cristo são representados pelo fiel Elias, assim como João veio no espírito de Elias para preparar o caminho para o primeiro advento de Cristo. O grande assunto da reforma deve ser debatido, e despertada a mente do público. A temperança em tudo deve ser associada com a mensagem, para converter o povo de Deus de sua idolatria, de sua glutonaria e de sua extravagância no vestir-se e em outras coisas. A abnegação, a humildade e a temperança requeridas dos justos, aos quais Deus guia e abençoa de modo especial, devem ser apresentadas ao povo em contraste com os hábitos extravagantes e destruidores da saúde daqueles que vivem nesta época degenerada. Deus tem mostrado que a reforma de saúde está tão estreitamente ligada com a mensagem do terceiro anjo como a mão em relação ao corpo. Em parte alguma poderá ser encontrada causa tão grande de degeneração física e moral como a negligência deste importante assunto. Os que transigem com o apetite e as paixões e fecham os olhos à luz por temor de verem as condescendências pecaminosas que estão relutando em abandonar são culpados diante de Deus. [63] Aqueles que repelem a luz em algum ponto endurecem o coração para menosprezar a luz sobre outros assuntos. O que viola as obrigações morais no que se refere ao comer e beber prepara o caminho para violar as reivindicações divinas com respeito a interesses eternos. Nosso corpo não é nossa propriedade. Deus exige que cuidemos da habitação que Ele nos confiou, a fim de que possamos apresentar-Lhe o nosso “corpo em sacrifício vivo, santo e agradável”. Romanos 12:1. Nosso corpo pertence Àquele que o fez, e estamos no dever de tornar-nos inteligentes com relação aos melhores meios de preservá-lo da ruína. Se enfraquecermos o corpo pela condescendência própria, pela transigência com o apetite e pelo vestir-nos de acordo com as modas des",
+        "format": "epub",
+        "language": "pt",
+        "location": "OEBPS/content06.xhtml",
+        "method": "normalized-exact",
+        "path": "tpai3.epub",
+        "score": 1,
+        "title": "Testemunhos para a Igreja 3"
+      }
+    ],
+    "query": "representados pelo fiel Elias",
+    "schema": "jcem-egw-source-verification/v1",
+    "status": "located"
+  },
+  "elias_pdf": {
+    "crossCheck": {
+      "confirmedBookKeys": [],
+      "pdfPages": [],
+      "requested": false
+    },
+    "diagnostics": {
+      "filesConsidered": 1,
+      "filesRead": 1,
+      "formatsRequested": [
+        "pdf"
+      ],
+      "limits": {
+        "context": 1800,
+        "files": 2,
+        "results": 4
+      },
+      "warnings": []
+    },
+    "filters": {
+      "acronym": "",
+      "language": "",
+      "title": "",
+      "tolerance": 0
+    },
+    "occurrences": [
+      {
+        "bookKey": "tpai3",
+        "context": "64 Testemunhos para a Igreja 3 vinda de Cristo são representados pelo fiel Elias, assim como João veio no espírito de Elias para preparar o caminho para o primeiro advento de Cristo. O grande assunto da reforma deve ser debatido, e despertada a mente do público. A temperança em tudo deve ser associada com a mensagem, para converter o povo de Deus de sua idolatria, de sua glutonaria e de sua extravagância no vestir-se e em outras coisas. A abnegação, a humildade e a temperança requeridas dos jus￾tos, aos quais Deus guia e abençoa de modo especial, devem ser apresentadas ao povo em contraste com os hábitos extravagantes e destruidores da saúde daqueles que vivem nesta época degenerada. Deus tem mostrado que a reforma de saúde está tão estreitamente ligada com a mensagem do terceiro anjo como a mão em relação ao corpo. Em parte alguma poderá ser encontrada causa tão grande de degeneração física e moral como a negligência deste importante assunto. Os que transigem com o apetite e as paixões e fecham os olhos à luz por temor de verem as condescendências pecaminosas que estão relutando em abandonar são culpados diante de Deus. [63] Aqueles que repelem a luz em algum ponto endurecem o coração para menosprezar a luz sobre outros assuntos. O que viola as obri￾gações morais no que se refere ao comer e beber prepara o caminho para violar as reivindicações divinas com respeito a interesses eter￾nos. Nosso corpo não é nossa propriedade. Deus exige que cuidemos da habitação que Ele nos confiou, a fim de que possamos apresentar￾Lhe o nosso “corpo em sacrifício vivo, santo e agradável”. Romanos 12:1. Nosso corpo pertence Àquele que o fez, e estamos no dever de tornar-nos inteligentes com relação aos melhores meios de pre￾servá-lo da ruína. Se enfraquecermos o corpo pela condescendência própria, pela transigência com o apetite e pelo vestir-nos de acordo com as moda",
+        "format": "pdf",
+        "language": "",
+        "location": "68",
+        "method": "normalized-exact",
+        "page": 68,
+        "path": "tpai3.pdf",
+        "score": 1,
+        "title": "tpai3"
+      }
+    ],
+    "query": "representados pelo fiel Elias",
+    "schema": "jcem-egw-source-verification/v1",
+    "status": "located"
+  }
+}
