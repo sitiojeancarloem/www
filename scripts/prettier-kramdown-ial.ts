@@ -10,7 +10,12 @@ export function createPlugin(markdownPlugin: any, builders: any): any {
     ...baseParser,
     astFormat: 'mdast',
     async parse(text: string, options: any): Promise<any> {
-      const ast = await baseParser.parse(text, options);
+      let ast = await baseParser.parse(text, options);
+      const masked = maskLazyBlockIals(ast, text);
+      if (masked.candidates.length) {
+        ast = await baseParser.parse(masked.text, options);
+        ast = restoreLazyIals(ast, text, masked.candidates);
+      }
       sourceMap.set(ast, text);
       return ast;
     }
@@ -119,7 +124,7 @@ export function collectBlockIals(ast: any, source: string): Array<{ blockIndex: 
 
   for (let i = 0; i < ast.children.length; i++) {
     const next = ast.children[i];
-    if (next?.type !== 'table' && next?.type !== 'heading') continue;
+    if (!['table', 'heading', 'blockquote', 'list'].includes(next?.type)) continue;
     if (i + 1 >= ast.children.length) continue;
     const para = ast.children[i + 1];
     if (para?.type !== 'paragraph') continue;
@@ -232,7 +237,7 @@ export function maskLazyBlockIals(ast: any, source: string): {
       const start = i;
       while (i < source.length && mask[i]) i++;
       const span = source.slice(start, i);
-      text += ' '.repeat(span.length);
+      text += '#' + ' '.repeat(span.length - 1);
     } else {
       text += source[i];
       i++;
@@ -240,4 +245,46 @@ export function maskLazyBlockIals(ast: any, source: string): {
   }
 
   return { text, candidates };
+}
+
+function restoreLazyIals(
+  ast: any,
+  source: string,
+  candidates: Array<{ start: number; end: number; line: number; raw: string }>
+): any {
+  if (!candidates || candidates.length === 0) {
+    return ast;
+  }
+
+  const newChildren: any[] = [];
+  const used = new Set<number>();
+
+  for (const child of ast.children) {
+    const candidateIndex = candidates.findIndex(
+      (c) => child.type === 'heading' && c.start === child.position.start.offset && !used.has(c.start)
+    );
+    if (candidateIndex === -1) {
+      newChildren.push(child);
+      continue;
+    }
+    const candidate = candidates[candidateIndex];
+    used.add(candidate.start);
+
+    const position = {
+      start: { line: candidate.line, column: 1, offset: candidate.start },
+      end: { line: candidate.line, column: candidate.raw.length + 1, offset: candidate.end }
+    };
+
+    newChildren.push({
+      type: 'paragraph',
+      position,
+      children: [{ type: 'text', value: candidate.raw, position }]
+    });
+  }
+
+  if (used.size !== candidates.length) {
+    throw new Error('IAL_BINDING_UNRESOLVED');
+  }
+
+  return { ...ast, children: newChildren };
 }
