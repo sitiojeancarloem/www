@@ -1,5 +1,9 @@
 # FT-112 / M13 — recuperação
 
+## Retomada atual — M40 concluída, M41 preparada
+
+Referência vigente: revisao-M40-plano-M41.md. Artigo atual SHA f35d26c8f4d684475924e735d6a572d92e3535d064238c78d53ac1b981116f5a. Render M40 passou: 44 blocos, 200 chamadas/160 notas, tabela acessível, sem avisos ou destino quebrado. M37A/B: 44 blocos e 60 inline lexicamente compatíveis; ST identidade histórica confirmada M38A. Reconstrução de 14 recibos até M35 comprovada M38; M40 registra as três alterações posteriores, sem mudanças além do plano. Não repetir scripts aplicados nem usar hashes antigos como nova execução atual. Checklist consolidado em checklist-M36A.md com revisões vinculantes. Fonte Uzá corrigida com base em PP 2007 p.655,656 impressas, físicas659,660, sem hipótese nova ou redução retórica. M41 confere números dos versículos; depois fechar demais critérios semânticos/documentais e visual pertinente, atualizar metadados e estado somente após conclusão. Preservar alterações herdadas de outras FTs e _site. Proibido manutenção própria do Worker. Shell padrão pwsh indisponível; supervisor usa WindowsPowerShell/v1.0/powershell.exe login=false. Estado antigo abaixo é histórico.
+
 Usuário autorizou localWorker expressamente após proibição anterior; vale a autorização mais recente. Não alterar o próprio Worker.
 Job anterior: 0ceda154-03fc-4bd9-9fe1-0da624ebfb43. FAILED/WORKER_INCOMPLETE/CONTEXT_CAPACITY: 32848 > 32768 tokens. Dois comandos concluídos; leituras obrigatórias pendentes impediram aceite. Nenhum resultado editorial final recuperado.
 Delta e history preservados literalmente de evidence.jsonl; não reexecutar exploração. Estado Git determinístico registra alterações herdadas de contexto e _site, sem alteração no draft. Não atribuir essas mudanças ao job.
