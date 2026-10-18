@@ -1,0 +1,24 @@
+{
+  "schema": "ft112-editorial-plan-receipt/v1",
+  "before": "6f93d7d290d8570646573d94d36cbdc76a02367572b423e78f0d6f46150d11c3",
+  "after": "5dbfc6cdc7dc5588cbc5973bbed9e49fae36365cdbce26cc777ac81d469ca130",
+  "regions": [
+    {
+      "before": "<adicionar footnote: \"Biblicamente, 'julgar' não possui um único sentido: pode significar discernir, examinar e avaliar fatos, doutrinas e comportamentos, ou proferir juízo condenatório. O primeiro sentido é expressamente recomendado e, conforme a circunstância, exigido dos cristãos (Provérbios 14:15; Mateus 10:16; João 7:24; 1 Coríntios 2:15; 5:12-13; 6:2-5); o segundo, quando envolve condenação precipitada, hipócrita ou a pretensão de determinar o destino eterno de alguém, é vedado, pois o juízo definitivo pertence a Deus (Mateus 7:1-5; Lucas 6:37; Romanos 14:4, 10-13; 1 Coríntios 4:5; Tiago 4:11-12). Portanto, **discernir e repreender o erro NÃO equivale a condenar a pessoa**, tampouco a usurpar a autoridade divina.\">",
+      "after": "[^discernimento]",
+      "kind": "mechanical"
+    },
+    {
+      "before": "",
+      "after": "\n[^discernimento]: Biblicamente, 'julgar' não possui um único sentido: pode significar discernir, examinar e avaliar fatos, doutrinas e comportamentos, ou proferir juízo condenatório. O primeiro sentido é expressamente recomendado e, conforme a circunstância, exigido dos cristãos (Bíblia, ARA. Provérbios 14:15; Bíblia, ARA. Mateus 10:16; Bíblia, ARA. João 7:24; Bíblia, ARA. 1 Coríntios 2:15; 5:12–13; 6:2–5); o segundo, quando envolve condenação precipitada, hipócrita ou a pretensão de determinar o destino eterno de alguém, é vedado, pois o juízo definitivo pertence a DEUS (Bíblia, ARA. Mateus 7:1–5; Bíblia, ARA. Lucas 6:37; Bíblia, ARA. Romanos 14:4, 10–13; Bíblia, ARA. 1 Coríntios 4:5; Bíblia, ARA. Tiago 4:11–12). Portanto, **discernir e repreender o erro NÃO equivale a condenar a pessoa**, tampouco a usurpar a autoridade divina.\n",
+      "kind": "mechanical"
+    }
+  ],
+  "scope": "Conversão mecânica do placeholder em nota explicativa autoral; referências por livro/versão e ênfases preservadas.",
+  "mechanism": "applyEditorialEdits",
+  "marking": "markedOutput oficial",
+  "evidence": [
+    "biblia-M19-julgamento.json"
+  ],
+  "unique_definitions": true
+}
