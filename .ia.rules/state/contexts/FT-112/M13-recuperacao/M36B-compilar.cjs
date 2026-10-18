@@ -10,7 +10,8 @@ for(let i=1;i<=3;i++){
  const envelope=JSON.parse(fs.readFileSync(at('resultado-M36A'+i+'.json'),'utf8'));
  const data=JSON.parse(envelope.content.find(c=>c.type==='text').text);
  if(data.status!=='COMPLETED')throw Error('Análise não concluída: '+i);
- const body=data.result.split(/\n(?:LIMITE|RISCOS\/LIMITAÇÕES|EVIDÊNCIAS)\s*\n/)[0].split('EXECUÇÃO COMPROVADA PELO RUNTIME')[0];
+ const boundary=i===1?'LIMITE':i===2?'RISCOS/LIMITAÇÕES':'EVIDÊNCIAS';
+ const body=data.result.split(new RegExp('\\n'+boundary+'\\s*\\n'))[0].split('EXECUÇÃO COMPROVADA PELO RUNTIME')[0];
  output+='\n## Segmento '+i+'\n\n'+body.trim()+'\n\nCorreções e limites vinculantes: ['+reviewNames[i-1]+']('+reviewNames[i-1]+').\n';
 }
 output+='\n## Pendências de fechamento\n\n- Cruzar todos os requisitos com as evidências de conteúdo e fontes já obtidas; não confundir histórico de execução com texto atual.\n- Incorporar precedência das instruções humanas posteriores e inventário M13 já aceito.\n- Conferir §6.4 no HTML M35, incluindo parágrafo único, versículos e atribuição; resolver notas externas versus internas com contexto.\n- Consolidar preservação, citações atuais, gates visuais pertinentes, metadados e estado final.\n- Sem publicação ou push.\n';
