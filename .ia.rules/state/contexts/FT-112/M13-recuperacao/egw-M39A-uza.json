@@ -1,1 +1,69 @@
-{"status":"pending"}
+{
+  "status": "captured",
+  "query": "Uzá",
+  "format": "epub",
+  "mechanism": "egw_source_verification.py",
+  "before": {
+    "epub": "2ce4e3e524272458360952fc665cd55063e29f56b54541030654dba3a02410be",
+    "draft": "009103297c963d1f1f9ab905e900891ce5d76c80975049794aee59885a5124f4"
+  },
+  "process_exit_code": 0,
+  "source_result": {
+    "crossCheck": {
+      "confirmedBookKeys": [],
+      "pdfPages": [],
+      "requested": false
+    },
+    "diagnostics": {
+      "filesConsidered": 550,
+      "filesRead": 1,
+      "formatsRequested": [
+        "epub"
+      ],
+      "limits": {
+        "context": 800,
+        "files": 1000,
+        "results": 4
+      },
+      "warnings": []
+    },
+    "filters": {
+      "acronym": "",
+      "language": "pt",
+      "title": "Patriarcas e Profetas",
+      "tolerance": 0.0
+    },
+    "occurrences": [
+      {
+        "bookKey": "pep",
+        "context": "ho; instiga-se o escárnio dos mundanos pelas práticas que desmentem a profissão cristã; e no entanto o cobiçoso que professa a religião continua a amontoar tesouros. “Roubará o homem a Deus? todavia vós Me roubais”, diz o Senhor. Malaquias 3:8. O pecado de Acã trouxe revés a toda a nação. Pelo pecado de um homem, o desprazer de Deus repousará sobre Sua igreja até que a transgressão seja descoberta e removida. A influência que mais temida deve ser pela igreja não é a dos francos oponentes, incrédulos e blasfemos, mas dos que incoerentemente professam a Cristo. Estes são os que impedem as bênçãos de Deus de virem a Israel, e acarretam fraqueza ao Seu povo. Quando a igreja se acha em dificuldade, quando existem a frieza e o declínio espiritual, dando ocasião a que os inimigos de Deus triunfem, então, em vez de cruzar os braços e lamentar sua infeliz condição, investiguem os membros se não há um Acã no acampamento. Com humilhação e exame de coração, procure cada qual descobrir os pecados ocultos que excluem a presença de Deus. Acã reconheceu sua culpa, quando era demasiado tarde para que a confissão o beneficiasse. Vira os exércitos de Israel voltarem de Ai derrotados e desanimados; contudo não se apresentou para confessar seu pecado. Vira Josué e os anciãos de Israel curvados em terra, com uma dor demasiado grande para exprimir-se com palavras. Houvesse feito então confissão, e teria dado alguma prova de verdadeiro arrependimento; mas guardou ainda silêncio. Ouvira a proclamação de que um grande crime fora cometido, e ouvira mesmo especificar-se o caráter daquele crime. Seus lábi",
+        "format": "epub",
+        "language": "pt",
+        "location": "OEBPS/content44.xhtml",
+        "method": "normalized-exact",
+        "path": "pt-br/livros/patriarcas-e-profetas/pep.epub",
+        "score": 1.0,
+        "title": "Patriarcas e Profetas"
+      },
+      {
+        "bookKey": "pep",
+        "context": "agrado, e os príncipes e homens principais das tribos, reuniram-se em Quiriate-Jearim. Davi estava radiante de santo zelo. A arca foi trazida da casa de Abinadabe, e colocada em um carro novo puxado por bois, enquanto dois dos filhos de Abinadabe a acompanhavam. Os homens de Israel iam em seguimento, com exultantes aclamações, e com cânticos de regozijo, unindo-se melodiosamente uma multidão de vozes com o som de instrumentos músicos; “Davi, e toda a casa de Israel, alegravam-se perante o Senhor, [...] com harpas, e com saltérios, e com tamboris, e com pandeiros, e com címbalos”. Fazia muito tempo que Israel não via uma cena de triunfo como aquela. Com alegria solene o vasto cortejo serpeava por entre colinas e vales em direção à santa cidade. Mas, “chegando à eira de Nacom, estendeu Uzá a mão à arca de Deus, e teve a mão nela; porque os bois a deixavam pender. Então a ira do Senhor se acendeu contra Uzá, e Deus o feriu ali por esta imprudência; e morreu ali junto à arca de Deus”. 2 Samuel 6:6, 7. Um súbito terror caiu sobre a multidão jubilosa. Davi ficou espantado e grandemente alarmado, e intimamente pôs em dúvida a justiça de Deus. Ele estivera procurando honrar a arca como símbolo da presença divina. Por que, pois, havia sido aquele terrível juízo enviado para mudar a ocasião de alegria em dor e lamentação? Entendendo que não seria de bom aviso ter a arca perto de si, resolveu Davi deixá-la ficar onde estava. Foi encontrado perto, para ela, um lugar, na casa de Obede-Edom, o geteu. A sorte de Uzá foi um juízo divino pela violação de um mandado explícito. Por meio de Moisé",
+        "format": "epub",
+        "language": "pt",
+        "location": "OEBPS/content69.xhtml",
+        "method": "normalized-exact",
+        "path": "pt-br/livros/patriarcas-e-profetas/pep.epub",
+        "score": 1.0,
+        "title": "Patriarcas e Profetas"
+      }
+    ],
+    "query": "Uzá",
+    "schema": "jcem-egw-source-verification/v1",
+    "status": "located"
+  },
+  "stderr": "",
+  "after": {
+    "epub": "2ce4e3e524272458360952fc665cd55063e29f56b54541030654dba3a02410be",
+    "draft": "009103297c963d1f1f9ab905e900891ce5d76c80975049794aee59885a5124f4"
+  }
+}
