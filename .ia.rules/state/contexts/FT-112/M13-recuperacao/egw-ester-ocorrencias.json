@@ -1,0 +1,55 @@
+{
+  "crossCheck": {
+    "confirmedBookKeys": [],
+    "pdfPages": [],
+    "requested": true
+  },
+  "diagnostics": {
+    "filesConsidered": 1089,
+    "filesRead": 2,
+    "formatsRequested": [
+      "epub",
+      "pdf"
+    ],
+    "limits": {
+      "context": 900,
+      "files": 10,
+      "results": 3
+    },
+    "warnings": []
+  },
+  "filters": {
+    "acronym": "",
+    "language": "pt",
+    "title": "Profetas e Reis",
+    "tolerance": 0
+  },
+  "occurrences": [
+    {
+      "bookKey": "per",
+      "context": "inais e os vis para tomar conselho contra o povo de Deus. Riqueza, gênio, educação, combinar-se-ão para cobri-los de desprezo. Governantes perseguidores, pastores e membros de igreja conspirarão contra eles. De viva voz e pela pena, ameaças e ridículo, procurarão subverter-lhes a fé. Mediante falsas representações e irados apelos, os homens suscitarão as paixões do povo. Não possuindo um “Assim dizem as Escrituras” para apresentar contra os advogados do sábado bíblico, eles recorrerão a opressivos preceitos de lei que lhes supram a falta. A fim de assegurar popularidade e sua aprovação, os legisladores se renderão aos reclamos de leis dominicais. Mas os que temem a Deus não podem aceitar uma instituição que viole um preceito do Decálogo. Neste campo se travará o último grande conflito na controvérsia entre a verdade e o erro. E nós não somos deixados em dúvida quanto ao desfecho. Hoje, como nos dias de Ester a Mardoqueu, o Senhor vindicará Sua verdade e Seu povo. [310]",
+      "format": "epub",
+      "language": "pt",
+      "location": "OEBPS/content49.xhtml",
+      "method": "normalized-exact",
+      "path": "pt-br/livros/profetas-e-reis/per.epub",
+      "score": 1,
+      "title": "Profetas e Reis"
+    },
+    {
+      "bookKey": "per",
+      "context": "nais e os vis para tomar conselho contra o povo de Deus. Riqueza, gênio, educação, combinar-se-ão para cobri￾los de desprezo. Governantes perseguidores, pastores e membros de igreja conspirarão contra eles. De viva voz e pela pena, ameaças e ridículo, procurarão subverter-lhes a fé. Mediante falsas representa￾ções e irados apelos, os homens suscitarão as paixões do povo. Não possuindo um “Assim dizem as Escrituras” para apresentar contra os advogados do sábado bíblico, eles recorrerão a opressivos preceitos de lei que lhes supram a falta. A fim de assegurar popularidade e sua aprovação, os legisladores se renderão aos reclamos de leis domini￾cais. Mas os que temem a Deus não podem aceitar uma instituição que viole um preceito do Decálogo. Neste campo se travará o último grande conflito na controvérsia entre a verdade e o erro. E nós não somos deixados em dúvida quanto ao desfecho. Hoje, como nos dias de Ester a Mardoqueu, o Senhor vindicará Sua verdade e Seu povo.",
+      "format": "pdf",
+      "language": "",
+      "location": "397",
+      "method": "normalized-exact",
+      "page": 397,
+      "path": "pt-br/livros/profetas-e-reis/per.pdf",
+      "score": 1,
+      "title": "per"
+    }
+  ],
+  "query": "como nos dias de Ester",
+  "schema": "jcem-egw-source-verification/v1",
+  "status": "ambiguous"
+}
