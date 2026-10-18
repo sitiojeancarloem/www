@@ -124,29 +124,54 @@ export function collectBlockIals(ast: any, source: string): Array<{ blockIndex: 
 
   for (let i = 0; i < ast.children.length; i++) {
     const next = ast.children[i];
-    if (!['table', 'heading', 'blockquote', 'list'].includes(next?.type)) continue;
-    if (i + 1 >= ast.children.length) continue;
-    const para = ast.children[i + 1];
-    if (para?.type !== 'paragraph') continue;
+    if (!['table', 'heading', 'blockquote', 'list', 'code', 'thematicBreak'].includes(next?.type)) continue;
 
-    const blockEnd = next.position?.end?.offset;
-    const ialStart = para.position?.start?.offset;
-    const ialEnd = para.position?.end?.offset;
-    if (para.position?.start?.column !== 1 || !Number.isInteger(para.position.start.line) || para.position.start.line !== para.position.end?.line) continue;
+    let blockEnd = next.position?.end?.offset;
+    if (!Number.isInteger(blockEnd) || blockEnd < 0 || blockEnd > source.length) continue;
 
-    if (!Number.isInteger(blockEnd) || !Number.isInteger(ialStart) || !Number.isInteger(ialEnd)) continue;
-    if (!(0 <= blockEnd && blockEnd <= ialStart && ialStart < ialEnd && ialEnd <= source.length)) continue;
+    // Pular para o próximo nó após o bloco
+    let paraIndex = i + 1;
 
-    const gap = source.slice(blockEnd, ialStart);
-    if (gap !== '\n' && gap !== '\r\n') continue;
+    // Coletar todas as IALs consecutivas após o bloco
+    while (paraIndex < ast.children.length) {
+      const para = ast.children[paraIndex];
+      if (para?.type !== 'paragraph') break;
 
-    const raw = source.slice(ialStart, ialEnd);
-    if (!raw.startsWith('{:') || !raw.endsWith('}')) continue;
-    if (raw.includes('\r') || raw.includes('\n')) continue;
-    if (raw.startsWith('{::')) continue;
-    if (/^\{:\s*[\w-]+:/.test(raw)) continue;
+      const ialStart = para.position?.start?.offset;
+      const ialEnd = para.position?.end?.offset;
+      if (para.position?.start?.column !== 1 || !Number.isInteger(para.position.start.line)) break;
 
-    result.push({ blockIndex: i, ialIndex: i + 1, raw });
+      if (!Number.isInteger(ialStart) || !Number.isInteger(ialEnd)) break;
+      if (!(blockEnd <= ialStart && ialStart < ialEnd && ialEnd <= source.length)) break;
+
+      const gap = source.slice(blockEnd, ialStart);
+      if (gap !== '\n' && gap !== '\r\n') break;
+
+      const raw = source.slice(ialStart, ialEnd);
+      if (!raw.startsWith('{:') || !raw.endsWith('}')) break;
+      if (raw.startsWith('{::')) break;
+
+      // Validar que cada linha individual começa com {: e termina com }, sem ALD
+      const lines = raw.split(/\r?\n/);
+      let valid = true;
+      for (const line of lines) {
+        if (!line.startsWith('{:') || !line.endsWith('}') || line.startsWith('{::') || line.includes('\r')) {
+          valid = false;
+          break;
+        }
+        if (/^\{:\s*[\w-]+:/.test(line)) {
+          valid = false;
+          break;
+        }
+      }
+      if (!valid) break;
+
+      result.push({ blockIndex: i, ialIndex: paraIndex, raw });
+
+      // Atualizar blockEnd para o final da IAL atual para verificar gap com o próximo
+      blockEnd = ialEnd;
+      paraIndex++;
+    }
   }
 
   return result;
