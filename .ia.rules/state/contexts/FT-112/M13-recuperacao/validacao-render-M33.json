@@ -1,1 +1,6 @@
-{"status":"pending","unit":"M33","draft_sha256":"bf152ff4c0fcbced951734a10a0c49520dc35e421fcab6ff4188c06696b5d9d7"}
+{
+  "status": "failed",
+  "sha256_draft": "bf152ff4c0fcbced951734a10a0c49520dc35e421fcab6ff4188c06696b5d9d7",
+  "error_class": "Jekyll::Errors::FatalException",
+  "error_message": "jcem_accessibility=tabela_sem_caption correcao=adicione {: data-jcem-caption=\"Legenda da tabela\" } apos a tabela Markdown"
+}
