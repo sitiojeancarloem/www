@@ -1,16 +1,18 @@
-abort 'M33A_PENDING: adaptar antes de executar'
+abort 'M33B_PENDING: compor acessibilidade e diagnóstico antes de executar'
 # Verificação pontual do draft FT-112 com os mecanismos existentes do projeto.
-require_relative '../../../../scripts/jekyll_compat'
+require_relative '../../../../../scripts/jekyll_compat'
 require 'jekyll'
 require 'kramdown'
 require 'nokogiri'
 require 'json'
 require 'digest'
-require_relative '../../../../_plugins/jcem_footnotes'
-require_relative '../../../../_plugins/jcem_quote_semantics'
-root = File.expand_path('../../../..', __dir__)
-source = File.read(File.join(root, '_drafts/carta-aberta-hierarquia-romanda-na-igreja'), encoding: 'UTF-8')
-body = source.split('-->', 2).last
+require_relative '../../../../../_plugins/jcem_footnotes'
+require_relative '../../../../../_plugins/jcem_quote_semantics'
+root = File.expand_path('../../../../..', __dir__)
+source = File.read(File.join(root, '_drafts/carta-aberta-hierarquia-papal-na-igreja/carta-aberta-hierarquia-papal-na-igreja.md'), encoding: 'UTF-8')
+frontmatter = source.match(/\A(?:\uFEFF)?---[ \t]*\r?\n.*?\r?\n---[ \t]*(?:\r?\n|\z)/m)
+raise 'Frontmatter ausente ou incompleto' unless frontmatter
+body = source[frontmatter.end(0)..]
 prepared = Jcem::Footnotes.prepare(body, 'FT-112')
 document = Kramdown::Document.new(prepared, input: 'GFM', hard_wrap: false)
 html = document.to_html
