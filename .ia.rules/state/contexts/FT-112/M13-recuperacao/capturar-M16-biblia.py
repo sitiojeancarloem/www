@@ -9,6 +9,7 @@ profiles = {
     "M16": ("biblia-M16-abertura.json", ("gl/2", "mt/18", "jo/16", "2sm/6", "1cr/13", "1cr/15", "1tm/5")),
     "M17": ("biblia-M17-correcao.json", ("2tm/3", "2tm/4", "lv/19", "pv/27", "lc/17", "at/2")),
     "M18": ("biblia-M18-autoexame.json", ("gl/6", "1co/11", "2co/13", "lm/3", "sl/139", "jo/10")),
+    "M19": ("biblia-M19-julgamento.json", ("pv/14", "mt/10", "jo/7", "1co/2", "1co/5", "1co/6", "mt/7", "lc/6", "rm/14", "1co/4", "tg/4")),
 }
 profile = sys.argv[1] if len(sys.argv) > 1 else "M16"
 if profile not in profiles:
@@ -21,14 +22,17 @@ if prior.get("status") != "pending":
 digest = lambda p: hashlib.sha256(p.read_bytes()).hexdigest()
 before = digest(draft)
 cache = {}
-for name in ("biblia-evidencias.json", "biblia-retomada.json", "biblia-adicoes.json", "biblia-final.json"):
-    path = base / name
+cache_paths = [base / name for name in ("biblia-evidencias.json", "biblia-retomada.json", "biblia-adicoes.json", "biblia-final.json")]
+cache_paths.extend(sorted(here.glob("biblia-M*.json")))
+for path in cache_paths:
     if not path.exists(): continue
     data = json.loads(path.read_text(encoding="utf-8"))
+    if isinstance(data, dict):
+        data = data.get("entries", [])
     if not isinstance(data, list): continue
     for item in data:
         if isinstance(item, dict) and item.get("verses") and item.get("ref") and item.get("version"):
-            cache[(item["version"].upper(), item["ref"])] = {**item, "evidence_origin": name}
+            cache[(item["version"].upper(), item["ref"])] = {**item, "evidence_origin": path.relative_to(base).as_posix()}
 entries = []
 for ref in refs:
     if ("ARA", ref) in cache:
