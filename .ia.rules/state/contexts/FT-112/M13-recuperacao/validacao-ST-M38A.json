@@ -1,1 +1,10 @@
-{"status":"pending"}
+{
+  "status": "passed",
+  "preservation_evidence": "validacao-preservacao-M38.json",
+  "historical_source_evidence": "../relatorio.md",
+  "historical_ref": "17f6c2c8c8",
+  "limit": "Identidade textual da citação ST e reaproveitamento de reconstrução anterior; não nova consulta pública nem aceite editorial integral.",
+  "st_identity": true,
+  "sha256_draft": "009103297c963d1f1f9ab905e900891ce5d76c80975049794aee59885a5124f4",
+  "preservation_units_verified": 14
+}
