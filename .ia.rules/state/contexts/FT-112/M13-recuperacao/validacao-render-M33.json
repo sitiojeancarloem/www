@@ -1,6 +1,6 @@
 {
   "status": "failed",
-  "sha256_draft": "bf152ff4c0fcbced951734a10a0c49520dc35e421fcab6ff4188c06696b5d9d7",
-  "error_class": "Jekyll::Errors::FatalException",
-  "error_message": "jcem_accessibility=tabela_sem_caption correcao=adicione {: data-jcem-caption=\"Legenda da tabela\" } apos a tabela Markdown"
+  "sha256_draft": "400fad28441e941fd386920db7792d153afff322a99af5418295025a6952c4a7",
+  "error_class": "RuntimeError",
+  "error_message": "Assert ausência de ** cru falhou"
 }

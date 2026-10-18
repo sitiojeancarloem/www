@@ -1,0 +1,7 @@
+{
+  "before": "400fad28441e941fd386920db7792d153afff322a99af5418295025a6952c4a7",
+  "receipt": "aplicacao-M35-enfase.json",
+  "evidence": [],
+  "edits": [{"before":"<u>**NUNCA**</u>","after":"<u><strong>NUNCA</strong></u>","kind":"mechanical"}],
+  "scope": "Corrigir somente a sintaxe da ênfase NUNCA dentro de HTML inline; preservar palavra, caixa alta, negrito, sublinhado, posição e toda força retórica."
+}
