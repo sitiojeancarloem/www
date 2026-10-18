@@ -1,0 +1,34 @@
+{
+  "schema": "ft112-editorial-plan-receipt/v1",
+  "before": "5dbfc6cdc7dc5588cbc5973bbed9e49fae36365cdbce26cc777ac81d469ca130",
+  "after": "d474cdf126fb62ce66dd2e3ed28124838b8dadb82cb0b554384541319f7166d3",
+  "regions": [
+    {
+      "before": "<adicionar umm único foot note com os trecho inteiros que mencionam a história dele>",
+      "after": "[^acabehistoria]",
+      "kind": "mechanical"
+    },
+    {
+      "before": "<adicionador foot notas sobre os 400 sarcedotes de ball enfrentados por Elias>",
+      "after": "[^baalprofetas]",
+      "kind": "mechanical"
+    },
+    {
+      "before": "<adicionar footnotes dos 400 profetas contra Micaías>",
+      "after": "[^quatrocentos]",
+      "kind": "mechanical"
+    },
+    {
+      "before": "",
+      "after": "\n[^acabehistoria]: Bíblia, ARA. 1 Reis 17:1: _“1 Então, Elias, o tesbita, dos moradores de Gileade, disse a Acabe: Tão certo como vive o Senhor, Deus de Israel, perante cuja face estou, nem orvalho nem chuva haverá nestes anos, segundo a minha palavra.”_ 1 Reis 18:17–18: _“17 Vendo-o, disse-lhe: És tu, ó perturbador de Israel? 18 Respondeu Elias: Eu não tenho perturbado a Israel, mas tu e a casa de teu pai, porque deixastes os mandamentos do Senhor e seguistes os baalins.”_\n\n[^baalprofetas]: <!-- AI-PROCESSED:START -->No Carmelo, o relato distingue **450 profetas de Baal** e **400 profetas do poste-ídolo**, que comiam da mesa de Jezabel. Os cerca de **400 profetas diante de Micaías** pertencem ao episódio de 1 Reis 22.<!-- AI-PROCESSED:END --> Bíblia, ARA. 1 Reis 18:19–22: _“19 Agora, pois, manda ajuntar a mim todo o Israel no monte Carmelo, como também os quatrocentos e cinquenta profetas de Baal e os quatrocentos profetas do poste-ídolo que comem da mesa de Jezabel. 20 Elias e os profetas de Baal no monte CarmeloEntão, enviou Acabe mensageiros a todos os filhos de Israel e ajuntou os profetas no monte Carmelo. 21 Então, Elias se chegou a todo o povo e disse: Até quando coxeareis entre dois pensamentos? Se o Senhor é Deus, segui-o; se é Baal, segui-o. Porém o povo nada lhe respondeu. 22 Então, disse Elias ao povo: Só eu fiquei dos profetas do Senhor, e os profetas de Baal são quatrocentos e cinquenta homens.”_\n\n[^quatrocentos]: Bíblia, ARA. 1 Reis 22:6–28: _“6 Então, o rei de Israel ajuntou os profetas, cerca de quatrocentos homens, e lhes disse: Irei à peleja contra Ramote-Gileade ou deixarei de ir? Eles disseram: Sobe, porque o Senhor a entregará nas mãos do rei. 7 Disse, porém, Josafá: Não há aqui ainda algum profeta do Senhor para o consultarmos? 8 Respondeu o rei de Israel a Josafá: Há um ainda, pelo qual se pode consultar o Senhor, porém eu o aborreço, porque nunca profetiza de mim o que é bom, mas somente o que é mau. Este é Micaías, filho de Inlá. Disse Josafá: Não fale o rei assim. 9 Então, o rei de Israel chamou um oficial e disse: Traze-me depressa Micaías, filho de Inlá. 10 O rei de Israel e Josafá, rei de Judá, estavam assentados, cada um no seu trono, vestidos de trajes reais, numa eira à entrada da porta de Samaria; e todos os profetas profetizavam diante deles. 11 Zedequias, filho de Quenaana, fez para si uns chifres de ferro e disse: Assim diz o Senhor: Com este escornearás os siros até de todo os consumir. 12 Todos os profetas profetizaram assim, dizendo: Sobe a Ramote-Gileade e triunfarás, porque o Senhor a entregará nas mãos do rei. 13 A profecia de MicaíasO mensageiro que fora chamar a Micaías falou-lhe, dizendo: Eis que as palavras dos profetas a uma voz predizem coisas boas para o rei; seja, pois, a tua palavra como a palavra de um deles e fala o que é bom. 14 Respondeu Micaías: Tão certo como vive o Senhor, o que o Senhor me disser, isso falarei. 15 E, vindo ele ao rei, este lhe perguntou: Micaías, iremos a Ramote-Gileade à peleja ou deixaremos de ir? Ele lhe respondeu: Sobe e triunfarás, porque o Senhor a entregará nas mãos do rei. 16 O rei lhe disse: Quantas vezes te conjurarei, que não me fales senão a verdade em nome do Senhor? 17 Então, disse ele: Vi todo o Israel disperso pelos montes, como ovelhas que não têm pastor; e disse o Senhor: Estes não têm dono; torne cada um em paz para a sua casa. 18 Então, o rei de Israel disse a Josafá: Não te disse eu que ele não profetiza a meu respeito o que é bom, mas somente o que é mau? 19 Micaías prosseguiu: Ouve, pois, a palavra do Senhor: Vi o Senhor assentado no seu trono, e todo o exército do céu estava junto a ele, à sua direita e à sua esquerda. 20 Perguntou o Senhor: Quem enganará a Acabe, para que suba e caia em Ramote-Gileade? Um dizia desta maneira, e outro, de outra. 21 Então, saiu um espírito, e se apresentou diante do Senhor, e disse: Eu o enganarei. Perguntou-lhe o Senhor: Com quê? 22 Respondeu ele: Sairei e serei espírito mentiroso na boca de todos os seus profetas. Disse o Senhor: Tu o enganarás e ainda prevalecerás; sai e faze-o assim. 23 Eis que o Senhor pôs o espírito mentiroso na boca de todos estes teus profetas e o Senhor falou o que é mau contra ti. 24 Então, Zedequias, filho de Quenaana, chegou, deu uma bofetada em Micaías e disse: Por onde saiu de mim o Espírito do Senhor para falar a ti? 25 Disse Micaías: Eis que o verás naquele mesmo dia, quando entrares de câmara em câmara, para te esconderes. 26 Então, disse o rei de Israel: Tomai Micaías e devolvei-o a Amom, governador da cidade, e a Joás, filho do rei; 27 e direis: Assim diz o rei: Metei este homem na casa do cárcere e angustiai-o, com escassez de pão e de água, até que eu volte em paz. 28 Disse Micaías: Se voltares em paz, não falou o Senhor, na verdade, por mim. Disse mais: Ouvi isto, vós, todos os povos!”_\n",
+      "kind": "mechanical"
+    }
+  ],
+  "scope": "Três placeholders do primeiro parágrafo de Acabe convertidos em notas; trechos primários integrais, distinção factual de números marcada, corpo e intensidade preservados.",
+  "mechanism": "applyEditorialEdits",
+  "marking": "markedOutput oficial",
+  "evidence": [
+    "biblia-M20-acabe.json"
+  ],
+  "unique_definitions": true
+}
