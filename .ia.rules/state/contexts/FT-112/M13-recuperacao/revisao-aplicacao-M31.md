@@ -1,0 +1,9 @@
+# M31 — parêntese integrado, validação global pendente
+
+Job 445b43f7-af1e-405d-b804-f23c1534f81c: aplicar_m31 e diff_check exit0. Reconstrução exata das duas regiões do recibo, incluindo marcas oficiais, coincide com carta atual SHA-256 b7cfd38635374381cddd64f6e190582115e2771d9cdbf7f5f92a2a56a2455bd7. Nenhum outro trecho foi alterado. Corpo do parêntese breve, sete notas preservam a cadeia registrada no plano; tese institucional, classe NUMEROSA e ressalva autoral da hipótese permanecem.
+
+Instrução de trabalho executada e discussão residual Ap9 substituída pelo autor saem da exposição; fonte da instrução continua integralmente versionada. Referências Ap18:8/18:4/12:8 distinguidas. Decreto/sétima taça/libertação e revelação/cumprimento do milênio corrigidos conforme fontes. Continuidade institucional seguinte não foi editada. Isto não é declaração de certeza bíblica para a duração anual.
+
+Git determinístico: zero commits Worker; carta alterada e alterações herdadas em estado/runtime/site. Índice vazio antes do commit supervisor, restrito a carta/recibo/resultado/revisão. Diff --check passou; renderização ainda não foi comprovada.
+
+Triagem estrutural dirigida após integração: 198 chamadas e161 definições detectadas por expressão ancorada em início de linha; ap1217 aparentemente sem definição reconhecida, exigindo conferir se um marcador AI na mesma linha impediu seu reconhecimento. ap7/ap81/ap915/cesmith sem chamadas após deslocamento do parêntese; não apagar antes de conferir conteúdo e migração. A primeira busca por TODO gerou falsos positivos em palavras portuguesas como todos; não é inventário confiável de instruções. Próxima unidade M32: resolver apenas esse conjunto estrutural, comprovar ausência real de placeholders e preparar validação renderizada/tabela. Sem nova reescrita teológica ou retórica.
