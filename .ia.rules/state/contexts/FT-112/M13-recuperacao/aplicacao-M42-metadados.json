@@ -1,0 +1,17 @@
+{
+  "schema": "ft112-editorial-plan-receipt/v1",
+  "before": "f35d26c8f4d684475924e735d6a572d92e3535d064238c78d53ac1b981116f5a",
+  "after": "549c46c77e77ad40e6817a4fd34f21a83854f9441cad957094c5b9d0352290c4",
+  "regions": [
+    {
+      "before": "last_modified_at: '2026-10-17T21:32:35-03:00'",
+      "after": "last_modified_at: '2026-10-18T04:46:23-03:00'",
+      "kind": "mechanical"
+    }
+  ],
+  "scope": "Atualizar somente a data real da revisão no YAML próprio da carta; preservar demais metadados e corpo integralmente.",
+  "mechanism": "applyEditorialEdits",
+  "marking": "markedOutput oficial",
+  "evidence": [],
+  "unique_definitions": true
+}

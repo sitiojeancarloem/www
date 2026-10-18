@@ -2,7 +2,7 @@
 title: 'Carta aberta: a hierarquia papal na Igreja Adventista'
 author: 'jeancarlo'
 date: '2026-09-26T23:27:09-03:00'
-last_modified_at: '2026-10-17T21:32:35-03:00'
+last_modified_at: '2026-10-18T04:46:23-03:00'
 description: 'Carta aberta contra o silenciamento da verdade e a autoridade humana acima da Palavra de Deus na Igreja Adventista. Um chamado à santificação, à vitória sobre o pecado pela graça de Cristo e à responsabilidade de membros e líderes no grande Dia da Expiação.'
 abstract: 'An open letter against the silencing of truth and human authority placed above the Word of God in the Seventh-day Adventist Church. A call to sanctification, victory over sin through the grace of Christ, and the responsibility of members and leaders in the great Day of Atonement.'
 source: 'https://www.jeancarloem.com/p/carta-aberta-hierarquia-papal-na-igreja'

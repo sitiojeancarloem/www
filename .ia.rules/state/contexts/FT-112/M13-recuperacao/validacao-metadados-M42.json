@@ -1,1 +1,10 @@
-{"status":"pending"}
+{
+  "status": "passed",
+  "limit": "YAML, imagem e identidade exata do corpo; não novo build/render/teste de site.",
+  "sha256_draft": "549c46c77e77ad40e6817a4fd34f21a83854f9441cad957094c5b9d0352290c4",
+  "sha256_body": "52024f7c9020ca5032ba16aa0100eb2c6f8a8c67345c62f2df3ef3b6e01dffde",
+  "body_unchanged_from_M40": true,
+  "last_modified_at": "2026-10-18T04:46:23-03:00",
+  "image_exists": true,
+  "yaml_valid": true
+}
