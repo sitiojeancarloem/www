@@ -146,3 +146,98 @@ export function collectBlockIals(ast: any, source: string): Array<{ blockIndex: 
 
   return result;
 }
+
+export function maskLazyBlockIals(ast: any, source: string): {
+  text: string;
+  candidates: Array<{ start: number; end: number; line: number; raw: string }>;
+} {
+  const candidates: Array<{ start: number; end: number; line: number; raw: string }> = [];
+  if (ast?.type !== 'root' || !Array.isArray(ast.children)) return { text: source, candidates };
+  const mask = new Array(source.length).fill(false);
+
+  for (const child of ast.children || []) {
+    if (child?.type !== 'blockquote' && child?.type !== 'list') continue;
+
+    const blockStart = child.position?.start?.offset;
+    const blockEnd = child.position?.end?.offset;
+    if (!Number.isInteger(blockStart) || !Number.isInteger(blockEnd) || blockStart < 0 || blockStart >= blockEnd || blockEnd > source.length) continue;
+
+    // Encontrar todos os nós descendentes de código/HTML/inlineCode
+    const codeRanges: Array<{ start: number; end: number }> = [];
+    function collectCode(node: any) {
+      if (!node || !node.position) return;
+      if (node.type === 'code' || node.type === 'inlineCode' || node.type === 'html') {
+        codeRanges.push({
+          start: node.position.start.offset,
+          end: node.position.end.offset,
+        });
+      } else {
+        for (const c of node.children || []) collectCode(c);
+      }
+    }
+    collectCode(child);
+
+    // Verificar cada linha do bloco
+    let lineStart = blockStart;
+    while (lineStart < blockEnd) {
+      const lineEnd = source.indexOf('\n', lineStart);
+      const lineEndReal = lineEnd === -1 ? source.length : lineEnd;
+      const contentEnd = lineEndReal > lineStart && source[lineEndReal - 1] === '\r' ? lineEndReal - 1 : lineEndReal;
+      const lineText = source.slice(lineStart, contentEnd);
+      const lineNum = source.slice(0, lineStart).split('\n').length;
+
+      // Ignorar linhas com prefixo '>' ou indentação (coluna 1 exigida)
+      if (lineText.startsWith('>') || /^\s/.test(lineText)) {
+        lineStart = lineEndReal + (lineEnd === -1 ? 0 : 1);
+        continue;
+      }
+
+      // Verificar se é linha IAL: '{: ... }' (não ALD {:nome:...}, não {::...})
+      const ialMatch = /^\{:(?!:)[^\r\n]*\}$/.exec(lineText.trimEnd());
+      if (ialMatch && !/^\{:\s*[\w-]+:/.test(lineText)) {
+        // Exigir linha anterior não vazia
+        let prevLineStart = 0;
+        if (lineStart > 0) {
+          const prevNewline = source.lastIndexOf('\n', lineStart - 2);
+          prevLineStart = prevNewline === -1 ? 0 : prevNewline + 1;
+        }
+        const prevLineText = source.slice(prevLineStart, lineStart);
+        if (prevLineText.trim() !== '') {
+          // Verificar se não está dentro de código/HTML/inlineCode
+          const inCodeRange = codeRanges.some(
+            (r) => lineStart >= r.start && lineStart + lineText.trimEnd().length <= r.end
+          );
+          if (!inCodeRange) {
+            const start = lineStart;
+            const raw = lineText.trimEnd(); // literal até '}'
+            const end = start + raw.length;
+
+            // Marcar intervalo para mascaramento
+            for (let i = start; i < end; i++) mask[i] = true;
+
+            candidates.push({ start, end, line: lineNum, raw });
+          }
+        }
+      }
+
+      lineStart = lineEndReal + (lineEnd === -1 ? 0 : 1);
+    }
+  }
+
+  // Construir texto mascarado
+  let text = '';
+  let i = 0;
+  while (i < source.length) {
+    if (mask[i]) {
+      const start = i;
+      while (i < source.length && mask[i]) i++;
+      const span = source.slice(start, i);
+      text += ' '.repeat(span.length);
+    } else {
+      text += source[i];
+      i++;
+    }
+  }
+
+  return { text, candidates };
+}
