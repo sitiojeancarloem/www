@@ -1,1 +1,108 @@
-{"status":"pending"}
+{
+  "status": "failed",
+  "units": [
+    {
+      "name": "14-ester-metadados",
+      "before": "235e1a8a12939b4ea3833b14b95c1c2df841f4968c9543381d66895de55c61c1",
+      "after": "5a032a63ba22394d428d981739f128f1447b22f1655dcf9c94a0935f94506540",
+      "mode": "output",
+      "regions": 4
+    },
+    {
+      "name": "15-caminho",
+      "before": "5a032a63ba22394d428d981739f128f1447b22f1655dcf9c94a0935f94506540",
+      "after": "44616f6871a30fc805fa6f585a92deac707ddbde3092b859c90cdc26eeeb1a96",
+      "mode": "output",
+      "regions": 3
+    },
+    {
+      "name": "16-abertura",
+      "before": "44616f6871a30fc805fa6f585a92deac707ddbde3092b859c90cdc26eeeb1a96",
+      "after": "2b8b510fae09772d94c9c8470c26402c7f40471e6bdba28e3a33e940b2d386e7",
+      "mode": "output",
+      "regions": 6
+    },
+    {
+      "name": "17-abertura",
+      "before": "2b8b510fae09772d94c9c8470c26402c7f40471e6bdba28e3a33e940b2d386e7",
+      "after": "06d0aa4b3664844af8b067b73792dbc3c3026a5cf8f1ea55560e2d2ae4c8cfee",
+      "mode": "output",
+      "regions": 2
+    },
+    {
+      "name": "18-autoexame",
+      "before": "06d0aa4b3664844af8b067b73792dbc3c3026a5cf8f1ea55560e2d2ae4c8cfee",
+      "after": "6f93d7d290d8570646573d94d36cbdc76a02367572b423e78f0d6f46150d11c3",
+      "mode": "output",
+      "regions": 2
+    },
+    {
+      "name": "19-julgamento",
+      "before": "6f93d7d290d8570646573d94d36cbdc76a02367572b423e78f0d6f46150d11c3",
+      "after": "5dbfc6cdc7dc5588cbc5973bbed9e49fae36365cdbce26cc777ac81d469ca130",
+      "mode": "output",
+      "regions": 2
+    },
+    {
+      "name": "21-acabe",
+      "before": "5dbfc6cdc7dc5588cbc5973bbed9e49fae36365cdbce26cc777ac81d469ca130",
+      "after": "d474cdf126fb62ce66dd2e3ed28124838b8dadb82cb0b554384541319f7166d3",
+      "mode": "output",
+      "regions": 4
+    },
+    {
+      "name": "24-elias",
+      "before": "d474cdf126fb62ce66dd2e3ed28124838b8dadb82cb0b554384541319f7166d3",
+      "after": "b8fd4878cb17de2901626a3a773bcd57e17b61312722ef8c3e94fe1ec0235647",
+      "mode": "markedOutput",
+      "regions": 2
+    },
+    {
+      "name": "26-muitos-poucos",
+      "before": "b8fd4878cb17de2901626a3a773bcd57e17b61312722ef8c3e94fe1ec0235647",
+      "after": "95532b845bd920a4001242b4ccbd729cd452c5bb9a89b89450699a8f44413ce3",
+      "mode": "markedOutput",
+      "regions": 2
+    },
+    {
+      "name": "28-carteiro",
+      "before": "95532b845bd920a4001242b4ccbd729cd452c5bb9a89b89450699a8f44413ce3",
+      "after": "c11601f70bc8318b858ef4989cbee659120c3be595762aef626331d7d5dd7d40",
+      "mode": "output",
+      "regions": 8
+    },
+    {
+      "name": "31-parentese",
+      "before": "c11601f70bc8318b858ef4989cbee659120c3be595762aef626331d7d5dd7d40",
+      "after": "b7cfd38635374381cddd64f6e190582115e2771d9cdbf7f5f92a2a56a2455bd7",
+      "mode": "markedOutput",
+      "regions": 2
+    },
+    {
+      "name": "32-notas",
+      "before": "b7cfd38635374381cddd64f6e190582115e2771d9cdbf7f5f92a2a56a2455bd7",
+      "after": "bf152ff4c0fcbced951734a10a0c49520dc35e421fcab6ff4188c06696b5d9d7",
+      "mode": "output",
+      "regions": 7
+    },
+    {
+      "name": "34-caption",
+      "before": "bf152ff4c0fcbced951734a10a0c49520dc35e421fcab6ff4188c06696b5d9d7",
+      "after": "400fad28441e941fd386920db7792d153afff322a99af5418295025a6952c4a7",
+      "mode": "output",
+      "regions": 1
+    },
+    {
+      "name": "35-enfase",
+      "before": "400fad28441e941fd386920db7792d153afff322a99af5418295025a6952c4a7",
+      "after": "009103297c963d1f1f9ab905e900891ce5d76c80975049794aee59885a5124f4",
+      "mode": "output",
+      "regions": 1
+    }
+  ],
+  "limit": "Reconstrução contábil não substitui julgamento de adequação editorial, literalidade tipográfica ou interpretação teológica.",
+  "base_sha256": "235e1a8a12939b4ea3833b14b95c1c2df841f4968c9543381d66895de55c61c1",
+  "current_sha256": "009103297c963d1f1f9ab905e900891ce5d76c80975049794aee59885a5124f4",
+  "reconstructed_sha256": "009103297c963d1f1f9ab905e900891ce5d76c80975049794aee59885a5124f4",
+  "error": "Citação ST não unívoca"
+}
