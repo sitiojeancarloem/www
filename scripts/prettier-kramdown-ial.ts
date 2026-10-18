@@ -35,3 +35,37 @@ export function createPlugin(markdownPlugin: any, builders: unknown): any {
 }
 
 export default (markdownPlugin: any, builders: unknown) => createPlugin(markdownPlugin, builders);
+
+export function collectBlockIals(ast: any, source: string): Array<{ blockIndex: number; ialIndex: number; raw: string }> {
+  const result: Array<{ blockIndex: number; ialIndex: number; raw: string }> = [];
+  if (!ast || ast.type !== 'root' || !Array.isArray(ast.children)) return result;
+
+  for (let i = 0; i < ast.children.length; i++) {
+    const next = ast.children[i];
+    if (next?.type !== 'table' && next?.type !== 'heading') continue;
+    if (i + 1 >= ast.children.length) continue;
+    const para = ast.children[i + 1];
+    if (para?.type !== 'paragraph') continue;
+
+    const blockEnd = next.position?.end?.offset;
+    const ialStart = para.position?.start?.offset;
+    const ialEnd = para.position?.end?.offset;
+    if (para.position?.start?.column !== 1 || !Number.isInteger(para.position.start.line) || para.position.start.line !== para.position.end?.line) continue;
+
+    if (!Number.isInteger(blockEnd) || !Number.isInteger(ialStart) || !Number.isInteger(ialEnd)) continue;
+    if (!(0 <= blockEnd && blockEnd <= ialStart && ialStart < ialEnd && ialEnd <= source.length)) continue;
+
+    const gap = source.slice(blockEnd, ialStart);
+    if (gap !== '\n' && gap !== '\r\n') continue;
+
+    const raw = source.slice(ialStart, ialEnd);
+    if (!raw.startsWith('{:') || !raw.endsWith('}')) continue;
+    if (raw.includes('\r') || raw.includes('\n')) continue;
+    if (raw.startsWith('{::')) continue;
+    if (/^\{:\s*[\w-]+:/.test(raw)) continue;
+
+    result.push({ blockIndex: i, ialIndex: i + 1, raw });
+  }
+
+  return result;
+}
