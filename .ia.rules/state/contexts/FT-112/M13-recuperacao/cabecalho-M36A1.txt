@@ -1,0 +1,54 @@
+<!--
+DIRETIVA OBRIGATÓRIA PARA IA/AGENT
+
+## 1. Contexto teológico e efeito pretendido
+
+- Premissa de processamento: a mensagem dura, quando verdadeira e apresentada sem floreios, amenizações ou suavizações indevidas, naturalmente produz divisão, pois “o mundo jaz no maligno” e as trevas não prevalecem onde há luz. A VERDADE, quando anunciada integralmente, produz por si mesma peneiramento/joeiramento/sacudidura.
+- A ausência desse efeito PODE indicar que a VERDADE não está sendo proclamada ou está sendo indevidamente AMENIZADA/SUAVIZADA.
+- A IA NÃO DEVE neutralizar essa característica do texto para torná-lo mais palatável.
+
+## 2. Natureza, público e tom
+
+- O texto é uma **carta dirigida a vários leitores**, mas NÃO DEVE enfatizar tratamento coletivo. Preferir formulação neutra e, quando conveniente, pessoal, buscando maior apelo individual à conversão.
+- Evitar, tanto quanto possível, primeira pessoa do singular; ela NÃO é proibida e PODE ser usada pontualmente quando fortalecer o apelo argumentativo, especialmente em estilo análogo ao paulino bíblico.
+- Manter tom **cordial e educado**, porém firme.
+- É PROIBIDO enfraquecer, amenizar, suavizar ou reduzir a intensidade de conceito, proposição, sentença, argumento, retórica ou advertência apenas para evitar desconforto ou possível ofensa.
+- A firmeza PODE alcançar a dureza retórica presente nas cartas de Paulo, sem converter-se em desrespeito gratuito.
+
+## 3. Estrutura, introdução e edição
+
+- O texto atualmente NÃO possui introdução adequada. A IA DEVE criar uma **introdução sucinta, natural e proporcional ao restante da carta**, que:
+  - apresente adequadamente o assunto e prepare o raciocínio subsequente;
+  - estabeleça contexto suficiente sem antecipar desnecessariamente todo o desenvolvimento;
+  - integre-se organicamente ao texto, sem aparência de seção artificial ou enxerto;
+  - preserve o tom, objetivo, tese, intensidade e direção argumentativa;
+  - NÃO invente fatos, premissas, conclusões ou intenções ausentes do conteúdo;
+  - NÃO transforme a introdução em resumo prolixo.
+- É autorizada **reestruturação completa**, inclusive alteração integral da ordem dos parágrafos, quando melhorar fluxo, coerência, progressão lógica e força argumentativa.
+- NÃO quebrar frases/sentenças artificialmente em múltiplos parágrafos em desacordo com a escrita formal do português.
+- Também NÃO permitir parágrafos excessivamente longos quando a divisão favorecer coerência, leitura e norma culta. Cada parágrafo DEVE constituir unidade semântica adequada.
+- Corrigir erros **gramaticais, sintáticos, semânticos, ortográficos e de pontuação**.
+- É expressamente PROIBIDO:
+  - remover fatos, conceitos, argumentos, exemplos ou nuances;
+  - enfraquecer intensidade, retórica ou conclusão;
+  - perder contexto, cerne, essência ou encadeamento lógico;
+  - introduzir reducionismo para obter concisão.
+- É autorizado eliminar redundâncias reais, pleonasmos e repetições sem função.
+- Fazer esforço **agressivo de concisão**, desde que fique garantida a ausência de omissão, regressão, reducionismo, perda de fluidez, significado ou força argumentativa.
+
+## 4. Acessibilidade de leitura
+
+- Tornar a redação tão **direta, clara, objetiva e linguisticamente simples** quanto possível, visando compreensão inclusive por leitores com escolaridade equivalente à 4ª série do ensino fundamental e possível analfabetismo funcional.
+- Simplicidade de linguagem NÃO significa simplificação do conteúdo.
+- Assuntos complexos DEVEM conservar integralmente profundidade, precisão, aprendizado, relações lógicas e conclusões.
+- Preferir palavras, frases e construções mais fáceis quando forem semanticamente equivalentes.
+
+## 5. Ênfases editoriais existentes
+
+- Capitalizações intencionais de palavras ou pequenas expressões DEVEM ser preservadas.
+- NÃO normalizar automaticamente palavras como `VERDADE`, `AMENIZADA`, `SUAVIZADA` ou outras capitalizações deliberadas.
+- Se uma palavra/expressão capitalizada for substituída durante a edição, seu equivalente semântico DEVE conservar a capitalização correspondente.
+- Aplicar a mesma preservação a **negritos**, _itálicos_, <u>sublinhados</u> e demais ênfases intencionais.
+- Capitalização desta regra refere-se a palavras ou pequenas expressões; NÃO autoriza converter frases inteiras em caixa alta sem necessidade.
+
+
