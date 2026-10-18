@@ -29,3 +29,7 @@ FT-106 concluída (histórico canônico); implementação autorizada. Inventári
 ## Checkpoint U1 aprovado
 
 Fonte _data/donations.json v1 com PIX, quatro criptos e PayPal preservados. Teste scripts/test_donations_data.ts compara com TODO canônico; job e7dec2f0-8f26-42bd-98cb-8b84b282c219 exit0. Correções preservadas: contrato de campos e extração restrita à seção/linhas. Sem QR/UI/assets; FT-107 em andamento. Próximo U2: validação reutilizável tipada e extensão por dados, sem valores financeiros recadastrados.
+
+## Checkpoint U2A aprovado
+
+Módulo assets/jcem/ts/donations-data.ts e JS compilado: união discriminada coerente ao JSON, validação estrutural pura e URL PayPal com query preservada. Job e6f48d2b-a4d1-4c0b-b0d9-c18aef03875d: patch, build e baseline exit0; JSON real aceito sem mutação. U2B pendente: regressões negativas e inclusão por dados. Nenhum QR/UI conectado; FT-107 segue em andamento.
