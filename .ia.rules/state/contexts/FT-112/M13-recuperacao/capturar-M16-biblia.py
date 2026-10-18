@@ -5,7 +5,15 @@ here = Path(__file__).resolve().parent
 base = here.parent
 repo = here.parents[4]
 draft = repo / "_drafts/carta-aberta-hierarquia-papal-na-igreja/carta-aberta-hierarquia-papal-na-igreja.md"
-out = here / "biblia-M16-abertura.json"
+profiles = {
+    "M16": ("biblia-M16-abertura.json", ("gl/2", "mt/18", "jo/16", "2sm/6", "1cr/13", "1cr/15", "1tm/5")),
+    "M17": ("biblia-M17-correcao.json", ("2tm/3", "2tm/4", "lv/19", "pv/27", "lc/17", "at/2")),
+}
+profile = sys.argv[1] if len(sys.argv) > 1 else "M16"
+if profile not in profiles:
+    raise SystemExit("Perfil não autorizado")
+output_name, refs = profiles[profile]
+out = here / output_name
 prior = json.loads(out.read_text(encoding="utf-8"))
 if prior.get("status") != "pending":
     raise SystemExit("Relatório não está pending; aproveitar resultado sem replay.")
@@ -20,7 +28,6 @@ for name in ("biblia-evidencias.json", "biblia-retomada.json", "biblia-adicoes.j
     for item in data:
         if isinstance(item, dict) and item.get("verses") and item.get("ref") and item.get("version"):
             cache[(item["version"].upper(), item["ref"])] = {**item, "evidence_origin": name}
-refs = ("gl/2", "mt/18", "jo/16", "2sm/6", "1cr/13", "1cr/15", "1tm/5")
 entries = []
 for ref in refs:
     if ("ARA", ref) in cache:
