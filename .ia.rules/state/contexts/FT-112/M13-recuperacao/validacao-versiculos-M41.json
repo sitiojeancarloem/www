@@ -1,1 +1,395 @@
-{"status":"pending"}
+{
+  "status": "passed",
+  "sha256_draft": "f35d26c8f4d684475924e735d6a572d92e3535d064238c78d53ac1b981116f5a",
+  "blocks": [
+    {
+      "index": 1,
+      "reference": "Ellen G. White, Testemunhos para a Igreja, v. 5 - A reunião campal de Michigan, p. 19",
+      "bible": false
+    },
+    {
+      "index": 2,
+      "reference": "Ellen G. White, Primeiros Escritos - O tempo do ajuntamento, p. 76",
+      "bible": false
+    },
+    {
+      "index": 3,
+      "reference": "Ellen G. White, Testemunhos para a Igreja, v. 5 - Natureza e influência dos testemunhos, p. 678",
+      "bible": false
+    },
+    {
+      "index": 4,
+      "reference": "Ellen G. White, Testemunhos para a Igreja, v. 5 - Natureza e influência dos testemunhos, p. 676, 677",
+      "bible": false
+    },
+    {
+      "index": 5,
+      "reference": "Ellen G. White, O Grande Conflito - O último convite divino, p. 608",
+      "bible": false
+    },
+    {
+      "index": 6,
+      "reference": "Bíblia, ACF. Lucas 13:23-24",
+      "bible": true,
+      "actual": [
+        23,
+        24
+      ],
+      "expected": [
+        23,
+        24
+      ]
+    },
+    {
+      "index": 7,
+      "reference": "Ellen G. White, Testemunhos Seletos, v. 2 - Cooperadores de Deus, p. 31",
+      "bible": false
+    },
+    {
+      "index": 8,
+      "reference": "Ellen G. White, Primeiros Escritos - Ao pequeno rebanho, p. 50",
+      "bible": false
+    },
+    {
+      "index": 9,
+      "reference": "Bíblia, ARA. 2 Timóteo 1:7",
+      "bible": true,
+      "actual": [
+        7
+      ],
+      "expected": [
+        7
+      ]
+    },
+    {
+      "index": 10,
+      "reference": "Bíblia, ARA. Apocalipse 21:8",
+      "bible": true,
+      "actual": [
+        8
+      ],
+      "expected": [
+        8
+      ]
+    },
+    {
+      "index": 11,
+      "reference": "Ellen G. White, O Grande Conflito - Restauração da verdade, p. 458",
+      "bible": false
+    },
+    {
+      "index": 12,
+      "reference": "Bíblia, ARA. Efésios 2:8-10",
+      "bible": true,
+      "actual": [
+        8,
+        9,
+        10
+      ],
+      "expected": [
+        8,
+        9,
+        10
+      ]
+    },
+    {
+      "index": 13,
+      "reference": "Ellen G. White, Evangelismo, p. 696",
+      "bible": false
+    },
+    {
+      "index": 14,
+      "reference": "Bíblia, NVI. Mateus 23:23",
+      "bible": true,
+      "actual": [
+        23
+      ],
+      "expected": [
+        23
+      ]
+    },
+    {
+      "index": 15,
+      "reference": "Ellen G. White, Primeiros Escritos - Minha primeira visão, p. 15, 16 na paginação editorial do EPUB; p. 39, 40 na paginação impressa do PDF consultado",
+      "bible": false
+    },
+    {
+      "index": 16,
+      "reference": "Bíblia, NVI. 1 Coríntios 10:13",
+      "bible": true,
+      "actual": [
+        13
+      ],
+      "expected": [
+        13
+      ]
+    },
+    {
+      "index": 17,
+      "reference": "Ellen G. White, O Grande Conflito - O grande juízo investigativo, p. 490",
+      "bible": false
+    },
+    {
+      "index": 18,
+      "reference": "Ellen G. White, O Grande Conflito - O grande juízo investigativo, p. 490",
+      "bible": false
+    },
+    {
+      "index": 19,
+      "reference": "Ellen G. White, O Grande Conflito - O grande juízo investigativo, p. 490",
+      "bible": false
+    },
+    {
+      "index": 20,
+      "reference": "Bíblia, NVI. Jeremias 9:8",
+      "bible": true,
+      "actual": [
+        8
+      ],
+      "expected": [
+        8
+      ]
+    },
+    {
+      "index": 21,
+      "reference": "Bíblia, NVI. Provérbios 26:24-25",
+      "bible": true,
+      "actual": [
+        24,
+        25
+      ],
+      "expected": [
+        24,
+        25
+      ]
+    },
+    {
+      "index": 22,
+      "reference": "Bíblia, NVI. Provérbios 6:16,18-19",
+      "bible": true,
+      "actual": [
+        16,
+        18,
+        19
+      ],
+      "expected": [
+        16,
+        18,
+        19
+      ]
+    },
+    {
+      "index": 23,
+      "reference": "Bíblia, NVI. Salmos 55:21",
+      "bible": true,
+      "actual": [
+        21
+      ],
+      "expected": [
+        21
+      ]
+    },
+    {
+      "index": 24,
+      "reference": "Bíblia, NVI. 2 Timóteo 4:2",
+      "bible": true,
+      "actual": [
+        2
+      ],
+      "expected": [
+        2
+      ]
+    },
+    {
+      "index": 25,
+      "reference": "Bíblia, NVI. 2 Timóteo 4:3",
+      "bible": true,
+      "actual": [
+        3
+      ],
+      "expected": [
+        3
+      ]
+    },
+    {
+      "index": 26,
+      "reference": "Ellen G. White, Testemunhos para a Igreja, v. 5 - Natureza e influência dos testemunhos, p. 688",
+      "bible": false
+    },
+    {
+      "index": 27,
+      "reference": "Bíblia, NVI. Amós 9:9",
+      "bible": true,
+      "actual": [
+        9
+      ],
+      "expected": [
+        9
+      ]
+    },
+    {
+      "index": 28,
+      "reference": "Bíblia, NVI. Lucas 22:31",
+      "bible": true,
+      "actual": [
+        31
+      ],
+      "expected": [
+        31
+      ]
+    },
+    {
+      "index": 29,
+      "reference": "Bíblia, NVI. Hebreus 12:26",
+      "bible": true,
+      "actual": [
+        26
+      ],
+      "expected": [
+        26
+      ]
+    },
+    {
+      "index": 30,
+      "reference": "Ellen G. White, Testemunhos para a Igreja, v. 5 - Natureza e influência dos testemunhos, p. 689",
+      "bible": false
+    },
+    {
+      "index": 31,
+      "reference": "Bíblia, NVI. Miquéias 2:6",
+      "bible": true,
+      "actual": [
+        6
+      ],
+      "expected": [
+        6
+      ]
+    },
+    {
+      "index": 32,
+      "reference": "Bíblia, NVI. Isaías 30:10",
+      "bible": true,
+      "actual": [
+        10
+      ],
+      "expected": [
+        10
+      ]
+    },
+    {
+      "index": 33,
+      "reference": "Bíblia, ACF. Amós 2:12",
+      "bible": true,
+      "actual": [
+        12
+      ],
+      "expected": [
+        12
+      ]
+    },
+    {
+      "index": 34,
+      "reference": "Ellen G. White, Testemunhos para a Igreja, v. 5 - Natureza e influência dos testemunhos, p. 690, 691",
+      "bible": false
+    },
+    {
+      "index": 35,
+      "reference": "Ellen G. White, Testemunhos para a Igreja, v. 5 - Natureza e influência dos testemunhos, p. 689, 690",
+      "bible": false
+    },
+    {
+      "index": 36,
+      "reference": "Bíblia, ARA. Isaías 5:20",
+      "bible": true,
+      "actual": [
+        20
+      ],
+      "expected": [
+        20
+      ]
+    },
+    {
+      "index": 37,
+      "reference": "Bíblia, ARA. Provérbios 6:14,19",
+      "bible": true,
+      "actual": [
+        14,
+        19
+      ],
+      "expected": [
+        14,
+        19
+      ]
+    },
+    {
+      "index": 38,
+      "reference": "Bíblia, BKJ. Salmos 101:5",
+      "bible": true,
+      "actual": [
+        5
+      ],
+      "expected": [
+        5
+      ]
+    },
+    {
+      "index": 39,
+      "reference": "Bíblia, ARA. Salmos 73:3,17",
+      "bible": true,
+      "actual": [
+        3,
+        17
+      ],
+      "expected": [
+        3,
+        17
+      ]
+    },
+    {
+      "index": 40,
+      "reference": "Bíblia, ARA. Provérbios 6:15",
+      "bible": true,
+      "actual": [
+        15
+      ],
+      "expected": [
+        15
+      ]
+    },
+    {
+      "index": 41,
+      "reference": "Bíblia, ACF. Jeremias 29:11",
+      "bible": true,
+      "actual": [
+        11
+      ],
+      "expected": [
+        11
+      ]
+    },
+    {
+      "index": 42,
+      "reference": "Ellen G. White, Testemunhos para a Igreja, v. 5 - Natureza e influência dos testemunhos, p. 682",
+      "bible": false
+    },
+    {
+      "index": 43,
+      "reference": "Ellen G. White, Educação - Vida de grandes homens, p. 57",
+      "bible": false
+    },
+    {
+      "index": 44,
+      "reference": "Bíblia, ARA. Daniel 12:1",
+      "bible": true,
+      "actual": [
+        1
+      ],
+      "expected": [
+        1
+      ]
+    }
+  ],
+  "issues": [],
+  "limit": "Numeração/estrutura declarada, não novo confronto de literalidade, contexto teológico ou paginação.",
+  "bible_blocks": 25
+}
