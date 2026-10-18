@@ -44,7 +44,7 @@ export function createPlugin(markdownPlugin: any, builders: any): any {
     const node = path.node;
     if (node.type === 'jcemIalBlock') {
       const childPrinted = path.call(print, 'children', 0);
-      return [childPrinted, builders.hardline, node.raw];
+      return [childPrinted, ...node.raw.split(/\r?\n/).flatMap((line: string) => [builders.hardline, line])];
     }
     return basePrinter.print(path, options, print);
   };
@@ -98,12 +98,13 @@ function wrapBlockIals(ast: any, pairs: Array<{ blockIndex: number; ialIndex: nu
     if (set) {
       // O wrapper ocupa a posição do bloco.
       const blockChild = child;
-      const pair = pairs.find(p => p.blockIndex === blockIndex);
+      const blockPairs = pairs.filter(p => p.blockIndex === blockIndex);
+      const pair = blockPairs[blockPairs.length - 1];
       if (blockChild && pair) {
         newChildren.push({
           type: 'jcemIalBlock',
           children: [blockChild],
-          raw: pair.raw,
+          raw: blockPairs.map(p => p.raw).join('\n'),
           position: {
             start: blockChild.position.start,
             end: ast.children[pair.ialIndex].position.end
