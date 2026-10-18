@@ -1,0 +1,43 @@
+{
+  "crossCheck": {
+    "confirmedBookKeys": [],
+    "pdfPages": [],
+    "requested": false
+  },
+  "diagnostics": {
+    "filesConsidered": 1,
+    "filesRead": 1,
+    "formatsRequested": [
+      "pdf"
+    ],
+    "limits": {
+      "context": 1900,
+      "files": 2,
+      "results": 1
+    },
+    "warnings": []
+  },
+  "filters": {
+    "acronym": "",
+    "language": "",
+    "title": "",
+    "tolerance": 0
+  },
+  "occurrences": [
+    {
+      "bookKey": "tpai5",
+      "context": "cada passo agora. Toda boa obra é uma semente semeada a fim de dar frutos para a vida eterna. Cada sucesso obtido coloca-nos num degrau superior da escada do progresso e nos dá força espiritual para novas vitórias. Cada ação reta prepara o caminho para sua própria repetição. Alguns estão limitando suas provações. Será que isso é bom para eles? Têm eles obtido o preparo para a vida futura? Não exibirão seus registros oportunidades desperdiçadas, privilégios negligenciados, uma vida de mundanismo e egolatria, que não produziu o mínimo fruto para a glória de Deus? Quanto da obra que o Mestre deixou para realizarmos tem sido deixado por fazer! Todos os que nos cercam devem ser advertidos, mas em geral o tempo tem sido ocupado para atender unicamente ao eu. Sobe até Deus o relatório sobre pessoas que descem à sepultura sem ser advertidas, e por isso perdidas para sempre. O Senhor ainda tem misericordiosos propósitos a nosso respeito. Há ainda tempo para arrependimento. Podemos tornar-nos amados de Deus. Rogo àqueles que têm retardado o aparecimento de nosso [19] Senhor que comecem a obra de remir o tempo. Estudem a Palavra Deus. Que todos os presentes a este encontro façam um concerto com Deus, pondo de lado a conversa banal e irrefletida, e a leitura frívola e sem propósito. E, no próximo ano, já estejam os irmãos capacitados a dar a quem quer que seja a razão da fé que aceitaram, com mansidão e temor. Não estão vocês, porventura, dispostos a humilhar o coração diante de Deus, arrependendo-se de sua apostasia? Que ninguém entretenha o pensamento de que eu lastimo ou me retrate de qualquer claro testemunho dado a indivíduos ou povo. Se eu errei de alguma forma, foi em não repreender mais firme e deci￾didamente o pecado. Alguns irmãos assumiram a responsabilidade de criticar meu trabalho e propor um meio mais fácil de corrigir os erros. Gostaria de dizer a essas pessoas que prefiro o caminho de Deus e não o delas. O que eu disse ou escrevi como testemunho ou reprovação não tem sido expresso corretamente.",
+      "format": "pdf",
+      "language": "",
+      "location": "26",
+      "method": "normalized-exact",
+      "page": 26,
+      "path": "tpai5.pdf",
+      "score": 1,
+      "title": "tpai5"
+    }
+  ],
+  "query": "prefiro o caminho de Deus",
+  "schema": "jcem-egw-source-verification/v1",
+  "status": "located"
+}
