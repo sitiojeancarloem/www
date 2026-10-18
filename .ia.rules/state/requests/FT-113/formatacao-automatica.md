@@ -17,3 +17,19 @@ Investigue e corrija a configuração efetivamente responsável por inserir auto
 5. **Compatibilidade:** respeitar configurações, contratos e precedências existentes; evitar mudanças globais quando houver solução localizada. Se o formatador responsável não oferecer suporte à regra, comprovar a limitação e avaliar alternativas compatíveis, sem sacrificar a formatação vigente nem simular resolução.
 
 **ACEITE BLOQUEANTE:** o problema só estará resolvido quando a adjacência tabela–atributo for preservada automaticamente, de modo reproduzível e estável, **sem perda das demais funcionalidades de formatação**. Implementar apenas a correção necessária e relatar objetivamente causa, alterações e testes efetivamente realizados.
+
+## Complementação humana no mesmo turno — 2026-10-18
+
+### ADENDO BLOQUEANTE — ATRIBUTOS EQUIVALENTES · ADJACÊNCIA CONDICIONAL
+
+Amplie a investigação para **TODOS os atributos sintaticamente equivalentes**, incluindo, como mero exemplo não exaustivo, atributos de personalização/customização de `blockquote`, tabelas e demais elementos.
+
+1. **Inspecionar:** identificar sintaxes, regras de associação, requisitos reais de adjacência, comportamento dos parsers/renderizadores e interferência dos formatadores, sem presumir que todos os atributos compartilhem as mesmas exigências.
+2. **Priorizar flexibilidade:** verificar se a associação entre elemento e atributo PODE funcionar corretamente **com ou sem linha vazia**. Se viável, admitir ambas as formas é uma **correção válida e preferível**, desde que preserve semântica, renderização, compatibilidade e formatação automática.
+3. **Adjacência obrigatória:** quando tecnicamente indispensável, garantir que o formatador preserve o atributo imediatamente após seu elemento, inclusive durante edição, salvamento e formatação explícita.
+4. **Correção na origem:** avaliar parser, sintaxe e formatador efetivamente envolvidos; alterar somente o necessário, respeitando contratos e precedências. NÃO modificar normas para encobrir defeitos nem ampliar artificialmente a gramática.
+5. **Validação:** testar cada categoria identificada, com e sem linha vazia, verificando associação correta, renderização, ausência de regressões e idempotência após formatações sucessivas.
+
+**ACEITE:** nenhum atributo DEVE perder sua associação semântica por intervenção do formatador. **NÃO exigir adjacência quando ela puder ser dispensada com segurança; NÃO dispensá-la quando for necessária.** Preservar integralmente a autoformatação existente, sem desativações, contornos ou degradações.
+
+Checkpoint de supervisão: job `bd98a7c5-1785-46c9-8267-0048dd9ade26` já iniciado somente para diagnóstico delimitado da tabela/configuração; não implementa solução nem cobre o aceite ampliado. Reaproveitar seu resultado e segmentar a investigação das demais categorias antes da implementação.
