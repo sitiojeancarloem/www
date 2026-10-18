@@ -211,12 +211,13 @@ verificacoes=Node24: tipos e quatro suítes exit0 (job56c15176); dez vínculos R
 pendencias=Aceite humano; regressão entre múltiplos processos reservada à FT-105. Gate global possui falha externa conhecida em RCFs/bate-papo.md:12; sem alegação de aprovação global.
 historico=.ia.rules/state/history/FT-104.ia|sha256=ef15eddd6ce329d43e77458b2ef228ad70ef16885c189b3831af9f582c842ae5
 
-FT-105|nome=Integração e validação da resiliência|escopo=tecnico|status=em_andamento|autorizacao=humana
+FT-105|nome=Integração e validação da resiliência|escopo=tecnico|status=concluida|autorizacao=humana|conclusao=2026-10-17T18:13:27.663Z|validacao=pendente_desenvolvedor
 objetivo=Provar conclusão por alternativa, esgotamento real, preservação de estado e ausência de bypass.
 origem=.ia.rules/state/requests/FT-103/prompt.md
-contexto=.ia.rules/state/contexts/FT-103/master.md
-dependencias=FT-104
-pendencias=Executar regressão de alternativas finitas entre processos, esgotamento, preservação e ausência de bypass; FT-104 tecnicamente concluída, aceite humano pendente.
+resultado=Regressão da composição explícita e finita de processos reais concluída: falha seguida de sucesso, duas falhas esgotadas e timeout bloqueando alternativa.
+verificacoes=Tipos e scripts/test_verified_process_alternatives.ts exit0 no job 48c68da4-6f5a-4470-bb25-d0c6e2f68889; commits 942b030831,4244c101d7,a4abe6b034. Elegibilidade e clones do motor puro previamente aprovados no job56c15176.
+pendencias=Aceite humano. Sem fallback automático no adaptador; clones não desfazem IO. Timeout bloqueia avanço, sem provar término físico imediato. Gate global continua sem aprovação por pendência externa RCFs/bate-papo.md:12.
+historico=.ia.rules/state/history/FT-105.ia|sha256=703df388dbba509ad135c3d60aac51cd09c3f707bdc8c1e813c45385bf59be06
 
 FT-107|nome=Implementação da fonte de dados e pipeline de QR|escopo=tecnico|status=registrada_bloqueada_por_dependencia|autorizacao=humana
 objetivo=Implementar JSON canônico, QR client-side, cópia, expansão, download, decodificação e assets comuns.

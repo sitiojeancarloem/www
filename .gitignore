@@ -378,3 +378,6 @@ Thumbs.db
 # FT-104: histórico técnico preservado
 !/.ia.rules/state/history/
 !/.ia.rules/state/history/FT-104.ia
+
+# FT-105: histórico técnico
+!/.ia.rules/state/history/FT-105.ia
