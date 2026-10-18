@@ -253,11 +253,11 @@ contexto=.ia.rules/state/contexts/FT-106/master.md
 dependencias=FT-108,FT-109,FT-110
 pendencias=Aguardar as FTs 108 a 110.
 
-FT-112|nome=Revisão integral da carta aberta|escopo=negocio|status=em_andamento|autorizacao=humana|retomada=2026-10-17
+FT-112|nome=Revisão integral da carta aberta|escopo=negocio|status=concluida|autorizacao=humana|retomada=2026-10-17|conclusao=2026-10-18T07:53:08.652Z|validacao=pendente_desenvolvedor
+contexto=.ia.rules/state/contexts/FT-112/M13-recuperacao/checkpoint.md
 objetivo=Integrar as adições autorais e cumprir a revisão integral da mesma carta, preservando argumentos e força retórica, com fontes verificadas; localWorker expressamente autorizado por instrução humana posterior.
 origem=.ia.rules/state/requests/FT-112/prompt.md
-contexto=.ia.rules/state/contexts/FT-112/M13-recuperacao/checkpoint.md
-resultado=M12 é conclusão histórica anterior à ampliação autoral. Inventário integral M13 aceito; M14 a M21 integraram correções de metadados, fontes EGW e notas bíblicas. Última aplicação M21: commit 11f55cb403.
-verificacoes=M21: aplicar_m21 e diff_check exit0; reconstrução exata do recibo sobre HEAD coincide com carta SHA-256 d474cdf126fb62ce66dd2e3ed28124838b8dadb82cb0b554384541319f7166d3. Validações globais anteriores são históricas, não comprovam o draft atual.
-pendencias=Segundo parágrafo de Acabe/Elias e fontes; maioria/minoria; carteiro; parêntese Ap18; demais placeholders; contrato real de tabela/legenda; validação renderizada e revisão global. Sem publicação/push. Commits por microtarefa; preservar alterações herdadas.
+resultado=Revisão integral e ampliações autorais executadas no draft .md atual, com firmeza preservada e correções factuais documentadas. Entrega 26d5a815cd; relatório M13-recuperacao/fechamento-M42.md. SHA final 549c46c77e77ad40e6817a4fd34f21a83854f9441cad957094c5b9d0352290c4.
+verificacoes=M40 render: 44 blocos, 200 chamadas, 160 notas, tabela acessível, zero avisos/destinos quebrados. M41: 25 blocos bíblicos numerados. M37: 44 blocos e 60 inline lexicais; M38/M38A preservação e ST. M42: YAML, imagem, corpo byte a byte preservado e diff_check exit0.
+pendencias=Sem pendência de execução editorial. Leitura/aceite autoral continuam humanos. Sem publicação/push; limites em fechamento-M42.md.
 historico=.ia.rules/state/history/FT-112.ia|sha256=6a48dbeea769e4322404e4448e6f6d93a157fe6dcec4311bc772cd6f7e8ecda8

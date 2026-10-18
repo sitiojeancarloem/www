@@ -1,0 +1,20 @@
+{
+  "status": "passed",
+  "staged": [
+    {
+      "file": ".ia.rules/state/continue.ia",
+      "blob": "ab97940093beff2ec074b3699117eda950ab690f",
+      "only_section": "FT-112",
+      "working_file_sha256": "e774e7dbc0fb437484efd910e02f7465f0778db671b2386a5b3840fc048d1995",
+      "staged_file_sha256": "34db45be250bf16bd5adaf2fb72051ee6a0c8b88bcb6f76ca81839b548b021b0"
+    },
+    {
+      "file": ".ia.rules/continue.ia",
+      "blob": "ab97940093beff2ec074b3699117eda950ab690f",
+      "only_section": "FT-112",
+      "working_file_sha256": "e774e7dbc0fb437484efd910e02f7465f0778db671b2386a5b3840fc048d1995",
+      "staged_file_sha256": "34db45be250bf16bd5adaf2fb72051ee6a0c8b88bcb6f76ca81839b548b021b0"
+    }
+  ],
+  "limit": "Working tree continua com alterações herdadas fora de FT112; não declarar árvore limpa."
+}

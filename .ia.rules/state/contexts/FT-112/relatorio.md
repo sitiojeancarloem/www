@@ -1,5 +1,7 @@
 # FT-112 — revisão final da carta
 
+> Relatório histórico das unidades anteriores à ampliação M13. Entrega vigente: [fechamento-M42.md](M13-recuperacao/fechamento-M42.md). Nome, autorização de Worker, hashes e contagens abaixo pertencem à execução histórica e não substituem o estado atual.
+
 Entrega: `_drafts/carta-aberta-hierarquia-romanda-na-igreja`. Base autoral prevalente: `ff9f255678`; suplemento integral em `suplemento-autoral.md`. Revisão executada diretamente pelo supervisor, sem localWorker, sem delegação e sem escrita na biblioteca externa.
 
 ## Aceite do suplemento
