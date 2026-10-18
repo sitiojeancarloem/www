@@ -12,6 +12,7 @@ profiles = {
     "M19": ("biblia-M19-julgamento.json", ("pv/14", "mt/10", "jo/7", "1co/2", "1co/5", "1co/6", "mt/7", "lc/6", "rm/14", "1co/4", "tg/4")),
     "M20": ("biblia-M20-acabe.json", ("1rs/17", "1rs/18", "1rs/19", "1rs/22")),
     "M22": ("biblia-M22-missao-elias.json", ("ml/3", "ml/4", "lc/1", "lc/3", "mt/11", "mt/17", "at/22", "tt/1", "nm/23", "is/43")),
+    "M25": ("biblia-M25-muitos-poucos.json", ("mt/7", "lc/13", "mt/22", "is/8", "ez/14", "gn/7", "gn/19", "2pe/2")),
 }
 profile = sys.argv[1] if len(sys.argv) > 1 else "M16"
 if profile not in profiles:
@@ -37,10 +38,11 @@ for path in cache_paths:
             cache[(item["version"].upper(), item["ref"])] = {**item, "evidence_origin": path.relative_to(base).as_posix()}
 entries = []
 for ref in refs:
-    if ("ARA", ref) in cache:
-        entries.append(cache[("ARA", ref)])
+    version = "NVI" if profile == "M25" and ref == "ez/14" else "ARA"
+    if (version, ref) in cache:
+        entries.append(cache[(version, ref)])
         continue
-    url = "https://www.bibliaonline.com.br/ara/" + ref
+    url = "https://www.bibliaonline.com.br/" + version.lower() + "/" + ref
     try:
         request = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
         with urllib.request.urlopen(request, timeout=30) as response:
@@ -56,9 +58,9 @@ for ref in refs:
                 key = previous[-1][1]
                 verses[key] = verses.get(key, "") + html.unescape(re.sub("<[^>]*>", "", match[1]))
         if not verses: raise ValueError("Nenhum versículo extraído")
-        entries.append({"version": "ARA", "ref": ref, "url": url, "verses": verses, "response_sha256": hashlib.sha256(raw).hexdigest(), "evidence_origin": "network_this_unit"})
+        entries.append({"version": version, "ref": ref, "url": url, "verses": verses, "response_sha256": hashlib.sha256(raw).hexdigest(), "evidence_origin": "network_this_unit"})
     except Exception as exc:
-        entries.append({"version": "ARA", "ref": ref, "url": url, "error": str(exc)})
+        entries.append({"version": version, "ref": ref, "url": url, "error": str(exc)})
 after = digest(draft)
 assert before == after, "Draft mudou durante captura"
 ok = all(e.get("verses") and not e.get("error") for e in entries)
