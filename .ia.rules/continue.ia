@@ -219,12 +219,13 @@ verificacoes=Tipos e scripts/test_verified_process_alternatives.ts exit0 no job 
 pendencias=Aceite humano. Sem fallback automático no adaptador; clones não desfazem IO. Timeout bloqueia avanço, sem provar término físico imediato. Gate global continua sem aprovação por pendência externa RCFs/bate-papo.md:12.
 historico=.ia.rules/state/history/FT-105.ia|sha256=703df388dbba509ad135c3d60aac51cd09c3f707bdc8c1e813c45385bf59be06
 
-FT-107|nome=Implementação da fonte de dados e pipeline de QR|escopo=tecnico|status=registrada_bloqueada_por_dependencia|autorizacao=humana
+FT-107|nome=Implementação da fonte de dados e pipeline de QR|escopo=tecnico|status=em_andamento|autorizacao=humana
 objetivo=Implementar JSON canônico, QR client-side, cópia, expansão, download, decodificação e assets comuns.
 origem=.ia.rules/state/requests/FT-106/prompt.md
 contexto=.ia.rules/state/contexts/FT-106/master.md
 dependencias=FT-106
-pendencias=Aguardar a FT-106.
+plano=U1 fonte JSON e preservação exata; U2 contrato/validação; U3 QR/composição/decodificação; U4 ações e assets comuns.
+pendencias=FT-106 concluída e autorizada; executar U1 sem interface, dependência externa ou alteração de payload.
 
 FT-108|nome=Implementação da página pública de doações|escopo=tecnico|status=registrada_bloqueada_por_dependencia|autorizacao=humana
 objetivo=Implementar `/doe` responsiva, orientada por dados e integrada aos temas.

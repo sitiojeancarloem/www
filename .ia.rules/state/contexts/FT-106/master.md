@@ -21,3 +21,7 @@ Entregar páginas de doação orientadas por dados, QR Codes confiáveis e uma c
 - Reutilizar a biblioteca QR madura já disponível ou adicionar dependência somente se necessária e mantida.
 - Nenhum QR pode ser aceito apenas por aparência; payload final deve ser decodificado em teste.
 - O workflow não pode substituir asset válido por aproximação nem gerar churn sem mudança material.
+
+## Retomada da FT-107 — U1
+
+FT-106 concluída (histórico canônico); implementação autorizada. Inventário job76db6458: nenhum arquivo de doação ou QR localizado nas fontes versionadas; Jekyll usa _data e domínio https://www.jeancarloem.com. U1: _data/donations.json e teste de valores exatos contra TODO canônico. Sem UI/QR/assets externos nesta unidade; contrato, biblioteca QR, composição, decodificação e ações serão checkpoints posteriores. Preservar seis meios informados, redes, payloads e link PayPal literalmente; não inferir identidade de tokens.
