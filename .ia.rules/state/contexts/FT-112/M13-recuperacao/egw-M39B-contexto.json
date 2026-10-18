@@ -1,1 +1,65 @@
-{"status":"pending"}
+{
+  "status": "captured",
+  "before": {
+    "epub": "2ce4e3e524272458360952fc665cd55063e29f56b54541030654dba3a02410be",
+    "pdf": "3188421f64fd96d29be00d613ed516fd723daa2aa0922e86ef2cee484cd1e6ec",
+    "draft": "009103297c963d1f1f9ab905e900891ce5d76c80975049794aee59885a5124f4"
+  },
+  "source_location": "OEBPS/content69.xhtml",
+  "query": "A sorte de Uzá",
+  "epub_metadata": {
+    "title": "Patriarcas e Profetas",
+    "language": "pt"
+  },
+  "epub_excerpt": "? Entendendo que não seria de bom aviso ter a arca perto de si, resolveu Davi deixá-la ficar onde estava. Foi encontrado perto, para ela, um lugar, na casa de Obede-Edom, o geteu. A sorte de Uzá foi um juízo divino pela violação de um mandado explícito. Por meio de Moisés o Senhor dera instrução especial com relação [521] ao transporte da arca. Ninguém, a não ser os sacerdotes, descendentes de Arão, devia tocá-la, ou mesmo olhar para ela, estando descoberta. A instrução divina era: “Os filhos de Coate virão para levá-lo; mas no santuário não tocarão, para que não morram”. Números 4:15. Os sacerdotes deviam cobrir a arca, e então os coatitas deviam carregá-la pelas hastes, as quais eram colocadas em argolas de cada lado da arca, e nunca se removiam. Aos gersonitas e meraritas, que tinham a seu cargo as cortinas, as tábuas e as colunas do tabernáculo, Moisés deu carros e bois para o transporte daquilo que lhes era confiado. “Mas aos filhos de Coate nada deu, porquanto a seu cargo estava o santuário e o levavam aos ombros”. Números 7:9. Assim, no trazer a arca de Quiriate-Jearim, houve uma desatenção direta e indesculpável às determinações do Senhor. Davi e seu povo tinham-se congregado para efetuar uma obra sagrada, e à mesma entregaram-se com coração alegre e disposto; mas o Senhor não podia aceitar o serviço, porque não era efetuado de acordo com Suas orientações. Os filisteus, que não tinham conhecimento da lei de Deus, haviam colocado a arca em um carro quando a devolveram a Israel, e o Senhor aceitou o esforço que fizeram. Mas os israelitas tinham em suas mãos uma declaração compreensível da vontade de Deus em todas estas questões, e sua negligência a tais instruções desonrava a Deus. Em Uzá recaía a maior culpa de arrogância. A transgressão à lei de Deus diminuíra a intuição que ele tinha da santidade da mesma, e, tendo sobre si pecados não confessados, atrevera-se em face da proibição divina a tocar no símbolo da presença de Deus. Deus não pode aceitar uma obediência parcial, uma maneira frouxa de tratar os Seus mandamentos. Pelo juízo sobre Uzá, era Seu intuito impressionar todo o Israel quanto à importância de dar estrita atenção aos Seus requisitos. Assim a morte daquele homem, levando o povo ao arrependimento, poderia impedir a necessidade de infligir juízos sobre milhares. Sentindo que seu próprio coração não era inteiramente reto para com Deus, Davi, vendo o golpe desferido em Uzá, temera a arca, receoso de que algum pecado de sua parte acarretasse juízo sobre si. Mas Obede-Edom, embora se regozijasse com temor, acolheu gratamente o símbolo sagrado como a garantia do favor de Deus aos obedientes. A atenção de todo o Israel dirigiu-se agora ao geteu e sua casa; todos estavam vigilantes para ver o que lhes aconteceria. “E abençoou o Senhor a Obede-Edom, e a toda a sua casa”. 2 Samuel 6:12. A reprovação divina cumpriu a sua obra em Davi. Foi levado a compenetrar-se, como nunca dantes, da santidade da lei de Deus, e da necessidade de obediência estrita. O favor manifesto à casa de Obede-Edom levou Davi novamente a esperar que a arca pudesse trazer uma bênção a ele e a seu povo. No fim de três meses, resolveu fazer outra tentativa para mudar a arca, e dispensou agora cuidadosa atenção à execução das instruções [522] do Senhor, em todo pormenor. De novo foram convocados os homens principais da nação; e uma vasta congregação se reuniu em torno da residência do geteu. Com reverente cuidado a arca foi agora posta sobre os ombros de homens divinamente designados, a multidão pôs-se em linha, e, com corações a tremer, o grande séquito partiu novamente. Depois de caminharem seis passos, a trombeta deu sinal de parada. Por determinação de Davi deveriam ser oferecidos sacrifícios de “bois e carneiros cevados”. 2 Samuel 6:13. O júbilo então tomou o lugar do tremor e terror. O rei depusera suas vestes reais, e vestira-se com um simples éfode de linho, como o que era usado pelos sacerdotes. Não dava a entender por este ato que assumira as funções sacerdotais, pois que o éfode era algumas vezes usado por outros além dos sacerdotes. Antes, neste serviço santo ele queria, perante Deus, tomar lugar igual ao de seus súditos. Naquele dia, Jeová devia ser adorado. Devia Ele ser o único objeto de reverência. Outra vez pôs-se em movimento o longo séquito, e a música de harpas e cornetas, trombetas e címbalos, ressoava em direção ao céu, misturada com a melodia de muitas vozes. “E Davi saltava. [...] diante do Senhor” (2 Samuel 6:14), acompanhando em sua alegria o ritmo do cântico. A dança de Davi em júbilo reverente, perante Deus, tem sido citada pelos amantes dos prazeres para justificarem as danças modernas da moda; mas não há base para tal argumento. Em nosso tempo a dança está associada com a extravagância e as orgias noturnas. A saúde e a moral são sacrificadas ao prazer. Para os que freqüentam os bailes, Deus não é objeto de meditação e reverência; sentir-se-ia estarem a oração e o cântico de louvor deslocados, na assembléia deles. Esta prova deve ser decisiva. Diversões que tendem a enfraquecer o amor pelas coisas sagradas e diminuir nossa alegria no serviço de Deus, não devem ser procuradas ",
+  "process_exit_code": 0,
+  "pdf_result": {
+    "crossCheck": {
+      "confirmedBookKeys": [],
+      "pdfPages": [],
+      "requested": false
+    },
+    "diagnostics": {
+      "filesConsidered": 539,
+      "filesRead": 1,
+      "formatsRequested": [
+        "pdf"
+      ],
+      "limits": {
+        "context": 1200,
+        "files": 1000,
+        "results": 2
+      },
+      "warnings": []
+    },
+    "filters": {
+      "acronym": "",
+      "language": "pt",
+      "title": "Patriarcas e Profetas",
+      "tolerance": 0.0
+    },
+    "occurrences": [
+      {
+        "bookKey": "pep",
+        "context": "O reinado de Davi 655 toda a casa de Israel, alegravam-se perante o Senhor, [...] com harpas, e com saltérios, e com tamboris, e com pandeiros, e com címbalos”. Fazia muito tempo que Israel não via uma cena de triunfo como aquela. Com alegria solene o vasto cortejo serpeava por entre colinas e vales em direção à santa cidade. Mas, “chegando à eira de Nacom, estendeu Uzá a mão à arca de Deus, e teve a mão nela; porque os bois a deixavam pender. Então a ira do Senhor se acendeu contra Uzá, e Deus o feriu ali por esta im￾prudência; e morreu ali junto à arca de Deus”. 2 Samuel 6:6, 7. Um súbito terror caiu sobre a multidão jubilosa. Davi ficou espantado e grandemente alarmado, e intimamente pôs em dúvida a justiça de Deus. Ele estivera procurando honrar a arca como símbolo da pre￾sença divina. Por que, pois, havia sido aquele terrível juízo enviado para mudar a ocasião de alegria em dor e lamentação? Entendendo que não seria de bom aviso ter a arca perto de si, resolveu Davi deixá-la ficar onde estava. Foi encontrado perto, para ela, um lugar, na casa de Obede-Edom, o geteu. A sorte de Uzá foi um juízo divino pela violação de um mandado explícito. Por meio de Moisés o Senhor dera instrução especial com relação ao transporte da arca. Ninguém, a não ser os sacerdotes, des- [521] cendentes de Arão, devia tocá-la, ou mesmo olhar para ela, estando descoberta. A instrução divina era: “Os filhos de Coate virão para levá-lo; mas no santuário não tocarão, para que não morram”. Nú￾meros 4:15. Os sacerdotes deviam cobrir a arca, e então os coatitas deviam carregá-la pelas hastes, as quais eram colocadas em argolas de cada lado da arca, e nunca se removiam. Aos gersonitas e mera￾ritas, que tinham a seu cargo as cortinas, as tábuas e as colunas do tabernáculo, Moisés deu carros e bois para o transporte daquilo que lhes era confiado. “Mas aos filhos de Coate nada deu, porquanto a seu cargo estava o santuário e o levavam aos ombros”. Números 7:9. Assim, no trazer a arca de Quiriate-Jearim, houve uma desatenção direta e indesculpável às determinações do Senhor. Davi e seu povo tinham-se congregado para efetuar uma obra sagrada, e à mesma entregaram-se com coração alegre e disposto; mas o Senhor não podia aceitar o serviço, porque não era efetuado de acordo com Suas orientações",
+        "format": "pdf",
+        "language": "",
+        "location": "659",
+        "method": "normalized-exact",
+        "page": 659,
+        "path": "pt-br/livros/patriarcas-e-profetas/pep.pdf",
+        "score": 1.0,
+        "title": "pep"
+      }
+    ],
+    "query": "A sorte de Uzá",
+    "schema": "jcem-egw-source-verification/v1",
+    "status": "located"
+  },
+  "stderr": "",
+  "after": {
+    "epub": "2ce4e3e524272458360952fc665cd55063e29f56b54541030654dba3a02410be",
+    "pdf": "3188421f64fd96d29be00d613ed516fd723daa2aa0922e86ef2cee484cd1e6ec",
+    "draft": "009103297c963d1f1f9ab905e900891ce5d76c80975049794aee59885a5124f4"
+  }
+}
