@@ -1,0 +1,37 @@
+{
+  "schema": "ft112-mechanical-source-fix/v1",
+  "classification": "texto-autoral",
+  "before": "235e1a8a12939b4ea3833b14b95c1c2df841f4968c9543381d66895de55c61c1",
+  "after": "5a032a63ba22394d428d981739f128f1447b22f1655dcf9c94a0935f94506540",
+  "modified": "2026-10-17T21:32:35-03:00",
+  "source_status": "ambiguous no mecanismo; identidade e paginação conferidas separadamente no frontispício/PDF",
+  "regions": [
+    {
+      "before": "\"_E nós não somo deixados em dúvida quanto ao desfecho. Hoje, **como nos dias de Ester** a Mardoqueu, o senhor vindicará Sua verdade e Seu povo_\" <adicionar foot note: Profetas e Reis, 309>",
+      "after": "_“E nós não somos deixados em dúvida quanto ao desfecho. Hoje, **como nos dias de Ester** a Mardoqueu, o Senhor vindicará Sua verdade e Seu povo.”_[^prester]",
+      "reason": "Literal EGW e referência comprovados; ênfase autoral preservada."
+    },
+    {
+      "before": "header:\nimage: '/assets/images/posts/carta-aberta-hierarquia-papal-na-igreja/cover.png'\nimage_description: 'Carta aberta: a hierarquia papal na Igreja Adventista'",
+      "after": "header:\n  image: '/assets/images/posts/carta-aberta-hierarquia-papal-na-igreja/cover.png'\n  image_description: 'Carta aberta: a hierarquia papal na Igreja Adventista'",
+      "reason": "Recuo dos campos existentes de header."
+    },
+    {
+      "before": "last_modified_at: '2020-10-08T00:40:55-03:00'",
+      "after": "last_modified_at: '2026-10-17T21:32:35-03:00'",
+      "reason": "Data de modificação desta unidade."
+    },
+    {
+      "before": "",
+      "after": "\n[^prester]: Ellen G. White. Profetas e Reis - Nos dias da rainha Ester, p. 393 (edição de 2007); página física 397 do PDF consultado.\n",
+      "reason": "Definição da nota da citação verificada."
+    }
+  ],
+  "scope": "Citação EGW, nota e metadados. Demais argumentos e retóricas preservados exatamente fora destes intervalos.",
+  "validation": {
+    "literal_epub": true,
+    "printed_page": true,
+    "header_asset_exists": true,
+    "exact_anchors": true
+  }
+}
