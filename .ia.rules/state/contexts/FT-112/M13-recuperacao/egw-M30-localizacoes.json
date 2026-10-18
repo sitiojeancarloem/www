@@ -1,0 +1,193 @@
+[
+  {
+    "id": "protecao_epub",
+    "exit": 0,
+    "value": {
+      "crossCheck": {
+        "confirmedBookKeys": [],
+        "pdfPages": [],
+        "requested": false
+      },
+      "diagnostics": {
+        "filesConsidered": 1,
+        "filesRead": 1,
+        "formatsRequested": [
+          "epub"
+        ],
+        "limits": {
+          "context": 2200,
+          "files": 2,
+          "results": 2
+        },
+        "warnings": []
+      },
+      "filters": {
+        "acronym": "",
+        "language": "",
+        "title": "",
+        "tolerance": 0
+      },
+      "occurrences": [
+        {
+          "bookKey": "ogc",
+          "context": "O Grande Conflito Capítulo 40 — O livramento dos justos Quando a proteção das leis humanas for retirada dos que honram a lei de Deus, haverá, nos diferentes países, um movimento simultâneo com o fim de destruí-los. Aproximando-se o tempo indicado no decreto, o povo conspirará para desarraigar a odiada seita. Resolver-se-á dar em uma noite um golpe decisivo, que faça silenciar por completo a voz de dissentimento e reprovação. O povo de Deus — alguns nas celas das prisões, outros escondidos nos retiros solitários das florestas e montanhas pleiteia ainda a proteção divina, enquanto por toda parte grupos de homens armados, instigados pelas hostes de anjos maus, se estão preparando para a obra de morte. É então, na hora de maior aperto, que o Deus de Israel intervirá para o livramento de Seus escolhidos. Diz o Senhor: “Um cântico haverá entre vós, como na noite em que se celebra uma festa; e alegria de coração, como daquele que sai tocando pífano, para vir ao monte do Senhor, à Rocha de Israel. E o Senhor fará ouvir a glória da Sua voz, e fará ver o abaixamento do Seu braço, com indignação de ira, e a labareda do Seu fogo consumidor, e raios e dilúvio e pedras de saraiva.” Isaías 30:29, 30. Com brados de triunfo, zombaria e imprecação, multidões de homens maus estão prestes a cair sobre a presa, quando, [636] eis, um denso negror, mais intenso do que as trevas da noite, cai sobre a Terra. Então o arco-íris, resplandecendo com a glória do trono de Deus, atravessa os céus, e parece cercar cada um dos grupos em oração. As multidões iradas subitamente se detêm. Silenciam seus gritos de zombaria. É esquecido o objeto de sua ira sanguinária. Com terríveis pressentimentos contemplam o símbolo da aliança de Deus, anelando pôr-se ao amparo de seu fulgor insuperável. É ouvida pelo povo de Deus uma voz clara e melodiosa, dizendo: “Olhai para cima”; e, levantando os olhos para o céu, contemplam o arco da promessa. As nuvens negras, ameaçadoras, que cobriam o firmamento se fendem e, como Estêvão, olham fixamente para o céu, e vêem a glória de Deus, e o Filho do homem sentado sobre o Seu trono. Divisam em Sua forma divina os sinais de Sua humilhação; e de Seus lábios ouvem o pedido, apresentado ante Seu Pai e os santos anjos: “Aqueles que Me deste quero que, onde Eu est",
+          "format": "epub",
+          "language": "pt",
+          "location": "OEBPS/content40.xhtml",
+          "method": "normalized-exact",
+          "path": "ogc.epub",
+          "score": 1,
+          "title": "O Grande Conflito"
+        }
+      ],
+      "query": "proteção das leis humanas",
+      "schema": "jcem-egw-source-verification/v1",
+      "status": "located"
+    }
+  },
+  {
+    "id": "protecao_pdf",
+    "exit": 0,
+    "value": {
+      "crossCheck": {
+        "confirmedBookKeys": [],
+        "pdfPages": [],
+        "requested": false
+      },
+      "diagnostics": {
+        "filesConsidered": 1,
+        "filesRead": 1,
+        "formatsRequested": [
+          "pdf"
+        ],
+        "limits": {
+          "context": 2200,
+          "files": 2,
+          "results": 2
+        },
+        "warnings": []
+      },
+      "filters": {
+        "acronym": "",
+        "language": "",
+        "title": "",
+        "tolerance": 0
+      },
+      "occurrences": [
+        {
+          "bookKey": "ogc",
+          "context": "[635] Capítulo 40 — O livramento dos justos Quando a proteção das leis humanas for retirada dos que honram a lei de Deus, haverá, nos diferentes países, um movimento simul￾tâneo com o fim de destruí-los. Aproximando-se o tempo indicado no decreto, o povo conspirará para desarraigar a odiada seita. Resol￾ver-se-á dar em uma noite um golpe decisivo, que faça silenciar por completo a voz de dissentimento e reprovação. O povo de Deus — alguns nas celas das prisões, outros escondi￾dos nos retiros solitários das florestas e montanhas pleiteia ainda a proteção divina, enquanto por toda parte grupos de homens armados, instigados pelas hostes de anjos maus, se estão preparando para a obra de morte. É então, na hora de maior aperto, que o Deus de Israel intervirá para o livramento de Seus escolhidos. Diz o Senhor: “Um cântico haverá entre vós, como na noite em que se celebra uma festa; e alegria de coração, como daquele que sai tocando pífano, para vir ao monte do Senhor, à Rocha de Israel. E o Senhor fará ouvir a glória da Sua voz, e fará ver o abaixamento do Seu braço, com indignação de ira, e a labareda do Seu fogo consumidor, e raios e dilúvio e pedras de saraiva.” Isaías 30:29, 30. Com brados de triunfo, zombaria e imprecação, multidões de [636] homens maus estão prestes a cair sobre a presa, quando, eis, um denso negror, mais intenso do que as trevas da noite, cai sobre a Terra. Então o arco-íris, resplandecendo com a glória do trono de Deus, atravessa os céus, e parece cercar cada um dos grupos em oração. As multidões iradas subitamente se detêm. Silenciam seus gritos de zombaria. É esquecido o objeto de sua ira sanguinária. Com terríveis pressentimentos contemplam o símbolo da aliança de Deus, anelando pôr-se ao amparo de seu fulgor insuperável. É ouvida pelo povo de Deus uma voz clara e melodiosa, dizendo: “Olhai para cima”; e, levantando os olhos para o céu, contemplam o arco da promessa. As nuvens negras, ameaçadoras, que cobriam o firmamento se fendem e, como Estêvão, olham fixamente para o céu, e vêem a glória de Deus, e o Filho do homem sentado sobre o Seu 554",
+          "format": "pdf",
+          "language": "",
+          "location": "558",
+          "method": "normalized-exact",
+          "page": 558,
+          "path": "ogc.pdf",
+          "score": 1,
+          "title": "ogc"
+        }
+      ],
+      "query": "proteção das leis humanas",
+      "schema": "jcem-egw-source-verification/v1",
+      "status": "located"
+    }
+  },
+  {
+    "id": "meianoite_epub",
+    "exit": 0,
+    "value": "{\r\n  \"crossCheck\": {\r\n    \"confirmedBookKeys\": [],\r\n    \"pdfPages\": [],\r\n    \"requested\": false\r\n  },\r\n  \"diagnostics\": {\r\n    \"filesConsidered\": 1,\r\n    \"filesRead\": 1,\r\n    \"formatsRequested\": [\r\n      \"epub\"\r\n    ],\r\n    \"limits\": {\r\n      \"context\": 1400,\r\n      \"files\": 2,\r\n      \"results\": 2\r\n    },\r\n    \"warnings\": []\r\n  },\r\n  \"filters\": {\r\n    \"acronym\": \"\",\r\n    \"language\": \"\",\r\n    \"title\": \"\",\r\n    \"tolerance\": 0.0\r\n  },\r\n  \"occurrences\": [\r\n    {\r\n      \"bookKey\": \"ogc\",\r\n      \"context\": \"roclamar, mesmo enquanto as legiões romanas estavam sitiando o templo, que o povo devia aguardar o livramento de Deus. Afinal, as multidões apegaram-se firmemente à crença de que o Altíssimo interviria para a derrota de seus adversários. Israel, porém, havia desdenhado a proteção divina, e agora não tinha defesa. Infeliz Jerusalém! despedaçada por dissensões internas, com o sangue de seus filhos, mortos pelas mãos uns dos outros, a tingir de carmesim suas ruas, enquanto hostis exércitos estrangeiros derribavam suas fortificações e lhes matavam os homens de guerra! Todas as predições feitas por Cristo relativas à destruição de Jerusalém cumpriram-se à letra. Os judeus experimentaram a verdade de Suas palavras de advertência: “Com a medida com que tiverdes medido, vos hão de medir a vós.” Mateus 7:2. Apareceram sinais e prodígios, prenunciando desastre e condenação. Ao meio da noite, uma luz sobrenatural resplandeceu sobre o templo e o altar. Sobre as nuvens, ao pôr-do-sol, desenhavam-se carros e homens de guerra reunindo-se para a batalha. Os sacerdotes que ministravam à noite no santuário, aterrorizavam-se com sons misteriosos; a terra tremia e ouvia-se multidão de vozes a cla\n\n[... conteúdo truncado ...]\n\ngw-source-verification/v1\",\r\n  \"status\": \"located\"\r\n}\r\n"
+  },
+  {
+    "id": "intercessao_epub",
+    "exit": 0,
+    "value": {
+      "crossCheck": {
+        "confirmedBookKeys": [],
+        "pdfPages": [],
+        "requested": false
+      },
+      "diagnostics": {
+        "filesConsidered": 1,
+        "filesRead": 1,
+        "formatsRequested": [
+          "epub"
+        ],
+        "limits": {
+          "context": 1800,
+          "files": 2,
+          "results": 2
+        },
+        "warnings": []
+      },
+      "filters": {
+        "acronym": "",
+        "language": "",
+        "title": "",
+        "tolerance": 0
+      },
+      "occurrences": [
+        {
+          "bookKey": "ogc",
+          "context": "interceptar a comunicação entre sua alma e Cristo. Aquele que vê todas as suas fraquezas, e sabe de toda provação, está acima de todo o poder terrestre; e anjos virão a eles nas celas solitárias, trazendo luz e paz do Céu. A prisão será como um palácio; pois os ricos na fé morarão ali, e as paredes sombrias serão iluminadas com a luz celestial, como quando Paulo e Silas, à meia-noite, oraram e cantaram louvores na masmorra de Filipos. Os juízos de Deus cairão sobre os que procuram oprimir e destruir Seu povo. Sua grande longanimidade para com os ímpios, torna audazes os homens na transgressão, mas seu castigo, embora muito retardado, não é menos certo e terrível. “O Senhor Se levantará como no monte de Perazim, e Se irará, como no vale de Gibeom, para fazer a Sua obra, a Sua estranha obra, e para executar o Seu ato, o Seu estranho ato.” Isaías 28:21. Para o nosso misericordioso Deus, o infligir castigo é ato estranho. “Vivo Eu, diz o Senhor Jeová, que não tenho prazer na morte do ímpio.” Ezequiel 33:11. O Senhor é “misericordioso e piedoso, tardio em iras e grande em beneficência e verdade;... que perdoa a iniqüidade, e a transgressão e o pecado.” Todavia, “ao culpado não tem por inocente.” “O Senhor é tardio em irar-Se, mas grande em força, e ao culpado não tem por inocente.” Êxodo 34:6, 7; Naum 1:3. Reivindicará com terríveis manifestações a dignidade de Sua lei espezinhada. A severidade da retribuição que aguarda o transgressor pode ser julgada pela relutância do Senhor em executar justiça. A nação que por tanto tempo Ele suporta, e que não ferirá antes de haver ela enchido a medida de sua iniqüidade, segundo os cálculos divinos, beberá, por fim, a taça da ira sem mistura de misericórdia. Quando Cristo cessar de interceder no santuário, será derramada a ira que, sem mistura, se ameaçara fazer cair sobre os que adoram a besta e sua imagem, e recebem o seu sinal. Apocalipse 14:9, 10. As pragas que sobrevieram ao Egito quando Deus estava prestes a libertar Israel, eram de caráter [628] semelhante aos juízos mais terríveis e extensos que devem cair sobre o mundo precisamente antes do libertamento final do povo de Deus. Diz o autor do Apocalipse, descrevendo esses tremendos flagelos: “Fez-se uma chaga má e maligna nos homens que tinham o sinal da besta e que adoravam a sua imagem.” O mar “se tornou em sangue como de um morto, e morreu no mar toda a alma vivente.” E os rios e fontes das águas “se tornaram em sangue.” Terríveis como são estes castigos, a justiça de Deus é plenamente reivindicada. Declara o anjo de Deus: “Justo és Tu, ó Senhor, ... porque julgaste estas coisas. Visto como derramaram o sangue dos santos e dos profetas, também Tu lhes deste o sangue a beber; porque disto são merecedores.” Apocalipse 16:2-6. Condenando o povo de Deus à morte, são tão culpados do crime do derramamento de seu sangue como se este tivesse sido derramado por suas próprias mãos. De modo semelhante declarou Cristo serem os judeus de Seu tempo culpados de todo o sangue dos homens santos que havia sido derramado desde os dias de Abel; pois possuíam o mesmo espírito, e estavam procurando fazer a mesma obra daqueles assassinos dos profetas. Na praga que se segue, é dado poder ao Sol para que “abrasasse os homens com fogo. E os homens foram abrasados com grandes calores.” Versos 8, 9. Os profetas assim descrevem a condição da Terra naquele tempo terrível: “E a Terra [está] triste; ... porque a colheita do campo pereceu.” “Todas as árvores do campo se secaram, e a alegria se secou entre os filhos dos homens.” “A semente apodreceu debaixo dos seus torrões, os celeiros foram",
+          "format": "epub",
+          "language": "pt",
+          "location": "OEBPS/content39.xhtml",
+          "method": "normalized-exact",
+          "path": "ogc.epub",
+          "score": 1,
+          "title": "O Grande Conflito"
+        }
+      ],
+      "query": "cessar de interceder",
+      "schema": "jcem-egw-source-verification/v1",
+      "status": "located"
+    }
+  },
+  {
+    "id": "intercessao_pdf",
+    "exit": 0,
+    "value": {
+      "crossCheck": {
+        "confirmedBookKeys": [],
+        "pdfPages": [],
+        "requested": false
+      },
+      "diagnostics": {
+        "filesConsidered": 1,
+        "filesRead": 1,
+        "formatsRequested": [
+          "pdf"
+        ],
+        "limits": {
+          "context": 1800,
+          "files": 2,
+          "results": 2
+        },
+        "warnings": []
+      },
+      "filters": {
+        "acronym": "",
+        "language": "",
+        "title": "",
+        "tolerance": 0
+      },
+      "occurrences": [
+        {
+          "bookKey": "ogc",
+          "context": "Aproxima-se o tempo de angústia 547 retardado, não é menos certo e terrível. “O Senhor Se levantará como no monte de Perazim, e Se irará, como no vale de Gibeom, para fazer a Sua obra, a Sua estranha obra, e para executar o Seu ato, o Seu estranho ato.” Isaías 28:21. Para o nosso misericordioso Deus, o infligir castigo é ato estranho. “Vivo Eu, diz o Senhor Jeová, que não tenho prazer na morte do ímpio.” Ezequiel 33:11. O Senhor é “misericordioso e piedoso, tardio em iras e grande em beneficência e verdade;... que perdoa a iniqüidade, e a transgressão e o pecado.” Todavia, “ao culpado não tem por inocente.” “O Senhor é tardio em irar-Se, mas grande em força, e ao culpado não tem por inocente.” Êxodo 34:6, 7; Naum 1:3. Reivindicará com terríveis manifestações a dignidade de Sua lei espezinhada. A severidade da retribuição que aguarda o transgressor pode ser julgada pela relutância do Senhor em executar justiça. A nação que por tanto tempo Ele suporta, e que não ferirá antes de haver ela enchido a medida de sua iniqüidade, se￾gundo os cálculos divinos, beberá, por fim, a taça da ira sem mistura de misericórdia. Quando Cristo cessar de interceder no santuário, será derramada a ira que, sem mistura, se ameaçara fazer cair sobre os que adoram a besta e sua imagem, e recebem o seu sinal. Apocalipse 14:9, 10. As pragas que sobrevieram ao Egito quando Deus estava prestes a libertar Israel, eram de caráter semelhante aos juízos mais terríveis [628] e extensos que devem cair sobre o mundo precisamente antes do libertamento final do povo de Deus. Diz o autor do Apocalipse, descrevendo esses tremendos flagelos: “Fez-se uma chaga má e maligna nos homens que tinham o sinal da besta e que adoravam a sua imagem.” O mar “se tornou em sangue como de um morto, e morreu no mar toda a alma vivente.” E os rios e fontes das águas “se tornaram em sangue.” Terríveis como são estes castigos, a jus￾tiça de Deus é plenamente reivindicada. Declara o anjo de Deus: “Justo és Tu, ó Senhor, ... porque julgaste estas coisas. Visto como derramaram o sangue dos santos e dos profetas, também Tu lhes deste o sangue a beber; porque disto são merecedores.” Apocalipse 16:2-6. Condenando o povo de Deus à morte, são tão culpados do crime do derramamento de seu sangue como se este tivesse sido derramado por suas próprias mãos. De modo semelhante declarou Cristo serem os judeus de Seu tempo culpados de todo o sangue dos homens santos que havia sido derramado desde os dias de Abel; pois",
+          "format": "pdf",
+          "language": "",
+          "location": "551",
+          "method": "normalized-exact",
+          "page": 551,
+          "path": "ogc.pdf",
+          "score": 1,
+          "title": "ogc"
+        }
+      ],
+      "query": "cessar de interceder",
+      "schema": "jcem-egw-source-verification/v1",
+      "status": "located"
+    }
+  }
+]
