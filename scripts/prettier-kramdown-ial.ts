@@ -1,40 +1,117 @@
-// scripts/prettier-kramdown-ial.ts
-// Fábrica de plugin Prettier3 para extensão de parser/print nativos.
-// Recebe markdownPlugin e builders via createPlugin; delega a eles diretamente.
-// Preserva AST e assinaturas nativas; associação IAL será implementada na próxima unidade.
+// Extensão local Prettier: associação IAL de tabelas e títulos raiz.
+// Demais categorias e integração do editor ainda não ativadas.
 
-// Helpers mortos removidos nesta etapa: extractIALFromRaw, preprocess, printBlockWithIAL
+export function createPlugin(markdownPlugin: any, builders: any): any {
+  const sourceMap = new WeakMap<object, string>();
+  const baseParser = markdownPlugin.parsers.markdown;
+  const basePrinter = markdownPlugin.printers.mdast;
 
-/**
- * Fábrica que captura markdownPlugin e builders em closure e produz plugin compatível.
- * - Herda parsers.markdown e printers.mdast diretamente do markdownPlugin.
- * - Delega preprocess/print/embed/getVisitorKeys a eles sem modificações nesta etapa.
- * - Não usa options/plugins dinâmicos; não busca parsers/printers recursivamente.
- * - builders não é usado nesta etapa; parâmetro mantido para compatibilidade de API.
- */
-export function createPlugin(markdownPlugin: any, builders: unknown): any {
+  const parser = {
+    ...baseParser,
+    astFormat: 'mdast',
+    async parse(text: string, options: any): Promise<any> {
+      const ast = await baseParser.parse(text, options);
+      sourceMap.set(ast, text);
+      return ast;
+    }
+  };
+
+  const preprocess = basePrinter.preprocess
+    ? async function preprocess(ast: any, options: any): Promise<any> {
+        const source = sourceMap.get(ast);
+        if (!source) {
+          return basePrinter.preprocess!(ast, options);
+        }
+        const pairs = collectBlockIals(ast, source);
+        const processed = await basePrinter.preprocess!(ast, options);
+        return wrapBlockIals(processed, pairs);
+      }
+    : async function preprocess(ast: any, options: any): Promise<any> {
+        const source = sourceMap.get(ast);
+        if (!source) {
+          return ast;
+        }
+        const pairs = collectBlockIals(ast, source);
+        return wrapBlockIals(ast, pairs);
+      };
+
+  const print = function print(path: any, options: any, print: any): any[] {
+    const node = path.node;
+    if (node.type === 'jcemIalBlock') {
+      const childPrinted = path.call(print, 'children', 0);
+      return [childPrinted, builders.hardline, node.raw];
+    }
+    return basePrinter.print(path, options, print);
+  };
+
+  const getVisitorKeys = function getVisitorKeys(node: any, ...args: any[]): string[] {
+    if (node.type === 'jcemIalBlock') {
+      return ['children'];
+    }
+    return basePrinter.getVisitorKeys(node, ...args);
+  };
+
   return {
     parsers: {
-      markdown: {
-        ...markdownPlugin.parsers.markdown,
-        astFormat: 'mdast',
-      },
-      mdast: {
-        ...markdownPlugin.parsers.mdast,
-        astFormat: 'mdast',
-      },
+      markdown: parser
     },
     printers: {
       mdast: {
-        ...markdownPlugin.printers.mdast,
-        // preprocess e embed mantidos nativos nesta etapa
-      },
-    },
-    // options/optionsDefinitions não são ativados nesta etapa
+        ...basePrinter,
+        preprocess,
+        print,
+        getVisitorKeys
+      }
+    }
   };
 }
 
-export default (markdownPlugin: any, builders: unknown) => createPlugin(markdownPlugin, builders);
+export default createPlugin;
+
+function wrapBlockIals(ast: any, pairs: Array<{ blockIndex: number; ialIndex: number; raw: string }>): any {
+  if (pairs.length === 0) return ast;
+
+  const ialIndexSetByBlock = new Map<number, Set<number>>();
+  for (const pair of pairs) {
+    let set = ialIndexSetByBlock.get(pair.blockIndex);
+    if (!set) {
+      set = new Set();
+      ialIndexSetByBlock.set(pair.blockIndex, set);
+    }
+    set.add(pair.ialIndex);
+  }
+
+  const newChildren: any[] = [];
+  for (let i = 0; i < ast.children.length; i++) {
+    const child = ast.children[i];
+    const blockIndex = i;
+    const set = ialIndexSetByBlock.get(blockIndex);
+    if (pairs.some(pair => pair.ialIndex === i)) {
+      // omitir nós cujo índice esteja em ialIndex
+      continue;
+    }
+    if (set) {
+      // O wrapper ocupa a posição do bloco.
+      const blockChild = child;
+      const pair = pairs.find(p => p.blockIndex === blockIndex);
+      if (blockChild && pair) {
+        newChildren.push({
+          type: 'jcemIalBlock',
+          children: [blockChild],
+          raw: pair.raw,
+          position: {
+            start: blockChild.position.start,
+            end: ast.children[pair.ialIndex].position.end
+          }
+        });
+      }
+    } else {
+      newChildren.push(child);
+    }
+  }
+
+  return { ...ast, children: newChildren };
+}
 
 export function collectBlockIals(ast: any, source: string): Array<{ blockIndex: number; ialIndex: number; raw: string }> {
   const result: Array<{ blockIndex: number; ialIndex: number; raw: string }> = [];
