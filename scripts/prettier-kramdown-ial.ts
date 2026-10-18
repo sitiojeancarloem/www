@@ -121,7 +121,7 @@ function wrapBlockIals(ast: any, pairs: Array<{ blockIndex: number; ialIndex: nu
 
 export function collectBlockIals(ast: any, source: string): Array<{ blockIndex: number; ialIndex: number; raw: string }> {
   const result: Array<{ blockIndex: number; ialIndex: number; raw: string }> = [];
-  if (!ast || ast.type !== 'root' || !Array.isArray(ast.children)) return result;
+  if (!ast || !['root', 'blockquote', 'listItem'].includes(ast.type) || !Array.isArray(ast.children)) return result;
 
   for (let i = 0; i < ast.children.length; i++) {
     const next = ast.children[i];
@@ -140,15 +140,22 @@ export function collectBlockIals(ast: any, source: string): Array<{ blockIndex: 
 
       const ialStart = para.position?.start?.offset;
       const ialEnd = para.position?.end?.offset;
-      if (para.position?.start?.column !== 1 || !Number.isInteger(para.position.start.line)) break;
+      if (!Number.isInteger(para.position?.start?.column) || !Number.isInteger(para.position.start.line)) break;
 
       if (!Number.isInteger(ialStart) || !Number.isInteger(ialEnd)) break;
       if (!(blockEnd <= ialStart && ialStart < ialEnd && ialEnd <= source.length)) break;
 
+      const prefix = source.slice(source.lastIndexOf('\n', ialStart - 1) + 1, ialStart);
+      if (para.position.start.column !== prefix.length + 1) break;
+      if (ast.type === 'root' ? prefix !== '' : !/^[ \t>]*$/.test(prefix)) break;
       const gap = source.slice(blockEnd, ialStart);
-      if (gap !== '\n' && gap !== '\r\n') break;
+      if (gap !== '\n' + prefix && gap !== '\r\n' + prefix) break;
 
-      const raw = source.slice(ialStart, ialEnd);
+      let raw = source.slice(ialStart, ialEnd);
+      if (prefix) {
+        if (raw.split(/\r?\n/).slice(1).some(line => !line.startsWith(prefix))) break;
+        raw = raw.split('\n' + prefix).join('\n');
+      }
       if (!raw.startsWith('{:') || !raw.endsWith('}')) break;
       if (raw.startsWith('{::')) break;
 
