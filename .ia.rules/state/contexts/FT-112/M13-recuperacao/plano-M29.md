@@ -1,0 +1,11 @@
+# M29 — fontes primárias do parêntese de Apocalipse 18
+
+Dependências: inventário integral aceito, instrução autoral novos-03-instrucao.txt, revisao-novos-03.md, revisao-sermao-01.md e excertos do sermão preservados; não repetir exploração. M28 aplicada/conferida, commit 0ff4d9b05b. Carta SHA-256 c11601f70bc8318b858ef4989cbee659120c3be595762aef626331d7d5dd7d40. Fonte EGW de Ester já corrigida na M14; não reaplicar.
+
+Unidade coerente de captura determinística, sem inferência: treze capítulos ARA fixos para conferir toda a cadeia cronológica do único parêntese. Ap8,12,13,15,16,17,18,20;Et3,8,9;Nm14;Ez4. Cache por versão/ref preferido; somente Bíblia Online nas URLs fixas, resposta limitada, timeout individual30s e global300s. Saída do job mínima (estado, referências, origem); capítulos ficam no artefato, não carregados numa inferência monolítica. Fonte não edita a carta. Pending rastreado antes da execução; falha preserva resultados parciais, sem replay de consulta concluída.
+
+Aceite: captured, treze entradas ARA com versículos, hash da carta antes/depois igual. Cotejo posterior somente dos versículos pertinentes: Ap8:1;12:7–9;13:15–17;15:1,5–8;16:1–21;17:12–14;18:4,8–10,17,19;20:1–7;Et3:7,12–15;8:9–14;9:1–2;Nm14:34;Ez4:4–6. Não pressupor equivalência entre Ap12:8,18:4 e18:8 nem que todo dia profético necessariamente corresponda a ano. Não identificar sem prova o decreto de morte com a sétima praga; distinguir emissão, execução pretendida e libertação.
+
+Continuação: fonte EGW dirigida sobre pragas/decreto/libertação e professos adventistas, usando biblioteca e script oficiais já disponíveis; depois arquitetura breve do parêntese, fundamentos densos nas notas e integração cirúrgica. Preservar sete dias e milênio como durações futuras, a ressalva autoral Não quero bater o martelo/parece ser, o argumento de funcionamento institucional e sua independência da hipótese cronológica. Separar duração que ocorrerá após1844 de revelação dada após1844. Não restaurar Ap9:15, substituído pelo autor, nem usar sermão como autoridade teológica primária.
+
+Ainda não há aceite global: faltam integração do parêntese, demais instruções/placeholder, contrato real de tabela/legenda, revisão de fontes/citações e validação renderizada/TTS pertinente. Sem publicação/push. Commit supervisor após revisão desta captura.
