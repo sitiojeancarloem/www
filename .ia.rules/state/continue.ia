@@ -253,10 +253,11 @@ contexto=.ia.rules/state/contexts/FT-106/master.md
 dependencias=FT-108,FT-109,FT-110
 pendencias=Aguardar as FTs 108 a 110.
 
-FT-112|nome=Revisão integral da carta aberta|escopo=negocio|status=concluida|autorizacao=humana|retomada=2026-10-10|conclusao=2026-10-11T04:07:20.028Z|validacao=pendente_desenvolvedor
-objetivo=Executar o cabeçalho integral no mesmo draft, com fontes verificadas, preservação autoral e correções factuais autorizadas; sem localWorker.
+FT-112|nome=Revisão integral da carta aberta|escopo=negocio|status=em_andamento|autorizacao=humana|retomada=2026-10-17
+objetivo=Integrar as adições autorais e cumprir a revisão integral da mesma carta, preservando argumentos e força retórica, com fontes verificadas; localWorker expressamente autorizado por instrução humana posterior.
 origem=.ia.rules/state/requests/FT-112/prompt.md
-resultado=Revisão M11 concluída: 26 restaurações da firmeza autoral, incluindo hipótese Ap12/17. Recibos e histórico em .ia.rules/state/contexts/FT-112/.
-verificacoes=M11: 100 correspondências lexicais; 47 blocos, 123 notas, 154 chamadas; renderização e auditoria estrutural atuais sem falhas; citações preservadas.
-pendencias=Sem pendência técnica; aceite autoral posterior. Estado de retomada em .ia.rules/state/contexts/FT-112/retomada.md. Sem publicação/push/localWorker.
+contexto=.ia.rules/state/contexts/FT-112/M13-recuperacao/checkpoint.md
+resultado=M12 é conclusão histórica anterior à ampliação autoral. Inventário integral M13 aceito; M14 a M21 integraram correções de metadados, fontes EGW e notas bíblicas. Última aplicação M21: commit 11f55cb403.
+verificacoes=M21: aplicar_m21 e diff_check exit0; reconstrução exata do recibo sobre HEAD coincide com carta SHA-256 d474cdf126fb62ce66dd2e3ed28124838b8dadb82cb0b554384541319f7166d3. Validações globais anteriores são históricas, não comprovam o draft atual.
+pendencias=Segundo parágrafo de Acabe/Elias e fontes; maioria/minoria; carteiro; parêntese Ap18; demais placeholders; contrato real de tabela/legenda; validação renderizada e revisão global. Sem publicação/push. Commits por microtarefa; preservar alterações herdadas.
 historico=.ia.rules/state/history/FT-112.ia|sha256=6a48dbeea769e4322404e4448e6f6d93a157fe6dcec4311bc772cd6f7e8ecda8
