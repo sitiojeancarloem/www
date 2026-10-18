@@ -1,0 +1,43 @@
+{
+  "before": "b7cfd38635374381cddd64f6e190582115e2771d9cdbf7f5f92a2a56a2455bd7",
+  "receipt": "aplicacao-M32-notas.json",
+  "evidence": [],
+  "edits": [
+    {
+      "before": "<!-- AI-PROCESSED:START -->[^ap1217]:",
+      "after": "[^ap1217]: <!-- AI-PROCESSED:START -->",
+      "kind": "mechanical"
+    },
+    {
+      "before": "a infalibilidade de um comentarista.[^smithparentese]",
+      "after": "a infalibilidade de um comentarista.[^cesmith][^smithparentese]",
+      "kind": "mechanical"
+    },
+    {
+      "before": "seus 400 [^baalprofetas] [^quatrocentos]",
+      "after": "seus 400[^baalprofetas][^quatrocentos]",
+      "kind": "mechanical"
+    },
+    {
+      "before": "[^duracoesfuturas]: Bíblia, ARA. Apocalipse 8:1 registra",
+      "after": "[^duracoesfuturas]: Bíblia, ARA. [Apocalipse 8:1–6](https://www.bibliaonline.com.br/ara/ap/8) registra, no versículo 1,",
+      "kind": "mechanical"
+    },
+    {
+      "before": "[^ap915]: Bíblia, ARA. [Apocalipse 9:13-21](https://www.bibliaonline.com.br/ara/ap/9)\n",
+      "after": "",
+      "kind": "mechanical"
+    },
+    {
+      "before": "[^ap7]: Bíblia, ARA. [Apocalipse 7:1-17](https://www.bibliaonline.com.br/ara/ap/7)\n",
+      "after": "",
+      "kind": "mechanical"
+    },
+    {
+      "before": "[^ap81]: Bíblia, ARA. [Apocalipse 8:1-6](https://www.bibliaonline.com.br/ara/ap/8)\n",
+      "after": "",
+      "kind": "mechanical"
+    }
+  ],
+  "scope": "Corrigir reconhecimento da nota ap1217 sem alterar seu texto; reativar cesmith, preservar link Ap8 na nota migrada, retirar três definições comprovadamente órfãs da discussão substituída Ap9 e unir chamadas adjacentes."
+}
