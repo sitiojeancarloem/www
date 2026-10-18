@@ -1,0 +1,44 @@
+## 7. Estratégia obrigatória de pesquisa/verificação
+
+- Priorizar a estratégia que produza **maior precisão com menor custo de tokens/processamento**.
+- Preferir inicialmente a biblioteca local quando ela oferecer busca/localização mais eficiente.
+- Se vantajoso, criar ou reutilizar script/ferramenta especializada para:
+  - busca textual;
+  - normalização;
+  - localização de variantes;
+  - comparação entre EPUB/PDF;
+  - extração de contexto;
+  - confirmação de página/referência.
+- Se essa automação for reutilizável, estruturá-la adequadamente como SKILL ou equivalente conforme a arquitetura real.
+- Combinar busca local e online quando isso aumentar confiabilidade/eficiência.
+- Considerar explicitamente limitações das fontes:
+  - PDF pode fragmentar sentenças por quebras de linha, cabeçalhos, rodapés, paginação ou marcações;
+  - EPUB tende a facilitar localização textual, mas pode ser inadequado para confirmar paginação;
+  - busca web pode retornar falso positivo, transcrição incorreta, atribuição falsa ou paginação divergente.
+- Estratégia recomendada quando necessária:
+  1. localizar texto pela fonte com melhor capacidade de busca;
+  2. conferir conteúdo e contexto;
+  3. validar referência/página na fonte adequada;
+  4. cruzar fontes quando houver divergência material.
+- Referências editoriais preexistentes, inclusive **entre parênteses**, DEVEM passar pelo mesmo processo de verificação das referências novas.
+- Antes de converter qualquer referência parentética, a IA DEVE determinar se ela é:
+  - **editorial**, pertencente ao texto/carta → verificar e converter conforme estas normas; ou
+  - **interna a uma citação**, pertencente ao autor citado → preservar literalmente conforme §6.1.
+- A verificação da citação principal PODE confirmar que uma subcitação realmente integra o texto da fonte; isso NÃO autoriza alterar a forma dessa subcitação.
+- A citação final e sua referência editorial DEVEM ser **precisas, corretas, válidas e verificadas**. Havendo dúvida material não resolvida, NÃO apresentar a referência como confirmada.
+
+## 8. Critério final
+
+A edição somente é válida se simultaneamente:
+- criar uma introdução adequada, sucinta e organicamente integrada;
+- conservar integralmente fatos, contexto, essência, conceitos, argumentos, exemplos, intensidade e intenção;
+- melhorar gramática, semântica, organização, progressão lógica e legibilidade;
+- reduzir redundância/tokens sem reducionismo;
+- preservar ênfases deliberadas;
+- manter firmeza sem desrespeito gratuito;
+- tornar o texto acessível sem empobrecimento;
+- identificar, verificar e converter adequadamente referências parentéticas **editoriais** preexistentes;
+- preservar **integral e literalmente** toda subcitação/referência interna pertencente ao conteúdo original de uma citação;
+- distinguir inequivocamente referência **da citação** de referência **dentro da citação**;
+- e garantir que **toda citação e toda referência editorial apresentada tenham sido efetivamente verificadas**, sem adulterar as formas referenciais empregadas pelos autores dentro de suas próprias citações.
+-->
