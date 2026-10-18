@@ -8,6 +8,7 @@ draft = repo / "_drafts/carta-aberta-hierarquia-papal-na-igreja/carta-aberta-hie
 profiles = {
     "M16": ("biblia-M16-abertura.json", ("gl/2", "mt/18", "jo/16", "2sm/6", "1cr/13", "1cr/15", "1tm/5")),
     "M17": ("biblia-M17-correcao.json", ("2tm/3", "2tm/4", "lv/19", "pv/27", "lc/17", "at/2")),
+    "M18": ("biblia-M18-autoexame.json", ("gl/6", "1co/11", "2co/13", "lm/3", "sl/139", "jo/10")),
 }
 profile = sys.argv[1] if len(sys.argv) > 1 else "M16"
 if profile not in profiles:
