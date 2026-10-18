@@ -11,6 +11,7 @@ profiles = {
     "M18": ("biblia-M18-autoexame.json", ("gl/6", "1co/11", "2co/13", "lm/3", "sl/139", "jo/10")),
     "M19": ("biblia-M19-julgamento.json", ("pv/14", "mt/10", "jo/7", "1co/2", "1co/5", "1co/6", "mt/7", "lc/6", "rm/14", "1co/4", "tg/4")),
     "M20": ("biblia-M20-acabe.json", ("1rs/17", "1rs/18", "1rs/19", "1rs/22")),
+    "M22": ("biblia-M22-missao-elias.json", ("ml/3", "ml/4", "lc/1", "lc/3", "mt/11", "mt/17", "at/22", "tt/1", "nm/23", "is/43")),
 }
 profile = sys.argv[1] if len(sys.argv) > 1 else "M16"
 if profile not in profiles:
