@@ -1,0 +1,23 @@
+{
+  "schema": "ft112-citation-format/v1",
+  "before": "5a032a63ba22394d428d981739f128f1447b22f1655dcf9c94a0935f94506540",
+  "after": "44616f6871a30fc805fa6f585a92deac707ddbde3092b859c90cdc26eeeb1a96",
+  "regions": [
+    {
+      "before": "\"**Aqueles** que têm escolhido **<u>seu próprio</u> caminho** e se têm erguido **contra** os **claros** testemunhos a eles dados, procurando **abalar a fé** dos demais **nessas mensagens, <u>DEVEM decidir a questão COM DEUS</u>**\" <footnote: Testemunhos para a igreja - A reunião campal de Michigan, p. 23>",
+      "after": "_“**Aqueles** que têm escolhido **<u>seu próprio</u> caminho** e se têm erguido **contra** os **claros** testemunhos a eles dados, procurando **abalar a fé** dos demais **nessas mensagens, <u>DEVEM decidir a questão COM DEUS</u>**.”_[^tcaminho23]"
+    },
+    {
+      "before": "\"_prefiro o caminho de Deus e NÃO o delas_\" <footnote: Testemunhos para a igreja - A reunião campal de Michigan, p. 23>",
+      "after": "_“prefiro o caminho de Deus e NÃO o delas”_[^tcaminho22]"
+    },
+    {
+      "before": "",
+      "after": "\n[^tcaminho23]: Ellen G. White. Testemunhos para a Igreja, v. 5 - A reunião campal de Michigan, p. 23 (edição de 2004); página física 27 do PDF consultado.\n[^tcaminho22]: Ellen G. White. Testemunhos para a Igreja, v. 5 - A reunião campal de Michigan, p. 22 (edição de 2004); página física 26 do PDF consultado.\n"
+    }
+  ],
+  "scope": "Duas citações EGW e notas específicas; restante preservado.",
+  "literal_epub_pdf": true,
+  "pagination": "Edição2004, p22 e23; físicas26 e27",
+  "mechanism": "applyEditorialEdits"
+}
