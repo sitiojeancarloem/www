@@ -25,3 +25,7 @@ Entregar páginas de doação orientadas por dados, QR Codes confiáveis e uma c
 ## Retomada da FT-107 — U1
 
 FT-106 concluída (histórico canônico); implementação autorizada. Inventário job76db6458: nenhum arquivo de doação ou QR localizado nas fontes versionadas; Jekyll usa _data e domínio https://www.jeancarloem.com. U1: _data/donations.json e teste de valores exatos contra TODO canônico. Sem UI/QR/assets externos nesta unidade; contrato, biblioteca QR, composição, decodificação e ações serão checkpoints posteriores. Preservar seis meios informados, redes, payloads e link PayPal literalmente; não inferir identidade de tokens.
+
+## Checkpoint U1 aprovado
+
+Fonte _data/donations.json v1 com PIX, quatro criptos e PayPal preservados. Teste scripts/test_donations_data.ts compara com TODO canônico; job e7dec2f0-8f26-42bd-98cb-8b84b282c219 exit0. Correções preservadas: contrato de campos e extração restrita à seção/linhas. Sem QR/UI/assets; FT-107 em andamento. Próximo U2: validação reutilizável tipada e extensão por dados, sem valores financeiros recadastrados.

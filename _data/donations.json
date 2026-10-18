@@ -1,0 +1,57 @@
+{
+  "schemaVersion": 1,
+  "methods": [
+    {
+      "id": "pix",
+      "type": "pix",
+      "label": "PIX",
+      "key": "doe@jeancarloem.com",
+      "payload": "00020126630014br.gov.bcb.pix0119doe@jeancarloem.com0218Doacao_JeanCarloEM5204000053039865802BR5925JEAN_CARLO_DE_ELIAS_MOREI6012PIRASSUNUNGA62180514DOEJEANCARLOEM63040675"
+    },
+    {
+      "id": "usdt-bnb",
+      "type": "crypto",
+      "label": "USDT",
+      "network": "BNB",
+      "address": "0xeb68c866073abd82e5c2e41831db57f8718f91e7",
+      "symbol": "USDT",
+      "name": "USDT"
+    },
+    {
+      "id": "btc-bitcoin",
+      "type": "crypto",
+      "label": "BTC",
+      "network": "Bitcoin",
+      "address": "1JwTkF1HTd1isctQ7jumfCVQxhxVqKuMzN",
+      "symbol": "BTC",
+      "name": "Bitcoin"
+    },
+    {
+      "id": "xec-ecash",
+      "type": "crypto",
+      "label": "XEC",
+      "network": "XEC",
+      "address": "ecash:qqwtv7lfm6nn2u3vrrjuqtcfzc36y29ueshw9svgrt",
+      "symbol": "XEC",
+      "name": "eCash"
+    },
+    {
+      "id": "bttc-tron",
+      "type": "crypto",
+      "label": "BTTC",
+      "network": "TRON",
+      "address": "TFRTMVtsoxXsdCXaPJx6jCEep9eeKaZNH2",
+      "symbol": "BTTC",
+      "name": "BitTorrent"
+    },
+    {
+      "id": "paypal",
+      "type": "paypal",
+      "label": "PayPal",
+      "url": "https://www.paypal.com/donate/?hosted_button_id=6V7J86DQ9VQBS",
+      "currency": "BRL",
+      "minimumAmount": 10,
+      "amountMode": "free"
+    }
+  ]
+}
