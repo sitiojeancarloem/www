@@ -45,3 +45,17 @@
   embedded_notice: Os arquivos oficiais entregues pelo CDN conservam os avisos de atribuição incorporados pelo fornecedor.
   evidence:
     - 404.main.html
+
+- id: qrcode-generator
+  name: QR Code Generator for JavaScript
+  resource: Gerador QR local para doações; carregamento restrito ao recurso
+  version: 2.0.4
+  author: Kazuhiko Arase
+  origin: https://github.com/kazuhikoarase/qrcode-generator
+  license: MIT
+  license_url: https://github.com/kazuhikoarase/qrcode-generator/blob/js2.0.4/LICENSE
+  copyright: Copyright (c) 2009 Kazuhiko Arase
+  notice_ref: mit
+  evidence:
+    - assets/jcem/lib/qrcode-generator/2.0.4/qrcode.mjs
+    - assets/jcem/lib/qrcode-generator/2.0.4/LICENSE.txt

@@ -37,3 +37,7 @@ Módulo assets/jcem/ts/donations-data.ts e JS compilado: união discriminada coe
 ## Checkpoint U2B aprovado
 
 Teste scripts/test_donations_contract.ts: baseline, extensão por dados, null/versão e 72 rejeições com preservação; job64e0173a-bdd5-4fb5-a63b-dc092effc403 exit0. U2A commit ee997954a2, primeiro teste4f44abcb30. Contrato de dados validado; QR, composição/decodificação, ações e assets comuns pendentes. Próximo U3A: inventário delimitado de bibliotecas locais e símbolo de logo já autorizado; nenhuma instalação antes desse checkpoint.
+
+## Checkpoint U3C aprovado
+
+qrcode-generator2.0.4 (MIT) local em assets/jcem/lib e jsqr1.4.0 (Apache-2.0) em scripts/vendor, excluído do Jekyll. Hashes SHA256 e SRI nos manifests; licenças preservadas. Job2f865db2: vendor/smoke/attributions exit0, geração→leitura básica aprovada e cinco atribuições válidas. scripts/vendor é ignorado pelo Git; somente os três arquivos fixados do decoder serão adicionados explicitamente. Sem UI/composição final; ainda requer símbolo/legenda, decodificação de payloads reais e ações.

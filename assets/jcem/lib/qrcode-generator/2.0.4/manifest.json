@@ -1,0 +1,23 @@
+{
+  "name": "qrcode-generator",
+  "version": "2.0.4",
+  "source": "https://registry.npmjs.org/qrcode-generator/-/qrcode-generator-2.0.4.tgz",
+  "integrity": "sha512-mZSiP6RnbHl4xL2Ap5HfkjLnmxfKcPWpWe/c+5XxCuetEenqmNFf1FH/ftXPCtFG5/TDobjsjz6sSNL0Sr8Z9g==",
+  "license": "MIT",
+  "licenseSource": "https://raw.githubusercontent.com/kazuhikoarase/qrcode-generator/js2.0.4/LICENSE",
+  "purpose": "Local QR required by RCFs/doacoes.md; use only on donation feature",
+  "files": [
+    {
+      "file": "qrcode.mjs",
+      "sha256": "ea91d7118a5395289170da848b7c6758b996163bfbccf312591ab65a4911b7c0"
+    },
+    {
+      "file": "qrcode_UTF8.mjs",
+      "sha256": "b06a0931c600eb94557c7949af2b0addfbd7fb56928b27859edec50f26919560"
+    },
+    {
+      "file": "LICENSE.txt",
+      "sha256": "3a850fa5f08101db6f40676c2786e10bd2cd5fff7b12ffdf1e0c434d4e49d90c"
+    }
+  ]
+}
