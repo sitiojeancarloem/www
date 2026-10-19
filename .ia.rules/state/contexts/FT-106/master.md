@@ -33,3 +33,7 @@ Fonte _data/donations.json v1 com PIX, quatro criptos e PayPal preservados. Test
 ## Checkpoint U2A aprovado
 
 Módulo assets/jcem/ts/donations-data.ts e JS compilado: união discriminada coerente ao JSON, validação estrutural pura e URL PayPal com query preservada. Job e6f48d2b-a4d1-4c0b-b0d9-c18aef03875d: patch, build e baseline exit0; JSON real aceito sem mutação. U2B pendente: regressões negativas e inclusão por dados. Nenhum QR/UI conectado; FT-107 segue em andamento.
+
+## Checkpoint U2B aprovado
+
+Teste scripts/test_donations_contract.ts: baseline, extensão por dados, null/versão e 72 rejeições com preservação; job64e0173a-bdd5-4fb5-a63b-dc092effc403 exit0. U2A commit ee997954a2, primeiro teste4f44abcb30. Contrato de dados validado; QR, composição/decodificação, ações e assets comuns pendentes. Próximo U3A: inventário delimitado de bibliotecas locais e símbolo de logo já autorizado; nenhuma instalação antes desse checkpoint.
