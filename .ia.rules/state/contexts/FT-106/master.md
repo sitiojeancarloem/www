@@ -53,3 +53,7 @@ Renderer donations-qr-canvas.ts/JS: jobd4c8e0fd create/build/render-test exit0; 
 ## Checkpoint U3F1 aprovado
 
 Geometria baseada na tabela MIT do gerador2.0.4. Correções do jobffb788f5: iteração dos centros reais, guardas inteiras/NaN, build e teste40versões+invalidos exit0. Reserva conservadora de borda11 e quadrados de alinhamento5x5; só admite área central livre. Próximo: seleção finita da versão QR que comporte símbolo central sem afetar módulos funcionais; depois compositor com figura real e decodificação final.
+
+## Checkpoint U3F2 aprovado
+
+Seletor finito de versão e teste permanente: job6d61550b create/build/test exit0. Cinco QRs com área central apagada decodificam byte a byte. PIX versão14 após chamadas[0,14]; criptos usam automática, versões5/4/6/4. Região central não cobre reserva funcional. Próximo: camada canvas com recorte da figura do logo original, bitmap do primeiro frame; validar cinco PNGs finais e regiões protegidas. Sem alterações do GIF ou de payloads.
