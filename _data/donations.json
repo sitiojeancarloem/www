@@ -53,5 +53,23 @@
       "minimumAmount": 10,
       "amountMode": "free"
     }
+  ],
+  "assets": [
+    {
+      "id": "bitcoin",
+      "path": "/assets/jcem/img/donations/bitcoin.png",
+      "source": "https://raw.githubusercontent.com/ErikThiart/cryptocurrency-icons/8dcc316d95f0bbdf6f3b220745ae05f1ef00e79e/128/bitcoin.png",
+      "license": "MIT",
+      "licenseUrl": "https://raw.githubusercontent.com/ErikThiart/cryptocurrency-icons/8dcc316d95f0bbdf6f3b220745ae05f1ef00e79e/LICENSE",
+      "sha256": "d8acc669ca70a706e61fb3162811d3042d06701f56aac2a6f1ce1cfff08824f7"
+    },
+    {
+      "id": "tether",
+      "path": "/assets/jcem/img/donations/tether.png",
+      "source": "https://raw.githubusercontent.com/ErikThiart/cryptocurrency-icons/8dcc316d95f0bbdf6f3b220745ae05f1ef00e79e/128/tether.png",
+      "license": "MIT",
+      "licenseUrl": "https://raw.githubusercontent.com/ErikThiart/cryptocurrency-icons/8dcc316d95f0bbdf6f3b220745ae05f1ef00e79e/LICENSE",
+      "sha256": "094281ddb2a43d70d594f6be2c563dd9845f7f76d3746e784890de649ce92834"
+    }
   ]
 }

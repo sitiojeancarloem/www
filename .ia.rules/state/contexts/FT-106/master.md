@@ -71,3 +71,8 @@ Job bb93446f-cfc8-45ed-9367-0f9c2fd92f8f: create/build/test exit0, FIVE_FULL_COP
 
 Jobs7d35cb27 e1e22c73b: WORKER_INCOMPLETE, leituras/listagens repetidas sem alterações; não infraestrutura. Estratégia corrigida6e9d5fc6: sequência determinística create/build/test exit0, ASSET_CATALOG_STRUCTURE_RESOLUTION_AND_REJECTIONS_OK. Revisão do módulo/teste aceita: catálogo e resolvedor comum por ID, paths locais restritos, HTTPS sem credenciais, hash estrutural, preservação dos dados. Git determinístico ahead32 confirmou três arquivos novos, zero commits do Worker. Sem catálogo real ou verificação física/licenciamento dos assets; próxima unidade aquisição/proveniência e integração JSON, reutilizando metadados existentes.
 
+
+## Checkpoint U4C2 aprovado
+
+Aquisição da2d7453 e integração8f3f3f3d concluídas: install/catalog-test/financial-test/attributions exit0; dois hashes físicos válidos e seis atribuições. PNGs Bitcoin/Tether128alpha inspecionados no candidato, copiados byte a byte; licençaMIT2018ErikThiart preservada e fonte pinada8dcc316d95f0bbdf6f3b220745ae05f1ef00e79e no JSON único. Revisão diff confirmou methods intactos. Git determinístico ahead33 trouxe sete alvos alterados/novos, sem commit do Worker. Catálogo inicial parcial; contrato DonationsData ainda não valida assets e não há referências de métodos/UI. Próximo: integrar validação tipada de catálogo no contrato, mantendo validadores unitários QR/cópia compatíveis; demais ícones/referências pendentes.
+

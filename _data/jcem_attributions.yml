@@ -59,3 +59,18 @@
   evidence:
     - assets/jcem/lib/qrcode-generator/2.0.4/qrcode.mjs
     - assets/jcem/lib/qrcode-generator/2.0.4/LICENSE.txt
+
+- id: cryptocurrency-icons
+  name: Cryptocurrency Icons
+  resource: Ícones locais de Bitcoin e Tether usados no catálogo de doações
+  version: 8dcc316d95f0bbdf6f3b220745ae05f1ef00e79e
+  author: Erik Thiart
+  origin: https://github.com/ErikThiart/cryptocurrency-icons
+  license: MIT
+  license_url: https://raw.githubusercontent.com/ErikThiart/cryptocurrency-icons/8dcc316d95f0bbdf6f3b220745ae05f1ef00e79e/LICENSE
+  copyright: Copyright (c) 2018 Erik Thiart
+  notice_ref: mit
+  evidence:
+    - assets/jcem/img/donations/bitcoin.png
+    - assets/jcem/img/donations/tether.png
+    - assets/jcem/img/donations/LICENSE.txt

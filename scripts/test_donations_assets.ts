@@ -15,3 +15,15 @@ for (const key of ['id','license','sha256']) for (const val of ['',null,' ']) as
 assert.throws(()=>validate([{...item,sha256:'A'.repeat(64)}]));
 assert.throws(()=>resolve(catalog,'../bad'));
 console.log('ASSET_CATALOG_STRUCTURE_RESOLUTION_AND_REJECTIONS_OK');
+
+const {readFileSync}=await import('node:fs');
+const {createHash}=await import('node:crypto');
+const realData=JSON.parse(readFileSync(new URL('../_data/donations.json',import.meta.url),'utf8'));
+validate(realData.assets);
+for(const asset of realData.assets){
+ const bytes=readFileSync(new URL('..'+asset.path,import.meta.url));
+ assert.equal(createHash('sha256').update(bytes).digest('hex'),asset.sha256);
+ assert.equal(resolve(realData.assets,asset.id),asset);
+}
+assert.ok(readFileSync(new URL('../assets/jcem/img/donations/LICENSE.txt',import.meta.url),'utf8').includes('Copyright (c) 2018 Erik Thiart'));
+console.log('PUBLISHED_ASSET_CATALOG_HASHES_OK='+realData.assets.length);
