@@ -86,3 +86,8 @@ Job8930238a patch/build/contract/actions/qr exit0. Revisão diff: DonationsData.
 
 Job0f654462 patch/build/contract/actions/qr/financial/assets exit0. Revisão diff aceita: BTC compartilha bitcoin para moeda/rede; USDT referencia tether; guarda de método separada da validação referencial completa, que rejeita IDs ausentes/inseguros e rede em não cripto. Valores financeiros preservados, cinco cópias e cinco matrizes QR aprovadas byte a byte, dois hashes reais válidos. Git determinístico ahead35 confirmou oito alvos alterados, zero commits do Worker. Próximo: candidatos reais e pinados para eCash/BitTorrent/BNB/TRON; sem inventar equivalência semântica ou completar FT107 antes dos assets/ações restantes.
 
+
+## Checkpoint U4E2 aprovado
+
+Jobd86bae63 install/contract/assets/financial/attributions exit0. Revisão diff aceita: eCash e TRON pinados no catálogo4assets, XEC compartilha eCash para moeda/rede, BTTC referencia somente redeTRON. Quatro hashes físicos e seis atribuições válidos; dados financeiros intactos. PNGs inspecionados no checkpoint de aquisição8b040730 e cópia byte a byte comprovada. Git determinístico ahead36 confirmou quatro alvos alterados/novos, sem commit do Worker. Próximo: confirmar candidatos BNB/BitTorrent por fontes primárias; depois providersPIX/PayPal e ações/integração pendentes. Sem concluir FT107.
+

@@ -62,7 +62,7 @@
 
 - id: cryptocurrency-icons
   name: Cryptocurrency Icons
-  resource: Ícones locais de Bitcoin e Tether usados no catálogo de doações
+  resource: Ícones locais de criptomoedas e redes usados no catálogo de doações
   version: 8dcc316d95f0bbdf6f3b220745ae05f1ef00e79e
   author: Erik Thiart
   origin: https://github.com/ErikThiart/cryptocurrency-icons
@@ -74,3 +74,5 @@
     - assets/jcem/img/donations/bitcoin.png
     - assets/jcem/img/donations/tether.png
     - assets/jcem/img/donations/LICENSE.txt
+    - assets/jcem/img/donations/ecash.png
+    - assets/jcem/img/donations/tron.png

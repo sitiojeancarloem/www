@@ -36,7 +36,9 @@
       "network": "XEC",
       "address": "ecash:qqwtv7lfm6nn2u3vrrjuqtcfzc36y29ueshw9svgrt",
       "symbol": "XEC",
-      "name": "eCash"
+      "name": "eCash",
+      "iconAssetId": "ecash",
+      "networkAssetId": "ecash"
     },
     {
       "id": "bttc-tron",
@@ -45,7 +47,8 @@
       "network": "TRON",
       "address": "TFRTMVtsoxXsdCXaPJx6jCEep9eeKaZNH2",
       "symbol": "BTTC",
-      "name": "BitTorrent"
+      "name": "BitTorrent",
+      "networkAssetId": "tron"
     },
     {
       "id": "paypal",
@@ -73,6 +76,22 @@
       "license": "MIT",
       "licenseUrl": "https://raw.githubusercontent.com/ErikThiart/cryptocurrency-icons/8dcc316d95f0bbdf6f3b220745ae05f1ef00e79e/LICENSE",
       "sha256": "094281ddb2a43d70d594f6be2c563dd9845f7f76d3746e784890de649ce92834"
+    },
+    {
+      "id": "ecash",
+      "path": "/assets/jcem/img/donations/ecash.png",
+      "source": "https://raw.githubusercontent.com/ErikThiart/cryptocurrency-icons/8dcc316d95f0bbdf6f3b220745ae05f1ef00e79e/128/ecash.png",
+      "license": "MIT",
+      "licenseUrl": "https://raw.githubusercontent.com/ErikThiart/cryptocurrency-icons/8dcc316d95f0bbdf6f3b220745ae05f1ef00e79e/LICENSE",
+      "sha256": "f440b8f2cc2a711e2e3d7905093512f8f84234994a9c2a74e7f83d5b10bb4f1b"
+    },
+    {
+      "id": "tron",
+      "path": "/assets/jcem/img/donations/tron.png",
+      "source": "https://raw.githubusercontent.com/ErikThiart/cryptocurrency-icons/8dcc316d95f0bbdf6f3b220745ae05f1ef00e79e/128/tron.png",
+      "license": "MIT",
+      "licenseUrl": "https://raw.githubusercontent.com/ErikThiart/cryptocurrency-icons/8dcc316d95f0bbdf6f3b220745ae05f1ef00e79e/LICENSE",
+      "sha256": "55e9697eff95b7e18cc0019494496af0edf14001e78274b9904d768ae6844fa1"
     }
   ]
 }
