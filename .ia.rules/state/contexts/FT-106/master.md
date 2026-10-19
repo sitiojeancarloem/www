@@ -49,3 +49,7 @@ Derivação payload/legenda commit2fb4a8fd26; adaptador matriz delega à bibliot
 ## Checkpoint U3E aprovado
 
 Renderer donations-qr-canvas.ts/JS: jobd4c8e0fd create/build/render-test exit0; cinco PNGs Edge headless decodificados byte a byte. PIX em tmp/ft107-qr-base/pix.png inspecionado: margem branca, moldura e legenda legíveis. Sem símbolo; original GIF intacto. Próximo: geometria protegida derivada da tabela do gerador pinado, para escolher espaço central sem cobrir módulos funcionais. Depois composição/ação/integração.
+
+## Checkpoint U3F1 aprovado
+
+Geometria baseada na tabela MIT do gerador2.0.4. Correções do jobffb788f5: iteração dos centros reais, guardas inteiras/NaN, build e teste40versões+invalidos exit0. Reserva conservadora de borda11 e quadrados de alinhamento5x5; só admite área central livre. Próximo: seleção finita da versão QR que comporte símbolo central sem afetar módulos funcionais; depois compositor com figura real e decodificação final.
