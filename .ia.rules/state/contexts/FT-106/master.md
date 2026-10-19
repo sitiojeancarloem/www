@@ -45,3 +45,7 @@ qrcode-generator2.0.4 (MIT) local em assets/jcem/lib e jsqr1.4.0 (Apache-2.0) em
 ## Checkpoint U3D aprovado
 
 Derivação payload/legenda commit2fb4a8fd26; adaptador matriz delega à biblioteca local com H/Byte e dimensão limitada. Jobbb98c72d-ac1f-4a7c-9dc4-e19da66f40a2 build/test exit0: cinco payloads reais decodificados byte a byte; teste persistente scripts/test_donations_qr.ts. Composição visual e ações pendentes. Logo local inspecionado: símbolo à esquerda e wordmark à direita; requer inspeção finita dos frames antes de escolher recorte sem texto para canvas.
+
+## Checkpoint U3E aprovado
+
+Renderer donations-qr-canvas.ts/JS: jobd4c8e0fd create/build/render-test exit0; cinco PNGs Edge headless decodificados byte a byte. PIX em tmp/ft107-qr-base/pix.png inspecionado: margem branca, moldura e legenda legíveis. Sem símbolo; original GIF intacto. Próximo: geometria protegida derivada da tabela do gerador pinado, para escolher espaço central sem cobrir módulos funcionais. Depois composição/ação/integração.
