@@ -1,3 +1,4 @@
+import { validateDonationAssets } from './donations-assets.js';
 const SLUG_REGEX = /^[a-z0-9-]+$/;
 const CURRENCY_REGEX = /^[A-Z]{3}$/;
 function validateNonEmptyString(value, fieldName) {
@@ -128,4 +129,6 @@ export function validateDonationsData(value) {
         throw new Error('schemaVersion deve ser 1');
     }
     validateDonationMethodsArray(data.methods);
+    if (data.assets !== undefined)
+        validateDonationAssets(data.assets);
 }

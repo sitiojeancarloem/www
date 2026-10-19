@@ -1,3 +1,5 @@
+import {validateDonationAssets} from './donations-assets.js';
+import type {DonationAsset} from './donations-assets.js';
 // Tipos baseados em _data/donations.json
 // Validação estrutural pura, sem IO/DOM/dependência, browser-compatible.
 
@@ -12,6 +14,7 @@ export type DonationMethod =
 export interface DonationsData {
   readonly schemaVersion: 1;
   readonly methods: readonly DonationMethod[];
+  readonly assets?: readonly DonationAsset[];
 }
 
 // Expressões regulares auxiliares
@@ -205,4 +208,5 @@ export function validateDonationsData(value: unknown): asserts value is Donation
 
   // methods
   validateDonationMethodsArray(data.methods);
+  if (data.assets !== undefined) validateDonationAssets(data.assets);
 }

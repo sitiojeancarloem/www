@@ -51,3 +51,15 @@ for (const badUrl of ['javascript:alert(1)','https://evil.invalid/donate/','http
 }
 assert.deepEqual(original, before);
 console.log('DONATIONS_CONTRACT_NEGATIVE_CASES_OK=' + rejectedCases);
+
+const noCatalog=structuredClone(original);
+delete noCatalog.assets;
+validateDonationsData(noCatalog);
+for(const invalid of [null,{},[{...original.assets[0],path:'/assets/../bad.png'}], [original.assets[0],original.assets[0]]]){
+ const data={...structuredClone(original),assets:invalid};
+ const snapshot=structuredClone(data);
+ assert.throws(()=>validateDonationsData(data));
+ assert.deepEqual(data,snapshot);
+}
+validateDonationsData({...structuredClone(original),assets:[]});
+console.log('DONATIONS_OPTIONAL_CATALOG_VALIDATED_AND_BACKWARD_COMPATIBLE');

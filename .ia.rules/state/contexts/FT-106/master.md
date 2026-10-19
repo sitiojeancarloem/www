@@ -76,3 +76,8 @@ Jobs7d35cb27 e1e22c73b: WORKER_INCOMPLETE, leituras/listagens repetidas sem alte
 
 Aquisição da2d7453 e integração8f3f3f3d concluídas: install/catalog-test/financial-test/attributions exit0; dois hashes físicos válidos e seis atribuições. PNGs Bitcoin/Tether128alpha inspecionados no candidato, copiados byte a byte; licençaMIT2018ErikThiart preservada e fonte pinada8dcc316d95f0bbdf6f3b220745ae05f1ef00e79e no JSON único. Revisão diff confirmou methods intactos. Git determinístico ahead33 trouxe sete alvos alterados/novos, sem commit do Worker. Catálogo inicial parcial; contrato DonationsData ainda não valida assets e não há referências de métodos/UI. Próximo: integrar validação tipada de catálogo no contrato, mantendo validadores unitários QR/cópia compatíveis; demais ícones/referências pendentes.
 
+
+## Checkpoint U4D1 aprovado
+
+Job8930238a patch/build/contract/actions/qr exit0. Revisão diff: DonationsData.assets opcional reutiliza validateDonationAssets; testes rejeitam catálogo malformado e preservam compatibilidade sem catálogo. Cinco cópias e cinco matrizes QR continuam corretas byte a byte. Git determinístico ahead34 confirmou três alvos modificados, zero commits do Worker. Próximo: refs de ícones/redes no JSON e validação referencial completa; separar guarda de método (para QR/cópia) do contexto de catálogo para não quebrar chamadas unitárias. Sem aceite global FT107.
+
