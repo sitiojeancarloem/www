@@ -1,6 +1,6 @@
-import { validateDonationsData } from './donations-data.js';
+import { validateDonationMethod } from './donations-data.js';
 export function getDonationCopyValue(method) {
-    validateDonationsData({ schemaVersion: 1, methods: [method] });
+    validateDonationMethod(method);
     return method.type === 'pix' ? method.key : method.type === 'crypto' ? method.address : null;
 }
 export function shortenDonationAddress(value) {

@@ -61,7 +61,7 @@ function validatePaypalUrl(value) {
         throw new Error('url (PayPal) não pode conter credenciais');
     }
 }
-function validateDonationMethod(value, index) {
+export function validateDonationMethod(value, index = 0) {
     if (typeof value !== 'object' || value === null || Array.isArray(value)) {
         throw new Error(`methods[${index}] deve ser um objeto`);
     }
@@ -69,6 +69,14 @@ function validateDonationMethod(value, index) {
     validateSlug(method.id, `methods[${index}].id`);
     if (method.type !== 'pix' && method.type !== 'crypto' && method.type !== 'paypal') {
         throw new Error(`methods[${index}].type deve ser "pix", "crypto" ou "paypal"`);
+    }
+    for (const field of ['iconAssetId', 'networkAssetId']) {
+        const reference = method[field];
+        if (reference !== undefined) {
+            validateSlug(reference, field);
+            if (field === 'networkAssetId' && method.type !== 'crypto')
+                throw new Error('Somente cripto possui ícone de rede');
+        }
     }
     validateNonEmptyString(method.label, `methods[${index}].label`);
     if (method.type === 'pix') {
@@ -121,6 +129,7 @@ function validateDonationMethodsArray(value) {
     }
 }
 export function validateDonationsData(value) {
+    var _a;
     if (typeof value !== 'object' || value === null || Array.isArray(value)) {
         throw new Error('donationsData deve ser um objeto');
     }
@@ -131,4 +140,10 @@ export function validateDonationsData(value) {
     validateDonationMethodsArray(data.methods);
     if (data.assets !== undefined)
         validateDonationAssets(data.assets);
+    for (const method of data.methods) {
+        for (const reference of [method.iconAssetId, method.networkAssetId]) {
+            if (reference !== undefined && !((_a = data.assets) === null || _a === void 0 ? void 0 : _a.some(asset => asset.id === reference)))
+                throw new Error('Referência de asset ausente no catálogo');
+        }
+    }
 }

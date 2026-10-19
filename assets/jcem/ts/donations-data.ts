@@ -5,7 +5,7 @@ import type {DonationAsset} from './donations-assets.js';
 
 export type DonationMethodType = 'pix' | 'crypto' | 'paypal';
 
-interface DonationBase { readonly id: string; readonly label: string; }
+interface DonationBase { readonly id: string; readonly label: string; readonly iconAssetId?: string; readonly networkAssetId?: string; }
 export type DonationMethod =
   | (DonationBase & { readonly type: 'pix'; readonly key: string; readonly payload: string })
   | (DonationBase & { readonly type: 'crypto'; readonly symbol: string; readonly name: string; readonly network: string; readonly address: string })
@@ -104,7 +104,7 @@ function validatePaypalUrl(value: unknown): asserts value is string {
 /**
  * Valida um único método de doação.
  */
-function validateDonationMethod(value: unknown, index: number): asserts value is DonationMethod {
+export function validateDonationMethod(value: unknown, index: number = 0): asserts value is DonationMethod {
   if (typeof value !== 'object' || value === null || Array.isArray(value)) {
     throw new Error(`methods[${index}] deve ser um objeto`);
   }
@@ -119,6 +119,13 @@ function validateDonationMethod(value: unknown, index: number): asserts value is
     throw new Error(`methods[${index}].type deve ser "pix", "crypto" ou "paypal"`);
   }
 
+  for (const field of ['iconAssetId', 'networkAssetId'] as const) {
+    const reference = method[field];
+    if (reference !== undefined) {
+      validateSlug(reference, field);
+      if (field === 'networkAssetId' && method.type !== 'crypto') throw new Error('Somente cripto possui ícone de rede');
+    }
+  }
   // label
   validateNonEmptyString(method.label, `methods[${index}].label`);
 
@@ -209,4 +216,9 @@ export function validateDonationsData(value: unknown): asserts value is Donation
   // methods
   validateDonationMethodsArray(data.methods);
   if (data.assets !== undefined) validateDonationAssets(data.assets);
+  for (const method of data.methods) {
+    for (const reference of [method.iconAssetId, method.networkAssetId]) {
+      if (reference !== undefined && !data.assets?.some(asset => asset.id === reference)) throw new Error('Referência de asset ausente no catálogo');
+    }
+  }
 }

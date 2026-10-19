@@ -54,6 +54,7 @@ console.log('DONATIONS_CONTRACT_NEGATIVE_CASES_OK=' + rejectedCases);
 
 const noCatalog=structuredClone(original);
 delete noCatalog.assets;
+for(const method of noCatalog.methods){delete method.iconAssetId;delete method.networkAssetId;}
 validateDonationsData(noCatalog);
 for(const invalid of [null,{},[{...original.assets[0],path:'/assets/../bad.png'}], [original.assets[0],original.assets[0]]]){
  const data={...structuredClone(original),assets:invalid};
@@ -61,5 +62,25 @@ for(const invalid of [null,{},[{...original.assets[0],path:'/assets/../bad.png'}
  assert.throws(()=>validateDonationsData(data));
  assert.deepEqual(data,snapshot);
 }
-validateDonationsData({...structuredClone(original),assets:[]});
+validateDonationsData({...structuredClone(noCatalog),assets:[]});
 console.log('DONATIONS_OPTIONAL_CATALOG_VALIDATED_AND_BACKWARD_COMPATIBLE');
+
+const {validateDonationMethod}=await import('../assets/jcem/js/donations-data.js');
+const {resolveDonationAsset}=await import('../assets/jcem/js/donations-assets.js');
+const btc=original.methods.find((m:any)=>m.id==='btc-bitcoin');
+const usdt=original.methods.find((m:any)=>m.id==='usdt-bnb');
+validateDonationMethod(btc);
+assert.equal(btc.iconAssetId,'bitcoin');
+assert.equal(resolveDonationAsset(original.assets,btc.iconAssetId),resolveDonationAsset(original.assets,btc.networkAssetId));
+assert.equal(usdt.iconAssetId,'tether');
+for(const edit of [
+ (d:any)=>{delete d.assets;},
+ (d:any)=>{d.methods.find((m:any)=>m.id==='btc-bitcoin').iconAssetId='missing';},
+ (d:any)=>{d.methods.find((m:any)=>m.id==='btc-bitcoin').networkAssetId='missing';},
+ (d:any)=>{d.methods[0].iconAssetId='../bad';},
+ (d:any)=>{d.methods[0].networkAssetId='bitcoin';}
+]){
+ const data=structuredClone(original);edit(data);const snapshot=structuredClone(data);
+ assert.throws(()=>validateDonationsData(data));assert.deepEqual(data,snapshot);
+}
+console.log('DONATION_ASSET_REFERENCES_SHARED_RESOLVED_AND_INVALID_REJECTED');

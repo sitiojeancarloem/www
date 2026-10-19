@@ -1,6 +1,6 @@
-import { validateDonationsData } from './donations-data.js';
+import { validateDonationMethod } from './donations-data.js';
 export function getDonationQrSpec(method, siteUrl) {
-    validateDonationsData({ schemaVersion: 1, methods: [method] });
+    validateDonationMethod(method);
     if (method.type === 'paypal')
         return null;
     if (method.type === 'pix')

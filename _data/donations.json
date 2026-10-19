@@ -15,7 +15,8 @@
       "network": "BNB",
       "address": "0xeb68c866073abd82e5c2e41831db57f8718f91e7",
       "symbol": "USDT",
-      "name": "USDT"
+      "name": "USDT",
+      "iconAssetId": "tether"
     },
     {
       "id": "btc-bitcoin",
@@ -24,7 +25,9 @@
       "network": "Bitcoin",
       "address": "1JwTkF1HTd1isctQ7jumfCVQxhxVqKuMzN",
       "symbol": "BTC",
-      "name": "Bitcoin"
+      "name": "Bitcoin",
+      "iconAssetId": "bitcoin",
+      "networkAssetId": "bitcoin"
     },
     {
       "id": "xec-ecash",

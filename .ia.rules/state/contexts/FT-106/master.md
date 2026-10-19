@@ -81,3 +81,8 @@ Aquisição da2d7453 e integração8f3f3f3d concluídas: install/catalog-test/fi
 
 Job8930238a patch/build/contract/actions/qr exit0. Revisão diff: DonationsData.assets opcional reutiliza validateDonationAssets; testes rejeitam catálogo malformado e preservam compatibilidade sem catálogo. Cinco cópias e cinco matrizes QR continuam corretas byte a byte. Git determinístico ahead34 confirmou três alvos modificados, zero commits do Worker. Próximo: refs de ícones/redes no JSON e validação referencial completa; separar guarda de método (para QR/cópia) do contexto de catálogo para não quebrar chamadas unitárias. Sem aceite global FT107.
 
+
+## Checkpoint U4D2 aprovado
+
+Job0f654462 patch/build/contract/actions/qr/financial/assets exit0. Revisão diff aceita: BTC compartilha bitcoin para moeda/rede; USDT referencia tether; guarda de método separada da validação referencial completa, que rejeita IDs ausentes/inseguros e rede em não cripto. Valores financeiros preservados, cinco cópias e cinco matrizes QR aprovadas byte a byte, dois hashes reais válidos. Git determinístico ahead35 confirmou oito alvos alterados, zero commits do Worker. Próximo: candidatos reais e pinados para eCash/BitTorrent/BNB/TRON; sem inventar equivalência semântica ou completar FT107 antes dos assets/ações restantes.
+
