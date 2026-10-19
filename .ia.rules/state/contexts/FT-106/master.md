@@ -66,3 +66,8 @@ Composição com figura real do primeiro frame, recorte0,0,190,192 sem wordmark.
 
 Job bb93446f-cfc8-45ed-9367-0f9c2fd92f8f: create/build/test exit0, FIVE_FULL_COPY_VALUES_SHORTENING_AND_PNG_ERRORS_OK. Revisão das funções e teste: cinco valores integrais, exibição até10 caracteres, erros de clipboard/PNG propagados e dados preservados. Git determinístico confirmou três arquivos novos sem commit do Worker; supervisor assume versionamento. Funções reutilizáveis; controles de UI, acessibilidade e download efetivo ainda pendentes. Próximo: catálogo/resolver comum de assets, reutilizando metadados existentes.
 
+
+## Checkpoint U4B aprovado
+
+Jobs7d35cb27 e1e22c73b: WORKER_INCOMPLETE, leituras/listagens repetidas sem alterações; não infraestrutura. Estratégia corrigida6e9d5fc6: sequência determinística create/build/test exit0, ASSET_CATALOG_STRUCTURE_RESOLUTION_AND_REJECTIONS_OK. Revisão do módulo/teste aceita: catálogo e resolvedor comum por ID, paths locais restritos, HTTPS sem credenciais, hash estrutural, preservação dos dados. Git determinístico ahead32 confirmou três arquivos novos, zero commits do Worker. Sem catálogo real ou verificação física/licenciamento dos assets; próxima unidade aquisição/proveniência e integração JSON, reutilizando metadados existentes.
+
