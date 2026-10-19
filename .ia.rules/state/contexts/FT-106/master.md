@@ -57,3 +57,7 @@ Geometria baseada na tabela MIT do gerador2.0.4. Correções do jobffb788f5: ite
 ## Checkpoint U3F2 aprovado
 
 Seletor finito de versão e teste permanente: job6d61550b create/build/test exit0. Cinco QRs com área central apagada decodificam byte a byte. PIX versão14 após chamadas[0,14]; criptos usam automática, versões5/4/6/4. Região central não cobre reserva funcional. Próximo: camada canvas com recorte da figura do logo original, bitmap do primeiro frame; validar cinco PNGs finais e regiões protegidas. Sem alterações do GIF ou de payloads.
+
+## Checkpoint U3G aprovado
+
+Composição com figura real do primeiro frame, recorte0,0,190,192 sem wordmark. Job3803412e create-test/test exit0: cinco PNGs decodificados byte a byte e outside=0; teste permanente scripts/test_donations_qr_composed.ts usa canvas isolado com willReadFrequently. PIX, USDT e BTC inspecionados: figura central, moldura/legenda/quietzone legíveis. Evidência tmp/ft107-composed-test-wHLq8u. Falha1609eab8 outside1185 não reproduzida pelo diagnóstico cad1ed1d; causa não comprovada, sem alegação de correção GPU. Renderer preservado, backend explícito só no teste. Próximo: reutilização do catálogo/metadados de assets antes de meios/redes e ações; UI/docs/gates continuam pendentes.

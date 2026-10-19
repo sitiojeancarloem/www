@@ -1,3 +1,4 @@
+import {getCenteredQrSymbolArea} from './donations-qr-geometry.js';
 export function renderDonationQrBase(canvas: HTMLCanvasElement, matrix: readonly (readonly boolean[])[], caption: string): void {
   const n = matrix.length;
   if (!Array.isArray(matrix) || !Number.isInteger(n) || n < 21 || n > 177 || (n - 21) % 4 !== 0 ||
@@ -25,4 +26,21 @@ export function renderDonationQrBase(canvas: HTMLCanvasElement, matrix: readonly
   ctx.textAlign = 'center';
   ctx.textBaseline = 'middle';
   ctx.fillText(caption, width / 2, width + 32, width - 32);
+}
+
+export function renderDonationQrWithSymbol(canvas: HTMLCanvasElement, matrix: readonly (readonly boolean[])[], caption: string, symbol: ImageBitmap, area: {x: number; y: number; size: number}): void {
+  const expected = getCenteredQrSymbolArea(matrix.length, area.size);
+  if (!expected || expected.x !== area.x || expected.y !== area.y || symbol.width !== 372 || symbol.height !== 192) {
+    throw new Error('Símbolo ou região central inválidos');
+  }
+  renderDonationQrBase(canvas, matrix, caption);
+  const ctx = canvas.getContext('2d');
+  if (!ctx) throw new Error('Canvas 2D indisponível');
+  const left = 48 + area.x * 8, top = 48 + area.y * 8, side = area.size * 8;
+  ctx.fillStyle = '#ffffff';
+  ctx.fillRect(left, top, side, side);
+  const height = side - 4, width = height * 190 / 192;
+  ctx.imageSmoothingEnabled = true;
+  ctx.drawImage(symbol, 0, 0, 190, 192, left + (side - width) / 2, top + 2, width, height);
+  ctx.imageSmoothingEnabled = false;
 }
