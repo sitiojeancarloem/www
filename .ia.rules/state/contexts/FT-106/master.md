@@ -41,3 +41,7 @@ Teste scripts/test_donations_contract.ts: baseline, extensão por dados, null/ve
 ## Checkpoint U3C aprovado
 
 qrcode-generator2.0.4 (MIT) local em assets/jcem/lib e jsqr1.4.0 (Apache-2.0) em scripts/vendor, excluído do Jekyll. Hashes SHA256 e SRI nos manifests; licenças preservadas. Job2f865db2: vendor/smoke/attributions exit0, geração→leitura básica aprovada e cinco atribuições válidas. scripts/vendor é ignorado pelo Git; somente os três arquivos fixados do decoder serão adicionados explicitamente. Sem UI/composição final; ainda requer símbolo/legenda, decodificação de payloads reais e ações.
+
+## Checkpoint U3D aprovado
+
+Derivação payload/legenda commit2fb4a8fd26; adaptador matriz delega à biblioteca local com H/Byte e dimensão limitada. Jobbb98c72d-ac1f-4a7c-9dc4-e19da66f40a2 build/test exit0: cinco payloads reais decodificados byte a byte; teste persistente scripts/test_donations_qr.ts. Composição visual e ações pendentes. Logo local inspecionado: símbolo à esquerda e wordmark à direita; requer inspeção finita dos frames antes de escolher recorte sem texto para canvas.
