@@ -61,3 +61,8 @@ Seletor finito de versão e teste permanente: job6d61550b create/build/test exit
 ## Checkpoint U3G aprovado
 
 Composição com figura real do primeiro frame, recorte0,0,190,192 sem wordmark. Job3803412e create-test/test exit0: cinco PNGs decodificados byte a byte e outside=0; teste permanente scripts/test_donations_qr_composed.ts usa canvas isolado com willReadFrequently. PIX, USDT e BTC inspecionados: figura central, moldura/legenda/quietzone legíveis. Evidência tmp/ft107-composed-test-wHLq8u. Falha1609eab8 outside1185 não reproduzida pelo diagnóstico cad1ed1d; causa não comprovada, sem alegação de correção GPU. Renderer preservado, backend explícito só no teste. Próximo: reutilização do catálogo/metadados de assets antes de meios/redes e ações; UI/docs/gates continuam pendentes.
+
+## Checkpoint U4A aprovado
+
+Job bb93446f-cfc8-45ed-9367-0f9c2fd92f8f: create/build/test exit0, FIVE_FULL_COPY_VALUES_SHORTENING_AND_PNG_ERRORS_OK. Revisão das funções e teste: cinco valores integrais, exibição até10 caracteres, erros de clipboard/PNG propagados e dados preservados. Git determinístico confirmou três arquivos novos sem commit do Worker; supervisor assume versionamento. Funções reutilizáveis; controles de UI, acessibilidade e download efetivo ainda pendentes. Próximo: catálogo/resolver comum de assets, reutilizando metadados existentes.
+
