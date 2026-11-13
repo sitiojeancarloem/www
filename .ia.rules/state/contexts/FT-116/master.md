@@ -44,5 +44,7 @@ Fora do escopo: edição editorial, implementação de FTs pendentes, atualizaç
 - Derivados de impressão regravados pelo gate são restaurados ao índice preexistente; nenhum artefato de validação integra o commit.
 - Exceções cirúrgicas no .gitignore incluem somente fonte e contexto desta FT, fora da região gerenciada.
 
-Estado: integração tecnicamente pronta para commit/push em origin/dev, sem força; validações globais parciais declaradas acima. A confirmação do SHA remoto será entregue no chat. Main permanece fora desta integração porque o sistema global não satisfaz os gates obrigatórios de convergência; nenhum deploy foi solicitado.
+Estado: concluída tecnicamente, validação humana pendente. Merge 8558a7869a77546057feaf2fd8043ff7725da2d2 com ambos os pais; push sem força concluído em origin/dev e confirmado por git ls-remote. Árvore limpa após o merge. Este fechamento de evidência segue em commit exclusivo. Main permanece fora desta integração porque o sistema global não satisfaz os gates obrigatórios de convergência; nenhum deploy foi solicitado.
+O servidor aceitou o push e informou migração para https://github.com/sitiojeancarloem/www.git; configuração origin preservada. Consulta remota no sandbox falhou por SEC_E_NO_CREDENTIALS; execução com acesso às credenciais do usuário confirmou o SHA.
+git diff --cached --check sobre a totalidade recebida encontrou whitespace já presente nas evidências históricas remotas; o delta efetivo desta integração sobre MERGE_HEAD passou sem avisos. Evidências recebidas não foram reformatadas.
 Retomada: resolver geração social, legenda editorial e inventário documental em seus próprios escopos antes de alegar aceite global/convergir main. A FT-116 não concede aceite humano às FTs herdadas.

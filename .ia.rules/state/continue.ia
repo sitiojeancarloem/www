@@ -265,10 +265,10 @@ verificacoes=M40 render: 44 blocos, 200 chamadas, 160 notas, tabela acessível, 
 pendencias=Sem pendência de execução editorial. Leitura/aceite autoral continuam humanos. Sem publicação/push; limites em fechamento-M42.md.
 historico=.ia.rules/state/history/FT-112.ia|sha256=6a48dbeea769e4322404e4448e6f6d93a157fe6dcec4311bc772cd6f7e8ecda8
 
-FT-116|nome=Integração preservadora do remoto e alterações locais|escopo=tecnico|tipo=operacional|status=em_andamento|autorizacao=humana|criado_em=2026-11-13T13:35:00-03:00
+FT-116|nome=Integração preservadora do remoto e alterações locais|escopo=tecnico|tipo=operacional|status=concluida|autorizacao=humana|criado_em=2026-11-13T13:35:00-03:00|conclusao=2026-11-13T16:43:27Z|validacao=pendente_desenvolvedor
 objetivo=Concluir o merge iniciado de origin/dev com a evolução local e fazer push sem perda de conteúdo.
 origem=.ia.rules/state/requests/FT-116/prompt.md
 contexto=.ia.rules/state/contexts/FT-116/master.md
-resultado=Conflitos da FT-101 conciliados; preservação de ambos os lados comprovada; build público e testes focados aprovados.
-plano=[concluido] conciliação e auditoria; [concluido] validação aplicável; [em_andamento] commit e push para origin/dev.
-pendencias=Confirmar push. Gate integral mantém falhas recebidas de imagens sociais, legenda no draft e inventário documental; main não será convergida sem sistema global funcional.
+resultado=Merge 8558a7869a77546057feaf2fd8043ff7725da2d2 enviado a origin/dev e confirmado por ls-remote; ambos os históricos e deltas preservados; build público e testes focados aprovados.
+verificacoes=Zero conflitos; árvore limpa após merge; projeções idênticas; auditoria de preservação e diff-check do delta sobre MERGE_HEAD aprovados.
+pendencias=Aceite humano; gate integral mantém falhas recebidas de imagens sociais, legenda no draft e inventário documental. Main não foi convergida sem sistema global funcional; nenhuma pendência de merge ou push.
