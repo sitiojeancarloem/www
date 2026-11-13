@@ -835,8 +835,8 @@ Este arquivo preserva demandas do desenvolvedor. Estados operacionais seguem a g
     - A área publicitária disponível é de **18,3 × 5 cm**.
     - O contratante poderá escolher entre:
       - Ocupação de 100% da área;
-      - Ocupação de 50% da área.
-    - Preservar a proporção e as características dos modelos ao apresentar as duas opções. Não presumir a orientação ou a distribuição geométrica da ocupação de 50% sem verificar os arquivos e a definição visual correspondente.
+      - Ocupação de 60% da área.
+    - Preservar a proporção e as características dos modelos ao apresentar as duas opções. Não presumir a orientação ou a distribuição geométrica da ocupação de 60% sem verificar os arquivos e a definição visual correspondente.
     - Os modelos DEVEM ser impressos em material adesivo, adequado à aplicação pretendida.
 
   - **Orientações de impressão**
@@ -859,8 +859,8 @@ Este arquivo preserva demandas do desenvolvedor. Estados operacionais seguem a g
     - A cobrança será calculada por passageiro efetivamente transportado durante o prazo contratado, independentemente da duração ou da distância do percurso.
     - Aplicar os seguintes valores por passageiro:
       - **100% da área publicitária:** R$ 0,50 por passageiro;
-      - **50% da área publicitária:** R$ 0,40 por passageiro.
-    - Estabelecer valor mínimo de **R$ 100,00 por contratação**, independentemente da quantidade de passageiros transportados no período. Mesmo que a quantidade de passageiros não alcance o valor correspondente ao mínimo, o contratante deverá pagar R$ 100,00.
+      - **60% da área publicitária horizontal:** R$ 0,40 por passageiro.
+    - Estabelecer valor mínimo de **R$ 50,00 por contratação**, independentemente da quantidade de passageiros transportados no período. Mesmo que a quantidade de passageiros não alcance o valor correspondente ao mínimo, o contratante deverá pagar R$ 50,00.
     - O cálculo deverá considerar o valor por passageiro conforme a área escolhida, respeitando o mínimo contratual.
     - **Prazo mínimo de contratação: uma semana.**
     - Não confundir valor por passageiro, valor mínimo, valor antecipado e saldo diário. Apresentar essas condições de maneira explícita e compreensível.
@@ -932,7 +932,7 @@ Este arquivo preserva demandas do desenvolvedor. Estados operacionais seguem a g
     - Se necessária, criar a subpágina `/anuncie/uber/contrato` ou `/anuncie:uber/contrato`.
     - Garantir que os anexos e seus links de download sejam acessíveis publicamente pela página, sem expor caminhos internos do sistema de arquivos.
     - Verificar responsividade, acessibilidade, legibilidade, funcionamento dos links, downloads, WhatsApp, cópia do PIX e QR Code.
-    - Validar os cálculos para as duas opções de área, incluindo o valor mínimo de R$ 100,00 e a contabilização por passageiro.
+    - Validar os cálculos para as duas opções de área, incluindo o valor mínimo de R$ 50,00 e a contabilização por passageiro.
     - Verificar se o conteúdo apresentado na página corresponde integralmente às condições contratuais.
     - Não publicar valores, dados de contato, chave PIX ou termos contratuais fictícios.
     - Não considerar concluída a tarefa enquanto houver dados essenciais ausentes ou divergências entre a página, os cálculos e o contrato. Registrar objetivamente as pendências e sua repercussão.
@@ -941,7 +941,7 @@ Este arquivo preserva demandas do desenvolvedor. Estados operacionais seguem a g
     - Rota `/anuncie/uber` ou `/anuncie:uber` pública, funcional e integrada à identidade visual do site.
     - Dois modelos existentes apresentados com especificações e downloads funcionais.
     - Duas opções de ocupação da área de 18,3 × 5 cm claramente apresentadas.
-    - Preços de R$ 0,50 por passageiro para 100% da área e R$ 0,40 por passageiro para 50%, com mínimo contratual de R$ 100,00 e prazo mínimo de uma semana.
+    - Preços de R$ 0,50 por passageiro para 100% da área e R$ 0,40 por passageiro para 50%, com mínimo contratual de R$ 50,00 e prazo mínimo de uma semana.
     - Procedimento de comprovação por print e suas regras de envio claramente documentados.
     - Pagamento exclusivamente por PIX, com 50% antecipação e saldo diário apresentados sem contradições.
     - QR Code funcional e recurso de cópia do código/chave PIX, desde que os dados reais estejam disponíveis.
