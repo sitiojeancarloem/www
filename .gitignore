@@ -38,8 +38,6 @@ node_modules
 !/.ia.rules/state/traceability/rcf-map.json
 !.vscode
 src/__generated__
-*.psd
-*.ai
 *.zip
 *.7z
 tmp/
