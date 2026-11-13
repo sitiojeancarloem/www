@@ -1,0 +1,9 @@
+# M25 — fontes aceitas, alcance delimitado
+
+Job 301babcc-e831-49df-8f26-9a2d8eac200b: capturar_m25 exit0; captured com oito capítulos. Ez14 NVI, demais ARA, conforme plano. Mt7 reaproveitado da evidência M19; sete demais capturados. Hash da carta anterior/posterior/atual b8fd4878cb17de2901626a3a773bcd57e17b61312722ef8c3e94fe1ec0235647. Nenhuma edição editorial ocorreu nesta captura.
+
+Cotejo: Mt7:13–14 e22:14 sustentam contraste muitos/poucos; Lc13:23–30 enfatiza porta estreita e prática da iniquidade. Is8:20 traz literalmente “À lei e ao testemunho!”. Ez14:13–20 NVI nomeia Noé, Daniel e Jó, com livramento somente de si mesmos em juízo sobre uma terra. Não nomeia Ló e não decide individualmente o destino eterno da família de Noé ou Ló. Gn7:1,7,23 e2Pe2:5 confirmam oito preservados no dilúvio; Gn19:15–17,26,29 preserva familiares na saída da cidade e relata depois a mulher de Ló. 2Pe2:7–9 identifica Ló como justo.
+
+Correção necessária na integração: preservar enfaticamente salvação individual e crítica ao “por tabela”; distinguir a aplicação autoral da responsabilidade individual de uma sentença nominal sobre todos os familiares. Não afirmar que, antes, a salvação eterna passava pela justiça de outro. O contraste terreno/eterno permanece; livramento histórico de familiares não equivale a veredito eterno. O número “milhões” não foi demonstrado pelas passagens capturadas e será substituído por referência não quantitativa à multidão, sem atenuar o contraste retórico.
+
+Git determinístico: relatório alterado, zero commits do Worker e carta sem alteração; estado/runtime/site mantêm mudanças herdadas. Commit supervisor restrito a relatório/resultado/revisão. Próximo: M26, integração do único parágrafo com chamadas/notas, preservando NUNCA, sentença, Fuja dele, Acabe/Micaías/Elias, Noé/Ló e a distinção terreno/eterno, sem trocar convicção por hipótese.

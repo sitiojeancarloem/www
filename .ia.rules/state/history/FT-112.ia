@@ -1,0 +1,7 @@
+FT-112|nome=Revisão integral da carta aberta|escopo=negocio|status=concluida|autorizacao=humana|criado_em=2026-10-03T12:00:00-03:00|conclusao=2026-10-04T04:33:37.588Z
+origem=.ia.rules/state/requests/FT-112/prompt.md
+contexto=.ia.rules/state/contexts/FT-112/master.md
+objetivo=Executar o cabeçalho integral no mesmo draft, com fontes verificadas, preservação autoral e correções factuais autorizadas; sem localWorker.
+resultado=Carta revisada no mesmo draft; cabeçalho íntegro; relatório em .ia.rules/state/contexts/FT-112/relatorio.md.
+verificacoes=73 conferências lexicais; 38 blocos, 82 notas, 102 chamadas; Kramdown sem avisos; testes footnotes e quote_semantics aprovados.
+pendencias=Sem pendência técnica; aprovação autoral posterior.

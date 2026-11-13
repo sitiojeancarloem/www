@@ -1,0 +1,14 @@
+const fs=require('fs'),path=require('path'),crypto=require('crypto');
+const root=path.resolve(__dirname,'../../../../..'),{applyEditorialEdits}=require(path.join(root,'.ia.rules/core/runtime/scripts/editorial-authoring.js'));
+const file=path.join(root,'_drafts/carta-aberta-hierarquia-papal-na-igreja/carta-aberta-hierarquia-papal-na-igreja.md'),receipt=path.join(__dirname,'aplicacao-M18-autoexame.json');
+if(fs.existsSync(receipt))throw Error('Recibo existe; não reaplicar.');
+const plan=JSON.parse(fs.readFileSync(path.join(__dirname,'plano-M18-aplicar.json'),'utf8')),evidence=JSON.parse(fs.readFileSync(path.join(__dirname,'biblia-M18-autoexame.json'),'utf8'));
+if(evidence.status!=='captured'||evidence.draft_after!==plan.before)throw Error('Evidência/base divergente.');
+for(const [ref,verses]of [['gl/6',['4']],['1co/11',['28','31']],['2co/13',['5']],['lm/3',['40']],['sl/139',['23','24']]])for(const v of verses)if(!evidence.entries.find(e=>e.ref===ref)?.verses[v])throw Error('Versículo ausente.');
+const original=fs.readFileSync(file,'utf8'),hash=s=>crypto.createHash('sha256').update(s).digest('hex');
+if(hash(original)!==plan.before||original.includes('[^autoexame]'))throw Error('Base mudou ou ID existente.');
+const edits=plan.edits.map(e=>{const start=e.before?original.indexOf(e.before):original.length;if(start<0||(e.before&&original.indexOf(e.before,start+1)>=0))throw Error('Âncora ausente/ambígua.');return{start,end:start+e.before.length,expected:e.before,replacement:e.after,kind:e.kind,reason:plan.scope};});
+const out=applyEditorialEdits(original,edits).output;
+if(out.split('[^autoexame]:').length!==2||!out.includes('**examinar a si mesmo**[^autoexame]'))throw Error('Pós-condição falhou.');
+fs.writeFileSync(file,out);fs.writeFileSync(receipt,JSON.stringify({schema:'ft112-mechanical-note/v1',before:hash(original),after:hash(out),regions:plan.edits,scope:plan.scope,mechanism:'applyEditorialEdits',validation:{five_books_verified:true,unique_note:true},remaining:'Segundo placeholder de julgamento e demais argumentos/validações pendentes.'},null,2)+'\n');
+console.log(JSON.stringify({changed:true,edits:edits.length,after:hash(out),receipt:path.basename(receipt)}));

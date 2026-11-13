@@ -1,0 +1,18 @@
+const fs=require('fs'),path=require('path'),crypto=require('crypto');
+const root=path.resolve(__dirname,'../../../../..'),{applyEditorialEdits}=require(path.join(root,'.ia.rules/core/runtime/scripts/editorial-authoring.js'));
+const file=path.join(root,'_drafts/carta-aberta-hierarquia-papal-na-igreja/carta-aberta-hierarquia-papal-na-igreja.md'),receipt=path.join(__dirname,'aplicacao-M17-abertura.json');
+if(fs.existsSync(receipt))throw Error('Recibo existe; não reaplicar.');
+const plan=JSON.parse(fs.readFileSync(path.join(__dirname,'plano-M17-aplicar.json'),'utf8'));
+const source=JSON.parse(fs.readFileSync(path.join(__dirname,'biblia-M16-abertura.json'),'utf8'));
+const more=JSON.parse(fs.readFileSync(path.join(__dirname,'biblia-M17-correcao.json'),'utf8'));
+if(source.status!=='captured'||more.status!=='captured')throw Error('Evidência incompleta.');
+if(!source.entries.find(e=>e.ref==='jo/16').verses['8'].includes('convencerá o mundo do pecado, da justiça e do juízo'))throw Error('Literal divergente.');
+const original=fs.readFileSync(file,'utf8'),hash=s=>crypto.createHash('sha256').update(s).digest('hex');
+if(hash(original)!==plan.before)throw Error('Base autoral mudou.');
+const edits=plan.edits.map(e=>{const start=e.before?original.indexOf(e.before):original.length;if(start<0||(e.before&&original.indexOf(e.before,start+1)>=0))throw Error('Âncora inválida.');if(e.kind==='editorial'&&original.lastIndexOf('<!-- AI-PROCESSED:START -->',start)<original.lastIndexOf('<!-- AI-PROCESSED:END -->',start))throw Error('Marca existente não cobre região.');return{start,end:start+e.before.length,expected:e.before,replacement:e.after,kind:e.kind,reason:plan.scope};});
+const out=applyEditorialEdits(original,edits).output;
+const ids=[...out.matchAll(/^\[\^([^\]]+)\]:/gm)].map(m=>m[1]);if(ids.length!==new Set(ids).size)throw Error('Definições duplicadas.');
+const paragraph=plan.edits[0].after;
+for(const retained of ['**NUNCA**','**NÃO era de sua competência**','**<u>NÃO</u> SE APLICA à correção e à repreensão**','**outorgada a <u>todos</u>**','por consequência'])if(!paragraph.includes(retained))throw Error('Ênfase/nuance perdida: '+retained);
+fs.writeFileSync(file,out);fs.writeFileSync(receipt,JSON.stringify({schema:'ft112-editorial-fix/v1',before:hash(original),after:hash(out),regions:plan.edits,scope:plan.scope,notes_added:plan.notes_added,mechanism:'applyEditorialEdits',marking:'Parágrafo já coberto pela marca AI-PROCESSED existente.',validation:{literal_jo168:true,unique_definitions:true,retained_emphases:true},remaining:'Fonte para motivo de Uzá e alcance exclusivo da retenção de membros não demonstrados diretamente por estas citações; aplicação/inferência autoral preservada, pendente de aceite global.'},null,2)+'\n');
+console.log(JSON.stringify({changed:true,edits:edits.length,notes_added:plan.notes_added,after:hash(out),receipt:path.basename(receipt)}));

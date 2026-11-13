@@ -1,0 +1,16 @@
+{
+  "before": "06d0aa4b3664844af8b067b73792dbc3c3026a5cf8f1ea55560e2d2ae4c8cfee",
+  "edits": [
+    {
+      "before": "**auto\"_examinar_\"** <adicionar footnote: \"Gálatas 6:4; 1 Coríntios 11:28, 31; 2 Coríntios 13:5; Lamentações 3:40; Salmos 139:23-24 — passagens que estabelecem a responsabilidade individual de examinar a própria conduta, avaliar a própria fé e confrontar a própria vida com a vontade de Deus.\">",
+      "after": "**examinar a si mesmo**[^autoexame]",
+      "kind": "mechanical"
+    },
+    {
+      "before": "",
+      "after": "\n[^autoexame]: Bíblia, ARA. Gálatas 6:4. Bíblia, ARA. 1 Coríntios 11:28, 31. Bíblia, ARA. 2 Coríntios 13:5. Bíblia, ARA. Lamentações 3:40. Bíblia, ARA. Salmos 139:23–24. — passagens que estabelecem a responsabilidade individual de examinar a própria conduta, avaliar a própria fé e confrontar a própria vida com a vontade de Deus.\n",
+      "kind": "mechanical"
+    }
+  ],
+  "scope": "Grafia/formatação de autoexame e nota autoral com cinco livros explicitamente identificados; restante preservado."
+}

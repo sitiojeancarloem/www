@@ -1,0 +1,12 @@
+[
+  {
+    "hunk": 8,
+    "header": "@@ -992,7 +857,7 @@ O versículo anuncia uma angústia sem precedente e a salvação do povo, de que",
+    "removed": [
+      "[^ordemlocal]: Associação Geral, *Church Manual*, revisão de 2025, pp. 35–37,73–74,139. Pastores são designados pelo campo; disciplina exige deliberação da reunião administrativa e defesa do membro. [Manual oficial](https://gc.adventist.org/church-manual/)."
+    ],
+    "added": [
+      "[^ordemlocal]: Associação Geral, _Church Manual_, revisão de 2025, pp. 35–37,73–74,139. Pastores são designados pelo campo; disciplina exige deliberação da reunião administrativa e defesa do membro. [Manual oficial](https://gc.adventist.org/church-manual/)."
+    ]
+  }
+]

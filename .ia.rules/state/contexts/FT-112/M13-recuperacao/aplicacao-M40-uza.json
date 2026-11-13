@@ -1,0 +1,30 @@
+{
+  "schema": "ft112-editorial-plan-receipt/v1",
+  "before": "009103297c963d1f1f9ab905e900891ce5d76c80975049794aee59885a5124f4",
+  "after": "f35d26c8f4d684475924e735d6a572d92e3535d064238c78d53ac1b981116f5a",
+  "regions": [
+    {
+      "before": "Foi essa preocupação desmedida que levou Uzá a descumprir o \"**está escrito**\" e, por **zelo da obra de DEUS**, a seguir",
+      "after": "O **cuidado** e o **zelo pela obra de DEUS NÃO autorizam** descumprir o \"**está escrito**\". Uzá seguiu",
+      "kind": "editorial"
+    },
+    {
+      "before": "aliança[^uzasm][^uzacr]",
+      "after": "aliança[^uzasm][^uzacr][^uzaegw]",
+      "kind": "mechanical"
+    },
+    {
+      "before": "",
+      "after": "\n[^uzaegw]: Ellen G. White. Patriarcas e Profetas - O reinado de Davi, p. 655, 656 (edição de 2007; páginas físicas 659, 660 do PDF consultado; marcador editorial 521 no EPUB).\n",
+      "kind": "mechanical"
+    }
+  ],
+  "scope": "Preservar advertência categórica sobre cuidado e zelo, corrigir somente atribuição de motivo social a Uzá não estabelecida pelas fontes e acrescentar referência EGW com identidade/paginação conferidas.",
+  "mechanism": "applyEditorialEdits",
+  "marking": "markedOutput oficial",
+  "evidence": [
+    "egw-M39B-contexto.json",
+    "egw-M39C-identidade-paginas.json"
+  ],
+  "unique_definitions": true
+}

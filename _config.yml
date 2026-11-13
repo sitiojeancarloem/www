@@ -216,6 +216,8 @@ exclude:
   - Rakefile
   - README
   - tmp
+  # Capturas locais de QA ignoradas pelo Git não são conteúdo publicado.
+  - /visual-artifacts
   - /docs # ignore Minimal Mistakes /docs
   - /test # ignore Minimal Mistakes /test
 keep_files:

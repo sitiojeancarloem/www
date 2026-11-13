@@ -1,0 +1,17 @@
+{
+  "schema": "ft112-editorial-plan-receipt/v1",
+  "before": "bf152ff4c0fcbced951734a10a0c49520dc35e421fcab6ff4188c06696b5d9d7",
+  "after": "400fad28441e941fd386920db7792d153afff322a99af5418295025a6952c4a7",
+  "regions": [
+    {
+      "before": "|\n\n{: data-jcem-caption=\"Termos de Mateus 23 e comparações retóricas do autor\"}",
+      "after": "|\n{: data-jcem-caption=\"Termos de Mateus 23 e comparações retóricas do autor\"}",
+      "kind": "mechanical"
+    }
+  ],
+  "scope": "Remover exclusivamente a linha vazia entre tabela e IAL para associar a legenda existente à tabela, preservando todo texto, argumentos e retórica.",
+  "mechanism": "applyEditorialEdits",
+  "marking": "markedOutput oficial",
+  "evidence": [],
+  "unique_definitions": true
+}

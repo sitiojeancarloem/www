@@ -1,0 +1,41 @@
+{
+  "schema": "ft112-editorial-fix/v1",
+  "before": "44616f6871a30fc805fa6f585a92deac707ddbde3092b859c90cdc26eeeb1a96",
+  "after": "2b8b510fae09772d94c9c8470c26402c7f40471e6bdba28e3a33e940b2d386e7",
+  "regions": [
+    {
+      "before": "no privado, MAS",
+      "after": "no privado[^mt181517], MAS",
+      "kind": "mechanical"
+    },
+    {
+      "before": "sem papas na língua <adiciona foot note de referencia>",
+      "after": "sem papas na língua[^gl21114]",
+      "kind": "mechanical"
+    },
+    {
+      "before": "por Pedro tentar dissimular <adicionar footnote de referenciar>",
+      "after": "pela dissimulação de Pedro[^gl21114]",
+      "kind": "mechanical"
+    },
+    {
+      "before": "Ali NÃO se tratava de pecado, **deixando evidente** que o princípio",
+      "after": "Ali havia **dissimulação** e uma conduta **repreensível**, contrária à verdade do evangelho.[^gl21114] O princípio",
+      "kind": "editorial"
+    },
+    {
+      "before": "direta e clara <adicionar foot notes>.",
+      "after": "direta e clara[^gl21114][^tt113].",
+      "kind": "mechanical"
+    },
+    {
+      "before": "",
+      "after": "\n[^mt181517]: Bíblia, ARA. Mateus 18:15–17.\n[^gl21114]: Bíblia, ARA. Gálatas 2:11–14.\n",
+      "kind": "mechanical"
+    }
+  ],
+  "mechanism": "applyEditorialEdits",
+  "marking": "Região editorial já coberta por AI-PROCESSED existente; referências mecânicas.",
+  "scope": "Primeiro parágrafo já coberto pelo bloco AI-PROCESSED existente; nenhuma transformação fora de intervalos. Reutilizada nota tt113 existente.",
+  "remaining": "Alcance universal sobre consequências públicas e severidade exige fundamentação restante; esta unidade não o declara provado."
+}

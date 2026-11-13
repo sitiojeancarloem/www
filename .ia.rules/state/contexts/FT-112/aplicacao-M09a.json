@@ -1,0 +1,114 @@
+{
+  "before": "df642f52c6a02ae022df62e2d2608caf1bd86ed0732093db989c37f85d490e57",
+  "after": "baf7c11fff8ff98fe3a1dd9b1731d5306a4fba6f0710c9e43cda5e27328db73c",
+  "regions": [
+    {
+      "kind": "editorial",
+      "sourceStart": 27370,
+      "sourceEnd": 28018,
+      "outputStart": 27370,
+      "outputEnd": 28146,
+      "transformed": true,
+      "reason": "FT-112 M09a: preservar intensidade e corrigir atribuição/alcance"
+    },
+    {
+      "kind": "editorial",
+      "sourceStart": 29056,
+      "sourceEnd": 30035,
+      "outputStart": 29184,
+      "outputEnd": 30176,
+      "transformed": true,
+      "reason": "FT-112 M09a: preservar intensidade e corrigir atribuição/alcance"
+    },
+    {
+      "kind": "editorial",
+      "sourceStart": 30912,
+      "sourceEnd": 31578,
+      "outputStart": 31053,
+      "outputEnd": 31868,
+      "transformed": true,
+      "reason": "FT-112 M09a: preservar intensidade e corrigir atribuição/alcance"
+    },
+    {
+      "kind": "editorial",
+      "sourceStart": 35233,
+      "sourceEnd": 35853,
+      "outputStart": 35523,
+      "outputEnd": 36228,
+      "transformed": true,
+      "reason": "FT-112 M09a: preservar intensidade e corrigir atribuição/alcance"
+    },
+    {
+      "kind": "editorial",
+      "sourceStart": 37087,
+      "sourceEnd": 37775,
+      "outputStart": 37462,
+      "outputEnd": 38126,
+      "transformed": true,
+      "reason": "FT-112 M09a: preservar intensidade e corrigir atribuição/alcance"
+    },
+    {
+      "kind": "editorial",
+      "sourceStart": 37777,
+      "sourceEnd": 38844,
+      "outputStart": 38128,
+      "outputEnd": 39196,
+      "transformed": true,
+      "reason": "FT-112 M09a: preservar intensidade e corrigir atribuição/alcance"
+    },
+    {
+      "kind": "editorial",
+      "sourceStart": 38846,
+      "sourceEnd": 38967,
+      "outputStart": 39198,
+      "outputEnd": 39337,
+      "transformed": true,
+      "reason": "FT-112 M09a: preservar intensidade e corrigir atribuição/alcance"
+    },
+    {
+      "kind": "editorial",
+      "sourceStart": 38969,
+      "sourceEnd": 39108,
+      "outputStart": 39339,
+      "outputEnd": 39499,
+      "transformed": true,
+      "reason": "FT-112 M09a: preservar intensidade e corrigir atribuição/alcance"
+    },
+    {
+      "kind": "editorial",
+      "sourceStart": 39922,
+      "sourceEnd": 41080,
+      "outputStart": 40313,
+      "outputEnd": 41304,
+      "transformed": true,
+      "reason": "FT-112 M09a: preservar intensidade e corrigir atribuição/alcance"
+    },
+    {
+      "kind": "editorial",
+      "sourceStart": 41082,
+      "sourceEnd": 41965,
+      "outputStart": 41306,
+      "outputEnd": 42185,
+      "transformed": true,
+      "reason": "FT-112 M09a: preservar intensidade e corrigir atribuição/alcance"
+    },
+    {
+      "kind": "editorial",
+      "sourceStart": 42283,
+      "sourceEnd": 42854,
+      "outputStart": 42503,
+      "outputEnd": 43450,
+      "transformed": true,
+      "reason": "FT-112 M09a: preservar intensidade e corrigir atribuição/alcance"
+    },
+    {
+      "kind": "editorial",
+      "sourceStart": 42905,
+      "sourceEnd": 43221,
+      "outputStart": 43501,
+      "outputEnd": 43915,
+      "transformed": true,
+      "reason": "FT-112 M09a: preservar intensidade e corrigir atribuição/alcance"
+    }
+  ]
+}

@@ -12,7 +12,21 @@ Este guia é o contrato físico de autoria subordinado ao `RCF-JCEM-LEITURA-ACES
 
 ## Tabelas
 
-Tabela de dados deve ter `caption` e cabeçalhos reais. O normalizador acrescenta `scope` de coluna/linha, mas não inventa caption ou converte células editoriais.
+O contrato local deste projeto exige caption para tabelas de dados e associações de cabeçalhos reais. Essa exigência local não presume que toda tabela precise universalmente de legenda em qualquer critério de acessibilidade. O normalizador acrescenta scope, mas não inventa legenda ou converte células editoriais.
+
+Use a IAL nativa do Kramdown/GFM imediatamente após a última linha da tabela, **sem linha vazia entre a tabela e a IAL**:
+
+```markdown
+| Período | Total |
+| --- | ---: |
+| Janeiro | 12 |
+{: #valores .compact data-jcem-caption="Valores por período"}
+```
+
+O atributo data-jcem-caption é consumido no HTML final e vira um elemento caption dentro da própria table. ID, classes, alinhamento, formatação, links e notas permanecem sob o parser existente; outros atributos IAL seguem o suporte nativo do Kramdown. Cada IAL pertence à tabela imediatamente anterior. Campo vazio ou ausência de legenda em tabela de dados causa erro com arquivo-fonte e orientação de correção Markdown. Caption é texto literal, sem interpretação de HTML.
+
+HTML existente continua aceito:
+
 
 ```html
 <table>

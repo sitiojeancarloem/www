@@ -328,6 +328,17 @@ Thumbs.db
 /agents-governance-backups/
 # END agents-governance managed
 
+# FT-101: fonte local EGW; demais extensões continuam ignoradas.
+!/.ia.rules/local/
+/.ia.rules/local/*
+!/.ia.rules/local/skills/
+/.ia.rules/local/skills/*
+!/.ia.rules/local/skills/egw-source-verification/
+/.ia.rules/local/skills/egw-source-verification/*
+!/.ia.rules/local/skills/egw-source-verification/scripts/
+/.ia.rules/local/skills/egw-source-verification/scripts/*
+!/.ia.rules/local/skills/egw-source-verification/scripts/egw_source_verification.py
+
 !/.ia.rules/state/
 !/.ia.rules/state/requests/
 !/.ia.rules/state/requests/evidencias/
@@ -342,3 +353,34 @@ Thumbs.db
 !/.ia.rules/state/requests/FT-077/terceira-correcao-referencias-links-controles.md
 !/.ia.rules/state/requests/FT-077/terceira-correcao-referencias-links-controles.txt
 !/.ia.rules/state/requests/FT-077/terceira-correcao-referencias-links-controles.png
+
+!/.ia.rules/local/skills/egw-source-verification/SKILL.md
+!/.ia.rules/local/skills/egw-source-verification/descriptor.json
+!/.ia.rules/local/skills/egw-source-verification/agents/
+/.ia.rules/local/skills/egw-source-verification/agents/*
+!/.ia.rules/local/skills/egw-source-verification/agents/openai.yaml
+# FT-104: apenas fonte local do executor de resiliencia.
+!/.ia.rules/local/runtime/
+/.ia.rules/local/runtime/*
+!/.ia.rules/local/runtime/resilient-operation.ts
+!/.ia.rules/local/runtime/resilient-operation.js
+!/.ia.rules/local/runtime/README.md
+!/.ia.rules/local/runtime/process-outcome.ts
+!/.ia.rules/local/runtime/verified-process.ts
+!/.ia.rules/local/runtime/process-outcome.js
+!/.ia.rules/local/runtime/verified-process.js
+
+# FT-104: auditoria versionada, sem expor outros estados
+!/.ia.rules/state/contexts/
+!/.ia.rules/state/contexts/FT-103/
+!/.ia.rules/state/contexts/FT-103/auditoria-ft104.md
+
+# FT-104: histórico técnico preservado
+!/.ia.rules/state/history/
+!/.ia.rules/state/history/FT-104.ia
+
+# FT-116: solicitação e evidência de integração, sem expor cache ou outros estados.
+!/.ia.rules/state/requests/FT-116/
+!/.ia.rules/state/requests/FT-116/prompt.md
+!/.ia.rules/state/contexts/FT-116/
+!/.ia.rules/state/contexts/FT-116/master.md

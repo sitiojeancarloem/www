@@ -1,0 +1,15 @@
+{
+  "before": "f9171f02c7ac0f15d3609e038498db54a7cd755a104ee40cdc4d1550e36ee16b",
+  "after": "df642f52c6a02ae022df62e2d2608caf1bd86ed0732093db989c37f85d490e57",
+  "regions": [
+    {
+      "kind": "editorial",
+      "sourceStart": 47704,
+      "sourceEnd": 52004,
+      "outputStart": 47704,
+      "outputEnd": 53821,
+      "transformed": true,
+      "reason": "FT-112 M08: suplemento autoral, cinco testemunhos EGW e visão da volta de Cristo"
+    }
+  ]
+}

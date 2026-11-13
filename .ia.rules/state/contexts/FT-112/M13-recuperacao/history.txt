@@ -1,0 +1,25 @@
+Comando history; exit_code=0
+stdout:
+42907dbda2 fix: declara legenda Markdown e exclui capturas locais do build
+
+M	_drafts/carta-aberta-hierarquia-papal-na-igreja/carta-aberta-hierarquia-papal-na-igreja.md
+56f73e1dd2 correção IA do ptbr do parágrafo adicionado.
+
+M	_drafts/carta-aberta-hierarquia-papal-na-igreja/carta-aberta-hierarquia-papal-na-igreja.md
+f2a3f0624f correção IA e adição de novo parágrafo
+
+M	_drafts/carta-aberta-hierarquia-papal-na-igreja/carta-aberta-hierarquia-papal-na-igreja.md
+b8b7fe9e79 pre intrudoução importante
+
+M	_drafts/carta-aberta-hierarquia-papal-na-igreja/carta-aberta-hierarquia-papal-na-igreja.md
+c36d55fcaa adicionado .md e correções do cabeçalho
+
+R099	_drafts/carta-aberta-hierarquia-romanda-na-igreja.md	_drafts/carta-aberta-hierarquia-papal-na-igreja/carta-aberta-hierarquia-papal-na-igreja.md
+687e8fb52b adicionado extenção ao arquivo
+
+R089	_drafts/carta-aberta-hierarquia-romanda-na-igreja	_drafts/carta-aberta-hierarquia-romanda-na-igreja.md
+aeb2664049 meta dado
+
+M	_drafts/carta-aberta-hierarquia-romanda-na-igreja
+
+stderr:

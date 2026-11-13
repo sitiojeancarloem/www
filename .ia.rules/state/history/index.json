@@ -93,6 +93,13 @@
       "state": "validada"
     },
     {
+      "id": "FT-101",
+      "name": "Implementação da verificação reutilizável de fontes EGW",
+      "path": ".ia.rules/state/history/FT-101.ia",
+      "sha256": "a4a785b52928cea2f81b45eb646f1ce97e977f65c7ebfc7913b2976947d3911d",
+      "state": "pendente-validacao"
+    },
+    {
       "id": "FT-103",
       "name": "Normatização da semântica forte de resiliência",
       "path": ".ia.rules/state/history/FT-103.ia",
@@ -100,11 +107,25 @@
       "state": "validada"
     },
     {
+      "id": "FT-104",
+      "name": "Implementação da semântica forte de resiliência",
+      "path": ".ia.rules/state/history/FT-104.ia",
+      "sha256": "ef15eddd6ce329d43e77458b2ef228ad70ef16885c189b3831af9f582c842ae5",
+      "state": "pendente-validacao"
+    },
+    {
       "id": "FT-106",
       "name": "Normatização da experiência pública de doações",
       "path": ".ia.rules/state/history/FT-106.ia",
       "sha256": "289f85dbcedd24ff46ef552c4444e8cfe29cb4b0ac210d4102242c42a2dd8334",
       "state": "validada"
+    },
+    {
+      "id": "FT-112",
+      "name": "Revisão integral da carta aberta",
+      "path": ".ia.rules/state/history/FT-112.ia",
+      "sha256": "6a48dbeea769e4322404e4448e6f6d93a157fe6dcec4311bc772cd6f7e8ecda8",
+      "state": "pendente-validacao"
     }
   ]
 }

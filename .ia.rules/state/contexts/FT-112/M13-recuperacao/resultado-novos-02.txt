@@ -1,0 +1,152 @@
+RESULTADO  
+Diferenças reais identificadas no hunk 4 (entre `removed` e `added`):
+
+1. **Nova introdução antes da primeira frase original**  
+   - *Adicionada*:  
+     > "A relação bíblia de Gênesis à Apocalipse é, sempre foi e sempre será, nas palavras do próprio Jesus: **Muitos x Poucos**. O fato de ser uma minoria não significa que é verdade em si mesmo, pois é apenas um elemento, mas quase sempre, e em especial no fim dos tempos. Entretanto, o oposto é quase sempre correto: pertencer a maioria é, inequivocamente, e sem dúvida alguma uma sentença. Tanto fora quando dentro da igreja, pertencer ao maior grupo NUNCA foi e nunca será um bom sinal. Quer saber se algo é verdade ou falso, siga os prceitos bíblicos, \"_à lei e aos testemunho_\" <adikcionado footnote>, a bíblia é a regra de fé, como está escrito, e de igual modo, qual grupo é maior? Fuja dele. Acabé e seus 400 x Micaías e Elias são exemplos claro e inequívo aplicado por Deus par os tempos de hoje, mas vá ao diluívio, e se salvaria apenas e tão somente Noé e mais ningue, entre milhoes de habitantes; vá para Sodoma e Gomorra e hoje se salvaria apenas Ló e mais ninguém entre as duas cidades <adicionar foot notes: Ezequiel 14:13,14 | NVI - https://www.bibliaonline.com.br/nvi/ez/14/13,14+>; pois a salvação é unica e individual e ao contrário daqueles tempos, ninguém será salvo _por tabela_, pois ao contrário daquele tempo, agora, a salvação não é uma salvação efemera para uma vida terrana, mas a salvação eterna."  
+   - *Observações*:  
+     - Contém erros de digitação ("prceitos", "adikcionado", "inequívo", "par", "ningue", "milhoes", "efemera", "terrana").  
+     - Inclui placeholders de footnotes não resolvidos (`<adikcionado footnote>`, `<adicionar foot notes: ...>`).  
+     - Introduz nova argumentação teológica não presente no `removed`.
+
+2. **Modificação na primeira frase do bloco original**  
+   - *Removida*:  
+     > "Sou eu, ou meus irmãos que pregam a verdade presente, melhor, mais santo ou mais sagrado que qualquer outro? Claro que não! **É justamente este o ponto:** a autoridade está na mensagem, não numa suposta superioridade do mensageiro. Quando a advertência corresponde ao **ESTÁ ESCRITO**, não é a opinião humana que governa: é DEUS quem adverte, repreende e corrige. Minha opinião sobre isto ou aquilo pouco importa."  
+   - *Adicionada*:  
+     > "Sou eu, ou meus irmãos que pregam a verdade presente, melhor, mais santo ou mais sagrado que qualquer outro? Claro que não! **É justamente este o ponto:** a autoridade está na mensagem, **não** numa suposta superioridade do mensageiro. Não é o carteiro que possui a autoridade para retirar os pontos da CNH, mas o órgão governamental que expediu a carta; acusar, agredir, opimir, difamar e silenciar o carteiro ao invéz de ir direto na fonte (Deus) é justamente revelar o espírito o maligno a quem o destinário serve<adicionar referencia: Mateus 21:33-46>. Quando a advertência corresponde ao **ESTÁ ESCRITO**, <u>não é a opinião humana</u> que governa: é DEUS quem adverte, repreende e corrige. Minha opinião sobre isto ou aquilo pouco importa."  
+   - *Diferenças reais*:  
+     - Adição de analogia do carteiro/órgão governamental com nova justificativa teológica.  
+     - Inclusão de verbo "não" em negrito (**não**) antes de "numa".  
+     - Substituição de `<u>não é a opinião humana</u>` (com sublinhado HTML) em vez de apenas "não é a opinião humana".  
+     - Inclusão de footnote não resolvida (`<adicionar referencia: Mateus 21:33-46>`).  
+     - Erro de digitação ("invéz").
+
+3. **Nova linha em branco entre parágrafos**  
+   - *Adicionada*: linha vazia (`""`) após a primeira frase modificada e antes da segunda frase original.  
+   - *Observação*: Representa quebra de parágrafo não presente no `removed`.
+
+4. **Modificação na segunda frase original**  
+   - *Removida*:  
+     > "Se dependesse puramente de mim, faria muitas coisas de outra forma. Se quisesse dissimular uma falsa vida cristã por conveniência, escolheria métodos bem diferentes dos que DEUS ordenou. A inclinação humana pensa diferente de DEUS. Mas a questão é: **quem está no comando, DEUS ou o homem?!** Esta carta contém testemunho pessoal e interpretação, além dos textos inspirados; essas partes não adquirem infalibilidade por estarem ao lado de uma citação. O fundamento exigido para a denúncia permanece o mesmo: **o que DEUS disse**, ainda que contrarie quem escreve. Eu prefiro diferente, mas não importa o que eu prefiro."  
+   - *Adicionada*:  
+     > "Se dependesse puramente de mim, faria muitas coisas de outra forma. Se quisesse dissimular uma falsa vida cristã por conveniência (o que alías seria ridículo), escolheria métodos bem diferentes dos que DEUS ordenou. A inclinação humana pensa diferente de DEUS. Mas a questão é: **quem está no comando, DEUS ou o homem?!** Esta carta contém testemunho pessoal e interpretação, além dos textos inspirados; essas partes não adquirem infalibilidade por estarem ao lado de uma citação. O fundamento exigido para a denúncia permanece o mesmo: **o que DEUS disse**, ainda que contrarie quem escreve. Eu prefiro diferente, mas não importa o que eu prefiro."  
+   - *Diferenças reais*:  
+     - Inclusão de `(o que alías seria ridículo)` após "conveniência".  
+     - Erro de digitação ("alías", em vez de "aliás").
+
+EVIDÊNCIAS  
+- JSON fornecido pelo supervisor: hunk 4 com pares `removed`/`added` explícitos.  
+- Comparação literal e semântica direta dos blocos, linha por linha, conforme exigido.  
+- Preservação de erros de digitação, placeholders e formatação (negrito, sublinhado, footnotes não resolvidas).  
+
+RISCOS/LIMITAÇÕES  
+- Nenhuma inspeção adicional foi realizada; análise limitada ao hunk 4 conforme instrução.  
+- Não foram validados fatos, referências ou coerência teológica; apenas diferenças reais no texto foram identificadas.  
+- Placeholders não resolvidos (`<adikcionado footnote>`, `<adicionar foot notes: ...>`, `<adicionar referencia: Mateus 21:33-46>`) foram mantidos conforme origem.  
+
+NEEDS_SUPERVISOR  
+...
+
+EXECUÇÃO COMPROVADA PELO RUNTIME
+Base fornecida pelo supervisor: "AGENTS.md + agents.local.md + .ia.rules/state/contexts/FT-112/M13-recuperacao/novos-2026-10-17-02.json, leitura supervisor CRLF→LF. JSON preservado em 547a2b8199, pares completos extraídos do diff 216093383f→6586d69c1c."
+Leituras: []
+Comandos com exit_code=0: []
+Commits verificados: 0. Qualidade semântica sujeita ao aceite do supervisor.
+
+ESTADO GIT DETERMINÍSTICO (2026-10-18T00:06:29.959Z; prevalece se houver divergência):
+## dev...origin/dev [ahead 1]
+ M .gitignore
+ M .ia.rules/continue.ia
+ M .ia.rules/local/runtime/README.md
+ M .ia.rules/state/FT.implementados.md
+ M .ia.rules/state/contexts/FT-103/master.md
+ M .ia.rules/state/contexts/FT-112/historico-retomada.md
+ M .ia.rules/state/contexts/FT-112/retomada.md
+ M .ia.rules/state/continue.ia
+ M .ia.rules/state/history/index.json
+ M _site/404.html
+ M _site/RCFs/bate-papo.md
+ M _site/RCFs/carregamento-progressivo.md
+ M _site/RCFs/citacoes.md
+ M _site/RCFs/componentes-compartilhados.md
+ M _site/RCFs/documentacao-e-metadados.md
+ M _site/RCFs/impressao-ieee.md
+ M _site/RCFs/leitura-acessivel-e-tts.md
+ M _site/RCFs/operacao-da-ia.md
+ M _site/RCFs/referencias-e-footnotes.md
+ M _site/_fixtures/blockquote-models/index.html
+ M _site/_fixtures/covers/content/index.html
+ M _site/_fixtures/covers/full-window/index.html
+ M _site/_fixtures/covers/inner-full-window/index.html
+ M _site/_fixtures/covers/inner-window-height/index.html
+ M _site/_fixtures/covers/inner-window-width/index.html
+ M _site/_fixtures/covers/legacy/index.html
+ M _site/_fixtures/covers/wide-single/index.html
+ M _site/_fixtures/covers/wide-triptych/index.html
+ M _site/_fixtures/covers/window-height/index.html
+ M _site/_fixtures/covers/window-width/index.html
+ M _site/_fixtures/pagespeed/about/index.html
+ M _site/_fixtures/pagespeed/article-basic/index.html
+ M _site/_fixtures/pagespeed/article-panel/index.html
+ M _site/_fixtures/pagespeed/map/index.html
+ M _site/_fixtures/tts-accessibility/index.html
+ M _site/assets/css/main.css
+ M _site/assets/css/main.css.map
+ M _site/assets/images/documentacao/blockquote/centered-mark.svg
+ M _site/assets/images/documentacao/blockquote/editorial-statement.svg
+ M _site/assets/jcem/accessibility-manifest.json
+ M _site/assets/jcem/asset-metadata.json
+ M _site/assets/jcem/css/jcmain.scss
+ M _site/assets/jcem/js/read-aloud.js
+ M _site/assets/jcem/js/site.js
+ M _site/assets/jcem/print-ieee/ieee.css
+ M _site/assets/jcem/print-ieee/index.js
+ M _site/assets/jcem/print-ieee/jekyll-blog.css
+ M _site/assets/js/lunr/lunr-en.js
+ M _site/assets/js/lunr/lunr-gr.js
+ M _site/assets/js/lunr/lunr-store.js
+ M _site/atribuicoes/index.html
+ M _site/c/index.html
+ M _site/index.html
+ M _site/mapa/index.html
+ M _site/p/5-verdades-de-genesis-27/index.html
+ M _site/p/bate-papo/eventos-finais/a-heranca-dos-santos/index.html
+ M _site/p/bate-papo/eventos-finais/rumo-ao-lar-viagem-dos-remidos-coroas-e-recompensa-celestial/index.html
+ M _site/p/como-identificar-falacias/index.html
+ M _site/p/devaneios/index.html
+ M _site/p/nenhum-nivel-de-alcool-faz-bem-a-saude/index.html
+ M _site/p/nove-motivos-para-guardar-o-sabado/index.html
+ M _site/p/salvacao-importa-ser-perfeito/index.html
+ M _site/p/sola-scriptura/index.html
+ M _site/p/tradicao-vs-biblia-tradicao-ou-biblia/index.html
+ M _site/page-2/index.html
+ M _site/sobre/index.html
+ M _site/t/index.html
+?? .ia.rules/state/history/FT-105.ia
+?? _site/RCFs/doacoes.md
+?? _site/RCFs/resiliencia-operacional.md
+?? _site/RCFs/revisao-automatizada-por-ia.md
+?? _site/RCFs/verificacao-fontes-egw.md
+?? _site/assets/images/documentacao/impressao-ieee/
+?? _site/assets/images/fixtures/print-ieee/
+?? _site/assets/images/overlays/
+?? _site/assets/images/posts/carta-aberta-hierarquia-papal-na-igreja/
+?? _site/assets/images/social/a-heranca-dos-santos-og-portrait.jpg
+?? _site/assets/images/social/cinco-verdades-genesis-og-portrait.jpg
+?? _site/assets/images/social/como-identificar-falacias-og-portrait.jpg
+?? _site/assets/images/social/cover-triptych-central-6bb3ecf5-3ca42f2391-cover.webp
+?? _site/assets/images/social/cover-triptych-central-6bb3ecf5-3ca42f2391-og-portrait.jpg
+?? _site/assets/images/social/cover-triptych-central-6bb3ecf5-3ca42f2391-og-wide.jpg
+?? _site/assets/images/social/cover-triptych-central-6bb3ecf5-og-portrait.jpg
+?? _site/assets/images/social/cover-triptych-right-1e6ed036-og-portrait.jpg
+?? _site/assets/images/social/devaneios-grande-og-portrait.jpg
+?? _site/assets/images/social/nenhum-alcool-og-portrait.jpg
+?? _site/assets/images/social/nove-motivos-sabado-og-portrait.jpg
+?? _site/assets/images/social/rumo-ao-lar-viagem-dos-remidos-og-portrait.jpg
+?? _site/assets/images/social/salvacao-importa-ser-perfeito-og-portrait.jpg
+?? _site/assets/images/social/sola-scriptura-og-portrait.jpg
+?? _site/assets/images/social/tradicao-vs-biblia-og-portrait.jpg
+?? _site/fixtures/
+?? _site/p/artigo_probabilidade_modelos_borel/
+?? _site/p/carta-aberta-hierarquia-papal-na-igreja/
+

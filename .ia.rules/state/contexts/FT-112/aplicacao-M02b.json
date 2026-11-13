@@ -1,0 +1,17 @@
+{
+  "task": "M02b",
+  "before": "d431872272a10c126479f4c050766710fd89340a0bb2e7f87136d5d126888883",
+  "after": "ce616784d42ed8570ffae885f88e9eed3b7862ccf52255dce0310a5712752129",
+  "regions": [
+    {
+      "kind": "editorial",
+      "sourceStart": 28826,
+      "sourceEnd": 47650,
+      "outputStart": 28826,
+      "outputEnd": 47388,
+      "transformed": true,
+      "reason": "FT-112 M02b: preservação autoral, fontes e integração"
+    }
+  ],
+  "newNotes": 31
+}

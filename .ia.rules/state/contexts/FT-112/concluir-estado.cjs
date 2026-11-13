@@ -1,0 +1,10 @@
+const fs=require('fs'),path=require('path');const root=path.resolve(__dirname,'../../../..');
+const state=path.join(root,'.ia.rules/state/continue.ia');const {concludeFeatureState}=require(path.join(root,'.ia.rules/core/runtime/scripts/todo-intake.js'));
+let text=fs.readFileSync(state,'utf8');const start=text.indexOf('FT-112|');if(start<0)throw Error('FT ausente');
+const after=text.indexOf('\nFT-',start+1),end=after<0?text.length:after;
+const result='Carta revisada na base autoral ff9f255678; M01–M10 e auditoria M06 concluídas. Relatório e histórico atuais em .ia.rules/state/contexts/FT-112/relatorio.md e historico-retomada.md.';
+const verification='100 conferências lexicais; 47 blocos, 123 notas, 154 chamadas; Kramdown sem avisos, referências quebradas ou destaques crus; testes footnotes e quote_semantics aprovados; hash em auditoria-final.json.';
+const pending='Sem pendência técnica; aceite autoral posterior. Estado de retomada em .ia.rules/state/contexts/FT-112/retomada.md. Sem publicação/push/localWorker.';
+const section=text.slice(start,end).replace(/^resultado=.*$/m,'resultado='+result).replace(/^verificacoes=.*$/m,'verificacoes='+verification).replace(/^pendencias=.*$/m,'pendencias='+pending);
+fs.writeFileSync(state,text.slice(0,start)+section+text.slice(end));
+console.log(JSON.stringify(concludeFeatureState(root,['FT-112'],{authorization:'human',developerValidated:false,evidence:{'FT-112':{result,verification,pending}}})));

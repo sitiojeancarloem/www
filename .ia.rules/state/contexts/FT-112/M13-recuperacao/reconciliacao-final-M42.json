@@ -1,0 +1,22 @@
+{
+  "status": "passed",
+  "before_sha256": "b1ea61edceea05ee0c2ea9710caf630ea84f8fe159eab1e7d5dbd25132df6174",
+  "official": {
+    "code": "FT_STATE_CONCLUDED",
+    "ids": [
+      "FT-112"
+    ],
+    "reconciliation": {
+      "code": "FT_STATE_RECONCILED",
+      "pendingValidation": [
+        "FT-112"
+      ],
+      "stateSha256": "de1459fd459496486228e26693a5f26362f7ab4a0a749b748416776923ec92ed",
+      "unchanged": [],
+      "validated": []
+    }
+  },
+  "unrelated_sections_changed": [],
+  "after_sha256": "de1459fd459496486228e26693a5f26362f7ab4a0a749b748416776923ec92ed",
+  "projections_equal": true
+}

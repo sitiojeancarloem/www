@@ -1,0 +1,13 @@
+# M36A1 — análise aproveitável com complementos; M36A2
+
+Job b484fdbc-cb0e-43c1-b6db-a2d1c55ed14b consultado uma vez. Análise somente da evidência fornecida, sem ferramentas, comandos, commits ou mudanças no artigo, conforme contrato. Git determinístico dev ahead64, coerente com HEAD d5a5a8faf1; alterações listadas herdadas. Hash atual do artigo conferido 009103297c963d1f1f9ab905e900891ce5d76c80975049794aee59885a5124f4. M35 continua prova estrutural atual, não prova de cumprimento estilístico.
+
+Checklist das cinco seções é aproveitável. Complementos obrigatórios para a consolidação: §3 exige esforço agressivo de concisão subordinado à preservação integral, sem remover repetições funcionais; introdução não pode inventar fatos/premissas/conclusões/intenções; §5 exige caixa correspondente no equivalente semântico quando palavra capitalizada é substituída. A coluna 'Verificável: sim' significa requisito explícito na diretiva, não artigo aprovado. Nenhum critério de conteúdo foi conferido no artigo por esta unidade. Autorizações de reestruturação e primeira pessoa não são exigências automáticas.
+
+M36A2: somente §6 e subseções, recorte integral rastreado cabecalho-M36A2.txt (entre ##6 e ##7), fornecido por provided_evidence read-only, sem ferramentas. Extrair critérios de fontes, literalidade, referências externas versus internas, EGW/Bíblia e blockquotes; até 550 palavras, sem avaliar artigo. Não abrir snapshots ou pesquisar fontes. Produção posterior do checklist consolidado continua obrigatória com expect_changes=true; análise parcial não simula essa implementação.
+
+Atenção para fechamento: §6.4 exige bloco citado em um único parágrafo, versículos individualizados em sobrescrito e atribuição na linha seguinte dentro do bloco, sem footnote da própria citação. O gate M35 não comprova esses critérios editoriais. A remoção do antigo assert não autoriza dispensar requisito; confronto dirigido deve comprovar cumprimento ou resolver conflito real com norma vigente, sem inventar exceção de estilo. Não repetir renderização geral sem necessidade: usar HTML atual como evidência para diagnóstico específico.
+
+Operação do supervisor: shell padrão pwsh falhou por ausência de C:/Program Files/PowerShell/7/pwsh.dll. Alternativa nativa C:/Windows/System32/WindowsPowerShell/v1.0/powershell.exe, login=false, funcionou. Nenhuma instalação ou configuração alterada. Não confundir falha de shell do supervisor com infraestrutura do Worker.
+
+Próximo: §§7–8 em unidade curta, depois complementos M13 e cruzamento com resultados M01–M35 sem repetir exploração; corrigir lacunas objetivas antes de declarar conclusão.

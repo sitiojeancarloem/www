@@ -1,0 +1,50 @@
+{
+  "before": "95532b845bd920a4001242b4ccbd729cd452c5bb9a89b89450699a8f44413ce3",
+  "receipt": "aplicacao-M28-carteiro.json",
+  "evidence": [
+    "biblia-M27-carteiro.json"
+  ],
+  "edits": [
+    {
+      "before": "opimir",
+      "after": "oprimir",
+      "kind": "mechanical"
+    },
+    {
+      "before": "invéz",
+      "after": "invés",
+      "kind": "mechanical"
+    },
+    {
+      "before": "espírito o maligno",
+      "after": "espírito maligno",
+      "kind": "mechanical"
+    },
+    {
+      "before": "destinário",
+      "after": "destinatário",
+      "kind": "mechanical"
+    },
+    {
+      "before": "ir direto na fonte (Deus)",
+      "after": "ir direto à fonte (DEUS)",
+      "kind": "mechanical"
+    },
+    {
+      "before": "(o que alías seria ridículo)",
+      "after": "(o que aliás seria ridículo)",
+      "kind": "mechanical"
+    },
+    {
+      "before": "<adicionar referencia: Mateus 21:33-46>",
+      "after": "[^lavradoresmaus]",
+      "kind": "mechanical"
+    },
+    {
+      "before": "",
+      "after": "\n[^lavradoresmaus]: Bíblia, ARA. Mateus 21:33–46, parábola dos lavradores maus.\n",
+      "kind": "mechanical"
+    }
+  ],
+  "scope": "Correções mecânicas delimitadas em dois parágrafos e referência solicitada; preservar analogia CNH/carteiro, acusação, contundência, ridículo e todas as distinções autorais, sem novo disclaimer."
+}

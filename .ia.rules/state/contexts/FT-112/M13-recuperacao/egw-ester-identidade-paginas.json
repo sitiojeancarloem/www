@@ -1,0 +1,42 @@
+{
+  "schema": "ft112-egw-targeted-pages/v1",
+  "source": "pt-br/livros/profetas-e-reis/per.pdf",
+  "metadata": {
+    "Title": "Profetas e Reis (2007)",
+    "Author": "Ellen G. White",
+    "Subject": "",
+    "Keywords": "",
+    "Creator": "LaTeX with hyperref package",
+    "Producer": "pdfTeX-1.40.13",
+    "CreationDate": "D:20210414080610-04'00'",
+    "ModDate": "D:20210414080610-04'00'"
+  },
+  "total_pages": 482,
+  "pages": [
+    {
+      "physical_page": 1,
+      "text": ""
+    },
+    {
+      "physical_page": 2,
+      "text": ""
+    },
+    {
+      "physical_page": 3,
+      "text": "Profetas e Reis\r\nEllen G. White\r\n2007\r\nCopyright © 2021\r\nEllen G. White Estate, Inc."
+    },
+    {
+      "physical_page": 397,
+      "text": "Nos dias da rainha Ester 393\r\nunir-se-ão com os marginais e os vis para tomar conselho contra o\r\npovo de Deus. Riqueza, gênio, educação, combinar-se-ão para cobri￾los de desprezo. Governantes perseguidores, pastores e membros de\r\nigreja conspirarão contra eles. De viva voz e pela pena, ameaças e\r\nridículo, procurarão subverter-lhes a fé. Mediante falsas representa￾ções e irados apelos, os homens suscitarão as paixões do povo. Não\r\npossuindo um “Assim dizem as Escrituras” para apresentar contra os\r\nadvogados do sábado bíblico, eles recorrerão a opressivos preceitos\r\nde lei que lhes supram a falta. A fim de assegurar popularidade e sua\r\naprovação, os legisladores se renderão aos reclamos de leis domini￾cais. Mas os que temem a Deus não podem aceitar uma instituição\r\nque viole um preceito do Decálogo. Neste campo se travará o último\r\ngrande conflito na controvérsia entre a verdade e o erro. E nós não\r\nsomos deixados em dúvida quanto ao desfecho. Hoje, como nos dias\r\nde Ester a Mardoqueu, o Senhor vindicará Sua verdade e Seu povo."
+    }
+  ],
+  "hashes_before": {
+    "pdf": "6a71f1c3e8a115f5034a4577b978f1772880bb9a840d968bb1a6e4c91b102b53",
+    "draft": "235e1a8a12939b4ea3833b14b95c1c2df841f4968c9543381d66895de55c61c1"
+  },
+  "hashes_after": {
+    "pdf": "6a71f1c3e8a115f5034a4577b978f1772880bb9a840d968bb1a6e4c91b102b53",
+    "draft": "235e1a8a12939b4ea3833b14b95c1c2df841f4968c9543381d66895de55c61c1"
+  },
+  "scope": "Somente frontispício e página física397 já localizada; não altera status do mecanismo oficial automaticamente."
+}

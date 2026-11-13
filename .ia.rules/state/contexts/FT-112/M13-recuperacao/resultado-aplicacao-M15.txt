@@ -1,0 +1,118 @@
+RESULTADO DETERMINÍSTICO
+Comando aplicar_m15; exit_code=0
+stdout:
+{"changed":true,"edits":3,"after":"44616f6871a30fc805fa6f585a92deac707ddbde3092b859c90cdc26eeeb1a96","receipt":"aplicacao-M15-caminho.json"}
+
+stderr:
+
+
+Comando diff_check; exit_code=0
+stdout:
+
+stderr:
+warning: in the working copy of '_drafts/carta-aberta-hierarquia-papal-na-igreja/carta-aberta-hierarquia-papal-na-igreja.md', LF will be replaced by CRLF the next time Git touches it
+
+EXECUÇÃO COMPROVADA PELO RUNTIME
+Base fornecida pelo supervisor: não
+Leituras: []
+Comandos com exit_code=0: ["aplicar_m15","diff_check"]
+Commits verificados: 0. Qualidade semântica sujeita ao aceite do supervisor.
+
+ESTADO GIT DETERMINÍSTICO (2026-10-18T00:37:47.449Z; prevalece se houver divergência):
+## dev...origin/dev [ahead 12]
+ M .gitignore
+ M .ia.rules/continue.ia
+ M .ia.rules/local/runtime/README.md
+ M .ia.rules/state/FT.implementados.md
+ M .ia.rules/state/contexts/FT-103/master.md
+ M .ia.rules/state/contexts/FT-112/historico-retomada.md
+ M .ia.rules/state/contexts/FT-112/retomada.md
+ M .ia.rules/state/continue.ia
+ M .ia.rules/state/history/index.json
+ M _drafts/carta-aberta-hierarquia-papal-na-igreja/carta-aberta-hierarquia-papal-na-igreja.md
+ M _site/404.html
+ M _site/RCFs/bate-papo.md
+ M _site/RCFs/carregamento-progressivo.md
+ M _site/RCFs/citacoes.md
+ M _site/RCFs/componentes-compartilhados.md
+ M _site/RCFs/documentacao-e-metadados.md
+ M _site/RCFs/impressao-ieee.md
+ M _site/RCFs/leitura-acessivel-e-tts.md
+ M _site/RCFs/operacao-da-ia.md
+ M _site/RCFs/referencias-e-footnotes.md
+ M _site/_fixtures/blockquote-models/index.html
+ M _site/_fixtures/covers/content/index.html
+ M _site/_fixtures/covers/full-window/index.html
+ M _site/_fixtures/covers/inner-full-window/index.html
+ M _site/_fixtures/covers/inner-window-height/index.html
+ M _site/_fixtures/covers/inner-window-width/index.html
+ M _site/_fixtures/covers/legacy/index.html
+ M _site/_fixtures/covers/wide-single/index.html
+ M _site/_fixtures/covers/wide-triptych/index.html
+ M _site/_fixtures/covers/window-height/index.html
+ M _site/_fixtures/covers/window-width/index.html
+ M _site/_fixtures/pagespeed/about/index.html
+ M _site/_fixtures/pagespeed/article-basic/index.html
+ M _site/_fixtures/pagespeed/article-panel/index.html
+ M _site/_fixtures/pagespeed/map/index.html
+ M _site/_fixtures/tts-accessibility/index.html
+ M _site/assets/css/main.css
+ M _site/assets/css/main.css.map
+ M _site/assets/images/documentacao/blockquote/centered-mark.svg
+ M _site/assets/images/documentacao/blockquote/editorial-statement.svg
+ M _site/assets/jcem/accessibility-manifest.json
+ M _site/assets/jcem/asset-metadata.json
+ M _site/assets/jcem/css/jcmain.scss
+ M _site/assets/jcem/js/read-aloud.js
+ M _site/assets/jcem/js/site.js
+ M _site/assets/jcem/print-ieee/ieee.css
+ M _site/assets/jcem/print-ieee/index.js
+ M _site/assets/jcem/print-ieee/jekyll-blog.css
+ M _site/assets/js/lunr/lunr-en.js
+ M _site/assets/js/lunr/lunr-gr.js
+ M _site/assets/js/lunr/lunr-store.js
+ M _site/atribuicoes/index.html
+ M _site/c/index.html
+ M _site/index.html
+ M _site/mapa/index.html
+ M _site/p/5-verdades-de-genesis-27/index.html
+ M _site/p/bate-papo/eventos-finais/a-heranca-dos-santos/index.html
+ M _site/p/bate-papo/eventos-finais/rumo-ao-lar-viagem-dos-remidos-coroas-e-recompensa-celestial/index.html
+ M _site/p/como-identificar-falacias/index.html
+ M _site/p/devaneios/index.html
+ M _site/p/nenhum-nivel-de-alcool-faz-bem-a-saude/index.html
+ M _site/p/nove-motivos-para-guardar-o-sabado/index.html
+ M _site/p/salvacao-importa-ser-perfeito/index.html
+ M _site/p/sola-scriptura/index.html
+ M _site/p/tradicao-vs-biblia-tradicao-ou-biblia/index.html
+ M _site/page-2/index.html
+ M _site/sobre/index.html
+ M _site/t/index.html
+?? .ia.rules/state/history/FT-105.ia
+?? _site/RCFs/doacoes.md
+?? _site/RCFs/resiliencia-operacional.md
+?? _site/RCFs/revisao-automatizada-por-ia.md
+?? _site/RCFs/verificacao-fontes-egw.md
+?? _site/assets/images/documentacao/impressao-ieee/
+?? _site/assets/images/fixtures/print-ieee/
+?? _site/assets/images/overlays/
+?? _site/assets/images/posts/carta-aberta-hierarquia-papal-na-igreja/
+?? _site/assets/images/social/a-heranca-dos-santos-og-portrait.jpg
+?? _site/assets/images/social/cinco-verdades-genesis-og-portrait.jpg
+?? _site/assets/images/social/como-identificar-falacias-og-portrait.jpg
+?? _site/assets/images/social/cover-triptych-central-6bb3ecf5-3ca42f2391-cover.webp
+?? _site/assets/images/social/cover-triptych-central-6bb3ecf5-3ca42f2391-og-portrait.jpg
+?? _site/assets/images/social/cover-triptych-central-6bb3ecf5-3ca42f2391-og-wide.jpg
+?? _site/assets/images/social/cover-triptych-central-6bb3ecf5-og-portrait.jpg
+?? _site/assets/images/social/cover-triptych-right-1e6ed036-og-portrait.jpg
+?? _site/assets/images/social/devaneios-grande-og-portrait.jpg
+?? _site/assets/images/social/nenhum-alcool-og-portrait.jpg
+?? _site/assets/images/social/nove-motivos-sabado-og-portrait.jpg
+?? _site/assets/images/social/rumo-ao-lar-viagem-dos-remidos-og-portrait.jpg
+?? _site/assets/images/social/salvacao-importa-ser-perfeito-og-portrait.jpg
+?? _site/assets/images/social/sola-scriptura-og-portrait.jpg
+?? _site/assets/images/social/tradicao-vs-biblia-og-portrait.jpg
+?? _site/fixtures/
+?? _site/p/artigo_probabilidade_modelos_borel/
+?? _site/p/carta-aberta-hierarquia-papal-na-igreja/
+

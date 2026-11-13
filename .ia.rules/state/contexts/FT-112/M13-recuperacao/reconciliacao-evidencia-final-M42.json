@@ -1,0 +1,17 @@
+{
+  "status": "passed",
+  "reason": "Ponto conclude preservou resultado/verificacoes do arquivo histórico M12 já existente; atualizar somente evidências declarativas da FT112 e sincronizar pelo ponto oficial.",
+  "fields": [
+    "resultado",
+    "verificacoes",
+    "pendencias"
+  ],
+  "context_restored": true,
+  "sync": {
+    "code": "STATE_PROJECTIONS_SYNCED",
+    "todoHash": "d332baa8321a42e366d838cfbe50310e7328d4cf50446fe85fe106788ef2fd2a",
+    "continueHash": "e774e7dbc0fb437484efd910e02f7465f0778db671b2386a5b3840fc048d1995"
+  },
+  "canonical_sha256": "e774e7dbc0fb437484efd910e02f7465f0778db671b2386a5b3840fc048d1995",
+  "historical_M12_preserved": true
+}

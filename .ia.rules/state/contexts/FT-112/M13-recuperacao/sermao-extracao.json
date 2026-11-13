@@ -1,0 +1,69 @@
+{
+  "source": "D:\\trampo\\jeancarloem.com.blog-drafts\\_drafts\\a-crise-financeira-e-o-sabado\\a-crise-financeira-e-o-sabado.txt",
+  "sha256": "12aea21cbd0e403101ad165482657ea73909c17af20afb4984ca68bee4da6f38",
+  "total_characters": 104884,
+  "searched_from_offset": 52442,
+  "pattern": "18\\s*[:.,]\\s*8|dezoito.{0,35}oito|profetas\\s+e\\s+reis|309|trezentos\\s+e\\s+nove|um\\s+ano|sete\\s+(?:últimas\\s+)?pragas|12\\s*[:.,]\\s*8",
+  "hits": [
+    {
+      "offset": 73513,
+      "match": "sete últimas pragas"
+    },
+    {
+      "offset": 76794,
+      "match": "sete pragas"
+    },
+    {
+      "offset": 77121,
+      "match": "sete pragas"
+    },
+    {
+      "offset": 77487,
+      "match": "sete pragas"
+    },
+    {
+      "offset": 97255,
+      "match": "um ano"
+    },
+    {
+      "offset": 97323,
+      "match": "um ano"
+    },
+    {
+      "offset": 97540,
+      "match": "um ano"
+    },
+    {
+      "offset": 98592,
+      "match": "um ano"
+    },
+    {
+      "offset": 100410,
+      "match": "sete últimas pragas"
+    }
+  ],
+  "ranges": [
+    [
+      73213,
+      73932
+    ],
+    [
+      76494,
+      77898
+    ],
+    [
+      96955,
+      97946
+    ],
+    [
+      98292,
+      98998
+    ],
+    [
+      100110,
+      100829
+    ]
+  ],
+  "chunks": 2,
+  "scope": "Janelas parciais da segunda metade por caracteres; não leitura integral nem verificação de fontes primárias. Transcrição tem nove linhas muito extensas: extração por caracteres evita capturar arquivo inteiro."
+}

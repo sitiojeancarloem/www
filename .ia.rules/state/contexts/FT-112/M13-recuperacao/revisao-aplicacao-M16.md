@@ -1,0 +1,9 @@
+# M16 — aplicação aceita
+
+Job1ee7e742-7312-4819-bbf4-3d0a85fc4541 COMPLETED, aplicar_m16/diff_check exit0. Supervisor reconstruiu output a partir do HEAD e de seis regiões: igualdade exata, hash2b8b510fae09772d94c9c8470c26402c7f40471e6bdba28e3a33e940b2d386e7. Argumentos e ênfases fora dos intervalos íntegros. Git determinístico registra draft modificado, zero commits Worker; supervisor assume commit.
+
+Aplicado: referência privada Mt18, três chamadas Gl2 e correção de dissimulação ocorrida/conduta repreensível; referências públicas com reutilização tt113; duas definições novas. Tese autoral geral preservada. Não reaplicar M16.
+
+Próximo: completar textos bíblicos de2Tm3/Lv19/Pv27/Lc17/At2, aproveitando cache. Fontes Uzá/Jo16 já reunidas em biblia-M16-abertura.json, fontes EGW iniciais aplicadas; conferir motivação Uzá com EGW se necessária, concluir placeholders e gramática do segundo parágrafo/autoexame. Depois integrar novos argumentos Acabe/muitos-poucos/carteiro e parêntese Ap18 a partir dos inventários/fontes preservados; validar tabela/RCF/runtime e renderização/footnotes. Não concluir globalmente enquanto houver placeholders ou inferências atribuídas falsamente a fonte.
+
+Recuperação: repoD:/trampo/jeancarloem.com.blog; draft _drafts/carta-aberta-hierarquia-papal-na-igreja/carta-aberta-hierarquia-papal-na-igreja.md. M13-recuperacao contém inventário completo corrigido, diff integral, novos deltas e fontes. M14/M15/M16 já aplicados, scripts não devem reexecutar. Estado canônico da FT ainda requer reconciliação com extensãoM13–M16, preservando alterações herdadas. LocalWorker autorizado por instrução humana posterior ao veto histórico; manutenção própria sob contrato vigente. Sem publicação/push. Não existe medidor ou comando confiável de compactação; checkpoints Git são fonte de continuidade.

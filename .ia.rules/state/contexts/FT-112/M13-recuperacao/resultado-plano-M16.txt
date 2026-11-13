@@ -1,0 +1,140 @@
+RESULTADO  
+Plano mínimo de substituições para o primeiro parágrafo do contexto FT-112/M16, com base no cotejo restrito e correção do erro factual identificado:
+
+| Âncora exata (curta) | Substituição proposta | Fundamento/limite | Notas sugeridas |
+|----------------------|-----------------------|-------------------|-----------------|
+| `Ali NÃO se tratava de pecado` | `Ali NÃO se tratava de pecado *em si*, mas de dissimulação repreensível e desvio da verdade do evangelho (Gl 2:11–14)` | Gl 2 descreve Pedro dissimulando, afastando-se dos gentios por temor aos da circuncisão, e Paulo o repreende *na presença de todos* por não procederem corretamente *segundo a verdade do evangelho*. O erro factual é suprimir que Gl 2 aponta à dissimulação e desvio, não à inocuidade do ato. | Referência exata: Gl 2:11–14. Título "Paulo repreende a Pedro" (v.11) é editoriais, não bíblico. |
+| `deixando evidente que o princípio de corrigir conforme a esfera em que o fato ocorre NÃO se restringe aos pecados, mas também se aplica a meros erros e comportamentos` | `demonstrando que a correção pública é cabível quando o desvio ocorre em esfera pública — Gl 2 mostra Pedro agindo publicamente em Antioquia, e Paulo corrigindo publicamente, não por ser "simples erro", mas por afetar a unidade e testemunho da igreja` | Mt 18:15–17 prevê progressão *privada → testemunhas → igreja*, não proíbe correção pública quando o desvio já é público ou afeta a comunidade. Gl 2 não prova que "qualquer consequência pública" exige correção pública, mas que o desvio público exige correção pública. | Referência exata: Gl 2:11–14 para o caso; Mt 18:15–17 para o princípio de progressão. Títulos "Como se deve tratar a um irmão culpado" (Mt 18:15) e "Paulo repreende a Pedro" (Gl 2:11) são editoriais. |
+| `também se aplica a meros erros e comportamentos e, ainda mais, demonstra que tanto o pecado quanto o simples erro DEVEM ser repreendidos com SEVERIDADE` | `demonstrando que a severidade da repreensão deve corresponder à gravidade e esfera do desvio — Gl 2 mostra repreensão pública e direta por desvio público que ameaçava a integridade do evangelho` | A severidade pública em Gl 2 é justificada pelo impacto público do desvio (afastamento de gentios, dissimulação coletiva), não por ser "simples erro". Mt 18 não prevê privacidade eterna absoluta; 1Tm 5:20 autoriza repreensão pública *quando há pecado manifesto*. | Referência exata: 1Tm 5:20 para repreensão pública de pecado manifesto. |
+
+**Limite do plano:**  
+- Substituições limitadas ao primeiro parágrafo do contexto FT-112/M16.  
+- Não reescreve o parágrafo integralmente; apenas ajusta trechos com erro factual ou exagero interpretativo.  
+- Preserva palavras, negritos, maiúsculas e sublinhados fora da intervenção necessária.  
+- Não insere novas fontes além das três fornecidas; referências são precisas (Gl 2:11–14, Mt 18:15–17, 1Tm 5:20).  
+- Não afirma que Gl 2 prova inocuidade da dissimulação ou condenação eterna.  
+- Não converte firmeza em "talvez/pode/na minha opinião".  
+
+**Notas sugeridas (para inserção no texto):**  
+1. `<adicionar foot note de referencia>` → `Gl 2:11–14`  
+2. `adicionar footnote de referenciar` → `Gl 2:12–13 (dissimulação)`  
+3. `adicionar foot notes` → `Gl 2:14; Mt 18:15–17; 1Tm 5:20`  
+
+EVIDÊNCIAS  
+- Parágrafo vigente e fontes citadas fornecidas pelo supervisor (AGENTS.md, agents.local.md, .ia.rules/state/contexts/FT-112/M13-recuperacao/M16-primeiro-paragrafo-evidencias.json).  
+- Texto ARA de Gl 2:11–14: Pedro dissimula, afasta-se dos gentios, Paulo repreende *na presença de todos* por não procederem corretamente *segundo a verdade do evangelho*.  
+- Texto ARA de Mt 18:15–17: progressão privada → testemunhas → igreja; não proíbe correção pública quando o desvio já é público.  
+- Texto ARA de 1Tm 5:20: repreender os que vivem no pecado *na presença de todos*, para que também os demais temam.  
+
+RISCOS/LIMITAÇÕES  
+- O plano não reescreve o parágrafo integralmente, apenas ajusta trechos com erro factual ou exagero interpretativo.  
+- Não se aplica a outros parágrafos ou contextos.  
+- A aplicação posterior exige `expect_changes=true` conforme instrução do supervisor.  
+- Nenhuma manutenção própria ou conclusão global é executada nesta unidade.  
+
+NEEDS_SUPERVISOR  
+Não aplicável. O plano está completo e alinhado com os requisitos explícitos: correção do erro factual (Gl 2 não sustenta "Ali NÃO se tratava de pecado"), distinção entre desvio público e privado, referências precisas e limites claros.
+
+EXECUÇÃO COMPROVADA PELO RUNTIME
+Base fornecida pelo supervisor: "AGENTS.md + agents.local.md + .ia.rules/state/contexts/FT-112/M13-recuperacao/M16-primeiro-paragrafo-evidencias.json, lidos supervisor CRLF→LF, commit22e790a8c5. Parágrafo vigente e Gl2:11–14/Mt18:15–17/1Tm5:20 capturados do texto ARA."
+Leituras: []
+Comandos com exit_code=0: []
+Commits verificados: 0. Qualidade semântica sujeita ao aceite do supervisor.
+
+ESTADO GIT DETERMINÍSTICO (2026-10-18T00:48:58.608Z; prevalece se houver divergência):
+## dev...origin/dev [ahead 15]
+ M .gitignore
+ M .ia.rules/continue.ia
+ M .ia.rules/local/runtime/README.md
+ M .ia.rules/state/FT.implementados.md
+ M .ia.rules/state/contexts/FT-103/master.md
+ M .ia.rules/state/contexts/FT-112/historico-retomada.md
+ M .ia.rules/state/contexts/FT-112/retomada.md
+ M .ia.rules/state/continue.ia
+ M .ia.rules/state/history/index.json
+ M _site/404.html
+ M _site/RCFs/bate-papo.md
+ M _site/RCFs/carregamento-progressivo.md
+ M _site/RCFs/citacoes.md
+ M _site/RCFs/componentes-compartilhados.md
+ M _site/RCFs/documentacao-e-metadados.md
+ M _site/RCFs/impressao-ieee.md
+ M _site/RCFs/leitura-acessivel-e-tts.md
+ M _site/RCFs/operacao-da-ia.md
+ M _site/RCFs/referencias-e-footnotes.md
+ M _site/_fixtures/blockquote-models/index.html
+ M _site/_fixtures/covers/content/index.html
+ M _site/_fixtures/covers/full-window/index.html
+ M _site/_fixtures/covers/inner-full-window/index.html
+ M _site/_fixtures/covers/inner-window-height/index.html
+ M _site/_fixtures/covers/inner-window-width/index.html
+ M _site/_fixtures/covers/legacy/index.html
+ M _site/_fixtures/covers/wide-single/index.html
+ M _site/_fixtures/covers/wide-triptych/index.html
+ M _site/_fixtures/covers/window-height/index.html
+ M _site/_fixtures/covers/window-width/index.html
+ M _site/_fixtures/pagespeed/about/index.html
+ M _site/_fixtures/pagespeed/article-basic/index.html
+ M _site/_fixtures/pagespeed/article-panel/index.html
+ M _site/_fixtures/pagespeed/map/index.html
+ M _site/_fixtures/tts-accessibility/index.html
+ M _site/assets/css/main.css
+ M _site/assets/css/main.css.map
+ M _site/assets/images/documentacao/blockquote/centered-mark.svg
+ M _site/assets/images/documentacao/blockquote/editorial-statement.svg
+ M _site/assets/jcem/accessibility-manifest.json
+ M _site/assets/jcem/asset-metadata.json
+ M _site/assets/jcem/css/jcmain.scss
+ M _site/assets/jcem/js/read-aloud.js
+ M _site/assets/jcem/js/site.js
+ M _site/assets/jcem/print-ieee/ieee.css
+ M _site/assets/jcem/print-ieee/index.js
+ M _site/assets/jcem/print-ieee/jekyll-blog.css
+ M _site/assets/js/lunr/lunr-en.js
+ M _site/assets/js/lunr/lunr-gr.js
+ M _site/assets/js/lunr/lunr-store.js
+ M _site/atribuicoes/index.html
+ M _site/c/index.html
+ M _site/index.html
+ M _site/mapa/index.html
+ M _site/p/5-verdades-de-genesis-27/index.html
+ M _site/p/bate-papo/eventos-finais/a-heranca-dos-santos/index.html
+ M _site/p/bate-papo/eventos-finais/rumo-ao-lar-viagem-dos-remidos-coroas-e-recompensa-celestial/index.html
+ M _site/p/como-identificar-falacias/index.html
+ M _site/p/devaneios/index.html
+ M _site/p/nenhum-nivel-de-alcool-faz-bem-a-saude/index.html
+ M _site/p/nove-motivos-para-guardar-o-sabado/index.html
+ M _site/p/salvacao-importa-ser-perfeito/index.html
+ M _site/p/sola-scriptura/index.html
+ M _site/p/tradicao-vs-biblia-tradicao-ou-biblia/index.html
+ M _site/page-2/index.html
+ M _site/sobre/index.html
+ M _site/t/index.html
+?? .ia.rules/state/history/FT-105.ia
+?? _site/RCFs/doacoes.md
+?? _site/RCFs/resiliencia-operacional.md
+?? _site/RCFs/revisao-automatizada-por-ia.md
+?? _site/RCFs/verificacao-fontes-egw.md
+?? _site/assets/images/documentacao/impressao-ieee/
+?? _site/assets/images/fixtures/print-ieee/
+?? _site/assets/images/overlays/
+?? _site/assets/images/posts/carta-aberta-hierarquia-papal-na-igreja/
+?? _site/assets/images/social/a-heranca-dos-santos-og-portrait.jpg
+?? _site/assets/images/social/cinco-verdades-genesis-og-portrait.jpg
+?? _site/assets/images/social/como-identificar-falacias-og-portrait.jpg
+?? _site/assets/images/social/cover-triptych-central-6bb3ecf5-3ca42f2391-cover.webp
+?? _site/assets/images/social/cover-triptych-central-6bb3ecf5-3ca42f2391-og-portrait.jpg
+?? _site/assets/images/social/cover-triptych-central-6bb3ecf5-3ca42f2391-og-wide.jpg
+?? _site/assets/images/social/cover-triptych-central-6bb3ecf5-og-portrait.jpg
+?? _site/assets/images/social/cover-triptych-right-1e6ed036-og-portrait.jpg
+?? _site/assets/images/social/devaneios-grande-og-portrait.jpg
+?? _site/assets/images/social/nenhum-alcool-og-portrait.jpg
+?? _site/assets/images/social/nove-motivos-sabado-og-portrait.jpg
+?? _site/assets/images/social/rumo-ao-lar-viagem-dos-remidos-og-portrait.jpg
+?? _site/assets/images/social/salvacao-importa-ser-perfeito-og-portrait.jpg
+?? _site/assets/images/social/sola-scriptura-og-portrait.jpg
+?? _site/assets/images/social/tradicao-vs-biblia-og-portrait.jpg
+?? _site/fixtures/
+?? _site/p/artigo_probabilidade_modelos_borel/
+?? _site/p/carta-aberta-hierarquia-papal-na-igreja/
+

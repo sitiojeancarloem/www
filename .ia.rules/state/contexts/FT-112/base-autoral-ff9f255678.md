@@ -1,0 +1,877 @@
+<!--
+DIRETIVA OBRIGATÓRIA PARA IA/AGENT
+
+## 1. Contexto teológico e efeito pretendido
+
+- Premissa de processamento: a mensagem dura, quando verdadeira e apresentada sem floreios, amenizações ou suavizações indevidas, naturalmente produz divisão, pois “o mundo jaz no maligno” e as trevas não prevalecem onde há luz. A VERDADE, quando anunciada integralmente, produz por si mesma peneiramento/joeiramento/sacudidura.
+- A ausência desse efeito PODE indicar que a VERDADE não está sendo proclamada ou está sendo indevidamente AMENIZADA/SUAVIZADA.
+- A IA NÃO DEVE neutralizar essa característica do texto para torná-lo mais palatável.
+
+## 2. Natureza, público e tom
+
+- O texto é uma **carta dirigida a vários leitores**, mas NÃO DEVE enfatizar tratamento coletivo. Preferir formulação neutra e, quando conveniente, pessoal, buscando maior apelo individual à conversão.
+- Evitar, tanto quanto possível, primeira pessoa do singular; ela NÃO é proibida e PODE ser usada pontualmente quando fortalecer o apelo argumentativo, especialmente em estilo análogo ao paulino bíblico.
+- Manter tom **cordial e educado**, porém firme.
+- É PROIBIDO enfraquecer, amenizar, suavizar ou reduzir a intensidade de conceito, proposição, sentença, argumento, retórica ou advertência apenas para evitar desconforto ou possível ofensa.
+- A firmeza PODE alcançar a dureza retórica presente nas cartas de Paulo, sem converter-se em desrespeito gratuito.
+
+## 3. Estrutura, introdução e edição
+
+- O texto atualmente NÃO possui introdução adequada. A IA DEVE criar uma **introdução sucinta, natural e proporcional ao restante da carta**, que:
+  - apresente adequadamente o assunto e prepare o raciocínio subsequente;
+  - estabeleça contexto suficiente sem antecipar desnecessariamente todo o desenvolvimento;
+  - integre-se organicamente ao texto, sem aparência de seção artificial ou enxerto;
+  - preserve o tom, objetivo, tese, intensidade e direção argumentativa;
+  - NÃO invente fatos, premissas, conclusões ou intenções ausentes do conteúdo;
+  - NÃO transforme a introdução em resumo prolixo.
+- É autorizada **reestruturação completa**, inclusive alteração integral da ordem dos parágrafos, quando melhorar fluxo, coerência, progressão lógica e força argumentativa.
+- NÃO quebrar frases/sentenças artificialmente em múltiplos parágrafos em desacordo com a escrita formal do português.
+- Também NÃO permitir parágrafos excessivamente longos quando a divisão favorecer coerência, leitura e norma culta. Cada parágrafo DEVE constituir unidade semântica adequada.
+- Corrigir erros **gramaticais, sintáticos, semânticos, ortográficos e de pontuação**.
+- É expressamente PROIBIDO:
+  - remover fatos, conceitos, argumentos, exemplos ou nuances;
+  - enfraquecer intensidade, retórica ou conclusão;
+  - perder contexto, cerne, essência ou encadeamento lógico;
+  - introduzir reducionismo para obter concisão.
+- É autorizado eliminar redundâncias reais, pleonasmos e repetições sem função.
+- Fazer esforço **agressivo de concisão**, desde que fique garantida a ausência de omissão, regressão, reducionismo, perda de fluidez, significado ou força argumentativa.
+
+## 4. Acessibilidade de leitura
+
+- Tornar a redação tão **direta, clara, objetiva e linguisticamente simples** quanto possível, visando compreensão inclusive por leitores com escolaridade equivalente à 4ª série do ensino fundamental e possível analfabetismo funcional.
+- Simplicidade de linguagem NÃO significa simplificação do conteúdo.
+- Assuntos complexos DEVEM conservar integralmente profundidade, precisão, aprendizado, relações lógicas e conclusões.
+- Preferir palavras, frases e construções mais fáceis quando forem semanticamente equivalentes.
+
+## 5. Ênfases editoriais existentes
+
+- Capitalizações intencionais de palavras ou pequenas expressões DEVEM ser preservadas.
+- NÃO normalizar automaticamente palavras como `VERDADE`, `AMENIZADA`, `SUAVIZADA` ou outras capitalizações deliberadas.
+- Se uma palavra/expressão capitalizada for substituída durante a edição, seu equivalente semântico DEVE conservar a capitalização correspondente.
+- Aplicar a mesma preservação a **negritos**, _itálicos_, <u>sublinhados</u> e demais ênfases intencionais.
+- Capitalização desta regra refere-se a palavras ou pequenas expressões; NÃO autoriza converter frases inteiras em caixa alta sem necessidade.
+
+## 6. Citações e referências — regra absoluta
+
+- **Toda citação DEVE possuir referência verificável.**
+- **Toda referência editorial do texto DEVE ser conferida na fonte e corresponder exatamente ao conteúdo ao qual está associada.**
+- Citações ou referências ausentes DEVEM ser pesquisadas, verificadas e acrescentadas.
+- Afirmações que clara ou implicitamente derivem da Bíblia ou de Ellen G. White DEVEM ser investigadas e, havendo fundamento verificável, receber referência explícita adequada.
+- NÃO inventar, completar por memória, aproximar ou atribuir citação/referência sem confirmação.
+- Quando a redação apenas parafrasear uma fonte, NÃO apresentá-la falsamente como citação literal.
+- **Qualquer referência editorial já existente entre parênteses no texto-fonte DEVE obrigatoriamente ser identificada, verificada e convertida para o formato aplicável segundo estas regras e as normas/RCF vigentes do repositório.**
+- A presença prévia de referência entre parênteses NÃO constitui evidência suficiente de correção: livro, capítulo, página, versão bíblica, capítulo, versículos e correspondência com a afirmação/citação DEVEM ser novamente verificados antes da conversão.
+- Quando a norma vigente determinar footnote, a referência parentética DEVE ser substituída pela footnote correspondente; quando estas regras determinarem legitimamente referência parentética, ela DEVE ser normalizada para a sintaxe aqui definida.
+- É PROIBIDO manter referência parentética editorial legada apenas porque já estava presente no texto.
+- A conversão de formato NÃO autoriza alterar o alcance semântico da referência nem associá-la a trecho diferente daquele efetivamente comprovado.
+
+### 6.1. Preservação absoluta de subcitações e referências internas às citações
+
+- **Subcitações, referências, notas, indicações bibliográficas ou menções a outras obras que façam parte do conteúdo original de uma citação NÃO DEVEM ser alteradas, normalizadas, reformatadas, convertidas, corrigidas ou substituídas.**
+- É comum que o **autor citado cite, por sua vez, outra obra, autor, texto bíblico ou referência**. Nesses casos, essa referência interna constitui parte do conteúdo histórico/documental da própria citação e DEVE ser preservada **exatamente na forma empregada pelo autor original**, inclusive:
+  - sintaxe;
+  - abreviações;
+  - pontuação;
+  - capitalização;
+  - numeração;
+  - forma bibliográfica;
+  - indicação entre parênteses;
+  - notas ou marcas existentes;
+  - estilo de citação adotado na fonte.
+- A regra de conversão de referências parentéticas da seção 6 aplica-se **somente às referências editoriais externas à citação**, adicionadas ou mantidas pelo texto/carta para documentar uma afirmação ou identificar a fonte citada.
+- **Referência parentética localizada dentro do conteúdo literal de uma citação é EXCEÇÃO expressa à conversão** e DEVE permanecer intocada.
+- A IA NÃO DEVE “corrigir” uma subcitação para adequá-la ao padrão atual do repositório, mesmo que sua forma seja diferente da norma editorial vigente.
+- A IA NÃO DEVE substituir uma referência interna pelo formato moderno, pelo nome completo da obra, por footnote ou por qualquer forma considerada mais correta.
+- Se houver aparente erro na subcitação original, a IA DEVE preservar o texto citado como está. Eventual observação editorial somente PODE ser feita fora da citação quando materialmente necessária, verificável e compatível com as normas do repositório; NUNCA mediante adulteração silenciosa do conteúdo citado.
+- A referência **externa** que identifica de onde a citação principal foi extraída continua sujeita às regras normais de verificação e formatação.
+- Portanto, DEVE ser distinguido rigorosamente:
+  - **referência da citação** → editorial, identifica a fonte da citação principal, DEVE ser verificada/normalizada conforme estas normas;
+  - **referência dentro da citação** → conteúdo do autor citado, DEVE ser preservada literalmente.
+
+### 6.2. Fontes Ellen G. White
+
+- Os livros citados são de **Ellen G. White**.
+- Fontes locais prioritárias:
+  `D:\trampo\egwSearch\src\publications\egw\`
+  contendo PDFs/EPUBs aninhados.
+- Fontes públicas auxiliares/conferência:
+  - `https://egwwritings.org/`
+  - `https://centrowhite.org.br/`
+  - `https://ellenwhiteaudio.org/pt/`
+- Citação inline DEVE ficar entre aspas e em itálico, seguida imediatamente da referência conforme padrão vigente do repositório.
+- Se o repositório possuir padrão de footnote, utilizá-lo com `[^n]`, seguindo o RCF/normas.
+- Para livro em footnote, usar como texto da referência:
+  `<NomeLivro>[ - <NomeCapítulo>], p. <páginas-separadas-por-vírgula>`
+  onde o trecho entre `[]` somente existe quando houver capítulo aplicável.
+- NÃO aglutinar referências de livros distintos em uma única referência. Cada obra citada DEVE ser identificada separadamente.
+- Evitar aglutinações excessivamente longas de páginas/citações, salvo quando todas comprovarem inequivocamente a mesma ideia/conceito.
+- Se, dentro do trecho literal de Ellen G. White, houver referência a Bíblia, autor, livro ou qualquer outra fonte, **preservar exatamente a forma original usada por Ellen G. White**, conforme §6.1; essa subreferência NÃO se confunde com a referência editorial que identifica a obra de Ellen G. White da qual o trecho foi retirado.
+
+### 6.3. Bíblia
+
+- Para footnote bíblica, usar:
+  `Bíblia, <VERSÃO>. <NomeLivro> <Capítulo>:<versículos>[; <Capítulo>:<versículos>]*`
+- Para referência bíblica entre parênteses, quando esse formato for legitimamente aplicável pelas normas:
+  `(<VERSÃO>. <SiglaLivro> <Capítulo>:<versículos>[; <Capítulo>:<versículos>]*)`
+- `<VERSÃO>` DEVE estar capitalizada.
+- Quando mais de um livro bíblico for citado, NÃO aglutinar tudo em uma referência indistinta; separar adequadamente cada livro.
+- Evitar referências excessivamente extensas, salvo quando os textos citados comprovarem inequivocamente o mesmo conceito.
+- Estas regras de normalização bíblica aplicam-se às **referências editoriais do texto**, NÃO às referências bíblicas que já façam parte literalmente de uma citação de outro autor; estas DEVEM permanecer conforme §6.1.
+
+### 6.4. Blockquotes
+
+- Em citação `>`, todo o trecho citado DEVE permanecer em **um único parágrafo**.
+- Para Bíblia, cada versículo DEVE ser individualmente identificado pelo respectivo número em sobrescrito, por exemplo:
+  `> ²³ E disse-lhe um: Senhor, são **poucos** os que se salvam? E ele lhe respondeu: ²⁴ Esforçai-vos para entrar pela porta estreita; porque eu vos digo que **muitos** procurarão entrar, **e não poderão**.`
+- Imediatamente na linha seguinte, ainda dentro do blockquote, inserir:
+  `> — <referência-completa>`
+- Em blockquote, seja Bíblia ou outra obra, **NÃO usar footnote para a referência da própria citação**.
+- Se o conteúdo original do blockquote contiver subcitação/referência interna do próprio autor, esta DEVE permanecer no mesmo ponto e exatamente na forma original, sem conversão para footnote, normalização ou remoção.
+
+## 7. Estratégia obrigatória de pesquisa/verificação
+
+- Priorizar a estratégia que produza **maior precisão com menor custo de tokens/processamento**.
+- Preferir inicialmente a biblioteca local quando ela oferecer busca/localização mais eficiente.
+- Se vantajoso, criar ou reutilizar script/ferramenta especializada para:
+  - busca textual;
+  - normalização;
+  - localização de variantes;
+  - comparação entre EPUB/PDF;
+  - extração de contexto;
+  - confirmação de página/referência.
+- Se essa automação for reutilizável, estruturá-la adequadamente como SKILL ou equivalente conforme a arquitetura real.
+- Combinar busca local e online quando isso aumentar confiabilidade/eficiência.
+- Considerar explicitamente limitações das fontes:
+  - PDF pode fragmentar sentenças por quebras de linha, cabeçalhos, rodapés, paginação ou marcações;
+  - EPUB tende a facilitar localização textual, mas pode ser inadequado para confirmar paginação;
+  - busca web pode retornar falso positivo, transcrição incorreta, atribuição falsa ou paginação divergente.
+- Estratégia recomendada quando necessária:
+  1. localizar texto pela fonte com melhor capacidade de busca;
+  2. conferir conteúdo e contexto;
+  3. validar referência/página na fonte adequada;
+  4. cruzar fontes quando houver divergência material.
+- Referências editoriais preexistentes, inclusive **entre parênteses**, DEVEM passar pelo mesmo processo de verificação das referências novas.
+- Antes de converter qualquer referência parentética, a IA DEVE determinar se ela é:
+  - **editorial**, pertencente ao texto/carta → verificar e converter conforme estas normas; ou
+  - **interna a uma citação**, pertencente ao autor citado → preservar literalmente conforme §6.1.
+- A verificação da citação principal PODE confirmar que uma subcitação realmente integra o texto da fonte; isso NÃO autoriza alterar a forma dessa subcitação.
+- A citação final e sua referência editorial DEVEM ser **precisas, corretas, válidas e verificadas**. Havendo dúvida material não resolvida, NÃO apresentar a referência como confirmada.
+
+## 8. Critério final
+
+A edição somente é válida se simultaneamente:
+- criar uma introdução adequada, sucinta e organicamente integrada;
+- conservar integralmente fatos, contexto, essência, conceitos, argumentos, exemplos, intensidade e intenção;
+- melhorar gramática, semântica, organização, progressão lógica e legibilidade;
+- reduzir redundância/tokens sem reducionismo;
+- preservar ênfases deliberadas;
+- manter firmeza sem desrespeito gratuito;
+- tornar o texto acessível sem empobrecimento;
+- identificar, verificar e converter adequadamente referências parentéticas **editoriais** preexistentes;
+- preservar **integral e literalmente** toda subcitação/referência interna pertencente ao conteúdo original de uma citação;
+- distinguir inequivocamente referência **da citação** de referência **dentro da citação**;
+- e garantir que **toda citação e toda referência editorial apresentada tenham sido efetivamente verificadas**, sem adulterar as formas referenciais empregadas pelos autores dentro de suas próprias citações.
+-->
+
+<!-- AI-PROCESSED:START -->
+
+O que deve governar a Igreja: a VERDADE ou a conveniência de quem ocupa um cargo? Esta carta denuncia o silenciamento da mensagem de santificação e a autoridade humana que pretende colocar-se acima da Palavra. É um chamado ao arrependimento e à reforma, começando por nós mesmos. A gravidade do que se denuncia exige franqueza: **amenizar a VERDADE para acomodar o pecado NÃO é amor.**
+
+A mensagem da **santificação** — a transformação da vida pela ação de DEUS — SEMPRE causará impacto nas mentes humanas. Satanás odeia essa mensagem e luta com todas as suas forças contra ela. A santificação está implicada nas três mensagens angélicas: Apocalipse 14:12 identifica os santos como aqueles que guardam os mandamentos de DEUS e têm a fé de JESUS.[^ap14] Satanás sabe disso; por isso procura destruir qualquer mensagem que conduza o povo à santificação.
+
+Há 18 anos vivo em Pirassununga/SP e, em todo esse tempo, nunca vi um único irmão ou irmã pregar o que se denunciava como perfeccionismo ou pós-lapsarianismo. O primeiro termo é usado aqui como acusação de perfeição humana autossuficiente; o segundo trata da natureza humana assumida por CRISTO depois da queda de Adão. São questões distintas. Usá-las como rótulo para desqualificar qualquer apelo à santificação é uma falsidade.
+
+Pelo contrário, **TODAS** as vezes em que esse assunto foi introduzido ou reavivado na igreja, no que presenciei, veio, **infelizmente**, de pastores. Digo isso com tristeza. Eles **associam falsamente** qualquer mensagem **dura** de santificação, reavivamento, reforma e abandono do mundanismo e do secularismo a ideias preconcebidas de perfeccionismo e pós-lapsarianismo. Secularismo, aqui, é viver como se DEUS não importasse.
+
+Preciso reiterar para tornar ainda mais enfático: **TODAS as vezes**, nesses 18 anos, a controvérsia foi trazida por pastores. Minha denúncia é grave e deliberada: ao manterem vivo esse tema que já deveria ter morrido há décadas, agem **instruídos pelo próprio Satanás**, criando divisão, suspeitas, intriga e inimizade. Este é o juízo que faço da conduta testemunhada, não uma revelação particular sobre suas mentes. As consequências, em **TODAS as vezes**, foram enfraquecimento da fé e da igreja, desunião, discórdia, fofoca, intriga e, por fim, redução de membros. Todas as vezes, causadas por pastores. Lamentável. E está acontecendo novamente.
+
+Até cerca de dois anos atrás, a igreja de Jardim Bandeirantes, em Pirassununga/SP, mantinha havia anos mensagens de forte apelo à santificação, ao jejum, à oração e ao retorno ao desapego cristão do mundanismo. Na experiência aqui relatada, era reconhecidamente **a igreja mais lotada do município**, uma das que mais faziam obra missionária e proporcionalmente batizavam, e a mais animada e empolgante. Não porque fosse perfeita ou livre de defeitos. NÃO! Como qualquer outra igreja, sempre teve problemas.
+
+Mas é inegável, no que testemunhei, a queda que acometeu o Jardim Bandeirantes, tão diferente do que era antes. O que havia ali? **Ainda viva**, a mensagem dos três anjos, a verdade presente, a identidade do povo do advento e, em grande parte, embora não em tudo, o testemunho de JESUS: _“o testemunho de Jesus é o espírito de profecia”_.[^ap1910] Havia espaço para esse testemunho sem cerceamento de **qualquer tipo**. Agora, conforme os fatos que denuncio, sua citação no púlpito e nos grupos da igreja está **expressamente proibida**, salvo se **previamente aprovada** pelo pastor ou por algum ancião autorizado por ele. **Há provas gravadas disso**, cuja existência afirmo como autor deste relato.
+
+Recordo nitidamente uma reunião da Associação com o distrito em que se solicitou uma meta de batismos. Alguns irmãos “fracos na fé”, entre os quais me incluo, aceitaram estabelecer um número. Nossa igreja foi a única do município que conseguiu alcançar a meta — ou ao menos chegar perto, se a memória não falha. A crítica à prioridade dos números permanece inteira: **batizar para cumprir meta, deixando a conversão e o preparo em segundo plano, NÃO é fidelidade.** Ellen White prefere conversos bem instruídos, ainda que fossem menos pessoas acrescentadas à igreja.[^ev344] Essa advertência sustenta a denúncia; não equivale, porém, a uma proibição divina de toda e qualquer meta numérica. Nos últimos dois anos, tudo mudou drasticamente, e não sem motivo: **as chuvas secaram**.
+
+O triste e lamentável é que a história não muda. **Graças a DEUS, NÃO são todos**; entretanto, <u>infelizmente</u>, **são a maioria**, na realidade que denuncio, os Acabes modernos — pastores, anciãos e outros líderes — que causam a ausência de chuva e chamam os Elias modernos de _“perturbadores de Israel”_. Acabe acusou Elias; o profeta lhe devolveu a responsabilidade pelo abandono dos mandamentos do SENHOR.[^elias] Mas, glórias a DEUS, ainda há excelentes e inspiradores pastores que passaram por aqui. Cito, por exemplo, o pastor Adriano e o pastor Jair.
+
+Mensagens duras **sempre** enfrentaram e enfrentarão resistência de quem não quer recebê-las. Aconteceu com JESUS, que era PERFEITO.[^jo660] Quanto mais com seres humanos falhos e pecadores! _“E, na verdade, toda a **CORREÇÃO**, ao presente, <u>não</u> parece ser de gozo, senão de **tristeza**, mas depois produz um fruto **pacífico** de justiça nos **exercitados** por ela.”_[^hb1211] JESUS denunciou a hipocrisia dos líderes religiosos; Paulo, Tito e Pedro também nos deixam repreensões duríssimas.[^mt23][^at1310][^tt113][^2pe212] Não foi a ausência de pecado em JESUS que impediu SUA rejeição e crucificação. Por que esperar que os Elias modernos, humanos falhos, sejam poupados da hostilidade?
+
+Ellen White também foi acusada de severidade. Ela NÃO se arrependeu de repreender o pecado; declarou arrepender-se de **NÃO ter sido ainda mais firme**:
+
+> Que ninguém entretenha o pensamento de que eu lastimo ou me retrate de qualquer claro testemunho dado a indivíduos ou povo. **SE eu errei** de alguma forma, **foi em <u>NÃO repreender MAIS firme</u> e decididamente** o pecado. Alguns irmãos assumiram a responsabilidade de criticar meu trabalho e **propor um meio mais FÁCIL** de corrigir os erros. Gostaria de dizer a essas pessoas que <u>PREFIRO</u> o **caminho de Deus** e **NÃO** o delas. \[...\] Deus me deu uma obra da qual devo <u>prestar contas</u> no Juízo. Aqueles que têm escolhido **seu próprio caminho** e se têm erguido **CONTRA** os **CLAROS** testemunhos a eles dados, **procurando abalar** a fé dos demais nessas mensagens, devem decidir a questão com Deus. <u>NÃO</u> **amenizarei mensagem** alguma **para acompanhar suas idéias** ou relevar seus defeitos de caráter. \[...\] Os que querem, de algum modo, **AMENIZAR a <u>força das AGUDAS</u> reprovações** que <u><strong>Deus me deu</strong></u> para transmitir **HAVERÃO** de **enfrentar** sua obra no **JUÍZO**.
+> — Ellen G. White, Testemunhos para a Igreja, v. 5 - A reunião campal de Michigan, p. 19
+
+O meio mais FÁCIL — mais dócil, na comparação desta carta — não é necessariamente o caminho de DEUS. No início de sua missão, Ellen White tentou suavizar as mensagens para evitar ferir e desagradar. Não pretendia abandonar a mensagem, mas transmiti-la em tom mais brando. O resultado, como ela mesma declara adiante, foi infidelidade.
+
+**Amor NÃO pode ser confundido com doçura.** JESUS falava com amor e, no entanto, chamava SEUS interlocutores de hipócritas, raça de víboras, serpentes, sepulcros caiados, insensatos e cegos.[^mt23] São denúncias que atingem diretamente o caráter e a conduta. O fato de algumas expressões serem incomuns hoje NÃO as torna brandas na boca de JESUS. A tabela conserva a comparação retórica com expressões brasileiras; **são analogias do autor, não traduções literais nem palavras atribuídas a JESUS**.
+
+| Termo bíblico         | Sentido no confronto de Mateus 23                             | Comparações retóricas atuais                                                                            |
+| --------------------- | ------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
+| **Hipócritas**        | Falsidade moral e religiosa; aparência diferente da realidade | **Falsos**, **duas-caras**, **fingidos**, **safados**                                                   |
+| **Insensatos**        | Falta grave de discernimento e juízo                          | **Idiotas**, **imbecis**, **burros**, **sem noção**                                                     |
+| **Cegos**             | Incapacidade de perceber a verdade espiritual ou moral        | **Tapados**, **cegos**, **não enxergam o óbvio**                                                        |
+| **Guias cegos**       | Pessoas sem discernimento que pretendem orientar outras       | **Perdidos querendo ensinar os outros**, **cego guiando cego**, **não sabem de nada e querem dar aula** |
+| **Sepulcros caiados** | Aparência limpa escondendo corrupção interior                 | **Bonitos por fora e podres por dentro**, **santos de fachada**, **gente podre por dentro**             |
+| **Serpentes**         | Denúncia severa de perversidade e perigo moral                | **Cobras**, **traíras**, **canalhas**, **gente venenosa**                                               |
+| **Raça de víboras**   | Acusação coletiva de extrema gravidade                        | **Bando de cobras**, **bando de canalhas**, **gente venenosa**, **bando de desgraçados**                |
+
+“Amor” não é, e **nunca foi**, a mesma coisa que **doçura**, fala mansa, complacência, **diplomacia** e obrigação de ser **politicamente correto**. JESUS não foi crucificado porque acomodava os líderes de SUA época. Paulo ordena: _“Tal testemunho é exato. Portanto, repreende-os **SEVERAMENTE**, para que sejam sadios na fé”_.[^tt113] A Bíblia está **repleta** de repreensões ofensivas ao orgulho de quem as recebe, pronunciadas por pessoas **inspiradas**. Pedro compara falsos mestres a **ANIMAIS irracionais** e denuncia sua corrupção.[^2pe212] Chamá-las de meras palavras suaves é apagar a dureza do texto.
+
+Quando JESUS fez um chicote de cordas e expulsou do templo os vendedores, com ovelhas e bois, não agiu como alguém “fofo” e dócil diante da profanação.[^jo215] Agiu como **severo JUIZ**, e ainda assim SUA atitude foi de amor. Confundir amor, mansidão e compaixão com conivência é perverter esses conceitos pelo pecado. A repreensão deve servir à correção, com paciência e ensino;[^2tm42] isso NÃO exige retirar sua força para poupar o orgulho.
+
+Mas Ellen White continua:
+
+> Quando o Senhor no início me deu mensagens para levar ao Seu povo, foi-me difícil apresentar-lhas, e muitas vezes eu as **AMENIZEI** e as **tornei** mais **SUAVES** pelo **temor** de **FERIR** a alguém. Foi uma grande prova declarar-lhes as mensagens **COMO** o Senhor mas entregou. Eu não compreendia que **estava** sendo **INFIEL** e não via o pecado e o perigo de tal procedimento até que fui levada em visão à presença de Jesus. Ele me olhou com o cenho carregado e **desviou** de mim o Seu rosto. **NÃO** é possível descrever o **TERROR** e **agonia** que senti.
+> — Ellen G. White, Primeiros Escritos - O tempo do ajuntamento, p. 76
+
+Cenho carregado é um olhar severo, um franzir de teste, em reprovação.
+
+> A **INDIGNAÇÃO** freqüentemente se **acende** no coração dos pecadores **CONTRA o agente que Deus** escolheu para **transmitir Suas REPROVAÇÕES**. Isto em TODO O TEMPO foi assim, e existe HOJE o mesmo espírito que perseguiu e encarcerou a Jeremias por OBEDECER à Palavra do Senhor.
+> — Ellen G. White, Testemunhos para a Igreja, v. 5 - Natureza e influência dos testemunhos, p. 678
+
+> “**NUNCA houve MAIOR necessidade** de fiéis **advertências, REPROVAÇÕES** e um tratamento íntimo e **DIRETO do que NESTE TEMPO**. Satanás desceu com grande poder, ‘sabendo que... tem pouco tempo’. Apocalipse 12:12. Ele está inundando o mundo com fábulas agradáveis, e o povo de Deus gosta que se lhes **fale coisas <u>lisonjeiras</u>**. ... Foi-me mostrado que o povo de Deus precisa fazer esforços mais firmes e resolutos para repelir a escuridão que **está tomando conta**. O trabalho rigoroso do Espírito de Deus é necessário agora COMO NUNCA ANTES.”¹
+> — Ellen G. White, Testemunhos para a Igreja, v. 5 - Natureza e influência dos testemunhos, p. 676, 677
+
+¹ Testemunhos Para a Igreja 3:327, 328 (1873).
+
+É óbvio que apelos ao reavivamento, à reforma, à busca contínua e ininterrupta da santificação e a uma vida coerente com o **grande Dia da Expiação**, em que vivemos desde 1844, **desagradam** aos ouvidos dos **mornos laodiceanos**. A mensagem sacode, põe à prova a fidelidade e separa verdade e erro: <u>é a sacudidura</u>. **Lutar contra a sacudidura que DEUS realiza É LUTAR CONTRA DEUS.** É ELE quem conduz SUA obra.[^at539] **Está escrito:** o povo quer palavras lisonjeiras, e a reprovação provoca INDIGNAÇÃO contra o agente escolhido por DEUS.
+
+Os apóstolos se alegraram por sofrer pelo nome de JESUS.[^at541] Também há motivo de alegria quando a rejeição confirma, na experiência, o que a Palavra advertiu - e é assim que aqueles de nós temos nos sentido (agridoce): felizes por sermos achados dignos de sermos "_silenciados_", e triste pelo estado lastimável da igreja. **A prova decisiva, porém, é a fidelidade à VERDADE**: o alvoroço sozinho não prova nada, mas é EVIDENCIA inequivoca em favor, "o mundo jás do maligno", a VERDADE sempre causará alvoroço, o erro nem sempre o faz. Não se deve confundir essa distinção com licença para silenciar uma advertência já demonstrada pela Palavra.
+
+Sou eu, ou meus irmãos que pregam a verdade presente, melhor, mais santo ou mais sagrado que qualquer outro? Claro que não! **É justamente este o ponto:** a autoridade está na mensagem, não numa suposta superioridade do mensageiro. Quando a advertência corresponde ao **ESTÁ ESCRITO**, não é a opinião humana que governa: é DEUS quem adverte, repreende e corrige. Minha opinião sobre isto ou aquilo pouco importa.
+
+Se dependesse puramente de mim, faria muitas coisas de outra forma. Se quisesse dissimular uma falsa vida cristã por conveniência, escolheria métodos bem diferentes dos que DEUS ordenou. A inclinação humana pensa diferente de DEUS. Mas a questão é: **quem está no comando, DEUS ou o homem?!** Esta carta contém testemunho pessoal e interpretação, além dos textos inspirados; essas partes não adquirem infalibilidade por estarem ao lado de uma citação. O fundamento exigido para a denúncia permanece o mesmo: **o que DEUS disse**, ainda que contrarie quem escreve. Eu prefiro diferente, mas não importa o que eu prefiro.
+
+A denúncia é que, **não no todo**, mas em **grande medida**, a igreja está atuando no _modus operandi_ — no modo de agir — de **hierarquia papal**. Os testemunhos já denunciavam esse mal nos dias de Ellen White. Esta carta existe justamente porque há a promessa: **não cairá**. Na imagem aqui empregada, meus poucos irmãos e eu somos os poucos **anticorpos remanescentes** de um **corpo moribundo**[^me2380], lutando, **NÃO por nós mesmos**, contra uma maioria de células cancerígenas: uma metástase, o câncer espalhado pelo corpo. A imagem dada pelo próprio Cristo, denuncia o **<u>domínio</u> do pecado** <u>na igreja</u> e não no mundo - o contexto reforço, é a igreja e não o mundo; não declara ninguém fora do alcance da conversão. Através de Ellen White, ELE chama a igreja de **moribunda**[^me2380], e por João, "laodiceia recebe um diagnóstico terrível, seguido do remédio e do chamado ao arrependimento. A boa notícia é que a operação de JESUS é **sobrenatural**![^ap3].
+
+<!-- AI-PROCESSED:END --><!-- AI-PROCESSED:START -->
+
+Quando entrei na igreja, sempre ouvi que nossos maiores perseguidores seriam nossos próprios irmãos. As advertências de JESUS sobre divisão, espada e o custo de segui-LO davam peso a isso.[^mt10][^lc1251][^lc1426] Não são ordens para promover violência: anunciam a hostilidade que a fidelidade pode despertar. Mas, sinceramente, embora cresse na breve volta de JESUS, jamais pensei que viveria para experimentar conflitos assim:
+
+> **Ao <u>APROXIMAR-SE</u> a tempestade**, uma classe **NUMEROSA** que tem **professado fé** na mensagem do terceiro anjo, mas **NÃO tem sido santificada** pela <u>obediência</u> à verdade, **abandona** sua posição, passando para as fileiras do adversário. \[...\] Tornam-se os PIORES inimigos de seus antigos irmãos.
+> — Ellen G. White, O Grande Conflito - O último convite divino, p. 608
+
+Note: **“Ao <u>APROXIMAR-SE</u> a tempestade”**. Não somente quando ela tiver chegado: **na aproximação**! Os sinais que observo, especialmente depois da pandemia, tornam difícil imaginar que este mundo prossiga indefinidamente assim. A seguir exponho uma **reflexão pessoal, sem alegar comprovação** de que para alguns especialistas (entre eles historiadorfes e generais da OTAN) consideram que talvez já estejamos numa 3ª Guerra Mundial, já que, segundo eles mesmos, uma guerra tradicional guerra direta entre as grandes potencias, implicaria no invitavel fim do mundo, esperar isso para chamar de "3º Guerra" é imaginar algo que provavelmente nunca vai acontecer.
+
+Assim, **pergunto** se futuros historiadores poderão chamar o período pós invasão da Ucrânia de uma guerra mundial: progressiva, militar, econômica, tecnológica e cibernética. Nessa reflexão entram Rússia–Ucrânia; Israel, EUA, Irã e Houthis no Oriente Médio, ainda que parte da crise seja conjuntural; a expansão militar chinesa e a tensão sobre Taiwan; a cooperação Rússia–Coreia do Norte e possíveis transferências de tecnologia de mísseis, submarinos e capacidade nuclear, cujos detalhes não afirmo conhecer, mas são reconhecidamente alegadas e inferidas pela mídia tradicional; o rearmamento da Europa e do Japão; e a dúvida sobre a previsibilidade do apoio dos EUA. São **elementos** de uma hipótese, **não prova** de guerra mundial nem calendário profético.
+
+Há **fontes** que corroboram aspectos delimitados: o SIPRI registra crescimento dos gastos militares da Europa e do Japão em 2024;[^sipri] a Associated Press documenta cooperação militar entre Rússia e Coreia do Norte, sem demonstrar todas as transferências cogitadas.[^coreia] A definição de ameaças híbridas da OTAN ajuda a compreender a combinação de meios militares e não militares, pressões econômicas, desinformação e ataques cibernéticos; **não declara uma guerra mundial em curso**.[^nato]
+
+Com arsenais nucleares, esperar que uma eventual 3ª Guerra repita simplesmente as anteriores me parece uma tolice: uma escalada poderia levar à **destruição mútua assegurada** (termo comum no militar). A fé adventista espera o desfecho da história nas mãos de DEUS, não na vitória final do poder humano ou na auto destruição humana.[^2pe3] Isso não permite afirmar que conhecemos cada limite da destruição que o homem ainda poderá causar. **O cenário me parece montado** - não de agora, na realidade Jesus está na iminência de vir a muito tempo - mas a capacidade humana de destruir **torna** essa expectativa **ainda mais urgente** e evidente. Não se trata de marcar ano, mês ou dia.[^mt2436] Trata-se de sentir o **peso** do testemunho, citado adiante, de que CRISTO **já poderia ter vindo**.
+
+DEUS **garante** que a Igreja **não cairá**. Ellen White escreve: _“A igreja talvez **<u>pareça</u>** como prestes a **cair**, mas **não cairá**.”_[^me2380] Muitos leem somente a parte que condena os outros ou a parte que lhes dá alívio. A maioria gosta da promessa feliz e esquece a gravidade do restante. **Não se pode ler só o que convém.**
+
+Uma igreja que parece prestes a cair é, na imagem desta carta, **visivelmente <u>moribunda</u>**[^me2380], na UTI, desenganada pelos médicos. Um organismo assim tem seus sistemas profundamente comprometidos. Ao aplicar essa imagem à igreja, a conclusão que defendo é terrível: uma **grande massa de líderes e membros corrompidos**, enquanto uma parte **pequena e desprezada** permanece firme. A citação não fornece um percentual; esta é a leitura que sustento da **gravidade** do quadro, reforçada pelo testemunho sobre a maioria que abandona a verdade, transcrito abaixo. Não retiro a denúncia para tornar o diagnóstico agradável.
+
+A promessa é que, apesar dessa aparência, **não cairá**. Confio na promessa tanto quanto levo a sério a advertência. DEUS não erra. É ilógico, irracional e insensato apegar-se a uma parte para descartar a outra. Também não cabe transformar uma dedução nossa em frase que DEUS não pronunciou. JESUS respondeu de forma igualmente solene à pergunta sobre os poucos que se salvam:
+
+> ²³ E disse-lhe um: Senhor, são **poucos** os que se salvam? E ele lhe respondeu: ²⁴ Esforçai-vos para entrar pela porta estreita; porque eu vos digo que **muitos** procurarão entrar, **e não poderão**.
+> — Bíblia, ACF. Lucas 13:23-24
+
+A pergunta surgiu durante SUA caminhada para Jerusalém. A resposta confronta pessoas que poderiam alegar proximidade com ELE e ainda ficar de fora.[^lc13contexto] **A advertência alcança o povo religioso; NÃO pode ser empurrada INDEVIDAMENTE para o mundo, como se a igreja estivesse dispensada de ouvi-la.** João escreveu: _“Veio para o que era seu, e os seus não o receberam.”_[^jo111] Não se deve acrescentar ao texto uma estatística da igreja atual, mas tampouco retirar dele o golpe **certeiro** e cirurgico **contra** a falsa segurança religiosa. **A Frase <u>foi dirigida PARA</u> membros e discípulos (líderes)**.
+
+Ellen White completa:
+
+> **Permanecer** em defesa da verdade e justiça quando a maioria nos abandona, ferir as batalhas do Senhor quando **SÃO POUCOS** os campeões — **ESSA será nossa prova**. Naquele tempo devemos tirar calor da frieza dos outros, coragem de sua covardia, e lealdade de sua traição.
+> — Ellen G. White, Testemunhos Seletos, v. 2 - Cooperadores de Deus, p. 31
+
+Alguns alegam que mensagens duras causam alvoroço e podem levar pessoas a abandonar a igreja. Particularmente, nunca vi esse abandono ocorrer como se atribui à pregação fiel. Vi pessoas feridas reagirem com palavras e atitudes insanas, numa reação que denuncio como domínio de Satanás naquele momento; depois, a reação passou. Não duvido, porém, que pessoas possam sair. Está escrito: _“E a luz resplandece nas trevas, e as trevas não a compreenderam.”_[^jo15] A sacudidura **JÁ COMEÇOU**, este é o "está escrito", não está no FUTURO:
+
+> **COMEÇOU** a <u>forte</u> **SACUDIDURA** e **continuará**, e todos os que **NÃO** estiverem **dispostos** a <u>assumir</u> uma **posição OUSADA** e tenaz **em prol da VERDADE**, e a **SACRIFICAR-SE** por Deus e por Sua causa, **serão joeirados**.
+> — Ellen G. White, Primeiros Escritos - Ao pequeno rebanho, p. 50
+
+Portanto, sinto muito dizer: **se você amortece a VERDADE para IMPEDIR que ela SACUDA a igreja, <u>você está contra DEUS</u>.** A mensagem para este <u>tempo sacode e peneira</u> o que precisa ser sacudido, causa alvoroço e para usar as paralvras de Jesus: "_³⁵ Eu vim para pôr os filhos contra os pais, as filhas contra as mães e as noras contra as sogra_" <adicionar footnote: Mateus 10:35a | NTLH > . Não é o barulho da reação o alvoroço, ou as crises que medem a fidelidade; **é a mensagem que se anuncia ou se esconde**. Ellen White <u>NÃO se arrependeu da firmeza</u>: declarou que seu erro, <u>se houve<u>, foi **NÃO repreender MAIS FIRME e decididamente** o pecado, como já lemos.
+
+Vivemos neste mundo miserável, cheio de dor, morte e sofrimento, enquanto **pessoas covardes e acanhadas** evitam pregar a mensagem **verdadeira, tal como ela é**, em **posição OUSADA**. **Nós todos somos responsáveis pela negligência da missão.** Cada ferida, cada tiroteio, cada estupro, cada câncer, cada lágrima e cada pessoa que chora tornam essa responsabilidade aterradora. Não somos os autores de todos esses males; somos culpados quando recebemos luz para advertir e escolhemos pisar em ovos. **Estamos sendo covardes!** O testemunho abaixo atribui consequências reais à infidelidade do povo: a obra poderia ter terminado, e JESUS já poderia ter retornado. Se hoje, que o máximo que pode acontecer é ser silenciado, e quando muito, receber um processo, e já não se tem coragem e ousadia, o que acontecerá quando não se puder mais pregar sobre sábado, e nele for obrigado a trabalhar? "_²¹Bem está, servo bom e fiel. Sobre o pouco foste fiel, sobre muito te colocarei_" <adicionar foonote: Mateus 25:21 | ACF https://www.bibliaonline.com.br/acf/mt/25/21:7,8+>
+
+> ⁷ Pois Deus **não** nos deu um espírito de **covardia**, mas de poder, de amor e de domínio próprio.
+> -- 2 Timóteo 1:7
+
+> "Mas, quanto aos **covardes**, [...], a sua parte será no lago que arde com fogo e enxofre; o que é a segunda morte."
+> — Apocalipse 21:8
+
+Não é mero achismo que Ellen White escreveu sobre Jesus já deveria ter voltado. A declaração é explícita, inequívoca e clara. **Negá-la é contrariar o testemunho que professamos receber.** É uma afirmação condicional — **SE** o povo tivesse recebido e proclamado a mensagem — não uma data prometida e descumprida por DEUS:
+
+> **SE** todos os que trabalharam unidos na obra em 1844 **tivessem RECEBIDO a mensagem do <u>TERCEIRO anjo</u>**, proclamando-a no poder do Espírito Santo, o Senhor teria poderosamente operado por seus esforços. Caudais de luz ter-se-iam derramado sobre o mundo. **Haveria ANOS** que os habitantes da Terra teriam sido avisados, a obra final estaria consumada, **e Cristo TERIA VINDO para a REDENÇÃO de Seu povo**.
+> — Ellen G. White, O Grande Conflito - Restauração da verdade, p. 458
+
+A maioria ainda hoje se negam a ouvir e não tem "_RECEBIDO a mensagem do <u>TERCEIRO anjo_". Em 1901, outra declaração vem fazer cair o queixo e levar às lágrimas quem ama a verdade e deseja sair o mais rápido possível deste mundo. Eu sou um desses. **Não vejo a hora de estar com CRISTO!** Paulo escreveu: _“Porquanto, para mim, o viver é Cristo, e o morrer é lucro.”_[^fp121] Lucro é **ganho**, algo **desejável**. Seu desejo de estar com CRISTO era real e intenso. Mas o próprio contexto diz que permanecer significava trabalho frutífero e era necessário à igreja; não permite concluir que a vida fosse destituída de alegria ou missão. Ou seja, viver na terra não era felicidade nem alegria, prazer ou diversão, era missão; Paulo não via gosto no viver, ele via gosto na vida eterna, e é por isso que morrer era lucrativo, era um objetivo a ser alcanádo - pois é isso que lucro quer dizer, tudo no mundo gira em torno de lucro, e ao usar essas palavras, ele as usou exatamente para explicar o conceito, viver nÃo é viver para mim pois não há alegria neste mundo, a felicidade está no reino futuo. A saudade do Céu não elimina o dever de viver para CRISTO.
+
+Ellen White também descreve a tristeza de voltar da visão de um mundo melhor e as saudades do que vira.[^pe20] ELa entrava no que hoje, poderia facilmente se denomninado como estado de depressão, tal era a difeença de realidade que ela encontrava entre o paraízo e a terra. De fato, quem realmente tem Cristo no coração nãom tem felicidade nas coisas terrenas. É nesse anseio que a declaração de 1901 atinge em cheio: **insubordinação**. O ser humano sempre encontra uma desculpa para **acomodar-se** e <u>evitar **transformar-se**</u>. Aqui, <u>sujeito</u> importa em _“transformai-vos pela renovação da vossa mente”_,[^rm122] assim como em _“permanecei em mim, e eu permanecerei em vós”_.[^jo154] O querer e a capacidade de fazer vêm de DEUS, não de uma força humana independente.[^fp213] Graça NÃO é **meramente** o poder que perdoa, mas o poder que **salva <u>E</u> transforma**.
+
+> ⁸ Porque pela **GRAÇA sois <u>salvos<u>**, mediante a fé; e isto não vem de vós; é dom de Deus; ⁹ não de obras, para que ninguém se glorie. ¹⁰ Pois somos feitura dele, criados em Cristo Jesus **<u>PARA</u> boas obras**, as quais Deus de antemão preparou para que andássemos nelas.
+> — Bíblia, ARA. Efésios 2:8-10
+
+Ensinar um graça que apenas salva, é ensinar uma meia verdade, e meias verdades são 100% mentiras. Graça que apenas salva sem trtansforma é uma graça manca, que não exigiria de Cristo uma morte horrenda na cruz. Sempre lembre-se 99,99% salvo, ainda é 100% perdido, tanto quanto 99,99% vivo, anda é 100% morto. Para a graça de cristo, ou se recebe ela completamente, e portanto é perdoado e transformados, ou não se tem nada <referenciar reia agripa por pouco me persuades e me fazer crisão>. Apocalipse 14:12 deixa claro, os remanescescente são aqueles que possuem ambos:
+
+1. a fé de Jesus
+2. guardam mandamentos de Deus
+
+Portanto, NÃO exite graça com fé e sem transformacão (obras), e NÃO existe graça com transformação (obras) e sem fé. POr isso, o problema que Ellen White revela sobre insubordinação é importante, pois o problema da igreja nos últimos dias não é falta de fé, é falta de obras (transformação). A revelação de 1901 diz:
+
+> Talvez tenhamos de permanecer muitos anos mais neste mundo por causa de <u>**insubordinação**</u>, como aconteceu com os filhos de Israel; mas por amor de Cristo, Seu povo NÃO deve **acrescentar** pecado a pecado, responsabilizando a Deus pela conseqüência de **seu próprio** procedimento errado. — Carta 184, 1901.
+> — Ellen G. White, Evangelismo, p. 696
+
+Os Judeus pós babilônia ficaram tão traumatizado com o cativeiro que se tornaram o oposto do que eram antes do cativeiro. Recorrentemente antes do cativeiro, o problema deles não era seremm rigorosos, mas demasiadamente frouxos na fé, entretanto, após o cativeiro, o temor de cair na **desGraça** (reforço a ausência de graça) divina, eles se tornaram, aos poucos, demasiadamente rigorosos. Jesus nunca os corrigiu explicitamente por serem demasiadamente rigorosos, mas por serem hipócritas, eu escolheria como palavra **incoerentes**, pois, enquanto eram rigoroso quanto ao cumprimento de algumas coisas, era descuidados noutras, e Jesus mesmo afirmou isso explicitamente:
+
+> ²³ …Ai de vocês, mestres da lei e fariseus, hipócritas! Pois vocês dão o dízimo da hortelã, do endro e do cominho, mas têm negligenciado os preceitos mais importantes da lei: a justiça, a misericórdia e a fidelidade. **Vocês devem praticar estas coisas sem negligenciar aquelas.**
+> Mateus 23:23 | NVI
+
+Portanto o problema não era ser rigoroso no cumprimento das regras, MAS ser totalmente **incoerentes**, ao exigir extremo rigor no cumprimento de uma enquanto em outras não. A incoerência em geral, é o que Jesus critiva, e dái vem "hipócritas". A Ideia central era: **vocês DEVEM praticar estas coisas <u>SEM</u> negligenciar aquelas.** Ou seja, PRATICAR TODAS as coisas, com o MESMO nivel de rigor, não apenas as que convém.
+
+Agora, porém, a situação se inverteu. Após o judaísmo ter claramente caído em um legalismo pagão, no qual as obras recomendavam o homem a Deus, posteriormente seguido por um catolicismo semelhante, que acrescentou um formalismo frio e vazio, a Igreja foi, aos poucos, tentando se afastar precisamente dessa percepção, procurando dissociar-se de tal aparência. Algo semelhante aconteceu no primeiro século: para evitar serem confundidos com judeus e judaizantes, muitos cristãos foram abandonando a sã doutrina e, progressivamente, a observância do sábado. Erroneamente, hoje, a maior parte das células desse corpo cristão segue, como a história demonstra, o mesmo caminho. Após aprenderem com os erros do passado, procuram evitar qualquer aparência que os associe àqueles erros; entretanto, ao fazê-lo, abandonam, lenta e progressivamente, justamente as verdades cruciais que os identificavam como povo de Deus. **Não é obra de um dia. São pequenas coisas.** O Egito tornou-se, conforme a profecia divina, um deserto, milênios depois; Roma deixou de ser aquilo que era séculos após a profecia. Há aquele velho ditado sobre cozinhar lentamente um sapo, até que morra sem perceber. Assim também, os erros sutis são introduzidos e, paulatinamente, outros vão se acumulando. A princípio, são apenas _“coisas secundárias”_, consideradas não pecaminosas; posteriormente, surgem práticas mais graves, mas ainda justificadas como não pecaminosas. Depois, o processo evolui para os chamados _“pecadinhos”_ e, finalmente, para os _“pecadões”_. E, assim, **a mulher de Apocalipse 12 transforma-se na mulher de Apocalipse 17: a mesma mulher, antes perseguida, agora perseguidora.** É por isso que, na transição de Apocalipse 12 para o capítulo 13, as bestas **NÃO** perseguem mais a mulher, mas o _“restante da sua descendência”_ <adiciona foot note>. **NÃO há mais mulher para perseguir**, pois, nessa interpretação profética, ela se aliou aos poderes que antes a perseguiam, durante a Idade Média. O que resta, portanto, é apenas **o remanescente de sua descendência**.
+
+O que se tem agora, é a igreja tentanto fugir exatamente do formalismo e legalismo que consolidou-se no judaimos e catolicismo. Mas ao fazer isso, estão, como antes, perdente a própria identidade. Embora excesso e erros evidentemente tenham acontecido, cometer outro erro, não justifica, pelo contrário, a história demonstra que o pior acontence, e Jesus já previu qual é resultado para este tempo, não é fouxidão como antes do cativeiro, nem legalimos como no judaimos, mas mornidão. Interessante né? Hoje estamos todos em cima do muro ao invea de seguir exatamente o que Jesus ordenou: **Vocês devem praticar estas coisas sem negligenciar aquelas.**.
+
+Não ser incoerente: **OBEDECER <u>TODAS</u>** as coisas. O problema atual, descrito pelo “<u>está escrito</u>”, é a <u>**INSUBORDINAÇÃO**</u>. Não é falta de **amor** como alguns julga hoje em dia, e também NÃO é incoerência como a dos judeus, nem frouxidão como os Israelitas. O problema atual é saber de tudo, incluindo da história e destes problemas, mas não querer assumir que precisamos **PRATICAR com RIGOR <u>TUDO</u>**, com o mesmo **rigor** judaico, MAS **SEM a incoerência** (hipocrisia) que eles tinham. **NÃO** porque as obras nos recomendem a Deus, como os judeus haviam incorporado dos pagãos, mas porque o poder de **Cristo se apossa**. A "_vitória sobre o pecado_"<adicionar 5+ footnotes de citação distintas onde ellen white fala explikcitamente `vitoria sobre o pecado` ou `vitória contra o pecado` de forma que é possível, que devemos ou equivalente> NÃO é perfeccionismo NEM pós-lapsarianismo; é uma crença fundamental e amplamente defendida e bem documentada em **documentos oficiais** da Igreja e nos escritos de **Ellen White** de forma explicita — negá-la é negar a fé adventista passível de exclusão <adicionar footnote e pode desenvolver melhor, sem reexplicar o que o texto principal pois o objetivo é complementar e argumentar adicionamente, desde que não perca argumento, detalhe, nuance e se mantenha suscinto e em um único parágrafo: "Negar categoricamente a possibilidade de **vitória sobre o pecado pelo poder de Cristo** não é mera divergência teológica: contradiz diretamente uma crença fundamental adventista e compromete, em cadeia, diversas outras. **1 Coríntios 10:13** assegura que Deus não permite tentações superiores à capacidade de resistência concedida e que **“ele mesmo providenciará um escape”** (NVI), atribuindo expressamente a **Deus a iniciativa e a garantia** dessa provisão, sem condicioná-la à suficiência humana <adiconar foot note: "1 Coríntios 10:13, NVI; texto grego: πιστὸς δὲ ὁ θεός [...] ἀλλὰ ποιήσει [...] καὶ τὴν ἔκβασιν. O próprio Deus é o sujeito da ação de providenciar o escape; o texto não exige que essa atuação exclua instrumentos ou agentes subordinados. https://www.bible.com/pt/bible/129/1CO.10.13.NVI">. Assim, afirmar que **nem mesmo Deus pode conceder essa vitória** implica negar Sua **onipotência**; rejeitar a eficácia dessa atuação compromete também o poder santificador do **Espírito Santo** (João 16:8-11; Romanos 8:13; Gálatas 5:16), atingindo indiretamente a coerência da fé em Sua divindade. Contraria, igualmente, o **Espírito de Profecia** (Apocalipse 19:10), pois Ellen White afirma expressamente que Cristo veio para que, **por Seu poder, obtivéssemos vitória sobre o pecado**, e que o Espírito Santo concede força sobrenatural aos que lutam por essa vitória <adiconar foot note: "Ellen G. White, The Signs of the Times, 26 de agosto de 1903, § 2: 'that in His power they might obtain the victory over sin' (para que, em Seu poder, obtivessem vitória sobre o pecado); Gospel Workers (1915), p. 285, § 3: o Espírito Santo concede força sobrenatural aos que lutam pela vitória sobre o pecado. https://text.egwwritings.org/read/820.18725 ; https://m.egwwritings.org/en/book/35.1466">. Essa negação compromete ainda a identidade doutrinária do **povo remanescente**, caracterizado pela guarda dos mandamentos e pela fé de Jesus (Apocalipse 12:17; 14:12), repercutindo sobre as **três mensagens angélicas** (Apocalipse 14:6-12), o **selo de Deus** (Apocalipse 7:2-3) e o **sábado**, sinal de santificação e fidelidade ao Criador (Êxodo 20:8-11; Ezequiel 20:12,20) <adiconar foot note: "Associação Geral dos Adventistas do Sétimo Dia, Crenças Fundamentais nº 5, 10, 11, 13, 18, 19 e 20, https://gc.adventist.org/beliefs/. A conexão profética entre sábado e selo de Deus decorre da interpretação historicista adventista; não constitui identificação textual explícita em Apocalipse 7.">. Portanto, **é doutrinariamente incoerente professar integralmente a fé adventista do sétimo dia e, simultaneamente, negar que Cristo possa conceder vitória real sobre o pecado**, pois essa vitória é **promessa bíblica, manifestação do poder divino e consequência da graça santificadora**, jamais mérito humano, autossuficiência ou alegação de impecabilidade absoluta (João 15:5; Filipenses 2:13; 1 João 2:1; Apocalipse 3:21).">.
+
+> ¹³ **NÃO** sobreveio a vocês tentação que **não fosse comum aos homens**. Mas **DEUS é fiel**; ELE **não permitirá** que vocês sejam **tentados ALÉM** do que **podem suportar**. Antes, quando forem tentados, **ELE mesmo providenciará** um **escape**, para que a possam **suportar**.
+> — 1 Coríntios 10:13 | NVI
+
+Portanto, este texto apresenta duas conclusões:
+
+1. A tentação ou provação possui **natureza** ou “poder” de origem <u>**humana**</u>: COMUM, trivial, corriqueira, banal;
+2. O que é sobrenatural **NÃO é a tentação**, MAS o **poder** para **suportá-la**, pois **DEUS** o providencia, **ELE em pessoa** (não os anjos). O texto é explícito: _“**ELE mesmo providenciará**”_.
+
+Logo, se é o próprio **DEUS**, quem é o homem, potestade, anjo ou demônio que pode resistir? **Não há desculpa para o pecado; nunca houve e nunca haverá.** É justamente por isso que o lago de fogo e enxofre foi preparado para Satanás e seus anjos <adicionar footnote sobre o lago de fogo e enxofre ter sido preparado para Satanás e seus anjos>, pois **NUNCA** foi planejado que homem algum estivesse ali. Tentar explicar o pecado é impossível; não há justificativa para ele, mesmo considerando a natureza pecaminosa <adicionar footnote de Ellen White sobre a impossibilidade de explicar ou justificar o pecado>. No milênio, ficará comprovado que aqueles que não estiverem ali escolheram um lado, seja por decisão, seja por omissão; mas **todos terão escolhido um lado** <adicionar footnote de Ellen White sobre todos terem feito uma escolha>. E isso não tem relação com uma predeterminação de impecabilidade: tal condição nunca existiu e nunca existirá, nem mesmo no Céu. No Céu não haverá pecado, mas o livre-arbítrio, ou seja, a capacidade plena de pecar, sempre existirá; contudo, **nunca mais haverá pecado** <adicionar duas footnotes, uma bíblica e outra de Ellen White, sobre o pecado nunca mais voltar a existir>. Nós, que, se Deus quiser, estaremos lá e conhecemos o pecado, por que voltaríamos a ele? Por que o Universo, que testemunhou tudo o que aconteceu aqui, ousaria voltar a isso? Ou seja, **nunca existirá a impecabilidade, mas será definitivo: NINGUÉM NUNCA MAIS PECARÁ.**
+
+Na compreensão adventista, vivemos, desde 1844, **no grande Dia da Expiação** — o período ligado à obra de CRISTO no santuário celestial. Daniel registra: _“Até duas mil e trezentas tardes e manhãs; e o santuário será purificado.”_[^dn814] A ligação dessa profecia com 1844 é desenvolvida pelos pioneiros adventistas, amadurecido pelo remanecente, e posterioemente evoluida por Ellen White; não se encontra a data escrita isoladamente no versículo.[^gc1844] Ela também declara: _“Vivemos hoje no grande dia da expiação.”_[^gc490] A conclusão é solene: **NÃO vivemos em um <u>tempo comum</u>; NÃO podemos viver COMO SE fosse um tempo comum**.
+
+No antigo Israel, a santidade nunca deixou de ser requerida. O Dia da Expiação, porém, era distinto dos demais dias. DEUS ordenou: _“afligireis as vossas almas”_ e proibiu o trabalho naquele dia.[^lvexp] O trabalho comum não era pecado nos outros dias. Era legítimo e necessário. **Naquela ocasião, até o que normalmente era legítimo devia ceder lugar à solenidade do momento.**
+
+Aqui é necessário rigor. O antítipo — a realidade para a qual a cerimônia apontava — não transforma a proibição cerimonial de trabalhar em uma ordem para abandonar emprego, sustento da família ou responsabilidades cotidianas desde 1844.[^lvexp] Essa não é a aplicação feita no trecho de Ellen White citado a seguir. **O princípio permanece; a forma cerimonial não é repetida mecanicamente.** Ela aplica a solenidade ao **arrependimento** e ao **exame do coração**:
+
+> De <u>**igual** modo</u>, todos quantos desejem seja seu nome conservado no livro da vida, **devem**, AGORA, nos <u>poucos dias de graça</u> que restam, **AFLIGIR** a alma diante de Deus, em **<u>tristeza</u>** _[não em festividade, "confraterizações", entretenimentos,...]_ pelo pecado e em **arrependimento** verdadeiro. Deve haver um **EXAME** de coração, PROFUNDO e fiel. O espírito <u>**leviano e frívolo**</u>, alimentado por <u>tantos</u> cristãos professos, **deve ser deixado**.
+> — Ellen G. White, O Grande Conflito - O grande juízo investigativo, p. 490
+
+Essa é a aplicação apresentada: arrependimento, humilhação, exame do coração, vigilância, pureza e consagração. A **crítica ao entretenimento, ao prazer e às atividades NÃO essenciais** dirige-se ao uso que alimenta a **frivolidade** — a distração que faz pouco caso do que é sério. O trecho não declara pecaminosa toda alegria ou atividade recreativa. **Não se trata de abandonar irresponsavelmente o trabalho, mas de reproduzir espiritualmente a SOLENIDADE da ocasião.** Se assim era no tipo, a cerimônia que servia de figura, que diremos de quem vive na realidade para a qual ela apontava?
+
+Apocalipse anuncia a chegada da hora do juízo.[^ap14] CRISTO ministra no verdadeiro santuário celestial.[^hb8][^hb9] Ellen White relaciona o entendimento dessa obra à posição do povo e aos deveres que a luz recebida tornou conhecidos.[^gc423]
+
+- **Novos deveres.**
+- Não uma nova lei.
+- Não um novo caráter de DEUS.
+- Não uma nova definição arbitrária de pecado.
+
+Trata-se de **uma nova posição profética, uma nova fase no ministério de CRISTO e responsabilidades proporcionais à luz recebida**. Ellen White escreve que, enquanto o juízo ocorre no Céu, _“deve haver uma **obra ESPECIAL de <u>PURIFICAÇÃO</u>**, ou de afastamento de pecado, entre o povo de Deus na Terra”_.[^gc425] Ou seja, hoje a obra e o critério e rigor é especial, ou seja, diferente daquele que era requerido antes de 1844. A expressão **ESPECIAL** destaca essa relação; não permite acrescentar à citação, como se fossem palavras da autora, a explicação “\*_qual nunca houve_”. Portanto, observe cuidadosamente a expressão: **“uma obra especial”.** Santificação sempre foi necessária. Obediência sempre foi necessária. Pureza sempre foi necessária. Mas Ellen White **não** diz **apenas** que a **velha** obrigação cristã **continua**.
+
+Portanto, as regras de conduta e normas cristãs atualmente vigentes NÃO sãs as mesmas que todos os outros antes de 1844 possuíam. Para fins de comparação, a solenidade cerimonial do dia da expiação - embora fosse considerado uma das mais importantes - também ocorria para o dia de pentecostes, e, comparativamente, a sombra (cerimonia) quando encontrou a realidade em Cristo, encontrou os discípulo vivendo de que forma? Não será diferente hoje e quem estiver vivendo diferente, inevitalmente é e será joio; pois, ao contrário dos tempos de pentencoste, ainda havia tempo de graça, mas o grande dia de expiação é o último ato divino no processo de salvação no que se refere a graça. Ela afirma que **neste período há uma obra ESPECIAL**, diretamente relacionada ao ministério final de CRISTO no (graça). Portanto, existe aqui uma **distinção** que não pode ser apagada:
+
+**A lei moral não mudou, MAS o momento profético MUDOU; e porque o momento mudou, a RESPONSABILIDADE daquele que recebeu essa luz <u>também mudou</u>.**
+
+É exatamente aqui que a pergunta cristã precisa ir além de um minimalismo moral. Não basta perguntar: **“Isto é pecado?”**
+
+Paulo ensina: _“Todas as coisas me são lícitas, mas nem todas convêm.”_[^1co612] E também: _“Todas as coisas são lícitas, mas nem todas convêm; todas são lícitas, mas nem todas edificam.”_[^1co1023] Portanto, cabe perguntar: **“Isto convém a quem vive no grande Dia da Expiação?”** É compatível com a **solenidade desta hora**? Contribui para a vigilância ou alimenta a distração? Fortalece a mente para as coisas eternas ou a embriaga com frivolidade? Aproxima de CRISTO ou **apenas NÃO** ultrapassa <u>formalmente</u> **uma linha** chamada <u>pecado</u>?
+
+Porque o próprio tipo já ensinava que **uma coisa PODE ser <u>legítima</u> em si e, ainda assim, <u>>SER INADEQUADA</u> à solenidade de um determinado <u>momento</u>**.
+
+O trabalho comum mostrava isso no Dia da Expiação: não era pecaminoso, mas **uma realidade maior reclamava prioridade**. A aplicação espiritual pede discernimento entre **pecado e não pecado** e entre **o que convém e o que não convém à hora em que vivemos**. JESUS também ensinou que a responsabilidade acompanha o que foi recebido: _“àquele a quem muito foi dado, muito lhe será exigido”_.[^lc1248]
+
+Nós recebemos luz. Sabemos onde estamos na profecia. Sabemos o que CRISTO está realizando no santuário. Sabemos que o juízo está em andamento.
+
+Sabemos que Ellen White chama esta época de **grande Dia da Expiação**. Sabemos que ela afirma que essa luz trouxe **novos deveres**. Sabemos que ela exige **uma obra <u>especial de PURIFICAÇÃO</u>**. Então, como poderíamos receber toda essa luz e concluir que devemos viver exatamente como se ela nunca tivesse sido dada? Como poderíamos usar a vida e conduta cristã anteriores a 1844 como premissa válida sabemos tempo atual é biblicamente diferente "_qual nunca houve_"? Seria racional? Seria coerente? Seria fé? Ellen White acrescenta:
+
+> **Solenes** são as cenas ligadas à obra **final da expiação**. Momentosos, os interesses nela envolvidos. O juízo ora se realiza no santuário celestial.
+> — Ellen G. White, O Grande Conflito - O grande juízo investigativo, p. 490
+
+E então faz uma afirmação que deve pesar sobre toda tentativa de tratar este período como ordinário:
+
+> Atualmente, **MAIS do que em qualquer outro tempo**, importa a toda alma **atender** à admoestação do Salvador: **“Vigiai e orai**; porque não sabeis quando chegará o tempo.” Marcos 13:33.
+> — Ellen G. White, O Grande Conflito - O grande juízo investigativo, p. 490
+
+- **Mais do que em qualquer outro tempo.**
+
+**NÃO apenas** tanto quanto antes. **MAIS.** Aqui está a diferença. Não porque DEUS mudou. **Porque o tempo mudou.** Não porque o pecado tivesse sido permitido antes. **Porque maior luz trouxe maior responsabilidade.** Não porque uma atividade moralmente legítima se torne automaticamente pecado depois de 1844. **Mas porque nem tudo o que é legítimo é necessariamente adequado à solenidade, à missão e à preparação exigidas desta geração.**
+
+Portanto, não perguntemos apenas:
+
+- **“Até onde posso ir sem pecar?”**
+
+Essa é a pergunta de quem procura o limite, de quem procura se conformar, contornar, de quem procura brechas.
+
+Perguntemos:
+
+- **“Como deve viver alguém que sabe que o juízo está em andamento?”**
+- **“O que convém a alguém que vive no grande Dia da Expiação?”**
+- **“Aquilo que faço revela que realmente creio na mensagem que professo?”**
+
+Paulo manda examinar a própria fé[^2co135] e despertar do sono.[^rm1311] Também escreve: _“Desperta, ó tu que dormes, levanta-te de entre os mortos, e Cristo te iluminará.”_[^ef514] Portanto, desperta. Examina o coração. Abandona o pecado e aquilo que **ALIMENTA** o espírito **leviano e frívolo** que Ellen White diz que **deve ser deixado**.[^gc490]
+
+Não abandones teus deveres. **Santifica-os.** Não abandones o trabalho necessário. **Não permitas que ele absorva a alma a ponto de apagar a consciência da eternidade.** Não abandones a vida. **Vive-a como alguém que sabe em que momento da história da redenção se encontra.** Este não é um chamado à ociosidade. É um chamado à **consagração**. Não é um chamado ao fanatismo (_emboram provavelmente os santos serão chamados de fanáticos_). É um chamado ao **arrependimento verdadeiro**. Não é uma nova lei. É **maior responsabilidade diante de maior luz**. Não é a negação de tudo o que era legítimo antes de 1844. É o reconhecimento de que **aquele que recebeu a luz do santuário não pode continuar vivendo como se essa luz não criasse dever algum**.
+
+Porque **este não é um tempo comum**. _“Vivemos hoje no grande dia da expiação.”_[^gc490] E se realmente cremos nisso, então nossa vida não pode ser governada apenas pela pergunta **“É pecado?”** Mas também pela pergunta muito mais solene: **“Isto convém ao grande Dia da Expiação?”**
+
+Nós todos estamos sendo **insubordinados** ou subordinados **a DEUS**?
+
+<!-- AI-PROCESSED:END --><!-- AI-PROCESSED:START -->
+
+O modo de agir de **alguns** desses pastores, anciãos e líderes denuncia seus frutos: **reuniões secretas**, muitas vezes na calada da noite, a portas fechadas, **sem transparência**, sem ata, **em segredo**. É esse procedimento que relato e denuncio como semelhante ao dos **romanistas** descritos no Grande Conflito como **hierarquia papal** e ao de Caifás: decidem como **SE** fossem donos da Igreja, sua **suprema autoridade**, passando por cima da deliberação da assembleia. Como podem exigir respeito à ordem enquanto a tratam assim?
+
+Ellen White escreveu: _“Deus ordenou que os representantes de Sua igreja de todas as partes da Terra, quando reunidos numa Assembléia Geral, devam ter autoridade.”_[^t9261] A passagem trata da autoridade representativa da Associação Geral; não constitui, isoladamente, um regulamento das competências de cada comissão local. Também afirma: _“Deus investiu Sua igreja de especial autoridade e poder, por cuja desconsideração e desprezo ninguém se pode justificar; pois aquele que assim procede, despreza a voz de Deus.”_[^aa164] O contexto combate a **independência individual** (ainda que de pastor ou ancião) e o desprezo aos responsáveis pela obra. **Não autoriza, entretanto, que um indivíduo ou pequeno grupo tome o lugar da Igreja.** Logo, **a menos** que as diretrizes, normas e, consequentemente, as crenças oficiais da Igreja Adventista do Sétimo Dia **tenham sido** formalmente **alteradas**, adequando-se a "_hierárquia papal_", o _modus operandi_ atual **está em frontal contradição** não apenas com os escritos de Ellen White, mas também com as próprias Escrituras. Além disso, o texto esclarece inequivocamente que a estrutura da Igreja é representativa; logo, **a autoridade máxima, no âmbito de sua respectiva jurisdição, pertence à assembleia da Igreja, seja geral ou local, legitimamente constituída, e não a um indivíduo ou grupo de indivíduos**, seja ao pastor — nomeado, e não eleito pela igreja local — ou aos anciãos. Assim, **cabe à assembleia da igreja local tomar as decisões de sua competência**, desde que NÃO contrariem as Escrituras, as normas oficiais da denominação e as deliberações da **Associação Geral**.
+
+Por si mesmos e em segredo, aplicam disciplina como **SE** fossem a autoridade suprema. É precisamente isso que chamo de **romanismo** ou "_hierarquia papal_": autoridade humana colocada acima da VERDADE e da consciência. Desprezam transparência, ordem, respeito, defesa e apuração, substituindo-os por suspeitas. A acusação é sobre esse modo de agir; não depende de dizer que todas as estruturas históricas sejam idênticas. É exatamente a nomenclatura _" modus operandi_" usada em algumas traduções do Grande confliuto para a o romanistas.
+
+Não cabe a qualquer indivíduo decretar infalivelmente quem é joio e quem é trigo. Mas JESUS mandou reconhecer os frutos,[^mt716] e Paulo lembrou que julgaremos os anjos, quanto mais as questões desta vida.[^1co63] **Os frutos desse procedimento estão escancarados.** Não é necessário conhecer o destino eterno de alguém para denunciar a injustiça que pratica. Fala mansa e tapinha nas costas não tornam santo um procedimento traiçoeiro:
+
+> ⁸ A **língua** deles é uma **flecha mortal**; eles falam **traiçoeiramente**. Cada um **mostra-se cordial** com o seu próximo, mas no **íntimo lhe prepara uma armadilha**.
+> — Bíblia, NVI. Jeremias 9:8
+
+> ²⁴ Quem odeia **disfarça** as suas intenções **com os lábios**, MAS **no coração abriga a falsidade**. ²⁵ Embora a sua **conversa seja mansa**, NÃO **acredite nele**, pois o **seu coração** está cheio de sete **coisas detestáveis**.
+> — Bíblia, NVI. Provérbios 26:24-25
+
+No Jardim Bandeirantes, nos últimos dois anos, os frutos estão diante de nós: a igreja decaiu significativamente. Poderíamos falar em **Acã**, mas prefiro **Acabe**, pela função exercida de acusar quem confronta o erro. Não porque os demais sejam perfeitos ou irrepreensíveis. **Pelos frutos!**<adicionar footnote> Refiro-me a pelo menos **quatro irmãos, dos quais três são líderes**, um deles da igreja central de Pirassununga. É uma denúncia do autor sobre pessoas e condutas que presenciou, não uma identificação individual feita pela inspiração. O princípio que a fundamenta é este:
+
+> ¹⁶ Há seis coisas que o Senhor odeia; sete que ele detesta: \[...\] ¹⁸ coração que trama planos perversos, pés que se apressam para fazer o mal, ¹⁹ testemunha **falsa** que profere **mentiras** e aquele que **provoca discórdia** entre irmãos.
+> — Bíblia, NVI. Provérbios 6:16,18-19
+
+E nalguns casos, não em todos:
+
+> ²¹ **Macia como manteiga** é a sua **fala**, mas a **guerra** está no seu coração; as suas **palavras** são mais **suaves** que o óleo, mas são **afiadas** como punhais…
+> — Bíblia, NVI. Salmos 55:21
+
+**O pecado NÃO é apenas individual quando alcança a Igreja.** Há também responsabilidade corporativa — do povo considerado como **um corpo**. Daniel se inclui na confissão: _“pecamos, e cometemos iniquidade, e procedemos impiamente, e fomos rebeldes”_;[^dn95] reconhece ainda que o povo não ouviu os profetas. Ele não se atribui cada ato cometido por outra pessoa: **<u>identifica-se</u> com o povo e <u>líderes</u>** e assume diante de DEUS a realidade do **pecado coletivo**.
+
+No caso de Acã, um homem praticou o ato, mas DEUS declarou: _“**Israel pecou**”_.[^js711] O povo e líderes sofreram as consequências. Ellen White escreve: _“Deus considera Seu povo, como **um corpo**, responsável pelos pecados que existem em indivíduos em seu meio.”_ Em seguida, responsabiliza os dirigentes que negligenciam enfrentar o mal.[^t3269] O mesmo contexto exige justiça, misericórdia e terna compaixão, rejeitando **APENAS** e tão somente, a severidade desnecessária. Não se deve separar a responsabilidade pela correção da responsabilidade por corrigir corretamente.
+
+Portanto, **não basta dizer: “Eu não fiz.”** Se <u>conheço o mal</u>, posso agir legitimamente e escolho a omissão, minha responsabilidade não é a de quem nada sabia ou nada podia fazer. Tiago declara: _“Aquele, pois, que sabe fazer o bem e o não faz **comete pecado**.”_[^tg417] Na advertência a Ezequiel, o atalaia — a sentinela encarregada de avisar — responde por não transmitir o aviso recebido de DEUS.[^ez338]
+
+Assim, a culpa não se transmite mecanicamente de uma pessoa inocente para outra. **Mas a tolerância consciente, o silêncio culpável e a omissão diante do mal podem fazer-nos participantes da responsabilidade.** É semelhante, guardadas as devidas proporções, à ideia comum de **cumplicidade**: não é necessário praticar pessoalmente o ato principal para tornar-se responsável por cooperar com ele, favorecê-lo ou, existindo responsabilidade de agir, permitir conscientemente que prossiga.
+
+Daniel disse **pecamos**; o caso de Acã mostrou o alcance coletivo das consequências. A advertência de Ellen White não permite indiferença diante do pecado conhecido e tolerado.[^dn95][^js711][^t3269] Isso não torna cada membro culpado por todo erro alheio, independentemente do que sabia e podia fazer.
+
+Por isso, o **pecado na Igreja também diz respeito a mim e a você**. À luz do **grande Dia da Expiação**, o exame não se limita a perguntar se praticamos determinado mal; inclui a fidelidade às responsabilidades recebidas. **Se conhecemos, podemos agir e escolhemos nada fazer**, nossa **<u>omissão</u> será cobrada por DEUS**. **Você e eu DEVEMOS nos preocupar**, DEVEMOS orar, **DEVEMOS advertir** quando nos compete advertir, DEVEMOS agir dentro da ordem e da responsabilidade que DEUS nos concedeu e DEVEMOS buscar **arrependimento e <u>reforma</u> — começando por nós mesmos**.
+
+E lembre-se, hoje é o tempo de ir além do "_vá e não peques mais_" <adicionar footnotes>. **É mais**! Muito mais. Estamos no tempo de "_andar a segunda milha_" <adicionar foot note>. Portanto, Qundo a igreja deixa de anda a segunda milha, então você e eu também deixamos de andar, e responsabilidade recai sobre nós. Quando a greja deixa de andar em solenidade, consagração, abadono daquilo que ALIMENTA um caráter leviano e frívolo ou o “_deve haver uma **obra ESPECIAL de <u>PURIFICAÇÃO</u>**_", então também nos tornamos culpados, pois hoje é requeido mais do abandono do pecado, hoje é requer uma "_**obra ESPECIAL de <u>PURIFICAÇÃO**_". Não é achismo, nem minha opnião, nem mesmo o que eu gostaria, **é** o "**assim diz o Senhor**".
+
+> ² pregue a palavra, esteja preparado a tempo e **<u>fora de tempo</u>**; CORRIJA, REPREENDA, ENCORAJE com toda a paciência e ensino.
+> — Bíblia, NVI. 2 Timóteo 4:2
+
+Porque a pergunta diante de DEUS não será apenas **“Fui eu quem praticou ou deixei de praticar?”**, mas também: **“Sabendo, o que fiz para mudá-lo?”**
+
+> ³ Pois chegará o tempo em que **NÃO suportarão a SÃ doutrina**; ao contrário, segundo os seus próprios desejos, juntarão para si mesmos mestres que lhes digam o que os seus ouvidos, coçando, desejam ouvir.
+> — Bíblia, NVI. 2 Timóteo 4:3
+
+Paulo havia encarregado Timóteo de permanecer em Éfeso para enfrentar o falso ensino.[^1tm13] A ordem de pregar e corrigir não exclui a própria comunidade cristã. Portanto, não cabe tratar a advertência de 2 Timóteo como se ela se dirigisse apenas ao mundo exterior.
+
+_“não suportarão a sã doutrina”_.[^2tm43] **Este tempo JÁ chegou!**
+
+A reflexão se aplica a todos, mas de modo ainda mais **especial** aos líderes, incluindo pastores e anciãos. Ellen White, ao tratar da negligência familiar daqueles que ensinam o povo, escreve: _“Sua culpa é tanto maior do que a dos outros quanto sua posição é de maior responsabilidade.”_[^lar354] A passagem fala imediatamente da própria família; o princípio de responsabilidade agravada é o que se aplica aqui. Maior posição NÃO é escudo: **aumenta a responsabilidade**.
+
+Muitos irmãos adventistas talvez não saibam, ou não se importem, mas a denúncia desta carta é que líderes tentam silenciar os **atalaias**, as sentinelas que anunciam o perigo.[^ez337][^is626] A semelhança apontada com a repressão religiosa de Roma é o silenciamento de quem adverte. Não basta chamar o mensageiro de perturbador para responder ao que ele mostrou na Palavra.
+
+Alegam que as palavras são duras, ferem e afastam pessoas; portanto, não poderiam vir de DEUS, porque DEUS é amor. **Mas esse raciocínio é tolo.** Na linguagem dura que esta carta assume, agir assim é agir como **imbecis**: negar justamente o que os textos inspirados dizem com clareza. A expressão condena essa cegueira deliberada; não mede a inteligência ou a dignidade humana de ninguém. O caso de Pedro mostra a gravidade da mudança: depois de confessar CRISTO, recebeu uma repreensão por opor-se ao caminho que ELE anunciava.[^mt16] Ter experimentado a verdade NÃO impede alguém de passar a combatê-la.
+
+Esses líderes, conforme denuncio, reúnem-se em segredo como Caifás, sem reunião de comissão, sem ata pública e sem transparência, e decidem quem poderá pregar. É **pseudodisciplina**, uma disciplina velada: não consta dos registros oficiais, mas produz proibições como se seus autores fossem superiores à comissão. Não denuncio aqui a correção legítima de um pecado comprovado; denuncio a punição de uma mensagem sem que se demonstre nela o erro que justificaria silenciá-la. **Sorrir e dar tapinhas nas costas enquanto se levantam suspeitas NÃO muda o nome disso.**
+
+Minha avaliação é que esse mal se espalhou por quase toda a igreja; não apresento essa extensão como resultado de um levantamento mundial. A denúncia, contudo, permanece: **os Acabes modernos causam a agitação e a desgraça, depois atribuem aos Elias os próprios pecados.** Longe dos olhos e ouvidos da multidão, chamam de perturbador quem fala a verdade. E a verdade dói, agita a mente, como nos dias de Elias e de JESUS. Ao combaterem a mensagem que efetivamente vem de DEUS, **não lutam contra homens: lutam contra DEUS**.
+
+> Relativamente aos que voltaram as costas à luz que lhes foi enviada, disse-me: “Ao **menosprezar e rejeitar o testemunho** que lhes fiz transmitir, **têm desprezado** NÃO a ti, <u>MAS</u> **a Mim, O Senhor**.”
+> — Ellen G. White, Testemunhos para a Igreja, v. 5 - Natureza e influência dos testemunhos, p. 688
+
+Não esqueçamos a resposta de Ellen White já transcrita: **NÃO amenizarei mensagem alguma para acompanhar suas ideias**. Quem reduz a força das agudas reprovações terá de enfrentar essa obra no **JUÍZO**. Isso não é um convite à acomodação:
+
+> ⁹ "Pois darei a ordem e **SACUDIREI** o povo de Israel entre todas as nações, tal como se sacode o trigo em uma peneira, sem que um só grão caia na terra."
+> — Bíblia, NVI. Amós 9:9
+
+> ³¹ — Simão, Simão, eis que Satanás pediu para **peneirar** vocês como se faz com o trigo.
+> — Bíblia, NVI. Lucas 22:31
+
+> ²⁶ A voz dele naquela ocasião abalou a terra, mas agora promete: "Uma vez mais, **abalarei** não apenas a terra, mas também o céu".
+> — Bíblia, NVI. Hebreus 12:26
+
+São contextos distintos: Amós descreve juízo sobre Israel; JESUS adverte Pedro sobre a prova solicitada por Satanás; Hebreus anuncia o abalo que deixa permanecer o inabalável. A comparação não torna os agentes idênticos. Mostra a seriedade de uma prova que expõe aquilo a que nos apegamos.
+
+Ellen White não disse que devemos acomodar-nos, mas que devemos assumir uma **posição OUSADA**, estar dispostos a **SACRIFICAR-NOS** e permanecer na VERDADE. **COMEÇOU a forte SACUDIDURA**, como já lemos. Tudo o que tiver de ser sacudido será sacudido. Não adianta, e NÃO se deve, **amenizar** a correção de erros e pecados para impedir a obra de DEUS. A declaração de que CRISTO já poderia ter vindo tem mais de 120 anos; sua condição torna ainda mais grave nossa demora. Se você luta contra as verdades que ferem e <u><strong>lapidam o povo de DEUS</strong></u>, contra chamar o pecado pelo nome, contra o abandono da conformidade com este século,[^rm122] **você luta contra DEUS**.
+
+Que mensagem o povo deveria RECEBER e proclamar? O texto não deixa margem a apagar sua identidade: **a mensagem do TERCEIRO ANJO**. Não basta substituí-la por um discurso genérico de ternura ou caridade e deixar de lado o **JUÍZO**. Mas também não se pode separar essa mensagem da cruz: Ellen White identifica a justificação pela fé como a mensagem do terceiro anjo em verdade.[^me1372] A correção é decisiva: **amor, cruz, perdão, santificação e JUÍZO não são mensagens rivais**. A denúncia desta carta é contra o uso de amor e perdão para encobrir a advertência, não contra o evangelho que dá sentido a ela.
+
+A igreja é **o bombeiro diante da casa em chamas**. Não há um segundo a perder com floreios enquanto o fogo sobe e a casa está prestes a desmoronar. **As pessoas estão morrendo!** Falar de amor para evitar a advertência urgente é transformar o remédio em anestesia. **Pare com isso!** O sangue de quem não foi advertido pesa sobre a responsabilidade do atalaia.[^ez338] **Mais importa ofender e salvar que agradar e matar!** Esse é o cerne da missão: ir e pregar; o resultado pertence a DEUS.
+
+_Considere esta ilustração, não o relato de um caso clínico:_
+
+Um homem sofreu um grave acidente. Chegou ao hospital consciente, assustado e com muita dor. Os médicos descobriram uma hemorragia interna: por fora, ainda falava; por dentro, estava morrendo.
+
+A cirurgia seria dolorosa, invasiva e arriscada. O paciente tinha medo. Preferia analgésicos, palavras tranquilizadoras e qualquer tratamento que lhe desse algum alívio sem precisar enfrentar a operação.
+
+Mas o médico conhecia o diagnóstico.
+
+Não havia tempo para fingir que conforto era cura. O risco de morte era iminente, e cada minuto gasto apenas amenizando a dor permitia que a hemorragia continuasse. O remédio podia fazê-lo sentir-se melhor enquanto sua condição, de fato, piorava.
+
+Por isso o médico não chamou alguém para convencê-lo de que estava tudo bem. Chamou quem lhe dissesse a verdade: **“Você precisa ser operado. Agora.”**
+
+A mensagem poderia assustá-lo. Poderia contrariá-lo. Poderia até fazê-lo rejeitar o mensageiro. Mas esconder a gravidade para poupá-lo do medo seria deixá-lo morrer confortavelmente.
+
+Assim é com DEUS e aqueles que ELE envia.
+
+**As pessoas estão morrendo.** O pecado não é um incômodo a ser administrado, mas uma enfermidade mortal. DEUS conhece o diagnóstico e envia SEUS mensageiros — em última análise, todo aquele que recebeu a verdade — não para **ACALENTAR** e **anestesiar** uma consciência que precisa despertar, mas para anunciar a cura enquanto ainda há tempo.
+
+Isso não autoriza crueldade, arrogância ou prazer em ferir. O bisturi não é usado porque cortar seja bom, mas porque há algo pior acontecendo por dentro. A verdade pode doer; a advertência pode assustar; a repreensão pode ser desconfortável. **Esses riscos são reais.**
+
+Mas existe um risco infinitamente maior: transformar o evangelho em tratamento paliativo, amenizar sintomas, evitar toda palavra difícil e deixar o homem sentir-se seguro e esperançoso enquanto caminha para a morte.
+
+Há momentos em que suavizar não é misericórdia. **É trocar a dor momentânea da cirurgia pela tranquilidade momentânea de quem está morrendo.**
+
+O mensageiro fiel não fere por gosto, nem silencia por medo. Ele fala porque conhece a urgência.
+
+**Quando a doença é mortal, a verdade QUE CORTA para salvar É MISERICÓRDIA; a mentira que CONSOLA enquanto mata é CRUELDADE.**
+
+Os Acabes atuais — que denuncio como numerosos e predominantes, **mas NÃO todos** — lutam contra a sacudidura. O mensageiro não é seu dono: os Elias são **meros carteiros**. Cabe-lhes entregar a mensagem, não alterá-la para agradar. Perseguir, silenciar e acusar falsamente não vence DEUS. Podem fazer planos em salas fechadas; a VERDADE continuará a levantar testemunhas. **São como sementes:** o silenciamento de um não extermina a mensagem. _“Não há sabedoria, nem inteligência, nem mesmo conselho contra o Senhor.”_[^pv2130]
+
+> A luz é enviada para desfazer as trevas; porém, em seu excessivo orgulho, a rejeitam, preferindo continuar às escuras. **DESPREZAM os conselhos divinos**, <u><strong>porque NÃO</strong> correspondem</u> aos **seus pontos de vista e INTENÇÕES**, e **NÃO aprovam** seus **maus traços** de caráter. A operação do **Espírito** de Deus, que os **poderia** ajudar a entrar no bom caminho, **SE a aceitassem**, **NÃO se faz** de modo a **comprazê-los e lisonjear sua justiça própria**.
+> — Ellen G. White, Testemunhos para a Igreja, v. 5 - Natureza e influência dos testemunhos, p. 689
+
+Veja a advertência contra quem quer proibir justamente o que precisa ouvir:
+
+> ⁶ "**NÃO preguem**", dizem os seus profetas. "NÃO preguem **ACERCA dessas coisas**; \[...\]"
+> — Bíblia, NVI. Miquéias 2:6
+
+> ¹⁰ Eles dizem aos videntes: "**NÃO** tenham mais visões!", e aos profetas: "**NÃO** nos **revelem** o que é **certo**! Falem-nos coisas **agradáveis**, profetizem **ilusões**.
+> — Bíblia, NVI. Isaías 30:10
+
+> ¹² Mas vós aos nazireus destes vinho a beber, e aos profetas ordenastes, dizendo: Não profetizareis.
+> — Bíblia, ACF. Amós 2:12
+
+Nazireus eram pessoas consagradas por voto, não uma designação equivalente a pastor; a repreensão de Amós alcança tanto a corrupção dessa consagração quanto a ordem dada aos profetas para que se calassem. É contra o silenciamento que se faz a comparação com líderes atuais.
+
+> Alguns que professam a justiça hão de, como Judas, entregar seu Senhor nas mãos de seus mais duros adversários. Esses que CONFIAM em si mesmos, resolvidos, como estão, a seguir seu **PRÓPRIO CAMINHO** e a **DEFENDER <u>suas próprias</u> idéias**, irão de mal a pior, até estarem prontos a **ACEITAR qualquer** proposta, **MENOS** a de **RENUNCIAR à sua própria vontade**. <u>Cegamente</u> prosseguirão no caminho do mal e tão **enganados** a respeito de **si mesmos**, que, como os fariseus <u>iludidos</u>, **IMAGINAM** estar fazendo a obra de Deus.
+> — Ellen G. White, Testemunhos para a Igreja, v. 5 - Natureza e influência dos testemunhos, p. 690, 691
+
+> **Correções, admoestações e repreensões** da parte do Senhor têm sido dirigidas a Sua igreja em **TODAS** as épocas. Essas advertências **foram desprezadas e rejeitadas** nos dias de Cristo, pelos fariseus, que eram justos a seus próprios olhos e <u><strong>pretendiam NÃO necessitar</strong></u> de semelhantes **admoestações**, <u><strong>considerando-se</strong></u> por isso <u><strong>INJUSTAMENTE tratados</strong></u>. Recusaram também receber a **Palavra do Senhor**, anunciada por Seus servos, por <u><strong>NÃO satisfazer as suas INCLINAÇÕES</strong></u>. \[...\] **A MENOS** que essas pessoas **humilhem** o coração **diante de Deus**, deixando de acolher as sugestões de Satanás, a dúvida e **a incredulidade delas se apoderarão**, começando a **ver tudo** por um prisma **FALSO**. \[...\] **CHEGARÃO a ponto** de <u>desconfiar e <strong>DESCRER</strong> de <strong>VERDADES</strong> que são <strong>INTUITIVAS</strong></u> e cheias de beleza para os que NÃO se educaram na incredulidade.
+> — Ellen G. White, Testemunhos para a Igreja, v. 5 - Natureza e influência dos testemunhos, p. 689, 690
+
+Admoestações são advertências e correções; essa explicação é nossa. O texto denuncia quem se considera **INJUSTAMENTE tratado** porque a Palavra não satisfaz suas inclinações. A rejeição chega a inverter os valores:
+
+> ²⁰ Ai dos que ao mal chamam bem e ao bem, mal; que fazem da escuridade luz e da luz, escuridade; põem o amargo por doce e o doce, por amargo!
+> — Bíblia, ARA. Isaías 5:20
+
+> ¹⁴ No seu coração há perversidade; todo o tempo **maquina o mal**; anda **semeando contendas**. \[...\] ¹⁹ **testemunha falsa** que **profere mentiras** e o que semeia contendas entre irmãos.
+> — Bíblia, ARA. Provérbios 6:14,19
+
+> ⁵ Aquele que calunia o seu próximo **secretamente**, eu o cortarei;
+> — Bíblia, BKJ. Salmos 101:5
+
+E o que acontece a tais pessoas, líderes ou não? Por algum tempo, pode parecer que estão vencendo. O salmista também viu essa aparência:
+
+> ³ Pois eu invejava os arrogantes, ao ver a prosperidade dos perversos. \[...\] ¹⁷ até que entrei no santuário de Deus e atinei com o fim deles.
+> — Bíblia, ARA. Salmos 73:3,17
+
+> ¹⁵ Pelo que a sua destruição virá repentinamente; subitamente, será quebrantado, sem que haja cura.
+> — Bíblia, ARA. Provérbios 6:15
+
+A esperança não pertence à arrogância que parece prosperar. A promessa de Jeremias foi dirigida aos exilados de Judá; não garante aprovação a todo grupo nem prosperidade imediata. Ela recorda que os propósitos de DEUS ultrapassam a aparência do momento:
+
+> ¹¹ Porque eu bem sei os pensamentos que tenho a vosso respeito, diz o Senhor; pensamentos de paz, e não de mal, para vos dar o fim que esperais.
+> — Bíblia, ACF. Jeremias 29:11
+
+<!-- AI-PROCESSED:END --><!-- AI-PROCESSED:START -->
+
+Virou quase um tabu afirmar algo que deveria ser uma das verdades mais óbvias, básicas e elementares da eclesiologia cristã (o estudo da natureza e da missão da Igreja): **a Igreja NÃO é paredes, terrenos, prédios, carros, computadores, mesas de som, CNPJ ou um estatuto registrado em cartório. A Igreja também NÃO é, em sentido teológico, a instituição ou a pessoa jurídica que ela utiliza para organizar sua obra.** Tudo isso pode pertencer à Igreja, ser criado pela Igreja, administrado pela Igreja e servir à Igreja; mas **Igreja e instituição NÃO são a mesma coisa**.
+
+E isso não é uma distinção difícil. É tão simples que até uma criança consegue compreendê-la. Uma família pode possuir uma casa, mas a família NÃO é a casa. Uma escola pode possuir um prédio, mas a escola NÃO é apenas o prédio. Do mesmo modo, a Igreja pode possuir instituições, associações, hospitais, escolas, universidades, editoras, templos, empresas e pessoas jurídicas sem que nenhuma dessas coisas, isoladamente ou em conjunto, seja a própria Igreja. **Possuir algo não significa ser aquilo que se possui.**
+
+A Bíblia define a Igreja em termos de pessoas. Paulo escreve: _“vós sois o corpo de Cristo e seus membros em particular”_[^1co1227]. CRISTO é _“a cabeça do corpo da igreja”_[^cl118]. Pedro chama os crentes de _“pedras vivas”_ que formam uma _“casa espiritual”_[^1pe25]. Portanto, **a Igreja é formada por pessoas unidas a CRISTO**. Ela pode organizar-se juridicamente e possuir patrimônio, mas sua identidade espiritual não nasce de um cartório, de uma repartição pública ou de um número fiscal (CNPJ).
+
+Ellen White escreve: _“A igreja é o instrumento apontado por Deus para a salvação dos homens. Foi organizada para servir, e sua missão é levar o evangelho ao mundo.”_[^aa9] A ordem importa: a Igreja é organizada **PARA SERVIR**. A organização serve à Igreja e à sua missão; não substitui aquilo que a Igreja é. Essa é a inferência defendida aqui, em harmonia com a definição bíblica do corpo de CRISTO.
+
+A própria existência internacional do adventismo torna a confusão insustentável. **A mesma Igreja não se reduz a um cadastro jurídico nacional.** No Brasil, as entidades utilizam registros brasileiros; nos Estados Unidos e em outros países, sua organização civil não depende de um CNPJ brasileiro. Se a Igreja fosse esse número, por definição só existiria no Brasil. **Isso é absurdo.** O CNPJ identifica entidades perante a administração brasileira; não define o corpo de CRISTO.[^cnpj]
+
+O CNPJ entrou em vigor em 1998; o movimento adventista de 1844, já mencionado por Ellen White, o antecede em muito.[^cnpjhist] O povo já existia, pregava, reunia-se e realizava sua missão. Logo, **a existência da Igreja nunca dependeu desse número, de um estatuto específico ou de um registro estatal determinado**. Não se está negando a necessidade de organização; está-se recusando a confusão entre o povo e seu instrumento administrativo.
+
+Quando JESUS CRISTO retornar nas nuvens do céu, com SEUS anjos, ELE não virá buscar terrenos, prédios, carros, equipamentos, contas bancárias, infraestrutura, CNPJs ou papéis de cartório. CRISTO vem buscar pessoas. ELE _“amou a igreja e a si mesmo se entregou por ela”_ para apresentá-la a SI _“gloriosa, sem mácula, nem ruga”_.[^ef525] **Quem será transformado e arrebatado são pessoas.**
+
+Quando foi que algo tão óbvio se tornou controverso?
+
+Pessoas creem; prédios não creem. Pessoas pecam; CNPJs não pecam. Pessoas se arrependem; estatutos não se arrependem. Pessoas guardam os mandamentos; terrenos não guardam mandamentos. Pessoas apostatam; mesas de som não apostatam. Pessoas recebem o selo de DEUS; documentos registrados em cartório não recebem. Pessoas serão salvas ou perdidas.
+
+**Até uma criança é capaz de deduzir isso.** Não é necessário conhecimento avançado de teologia, direito ou administração eclesiástica. Basta distinguir uma pessoa de um objeto, um povo daquilo que possui, a Igreja dos instrumentos que utiliza.
+
+O mesmo princípio vale para a perseguição final. JESUS advertiu que SEUS seguidores seriam odiados, afligidos e mortos por causa de SEU nome.[^mt1022][^mt249] Apocalipse descreve a coerção contra quem se recusa a adorar a besta e sua imagem.[^ap13] **Quem sofre perseguição por fidelidade a DEUS são pessoas.**
+
+Isso NÃO significa que templos e instituições não possam ser fechados, confiscados, apropriados ou destruídos. Podem, inclusive, sofrer ataques no início de uma perseguição. Mas também podem **CONTINUAR existindo** e exercendo sua função sob outro controle. É essa possibilidade que enfatizo: sua sobrevivência material não garante fidelidade espiritual.
+
+Hospitais, escolas, universidades, editoras, propriedades, equipamentos e infraestrutura têm valor social e econômico. **Por que pressupor, sem declaração bíblica ou de Ellen White, que tudo necessariamente será destruído?** Confisco, transferência de controle, apropriação, reutilização e **continuidade institucional** sob outra visão são possibilidades tão concebíveis quanto a destruição. Na avaliação que defendo, são até **mais plausíveis**. Mas **onde a revelação não especifica, não temos direito de transformar especulação em profecia**.
+
+Ellen White revela algo mais sério que o destino dos prédios: o destino de **pessoas <u>professamente</u> adventistas**. A **classe NUMEROSA** de que fala abandona sua posição e passa às fileiras do adversário.[^gc608] Abandonar a fidelidade não significa necessariamente deixar de frequentar um templo. **É possível permanecer no banco e abandonar a VERDADE!** A passagem não exige o rompimento de todo vínculo institucional, mas tampouco afirma que ninguém sairá. Seu ponto é a mudança de lealdade.
+
+Observe: Ellen White não diz que prédios apostatam. **Pessoas apostatam.** Não diz que CNPJs abandonam a mensagem do terceiro anjo. **Professos crentes a abandonam.** Não diz que terrenos passam para as fileiras da oposição. **Pessoas passam.**
+
+Por isso considero perfeitamente possível — e evidente como possibilidade — que estruturas continuem existindo ainda que **TODOS** os que as controlam tenham abandonado sua identidade espiritual. O exemplo de Israel adverte contra confundir pertencimento religioso com aceitação de CRISTO.[^jo111] Isso não prova que todos os administradores atuais já tenham apostatado nem que cada episódio futuro repetirá a mesma forma histórica. A tese permanece: **um prédio pode ficar em pé depois que a VERDADE deixou de ser pregada dentro dele. Uma instituição pode continuar funcionando depois que seus dirigentes abandonaram os princípios que professavam.**
+
+Não confundamos a promessa de permanência da Igreja com uma garantia automática de fidelidade de cada indivíduo ou entidade ligada ao nome adventista. Ellen White declara: _“A igreja talvez pareça como prestes a cair, **mas não cairá**. Ela permanece, ao passo que os pecadores de Sião serão lançados fora no joeiramento — a palha separada do trigo precioso.”_[^me2380]
+
+O que é a Igreja? O corpo de CRISTO, formado por pessoas. Para compreender a aplicação, pense no povo fiel a CRISTO permanecendo enquanto a palha é separada. **É uma explicação da carta, não uma substituição das palavras de Ellen White.** Tampouco se deve reduzir a promessa ao patrimônio ou a uma pessoa jurídica.
+
+Não se propõe sair para fundar uma nova igreja. A advertência contra tratar a Igreja como Babilônia será examinada adiante. Mas também não se pode limitar o sentido de Mensagens Escolhidas 2, p. 380, à dispensa de criar uma instituição: seu contexto trata da crise, da fidelidade e da justiça de CRISTO. **A promessa NÃO é um salvo-conduto para a infidelidade de dirigentes.** O quadro moribundo[^me2380] é grave; a confiança na promessa não o torna saudável. Quanto à fuga, há descrição inspirada de fiéis deixando cidades e vilas durante a crise final; isso não prova que todo vínculo civil terá um único destino.[^gcfuga]
+
+**A Igreja permanece firme, mas os pecadores em Sião são joeirados.** Essa distinção é decisiva.
+
+A sacudidura **JÁ começou**. Em 1850, Ellen White já anunciava esse começo;[^pt1850] em Testemunhos, escreveu: _“Estamos no tempo da sacudidura, tempo em que cada coisa que pode ser abalada o será.”_[^t6332] Em 1902, voltou a afirmar que ela havia começado.[^ms1902] Maranata registra: _“Na verdade, ela já começou”_,[^mar200] com referência interna a The S.D.A. Bible Commentary 4:1161. Há desenvolvimento, intensificação e culminação; **o processo NÃO está inteiramente reservado ao futuro ou ao decreto dominical**.
+
+Isso ajuda a compreender a expressão **Elias atuais**. Malaquias anuncia o envio de Elias antes do grande dia do SENHOR,[^ml45] e Lucas descreve João Batista vindo no espírito e virtude de Elias, para preparar um povo.[^lc117] A aplicação ao tempo do fim precisa conservar esse propósito: arrependimento e preparo, não exaltação do mensageiro.
+
+Ellen White também relaciona a obra de João Batista ao preparo de um povo antes da segunda vinda.[^eliasegw] O paralelo é de missão e fidelidade. Não basta ser contestador ou usar palavras duras para ocupar esse papel.
+
+Portanto, quando se fala em **“Elias atuais”**, não se está autorizando alguém a atribuir a si mesmo infalibilidade ou autoridade profética independente. A expressão deve ser entendida biblicamente: **homens e mulheres que, no espírito da mensagem de Elias, chamam o povo de volta à fidelidade, denunciam apostasia, restauram princípios <u>esquecidos</u> e preparam um povo para o encontro com CRISTO**, baseados não em si mesmos, mas no "está escrito".
+
+Por isso, é preciso extremo cuidado antes de chamar de “perturbador”, “divisionista”, “extremista” ou “inimigo da Igreja” aquele que simplesmente está apontando, pela Bíblia e pelo Espírito de Profecia, um afastamento real da VERDADE. A questão não é se a mensagem incomoda; a questão é **se ela é verdadeira**.
+
+Se DEUS está realizando uma sacudidura, lutar para impedir aquilo que DEUS está usando para sacudir SEU povo pode tornar-se, na prática, **lutar contra a própria obra de DEUS**. O princípio bíblico é solene: _“se é de Deus, não podereis desfazê-la, para que não aconteça serdes também achados combatendo contra Deus”_[^at539].
+
+Portanto, **lutar contra a sacudidura que JÁ começou, quando aquilo que está sendo combatido é efetivamente uma obra de DEUS; lutar contra os “Elias” atuais, quando estes estão de fato apresentando fielmente a mensagem que DEUS determinou para este tempo, É LUTAR CONTRA DEUS**.
+
+A ressalva “quando” não enfraquece a sentença; torna-a biblicamente precisa. Nem todo crítico é Elias, nem toda controvérsia é sacudidura, nem toda mensagem dura vem de DEUS. A Escritura ordena: _“Examinai tudo. Retende o bem”_[^1ts521]. Mas, uma vez demonstrado pela Palavra que determinada advertência é verdadeira, **a rejeição deixa de ser simples discordância com um homem e passa a ser resistência à verdade que ele apresentou**.
+
+Durante a sacudidura, **não será um CNPJ que decidirá permanecer fiel ou apostatar; serão pessoas**. Não será um prédio que escolherá entre o selo de DEUS e a marca da besta; serão pessoas. Não será uma universidade, como ente abstrato, que comparecerá diante de DEUS; serão pessoas. Não será um estatuto que enfrentará a prova final; serão pessoas.
+
+A instituição pode continuar, mudar, ser confiscada, apropriada, reorganizada ou desaparecer. **Nenhuma dessas possibilidades, isoladamente, determina se a Igreja de DEUS caiu ou permaneceu**, porque Igreja e instituição NÃO são equivalentes.
+
+Uma associação é uma associação. Uma corporação é uma corporação. Uma universidade é uma universidade. Um hospital é um hospital. Um CNPJ é um CNPJ. **A Igreja é o corpo de CRISTO.**
+
+Quando alguém afirma que “a Igreja será perseguida”, é necessário perguntar: **qual Igreja? Em qual sentido?** Se fala do povo fiel aos mandamentos de DEUS e à fé de JESUS, há fundamento bíblico. Se afirma que todas as pessoas jurídicas, prédios, hospitais, escolas, universidades e estruturas adventistas necessariamente serão destruídos, extintos, dissolvidos ou inutilizados, **apresente o texto inspirado que declare isso**.
+
+**Não existe direito de transformar uma suposição sobre o destino da instituição em doutrina sobre o destino da Igreja.** Na hipótese que sustento, o valor dessa infraestrutura ajuda a explicar por que ela poderia continuar funcionando enquanto seus responsáveis perdem a fidelidade. Até a preservação do nome pode ser cogitada; não depende, porém, de afirmar que documentos católicos chamem o domingo de verdadeiro sétimo dia. Essa alegação estava errada: a carta apostólica _Dies Domini_ o chama de primeiro dia e, simbolicamente, oitavo.[^domingo] Esse documento é usado apenas para conferir o que ele próprio declara, **NÃO como autoridade teológica**.
+
+A Igreja possui organização, mas **NÃO é a organização**. A Igreja possui instituições, mas **NÃO é a instituição**. A Igreja utiliza pessoas jurídicas, mas **NÃO é o CNPJ**. A Igreja possui patrimônio, mas **NÃO é o patrimônio**. A Igreja utiliza prédios, mas **NÃO é o prédio**.
+
+Isso não é sutileza acadêmica. **É lógica elementar.** Não podemos reproduzir a **hierarquia papal**, colocando a autoridade humana acima da VERDADE. A instituição e sua estrutura, embora extremamente necessárias, não estão acima do povo de CRISTO e muito menos da Palavra: _“Mais importa obedecer a Deus do que aos homens.”_[^at529] **Infelizmente**, é essa reprodução parcial da hierarquia papal que denuncio na organização adventista brasileira.
+
+Uma criança consegue compreender. E a pergunta se torna ainda mais incômoda: **quando foi que o óbvio se tornou heresia?**
+
+Ao final, não será perguntado qual CNPJ sobreviveu, qual prédio permaneceu aberto ou qual instituição preservou seu patrimônio. A questão será muito mais simples e terrível: **quem permaneceu em CRISTO? Quem permaneceu fiel à VERDADE?**
+
+A Igreja **não cairá**; isso não dispensa a fidelidade de quem professa pertencer a ela.[^me2380] Não basta proteger o nome, o cargo e o patrimônio enquanto se combate a mensagem que chama ao arrependimento:
+
+> “Os que são repreendidos pelo Espírito de Deus NÃO devem insurgir-se contra o humilde instrumento. **É Deus, e NÃO um falível mortal**, que falou para salvá-los da ruína.”¹ Não é agradável para a natureza humana receber reprovação, nem é possível para o coração humano, sem ser iluminado pelo Espírito de Deus, perceber a necessidade da reprovação ou a bênção que vem junto com a correção.
+> — Ellen G. White, Testemunhos para a Igreja, v. 5 - Natureza e influência dos testemunhos, p. 682
+
+¹ Testemunhos Para a Igreja 3:257 (1873).
+
+> A maior necessidade do mundo é a de homens — homens que se não comprem nem se vendam; homens que no íntimo da alma sejam **verdadeiros e honestos**; homens que NÃO temam CHAMAR o pecado pelo seu NOME EXATO; homens, cuja **consciência** seja tão fiel ao dever como a bússola o é ao pólo; homens que **permaneçam firmes** pelo que é reto, ainda que caiam os céus.
+> — Ellen G. White, Educação - Vida de grandes homens, p. 57
+
+<!-- AI-PROCESSED:END --><!-- AI-PROCESSED:START -->
+
+A instituição adventista — associação, missão ou qualquer outra entidade — **existe para servir à Igreja Adventista do Sétimo Dia, NÃO o contrário**. Nos nomes institucionais que conheço, vejo associações e missões; não pretendo fazer dessa experiência um catálogo de todas as pessoas jurídicas adventistas. O erro está em confundir a Igreja com o conjunto de entidades que ela utiliza.
+
+**A Igreja remanescente NÃO é Babilônia.** Ellen White rejeita expressamente essa acusação e recorda que a igreja, embora débil, defeituosa e necessitada de repreensão, continua sendo objeto do cuidado de CRISTO.[^ts2babilonia] Sua advertência também alcança quem usa trechos dos Testemunhos para promover divisão enquanto omite os apelos à unidade. A denúncia do pecado precisa respeitar **todo** o testemunho, inclusive a parte que confronta quem denuncia.
+
+Um estatuto não se arrepende, não se converte, não recebe perdão e não é arrebatado para encontrar o SENHOR nos ares. **Mas isso NÃO prova que nenhuma organização possa ser representada por Babilônia.** O símbolo bíblico pode representar uma realidade religiosa coletiva; não precisa ser um papel capaz de sentir ou arrepender-se.[^ap17] A correção dessa dedução não altera o ponto central: **nem um registro civil salva pessoas, nem a denúncia dos males da igreja autoriza declará-la Babilônia**.
+
+Há outro ponto que exige atenção. DEUS não SE contradiz. Ellen White declara:
+
+> Declarei ali em público que o Senhor fora servido de mostrar-me que **NÃO haveria nenhum tempo definido** na mensagem dada por Deus **<u>desde 1844</u>**; e que eu sabia que esta mensagem que quatro ou cinco estavam empenhados em defender com grande zelo, era heresia.
+> — Ellen G. White, Mensagens Escolhidas, v. 2 - Enfrentar as pretensões de falsos profetas, p. 73
+
+O contexto é uma pretensão de estabelecer o fim do tempo de graça em outubro de 1884. **A datação foi rejeitada.** Por outro lado, a Bíblia registra:
+
+> ¹ Quando o Cordeiro abriu o sétimo selo, **houve silêncio no céu cerca de meia hora**.
+> — Bíblia, ARA. Apocalipse 8:1
+
+E Ellen White descreve:
+
+> Todos **nós entramos na nuvem**, e estivemos **sete dias ascendendo** para o mar de vidro, aonde Jesus trouxe as coroas, e com Sua própria destra as colocou sobre nossa cabeça.
+> — Ellen G. White, Primeiros Escritos - Minha primeira visão, p. 16
+
+**Isso NÃO é contradição.** Uma duração narrada não é, por si, uma data de calendário revelada à igreja. Esse é o ponto da distinção que proponho. Mas ele precisa ser expresso com precisão: Apocalipse diz **cerca de** meia hora; não demonstra, por essa expressão sozinha, trinta minutos literais na cronologia que imaginamos. E o relato dos sete dias não permite criar qualquer prazo futuro e declará-lo inspirado. Ellen White também adverte que a mensagem não deve depender de tempo.[^me1tempo] **Distinguir prazo de data NÃO é licença para fabricar uma nova contagem.**
+
+Não quero bater o martelo nem transformar uma hipótese em dogma. Apocalipse 9:15 é um dos textos que considero relevantes à discussão. A ARA diz que os quatro anjos estavam preparados _“para a hora, o dia, o mês e o ano”_.[^ap915] Essa redação permite perceber um momento determinado; não afirma expressamente que quatro durações devam ser somadas. A menção anterior ao grego koiné não será usada como selo de certeza: **não foi demonstrado aqui que a gramática imponha um prazo literal futuro**.
+
+Minha inclinação pessoal ao estudar essa discussão se aproxima de Urias Smith, autor de _Daniel e Apocalipse_. Ellen White recomenda esse livro e afirma seu valor para a obra.[^cesmith] Essa recomendação é real e deve ser levada a sério. **Não equivale, porém, a declarar infalível toda interpretação do comentarista.** A comparação que desejo fazer com o _Comentário Bíblico Adventista_ também não resolve a questão por autoridade editorial: a divergência entre comentaristas precisa ser examinada, e esta carta não a apresenta como prova de um consenso denominacional ou de uma contradição da inspiração. Para estabelecer doutrina, o fundamento aqui permanece **Bíblia e Ellen White**.
+
+Portanto, o raciocínio seguinte é **HIPOTÉTICO**: **SE** houvesse, nesse texto, um prazo futuro aplicável ao período cogitado, **ENTÃO** poderíamos discutir a continuidade de instituições durante ele. Não afirmo que Apocalipse 9:15 demonstre cerca de doze meses literais; além de não ordenar essa leitura, a expressão menciona mês, dia e hora, não apenas um ano. Tampouco a sequência dos capítulos 7, 8 e 9 prova, sozinha, que as trombetas ocorram depois do selamento final ou que a meia hora seja uma descrição da subida dos justos. Essas ligações pertencem à hipótese em exame, **NÃO a uma cronologia comprovada**.[^ap7][^ap81][^ap915]
+
+A possibilidade que interessa à argumentação permanece inteira: **escolas, universidades, hospitais, ADRA, ASA e congregações poderiam continuar funcionando** (se sem dúvida alguma vão)**enquanto o povo fiel fosse perseguido**. Seu **valor social e econômico**, seus bens e a utilidade de sua **infraestrutura** tornam essa continuidade concebível. Isso não significa que cada entidade seja lucrativa nem prova que todas continuarão normalmente, mas **contundentemente** evidencia. **A hipótese de continuidade institucional não precisa de um prazo inventado para ser discutida.**
+
+Seja qual for a interpretação do tempo em Apocalipse 9:15, a declaração de Daniel é clara sobre quem será salvo:
+
+> ¹ Nesse tempo, se levantará Miguel, o grande príncipe, o defensor dos filhos do teu povo, \[...\]
+> — Bíblia, ARA. Daniel 12:1
+
+O versículo anuncia uma angústia sem precedente e a salvação do povo, de quem estiver inscrito no livro.[^dn121] Ellen White descreve fiéis refugiados nas montanhas e outros presos em correntes e calabouços.[^gcfuga] **MIGUEL SE LEVANTA em favor do SEU povo**, não para arrebatar um estatuto, um hospital ou um CNPJ.
+
+Enquanto isso, uma infraestrutura valiosa poderia e, provavelmente irá, permanecer ativa sob mãos infiéis. **É uma possibilidade <u>ÓBVIA</u>, não uma promessa revelada sobre cada instituição.** Mesmo sem resolver aquela hipótese cronológica, a conclusão central não perde um grama de força: **a salvação pertence a pessoas unidas a CRISTO. Nenhuma parede, nenhum patrimônio, nenhum cargo e nenhum nome institucional pode tomar o lugar da fidelidade à VERDADE.**
+
+<!-- AI-PROCESSED:END -->[^ap14]: Bíblia, ACF. [Apocalipse 14:6-12](https://www.bibliaonline.com.br/acf/ap/14)
+
+[^ap1910]: Bíblia, ACF. [Apocalipse 19:10](https://www.bibliaonline.com.br/acf/ap/19)
+
+[^ev344]: [Evangelismo - Firmar e conservar novos conversos, p. 343, 344](https://text.egwwritings.org/book/b11095). Ellen G. White.
+
+[^elias]: Bíblia, ARA. [1 Reis 18:17-18](https://www.bibliaonline.com.br/ara/1rs/18)
+
+[^jo660]: Bíblia, ARA. [João 6:60-69](https://www.bibliaonline.com.br/ara/jo/6)
+
+[^hb1211]: Bíblia, ACF. [Hebreus 12:11](https://www.bibliaonline.com.br/acf/hb/12)
+
+[^mt23]: Bíblia, ARA. [Mateus 23:13-33](https://www.bibliaonline.com.br/ara/mt/23)
+
+[^at1310]: Bíblia, ARA. [Atos 13:9-11](https://www.bibliaonline.com.br/ara/at/13)
+
+[^tt113]: Bíblia, ARA. [Tito 1:13](https://www.bibliaonline.com.br/ara/tt/1)
+
+[^2pe212]: Bíblia, NVI. [2 Pedro 2:12](https://www.bibliaonline.com.br/nvi/2pe/2)
+
+[^jo215]: Bíblia, ARA. [João 2:13-17](https://www.bibliaonline.com.br/ara/jo/2)
+
+[^2tm42]: Bíblia, NVI. [2 Timóteo 4:2](https://www.bibliaonline.com.br/nvi/2tm/4)
+
+[^at539]: Bíblia, ARC. [Atos 5:38-39](https://www.bibliaonline.com.br/arc/at/5)
+
+[^at541]: Bíblia, ARA. [Atos 5:41](https://www.bibliaonline.com.br/ara/at/5)
+
+[^ap3]: Bíblia, ARA. [Apocalipse 3:14-22](https://www.bibliaonline.com.br/ara/ap/3)
+
+[^mt10]: Bíblia, ARA. [Mateus 10:21,34-39](https://www.bibliaonline.com.br/ara/mt/10)
+
+[^lc1251]: Bíblia, ARA. [Lucas 12:51-53](https://www.bibliaonline.com.br/ara/lc/12)
+
+[^lc1426]: Bíblia, ARA. [Lucas 14:26-27](https://www.bibliaonline.com.br/ara/lc/14)
+
+[^sipri]: [SIPRI. Unprecedented rise in global military expenditure as European and Middle East spending surges, 28 abr. 2025. Dados de 2024; corroboram o aumento dos gastos, não a interpretação profética.](https://www.sipri.org/media/press-release/2025/unprecedented-rise-global-military-expenditure-european-and-middle-east-spending-surges)
+
+[^coreia]: [Associated Press. North Korean and Russian military officials discuss further cooperation in Pyongyang, 7 nov. 2025. Documenta a cooperação; não comprova todas as transferências tecnológicas cogitadas.](https://apnews.com/article/10b2bf40d0ba85fe6d24bf689336c4e2)
+
+[^nato]: [OTAN. Countering hybrid threats. Definição de ameaças híbridas; não afirma que uma guerra mundial esteja em curso.](https://www.nato.int/en/what-we-do/deterrence-and-defence/countering-hybrid-threats)
+
+[^mt2436]: Bíblia, ARA. [Mateus 24:36](https://www.bibliaonline.com.br/ara/mt/24)
+
+[^2pe3]: Bíblia, ARA. [2 Pedro 3:9-13](https://www.bibliaonline.com.br/ara/2pe/3)
+
+[^me2380]: [Mensagens Escolhidas, v. 2 - É necessária uma obra de purificação, p. 380](https://text.egwwritings.org/book/b11098). Ellen G. White.
+
+[^lc13contexto]: Bíblia, ACF. [Lucas 13:22-30](https://www.bibliaonline.com.br/acf/lc/13)
+
+[^jo111]: Bíblia, ARA. [João 1:11](https://www.bibliaonline.com.br/ara/jo/1)
+
+[^jo15]: Bíblia, ACF. [João 1:5](https://www.bibliaonline.com.br/acf/jo/1)
+
+[^fp121]: Bíblia, ARA. [Filipenses 1:21-25](https://www.bibliaonline.com.br/ara/fp/1)
+
+[^pe20]: [Primeiros Escritos - Minha primeira visão, p. 20](https://text.egwwritings.org/book/b1957). Ellen G. White.
+
+[^rm122]: Bíblia, ARA. [Romanos 12:2](https://www.bibliaonline.com.br/ara/rm/12)
+
+[^jo154]: Bíblia, ARA. [João 15:4](https://www.bibliaonline.com.br/ara/jo/15)
+
+[^fp213]: Bíblia, ARA. [Filipenses 2:13](https://www.bibliaonline.com.br/ara/fp/2)
+
+[^dn814]: Bíblia, ACF. [Daniel 8:14](https://www.bibliaonline.com.br/acf/dn/8)
+
+[^gc1844]: [O Grande Conflito - Quando começa o julgamento divino, p. 423, 424, 425, 426](https://text.egwwritings.org/book/b11125). Ellen G. White.
+
+[^gc490]: [O Grande Conflito - O grande juízo investigativo, p. 490](https://text.egwwritings.org/book/b11125). Ellen G. White.
+
+[^lvexp]: Bíblia, ACF. [Levítico 16:29-31; 23:27-32](https://www.bibliaonline.com.br/acf/lv/16)
+
+[^hb8]: Bíblia, ARA. [Hebreus 8:1-2](https://www.bibliaonline.com.br/ara/hb/8)
+
+[^hb9]: Bíblia, ARA. [Hebreus 9:23-24](https://www.bibliaonline.com.br/ara/hb/9)
+
+[^gc423]: [O Grande Conflito - Quando começa o julgamento divino, p. 423](https://text.egwwritings.org/book/b11125). Ellen G. White.
+
+[^gc425]: [O Grande Conflito - Quando começa o julgamento divino, p. 425](https://text.egwwritings.org/book/b11125). Ellen G. White.
+
+[^1co612]: Bíblia, ARA. [1 Coríntios 6:12](https://www.bibliaonline.com.br/ara/1co/6)
+
+[^1co1023]: Bíblia, ARA. [1 Coríntios 10:23](https://www.bibliaonline.com.br/ara/1co/10)
+
+[^lc1248]: Bíblia, ARA. [Lucas 12:48](https://www.bibliaonline.com.br/ara/lc/12)
+
+[^2co135]: Bíblia, ARA. [2 Coríntios 13:5](https://www.bibliaonline.com.br/ara/2co/13)
+
+[^rm1311]: Bíblia, ARA. [Romanos 13:11](https://www.bibliaonline.com.br/ara/rm/13)
+
+[^ef514]: Bíblia, ARA. [Efésios 5:14](https://www.bibliaonline.com.br/ara/ef/5)
+
+[^t9261]: [Testemunhos para a Igreja, v. 9 - Espírito de independência, p. 260, 261](https://text.egwwritings.org/book/b1962). Ellen G. White.
+
+[^aa164]: [Atos dos Apóstolos - Arautos do evangelho, p. 163, 164, 165](https://text.egwwritings.org/book/b1806). Ellen G. White.
+
+[^mt716]: Bíblia, ARA. [Mateus 7:15-20](https://www.bibliaonline.com.br/ara/mt/7)
+
+[^1co63]: Bíblia, ARA. [1 Coríntios 6:3](https://www.bibliaonline.com.br/ara/1co/6)
+
+[^dn95]: Bíblia, ARC. [Daniel 9:5-8](https://www.bibliaonline.com.br/arc/dn/9)
+
+[^js711]: Bíblia, ARC. [Josué 7:1-26](https://www.bibliaonline.com.br/arc/js/7)
+
+[^t3269]: [Testemunhos para a Igreja, v. 3 - A igreja de Laodicéia, p. 269, 270](https://text.egwwritings.org/book/b1958). Ellen G. White.
+
+[^tg417]: Bíblia, ARC. [Tiago 4:17](https://www.bibliaonline.com.br/arc/tg/4)
+
+[^ez338]: Bíblia, ARC. [Ezequiel 33:7-9](https://www.bibliaonline.com.br/arc/ez/33)
+
+[^1tm13]: Bíblia, ARA. [1 Timóteo 1:3-4](https://www.bibliaonline.com.br/ara/1tm/1)
+
+[^2tm43]: Bíblia, NVI. [2 Timóteo 4:3](https://www.bibliaonline.com.br/nvi/2tm/4)
+
+[^lar354]: [O Lar Adventista - A família do pastor, p. 354](https://text.egwwritings.org/book/b1955). Ellen G. White.
+
+[^ez337]: Bíblia, ARC. [Ezequiel 33:7](https://www.bibliaonline.com.br/arc/ez/33)
+
+[^is626]: Bíblia, ARC. [Isaías 62:6](https://www.bibliaonline.com.br/arc/is/62)
+
+[^mt16]: Bíblia, ARA. [Mateus 16:16-23](https://www.bibliaonline.com.br/ara/mt/16)
+
+[^me1372]: [Mensagens Escolhidas, v. 1 - “Deixaste o teu primeiro amor”, p. 372](https://text.egwwritings.org/book/b11246). Ellen G. White.
+
+[^pv2130]: Bíblia, ARA. [Provérbios 21:30](https://www.bibliaonline.com.br/ara/pv/21)
+
+[^1co1227]: Bíblia, ARC. [1 Coríntios 12:27](https://www.bibliaonline.com.br/arc/1co/12)
+
+[^cl118]: Bíblia, ARC. [Colossenses 1:18](https://www.bibliaonline.com.br/arc/cl/1)
+
+[^1pe25]: Bíblia, ARC. [1 Pedro 2:5](https://www.bibliaonline.com.br/arc/1pe/2)
+
+[^aa9]: [Atos dos Apóstolos - O propósito de Deus para Sua igreja, p. 9](https://text.egwwritings.org/book/b1806). Ellen G. White.
+
+[^ef525]: Bíblia, ARC. [Efésios 5:25,27](https://www.bibliaonline.com.br/arc/ef/5)
+
+[^mt1022]: Bíblia, ARC. [Mateus 10:22](https://www.bibliaonline.com.br/arc/mt/10)
+
+[^mt249]: Bíblia, ARC. [Mateus 24:9](https://www.bibliaonline.com.br/arc/mt/24)
+
+[^ap13]: Bíblia, ARC. [Apocalipse 13:15-17](https://www.bibliaonline.com.br/arc/ap/13)
+
+[^gc608]: [O Grande Conflito - O último convite divino, p. 608](https://text.egwwritings.org/book/b11125). Ellen G. White.
+
+[^t6332]: [Testemunhos para a Igreja, v. 6 - Reavivamento da obra de colportagem, p. 332](https://text.egwwritings.org/book/b1959). Ellen G. White.
+
+[^pt1850]: [Ellen G. White. The Present Truth, 1 abr. 1850, par. 9.](https://text.egwwritings.org/amp/read/517.53)
+
+[^ms1902]: [Ellen G. White. Manuscrito 173, 1902, par. 25.](https://text.egwwritings.org/amp/read/14067.9055001)
+
+[^mar200]: [Maranata — O Senhor Vem! - O tempo da sacudidura, 11 de julho, p. 201](https://text.egwwritings.org/book/b1922). Ellen G. White.
+
+[^ml45]: Bíblia, ARC. [Malaquias 4:5-6](https://www.bibliaonline.com.br/arc/ml/4)
+
+[^lc117]: Bíblia, ARC. [Lucas 1:17](https://www.bibliaonline.com.br/arc/lc/1)
+
+[^eliasegw]: [Mensagens Escolhidas, v. 2 - Ouvir-se-ão admoestações, p. 150, 151](https://text.egwwritings.org/book/b11098). Ellen G. White.
+
+[^1ts521]: Bíblia, ARC. [1 Tessalonicenses 5:21](https://www.bibliaonline.com.br/arc/1ts/5)
+
+[^domingo]: [João Paulo II. Carta apostólica Dies Domini, §§19 e 26, 31 maio 1998. Fonte primária usada exclusivamente para conferir o que o documento católico declara, não como autoridade teológica.](https://www.vatican.va/content/john-paul-ii/pt/apost_letters/1998/documents/hf_jp-ii_apl_05071998_dies-domini.html)
+
+[^at529]: Bíblia, ARC. [Atos 5:29](https://www.bibliaonline.com.br/arc/at/5)
+
+[^cnpj]: [Receita Federal. Consultar CNPJ — serviço de consulta ao Cadastro Nacional da Pessoa Jurídica](https://www.gov.br/pt-br/servicos/consultar-cadastro-nacional-de-pessoas-juridicas). Fonte administrativa, não teológica.
+
+[^cnpjhist]: [BNDES. Assinatura digital e sociedade empresária, seção 2: CNPJ e e-CNPJ](https://web.bndes.gov.br/bib/jspui/bitstream/1408/22224/1/PR_Assinatura%20digital%20e%20sociedade%20empres%C3%A1ria_215180_P.pdf). Registra criação pela IN SRF 27/1998 e vigência em 1º de julho de 1998.
+
+[^gcfuga]: [O Grande Conflito - O tempo de angústia, p. 626, 627](https://text.egwwritings.org/book/b11125). Ellen G. White.
+
+[^ts2babilonia]: [Testemunhos Seletos, v. 2 - A igreja remanescente não é Babilônia, p. 355, 360, 362, 363](https://text.egwwritings.org/read/1964.1764). Ellen G. White.
+
+[^ap17]: Bíblia, ARA. [Apocalipse 17:1-6,18](https://www.bibliaonline.com.br/ara/ap/17)
+
+[^me1tempo]: [Mensagens Escolhidas, v. 1 - Cuidado com a marcação de datas, p. 188, 189](https://text.egwwritings.org/book/b11246). Ellen G. White.
+
+[^cesmith]: [O Colportor Evangelista - Os grandes livros de nossa mensagem, p. 123, 124](https://text.egwwritings.org/book/b1954). Ellen G. White. Recomendação do livro de Urias Smith, não declaração de infalibilidade de cada interpretação.
+
+[^ap915]: Bíblia, ARA. [Apocalipse 9:13-21](https://www.bibliaonline.com.br/ara/ap/9)
+
+[^ap7]: Bíblia, ARA. [Apocalipse 7:1-17](https://www.bibliaonline.com.br/ara/ap/7)
+
+[^ap81]: Bíblia, ARA. [Apocalipse 8:1-6](https://www.bibliaonline.com.br/ara/ap/8)
+
+[^dn121]: Bíblia, ARA. [Daniel 12:1-3](https://www.bibliaonline.com.br/ara/dn/12)

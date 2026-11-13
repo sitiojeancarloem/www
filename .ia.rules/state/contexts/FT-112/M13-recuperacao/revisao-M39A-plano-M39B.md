@@ -1,0 +1,11 @@
+# M39A aceita como localização parcial; M39B contexto/página
+
+Job 71a96c3c-26f1-48c7-b0f0-8e30589cc331 consultado uma vez. fonte_uza_m39a exit0; resultado oficial located, não confirmed. EPUB e artigo preservados pelos hashes, artigo 009103297c963d1f1f9ab905e900891ce5d76c80975049794aee59885a5124f4. Git determinístico dev ahead73, zero commits Worker; único relatório alterado, demais arquivos herdados. Commit supervisor.
+
+Fonte recuperada em OEBPS/content69.xhtml, Patriarcas e Profetas, pep.epub. Contexto mostra gesto de amparar arca, espanto de Davi e começa 'A sorte de Uzá foi um juízo divino pela violação de um mandado explícito', mas termina antes da explicação. Primeira ocorrência em content44/Acã não contém episódio de Uzá no contexto e não é aproveitada; query curta normalizada tem resultado irrelevante. Não confundir score=1/localização com prova da afirmação. Nenhuma motivação relativa a recém-chegados foi estabelecida por M39A.
+
+M39B: reutilizar documento content69 já descoberto via epub_documents oficial e extrair somente janela de 180 caracteres antes até 5000 depois da frase literal 'A sorte de Uzá'. Não refazer busca EPUB. Em paralelo lógico no mesmo wrapper, consulta oficial PDF de frase exata 'A sorte de Uzá', título/idioma conhecidos, tolerância zero, contexto 1200 e limite 2. Biblioteca somente leitura, sem rede. Não inventar paginação editorial; guardar localização física obtida, depois conferir identidade/impresso se a fonte for citada. Primeiro obter evidência, decisão interpretativa fica no supervisor.
+
+capturar-M39B.py escreve somente egw-M39B-contexto.json; pré-condição pending, hashes de EPUB/PDF/artigo antes/depois. Estado captured só para processo oficial exit0 e hashes iguais; estados do mecanismo preservados. Falha mantém diagnóstico/exit não zero. Dependências/runtime e APIs já confirmados nos comparadores M37 e M39A. expect_changes=true no relatório, commit supervisor. Sem edição do artigo, fonte, core, _site, dependências, estado global ou instalação/Worker. Não repetir M39A ou outros gates aprovados.
+
+Aceite: evidência contextual/página preservada e revisão do supervisor distinguindo motivação histórica de aplicação autoral; nenhuma transformação automática da afirmação em hipótese. A tarefa geral continua aberta.

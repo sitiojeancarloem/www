@@ -1,0 +1,28 @@
+[
+  {
+    "hunk": 2,
+    "header": "@@ -213,6 +78,7 @@ Ellen White também foi acusada de severidade. Ela NÃO se arrependeu de repreen",
+    "removed": [],
+    "added": [
+      "{: data-jcem-caption=\"Termos de Mateus 23 e comparações retóricas do autor\"}"
+    ]
+  },
+  {
+    "hunk": 3,
+    "header": "@@ -396,7 +262,7 @@ Portanto, o problema não era obedecer rigorosamente ao que DEUS ordenou, mas se",
+    "removed": [
+      "A **vitória sobre o pecado** é possível pelo poder de CRISTO e deve ser buscada. Não é uma concessão facultativa à qual possamos renunciar para preservar nossos pecados prediletos. Ellen White escreve: _“Caímos repetidamente em pecado, e pensamos que isso deve ser sempre assim.”_[^majvitoria] A resposta, no mesmo capítulo, é inequívoca: _“mediante o poder que nos deu, é-nos possível resistir ao mundo, à carne e ao diabo”_.[^majvitoria] Em outra passagem: _“Não há desculpas para pecar. Uma santa disposição, uma vida cristã, são acessíveis a todo filho de Deus, arrependido e crente.”_[^dtnvitoria] Sobre o meio dessa vitória: _“Cristo deu Seu Espírito como um poder divino para vencer toda tendência hereditária e cultivada para o mal, e gravar Seu próprio caráter em Sua igreja.”_[^dtnespirito] Em *Obreiros Evangélicos*, a promessa é igualmente explícita: _“Cristo prometeu que o Espírito Santo habitaria naqueles que lutam pela vitória sobre o pecado”_[^oevitoria], concedendo poder sobrenatural ao instrumento humano. E, em *The Signs of the Times*, CRISTO veio para que, por SEU poder, os seres humanos obtivessem _“the victory over sin”_[^stvitoria] — **a vitória sobre o pecado**. São afirmações sobre **possibilidade, dever e poder divino**. Não autorizam transformar a rendição ao pecado em destino inevitável."
+    ],
+    "added": [
+      "A **vitória sobre o pecado** é possível pelo poder de CRISTO e deve ser buscada. Não é uma concessão facultativa à qual possamos renunciar para preservar nossos pecados prediletos. Ellen White escreve: _“Caímos repetidamente em pecado, e pensamos que isso deve ser sempre assim.”_[^majvitoria] A resposta, no mesmo capítulo, é inequívoca: _“mediante o poder que nos deu, é-nos possível resistir ao mundo, à carne e ao diabo”_.[^majvitoria] Em outra passagem: _“Não há desculpas para pecar. Uma santa disposição, uma vida cristã, são acessíveis a todo filho de Deus, arrependido e crente.”_[^dtnvitoria] Sobre o meio dessa vitória: _“Cristo deu Seu Espírito como um poder divino para vencer toda tendência hereditária e cultivada para o mal, e gravar Seu próprio caráter em Sua igreja.”_[^dtnespirito] Em _Obreiros Evangélicos_, a promessa é igualmente explícita: _“Cristo prometeu que o Espírito Santo habitaria naqueles que lutam pela vitória sobre o pecado”_[^oevitoria], concedendo poder sobrenatural ao instrumento humano. E, em _The Signs of the Times_, CRISTO veio para que, por SEU poder, os seres humanos obtivessem _“the victory over sin”_[^stvitoria] — **a vitória sobre o pecado**. São afirmações sobre **possibilidade, dever e poder divino**. Não autorizam transformar a rendição ao pecado em destino inevitável."
+    ]
+  },
+  {
+    "hunk": 4,
+    "header": "@@ -411,7 +277,6 @@ E há uma cena que destrói a pretensão de trocar a graça pela autoglorificaç",
+    "removed": [
+      ""
+    ],
+    "added": []
+  }
+]

@@ -1,0 +1,14 @@
+[
+  {
+    "before": "Minha aplicação é direta: não trocar essa tristeza pelo pecado por festividade, “confraternizações” ou entretenimentos que sirvam para abafar a consciência. Esse comentário é meu, não parte da citação.",
+    "after": "A aplicação é direta: **NÃO trocar** essa tristeza pelo pecado por festividade, “confraternizações” ou entretenimentos que sirvam para abafar a consciência."
+  },
+  {
+    "before": "A expressão “qual nunca houve”, se empregada como ênfase autoral, não pode ser inserida nessa passagem como palavras da autora, nem usada para inventar uma nova lei moral.",
+    "after": "Há, portanto, uma **distinção real de deveres e rigor**: a obra é **ESPECIAL**, e essa exigência não pode ser reduzida à simples repetição do que já se conhecia antes de 1844."
+  },
+  {
+    "before": "O “qual nunca houve” de Daniel descreve a angústia anunciada; não é autorização para fabricar novas proibições morais.[^dn121] Mas tampouco podemos apagar a singularidade do momento e a gravidade da preparação.",
+    "after": "Daniel anuncia uma angústia **qual nunca houve**.[^dn121] A singularidade do momento e a gravidade da preparação **NÃO podem ser apagadas**."
+  }
+]

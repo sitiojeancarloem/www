@@ -1,0 +1,26 @@
+Evidência persistida delta; linhas 160-184. Fragmento 4/5; não representa inventário completo.
++Por si mesmos e em segredo, aplicam disciplina como **SE** fossem a autoridade suprema. É precisamente isso que chamo de **romanismo** ou “hierarquia papal”: autoridade humana colocada acima da **VERDADE** e da consciência. Desprezam transparência, ordem, respeito, defesa e apuração, substituindo-os por suspeitas. A acusação é sobre esse **modo de agir**; não depende de afirmar que todas as estruturas históricas sejam idênticas. _Modus operandi_ é aqui minha expressão para esse procedimento, não uma citação literal atribuída a determinada tradução de _O Grande Conflito_.
+ 
+ <!-- AI-PROCESSED:END -->
+ 
+@@ -920,7 +785,7 @@ O versículo anuncia uma angústia sem precedente e a salvação do povo, de que
+ 
+ [^gcsabado]: O Grande Conflito - Como começaram as trevas morais, p. 52, 53. Ellen G. White. A passagem descreve a depreciação do sábado como instituição judaica e, em seguida, o decreto dominical de Constantino no século IV; não limita o processo ao século I.
+ 
+-[^egitoroma]: Bíblia, ARA. Ezequiel 29:14–15: rebaixamento do reino do Egito, não transformação de todo o país em deserto. Para o desenvolvimento gradual do poder religioso romano, cf. Ellen G. White, *O Grande Conflito*, cap. 3. A comparação desta carta é sobre processos graduais, não uma cronologia exaustiva de cumprimento.
++[^egitoroma]: Bíblia, ARA. Ezequiel 29:14–15: rebaixamento do reino do Egito, não transformação de todo o país em deserto. Para o desenvolvimento gradual do poder religioso romano, cf. Ellen G. White, _O Grande Conflito_, cap. 3. A comparação desta carta é sobre processos graduais, não uma cronologia exaustiva de cumprimento.
+ 
+ <!-- AI-PROCESSED:START -->[^ap1217]: Bíblia, ARA. Apocalipse 12:14–17; 13:1–18; 17:1–6. [O Grande Conflito - A causa da degradação atual, p. 381](https://text.egwwritings.org/book/b11125). Ellen G. White: mulher virtuosa e mulher apóstata simbolizam a igreja pura e a igreja apóstata. A identificação das duas mulheres em fases distintas é defendida por intérpretes adventistas, incluindo Ranko Stefanovic; sua posição e seus argumentos são documentados por Davidson Razafiarivony, [“Is the Woman of Revelation 17 the Same Woman of Revelation 12?”, p. 1, 2](https://www.biblicaltheology.com/Research/RazafiarivonyD02.pdf), artigo que a examina criticamente. Essa documentação comprova a existência e a sustentação da hipótese na discussão adventista, sem atribuir consenso a uma interpretação debatida.<!-- AI-PROCESSED:END -->
+ 
+@@ -930,17 +795,17 @@ O versículo anuncia uma angústia sem precedente e a salvação do povo, de que
+ 
+ [^dtnespirito]: O Desejado de Todas as Nações - Não se turbe o vosso coração, p. 475 na paginação editorial do EPUB consultado; p. 592 impressa no PDF correspondente. A passagem atribui a resistência e a vitória à operação do ESPÍRITO SANTO, não à capacidade humana independente. Ellen G. White.
+ 
+-[^oevitoria]: Obreiros Evangélicos - O Espírito Santo, p. 286 na edição portuguesa consultada; cf. *Gospel Workers* (1915), p. 285, § 3. [Original inglês](https://m.egwwritings.org/en/book/35.1466). O contexto é a dedicação contínua, a transformação do caráter e a eficácia pessoal da redenção pela atuação do ESPÍRITO. Ellen G. White.
++[^oevitoria]: Obreiros Evangélicos - O Espírito Santo, p. 286 na edição portuguesa consultada; cf. _Gospel Workers_ (1915), p. 285, § 3. [Original inglês](https://m.egwwritings.org/en/book/35.1466). O contexto é a dedicação contínua, a transformação do caráter e a eficácia pessoal da redenção pela atuação do ESPÍRITO. Ellen G. White.
+ 
+-[^stvitoria]: Ellen G. White, *The Signs of the Times*, 26 de agosto de 1903, “Our Helper”, § 2: “that in His power they might obtain the victory over sin” — “para que, em Seu poder, obtivessem a vitória sobre o pecado” (tradução nossa). [Texto original](https://text.egwwritings.org/read/820.18725). O parágrafo apresenta CRISTO como fiador e vencedor em favor do ser humano.
++[^stvitoria]: Ellen G. White, _The Signs of the Times_, 26 de agosto de 1903, “Our Helper”, § 2: “that in His power they might obtain the victory over sin” — “para que, em Seu poder, obtivessem a vitória sobre o pecado” (tradução nossa). [Texto original](https://text.egwwritings.org/read/820.18725). O parágrafo apresenta CRISTO como fiador e vencedor em favor do ser humano.
+ 
+ [^crencacrescimento]: Associação Geral dos Adventistas do Sétimo Dia, [crença fundamental nº 11, “Growing in Christ”](https://adventist.org/beliefs/official/growing-in-christ). Corroboração institucional da transformação, do crescimento e do serviço pelo poder do ESPÍRITO, sem fazer da declaração uma prova de determinada cronologia de cessação do pecado.
+ 

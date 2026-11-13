@@ -1,0 +1,13 @@
+{
+  "before": "bf152ff4c0fcbced951734a10a0c49520dc35e421fcab6ff4188c06696b5d9d7",
+  "receipt": "aplicacao-M34-caption.json",
+  "evidence": [],
+  "edits": [
+    {
+      "before": "|\n\n{: data-jcem-caption=\"Termos de Mateus 23 e comparações retóricas do autor\"}",
+      "after": "|\n{: data-jcem-caption=\"Termos de Mateus 23 e comparações retóricas do autor\"}",
+      "kind": "mechanical"
+    }
+  ],
+  "scope": "Remover exclusivamente a linha vazia entre tabela e IAL para associar a legenda existente à tabela, preservando todo texto, argumentos e retórica."
+}

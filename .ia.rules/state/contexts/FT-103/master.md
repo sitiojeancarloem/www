@@ -1,6 +1,6 @@
 # Contexto mestre — FTs 103 a 105
 
-Estado: inicializadas; FT-103 em equalização normativa.
+Estado: FT-103 concluída no histórico; FT-104 em implementação autorizada. FT-105 depende da implementação.
 
 ## Objetivo
 
@@ -17,3 +17,23 @@ Consolidar uma semântica forte e operacional de resiliência: falha contornáve
 - Segurança, autorização, escopo e contrato prevalecem sobre qualquer fallback.
 - Ausência de alternativa legítima não autoriza improvisação nem simulação de sucesso.
 - A implementação deve reutilizar os contratos de scripts, hooks, fallbacks e longa duração já gerenciados.
+
+## Plano da FT-104
+
+1. Implementar motor local puro e síncrono de alternativas finitas em .ia.rules/local/runtime/resilient-operation.ts; sem I/O, subprocessos ou alteração do núcleo.
+2. Validar matriz de estados, elegibilidade, pós-condição e preservação; preparar artefato JavaScript por compilação TypeScript e documentar contrato.
+3. Integrar ao mecanismo de processos longos somente por composição, sem reproduzir timeout/cancelamento; validar na FT-105.
+
+Checkpoint: long-running.ts fornece processos, timeout e retomada, mas não executor de alternativas nem preservação transacional do estado funcional. A afirmação anterior do worker sobre essa preservação foi rejeitada. Consulta oficial da release v0.1.14-rc5 apontou apenas package.json desatualizado (jobs 9479e1c3/efe47108); núcleo analisado sem delta no plano. Atualização efetiva fica separada porque há alterações herdadas em _site e commits locais; não executar push automático desses commits. Baseline inicial Node22.21.0; compilador TypeScript presente. Node24.19.0 posteriormente aprovado no job 88ae962c-9fc0-41a5-9bf0-dcc6797c6604.
+
+## Retomada após integração de execução única — 2026-10-09
+
+Implementados e versionados: executor síncrono resilient-operation, classificador process-outcome e adaptador async verified-process, com fontes TS, builds CommonJS e testes permanentes em scripts/test_*process*.ts e scripts/test_resilient_operation.ts.
+Integração real aprovada: scripts/test_verified_process_integration.ts, commit 090649d1f5, job 698aee2b-a18f-40a1-935a-1cd1fd118da8; tipos e runtime exit0. Dois processos Node curtos provaram sucesso e saída3; resume reutilizou completed sem reexecutar e a nova pós-condição rejeitou candidato adulterado. Fixture própria limpa após sucesso.
+Fronteira: core intacto; executeVerifiedProcess aguarda uma execução, verifica candidato e preserva snapshot JSON, sem autorizar fallback ou desfazer IO. running/timeout/cancelamento/resultado desconhecido bloqueiam avanço automático. Alternativas finitas existem no motor puro; composição entre múltiplos processos não foi comprovada por este teste.
+Baseline Node24.19.0 aprovado: checagem estrita e quatro suítes exit0 no job 88ae962c-9fc0-41a5-9bf0-dcc6797c6604, incluindo integração real. Guia .ia.rules/local/runtime/README.md documenta composição e limites.
+Próximo: fechar gates de governança/rastreabilidade da FT-104; então completar regressão da FT-105. FTs permanecem abertas; sem push ou alteração de _site.
+
+## Transição técnica — FT-104 para FT-105
+
+FT-104 tecnicamente concluída; aceite humano pendente. Auditoria: c759ba6dc7 e auditoria-ft104.md. Dez vínculos RCF validados; tipos e quatro suítes Node24 aprovados. Gate global com falha externa conhecida permanece sem aprovação. FT-105 liberada: provar alternativas finitas entre processos, esgotamento, preservação e ausência de bypass; não repetir a integração de execução única já aceita.

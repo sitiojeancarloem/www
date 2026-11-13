@@ -1,0 +1,7 @@
+# M28 — referência e grafia da analogia do carteiro
+
+Entrada: carta 95532b845bd920a4001242b4ccbd729cd452c5bb9a89b89450699a8f44413ce3; Mt21 conferido em M27 e commit be03dcdf84. Oito edições mecânicas exatas, sem reescrita: seis correções de grafia/concordância/reverência, uma chamada e uma definição. Todas as âncoras têm ocorrência única; ID lavradoresmaus inexistente. Adaptador já conferido exige fonte captured, hash e ausência de recibo; aplicação única e diff --check. Sem marca IA nova para correção puramente mecânica, conforme contrato oficial.
+
+Invariantes: autoridade na mensagem e não em superioridade pessoal; carteiro/órgão governamental/CNH; acusar, agredir, oprimir, difamar, silenciar; revelar espírito maligno; ESTÁ ESCRITO e advertência divina; opinião pessoal pouco importa; “o que aliás seria ridículo”; DEUS/homem; testemunho/interpretação não infalíveis; preferência pessoal subordinada ao que DEUS disse. Nenhum argumento é suprimido, convertido em hipótese ou abrandado. Nenhum disclaimer adicionado. CNH é analogia retórica e não orientação jurídica.
+
+Aceite: recibo com oito regiões; diff --check exit0; reconstrução exata e commit supervisor. Unidade não trata outros usos da palavra carteiro já corretos no corpo, nem parêntese Ap18, outras instruções, tabela e validação final. Próxima unidade deve retomar a integração cronológica do parêntese a partir do inventário e excertos de sermão já preservados, sem reiniciar exploração recuperável.

@@ -1,0 +1,25 @@
+const fs=require('fs'),path=require('path'),crypto=require('crypto');
+const root=path.resolve(__dirname,'../../../..');
+const {applyEditorialEdits}=require(path.join(root,'.ia.rules/core/runtime/scripts/editorial-authoring.js'));
+const file=path.join(root,'_drafts/carta-aberta-hierarquia-romanda-na-igreja');
+const original=fs.readFileSync(file,'utf8');
+const hash=s=>crypto.createHash('sha256').update(s).digest('hex');
+if(hash(original)!==JSON.parse(fs.readFileSync(path.join(__dirname,'base-retomada.json'))).sha256)throw Error('Base mudou');
+const previous=fs.readFileSync(path.join(__dirname,'corpo-final.md'),'utf8');
+let replacement=fs.readFileSync(path.join(__dirname,'abertura-retomada.md'),'utf8');
+replacement=replacement.replace(/@@QUOTE:(.*?)@@/g,(_,prefix)=>{
+ const blocks=previous.match(/^> .+\r?\n> — .+(?:\r?\n\r?\n¹ [^\r\n]+)?/gm)||[];
+ const matches=blocks.filter(b=>b.startsWith('> '+prefix));
+ if(matches.length!==1)throw Error('Citação não unívoca: '+prefix);
+ return matches[0];
+});
+const end=original.indexOf('Quando eu entrei na igreja,');
+if(end<0)throw Error('Fronteira ausente');
+const result=applyEditorialEdits(original,[{start:0,end,expected:original.slice(0,end),replacement:'\n\n'+replacement+'\n',kind:'editorial',reason:'FT-112 M02a: revisão da abertura com preservação explícita da intensidade'}]);
+const used=new Set([...replacement.matchAll(/\[\^([^\]]+)\]/g)].map(m=>m[1]));
+const notes=previous.split(/\r?\n/).filter(l=>/^\[\^/.test(l)&&used.has(l.match(/^\[\^([^\]]+)/)[1]));
+if(notes.length!==used.size)throw Error('Nota ausente');
+const header=fs.readFileSync(path.join(__dirname,'cabecalho-historico.md'),'utf8');
+fs.writeFileSync(file,header+'\n'+result.markedOutput+'\n\n'+notes.join('\n')+'\n');
+fs.writeFileSync(path.join(__dirname,'aplicacao-abertura.json'),JSON.stringify({before:hash(original),after:hash(fs.readFileSync(file)),sourceEnd:end,regions:result.regions,notes:notes.length,quotes:4},null,2)+'\n');
+console.log('M02a aplicada; restante original preservado; '+notes.length+' referências.');

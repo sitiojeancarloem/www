@@ -1,0 +1,9 @@
+# M33A4 — execução realizada, gate de caption falhou; M34
+
+Job 2a1993a4-5f17-473c-94d6-cf6daf676ce3 consultado uma vez. WORKER_INCOMPLETE durante renderizar_m33a4 exit 1; não é infraestrutura: Jekyll::Errors::FatalException tabela_sem_caption. Sequência alcançou renderização após patch e sintaxe; efeitos do patch persistidos, não repetir aplicar-M33A4.cjs. Relatório e HTML diagnósticos foram gerados, demonstrando que a proteção de falha agora funciona. Isso não significa gates aprovados.
+
+Causa comprovada: fonte linha 83 vazia entre última linha da tabela e IAL data-jcem-caption (linha 84). HTML diagnóstico tem table sem legenda e parágrafo seguinte com data-jcem-caption. Configuração real usa GFM/hard_wrap false, compatível com verificador. Não alterar plugin nem acrescentar legenda duplicada: corrigir associação da legenda existente removendo somente essa linha vazia. Conteúdo e retórica intactos. Fonte antes da M34 permanece bf152ff4c0fcbced951734a10a0c49520dc35e421fcab6ff4188c06696b5d9d7.
+
+Git determinístico dev ahead60, zero commits Worker; alterados adaptador, HTML e relatório M33, demais arquivos herdados. Commit deste checkpoint registra falha real e adaptação aplicada, sem alegar aprovação do artigo. Resultado e relatório preservados em Git antes da nova execução.
+
+M34: mecanismo existente aplicar-plano-editorial.cjs recebe plano-M34-caption.json, uma única edição mechanical, com hash-base, âncora única e recibo novo. Executar patch uma vez, depois renderizador M33 uma vez, depois diff_check dirigido ao artigo. Interromper na primeira falha e preservar efeitos/diagnósticos. Não modificar qualquer outro conteúdo, plugin, dependência, instalação, _site ou estado global. Commit supervisor após conferir resultado/recibo e gates. Não publicar. Ausência de falhas neste gate não substitui conferência global de preservação e completude da FT-112.

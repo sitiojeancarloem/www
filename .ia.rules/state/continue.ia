@@ -188,34 +188,38 @@ verificacoes=Check online e duplicidade aprovados; issue aberta sem responsável
 pendencias=Aceite humano do TODO e qualquer acompanhamento futuro da issue permanecem externos e exigem nova autorização.
 historico=.ia.rules/state/history/FT-099.ia|sha256=f464462839f9b7f759037c7460bc5d89737e56d7bfc592c88601df03b32f6c9f
 
-FT-101|nome=Implementação da verificação reutilizável de fontes EGW|escopo=tecnico|status=em_andamento|autorizacao=humana
+FT-101|nome=Implementação da verificação reutilizável de fontes EGW|escopo=tecnico|status=concluida|autorizacao=humana|conclusao=2026-10-08T03:13:00.454Z|validacao=pendente_desenvolvedor
 objetivo=Implementar Skill local, descritor, configuração e script determinístico somente leitura para EPUB/PDF.
 origem=.ia.rules/state/requests/FT-100/prompt.md
 contexto=.ia.rules/state/contexts/FT-100/master.md
 dependencias=FT-100
-plano=[em_andamento] implementar Skill, configuração e parser; [pendente] validar contrato, segurança e documentação
-pendencias=FT-100 validada; retomada humana em 2026-09-30 autoriza completar FTs 101 e 102.
+retomada=Autorização humana de 2026-09-30 para completar FTs 101 e 102; implementação da FT-101 concluída, integração remanescente na FT-102.
+resultado=Script, Skill, descritor, guia e índice documental versionados; identidade EPUB/PDF e limites descomprimidos corrigidos.
+verificacoes=Fixtures EGW aprovadas; descritor e validador oficial da Skill aprovados; EPUB acima do limite rejeitado sem mutação da fonte.
+pendencias=Integracao em biblioteca real e aceite global pertencem a FT-102; validacao humana permanece pendente.
+historico=.ia.rules/state/history/FT-101.ia|sha256=a4a785b52928cea2f81b45eb646f1ce97e977f65c7ebfc7913b2976947d3911d
 
-FT-102|nome=Integração e validação da verificação de fontes EGW|escopo=tecnico|status=registrada_bloqueada_por_dependencia|autorizacao=humana
+FT-102|nome=Integração e validação da verificação de fontes EGW|escopo=tecnico|status=em_andamento|autorizacao=humana
 objetivo=Provar fixtures, caso real, roteamento, estados de evidência, limites e preservação do draft e da biblioteca externa.
 origem=.ia.rules/state/requests/FT-100/prompt.md
 contexto=.ia.rules/state/contexts/FT-100/master.md
 dependencias=FT-101
-pendencias=Aguardar a implementação da FT-101.
+pendencias=FT-101 tecnicamente concluída; executar integração real somente leitura com raiz e consulta explícitas, hashes antes/depois e diagnóstico de dependência PDF.
 
-FT-104|nome=Implementação da semântica forte de resiliência|escopo=tecnico|status=registrada_bloqueada_por_dependencia|autorizacao=humana
+FT-104|nome=Implementação da semântica forte de resiliência|escopo=tecnico|status=concluida|autorizacao=humana|conclusao=2026-10-12T01:59:00.847Z|validacao=pendente_desenvolvedor
 objetivo=Aplicar o contrato no mecanismo reutilizável e nos validadores sem criar retry ilimitado.
 origem=.ia.rules/state/requests/FT-103/prompt.md
-contexto=.ia.rules/state/contexts/FT-103/master.md
-dependencias=FT-103
-pendencias=Aguardar a FT-103.
+resultado=Executor local, classificador e adaptador de execução única implementados; auditoria versionada em c759ba6dc7.
+verificacoes=Node24: tipos e quatro suítes exit0 (job56c15176); dez vínculos RCF validados (job7a4bfd71); auditoria de fonte e artefatos preservada.
+pendencias=Aceite humano; regressão entre múltiplos processos reservada à FT-105. Gate global possui falha externa conhecida em RCFs/bate-papo.md:12; sem alegação de aprovação global.
+historico=.ia.rules/state/history/FT-104.ia|sha256=ef15eddd6ce329d43e77458b2ef228ad70ef16885c189b3831af9f582c842ae5
 
-FT-105|nome=Integração e validação da resiliência|escopo=tecnico|status=registrada_bloqueada_por_dependencia|autorizacao=humana
+FT-105|nome=Integração e validação da resiliência|escopo=tecnico|status=em_andamento|autorizacao=humana
 objetivo=Provar conclusão por alternativa, esgotamento real, preservação de estado e ausência de bypass.
 origem=.ia.rules/state/requests/FT-103/prompt.md
 contexto=.ia.rules/state/contexts/FT-103/master.md
 dependencias=FT-104
-pendencias=Aguardar a FT-104.
+pendencias=Executar regressão de alternativas finitas entre processos, esgotamento, preservação e ausência de bypass; FT-104 tecnicamente concluída, aceite humano pendente.
 
 FT-107|nome=Implementação da fonte de dados e pipeline de QR|escopo=tecnico|status=registrada_bloqueada_por_dependencia|autorizacao=humana
 objetivo=Implementar JSON canônico, QR client-side, cópia, expansão, download, decodificação e assets comuns.
@@ -251,3 +255,20 @@ origem=.ia.rules/state/requests/FT-106/prompt.md
 contexto=.ia.rules/state/contexts/FT-106/master.md
 dependencias=FT-108,FT-109,FT-110
 pendencias=Aguardar as FTs 108 a 110.
+
+FT-112|nome=Revisão integral da carta aberta|escopo=negocio|status=concluida|autorizacao=humana|retomada=2026-10-17|conclusao=2026-10-18T07:53:08.652Z|validacao=pendente_desenvolvedor
+contexto=.ia.rules/state/contexts/FT-112/M13-recuperacao/checkpoint.md
+objetivo=Integrar as adições autorais e cumprir a revisão integral da mesma carta, preservando argumentos e força retórica, com fontes verificadas; localWorker expressamente autorizado por instrução humana posterior.
+origem=.ia.rules/state/requests/FT-112/prompt.md
+resultado=Revisão integral e ampliações autorais executadas no draft .md atual, com firmeza preservada e correções factuais documentadas. Entrega 26d5a815cd; relatório M13-recuperacao/fechamento-M42.md. SHA final 549c46c77e77ad40e6817a4fd34f21a83854f9441cad957094c5b9d0352290c4.
+verificacoes=M40 render: 44 blocos, 200 chamadas, 160 notas, tabela acessível, zero avisos/destinos quebrados. M41: 25 blocos bíblicos numerados. M37: 44 blocos e 60 inline lexicais; M38/M38A preservação e ST. M42: YAML, imagem, corpo byte a byte preservado e diff_check exit0.
+pendencias=Sem pendência de execução editorial. Leitura/aceite autoral continuam humanos. Sem publicação/push; limites em fechamento-M42.md.
+historico=.ia.rules/state/history/FT-112.ia|sha256=6a48dbeea769e4322404e4448e6f6d93a157fe6dcec4311bc772cd6f7e8ecda8
+
+FT-116|nome=Integração preservadora do remoto e alterações locais|escopo=tecnico|tipo=operacional|status=em_andamento|autorizacao=humana|criado_em=2026-11-13T13:35:00-03:00
+objetivo=Concluir o merge iniciado de origin/dev com a evolução local e fazer push sem perda de conteúdo.
+origem=.ia.rules/state/requests/FT-116/prompt.md
+contexto=.ia.rules/state/contexts/FT-116/master.md
+resultado=Conflitos da FT-101 conciliados; preservação de ambos os lados comprovada; build público e testes focados aprovados.
+plano=[concluido] conciliação e auditoria; [concluido] validação aplicável; [em_andamento] commit e push para origin/dev.
+pendencias=Confirmar push. Gate integral mantém falhas recebidas de imagens sociais, legenda no draft e inventário documental; main não será convergida sem sistema global funcional.

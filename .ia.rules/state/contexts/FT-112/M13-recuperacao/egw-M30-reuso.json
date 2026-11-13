@@ -1,0 +1,89 @@
+{
+  "schema": "ft112-reused-evidence/v1",
+  "items": [
+    {
+      "origin": "egw-evidencias.json",
+      "origin_sha256": "2cc95d7a13b0834d99fa9e4dfcb893a9a55f4aa4f3483f7568b55429c063bda0",
+      "index": 12,
+      "evidence": {
+        "book": "o-grande-conflito",
+        "query": "Ao aproximar-se a tempestade",
+        "occurrences": [
+          {
+            "format": "epub",
+            "path": "pt-br/livros/o-grande-conflito/ogc.epub",
+            "bookKey": "ogc",
+            "title": "O Grande Conflito",
+            "language": "pt",
+            "location": "OEBPS/content38.xhtml",
+            "context": "os ouvirem serão levados a decidir-se a guardar todos os mandamentos de Deus. Assim a luz chegará a milhares que de outra maneira nada saberiam destas verdades. [608] A conscienciosa obediência à Palavra de Deus será considerada rebeldia. Cegado por Satanás, o pai exercerá aspereza e severidade para com o filho crente; o patrão ou patroa oprimirá o empregado que observe os mandamentos. A afeição será alienada; filhos serão deserdados e expulsos do lar. Cumprir-se-ão literalmente as palavras de Paulo: “Todos os que piamente quiserem viver em Cristo Jesus padecerão perseguições.” 2 Timóteo 3:12. Como os defensores da verdade se recusem a honrar o descanso dominical, alguns deles serão lançados na prisão, exilados, e outros tratados como escravos. Para a sabedoria humana, tudo isto parece agora impossível: mas, ao ser retirado dos homens o Espírito de Deus, o qual tem o poder de reprimi-los, e ao ficarem eles sob o governo de Satanás, que odeia os preceitos divinos, hão de acontecer coisas estranhas. Quando o temor e o amor de Deus são removidos, o coração pode tornar-se muito cruel. Ao aproximar-se a tempestade, uma classe numerosa que tem professado fé na mensagem do terceiro anjo, mas não tem sido santificada pela obediência à verdade, abandona sua posição, passando para as fileiras do adversário. Unindo-se ao mundo e participando de seu espírito, chegaram a ver as coisas quase sob a mesma luz; e, em vindo a prova, estão prontos a escolher o lado fácil, popular. Homens de talento e maneiras agradáveis, que se haviam já regozijado na verdade, empregam sua capacidade em enganar e transviar as almas. Tornam-se os piores inimigos de seus antigos irmãos. Quando os observadores do sábado forem levados perante os tribunais para responder por sua fé, estes apóstatas serão os mais ativos agentes de Satanás para representá-los falsamente e os acusar e, por meio de falsos boatos e insinuações, incitar os governantes contra eles. Neste tempo de perseguição provar-se-á a fé dos servos do Senhor. Deram fielmente a advertência, seguindo tão-somente a Deus e Sua Palavra. O Espírito divino, atuando em seu coração, constrangeu-os a falar. Estimulados por um santo zelo e [609] forte impulso divino, cumprem s",
+            "method": "normalized-exact",
+            "score": 1.0,
+            "sha256": "e99f4e5b00a36d4b908d9aa194260fd0b7d7a494fb90c3fc6bfb82c9e0878420"
+          },
+          {
+            "format": "pdf",
+            "path": "pt-br/livros/o-grande-conflito/ogc.pdf",
+            "bookKey": "ogc",
+            "title": "ogc",
+            "language": "",
+            "location": "535",
+            "context": "O último convite Divino 531 que observe os mandamentos. A afeição será alienada; filhos serão deserdados e expulsos do lar. Cumprir-se-ão literalmente as palavras de Paulo: “Todos os que piamente quiserem viver em Cristo Jesus padecerão perseguições.” 2 Timóteo 3:12. Como os defensores da verdade se recusem a honrar o descanso dominical, alguns deles serão lançados na prisão, exilados, e outros tratados como escravos. Para a sabedoria humana, tudo isto parece agora impossível: mas, ao ser retirado dos homens o Espírito de Deus, o qual tem o poder de reprimi-los, e ao ficarem eles sob o governo de Satanás, que odeia os preceitos divinos, hão de acontecer coisas estranhas. Quando o temor e o amor de Deus são removidos, o coração pode tornar-se muito cruel. Ao aproximar-se a tempestade, uma classe numerosa que tem professado fé na mensagem do terceiro anjo, mas não tem sido san￾tificada pela obediência à verdade, abandona sua posição, passando para as fileiras do adversário. Unindo-se ao mundo e participando de seu espírito, chegaram a ver as coisas quase sob a mesma luz; e, em vindo a prova, estão prontos a escolher o lado fácil, popular. Homens de talento e maneiras agradáveis, que se haviam já regozijado na verdade, empregam sua capacidade em enganar e transviar as almas. Tornam-se os piores inimigos de seus antigos irmãos. Quando os observadores do sábado forem levados perante os tribunais para responder por sua fé, estes apóstatas serão os mais ativos agentes de Satanás para representá-los falsamente e os acusar e, por meio de falsos boatos e insinuações, incitar os governantes contra eles. Neste tempo de perseguição provar-se-á a fé dos servos do Se￾nhor. Deram fielmente a advertência, seguindo tão-somente a Deus e Sua Palavra. O Espírito divino, atuando em seu coração, constran￾geu-os a falar. Estimulados por um santo zelo e forte impulso divino, [609] cu",
+            "method": "normalized-exact",
+            "score": 1.0,
+            "page": 535,
+            "sha256": "062a2fb11fac55539af0a50eaacb1260cb6f284ce78468c59b370f9c3b4db92f"
+          }
+        ]
+      }
+    },
+    {
+      "origin": "evidencias-secao6.json",
+      "origin_sha256": "e715256a91def45447284232602afe347211ffe6b0010ae69c5330281a8b6206",
+      "index": 8,
+      "evidence": {
+        "book": "o-grande-conflito",
+        "query": "cidades e vilas",
+        "sha256": "062a2fb11fac55539af0a50eaacb1260cb6f284ce78468c59b370f9c3b4db92f",
+        "hits": [
+          {
+            "format": "pdf",
+            "path": "pt-br/livros/o-grande-conflito/ogc.pdf",
+            "bookKey": "ogc",
+            "title": "ogc",
+            "language": "",
+            "location": "549",
+            "context": "mistura, será derramada. E, demais, não será permitido a Satanás imitar a maneira do advento de Cristo. O Salvador advertiu Seu povo contra o engano neste ponto, e predisse claramente o modo de Sua segunda vinda. “Surgirão falsos cristos e falsos profetas, e farão tão grandes sinais e prodígios que, se possível fora, enganariam até os escolhidos. ... Portanto se vos disserem: Eis que Ele está no deserto, não saiais; eis que Ele está no interior da casa, não acrediteis. Porque, assim como o relâmpago sai do Oriente e se mostra até ao Ocidente, assim será também a vinda do Filho do homem.” Mateus 24:24- 27. Não há possibilidade de ser imitada esta vinda. Será conhecida universalmente, testemunhada pelo mundo inteiro. Apenas os que forem diligentes estudantes das Escrituras, e receberem o amor da verdade, estarão ao abrigo dos poderosos enganos que dominam o mundo. Pelo testemunho da Bíblia estes surpreenderão o enganador em seu disfarce. Para todos virá o tempo de prova. Pela cirandagem da tentação, revelar-se-ão os verdadeiros crentes. Acha-se hoje o povo de Deus tão firmemente estabelecido em Sua Palavra que não venha a ceder à evidência de seus sentidos? Apegar-se-á nesta crise à Bíblia, e a Bíblia só? Sendo possível, Satanás os impedirá de obter o preparo para estar em pé naquele dia. Disporá as coisas de tal maneira a lhes obstruir o caminho; embaraçá-los-á com os tesouros terrestres; fá-los-á levar um fardo pesado, cansativo, a fim de que seu coração se sobrecarregue com os cuidados desta vida, e o dia de prova venha sobre eles como um [626] ladrão. Quando o decreto promulgado pelos vários governantes da cris￾tandade contra os observadores dos mandamentos lhes retirar a proteção do governo, abandonando-os aos que lhes desejam a des￾truição, o povo de Deus fugirá das cidades e vilas e reunir-se-á em grupos, habitando nos lugares mais desertos e solitários. Muitos",
+            "method": "normalized-exact",
+            "score": 1.0,
+            "page": 549
+          },
+          {
+            "format": "pdf",
+            "path": "pt-br/livros/o-grande-conflito/ogc.pdf",
+            "bookKey": "ogc",
+            "title": "ogc",
+            "language": "",
+            "location": "554",
+            "context": "550 O Grande Conflito car do perigo. Mas devem ainda esperar um pouco mais. O povo de [631] Deus deve beber o cálice e ser batizado com o batismo. A própria demora, para eles tão penosa, é a melhor resposta às suas petições. Esforçando-se por esperar confiantemente que o Senhor opere, são levados a exercitar a fé, esperança e paciência, que muito pouco foram exercitadas durante sua experiência religiosa. Contudo, por amor dos escolhidos, o tempo de angústia será abreviado. “E Deus não fará justiça a Seus escolhidos, que clamam a Ele de dia e de noite...? Digo-vos que depressa lhes fará justiça.” Lucas 18:7, 8. O fim virá mais rapidamente do que os homens esperam. O trigo será colhido e atado em molhos para o celeiro de Deus; o joio será atado em feixes para os fogos da destruição. As sentinelas celestiais, fiéis ao seu encargo, continuam com sua vigilância. Posto que um decreto geral haja fixado um tempo em que os observadores dos mandamentos poderão ser mortos, seus inimigos nalguns casos se antecipam ao decreto e, antes do tempo especificado, se esforçam por tirar-lhes a vida. Mas ninguém pode passar através dos poderosos guardas estacionados em redor de toda alma fiel. Alguns são assaltados ao fugirem das cidades e vilas; mas as espadas contra eles levantadas se quebram e caem tão impotentes como a palha. Outros são defendidos por anjos sob a forma de guerreiros. Em todos os tempos Deus tem usado os santos anjos para socor￾rer e livrar Seu povo. Seres celestiais têm tomado parte ativa nos negócios humanos. Têm aparecido trajando vestes que resplande￾ciam como o relâmpago; têm vindo como homens, no aspecto de viajantes. Anjos têm aparecido sob a forma de homens de Deus. Têm repousado, como se estivessem cansados, sob os carvalhos ao meio-dia. Têm aceitado a hospitalidade dos lares humanos. Agiram como guias aos viajantes surpreendidos pela noite. Acenderam com suas próprias mãos os fogos do altar. Abriram as portas do cárcere, libertando os servos do Senhor. Revestidos da armadura do Céu, vieram para remover a pedra do túmulo do Salvador. Sob a forma humana, muitas vezes se acham anjos nas assem- [632] bléias dos justos, e visitam as dos ímpios, assim como foram a Sodoma a fim de fazerem um relato de suas ações, para determinar se haviam passado os limites da longanimidade de Deus. O Senhor Se deleita na misericórdia; e, por amor dos poucos que realmente O",
+            "method": "normalized-exact",
+            "score": 1.0,
+            "page": 554
+          },
+          {
+            "format": "pdf",
+            "path": "pt-br/livros/o-grande-conflito/ogc.pdf",
+            "bookKey": "ogc",
+            "title": "ogc",
+            "language": "",
+            "location": "577",
+            "context": "Será desolada a Terra 573 A Terra inteira se parece com um deserto assolado. As ruínas das cidades e vilas destruídas pelo terremoto, árvores desarraigadas, pedras escabrosas arrojadas pelo mar ou arrancadas da própria Terra, espalham-se pela sua superfície, enquanto vastas cavernas assinalam o lugar em que as montanhas foram separadas da sua base. Ocorre agora o acontecimento prefigurado na última e solene [658] cerimônia do dia da expiação. Quando se completava o ministério no lugar santíssimo, e os pecados de Israel eram removidos do santuário em virtude do sangue da oferta pelo pecado, o bode emissário era então apresentado vivo perante o Senhor; e na presença da congre￾gação o sumo sacerdote confessava sobre ele “todas as iniqüidades dos filhos de Israel, e todas as suas transgressões, segundo todos os seus pecados”, pondo-os sobre a cabeça do bode. Levítico 16:21. Semelhantemente, ao completar-se a obra de expiação no santuário celestial, na presença de Deus e dos anjos do Céu e do exército dos remidos, serão então postos sobre Satanás os pecados do povo de Deus; declarar-se-á ser ele o culpado de todo o mal que os fez cometer. E assim como o bode emissário era enviado para uma terra não habitada, Satanás será banido para a Terra desolada, que se encontrará como um deserto despovoado e horrendo. O escritor do Apocalipse prediz o banimento de Satanás, e a con￾dição de caos e desolação a que a Terra deve ser reduzida; e declara que tal condição existirá durante mil anos. Depois de apresentar as cenas da segunda vinda do Senhor e da destruição dos ímpios, continua a profecia: “Vi descer do céu um anjo que tinha a chave do abismo, e uma grande cadeia na sua mão. Ele prendeu o dragão, a antiga serpente, que é o diabo e Satanás, e amarrou-o por mil anos. E lançou-o no abismo, e ali o encerrou, e pôs selo sobre ele, para que não mais engane as nações, até que os mil anos se ac",
+            "method": "normalized-exact",
+            "score": 1.0,
+            "page": 577
+          }
+        ]
+      }
+    }
+  ]
+}

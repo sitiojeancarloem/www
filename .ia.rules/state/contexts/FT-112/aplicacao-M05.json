@@ -1,0 +1,17 @@
+{
+  "task": "M05",
+  "before": "c60d350948f31ce13b05052c78bd2c18c9f23ccc222671ab7ea85784c588d797",
+  "after": "ce95b52b5b0cf2bec87a124ee2ace06985b4f5723031ac37ecffacd01baef57f",
+  "regions": [
+    {
+      "kind": "editorial",
+      "sourceStart": 83087,
+      "sourceEnd": 88760,
+      "outputStart": 83087,
+      "outputEnd": 89331,
+      "transformed": true,
+      "reason": "FT-112 M05: preservação autoral, fontes e integração"
+    }
+  ],
+  "newNotes": 8
+}

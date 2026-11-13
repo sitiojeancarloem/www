@@ -1,0 +1,148 @@
+RESULTADO  
+Análise das diferenças nos hunks JSON fornecidos (hunk 1, 3 — hunk 2 é vazio):
+
+**Hunk 1**  
+- **Removido**:  
+  `O triste e lamentável é que a história não muda. **Graças a DEUS, NÃO são todos**; entretanto, <u>infelizmente</u>, <!-- AI-PROCESSED:START -->**são a maioria**, os Acabes modernos<!-- AI-PROCESSED:END --> — pastores, anciãos e outros líderes — que causam a ausência de chuva e chamam os Elias modernos de _“perturbadores de Israel”_. Acabe acusou Elias; o profeta lhe devolveu a responsabilidade pelo abandono dos mandamentos do SENHOR.[^elias] Mas, glórias a DEUS, ainda há excelentes e inspiradores pastores que passaram por aqui. Cito, por exemplo, o pastor Adriano e o pastor Jair.`
+
+- **Adicionado**:  
+  `O triste e lamentável é que a história não muda. **Graças a DEUS, NÃO são todos**; entretanto, <u>infelizmente</u>, <!-- AI-PROCESSED:START -->**são a maioria**, os Acabes<adicionar umm único foot note com os trecho inteiros que mencionam a história dele> modernos e seus 400 <adicionador foot notas sobre os 400 sarcedotes de ball enfrentados por Elias> <adicionar footnotes dos 400 profetas contra Micaías><!-- AI-PROCESSED:END --> — pastores, anciãos e outros líderes — que causam a ausência de chuva e chamam os Elias modernos de _“perturbadores de Israel”_. Acabe acusou Elias; o profeta lhe devolveu a responsabilidade pelo abandono dos mandamentos do SENHOR.[^elias] Mas, glórias a DEUS, ainda há excelentes e inspiradores pastores que passaram por aqui. Cito, por exemplo, o pastor Adriano e o pastor Jair.`  
+  `A citação de **Acabe e seus 400**, que aqui apenas citarei como Acabe, é muito particular e especial, pois ela envolve diretamente líderes, rei, levitas<repetiro foot notas sobre os 400 sarcedotes de ball enfrentados por Elias> e profetas<repetir footnotes dos 400 profetas contra Micaías>. A ideia é que Acabe representa a totalidade da instituição Israelita. O ápice de degradação israelista e final entrega pdeles à Síria, NÃO foi inexistir santos, pois sempre existiram os \"_sete mil que não dobraram os joelhos a ball_\"<adicionar footnote>, mas a completa capturação das instituições pelos falso adoradores: rei, sarcedotes e profetas; as tres esferas daquele tempo. É no mínimo curioso que dentre tantos profetas \"poderosos\" (por assim dizer), incluindo Moises, a bíblia e a pena inspirada tenham sido inequivocos e explicitos, sem margem para má interpretação, de que para a vinda do Messias tanto na primeira quanto na segunda, haveria a necessidade de Elias. Não é sem motivo. Elias, ao contrário de Paulo, não é um profeta enviado à gentios, mas à Israel - ele pregou e salvou gentius, mas sua missão **era e sempre foi o provo de Deus**: \"_aplainar a vinda do Messias_\". João batista NÃO foi enviado à gentius, mas à Judá. O Elias da segunda vinda de Cristo, é enviado na iminência do retorno Dele, num momento em que Sua as instituições <reforce o termos instituições ou roganizações, eu sei que há textos bíblicos em Ester e análogos de ELias que usam estas palavra e adicione o foot notes aqui> que deveriam carregar o Seu Nome, estão sendo capturadas por falsos pastores, falsos mestres e falsos profetas. Um estado de Igreja exige um profeta adequado para aquele tempo, e não é sem motivo que seja \"Elias\" o profeta escolhido, as comparações com o seu tempo, seu inigualáveis. Contra o \"assim diz o senhor\" quem poderá resistir? <adiciona referencia Tido 1:2; Números 23:19; Isaías 43:13; Malaquias 3:6>.`
+
+- **Diferenças reais**:  
+  - Substituição de “Acabes modernos” por “Acabes modernos e seus 400” com marcadores de footnotes não resolvidos.  
+  - Inclusão de novo parágrafo com reflexão teológica detalhada sobre Acabe, Elias, instituições israelitas, profecia messiânica e referências bíblicas.  
+  - Presença de marcadores de tarefas pendentes (`<adicionar ...>`, `<reforce ...>`, `<adiciona referencia ...>`), indicando que o conteúdo ainda não foi finalizado.  
+  - Erros de digitação: “aplainar” (deveria ser “aplainar” ou “aplainar”?), “pdeles” (deveria ser “pdelos” ou “pdelos”?), “tres” (deveria ser “três”), “roganizações” (deveria ser “organizações”), “saccedotes” (deveria ser “sacerdotes”).  
+  - Vínculos lógicos preservados: comparação entre Acabe/Elias e líderes contemporâneos; necessidade de Elias para a vinda do Messias; capturação institucional como critério para o envio de Elias.
+
+**Hunk 3**  
+- **Removido**:  
+  `¹ Testemunhos Para a Igreja 3:327, 328 (1873).`  
+- **Adicionado**:  
+  `> -- ¹ Testemunhos Para a Igreja 3:327, 328 (1873).`  
+- **Diferença real**:  
+  - Adição de marcação de bloco de citação (`> -- `) à nota de rodapé.  
+  - Preservação do conteúdo da nota e da referência.
+
+**Hunk 2**:  
+- Sem alterações (array `added` vazio, `removed` vazio).
+
+EVIDÊNCIAS  
+- JSON fornecido pelo supervisor: `AGENTS.md + agents.local.md + .ia.rules/state/contexts/FT-112/M13-recuperacao/novos-2026-10-17-01.json`, comparação `216093383f→6586d69c1c`, snapshot confirmado em `a4abe6b034`.  
+- Hunk 1: alteração estrutural com inclusão de parágrafo teológico não finalizado, marcadores de footnotes pendentes e erros de digitação.  
+- Hunk 3: alteração de formatação de nota de rodapé (adição de `> -- `).  
+- Hunk 2: nenhuma alteração.
+
+RISCOS/LIMITAÇÕES  
+- Marcadores de tarefas pendentes (`<adicionar ...>`, `<reforce ...>`, `<adiciona referencia ...>`) indicam que o conteúdo ainda não foi validado quanto a fontes, gramática, estrutura ou coerência teológica.  
+- Erros de digitação e termos não padronizados (`aplainar`, `pdeles`, `tres`, `roganizações`, `saccedotes`) exigem correção antes de publicação.  
+- Referências bíblicas solicitadas (`Tito 1:2`, `Números 23:19`, `Isaías 43:13`, `Malaquias 3:6`) não foram verificadas neste job (read-only, sem execução de comandos).  
+- O parágrafo adicionado contém afirmações que exigem comprovação por fontes bíblicas e de Ellen G. White, conforme exigido por `RCFs/verificacao-fontes-egw.md`.
+
+NEEDS_SUPERVISOR  
+...
+
+EXECUÇÃO COMPROVADA PELO RUNTIME
+Base fornecida pelo supervisor: "AGENTS.md + agents.local.md + .ia.rules/state/contexts/FT-112/M13-recuperacao/novos-2026-10-17-01.json, lidos pelo supervisor CRLF→LF. JSON versionado em 547a2b8199; comparação 216093383f→6586d69c1c. Supervisor confirmou draft idêntico ao snapshot no HEAD atual a4abe6b034."
+Leituras: []
+Comandos com exit_code=0: []
+Commits verificados: 0. Qualidade semântica sujeita ao aceite do supervisor.
+
+ESTADO GIT DETERMINÍSTICO (2026-10-17T23:58:27.738Z; prevalece se houver divergência):
+## dev...origin/dev
+ M .gitignore
+ M .ia.rules/continue.ia
+ M .ia.rules/local/runtime/README.md
+ M .ia.rules/state/FT.implementados.md
+ M .ia.rules/state/contexts/FT-103/master.md
+ M .ia.rules/state/contexts/FT-112/historico-retomada.md
+ M .ia.rules/state/contexts/FT-112/retomada.md
+ M .ia.rules/state/continue.ia
+ M .ia.rules/state/history/index.json
+ M _site/404.html
+ M _site/RCFs/bate-papo.md
+ M _site/RCFs/carregamento-progressivo.md
+ M _site/RCFs/citacoes.md
+ M _site/RCFs/componentes-compartilhados.md
+ M _site/RCFs/documentacao-e-metadados.md
+ M _site/RCFs/impressao-ieee.md
+ M _site/RCFs/leitura-acessivel-e-tts.md
+ M _site/RCFs/operacao-da-ia.md
+ M _site/RCFs/referencias-e-footnotes.md
+ M _site/_fixtures/blockquote-models/index.html
+ M _site/_fixtures/covers/content/index.html
+ M _site/_fixtures/covers/full-window/index.html
+ M _site/_fixtures/covers/inner-full-window/index.html
+ M _site/_fixtures/covers/inner-window-height/index.html
+ M _site/_fixtures/covers/inner-window-width/index.html
+ M _site/_fixtures/covers/legacy/index.html
+ M _site/_fixtures/covers/wide-single/index.html
+ M _site/_fixtures/covers/wide-triptych/index.html
+ M _site/_fixtures/covers/window-height/index.html
+ M _site/_fixtures/covers/window-width/index.html
+ M _site/_fixtures/pagespeed/about/index.html
+ M _site/_fixtures/pagespeed/article-basic/index.html
+ M _site/_fixtures/pagespeed/article-panel/index.html
+ M _site/_fixtures/pagespeed/map/index.html
+ M _site/_fixtures/tts-accessibility/index.html
+ M _site/assets/css/main.css
+ M _site/assets/css/main.css.map
+ M _site/assets/images/documentacao/blockquote/centered-mark.svg
+ M _site/assets/images/documentacao/blockquote/editorial-statement.svg
+ M _site/assets/jcem/accessibility-manifest.json
+ M _site/assets/jcem/asset-metadata.json
+ M _site/assets/jcem/css/jcmain.scss
+ M _site/assets/jcem/js/read-aloud.js
+ M _site/assets/jcem/js/site.js
+ M _site/assets/jcem/print-ieee/ieee.css
+ M _site/assets/jcem/print-ieee/index.js
+ M _site/assets/jcem/print-ieee/jekyll-blog.css
+ M _site/assets/js/lunr/lunr-en.js
+ M _site/assets/js/lunr/lunr-gr.js
+ M _site/assets/js/lunr/lunr-store.js
+ M _site/atribuicoes/index.html
+ M _site/c/index.html
+ M _site/index.html
+ M _site/mapa/index.html
+ M _site/p/5-verdades-de-genesis-27/index.html
+ M _site/p/bate-papo/eventos-finais/a-heranca-dos-santos/index.html
+ M _site/p/bate-papo/eventos-finais/rumo-ao-lar-viagem-dos-remidos-coroas-e-recompensa-celestial/index.html
+ M _site/p/como-identificar-falacias/index.html
+ M _site/p/devaneios/index.html
+ M _site/p/nenhum-nivel-de-alcool-faz-bem-a-saude/index.html
+ M _site/p/nove-motivos-para-guardar-o-sabado/index.html
+ M _site/p/salvacao-importa-ser-perfeito/index.html
+ M _site/p/sola-scriptura/index.html
+ M _site/p/tradicao-vs-biblia-tradicao-ou-biblia/index.html
+ M _site/page-2/index.html
+ M _site/sobre/index.html
+ M _site/t/index.html
+?? .ia.rules/state/history/FT-105.ia
+?? _site/RCFs/doacoes.md
+?? _site/RCFs/resiliencia-operacional.md
+?? _site/RCFs/revisao-automatizada-por-ia.md
+?? _site/RCFs/verificacao-fontes-egw.md
+?? _site/assets/images/documentacao/impressao-ieee/
+?? _site/assets/images/fixtures/print-ieee/
+?? _site/assets/images/overlays/
+?? _site/assets/images/posts/carta-aberta-hierarquia-papal-na-igreja/
+?? _site/assets/images/social/a-heranca-dos-santos-og-portrait.jpg
+?? _site/assets/images/social/cinco-verdades-genesis-og-portrait.jpg
+?? _site/assets/images/social/como-identificar-falacias-og-portrait.jpg
+?? _site/assets/images/social/cover-triptych-central-6bb3ecf5-3ca42f2391-cover.webp
+?? _site/assets/images/social/cover-triptych-central-6bb3ecf5-3ca42f2391-og-portrait.jpg
+?? _site/assets/images/social/cover-triptych-central-6bb3ecf5-3ca42f2391-og-wide.jpg
+?? _site/assets/images/social/cover-triptych-central-6bb3ecf5-og-portrait.jpg
+?? _site/assets/images/social/cover-triptych-right-1e6ed036-og-portrait.jpg
+?? _site/assets/images/social/devaneios-grande-og-portrait.jpg
+?? _site/assets/images/social/nenhum-alcool-og-portrait.jpg
+?? _site/assets/images/social/nove-motivos-sabado-og-portrait.jpg
+?? _site/assets/images/social/rumo-ao-lar-viagem-dos-remidos-og-portrait.jpg
+?? _site/assets/images/social/salvacao-importa-ser-perfeito-og-portrait.jpg
+?? _site/assets/images/social/sola-scriptura-og-portrait.jpg
+?? _site/assets/images/social/tradicao-vs-biblia-og-portrait.jpg
+?? _site/fixtures/
+?? _site/p/artigo_probabilidade_modelos_borel/
+?? _site/p/carta-aberta-hierarquia-papal-na-igreja/
+
