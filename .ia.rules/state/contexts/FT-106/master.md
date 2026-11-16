@@ -106,3 +106,9 @@ Validações executadas nesta sequência: fonte financeira canônica, contrato, 
 ## Retomada U4G — provedores
 
 Revisão do supervisor concluiu U4F2: diff/PNG/finanças/contrato/assets/atribuições conferidos, Q8S registrado; commit 66133b66a1 integra BNB. O primeiro git add retornou erro de ignore, mas os seis alvos foram preparados; índice foi reconciliado antes do commit, sem repetir staging. Exceção local exata para este contexto corrige o caso subsequente. Próximo: candidatos PIX/PayPal e licença/proveniência, sem seleção ou publicação automática.
+
+## Checkpoint U4G2 — provedores em revisão
+
+Supervisor inspecionou representações PIX e PayPal do Font Awesome Free 7.3.1. SVGs copiados sem alterações e avisos preservados; licença do pacote publicada junto aos arquivos. Catálogo compartilhado recebe duas referências de provedor, sem mudar recebimento. Atribuição existente estendida, sem duplicar o recurso. CSS/CDN @latest preexistente não foi alterado. Validações e revisão final desta unidade pendentes; sem conclusão global.
+
+Dados canônicos, contrato, oito hashes reais e atribuições aprovados nesta sequência. Comparação independente com snapshot preservou todos os métodos removendo apenas as duas referências novas para teste de igualdade. Revisão/commit do supervisor e conferência final de cobertura/documentação FT107 continuam pendentes.

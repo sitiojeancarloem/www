@@ -6,7 +6,8 @@
       "type": "pix",
       "label": "PIX",
       "key": "doe@jeancarloem.com",
-      "payload": "00020126630014br.gov.bcb.pix0119doe@jeancarloem.com0218Doacao_JeanCarloEM5204000053039865802BR5925JEAN_CARLO_DE_ELIAS_MOREI6012PIRASSUNUNGA62180514DOEJEANCARLOEM63040675"
+      "payload": "00020126630014br.gov.bcb.pix0119doe@jeancarloem.com0218Doacao_JeanCarloEM5204000053039865802BR5925JEAN_CARLO_DE_ELIAS_MOREI6012PIRASSUNUNGA62180514DOEJEANCARLOEM63040675",
+      "iconAssetId": "pix"
     },
     {
       "id": "usdt-bnb",
@@ -59,7 +60,8 @@
       "url": "https://www.paypal.com/donate/?hosted_button_id=6V7J86DQ9VQBS",
       "currency": "BRL",
       "minimumAmount": 10,
-      "amountMode": "free"
+      "amountMode": "free",
+      "iconAssetId": "paypal"
     }
   ],
   "assets": [
@@ -110,6 +112,22 @@
       "license": "MIT",
       "licenseUrl": "https://raw.githubusercontent.com/ErikThiart/cryptocurrency-icons/8dcc316d95f0bbdf6f3b220745ae05f1ef00e79e/LICENSE",
       "sha256": "48789653958b94f2d88bdfe49c8e600aa702d5ad9447628dce87f9b2f7204955"
+    },
+    {
+      "id": "pix",
+      "path": "/assets/jcem/img/donations/pix.svg",
+      "source": "https://raw.githubusercontent.com/FortAwesome/Font-Awesome/7.3.1/svgs/brands/pix.svg",
+      "license": "CC-BY-4.0",
+      "licenseUrl": "https://raw.githubusercontent.com/FortAwesome/Font-Awesome/7.3.1/LICENSE.txt",
+      "sha256": "b416ca372258c67714bbfed411bba4dfc1b00c54bf54a63053d2800ff6984b82"
+    },
+    {
+      "id": "paypal",
+      "path": "/assets/jcem/img/donations/paypal.svg",
+      "source": "https://raw.githubusercontent.com/FortAwesome/Font-Awesome/7.3.1/svgs/brands/paypal.svg",
+      "license": "CC-BY-4.0",
+      "licenseUrl": "https://raw.githubusercontent.com/FortAwesome/Font-Awesome/7.3.1/LICENSE.txt",
+      "sha256": "75624025fc1c4dbba2826cf48af9eaef5507aada6ffa85c5ee40b09be994d8a5"
     }
   ]
 }

@@ -227,8 +227,8 @@ objetivo=Implementar JSON canônico, QR client-side, cópia, expansão, download
 origem=.ia.rules/state/requests/FT-106/prompt.md
 contexto=.ia.rules/state/contexts/FT-106/master.md
 dependencias=FT-106
-plano=U1-U3 e ações validados; U4 BNB aceito e commitado; próxima unidade provedores PIX/PayPal.
-pendencias=Concluir assets/provedores PIX e PayPal e aceite técnico da FT-107. UI/automação/global pertencem às FTs dependentes.
+plano=U1-U3 e ações validados; catálogo real inclui moedas, redes e provedores; unidade de provedores aguarda revisão.
+pendencias=Revisar provedores; conferir cobertura/documentação e aceite técnico da FT-107. UI/automação/global pertencem às FTs dependentes.
 
 FT-108|nome=Implementação da página pública de doações|escopo=tecnico|status=registrada_bloqueada_por_dependencia|autorizacao=humana
 objetivo=Implementar `/doe` responsiva, orientada por dados e integrada aos temas.
