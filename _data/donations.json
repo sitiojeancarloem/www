@@ -48,7 +48,8 @@
       "address": "TFRTMVtsoxXsdCXaPJx6jCEep9eeKaZNH2",
       "symbol": "BTTC",
       "name": "BitTorrent",
-      "networkAssetId": "tron"
+      "networkAssetId": "tron",
+      "iconAssetId": "bittorrent-new"
     },
     {
       "id": "paypal",
@@ -92,6 +93,14 @@
       "license": "MIT",
       "licenseUrl": "https://raw.githubusercontent.com/ErikThiart/cryptocurrency-icons/8dcc316d95f0bbdf6f3b220745ae05f1ef00e79e/LICENSE",
       "sha256": "55e9697eff95b7e18cc0019494496af0edf14001e78274b9904d768ae6844fa1"
+    },
+    {
+      "id": "bittorrent-new",
+      "path": "/assets/jcem/img/donations/bittorrent-new.png",
+      "source": "https://raw.githubusercontent.com/ErikThiart/cryptocurrency-icons/8dcc316d95f0bbdf6f3b220745ae05f1ef00e79e/128/bittorrent-new.png",
+      "license": "MIT",
+      "licenseUrl": "https://raw.githubusercontent.com/ErikThiart/cryptocurrency-icons/8dcc316d95f0bbdf6f3b220745ae05f1ef00e79e/LICENSE",
+      "sha256": "226b31130858d772384bd395ee2cebaae0fe2f13c280ab169aa79021aeb46df3"
     }
   ]
 }
