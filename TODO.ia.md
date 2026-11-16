@@ -828,6 +828,16 @@ Este arquivo preserva demandas do desenvolvedor. Estados operacionais seguem a g
     - Comunicar claramente o funcionamento do serviço, as opções de publicidade, os preços, as condições de contratação, a comprovação das corridas, os pagamentos e os meios de contato.
     - Não criar uma página genérica ou desconectada da identidade visual existente. Antes de implementar, inspecionar o projeto e reutilizar seus padrões e componentes quando apropriado.
 
+  - **Política de anúncios aceitos e não aceitos**
+    - A página DEVE apresentar, de maneira explícita, clara e visualmente bem diagramada, os tipos de anúncios que NÃO são aceitos. Essa informação não pode ficar implícita, diluída em um disclaimer genérico ou disponível apenas no contrato.
+    - Incluir expressamente, entre os anúncios não aceitos, no mínimo:
+      - Anúncios de produtos, serviços ou atividades ilícitos;
+      - Horóscopos, cartomantes e similares;
+      - Bebidas alcoólicas;
+      - anuncios e venda de artigos espiritualistas, políticos e/ou religiosos.
+    - A relação deve ser apresentada de forma facilmente localizável e compreensível, com destaque visual adequado e sem linguagem ambígua. Não omitir, agrupar de modo a tornar irreconhecíveis ou substituir as categorias expressamente indicadas por uma formulação genérica.
+    - A expressão "entre eles" estabelece que a relação não precisa ser considerada exaustiva; contudo, NÃO inventar ou acrescentar outras categorias de proibição por suposição. Outras restrições somente poderão ser incluídas se já estiverem expressamente definidas em regras ou documentos do projeto, ou forem posteriormente aprovadas.
+
   - **Modelos de publicidade e arquivos para download**
     - Utilizar como referência os arquivos disponíveis em `assets/data/anexos/anuncios/uber`.
     - Inspecionar os arquivos existentes, identificando seus formatos, dimensões, características visuais e finalidade.
@@ -867,7 +877,7 @@ Este arquivo preserva demandas do desenvolvedor. Estados operacionais seguem a g
     - Não inventar faixas, descontos, pacotes, prazos ou condições comerciais adicionais.
 
   - **Comprovação da quantidade de passageiros**
-    - A quantidade de passageiros deverá ser comprovada mediante envio de captura de tela (_print_) da tela do Uber.
+    - A quantidade de passageiros deverá ser comprovada mediante envio de captura de tela (_*print*_) da tela do Uber.
     - O comprovante deverá ser enviado pelo menos uma vez ao término da jornada ou do dia em que ocorreram as corridas.
     - Quando a jornada ultrapassar a meia-noite, o envio deverá ocorrer ao término da jornada, e não obrigatoriamente à meia-noite.
     - Explicar esse procedimento de maneira simples e objetiva na página e nas condições contratuais.
@@ -907,6 +917,11 @@ Este arquivo preserva demandas do desenvolvedor. Estados operacionais seguem a g
 
   - **UX, organização e apresentação comercial**
     - Estruturar a página em seções bem delimitadas, com progressão lógica e leitura escaneável.
+    - A página DEVE apresentar as informações com diagramação visual deliberada, clara, fluida e responsiva, facilitando a compreensão, a leitura e a localização rápida de cada informação por pessoas. Esse requisito se aplica à página como um todo, não apenas à sua adaptação técnica a diferentes tamanhos de tela.
+    - Priorizar **alta densidade informacional com baixo volume de texto**: comunicar o máximo de informação útil com o mínimo de conteúdo textual necessário, por meio de hierarquia visual, agrupamento lógico, títulos objetivos, rótulos, destaques, iconização e recursos de apresentação adequados ao conteúdo.
+    - Evitar prolixidade, parágrafos longos, repetição, explicações redundantes, excesso de elementos decorativos, blocos visualmente pesados e poluição visual. A página NÃO DEVE ser excessivamente textual nem exigir leitura extensa para que o visitante encontre preços, condições, restrições, modelos, orientações ou meios de contratação.
+    - A concisão visual e textual NÃO pode eliminar, ocultar, enfraquecer ou tornar ambíguas informações relevantes, condições comerciais, restrições de anúncios, disclaimers ou disposições contratuais. Reduzir texto sem reduzir conteúdo essencial; organizar informações sem escondê-las ou dificultar seu acesso.
+    - A composição deve manter fluxo de leitura natural e hierarquia consistente em desktop, tablet e dispositivos móveis; não basta reduzir ou empilhar elementos sem reavaliar sua disposição, prioridade e legibilidade em cada contexto.
     - Destacar visualmente, sem poluição:
       - O que é o serviço;
       - Onde a publicidade será exibida;
@@ -936,10 +951,13 @@ Este arquivo preserva demandas do desenvolvedor. Estados operacionais seguem a g
     - Verificar se o conteúdo apresentado na página corresponde integralmente às condições contratuais.
     - Não publicar valores, dados de contato, chave PIX ou termos contratuais fictícios.
     - Não considerar concluída a tarefa enquanto houver dados essenciais ausentes ou divergências entre a página, os cálculos e o contrato. Registrar objetivamente as pendências e sua repercussão.
+    - Preservar e resolver explicitamente, antes da publicação e da validação final, a divergência já existente nesta TODO quanto à ocupação parcial: a especificação dos modelos e a precificação descrevem 60% da área, enquanto o critério de aceitação menciona 50%. NÃO escolher, corrigir ou harmonizar um dos percentuais por inferência; registrar a pendência e obter a definição correspondente. Até sua resolução, não tratar a opção parcial como requisito inequívoco.
 
   - **Critérios de aceitação**
     - Rota `/anuncie/uber` ou `/anuncie:uber` pública, funcional e integrada à identidade visual do site.
     - Dois modelos existentes apresentados com especificações e downloads funcionais.
+    - Informações apresentadas em fluxo visual claro, fluido e responsivo, com alta densidade informacional e baixo volume textual; conteúdo fácil de compreender e localizar, sem prolixidade ou poluição visual e sem omitir informações essenciais.
+    - Tipos de anúncios não aceitos apresentados expressamente, incluindo anúncios ilícitos; horóscopos, cartomantes e similares; bebidas alcoólicas; e venda de artigos espiritualistas, políticos e/ou religiosos. A relação deve ser clara, facilmente localizável e visualmente bem diagramada.
     - Duas opções de ocupação da área de 18,3 × 5 cm claramente apresentadas.
     - Preços de R$ 0,50 por passageiro para 100% da área e R$ 0,40 por passageiro para 50%, com mínimo contratual de R$ 50,00 e prazo mínimo de uma semana.
     - Procedimento de comprovação por print e suas regras de envio claramente documentados.
