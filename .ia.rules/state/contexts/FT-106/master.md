@@ -112,3 +112,8 @@ Revisão do supervisor concluiu U4F2: diff/PNG/finanças/contrato/assets/atribui
 Supervisor inspecionou representações PIX e PayPal do Font Awesome Free 7.3.1. SVGs copiados sem alterações e avisos preservados; licença do pacote publicada junto aos arquivos. Catálogo compartilhado recebe duas referências de provedor, sem mudar recebimento. Atribuição existente estendida, sem duplicar o recurso. CSS/CDN @latest preexistente não foi alterado. Validações e revisão final desta unidade pendentes; sem conclusão global.
 
 Dados canônicos, contrato, oito hashes reais e atribuições aprovados nesta sequência. Comparação independente com snapshot preservou todos os métodos removendo apenas as duas referências novas para teste de igualdade. Revisão/commit do supervisor e conferência final de cobertura/documentação FT107 continuam pendentes.
+
+
+## Checkpoint U5B corretivo
+
+Job 3f48f0e4 criou rascunho sem leituras normativas nem comandos requeridos: não aceito; Q8S3. Arquivo preservado no cache docs-correction-20261116/before.md. Nova unidade determinística leu normas antes de novos efeitos; isso não convalida a ordem anterior. Corrigidos acessibilidade, clipboard e exemplo: JS compilado, dados derivados, asserts que falham, cópia em memória. Links e exemplo executável passaram nesta sequência; revisão/commit pendentes. README, documentação de dados/QR e aceite FT107 seguem pendentes; nenhuma FT concluída.
