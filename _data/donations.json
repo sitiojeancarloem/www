@@ -16,7 +16,8 @@
       "address": "0xeb68c866073abd82e5c2e41831db57f8718f91e7",
       "symbol": "USDT",
       "name": "USDT",
-      "iconAssetId": "tether"
+      "iconAssetId": "tether",
+      "networkAssetId": "bnb"
     },
     {
       "id": "btc-bitcoin",
@@ -101,6 +102,14 @@
       "license": "MIT",
       "licenseUrl": "https://raw.githubusercontent.com/ErikThiart/cryptocurrency-icons/8dcc316d95f0bbdf6f3b220745ae05f1ef00e79e/LICENSE",
       "sha256": "226b31130858d772384bd395ee2cebaae0fe2f13c280ab169aa79021aeb46df3"
+    },
+    {
+      "id": "bnb",
+      "path": "/assets/jcem/img/donations/bnb.png",
+      "source": "https://raw.githubusercontent.com/ErikThiart/cryptocurrency-icons/8dcc316d95f0bbdf6f3b220745ae05f1ef00e79e/128/bnb.png",
+      "license": "MIT",
+      "licenseUrl": "https://raw.githubusercontent.com/ErikThiart/cryptocurrency-icons/8dcc316d95f0bbdf6f3b220745ae05f1ef00e79e/LICENSE",
+      "sha256": "48789653958b94f2d88bdfe49c8e600aa702d5ad9447628dce87f9b2f7204955"
     }
   ]
 }

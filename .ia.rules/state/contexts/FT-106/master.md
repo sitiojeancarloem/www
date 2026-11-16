@@ -91,3 +91,14 @@ Job0f654462 patch/build/contract/actions/qr/financial/assets exit0. Revisão dif
 
 Jobd86bae63 install/contract/assets/financial/attributions exit0. Revisão diff aceita: eCash e TRON pinados no catálogo4assets, XEC compartilha eCash para moeda/rede, BTTC referencia somente redeTRON. Quatro hashes físicos e seis atribuições válidos; dados financeiros intactos. PNGs inspecionados no checkpoint de aquisição8b040730 e cópia byte a byte comprovada. Git determinístico ahead36 confirmou quatro alvos alterados/novos, sem commit do Worker. Próximo: confirmar candidatos BNB/BitTorrent por fontes primárias; depois providersPIX/PayPal e ações/integração pendentes. Sem concluir FT107.
 
+
+## Checkpoint U4F1 aprovado
+
+Job73a0d24b install/contract/assets/financial/attributions exit0. Diff revisado: somente PNGnovoBitTorrent, catálogo5assets e atribuição; BTTC/TRON/endereço intactos. Cinco hashes e seis atribuições válidos. Escolha bittorrent-new fundamentada no comunicado primário BitTorrentInc de25/01/2022 https://medium.com/@BitTorrent/announcements-on-btt-redenomination-plan-supported-by-exchanges-and-btt-renaming-af8441c2b486: BTTC naBinance é ticker do novoBTT; candidato já inspecionado em8b040730. Git determinístico ahead37 confirmou três alvos, sem commitWorker. Próximo: comparação visual delimitada do logoBNBoficial com candidatos antes de selecionar; providersPIX/PayPal e ações restantes pendentes.
+
+
+## Checkpoint U4F2 — integração BNB em revisão
+
+Seleção do supervisor: candidato bnb.png (cubo) confirmado frente à guia primária BNB Chain; binance-coin.png (outro símbolo) não selecionado. Evidência .ia.rules/cache/FT-107/bnb-compare-20261116/report.json. PNG pinado e MIT do pacote já usado; não inferir licença de marca/afiliação da referência primária. Cópia byte a byte e referência somente da rede USDT/BNB. Catálogo local atende contrato específico de disponibilidade/integridade/privacidade de doações. Validações desta unidade pendentes; provedores PIX/PayPal e UI/automação/gate global seguem pendentes.
+
+Validações executadas nesta sequência: fonte financeira canônica, contrato, assets e teste oficial de atribuições aprovados. Comparação antes/depois prova alteração somente do networkAssetId de USDT/BNB e inclusão do novo asset, sem mutação financeira. Aprovação final do supervisor e commit ainda pendentes.
