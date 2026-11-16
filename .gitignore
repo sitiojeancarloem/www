@@ -390,3 +390,7 @@ Thumbs.db
 # FT-117: contexto local da publicidade Uber
 !/.ia.rules/state/contexts/FT-117/
 !/.ia.rules/state/contexts/FT-117/master.md
+
+# FT-106: contexto legado versionado, exceção local exata
+!/.ia.rules/state/contexts/FT-106/
+!/.ia.rules/state/contexts/FT-106/master.md

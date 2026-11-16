@@ -102,3 +102,7 @@ Job73a0d24b install/contract/assets/financial/attributions exit0. Diff revisado:
 Seleção do supervisor: candidato bnb.png (cubo) confirmado frente à guia primária BNB Chain; binance-coin.png (outro símbolo) não selecionado. Evidência .ia.rules/cache/FT-107/bnb-compare-20261116/report.json. PNG pinado e MIT do pacote já usado; não inferir licença de marca/afiliação da referência primária. Cópia byte a byte e referência somente da rede USDT/BNB. Catálogo local atende contrato específico de disponibilidade/integridade/privacidade de doações. Validações desta unidade pendentes; provedores PIX/PayPal e UI/automação/gate global seguem pendentes.
 
 Validações executadas nesta sequência: fonte financeira canônica, contrato, assets e teste oficial de atribuições aprovados. Comparação antes/depois prova alteração somente do networkAssetId de USDT/BNB e inclusão do novo asset, sem mutação financeira. Aprovação final do supervisor e commit ainda pendentes.
+
+## Retomada U4G — provedores
+
+Revisão do supervisor concluiu U4F2: diff/PNG/finanças/contrato/assets/atribuições conferidos, Q8S registrado; commit 66133b66a1 integra BNB. O primeiro git add retornou erro de ignore, mas os seis alvos foram preparados; índice foi reconciliado antes do commit, sem repetir staging. Exceção local exata para este contexto corrige o caso subsequente. Próximo: candidatos PIX/PayPal e licença/proveniência, sem seleção ou publicação automática.
