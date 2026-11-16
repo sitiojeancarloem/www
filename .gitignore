@@ -38,8 +38,6 @@ node_modules
 !/.ia.rules/state/traceability/rcf-map.json
 !.vscode
 src/__generated__
-*.psd
-*.ai
 *.zip
 *.7z
 tmp/
@@ -381,3 +379,10 @@ Thumbs.db
 
 # FT-105: histórico técnico
 !/.ia.rules/state/history/FT-105.ia
+# FT-116: solicitação e evidência de integração, sem expor cache ou outros estados.
+!/.ia.rules/state/requests/FT-116/
+!/.ia.rules/state/requests/FT-116/prompt.md
+!/.ia.rules/state/contexts/FT-116/
+!/.ia.rules/state/contexts/FT-116/master.md
+!/.ia.rules/state/requests/FT-116/retomada-2026-11-16.md
+!/.ia.rules/state/contexts/FT-116/retomada-2026-11-16.md

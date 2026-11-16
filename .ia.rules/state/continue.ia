@@ -191,6 +191,9 @@ historico=.ia.rules/state/history/FT-099.ia|sha256=f464462839f9b7f759037c7460bc5
 FT-101|nome=Implementação da verificação reutilizável de fontes EGW|escopo=tecnico|status=concluida|autorizacao=humana|conclusao=2026-10-08T03:13:00.454Z|validacao=pendente_desenvolvedor
 objetivo=Implementar Skill local, descritor, configuração e script determinístico somente leitura para EPUB/PDF.
 origem=.ia.rules/state/requests/FT-100/prompt.md
+contexto=.ia.rules/state/contexts/FT-100/master.md
+dependencias=FT-100
+retomada=Autorização humana de 2026-09-30 para completar FTs 101 e 102; implementação da FT-101 concluída, integração remanescente na FT-102.
 resultado=Script, Skill, descritor, guia e índice documental versionados; identidade EPUB/PDF e limites descomprimidos corrigidos.
 verificacoes=Fixtures EGW aprovadas; descritor e validador oficial da Skill aprovados; EPUB acima do limite rejeitado sem mutação da fonte.
 pendencias=Integracao em biblioteca real e aceite global pertencem a FT-102; validacao humana permanece pendente.
@@ -263,3 +266,12 @@ resultado=Revisão integral e ampliações autorais executadas no draft .md atua
 verificacoes=M40 render: 44 blocos, 200 chamadas, 160 notas, tabela acessível, zero avisos/destinos quebrados. M41: 25 blocos bíblicos numerados. M37: 44 blocos e 60 inline lexicais; M38/M38A preservação e ST. M42: YAML, imagem, corpo byte a byte preservado e diff_check exit0.
 pendencias=Sem pendência de execução editorial. Leitura/aceite autoral continuam humanos. Sem publicação/push; limites em fechamento-M42.md.
 historico=.ia.rules/state/history/FT-112.ia|sha256=6a48dbeea769e4322404e4448e6f6d93a157fe6dcec4311bc772cd6f7e8ecda8
+
+FT-116|nome=Integração preservadora do remoto e alterações locais|escopo=tecnico|tipo=operacional|status=em_andamento|autorizacao=humana|criado_em=2026-11-13T13:35:00-03:00|retomada=2026-11-16
+objetivo=Concluir o merge atual e integrar o upstream preservando fontes, históricos e alterações locais.
+origem=.ia.rules/state/requests/FT-116/retomada-2026-11-16.md
+contexto=.ia.rules/state/contexts/FT-116/retomada-2026-11-16.md
+historico_previo=.ia.rules/state/contexts/FT-116/master.md
+resultado_parcial=Conflito textual de .gitignore resolvido; auditoria de blobs e ancestralidade concluída; nenhuma integração atual commitada.
+pendencias=Revisar conteúdo/escopo do primeiro commit e finalizar merge; integrar depois origin/dev; validar preservação e sincronização. Demais FTs e página Uber continuam pendentes.
+impedimento=Revisão automática rejeitou staging+commit do índice herdado seguido de outro merge; nenhuma ação executada. Revisão local R5 interrompida por CONTEXT_CAPACITY; recibos reaproveitados.
