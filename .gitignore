@@ -394,3 +394,7 @@ Thumbs.db
 # FT-106: contexto legado versionado, exceção local exata
 !/.ia.rules/state/contexts/FT-106/
 !/.ia.rules/state/contexts/FT-106/master.md
+
+# FT-117: somente esclarecimentos humanos versionados
+!/.ia.rules/state/requests/FT-117/
+!/.ia.rules/state/requests/FT-117/esclarecimentos-2026-11-16.md
