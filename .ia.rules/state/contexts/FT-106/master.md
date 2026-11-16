@@ -117,3 +117,8 @@ Dados canônicos, contrato, oito hashes reais e atribuições aprovados nesta se
 ## Checkpoint U5B corretivo
 
 Job 3f48f0e4 criou rascunho sem leituras normativas nem comandos requeridos: não aceito; Q8S3. Arquivo preservado no cache docs-correction-20261116/before.md. Nova unidade determinística leu normas antes de novos efeitos; isso não convalida a ordem anterior. Corrigidos acessibilidade, clipboard e exemplo: JS compilado, dados derivados, asserts que falham, cópia em memória. Links e exemplo executável passaram nesta sequência; revisão/commit pendentes. README, documentação de dados/QR e aceite FT107 seguem pendentes; nenhuma FT concluída.
+
+
+## Checkpoint U5C — índice e estado reconciliados
+
+Revisão 51c8be0c aceita/Q8S10; commit 554836e601 documenta APIs de assets e ações. README indexa a página canônica e link existe; preservadas todas as demais linhas. FT107 continua em andamento: documentação de dados/QR e cobertura final pendentes. FT116 corrigida: merges 5d4254371f/4e23e3a66a e upstream 756be748 comprovados ancestrais do HEAD; obstáculos históricos não são bloqueios atuais. Rastreamento nesta unidade HEAD...upstream=5	0 (ahead/behind); sem novo fetch, push ou alegação de gate global aprovado. Demais FTs e TODO preservados; projeções sincronizadas pelo mecanismo oficial.

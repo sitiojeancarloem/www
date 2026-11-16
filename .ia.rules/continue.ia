@@ -227,8 +227,8 @@ objetivo=Implementar JSON canônico, QR client-side, cópia, expansão, download
 origem=.ia.rules/state/requests/FT-106/prompt.md
 contexto=.ia.rules/state/contexts/FT-106/master.md
 dependencias=FT-106
-plano=U1-U3 e ações validados; catálogo real inclui moedas, redes e provedores; unidade de provedores aguarda revisão.
-pendencias=Revisar provedores; conferir cobertura/documentação e aceite técnico da FT-107. UI/automação/global pertencem às FTs dependentes.
+plano=U1-U3 e ações validados; catálogo de oito assets aceito em 1972d950f7; APIs documentadas e exemplo validado em 554836e601.
+pendencias=Documentar dados e QR, conferir cobertura restante e aceite técnico da FT-107. UI/automação/global pertencem às FTs dependentes.
 
 FT-108|nome=Implementação da página pública de doações|escopo=tecnico|status=registrada_bloqueada_por_dependencia|autorizacao=humana
 objetivo=Implementar `/doe` responsiva, orientada por dados e integrada aos temas.
@@ -272,9 +272,9 @@ objetivo=Concluir o merge atual e integrar o upstream preservando fontes, histó
 origem=.ia.rules/state/requests/FT-116/retomada-2026-11-16.md
 contexto=.ia.rules/state/contexts/FT-116/retomada-2026-11-16.md
 historico_previo=.ia.rules/state/contexts/FT-116/master.md
-resultado_parcial=Conflito textual de .gitignore resolvido; auditoria de blobs e ancestralidade concluída; nenhuma integração atual commitada.
-pendencias=Revisar conteúdo/escopo do primeiro commit e finalizar merge; integrar depois origin/dev; validar preservação e sincronização. Demais FTs e página Uber continuam pendentes.
-impedimento=Revisão automática rejeitou staging+commit do índice herdado seguido de outro merge; nenhuma ação executada. Revisão local R5 interrompida por CONTEXT_CAPACITY; recibos reaproveitados.
+resultado_parcial=Integrações preservadoras commitadas em 5d4254371f e 4e23e3a66a; upstream obtido no fetch integrado. Auditoria de blobs e ancestralidade concluída.
+pendencias=Concluir validações globais e preservar alterações locais remanescentes. Estado de rastreamento registrado no checkpoint; demais FTs e página Uber continuam pendentes.
+historico_impedimentos=Rejeição inicial de staging/commit herdado e R5 CONTEXT_CAPACITY foram reconciliados por escopo fechado e evidências reaproveitadas; não constituem bloqueio atual do merge.
 
 FT-117|nome=Normatização da página de anúncio Uber|escopo=tecnico|tipo=implementacao_normativa|status=em_andamento|autorizacao=humana|criado_em=2026-11-16T18:32:22.234Z
 objetivo=Consolidar requisitos completos, inspecionar fontes e estabelecer RCF verificável sem inventar dados ou decisões comerciais.
