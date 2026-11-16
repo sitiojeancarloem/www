@@ -275,3 +275,31 @@ historico_previo=.ia.rules/state/contexts/FT-116/master.md
 resultado_parcial=Conflito textual de .gitignore resolvido; auditoria de blobs e ancestralidade concluída; nenhuma integração atual commitada.
 pendencias=Revisar conteúdo/escopo do primeiro commit e finalizar merge; integrar depois origin/dev; validar preservação e sincronização. Demais FTs e página Uber continuam pendentes.
 impedimento=Revisão automática rejeitou staging+commit do índice herdado seguido de outro merge; nenhuma ação executada. Revisão local R5 interrompida por CONTEXT_CAPACITY; recibos reaproveitados.
+
+FT-117|nome=Normatização da página de anúncio Uber|escopo=tecnico|tipo=implementacao_normativa|status=em_andamento|autorizacao=humana|criado_em=2026-11-16T18:32:22.234Z
+objetivo=Consolidar requisitos completos, inspecionar fontes e estabelecer RCF verificável sem inventar dados ou decisões comerciais.
+origem=TODO.ia.md@812f6270fb2c5470bd222464cb938669b767d2dd
+contexto=.ia.rules/state/contexts/FT-117/master.md
+dependencias=
+pendencias=Inventariar padrões locais, assets, PIX/WhatsApp e lacunas; normatizar por unidades pequenas.
+
+FT-118|nome=Dados e arquivos da publicidade Uber|escopo=tecnico|tipo=implementacao_codigo|status=registrada_bloqueada_por_dependencia|autorizacao=pendente_pos_norma|criado_em=2026-11-16T18:32:22.235Z
+objetivo=Implementar dados reais, arquivos/modelos e integrações reutilizáveis de pagamento conforme norma concluída.
+origem=TODO.ia.md@812f6270fb2c5470bd222464cb938669b767d2dd
+contexto=.ia.rules/state/contexts/FT-117/master.md
+dependencias=FT-117
+pendencias=Aguardar FT-117 e autorização de código aplicável; preservar payloads e esclarecer 50% antecipado.
+
+FT-119|nome=Página e contrato da publicidade Uber|escopo=tecnico|tipo=implementacao_codigo|status=registrada_bloqueada_por_dependencia|autorizacao=pendente_pos_norma|criado_em=2026-11-16T18:32:22.236Z
+objetivo=Implementar página integrada ao tema, publicidade, downloads, contato e minuta contratual aderente à fonte.
+origem=TODO.ia.md@812f6270fb2c5470bd222464cb938669b767d2dd
+contexto=.ia.rules/state/contexts/FT-117/master.md
+dependencias=FT-117,FT-118
+pendencias=Aguardar dependências; não inventar condições nem afirmar validade jurídica definitiva.
+
+FT-120|nome=Integração e validação da publicidade Uber|escopo=tecnico|tipo=tecnico|status=registrada_bloqueada_por_dependencia|autorizacao=pendente_pos_norma|criado_em=2026-11-16T18:32:22.237Z
+objetivo=Validar requisitos, rotas, contratos, downloads, QR/cópia, temas, responsividade, acessibilidade, build e regressões.
+origem=TODO.ia.md@812f6270fb2c5470bd222464cb938669b767d2dd
+contexto=.ia.rules/state/contexts/FT-117/master.md
+dependencias=FT-118,FT-119
+pendencias=Aguardar implementação e manter gates não executados/falhos explicitamente pendentes.
