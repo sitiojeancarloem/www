@@ -174,6 +174,15 @@ O módulo [donations-ui.ts](../assets/jcem/ts/donations-ui.ts) exporta `enhanceD
 - O link nativo Baixar PNG aparece quando a exportação termina. O download usa o mesmo canvas exibido, sem exigir uma nova preparação no clique.
 - Navegadores sem `showModal` recebem uma visualização com fechamento explícito e sem declarar modalidade. O bootstrap já integra o diálogo; a validação visual completa ainda está pendente.
 
+### Aparência do componente
+
+A partial carrega [donations.css](../assets/jcem/css/donations.css) somente onde a interface é composta. O CSS usa os tokens de cor do tema para cartões, campos, controles e diálogo, preserva os marcadores nativos e mantém foco visível e campos para cópia manual.
+
+- O resumo visual contém até dez caracteres; o texto integral do resumo usa uma regra acessível restrita à doação. Os campos nativos continuam disponíveis.
+- O canvas mantém proporção e quiet zone. Vinte capturas dos QRs exibidos em dois temas e duas larguras foram decodificadas contra o JSON, com verificações de foco, contraste, alvos e overflow.
+- Essa validação usa a partial real e tokens extraídos da fonte; o tema completo e o fallback compartilhado ainda dependem do build e da revisão final.
+- A revisão das capturas identificou legenda pequena dentro do bitmap no mobile. Um texto complementar legível no diálogo está na unidade corretiva seguinte; o PNG e o payload permanecem preservados.
+
 ## Fontes
 
 - [../RCFs/doacoes.md](../RCFs/doacoes.md)
