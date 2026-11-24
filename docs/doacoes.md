@@ -1,5 +1,5 @@
 <!-- AI-PROCESSED -->
-# Doações — APIs de assets e ações
+# Doações — dados, QR, assets e ações
 
 Escopo atual: helpers existentes. A página pública /doe, seus controles acessíveis e o download na interface pertencem à FT-108; esta documentação não afirma sua implementação.
 
@@ -85,6 +85,51 @@ O módulo `assets/jcem/ts/donations-data.ts` define tipos e validações estrutu
 - `validateDonationsData(value: unknown): asserts value is DonationsData` valida o objeto completo, incluindo unicidade dos IDs e referências. Os validadores lançam erro diante de entrada inválida, sem modificar o valor; validação estrutural não autentica o destinatário financeiro.
 
 <!-- donations-data-contract:end -->
+
+<!-- donations-matrix-canvas:begin -->
+### APIs de geração e renderização de QR Codes
+
+Fontes: [matriz e fábrica](../assets/jcem/ts/donations-qr.ts) e [renderização em canvas](../assets/jcem/ts/donations-qr-canvas.ts).
+
+#### `createDonationQrMatrix(payload: string, factory: QrFactory): boolean[][]`
+
+Gera a matriz binária a partir do payload e da fábrica injetada: chama `factory(0, 'H')` e adiciona o payload no modo `Byte`.
+
+- **Entradas**:
+  - `payload`: string não vazia, ≤ 4096 caracteres.
+  - `factory`: função `(version: 0, correction: 'H') => QrEncoder` que implementa `addData`, `make`, `getModuleCount`, `isDark`.
+- **Retorno**: matriz `boolean[][]` quadrada, dimensão `n = 21 + 4k`, entre 21 e 177.
+- **Erros**: `Error` para payload/factory inválidos, dimensão inválida ou módulos retornados sem tipo booleano; erros do codificador injetado propagam-se.
+- **Dependência browser**: nenhuma (executa em Node.js ou navegador).
+
+#### `renderDonationQrBase(canvas: HTMLCanvasElement, matrix: readonly (readonly boolean[])[], caption: string): void`
+
+Renderiza o QR Code em um `<canvas>` com moldura, módulos pretos e legenda azul.
+
+- **Entradas**:
+  - `canvas`: objeto com `getContext('2d')` disponível; requer as APIs de canvas do ambiente.
+  - `matrix`: matriz válida conforme `createDonationQrMatrix`.
+  - `caption`: string não vazia, ≤ 4096 caracteres.
+- **Dimensões**: largura `(n + 8) * 8 + 32` px e altura igual à largura mais 64 px; módulo de 8 px e margem branca de quatro módulos, além da margem externa de 16 px.
+- **Estilo**: fundo branco, módulos pretos, borda azul `#17324d`, legenda centralizada em 24 px.
+- **Erros**: `Error` para canvas indisponível ou matriz inválida.
+
+#### `renderDonationQrWithSymbol(canvas: HTMLCanvasElement, matrix: readonly (readonly boolean[])[], caption: string, symbol: ImageBitmap, area: {x: number; y: number; size: number}): void`
+
+Sobrescreve a área central com um recorte do bitmap fornecido; as dimensões não autenticam sua identidade.
+
+- **Entradas**:
+  - `symbol`: `ImageBitmap` de 372×192 px.
+  - `area`: coordenadas e tamanho do quadrado central, conforme `getCenteredQrSymbolArea`.
+- **Comportamento**: limpa a área central e usa o recorte `(0, 0, 190, 192)` do bitmap de 372×192 px; ajusta-o proporcionalmente ao quadrado, com altura de `area.size * 8 - 4` px.
+- **Erros**: `Error` para símbolo ou área inválidos.
+
+**Notas**:
+
+- As verificações descritas cobrem payload, geometria, legenda, módulos e dimensões do bitmap; não constituem autenticação do destinatário ou do símbolo.
+- O desenho usa cores e geometria explícitas, sem consultar o tema. A rasterização depende do canvas e das fontes do ambiente.
+- A decodificação automática deve ser feita separadamente, comparando byte a byte ao payload original.
+<!-- donations-matrix-canvas:end -->
 
 ## Fontes
 
