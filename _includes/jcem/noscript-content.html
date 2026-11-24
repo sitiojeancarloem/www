@@ -4,6 +4,7 @@
 	{% include footer/after_footer.html %}
 	{% include masthead.html logo=logo_path reduced=true class='jcem-noscript-masthead' nav_label='Navegação sem JavaScript' static_fragment=true %}
 
+	{% unless page.url == '/doe/' %}
 	<figure
 		class="jcem-featured-image jcem-featured-image--wide jcem-noscript-featured"
 		aria-label="Imagem destacada da página sem JavaScript"
@@ -15,9 +16,15 @@
 			decoding="async"
 		/>
 	</figure>
+	{% endunless %}
 
 	<div class="initial-content jcem-noscript-initial">
 		<main class="jcem-noscript-content">
+			{% if page.url == '/doe/' %}
+			<h1>Doações</h1>
+			<p>Os dados de contribuição continuam disponíveis. Copie manualmente o campo desejado ou use o link PayPal.</p>
+			{% include jcem/donations-content.html id_prefix='noscript-' static_fragment=true %}
+			{% else %}
 			<section
 				class="jcem-noscript__panel"
 				aria-labelledby="jcem-noscript-title"
@@ -62,6 +69,7 @@
 					</p>
 				</div>
 			</section>
+			{% endif %}
 		</main>
 	</div>
 

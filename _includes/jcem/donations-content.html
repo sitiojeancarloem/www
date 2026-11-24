@@ -6,16 +6,17 @@
 -->
 
 <link rel="stylesheet" href="{{ '/assets/jcem/css/donations.css' | relative_url }}">
-<section class="jcem-donations" data-jcem-donations data-donation-site-url="{{ site.url | escape }}" data-donation-logo-url="{{ '/assets/jcem/img/logo-animado.gif' | relative_url | escape }}" aria-labelledby="jcem-donations-heading">
-  <h2 id="jcem-donations-heading">Escolha como contribuir</h2>
+{% assign donation_id_prefix = include.id_prefix | default: '' %}
+<section class="jcem-donations" {% unless include.static_fragment %}data-jcem-donations data-donation-site-url="{{ site.url | escape }}" data-donation-logo-url="{{ '/assets/jcem/img/logo-animado.gif' | relative_url | escape }}"{% endunless %} aria-labelledby="{{ donation_id_prefix | escape }}jcem-donations-heading">
+  <h2 id="{{ donation_id_prefix | escape }}jcem-donations-heading">Escolha como contribuir</h2>
   <p>Contribua para a continuidade deste projeto. Escolha um meio e copie os dados correspondentes para o aplicativo de sua preferência.</p>
 <ol class="jcem-donation-steps" aria-label="Como contribuir">
   <li><strong>Escolha</strong>Abra um meio de contribuição e confira a rede, quando indicada.</li>
-  <li><strong>Transfira</strong>Copie os dados ou leia o QR no seu aplicativo. Para PayPal, use o botão oficial.</li>
+  <li><strong>Transfira</strong>{% if include.static_fragment %}Copie manualmente os dados para o seu aplicativo.{% else %}Copie os dados ou leia o QR no seu aplicativo.{% endif %} Para PayPal, use o botão oficial.</li>
   <li><strong>Confira</strong>Antes de confirmar, confira os dados no aplicativo escolhido.</li>
 </ol>
 {% for method in site.data.donations.methods %}
-<details id="donation-{{ method.id | escape }}" class="jcem-donation-method">
+<details id="{{ donation_id_prefix | escape }}donation-{{ method.id | escape }}" class="jcem-donation-method">
   <summary>
     {% include jcem/donation-asset.html asset_id=method.iconAssetId %}
     <strong>{{ method.label | escape }}</strong>
@@ -39,6 +40,11 @@
 </details>
 {% endfor %}
 <p class="jcem-donation-credits"><a href="{{ '/atribuicoes/' | relative_url }}">Créditos dos ícones</a></p>
+{% unless include.static_fragment %}
 <script type="application/json" data-jcem-donations-data>{{ site.data.donations | jsonify | replace: '<', '\u003c' }}</script>
+{% endunless %}
 </section>
+{% unless include.static_fragment %}
 <script src="{{ '/assets/jcem/js/donations-bootstrap.js' | relative_url }}" type="module"></script>
+
+{% endunless %}
