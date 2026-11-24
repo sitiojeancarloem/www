@@ -184,6 +184,14 @@ A partial carrega [donations.css](../assets/jcem/css/donations.css) somente onde
 - Essa validação usa a partial real e tokens extraídos da fonte; o tema completo e o fallback compartilhado ainda dependem do build e da revisão final.
 - O diálogo mostra a legenda também em texto complementar legível no mobile. A correção passou em dois temas, dez capturas de QR decodificadas e revisão das duas imagens da interface; o PNG e o payload permanecem preservados.
 
+### Ícones e orientação
+
+O [include de assets](../_includes/jcem/donation-asset.html) resolve `iconAssetId` e `networkAssetId` pelo catálogo canônico. A moeda, a rede e o provedor usam a mesma composição; nenhum endereço de imagem é recadastrado no HTML.
+
+- Ícones locais são decorativos, têm espaço reservado e conservam o rótulo textual. Um ID sem correspondência omite o ícone e preserva os dados e o texto.
+- O guia em três passos orienta escolher, transferir e conferir os dados. O link de créditos usa a página compartilhada de atribuições, cujos registros e licenças já existem.
+- A verificação cobriu os oito arquivos e seus hashes, dez imagens exibidas, extensão por dados, fallback, escape e quatro combinações de tema/largura. As capturas foram revistas; o shell completo e o fallback sem JavaScript seguem para as próximas etapas.
+
 ## Fontes
 
 - [../RCFs/doacoes.md](../RCFs/doacoes.md)
