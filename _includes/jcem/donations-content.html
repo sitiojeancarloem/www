@@ -1,0 +1,34 @@
+<!--
+  Autoria: JeanCarloEM — https://www.jeancarloem.com
+  Licença: MPL-2.0 — https://mozilla.org/MPL/2.0/ — uso, cópia, modificação e distribuição conforme a licença; sem garantia.
+  Fonte: https://github.com/sitiojeancarloem/www
+  RCF: RCFs/doacoes.md
+-->
+
+<section class="jcem-donations" data-jcem-donations aria-labelledby="jcem-donations-heading">
+  <h2 id="jcem-donations-heading">Escolha como contribuir</h2>
+  <p>Contribua para a continuidade deste projeto. Escolha um meio e copie os dados correspondentes para o aplicativo de sua preferência.</p>
+{% for method in site.data.donations.methods %}
+<details id="donation-{{ method.id | escape }}" class="jcem-donation-method">
+  <summary>
+    <strong>{{ method.label | escape }}</strong>
+  </summary>
+  <div data-donation-id="{{ method.id | escape }}">
+    {% if method.type == 'pix' %}
+    <p><strong>Chave PIX:</strong> <code>{{ method.key | escape }}</code></p>
+    <p><strong>PIX Copia e Cola:</strong></p>
+    <textarea readonly aria-label="Código PIX Copia e Cola completo para cópia manual" rows="3">{{ method.payload | escape }}</textarea>
+    {% elsif method.type == 'crypto' %}
+    <p><strong>Moeda:</strong> {{ method.name | escape }} ({{ method.symbol | escape }})</p>
+    <p><strong>Rede:</strong> {{ method.network | escape }}</p>
+    <p><strong>Endereço:</strong></p>
+    <textarea readonly aria-label="Endereço de {{ method.label | escape }} para cópia manual" rows="2">{{ method.address | escape }}</textarea>
+    {% elsif method.type == 'paypal' %}
+    <p><strong>Valor mínimo:</strong> {{ method.minimumAmount | escape }} {{ method.currency | escape }}</p>
+    <p><strong>Modo:</strong> valor livre</p>
+    <p><a href="{{ method.url | escape }}" target="_blank" rel="noopener noreferrer" class="btn btn--paypal">Doar via PayPal</a></p>
+    {% endif %}
+  </div>
+</details>
+{% endfor %}
+</section>
