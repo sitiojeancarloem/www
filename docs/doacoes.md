@@ -163,6 +163,7 @@ O módulo [donations-ui.ts](../assets/jcem/ts/donations-ui.ts) exporta `enhanceD
 - Reutiliza os helpers de payload, geometria e composição, com a biblioteca QR local carregada sob demanda.
 - O logo deve usar HTTP(S), sem credenciais, na origem do documento e sem redirecionamento. O bitmap permanece disponível durante o desenho e é liberado em `finally`.
 - Cancelamento é conferido nas fronteiras assíncronas. Falhas propagam ao consumidor e preservam os dados originais.
+- O canvas expõe a legenda canônica em `data-donation-qr-caption`. O diálogo a mostra também como texto legível; produtores anteriores podem fornecer apenas `aria-label` ou usar o título como alternativa.
 - O bootstrap fornece este canvas ao diálogo, que exibe e exporta a mesma composição. Os cinco PNGs baixados pela interface foram decodificados contra os valores do JSON canônico.
 
 ### Diálogo e download
@@ -181,7 +182,7 @@ A partial carrega [donations.css](../assets/jcem/css/donations.css) somente onde
 - O resumo visual contém até dez caracteres; o texto integral do resumo usa uma regra acessível restrita à doação. Os campos nativos continuam disponíveis.
 - O canvas mantém proporção e quiet zone. Vinte capturas dos QRs exibidos em dois temas e duas larguras foram decodificadas contra o JSON, com verificações de foco, contraste, alvos e overflow.
 - Essa validação usa a partial real e tokens extraídos da fonte; o tema completo e o fallback compartilhado ainda dependem do build e da revisão final.
-- A revisão das capturas identificou legenda pequena dentro do bitmap no mobile. Um texto complementar legível no diálogo está na unidade corretiva seguinte; o PNG e o payload permanecem preservados.
+- O diálogo mostra a legenda também em texto complementar legível no mobile. A correção passou em dois temas, dez capturas de QR decodificadas e revisão das duas imagens da interface; o PNG e o payload permanecem preservados.
 
 ## Fontes
 
