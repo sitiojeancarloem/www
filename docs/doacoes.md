@@ -164,6 +164,15 @@ O módulo [donations-ui.ts](../assets/jcem/ts/donations-ui.ts) exporta `enhanceD
 - Cancelamento é conferido nas fronteiras assíncronas. Falhas propagam ao consumidor e preservam os dados originais.
 - Esta unidade prepara o canvas; diálogo, download e ligação à página continuam pendentes.
 
+### Diálogo e download
+
+`showDonationQr`, em [donations-qr-dialog.ts](../assets/jcem/ts/donations-qr-dialog.ts), recebe raiz, título, nome do PNG e um produtor assíncrono de canvas com `AbortSignal`.
+
+- Abre o diálogo e foca Fechar antes de preparar o QR. A promessa permanece pendente enquanto a visualização estiver aberta; o conector restaura o foco ao botão de origem após o fechamento.
+- Fechar ou Escape cancela a preparação. Fechamento durante a exportação não cria URL tardia; canvas e URL temporária são liberados.
+- O link nativo Baixar PNG aparece quando a exportação termina. O download usa o mesmo canvas exibido, sem exigir uma nova preparação no clique.
+- Navegadores sem `showModal` recebem uma visualização com fechamento explícito e sem declarar modalidade. A integração ao bootstrap e a validação visual completa ainda estão pendentes.
+
 ## Fontes
 
 - [../RCFs/doacoes.md](../RCFs/doacoes.md)
