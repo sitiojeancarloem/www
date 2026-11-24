@@ -36,6 +36,56 @@ Fonte: [módulo TypeScript](../assets/jcem/ts/donations-qr.ts).
 - Esta função retorna dados; não desenha, exporta nem decodifica o QR.
 
 <!-- donations-qr-spec:end -->
+<!-- donations-data-contract:begin -->
+### Dados de doação (`DonationsData`)
+
+#### Estrutura canônica
+
+O módulo `assets/jcem/ts/donations-data.ts` define tipos e validações estruturais para o JSON canônico de meios de doação.
+
+##### Tipos principais
+
+- `DonationMethodType`: `'pix' | 'crypto' | 'paypal'`
+- `DonationMethod`: união discriminada por `type` com campos obrigatórios e opcionais
+- `DonationsData`: objeto com `schemaVersion: 1`, `methods: readonly DonationMethod[]` e `assets?: readonly DonationAsset[]`
+
+##### Validação de método (`validateDonationMethod`)
+
+| Campo | Obrigatório | Validação | Limite/Formato |
+|---|---|---|---|
+| `id` | Sim | Slug minúsculo seguro (`/^[a-z0-9-]+$/`) | ≤4096 caracteres |
+| `type` | Sim | `'pix'`, `'crypto'` ou `'paypal'` | — |
+| `label` | Sim | String não vazia | ≤4096 caracteres |
+| `iconAssetId` | Opcional | Slug seguro; resolução no validador de coleção | — |
+| `networkAssetId` | Opcional | Slug seguro; **só para `crypto`**; resolução no validador de coleção | — |
+| `key` | Sim (`pix`) | String não vazia | — |
+| `payload` | Sim (`pix`) | String não vazia | — |
+| `address` | Sim (`crypto`) | String não vazia | — |
+| `symbol`, `name`, `network` | Sim (`crypto`) | Strings não vazias | — |
+| `minimumAmount` | Sim (`paypal`) | Número finito ≥0 | — |
+| `currency` | Sim (`paypal`) | Sigla maiúscula de 3 letras (`/^[A-Z]{3}$/`) | — |
+| `amountMode` | Sim (`paypal`) | `'free'` | — |
+| `url` | Sim (`paypal`) | HTTPS, host `www.paypal.com`, path `/donate/`, sem portas não padrão ou credenciais | — |
+
+##### Validação de coleção (`validateDonationsData`)
+
+- `methods`: array denso (sem `undefined`), tamanho entre 1 e 64, IDs únicos
+- `assets`: quando presente, é validado por `validateDonationAssets`. Toda referência em `iconAssetId`/`networkAssetId` deve resolver no catálogo; uma referência com catálogo ausente também é rejeitada.
+- `schemaVersion`: valor exato `1`
+
+#### Extensão por dados
+
+- Novas entradas dos tipos já suportados (`pix`, `crypto`, `paypal`) podem ser configuradas no JSON canônico com seus assets e campos obrigatórios. Um novo valor de `type` exige alteração do contrato e do código.
+- Validações rejeitam valores fora dos formatos previstos (ex: porta não padrão em URL do PayPal, sigla de moeda inválida, array com buracos).
+
+> Fonte: [`../assets/jcem/ts/donations-data.ts`](../assets/jcem/ts/donations-data.ts)
+
+- Os validadores `validateNonEmptyString` e `validateSlug` limitam as strings a 4096 caracteres e rejeitam conteúdo vazio após `trim`; as restrições adicionais da tabela continuam aplicáveis.
+- `validateDonationMethod(value: unknown, index: number = 0): asserts value is DonationMethod` valida um método sem consultar o catálogo.
+- `validateDonationsData(value: unknown): asserts value is DonationsData` valida o objeto completo, incluindo unicidade dos IDs e referências. Os validadores lançam erro diante de entrada inválida, sem modificar o valor; validação estrutural não autentica o destinatário financeiro.
+
+<!-- donations-data-contract:end -->
+
 ## Fontes
 
 - [../RCFs/doacoes.md](../RCFs/doacoes.md)
