@@ -1,0 +1,10 @@
+<!--
+  Autoria: JeanCarloEM — https://www.jeancarloem.com
+  Licença: MPL-2.0 — https://mozilla.org/MPL/2.0/ — uso, cópia, modificação e distribuição conforme a licença; sem garantia.
+  Fonte: https://github.com/sitiojeancarloem/www
+  RCF: RCFs/doacoes.md
+-->
+{% assign donation_asset = site.data.donations.assets | where: 'id', include.asset_id | first %}
+{% if donation_asset %}
+<img class="jcem-donation-icon" data-donation-asset-id="{{ donation_asset.id | escape }}" src="{{ donation_asset.path | relative_url | escape }}" alt="" width="32" height="32" loading="lazy" decoding="async">
+{% endif %}

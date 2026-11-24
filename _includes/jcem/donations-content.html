@@ -9,9 +9,15 @@
 <section class="jcem-donations" data-jcem-donations data-donation-site-url="{{ site.url | escape }}" data-donation-logo-url="{{ '/assets/jcem/img/logo-animado.gif' | relative_url | escape }}" aria-labelledby="jcem-donations-heading">
   <h2 id="jcem-donations-heading">Escolha como contribuir</h2>
   <p>Contribua para a continuidade deste projeto. Escolha um meio e copie os dados correspondentes para o aplicativo de sua preferência.</p>
+<ol class="jcem-donation-steps" aria-label="Como contribuir">
+  <li><strong>Escolha</strong>Abra um meio de contribuição e confira a rede, quando indicada.</li>
+  <li><strong>Transfira</strong>Copie os dados ou leia o QR no seu aplicativo. Para PayPal, use o botão oficial.</li>
+  <li><strong>Confira</strong>Antes de confirmar, confira os dados no aplicativo escolhido.</li>
+</ol>
 {% for method in site.data.donations.methods %}
 <details id="donation-{{ method.id | escape }}" class="jcem-donation-method">
   <summary>
+    {% include jcem/donation-asset.html asset_id=method.iconAssetId %}
     <strong>{{ method.label | escape }}</strong>
   </summary>
   <div data-donation-id="{{ method.id | escape }}">
@@ -21,7 +27,7 @@
     <textarea readonly aria-label="Código PIX Copia e Cola completo para cópia manual" rows="3">{{ method.payload | escape }}</textarea>
     {% elsif method.type == 'crypto' %}
     <p><strong>Moeda:</strong> {{ method.name | escape }} ({{ method.symbol | escape }})</p>
-    <p><strong>Rede:</strong> {{ method.network | escape }}</p>
+    <p><strong>Rede:</strong> {% include jcem/donation-asset.html asset_id=method.networkAssetId %} {{ method.network | escape }}</p>
     <p><strong>Endereço:</strong></p>
     <textarea readonly aria-label="Endereço de {{ method.label | escape }} para cópia manual" rows="2">{{ method.address | escape }}</textarea>
     {% elsif method.type == 'paypal' %}
@@ -32,6 +38,7 @@
   </div>
 </details>
 {% endfor %}
+<p class="jcem-donation-credits"><a href="{{ '/atribuicoes/' | relative_url }}">Créditos dos ícones</a></p>
 <script type="application/json" data-jcem-donations-data>{{ site.data.donations | jsonify | replace: '<', '\u003c' }}</script>
 </section>
 <script src="{{ '/assets/jcem/js/donations-bootstrap.js' | relative_url }}" type="module"></script>
