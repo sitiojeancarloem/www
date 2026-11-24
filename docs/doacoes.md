@@ -145,7 +145,8 @@ O módulo [donations-ui.ts](../assets/jcem/ts/donations-ui.ts) exporta `enhanceD
 - A partial emite um snapshot JSON inerte da mesma fonte que gera os campos. O escape de `<` mantém a validade do JSON e impede fechamento antecipado do elemento de dados.
 - O bootstrap agenda a montagem após `DOMContentLoaded` e duas oportunidades de frame, e só então importa o conector. Não há requisição separada de dados nem inclusão global no tema.
 - `mountDonationCopy` evita montagem simultânea ou repetida. JSON inválido ou falha de inicialização preserva os campos e informa a alternativa de cópia manual em uma região de status.
-- QR, aparência e fallback completo sem JavaScript continuam nas unidades seguintes da FT-108. A validação atual cobre o componente; não representa aceite visual do site inteiro.
+- A montagem também liga os controles QR. O host é importado ao ativar um botão; biblioteca, logo e preparação são carregados pelo produtor cancelável após a abertura do diálogo. A URL canônica e o caminho local do logo vêm de atributos escapados da partial.
+- Aparência e fallback completo sem JavaScript continuam nas unidades seguintes da FT-108. A validação atual cobre o componente; não representa aceite visual do site inteiro.
 
 ### Ativação de QR por callback
 
@@ -153,7 +154,7 @@ O módulo [donations-ui.ts](../assets/jcem/ts/donations-ui.ts) exporta `enhanceD
 
 - O conector cria controles para PIX e criptomoedas uma única vez, preserva PayPal e bloqueia novas ativações do mesmo botão enquanto a abertura estiver pendente.
 - Status e botão permanecem separados. Após resolução ou rejeição, o estado ocupado é removido e o botão recebe foco; falha orienta a cópia manual.
-- Esta API não compõe o QR nem implementa o diálogo. Sua ligação à página depende do controlador completo; nenhum botão inerte é montado pelo bootstrap atual.
+- Esta API delega composição e diálogo aos módulos próprios. O bootstrap atual liga o callback completo aos cinco meios com QR; PayPal conserva sua ação nativa.
 
 ### Canvas QR cancelável
 
@@ -162,7 +163,7 @@ O módulo [donations-ui.ts](../assets/jcem/ts/donations-ui.ts) exporta `enhanceD
 - Reutiliza os helpers de payload, geometria e composição, com a biblioteca QR local carregada sob demanda.
 - O logo deve usar HTTP(S), sem credenciais, na origem do documento e sem redirecionamento. O bitmap permanece disponível durante o desenho e é liberado em `finally`.
 - Cancelamento é conferido nas fronteiras assíncronas. Falhas propagam ao consumidor e preservam os dados originais.
-- Esta unidade prepara o canvas; diálogo, download e ligação à página continuam pendentes.
+- O bootstrap fornece este canvas ao diálogo, que exibe e exporta a mesma composição. Os cinco PNGs baixados pela interface foram decodificados contra os valores do JSON canônico.
 
 ### Diálogo e download
 
@@ -171,7 +172,7 @@ O módulo [donations-ui.ts](../assets/jcem/ts/donations-ui.ts) exporta `enhanceD
 - Abre o diálogo e foca Fechar antes de preparar o QR. A promessa permanece pendente enquanto a visualização estiver aberta; o conector restaura o foco ao botão de origem após o fechamento.
 - Fechar ou Escape cancela a preparação. Fechamento durante a exportação não cria URL tardia; canvas e URL temporária são liberados.
 - O link nativo Baixar PNG aparece quando a exportação termina. O download usa o mesmo canvas exibido, sem exigir uma nova preparação no clique.
-- Navegadores sem `showModal` recebem uma visualização com fechamento explícito e sem declarar modalidade. A integração ao bootstrap e a validação visual completa ainda estão pendentes.
+- Navegadores sem `showModal` recebem uma visualização com fechamento explícito e sem declarar modalidade. O bootstrap já integra o diálogo; a validação visual completa ainda está pendente.
 
 ## Fontes
 
