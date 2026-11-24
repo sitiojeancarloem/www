@@ -131,6 +131,15 @@ Sobrescreve a área central com um recorte do bitmap fornecido; as dimensões n�
 - A decodificação automática deve ser feita separadamente, comparando byte a byte ao payload original.
 <!-- donations-matrix-canvas:end -->
 
+### Conector DOM de cópia
+
+O módulo [donations-ui.ts](../assets/jcem/ts/donations-ui.ts) exporta `enhanceDonationCopy`, recebendo o elemento raiz, os dados ainda sujeitos à validação e uma interface de clipboard com `writeText`.
+
+- A raiz contém os métodos identificados por `data-donation-id`, conforme a [partial canônica](../_includes/jcem/donations-content.html). O conector valida os dados antes de alterar o DOM e aprimora cada método uma única vez.
+- PIX e criptomoedas recebem cópia integral, resumo visual de até dez caracteres e valor integral para tecnologias assistivas. PayPal conserva seu link e não recebe botão de cópia.
+- O botão mantém seu nome e sua função nativa; o resultado aparece em uma região de status separada. Falha de clipboard orienta a cópia manual e preserva os campos existentes.
+- O módulo não busca dados nem se inicializa automaticamente. A montagem na página, QR, aparência e fallback completo continuam nas unidades seguintes da FT-108.
+
 ## Fontes
 
 - [../RCFs/doacoes.md](../RCFs/doacoes.md)
