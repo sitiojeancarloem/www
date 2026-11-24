@@ -15,7 +15,7 @@ function setStatus(root, state) {
     }
     switch (state.status) {
         case 'loading':
-            statusEl.textContent = 'Preparando cópia…';
+            statusEl.textContent = 'Preparando ações…';
             break;
         case 'ready':
             statusEl.textContent = '';
@@ -38,7 +38,7 @@ export async function mountDonationCopy(root) {
             throw new Error('Dados JSON de doação não encontrados no script interno.');
         }
         const data = JSON.parse(scriptEl.textContent);
-        const { enhanceDonationCopy } = await import('./donations-ui.js');
+        const { enhanceDonationCopy, enhanceDonationQr } = await import('./donations-ui.js');
         const clipboard = {
             writeText: async (text) => {
                 var _a;
@@ -50,6 +50,18 @@ export async function mountDonationCopy(root) {
             }
         };
         enhanceDonationCopy(root, data, clipboard);
+        const siteUrl = root.dataset.donationSiteUrl;
+        const logoUrl = root.dataset.donationLogoUrl;
+        if (!siteUrl || !logoUrl)
+            throw new Error('Metadados locais de QR ausentes.');
+        enhanceDonationQr(root, data, async (method) => {
+            const { showDonationQr } = await import('./donations-qr-dialog.js');
+            const label = method.type === 'crypto' ? method.label + ' — ' + method.network : method.label;
+            return showDonationQr(root, 'QR de ' + label, method.id + '.png', async (signal) => {
+                const { prepareDonationQr } = await import('./donations-qr-resource.js');
+                return prepareDonationQr(root.ownerDocument, method, siteUrl, logoUrl, signal);
+            });
+        });
         state.status = 'ready';
         root.dataset.donationCopyMount = 'ready';
     }

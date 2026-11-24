@@ -27,7 +27,7 @@ function setStatus(root: HTMLElement, state: MountState): void {
 
   switch (state.status) {
     case 'loading':
-      statusEl.textContent = 'Preparando cópia…';
+      statusEl.textContent = 'Preparando ações…';
       break;
     case 'ready':
       statusEl.textContent = '';
@@ -39,7 +39,7 @@ function setStatus(root: HTMLElement, state: MountState): void {
 }
 
 /**
- * Monta a cópia usando o snapshot JSON presente na raiz, sem buscar dados externos.
+ * Monta cópia e QR usando o snapshot JSON presente na raiz, sem buscar dados externos.
  * @param root Raiz que contém o script JSON inerte e os métodos renderizados.
  * @returns Promessa resolvida após montagem ou fallback manual com status; sem rejeição esperada.
  * @remarks A montagem automática chama esta função depois da oportunidade de pintura.
@@ -63,7 +63,7 @@ export async function mountDonationCopy(root: HTMLElement): Promise<void> {
     const data: unknown = JSON.parse(scriptEl.textContent);
 
     // O agendamento automático chega aqui após dois frames, antes de carregar o conector.
-    const { enhanceDonationCopy } = await import('./donations-ui.js');
+    const { enhanceDonationCopy, enhanceDonationQr } = await import('./donations-ui.js');
 
     const clipboard: Pick<Clipboard, 'writeText'> = {
       writeText: async (text: string): Promise<void> => {
@@ -76,6 +76,18 @@ export async function mountDonationCopy(root: HTMLElement): Promise<void> {
     };
 
     enhanceDonationCopy(root, data, clipboard);
+
+    const siteUrl = root.dataset.donationSiteUrl;
+    const logoUrl = root.dataset.donationLogoUrl;
+    if (!siteUrl || !logoUrl) throw new Error('Metadados locais de QR ausentes.');
+    enhanceDonationQr(root, data, async (method) => {
+      const { showDonationQr } = await import('./donations-qr-dialog.js');
+      const label = method.type === 'crypto' ? method.label + ' — ' + method.network : method.label;
+      return showDonationQr(root, 'QR de ' + label, method.id + '.png', async (signal) => {
+        const { prepareDonationQr } = await import('./donations-qr-resource.js');
+        return prepareDonationQr(root.ownerDocument, method, siteUrl, logoUrl, signal);
+      });
+    });
 
     state.status = 'ready';
     root.dataset.donationCopyMount = 'ready';
