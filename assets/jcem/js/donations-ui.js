@@ -63,3 +63,63 @@ export function enhanceDonationCopy(root, data, clipboard) {
         donor.dataset.donationCopyBound = 'true';
     }
 }
+export function enhanceDonationQr(root, data, openQr) {
+    var _a;
+    if (!(root instanceof HTMLElement)) {
+        throw new TypeError('Parâmetro root deve ser um HTMLElement');
+    }
+    validateDonationsData(data);
+    if (typeof openQr !== 'function') {
+        throw new TypeError('Parâmetro openQr deve ser uma função assíncrona');
+    }
+    const methodsMap = new Map();
+    for (const method of data.methods) {
+        methodsMap.set(method.id, method);
+    }
+    const donorElements = Array.from(root.querySelectorAll('[data-donation-id]'));
+    for (const donor of donorElements) {
+        if (donor.dataset.donationQrBound === 'true')
+            continue;
+        const id = donor.dataset.donationId;
+        if (!id)
+            continue;
+        const method = methodsMap.get(id);
+        if (!method || method.type === 'paypal')
+            continue;
+        const summary = (_a = donor.closest('details')) === null || _a === void 0 ? void 0 : _a.querySelector('summary');
+        if (!summary)
+            continue;
+        const button = root.ownerDocument.createElement('button');
+        button.type = 'button';
+        button.className = 'btn';
+        button.setAttribute('data-donation-qr-button', 'true');
+        button.setAttribute('aria-label', `Ver QR code de ${method.label}`);
+        button.textContent = `Ver QR de ${method.label}`;
+        const status = root.ownerDocument.createElement('p');
+        status.setAttribute('role', 'status');
+        status.setAttribute('aria-live', 'polite');
+        status.setAttribute('data-donation-qr-status', 'true');
+        let busy = false;
+        button.addEventListener('click', async () => {
+            if (busy)
+                return;
+            busy = true;
+            button.setAttribute('aria-busy', 'true');
+            status.textContent = 'Preparando QR code...';
+            try {
+                await openQr(method, button);
+                status.textContent = '';
+            }
+            catch {
+                status.textContent = 'Erro ao abrir QR; use cópia manual';
+            }
+            finally {
+                busy = false;
+                button.removeAttribute('aria-busy');
+                button.focus();
+            }
+        }, { once: false });
+        donor.append(button, status);
+        donor.dataset.donationQrBound = 'true';
+    }
+}
