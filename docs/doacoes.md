@@ -147,6 +147,14 @@ O módulo [donations-ui.ts](../assets/jcem/ts/donations-ui.ts) exporta `enhanceD
 - `mountDonationCopy` evita montagem simultânea ou repetida. JSON inválido ou falha de inicialização preserva os campos e informa a alternativa de cópia manual em uma região de status.
 - QR, aparência e fallback completo sem JavaScript continuam nas unidades seguintes da FT-108. A validação atual cobre o componente; não representa aceite visual do site inteiro.
 
+### Ativação de QR por callback
+
+`enhanceDonationQr`, no [mesmo módulo UI](../assets/jcem/ts/donations-ui.ts), recebe raiz, dados e o callback assíncrono `openQr(method, opener)`. O callback deve resolver somente após o fechamento da visualização ou rejeitar em caso de falha.
+
+- O conector cria controles para PIX e criptomoedas uma única vez, preserva PayPal e bloqueia novas ativações do mesmo botão enquanto a abertura estiver pendente.
+- Status e botão permanecem separados. Após resolução ou rejeição, o estado ocupado é removido e o botão recebe foco; falha orienta a cópia manual.
+- Esta API não compõe o QR nem implementa o diálogo. Sua ligação à página depende do controlador completo; nenhum botão inerte é montado pelo bootstrap atual.
+
 ## Fontes
 
 - [../RCFs/doacoes.md](../RCFs/doacoes.md)
