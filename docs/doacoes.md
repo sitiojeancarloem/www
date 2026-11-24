@@ -138,7 +138,14 @@ O módulo [donations-ui.ts](../assets/jcem/ts/donations-ui.ts) exporta `enhanceD
 - A raiz contém os métodos identificados por `data-donation-id`, conforme a [partial canônica](../_includes/jcem/donations-content.html). O conector valida os dados antes de alterar o DOM e aprimora cada método uma única vez.
 - PIX e criptomoedas recebem cópia integral, resumo visual de até dez caracteres e valor integral para tecnologias assistivas. PayPal conserva seu link e não recebe botão de cópia.
 - O botão mantém seu nome e sua função nativa; o resultado aparece em uma região de status separada. Falha de clipboard orienta a cópia manual e preserva os campos existentes.
-- O módulo não busca dados nem se inicializa automaticamente. A montagem na página, QR, aparência e fallback completo continuam nas unidades seguintes da FT-108.
+- O módulo não busca dados nem se inicializa automaticamente. A montagem usa o [bootstrap do componente](../assets/jcem/ts/donations-bootstrap.ts), carregado somente pela partial de doações.
+
+### Montagem progressiva
+
+- A partial emite um snapshot JSON inerte da mesma fonte que gera os campos. O escape de `<` mantém a validade do JSON e impede fechamento antecipado do elemento de dados.
+- O bootstrap agenda a montagem após `DOMContentLoaded` e duas oportunidades de frame, e só então importa o conector. Não há requisição separada de dados nem inclusão global no tema.
+- `mountDonationCopy` evita montagem simultânea ou repetida. JSON inválido ou falha de inicialização preserva os campos e informa a alternativa de cópia manual em uma região de status.
+- QR, aparência e fallback completo sem JavaScript continuam nas unidades seguintes da FT-108. A validação atual cobre o componente; não representa aceite visual do site inteiro.
 
 ## Fontes
 
