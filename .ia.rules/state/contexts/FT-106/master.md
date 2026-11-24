@@ -1,6 +1,6 @@
 # Contexto mestre — FTs 106 a 111
 
-Estado: inicializadas; FT-106 em equalização normativa.
+Estado: FT-106 normatizada; FT-107 tecnicamente concluída, pendente de validação humana; FT-108 a FT-111 aguardam execução das respectivas unidades autorizadas.
 
 ## Objetivo
 
@@ -122,3 +122,9 @@ Job 3f48f0e4 criou rascunho sem leituras normativas nem comandos requeridos: nã
 ## Checkpoint U5C — índice e estado reconciliados
 
 Revisão 51c8be0c aceita/Q8S10; commit 554836e601 documenta APIs de assets e ações. README indexa a página canônica e link existe; preservadas todas as demais linhas. FT107 continua em andamento: documentação de dados/QR e cobertura final pendentes. FT116 corrigida: merges 5d4254371f/4e23e3a66a e upstream 756be748 comprovados ancestrais do HEAD; obstáculos históricos não são bloqueios atuais. Rastreamento nesta unidade HEAD...upstream=5	0 (ahead/behind); sem novo fetch, push ou alegação de gate global aprovado. Demais FTs e TODO preservados; projeções sincronizadas pelo mecanismo oficial.
+
+## Checkpoint U7 — conclusão técnica FT-107
+
+Documentação de dados, especificação QR e matriz/canvas concluída nos commits6193e1b829,bd11f2c341 e414a55cabb; links, assinaturas e preservação do conteúdo anterior conferidos. Índice README atualizado. Evidências aceitas U1/U2B/U3G/U4A e catálogo8assets/1972d950f7 mantidos, sem repetição de testes confiáveis. Auditoria52cfb0fc/Q8S4 foi parcial: repetiu U5C antigo e ignorou documentação atual; sua conclusão de ausência foi rejeitada pelo supervisor, sem invalidar suas referências históricas corretas.
+
+Conclusão técnica registrada pelo mecanismo oficial concludeFeatureState, com developerValidated=false. HistóricoFT107 e índices gerados, demais seções e TODO preservados, projeções conferidas. Aceite humano permanece externo. UI/expansão/download integrado pertencem à FT108; retornoFT109,workflowFT110 e integração globalFT111 permanecem pendentes. Próxima unidade: inventário delimitado para página /doe, reutilizando fonte e helpers existentes.

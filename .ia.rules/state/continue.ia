@@ -222,13 +222,13 @@ verificacoes=Tipos e scripts/test_verified_process_alternatives.ts exit0 no job 
 pendencias=Aceite humano. Sem fallback automático no adaptador; clones não desfazem IO. Timeout bloqueia avanço, sem provar término físico imediato. Gate global continua sem aprovação por pendência externa RCFs/bate-papo.md:12.
 historico=.ia.rules/state/history/FT-105.ia|sha256=703df388dbba509ad135c3d60aac51cd09c3f707bdc8c1e813c45385bf59be06
 
-FT-107|nome=Implementação da fonte de dados e pipeline de QR|escopo=tecnico|status=em_andamento|autorizacao=humana
+FT-107|nome=Implementação da fonte de dados e pipeline de QR|escopo=tecnico|status=concluida|autorizacao=humana|conclusao=2026-11-24T01:49:57.528Z|validacao=pendente_desenvolvedor
 objetivo=Implementar JSON canônico, QR client-side, cópia, expansão, download, decodificação e assets comuns.
 origem=.ia.rules/state/requests/FT-106/prompt.md
-contexto=.ia.rules/state/contexts/FT-106/master.md
-dependencias=FT-106
-plano=U1-U3 e ações validados; catálogo de oito assets aceito em 1972d950f7; APIs documentadas e exemplo validado em 554836e601.
-pendencias=Documentar dados e QR, conferir cobertura restante e aceite técnico da FT-107. UI/automação/global pertencem às FTs dependentes.
+resultado=JSON canônico, contrato tipado, QR composto e decodificado, helpers de ações, catálogo compartilhado de oito assets e documentação de uso concluídos.
+verificacoes=Evidências aceitas U1/U2B/U3G/U4A; catálogo1972d950f7; exemplo554836e601; documentação6193e1b829,bd11f2c341,414a55cabb e verificações documentais dos respectivos jobs. Conferência final sem repetir runtime aprovado.
+pendencias=Aceite humano permanece externo. UI, retorno, workflow e integração global pertencem às FTs108–111; não há alegação de conclusão dessas dependentes.
+historico=.ia.rules/state/history/FT-107.ia|sha256=1e7e94864e406cb76435b2804e2a0e7464ec6ce555e5af19aeffd667ca249307
 
 FT-108|nome=Implementação da página pública de doações|escopo=tecnico|status=registrada_bloqueada_por_dependencia|autorizacao=humana
 objetivo=Implementar `/doe` responsiva, orientada por dados e integrada aos temas.

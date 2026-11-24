@@ -128,6 +128,13 @@
       "state": "validada"
     },
     {
+      "id": "FT-107",
+      "name": "Implementação da fonte de dados e pipeline de QR",
+      "path": ".ia.rules/state/history/FT-107.ia",
+      "sha256": "1e7e94864e406cb76435b2804e2a0e7464ec6ce555e5af19aeffd667ca249307",
+      "state": "pendente-validacao"
+    },
+    {
       "id": "FT-112",
       "name": "Revisão integral da carta aberta",
       "path": ".ia.rules/state/history/FT-112.ia",
