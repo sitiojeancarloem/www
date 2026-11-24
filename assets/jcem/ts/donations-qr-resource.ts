@@ -19,7 +19,7 @@ import {renderDonationQrWithSymbol} from './donations-qr-canvas.js';
  * @param siteUrl URL canônica HTTPS usada na legenda cripto.
  * @param logoUrl Fonte local homologada do símbolo, resolvida contra doc.baseURI.
  * @param signal Cancela antes/depois de etapas assíncronas; bitmap é sempre liberado.
- * @returns Canvas composto e acessível; propaga erros de entrada/rede/cancelamento/renderização.
+ * @returns Canvas composto e acessível com legenda em data-donation-qr-caption; propaga erros de entrada/rede/cancelamento/renderização.
  */
 export async function prepareDonationQr(
   doc: Document,
@@ -92,6 +92,7 @@ export async function prepareDonationQr(
     const canvas = doc.createElement('canvas') as HTMLCanvasElement;
     renderDonationQrWithSymbol(canvas, qrWithSymbol.matrix, spec.caption, bitmap, qrWithSymbol.symbolArea);
 
+    canvas.dataset.donationQrCaption = spec.caption;
     canvas.setAttribute('role', 'img');
     canvas.setAttribute('aria-label', `Código QR de ${method.label}: ${spec.caption}`);
 

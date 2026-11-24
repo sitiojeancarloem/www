@@ -133,7 +133,10 @@ export async function showDonationQr(root, label, filename, produce) {
                     return;
                 }
                 canvas = result;
-                surface.append(canvas);
+                const caption = doc.createElement('p');
+                caption.setAttribute('data-donation-qr-caption-text', '');
+                caption.textContent = canvas.dataset.donationQrCaption || canvas.getAttribute('aria-label') || label;
+                surface.append(canvas, caption);
                 const blob = await getDonationQrBlob(canvas);
                 if (closed)
                     return;

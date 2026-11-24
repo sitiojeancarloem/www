@@ -60,6 +60,7 @@ export async function prepareDonationQr(doc, method, siteUrl, logoUrl, signal) {
         const qrWithSymbol = createDonationQrForSymbol(spec.payload, factory);
         const canvas = doc.createElement('canvas');
         renderDonationQrWithSymbol(canvas, qrWithSymbol.matrix, spec.caption, bitmap, qrWithSymbol.symbolArea);
+        canvas.dataset.donationQrCaption = spec.caption;
         canvas.setAttribute('role', 'img');
         canvas.setAttribute('aria-label', `Código QR de ${method.label}: ${spec.caption}`);
         return canvas;
