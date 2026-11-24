@@ -31,4 +31,6 @@
   </div>
 </details>
 {% endfor %}
+<script type="application/json" data-jcem-donations-data>{{ site.data.donations | jsonify | replace: '<', '\u003c' }}</script>
 </section>
+<script src="{{ '/assets/jcem/js/donations-bootstrap.js' | relative_url }}" type="module"></script>
