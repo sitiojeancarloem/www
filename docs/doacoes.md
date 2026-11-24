@@ -146,7 +146,7 @@ O módulo [donations-ui.ts](../assets/jcem/ts/donations-ui.ts) exporta `enhanceD
 - O bootstrap agenda a montagem após `DOMContentLoaded` e duas oportunidades de frame, e só então importa o conector. Não há requisição separada de dados nem inclusão global no tema.
 - `mountDonationCopy` evita montagem simultânea ou repetida. JSON inválido ou falha de inicialização preserva os campos e informa a alternativa de cópia manual em uma região de status.
 - A montagem também liga os controles QR. O host é importado ao ativar um botão; biblioteca, logo e preparação são carregados pelo produtor cancelável após a abertura do diálogo. A URL canônica e o caminho local do logo vêm de atributos escapados da partial.
-- Aparência e fallback completo sem JavaScript continuam nas unidades seguintes da FT-108. A validação atual cobre o componente; não representa aceite visual do site inteiro.
+- O componente possui CSS e fallback estático. A validação atual cobre seu conteúdo e comportamento; o tema e o shell completos ainda dependem do build integrado.
 
 ### Ativação de QR por callback
 
@@ -181,7 +181,7 @@ A partial carrega [donations.css](../assets/jcem/css/donations.css) somente onde
 
 - O resumo visual contém até dez caracteres; o texto integral do resumo usa uma regra acessível restrita à doação. Os campos nativos continuam disponíveis.
 - O canvas mantém proporção e quiet zone. Vinte capturas dos QRs exibidos em dois temas e duas larguras foram decodificadas contra o JSON, com verificações de foco, contraste, alvos e overflow.
-- Essa validação usa a partial real e tokens extraídos da fonte; o tema completo e o fallback compartilhado ainda dependem do build e da revisão final.
+- Essa validação usa a partial real e tokens extraídos da fonte; a integração com o tema e o shell completos ainda depende do build e da revisão final.
 - O diálogo mostra a legenda também em texto complementar legível no mobile. A correção passou em dois temas, dez capturas de QR decodificadas e revisão das duas imagens da interface; o PNG e o payload permanecem preservados.
 
 ### Ícones e orientação
@@ -190,7 +190,16 @@ O [include de assets](../_includes/jcem/donation-asset.html) resolve `iconAssetI
 
 - Ícones locais são decorativos, têm espaço reservado e conservam o rótulo textual. Um ID sem correspondência omite o ícone e preserva os dados e o texto.
 - O guia em três passos orienta escolher, transferir e conferir os dados. O link de créditos usa a página compartilhada de atribuições, cujos registros e licenças já existem.
-- A verificação cobriu os oito arquivos e seus hashes, dez imagens exibidas, extensão por dados, fallback, escape e quatro combinações de tema/largura. As capturas foram revistas; o shell completo e o fallback sem JavaScript seguem para as próximas etapas.
+- A verificação cobriu os oito arquivos e seus hashes, dez imagens exibidas, extensão por dados, fallback, escape e quatro combinações de tema/largura. As capturas foram revistas; a integração ao shell completo segue para a próxima etapa.
+
+### Conteúdo sem JavaScript
+
+A fonte compartilhada de `noscript` compõe a mesma partial em `/doe/`. `static_fragment=true` omite dados de hidratação e scripts; `id_prefix='noscript-'` mantém IDs e referências ARIA distintos da cópia normal oculta.
+
+- Os detalhes nativos abrem por teclado. Campos readonly permitem seleção manual; o link PayPal conserva endereço, alvo e proteção de origem.
+- O guia estático orienta copiar manualmente, sem sugerir um QR indisponível. As demais páginas conservam o painel genérico existente.
+- A validação em navegador com JavaScript desativado cobriu duas larguras, dados exatos, seleção, PayPal, IDs, ausência de pedidos de scripts e overflow. O modo normal também foi conferido.
+- A fixture isolou três includes de shell. O conteúdo foi aceito e as capturas examinadas; o shell real permanece pendente do build integrado.
 
 ## Fontes
 

@@ -17,7 +17,7 @@ Os artigos em desenvolvimento estão no repositório privado [https://github.com
 | [Leitura acessível e TTS](docs/MODO-DE-USO-LEITURA-ACESSIVEL-E-TTS.md) | Declarar tabelas Markdown com IAL/caption, idiomas, pronúncia, referências faladas e alternativas para imagens e gráficos.                      |
 | [Impressão editorial IEEE](docs/MODO-DE-USO-IMPRESSAO-IEEE.md)         | Imprimir artigos em A4/duas colunas, inclusive figuras largas manuais ou automáticas, sem alterar a web.                        |
 | [Verificação de fontes EGW](docs/MODO-DE-USO-VERIFICACAO-FONTES-EGW.md) | Localizar trechos em EPUB/PDF, interpretar evidências e confirmar paginação sem alterar a biblioteca. |
-| [Doações: dados, QR, assets e ações](docs/doacoes.md) | Dados canônicos, cópia integral, QR local sob demanda, diálogo/download PNG e CSS do componente; inclui APIs e exemplo local. |
+| [Doações: dados, QR, assets e ações](docs/doacoes.md) | Dados canônicos, cópia integral, QR local, diálogo/download PNG, ícones, CSS e fallback estático; inclui APIs e exemplo local. |
 | [Índice normativo](RCF.md)                                             | Localizar requisitos, contratos e validações autoritativos por domínio do produto.                                              |
 
 ## Build local
