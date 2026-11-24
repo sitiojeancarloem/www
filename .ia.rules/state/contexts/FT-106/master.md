@@ -128,3 +128,14 @@ Revisão 51c8be0c aceita/Q8S10; commit 554836e601 documenta APIs de assets e aç
 Documentação de dados, especificação QR e matriz/canvas concluída nos commits6193e1b829,bd11f2c341 e414a55cabb; links, assinaturas e preservação do conteúdo anterior conferidos. Índice README atualizado. Evidências aceitas U1/U2B/U3G/U4A e catálogo8assets/1972d950f7 mantidos, sem repetição de testes confiáveis. Auditoria52cfb0fc/Q8S4 foi parcial: repetiu U5C antigo e ignorou documentação atual; sua conclusão de ausência foi rejeitada pelo supervisor, sem invalidar suas referências históricas corretas.
 
 Conclusão técnica registrada pelo mecanismo oficial concludeFeatureState, com developerValidated=false. HistóricoFT107 e índices gerados, demais seções e TODO preservados, projeções conferidas. Aceite humano permanece externo. UI/expansão/download integrado pertencem à FT108; retornoFT109,workflowFT110 e integração globalFT111 permanecem pendentes. Próxima unidade: inventário delimitado para página /doe, reutilizando fonte e helpers existentes.
+
+## FT-108 — plano de execução após I1
+
+I1/c5230448 recebido e revisado/Q8S6: inventário parcial; layout captura HTML sem filtro ativo de compressão, dados/QR existentes apenas não fornecidos. Trechos canônicos confirmam módulo global no head/custom:193 e initDOMContentLoaded em site.ts; novo runtime de doações ficará no menor ponto de composição, sem inclusão global. Supervisor carregou integralmente governança auxiliar (mudança de rota), RCFs desempenho/progressivo e capacidades WEB-BROWSER/WEB-STATIC; WEB-EDITORIAL não é disparada pela página utilitária.
+
+1/4 P1 — base estática reutilizável: propor página _pages/doe.html e partial _includes/jcem/donations-content.html com Liquid/JSON, escape, detalhes nativos, campo readonly para cópia manual e CTA PayPal. Sem novos scripts/imagens/estilos nessa unidade; não apresentar controles sem comportamento. Estado: elaboração local da proposta; implementação só após revisão.
+2/4 P2 — aprimoramentos QR/cópia/expansão/download com helpers já aceitos e carga exclusiva ao componente após conteúdo inicial; não duplicar payloads/encurtador.
+3/4 P3 — aparência responsiva/claro-escuro, assets comuns e integração do fallback noscript por composição; carregar RCF de componentes compartilhados antes de alterar esse fallback. Todo conteúdo essencial permanece legível, sem bloqueio de inicialização.
+4/4 P4 — artefato renderizado, teclado/foco, dados exatos, QR final decodificado, documentação e gates pertinentes; aceite integrado/globalFT111 permanece separado.
+
+Levantamento do fallback atual mostrou painel genérico em _includes/jcem/noscript-content.html; a base P1 não prova ainda o aceite sem JavaScript do site completo. Nenhuma mudança compartilhada ou publicação é autorizada por uma proposta preliminar. Reutilizar metadados/licença e biblioteca local já adotados, sem nova dependência.
