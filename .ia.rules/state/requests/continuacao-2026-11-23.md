@@ -93,3 +93,81 @@ Handoff FT108/I1: job `c5230448-afea-46fb-bdd2-bf9d34f022aa`, RUNNING/R8Vv1, mes
 I1 recebido uma vez/Q8S6: compressão ativa não comprovada pelo capture; missing significa não fornecido, não ausência das capacidadesFT107. Rota completa de governança/performance/progressivo e WEB-BROWSER/WEB-STATIC carregada pelo supervisor antes de planejar efeitos; truncamento inicial reconciliado somente pelas faixas omitidas. Plano4unidades no mestreFT106. BaseP1 propõe página+partial estáticas e funcionais, sem QR/JS/CSS/assets novos; fallback noscript integrado e melhorias ficam separados.
 
 Handoff: job `688f8f59-9a19-4710-8fab-c35e09700b3d`, RUNNING/R8Vv1, mesma conversa/root, read-only/provided_evidence8088caracteres. JSON page(max1800)+partial(max4000)+notes,até850palavras; sem ferramentas. Próximo: local_result uma vez, conferir Liquid/escape/contrato/valores nativos, Q8S; só então aplicar por job expect_changes=true e validação de renderização delimitada. Nenhuma proposta equivale a implementação; FT108 ainda não concluída. Compactação N7C nativa continua indisponível, sem execução alegada. Sem polling.
+
+## P1 — aplicação em execução
+
+688f8f59 recebido uma vez/Q8S3: page inválida/duplicada, escapes e licença incorretos; partial aproveitável. Correções e composição mínima salvas em cacheFT108/P1/reviewed.json com hash7e4706c1f88b24db5dc5c4b892761f5b79b795eba4df4ff84cd9be6fd251ecdb. Dados financeiros canônicos permanecem7e745866e383f9601bb969f595dc49d8e4cb8520e5972e0ed40df9dc0869e475.
+
+Handoff: job `586c36ed-0300-47f1-a129-fc62c89f9cae`, RUNNING/R8Vv1, mesma conversa/root, command_sequence read-contracts/apply-foundation/verify-foundation, expect_changes=true, commit_policy=supervisor. Dois alvos funcionais _pages/doe.html e _includes/jcem/donations-content.html. Ruby4.0.5/Liquid4.0.4/Nokogiri1.19.4 verificados antes de delegar; teste usa fonte canônica e controle negativo de injeção, sem alegar build/visual global. Canonical FT108 passa a em_andamento; demais etapas pendentes. Próximo: local_result uma vez, conferir efeitos/recibos e delta, Q8S; assumir commit exclusivo após aceite. Média instalada495,53402s, sem polling. N7C: ferramenta nativa de compactação indisponível, sem execução alegada.
+
+## P1 — falha de verificador e continuação
+
+586c36ed recebido uma vez: dois primeiros comandos exit0 e templates novos confirmados pelo Git e comparação exata com artefato. Terceiro falhou NameError:data, sem renderizar; causa no script do supervisor, que omitiu JSON.parse. Q8S10 registrado/revisão1 pela execução determinística correta e parada sem replay. Não classificado como infraestrutura nem aceito como validação concluída. Nenhum commit P1 feito antes da correção.
+
+Handoff: job `8f7e9f9d-b893-4af8-8f22-2069f979829d`, RUNNING/R8Vv1, mesma conversa/root, read-only/expect_changes=false: somente verify-foundation-fixed, sem reaplicar templates. Única mudança do comando original: data=JSON.parse(data_text) antes do uso. Próximo: local_result uma vez, conferir evidência, Q8S; assumir commit dos dois alvos após aceite. FT108/P2–P4 e demais FTs continuam pendentes. Média instalada495,67228s, sem polling. N7C: ausência de rota/ferramenta nativa impede compactação; nenhuma execução alegada.
+
+## P1 aceita; handoff P2A
+
+8f7e9f9d recebido uma vez: verify-foundation-fixed exit0, seis métodos e controle adversarial aprovados, sem efeitos adicionais. Templates examinados; Q8S10 registrado/revisão1. Commit exclusivo8dda4fe088 de dois arquivos, staging herdado preservado. Conclusão somente P1; FT108 permanece em_andamento.
+
+Job `f9253680-a3bf-4ab8-9c8c-29c837ca5145`: RUNNING/R8Vv1, mesma conversa/root, proposta read-only P2A/donations-ui.ts, evidência5590caracteres. Exportar conector DOM de cópia/endereços com helpers existentes,sem fetch/auto-init/QR/CSS. JSON typescript(max4000)+notes até750palavras; sem ferramentas. Próximo: local_result uma vez, revisão técnica e Q8S; aplicação expect_changes=true e teste real de DOM/clipboard por Playwright existente antes de integrar. P2B montagem/fonte/agendamento e P2CQR continuam próprios. N7C impedido por ausência de ferramenta/rota nativa; sem execução alegada ou polling.
+
+## P2A — correção da proposta
+
+f9253680 recebido uma vez/Q8S3 registrado/revisão1: proposta não aplicada por cabeçalho ausente, HTMLSummaryElement inválido, falta de idempotência e reuso do copyDonationValue, botão com role=status no summary e temporizadores indevidos. Git determinístico confirma ausência de novo donations-ui. Nenhum teste ou efeito foi alegado pelo supervisor.
+
+Handoff: job `b2281683-0e8f-4714-89e1-ad6ae6bbb6bf`, RUNNING/R8Vv1, mesma conversa/root, read-only/evidência8136caracteres (proposta anterior+helpers/template/contrato já conhecidos). Correção material: algoritmo explícito do mesmo microescopo; sem nova exploração,geração de outras features ou fallback pago. JSONtypescript(max4000)+notes,até750palavras. Próximo: local_result uma vez,revisão/Q8S; só aplicar expect_changes=true após fonte aceitável e preparar compilação/teste real de DOM. Sem polling. Compactação N7C nativa permanece indisponível; nenhuma execução alegada.
+
+## P2A — aplicação determinística após revisão
+
+b2281683 recebido uma vez/Q8S2 registrado/revisão1: erros de tipo/import, role/timer repetidos e nota contraditória; fonte não aplicada. Supervisor corrigiu apenas trechos objetivamente delimitados, preservando algoritmo/helper/idempotência já aproveitáveis. Novo artefato09f93728656b626dbace41705fba8b3e49266903dd2e43d3a5a4558670c324c0. Probe do compilador comprovou preservação /*! com removeComments=true; package/config/injetor ficam intocados. Verificador4892d1ff1cd07d60c6bfdb997a836d0b44c7ecc77fe84429f8faa67d890970b2 passou syntax-check, usa Playwright/Edge existente, Liquid/JSON canônicos e dataURL como testeQR prévio. Nenhum teste funcional do conector executado ainda pelo supervisor.
+
+Handoff: job `5d34f597-65ad-4be0-b904-b32d34f5466c`, RUNNING/R8Vv1, mesma conversa/root, write/expect_changes=true/commit_policy=supervisor. Sequência read-contracts/apply-copy-ts/compile-copy/publish-copy-js/verify-copy-dom; alvos apenas assets/jcem/ts/donations-ui.ts e JS correspondente, auxiliares/perfil em cacheFT108/P2A. Compilação herda tsconfig canônico, emite dependências só em cache e publica só novoJS. Teste verifica dados completos/teclado/idempotência/status/PayPal/dadoinválido/clipboardnegado/labeladversarial. Próximo: local_result uma vez, revisar efeito/recibos, Q8S e commit após aceite. Sem auto-init/QR/inclusão na página nesta unidade, FT108 continua parcial. N7C nativo indisponível; sem alegação de compactação ou polling por demora.
+
+## P2A aplicada/compilada; validação ESM
+
+5d34f597 recebido uma vez/Q8S10 registrado/revisão1. Ler/aplicarTS/compilar/publicarJS exit0; Git confirma ambos novos e comparação comprova identidade dos artefatos. verify-copy-dom falhou antes do browser por .ts sob pacote .ia.rules/commonjs. Não é WORKER_INFRA_ERROR nem falha funcional comprovada: corrigir extensão do verificador para.mts. Cópia byte a byte conserva original/hash4892d1ff1cd07d60c6bfdb997a836d0b44c7ecc77fe84429f8faa67d890970b2; syntax-check passou, pacote/config intocados.
+
+Handoff: job `c8fd7a96-25e5-4324-b4b3-843e98f5b2d0`, RUNNING/R8Vv1, mesma conversa/root; somente verify-copy-dom-mts. modewrite permite perfil/cache do browser local;expect_changes=false pois implementação já ocorreu,sem alteração funcional esperada. Nenhum replay de aplicação/compilação. Próximo: local_result uma vez, conferir teste real, Q8S e commit dos dois módulos após aceite; P2B/P2C e restanteFT108 continuam pendentes. Média instalada492,54710s, sem polling. N7C nativo impedido pela ausência de ferramenta/rota exposta,sem execução alegada.
+
+## P2A aceita; handoff P2B
+
+c8fd7a96 recebido uma vez: verificadorEdge exit0/copied5/paypalExcluded/invalidDataUnchanged/nativeFallback. Fonte examinada; Q8S10 registrado/revisão1. Commit exclusivo7e459a0f2f; API documentada emdacc119f22, staging herdado preservado. Escopo só conector; integração não alegada.
+
+Montagem P2B usa snapshotJSON inerte gerado da mesma SSOT/artefatoHTML,4527bytes medidos,zero requestsdedados; supera endpoint planejado e evita mistura de versões. ProbeJekyll jsonify+replace'<',escapeUnicode comprovou segurança de fechamento script e roundtripJSON. Nenhum novo endpoint/config/norma. Bootstrap importa conector só apósDOMContentLoaded+duploRAF,carregado exclusivamente no include. Plano/motivo integral no mestreFT106.
+
+Handoff: job `af43d509-935e-4776-a7b5-588096c45eae`, RUNNING/R8Vv1, mesma conversa/root, read-only/evidência2825caracteres; JSONtypescript(max4000)+notes até750palavras. Somente proposta donations-bootstrap.ts,sem ferramentas/efeitos. Próximo: local_result uma vez,revisão/Q8S; aplicar expect_changes=true junto do JSONinerte/srcmodule na partial e validar montagem/timing/fallback/valores no navegador. P2CQR e P3/P4 seguem pendentes. N7C nativo indisponível,sem execução alegada; sem polling.
+
+## P2B — proposta revista/aplicação
+
+af43d509 recebido uma vez/Q8S3 registrado/revisão1: imports e tipos inválidos, schema paralelo, importestático e estados incompletos. Sem delta funcional no Git. Fonte preservada, correções pontuais do supervisor mantêm fluxo/status/agendamento/adaptador e removem erros; artefato05c965ad1b2af07a99ea0e7b1ee6bfbd082355875ea6d69be9829d4c76391e83. Contexto real Jekyll::Site/relative_url comprovado, verificador95db0e38aecc25892002c0607795fac20d7c5ab8fce0aaeedd32ed2142accfb7 passou syntax-check. Nenhuma validação de navegador deste bootstrap ainda alegada.
+
+Handoff: job `2480905c-7eeb-468d-8edc-e3d698062166`, RUNNING/R8Vv1, mesma conversa/root, write/expect_changes=true/commit_policy=supervisor. Sequência read-contracts/apply-bootstrap/compile-bootstrap/publish-bootstrap/verify-bootstrap. Alvos bootstrapTS/JS e partial, auxiliares/cache/perfil apenas cacheP2B; sempackage/config/Git/dadosfinanceiros/outrosJS. Teste atende requests em memória, sem redeexterna, e verifica snapshot canônico, pós-pintura, cópia, fallbackJSONinválido e escape/ausênciadecomponente. Próximo: local_result uma vez,revisão/Q8S e commit exclusivo após aceite. P2CQR/P3/P4 e demais FTs continuam pendentes; sem aceite global/humano fictício. Média instalada488,27239s,sem polling. N7C nativo permanece tecnicamente indisponível,sem alegação de execução.
+
+## P2B aceita; handoff P2C1
+
+2480905c recebido uma vez: cinco comandos exit0; fonte/diff examinados, JSONcanônico/cópia/timing2frames/escape/fallback comprovados emJekyll+Edge. Q8S10 registrado/revisão1. Commit exclusivoe0a84fa9df, docsf1da8371dd; stagingherdado preservado. Declaração continua limitada ao componente, não site inteiro.
+
+Handoff: job `661f583f-d1c6-4c05-8cc3-3c17a23a24a4`, RUNNING/R8Vv1, mesma conversa/root, read-only/evidência7045caracteres. Propor só export enhanceDonationQr(root,data,openQr) para append aoUI existente, sem alterar cópia/imports; callback Promise até fechar, guarda busy, status e foco, cinco métodos/PayPalexcluído/idempotência. JSON function(max3500)+notes até650palavras. Próximo: local_result uma vez,revisão/Q8S; aplicar expect_changes=true/compilar/testar ativação do callback; diálogo/composição/download e ligação ficarão P2C2/P2C3. Nenhum botãoQR inerte inserido na página. N7C nativo continua sem ferramenta/rota disponível; nenhuma compactação alegada. Sem polling.
+
+## P2C1 — proposta aceita com extração literal
+
+661f583f recebido uma vez/Q8S8 registrado/revisão1: função atende comportamento, mas retorno trouxe header/imports extras contrariando nota. Apenas JSDoc+função extraídos literalmente, sem nova inferência/recodificação. Artefatodfcace942dceb4a9f39d10bf20ca1ff3ba2983e45de130f6e0189e7ec3bdf1ee. Verificadorc903473b01091ee5dadaeb9854b278f78d0c702cd4569b7112a48d77b04cac16 reutiliza fixtureJekyll/dataURL e cobre cinco callbacks, dados canônicos, busy/idempotência/status/fallback e convivência com cópia. Foco real no diálogo ainda será verificado com controllerP2C2; fixture atual só resolve callback sem diálogo real.
+
+Handoff: job `971b0931-1f4b-4f2e-b2e4-3e75b2adeae9`, RUNNING/R8Vv1, mesma conversa/root, write/expect_changes=true/commit_policy=supervisor. Sequência read-contracts/append-qr-binder/compile-qr-binder/publish-qr-binder/verify-qr-binder. Alvos UI TS/JS; preservação byte a byte do prefixoTS/cópia/imports; cache/perfilP2C1. Sem alterar bootstrap/partial/Git/package/config/dados/rede. Próximo: local_result uma vez,revisão/Q8S e commit se aceito; controller QR real/composição/download/ligação continuam P2C2/P2C3. Média instalada485,63135s,sem polling. N7C nativo permanece indisponível,sem execução alegada.
+
+## P2C1 aceita; handoff do recurso cancelável
+
+971b0931 recebido uma vez/Q8S10 registrado/revisão1: cinco comandos exit0, append preserva código anterior, callbacks/dados/busy/fallback comprovados. Commit exclusivoec8b4f8da3, docscc7499becd; stagingherdado preservado. Ainda não há diálogo real ou ligação de QR na página.
+
+Handoff: job `18da997f-c116-468a-ac61-2b0edd960c12`, RUNNING/R8Vv1, mesma conversa/root, read-only/evidência7313caracteres. Proposta prepareDonationQr(doc,method,siteUrl,logoUrl,signal) em donations-qr-resource.ts: helpersQR existentes, vendorESM local, logo mesmaorigem, AbortSignal e bitmapfechado emfinally. JSONtypescript(max4000)+notes até750palavras,sem ferramentas/efeitos. Global site.logo externo não deve ser usado; fonte local autorizada assets/jcem/img/logo-animado.gif88309bytes, site.urlHTTPSWWW confirmado. Próximo: local_result uma vez,revisão/Q8S; aplicar expect_changes=true,compilar,decodificar5PNGs contra fonte e verificar cancelamento/erro. Host de diálogo/download e ligação são próximas unidades, com foco real ainda pendente. N7C nativo indisponível,sem compactação alegada; sem polling.
+
+## P2C2A — recurso revisado/aplicação
+
+18da997f recebido uma vez/Q8S3 registrado/revisão1: bitmap fechado antes da renderização, cancelamento/JSDoc/licença incompletos. Nada aplicado. Correções delimitadas no ciclo try/finally e fronteiras assíncronas, preservação de reason, licença/aria e redirecterror mantêm origemlocal; algoritmo/composição/helpers originais preservados. Artefatod89f4fd73e1c0b30f532f4e12f11706056ca8af756d87ab81317e064cdec4d12. Verificadordfed580d525dd22e950986fd17b2be6c9fb870d0ffa4e0915cc0eb173f980e13 passou syntaxcheck; Sharp0.34.4/jsQR1.4.0 e vendorsemimports adicionais comprovados. SourceLogo72db0bdddbeb2bc358c05c46474522eb6ba4b737f87323e1a232b8e6e78b736d; vendorEA91D7118A5395289170DA848B7C6758B996163BFBCCF312591AB65A4911B7C0.
+
+Handoff: job `82377ef6-7703-42f1-a973-612eee93a7b8`, RUNNING/R8Vv1, mesma conversa/root, write/expect_changes=true/commit_policy=supervisor. Sequência read-contracts/apply-qr-resource/compile-qr-resource/publish-qr-resource/verify-qr-resource. Alvos apenas recursoQR TS/JS;cache/perfil/renders em P2C2A. Teste:5PNGs/decoderbytes, Bitmapclose, abortantes/fetch/pósBitmap,HTTP503/origem/credenciais/redirect/PayPal e dadosintactos; requests em memória,sem redeexterna. Próximo: local_result uma vez,revisão/Q8S/commit apósaceite. Nenhum helper/vendor/logo/dado alterado; diálogo/download/ligação/visual ainda pendentes. Média instalada485,93018s,sem polling. N7C nativo continua indisponível,sem execução alegada.
+
+## P2C2A aceita em 2026-11-24
+
+82377ef6 recebido uma vez; cinco comandos exit0 e cinco PNGs decodificados contra fonte canônica, cancelamento/limpeza/origem/falhas e dados intactos comprovados. Revisão proporcional concluída/Q8S10 registrado, revisão1. Commit exclusivo feca552be5; arquivos novos descritos pelo Git determinístico agora versionados, staging herdado preservado. Apenas indentação ajustada com emissão idêntica. Diálogo/download/ligação e visual continuam pendentes. Próxima unidade P2C2B: proposta somente leitura do host cancelável, usando APIs existentes e sem exploração repetida.

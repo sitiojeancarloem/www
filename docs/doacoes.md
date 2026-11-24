@@ -155,6 +155,15 @@ O módulo [donations-ui.ts](../assets/jcem/ts/donations-ui.ts) exporta `enhanceD
 - Status e botão permanecem separados. Após resolução ou rejeição, o estado ocupado é removido e o botão recebe foco; falha orienta a cópia manual.
 - Esta API não compõe o QR nem implementa o diálogo. Sua ligação à página depende do controlador completo; nenhum botão inerte é montado pelo bootstrap atual.
 
+### Canvas QR cancelável
+
+`prepareDonationQr`, em [donations-qr-resource.ts](../assets/jcem/ts/donations-qr-resource.ts), recebe documento, método, URL canônica do site, URL local do logo e `AbortSignal`. Retorna um canvas acessível; o consumidor controla sua apresentação.
+
+- Reutiliza os helpers de payload, geometria e composição, com a biblioteca QR local carregada sob demanda.
+- O logo deve usar HTTP(S), sem credenciais, na origem do documento e sem redirecionamento. O bitmap permanece disponível durante o desenho e é liberado em `finally`.
+- Cancelamento é conferido nas fronteiras assíncronas. Falhas propagam ao consumidor e preservam os dados originais.
+- Esta unidade prepara o canvas; diálogo, download e ligação à página continuam pendentes.
+
 ## Fontes
 
 - [../RCFs/doacoes.md](../RCFs/doacoes.md)
