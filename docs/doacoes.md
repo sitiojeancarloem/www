@@ -22,6 +22,20 @@ Dados em `_data/donations.json` com esquema versionado, meios, assets e metadado
 - `copyDonationValue(method: DonationMethod, clipboard: Pick<Clipboard, 'writeText'>): Promise<void>` — copia o valor integral pela interface clipboard recebida; rejeita se indisponível e propaga falhas de writeText.
 - `getDonationQrBlob(canvas: HTMLCanvasElement): Promise<Blob>` — exporta PNG do canvas; rejeita se `toBlob` não disponível ou tipo inválido.
 
+<!-- donations-qr-spec:begin -->
+### `assets/jcem/ts/donations-qr.ts` — especificação do QR
+
+Fonte: [módulo TypeScript](../assets/jcem/ts/donations-qr.ts).
+
+- `DonationQrSpec`: objeto com `payload: string` e `caption: string` somente leitura.
+- `getDonationQrSpec(method: DonationMethod, siteUrl: string): DonationQrSpec | null`
+- O método é validado por `validateDonationMethod` antes da seleção do resultado. PayPal retorna `null`, sem criar QR.
+- PIX usa o payload informado nos dados e a legenda `PIX: ` seguida da chave; não reconstrói o payload.
+- Criptomoeda usa o endereço como payload e a legenda com símbolo em maiúsculas, separador ` | ` e hostname do site sem o prefixo `www.`.
+- `siteUrl` é interpretada somente no ramo de criptomoedas: deve ser URL HTTPS com hostname e sem usuário ou senha. Entrada inválida lança erro.
+- Esta função retorna dados; não desenha, exporta nem decodifica o QR.
+
+<!-- donations-qr-spec:end -->
 ## Fontes
 
 - [../RCFs/doacoes.md](../RCFs/doacoes.md)
