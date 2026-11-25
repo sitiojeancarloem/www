@@ -201,6 +201,12 @@ A fonte compartilhada de `noscript` compõe a mesma partial em `/doe/`. `static_
 - A validação em navegador com JavaScript desativado cobriu duas larguras, dados exatos, seleção, PayPal, IDs, ausência de pedidos de scripts e overflow. O modo normal também foi conferido.
 - A fixture isolou três includes de shell. O conteúdo foi aceito e as capturas examinadas; o shell real permanece pendente do build integrado.
 
+## Validação integrada em andamento
+
+O build Jekyll de produção foi concluído em destino isolado. O gate visual oficial passou em 320 px, nos temas claro e escuro, incluindo o shell NoScript real. O validador passou a conferir a variante de doações contra o JSON canônico; um PIX estático adulterado foi rejeitado e o ramo genérico de outra página permaneceu válido. A fonte TypeScript em `scripts/visual/noscript.ts` possui JavaScript gerado pareado e verificação de tipos em `check:ts`.
+
+Desktop e ações completas sobre o artefato real ainda estão em validação. Isso não comprova a matriz integral de publicação nem a cadeia completa de `build:prod`.
+
 ## Fontes
 
 - [../RCFs/doacoes.md](../RCFs/doacoes.md)
