@@ -238,12 +238,13 @@ verificacoes=Build Jekyll real9043a3e9; gate strict320/darklight e NoScript d40a
 pendencias=Validação humana externa. Retorno/workflow/matriz global e cadeia integral build:prod pertencem às FTs109–111; sem publish ou prova do clipboard do SO.
 historico=.ia.rules/state/history/FT-108.ia|sha256=c29987b6b2afd83a4692cfd4c821770e5f15f633ed37938a3de4259f2e1eb84e
 
-FT-109|nome=Implementação do retorno de agradecimento|escopo=tecnico|status=em_andamento|autorizacao=humana
+FT-109|nome=Implementação do retorno de agradecimento|escopo=tecnico|status=concluida|autorizacao=humana|conclusao=2026-11-25T16:30:01.613Z|validacao=pendente_desenvolvedor
 objetivo=Implementar `/doe/obrigado` derivada continuamente da home com substituição exclusiva do hero.
 origem=.ia.rules/state/requests/FT-106/prompt.md
-contexto=.ia.rules/state/contexts/FT-106/master.md
-dependencias=FT-106,FT-108
-pendencias=Dependências106/108 tecnicamente concluídas; iniciar levantamento delimitado da home e hero, sem implementação nesta unidade.
+resultado=Retorno /doe/obrigado implementado por Page virtual derivada continuamente da home, COVER triptych oficial, título normal e mensagem escapada; documentação atualizada.
+verificacoes=Fixtures reais2baseurls/paridade/paginação/idempotência/colisões/escape U6Iea9bb105; build Jekyll strictprod/17contratos U7Ab31cf14a;320/1366darklight/teclado/NoJS U7Bf0683d49 e capturas examinadas;gate documental U8C958a2309. Q8S registrados. Commits6b5b41f4f8,3cf5a11bf2,5fccc0d8ea.
+pendencias=Aceite humano externo. Logo/fontes externos bloqueados no teste isolado; NoJS preserva aviso genérico, sem agradecimento. Workflow e cadeia global nasFT110/111; sem publish/push nem mutação remota PayPal.
+historico=.ia.rules/state/history/FT-109.ia|sha256=ff36a563b255249f63f66274220a8779f0966ea7ecd4137c35999c5338a59223
 
 FT-110|nome=Automação de assets de doação|escopo=tecnico|status=registrada|autorizacao=humana
 objetivo=Implementar workflow mensal único para validar ícones oficiais, MIME, integridade, identidade e fallback.

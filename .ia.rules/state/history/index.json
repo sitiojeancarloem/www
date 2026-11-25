@@ -142,6 +142,13 @@
       "state": "pendente-validacao"
     },
     {
+      "id": "FT-109",
+      "name": "Implementação do retorno de agradecimento",
+      "path": ".ia.rules/state/history/FT-109.ia",
+      "sha256": "ff36a563b255249f63f66274220a8779f0966ea7ecd4137c35999c5338a59223",
+      "state": "pendente-validacao"
+    },
+    {
       "id": "FT-112",
       "name": "Revisão integral da carta aberta",
       "path": ".ia.rules/state/history/FT-112.ia",

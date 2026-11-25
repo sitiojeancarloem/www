@@ -1,6 +1,6 @@
 # Contexto mestre — FTs 106 a 111
 
-Estado: FTs106–108 tecnicamente concluídas; aceite humano continua externo onde registrado. FT109 em levantamento delimitado; FT110 registrada e FT111 aguarda suas dependências.
+Estado: FTs106–109 tecnicamente concluídas; aceite humano permanece externo. FT110 registrada; FT111 aguarda workflow e integração global.
 
 ## Objetivo
 
@@ -283,3 +283,5 @@ Handoff P4D: job3e3880c5-cc42-4337-82e9-f46d424b6693 RUNNING/R8Vv1, mesma conver
 
 
 3e3880c5 recebido uma vez/COMPLETED determinístico: cinco exit0. Result.json confirma4casos320/1366×dark/light,20cópias por teclado com gravador browser,20PNGs e20rasters decodificados ao JSON, zero pageerrors. Gateoficialdesktop strict e TSraiz/print passaram; capturasQRmobileescuro/desktopclaro e composição desktopclara examinadas. Q8S10 registrado/revisão1. Gitdeterminístico ahead31/sujidadeherdada, sem alteraçãofuncional pelo teste ou commitWorker. FT108 concluída tecnicamente pela APIoficialconclude; histórico/índices gerados, aceitehumano pendente. TODOraiz continua⏳,poisfrenteinclui109–111. FT109 inicia somentelevantamento; FT110 dependência107 desobstruída/registrada. Matrizglobal/prechain/buildprod/retorno/workflow seguem109–111,semalegarpublicação. Docs/README/capturareal atualizados. PróximoFT109 inventário mínimo da home e especialização do hero; semduplicação da home nem nova arte antes de contrato/skill.
+
+FT109: fechamento técnico registrado pelo state-manager oficial; evidências, limites e próximos passos em ../FT-109/fechamento.md.
