@@ -5,6 +5,7 @@
 # Fixtures persistem somente em .ia.rules/cache/FT-109/U2C; sem build/rede/fontes/Git.
 require 'tmpdir'
 require 'fileutils'
+require 'json'
 require_relative '../_plugins/jcem_donation_return_page'
 
 def check_page(condition, message)
@@ -37,6 +38,9 @@ config = Jekyll.configuration({
   ]
 })
 site = Jekyll::Site.new(config)
+site.data['donations'] = JSON.parse(File.read(File.join(root, '_data/donations.json'), encoding: 'UTF-8'))
+settings = site.data.fetch('donations').fetch('thankYou')
+config_before = JSON.generate(site.data['donations'])
 home = Jekyll::PageWithoutAFile.new(site, source, '', 'index.html')
 home.content = '<p>Conteúdo canônico</p>'.dup
 home.data.merge!({ 'layout' => 'home', 'title' => 'Home', 'entries_layout' => 'grid',
@@ -45,17 +49,21 @@ site.pages << home
 page = Jcem::DonationReturn::Page.new(site, home)
 check_page(page.canonical_home.equal?(home), 'referência canônica')
 check_page(page.url == '/doe/obrigado/' && home.url == '/', 'rotas independentes de baseurl')
-check_page(page.data['title'] == 'Obrigado' && page.data['jcem_donation_return'] == true, 'especialização declarada')
+check_page(page.data['title'] == settings.fetch('title') && page.data['jcem_donation_return'] == true, 'especialização declarada')
 %w[layout entries_layout author_profile custom].each do |key|
   check_page(page.data[key] == home.data[key], 'fidelidade: ' + key)
 end
 check_page(page.content == home.content, 'conteúdo derivado')
+check_page(page.data['jcem_donation_thank_you'] == settings && page.data.dig('header', 'image') == settings.fetch('image').fetch('src'), 'apresentação deriva do JSON canônico')
+check_page(page.data.key?('jcem_cover') && page.data['jcem_cover'].nil?, 'resolvido antigo fica explicitamente ausente')
 check_page(page.data['canonical_default'] == home.data['canonical_default'], 'defaults da origem, não da rota')
 page.content.replace('<p>Somente cópia</p>')
 page.data['custom']['items'][0].replace('somente cópia')
 page.data['canonical_default']['items'][0].replace('somente cópia')
 check_page(home.content == '<p>Conteúdo canônico</p>' && home.data['custom']['items'] == ['original'], 'origem intacta')
 check_page(home.data['canonical_default']['items'] == ['home-default'], 'default original intacto')
+page.data['jcem_donation_thank_you']['message'].replace('somente cópia da mensagem')
+check_page(JSON.generate(site.data['donations']) == config_before, 'configuração canônica não compartilha strings com a página')
 check_page(home.data['title'] == 'Home' && home.data['permalink'].nil? && home.data['jcem_donation_return'].nil?, 'sem especializações na origem')
 home.content = '<p>Home futura</p>'
 home.data['layout'] = 'future-home'
@@ -77,4 +85,13 @@ begin
 rescue ArgumentError
 end
 check_page(site.pages == [home], 'classe não se registra por conta própria')
+removed_donations = site.data.delete('donations')
+begin
+  Jcem::DonationReturn::Page.new(site, home)
+  raise 'Configuração de agradecimento ausente foi aceita'
+rescue KeyError
+ensure
+  site.data['donations'] = removed_donations
+end
+puts 'DONATION_RETURN_PAGE_CANONICAL_PRESENTATION_AND_MISSING_CONFIG_OK'
 puts 'DONATION_RETURN_REAL_PAGE_DEFAULTS_SOURCE_COPY_AND_PAGER_REFERENCE_OK'

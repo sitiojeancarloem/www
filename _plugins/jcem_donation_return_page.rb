@@ -3,7 +3,7 @@
 # MPL-2.0 https://mozilla.org/MPL/2.0/ — sem garantia. RCF: RCFs/doacoes.md.
 # Página virtual derivada da raiz; não se registra nem escreve arquivos sozinha.
 require 'jekyll'
-require_relative 'jcem_donation_return'
+require_relative 'jcem_donation_return_presentation'
 
 module Jcem
   module DonationReturn
@@ -17,8 +17,7 @@ module Jcem
         @canonical_home = canonical_home
         super(site, site.source, 'doe/obrigado', 'index.html')
         self.content = DonationReturn.copy_data(canonical_home.content)
-        self.data = DonationReturn.copy_data(canonical_home.data)
-        data['title'] = 'Obrigado'
+        self.data = Presentation.data_for(canonical_home.data, site.data.fetch('donations').fetch('thankYou'))
         data['permalink'] = '/doe/obrigado/'
         data['jcem_donation_return'] = true
       end

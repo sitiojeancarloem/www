@@ -6,6 +6,7 @@
 require 'tmpdir'
 require 'fileutils'
 require 'date'
+require 'json'
 require 'nokogiri'
 require 'jekyll'
 require 'jekyll-paginate'
@@ -49,12 +50,15 @@ canonical = Jekyll.configuration('source' => root, 'config' => [File.join(root, 
 per_page = Integer(canonical.fetch('paginate'))
 check_generator(per_page.between?(1, 100), 'limite explícito da fixture: paginate de 1 a 100')
 index_source = File.read(File.join(root, 'index.html'), encoding: 'UTF-8')
+thank_you_source = JSON.parse(File.read(File.join(root, '_data/donations.json'), encoding: 'UTF-8')).fetch('thankYou')
 layout_source = '<h1>{{ page.title }}</h1>{{ content }}<ul id="posts">{% for post in paginator.posts %}<li>{{ post.title }}</li>{% endfor %}</ul><a id="next" href="{{ paginator.next_page_path | relative_url }}">Mais</a>'
 records = []
 ['', '/prefixo'].each do |baseurl|
   source = Dir.mktmpdir('generator-', cache)
   FileUtils.mkdir_p(File.join(source, '_layouts'))
   FileUtils.mkdir_p(File.join(source, '_posts'))
+  FileUtils.mkdir_p(File.join(source, '_data'))
+  File.write(File.join(source, '_data/donations.json'), JSON.generate({ 'thankYou' => thank_you_source }))
   extra = baseurl.empty? ? '' : '<p id="home-extra">Conteúdo futuro da home</p>'
   File.binwrite(File.join(source, 'index.html'), index_source + extra)
   File.write(File.join(source, '_layouts/home.html'), "---\n---\n" + layout_source)
@@ -75,6 +79,7 @@ records = []
   derived = site.pages.grep(Jcem::DonationReturn::Page)
   check_generator(derived.length == 1, 'uma página derivada')
   page = derived.first
+  check_generator(page.data['jcem_donation_thank_you'] == thank_you_source && page.data.dig('header', 'image') == thank_you_source.fetch('image').fetch('src'), 'projeção canônica chegou ao gerador real')
   check_generator(page.canonical_home.equal?(home), 'mesma origem canônica')
   check_generator(home.pager.is_a?(Jekyll::Paginate::Pager) && page.pager.equal?(home.pager), 'Pager real compartilhado')
   check_generator(site.instance_variable_get(:@ft109_template_observed).equal?(home), 'template real escolhido antes da paginação')
@@ -85,7 +90,7 @@ records = []
   return_file = page.destination(site.dest)
   return_bytes = File.binread(return_file)
   return_html = Nokogiri::HTML.fragment(return_bytes.dup.force_encoding(Encoding::UTF_8))
-  check_generator(return_html.at_css('h1').text == 'Obrigado' && home_html.at_css('h1').text == home.data['title'], 'títulos distintos')
+  check_generator(return_html.at_css('h1').text == thank_you_source.fetch('title') && home_html.at_css('h1').text == home.data['title'], 'títulos distintos')
   check_generator(return_html.css('#posts li').length == per_page, 'posts renderizados pelo pager')
   check_generator(return_html.at_css('#next')['href'] == home_html.at_css('#next')['href'], 'links canônicos com baseurl')
   check_generator(extra.empty? || return_html.at_css('#home-extra'), 'propagação de mudança no conteúdo')
