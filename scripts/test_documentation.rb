@@ -66,7 +66,9 @@ assert(usage_status.success?, "inventário Git dos modos de uso falhou")
 usage_docs = usage_inventory.lines(chomp: true).select do |path|
   File.file?(File.join(ROOT, path)) && File.basename(path).match?(/\AMODO-DE-USO-.*\.md\z/)
 end
-assert(usage_docs.length == 4, "inventário de modos de uso divergente")
+declared_usage_docs = readme.scan(%r{\]\((docs/MODO-DE-USO-[^)#\s]+\.md)(?:#[^)]*)?\)}).flatten.uniq
+assert(!declared_usage_docs.empty?, "índice canônico de modos de uso ausente")
+assert(usage_docs.sort == declared_usage_docs.sort, "inventário de modos de uso divergente: declarados=#{declared_usage_docs.sort.join(',')} encontrados=#{usage_docs.sort.join(',')}")
 usage_docs.each do |path|
   assert(File.dirname(path).tr("\\", "/") == "docs", "modo de uso fora de ./docs/: #{path}")
 end
