@@ -1,3 +1,5 @@
+import {validateDonationThankYou} from './donations-thank-you.js';
+import type {DonationThankYou} from './donations-thank-you.js';
 import {validateDonationAssets} from './donations-assets.js';
 import type {DonationAsset} from './donations-assets.js';
 // Tipos baseados em _data/donations.json
@@ -15,6 +17,7 @@ export interface DonationsData {
   readonly schemaVersion: 1;
   readonly methods: readonly DonationMethod[];
   readonly assets?: readonly DonationAsset[];
+  readonly thankYou?: DonationThankYou;
 }
 
 // Expressões regulares auxiliares
@@ -216,6 +219,7 @@ export function validateDonationsData(value: unknown): asserts value is Donation
   // methods
   validateDonationMethodsArray(data.methods);
   if (data.assets !== undefined) validateDonationAssets(data.assets);
+  if (data.thankYou !== undefined) validateDonationThankYou(data.thankYou);
   for (const method of data.methods) {
     for (const reference of [method.iconAssetId, method.networkAssetId]) {
       if (reference !== undefined && !data.assets?.some(asset => asset.id === reference)) throw new Error('Referência de asset ausente no catálogo');

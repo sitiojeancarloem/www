@@ -47,7 +47,7 @@ O módulo `assets/jcem/ts/donations-data.ts` define tipos e validações estrutu
 
 - `DonationMethodType`: `'pix' | 'crypto' | 'paypal'`
 - `DonationMethod`: união discriminada por `type` com campos obrigatórios e opcionais
-- `DonationsData`: objeto com `schemaVersion: 1`, `methods: readonly DonationMethod[]` e `assets?: readonly DonationAsset[]`
+- `DonationsData`: objeto com `schemaVersion: 1`, `methods: readonly DonationMethod[]` e `assets?: readonly DonationAsset[]` e `thankYou?: DonationThankYou`
 
 ##### Validação de método (`validateDonationMethod`)
 
@@ -72,6 +72,7 @@ O módulo `assets/jcem/ts/donations-data.ts` define tipos e validações estrutu
 - `methods`: array denso (sem `undefined`), tamanho entre 1 e 64, IDs únicos
 - `assets`: quando presente, é validado por `validateDonationAssets`. Toda referência em `iconAssetId`/`networkAssetId` deve resolver no catálogo; uma referência com catálogo ausente também é rejeitada.
 - `schemaVersion`: valor exato `1`
+- `thankYou`: opcional para compatibilidade; quando presente, validado por `validateDonationThankYou`.
 
 #### Extensão por dados
 
@@ -85,6 +86,40 @@ O módulo `assets/jcem/ts/donations-data.ts` define tipos e validações estrutu
 - `validateDonationsData(value: unknown): asserts value is DonationsData` valida o objeto completo, incluindo unicidade dos IDs e referências. Os validadores lançam erro diante de entrada inválida, sem modificar o valor; validação estrutural não autentica o destinatário financeiro.
 
 <!-- donations-data-contract:end -->
+
+### Metadados do agradecimento
+
+O campo opcional `thankYou` pertence ao mesmo JSON canônico. O validador geral delega sua validação ao [módulo de agradecimento](../assets/jcem/ts/donations-thank-you.ts), que exporta `DonationThankYou` e `validateDonationThankYou(value: unknown): asserts value is DonationThankYou`.
+
+Exemplo atual, derivado de `_data/donations.json` (bloco `thankYou`):
+
+```json
+{
+  "title": "Obrigado",
+  "message": "Seu apoio ajuda a manter este projeto. Muito obrigado por fazer parte dele!",
+  "image": {
+    "src": "/assets/images/doacoes/agradecimento-cover.webp",
+    "alt": "Mãos acolhendo um coração vermelho, em gesto de gratidão."
+  },
+  "cover": {
+    "mode": "wide",
+    "composition": "triptych",
+    "patterns": {
+      "left": "/assets/images/doacoes/agradecimento-left.webp",
+      "right": "/assets/images/doacoes/agradecimento-right.webp"
+    }
+  }
+}
+```
+
+Título, mensagem e texto alternativo exigem strings não vazias após `trim`, com comprimento original máximo de 4096 caracteres. Os quatro níveis de objeto rejeitam arrays. A composição aceita somente `wide`/`triptych`.
+
+As três imagens exigem paths locais sob `/assets/`, com segmentos não vazios de letras ASCII, dígitos, `_` ou `-` e extensão minúscula `png`, `webp`, `jpg`, `jpeg` ou `svg`. Protocolos, hosts, escapes percentuais, controles, barras invertidas, segmentos `.`/`..`, query e fragmento são rejeitados. A validação não normaliza nem altera os dados.
+
+Ausência de `thankYou` continua válida. O [teste permanente](../scripts/test_donations_thank_you.ts) cobre contrato integrado, compatibilidade, imutabilidade e entradas inválidas; a imagem é vinculada por hash à proveniência. O [original](../assets/images/doacoes/agradecimento-original.png) foi preservado.
+
+Estes metadados ainda não concluem a renderização de `/doe/obrigado`: integração visual, pipeline social e aprovação visual humana permanecem pendentes. A mensagem agradece o apoio e não comprova pagamento. O retorno externo PayPal já informado pelo responsável não é alterado por este código.
+
 
 <!-- donations-matrix-canvas:begin -->
 ### APIs de geração e renderização de QR Codes

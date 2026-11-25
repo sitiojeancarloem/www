@@ -1,3 +1,4 @@
+import { validateDonationThankYou } from './donations-thank-you.js';
 import { validateDonationAssets } from './donations-assets.js';
 const SLUG_REGEX = /^[a-z0-9-]+$/;
 const CURRENCY_REGEX = /^[A-Z]{3}$/;
@@ -140,6 +141,8 @@ export function validateDonationsData(value) {
     validateDonationMethodsArray(data.methods);
     if (data.assets !== undefined)
         validateDonationAssets(data.assets);
+    if (data.thankYou !== undefined)
+        validateDonationThankYou(data.thankYou);
     for (const method of data.methods) {
         for (const reference of [method.iconAssetId, method.networkAssetId]) {
             if (reference !== undefined && !((_a = data.assets) === null || _a === void 0 ? void 0 : _a.some(asset => asset.id === reference)))
