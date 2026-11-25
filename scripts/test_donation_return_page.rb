@@ -41,6 +41,7 @@ site = Jekyll::Site.new(config)
 site.data['donations'] = JSON.parse(File.read(File.join(root, '_data/donations.json'), encoding: 'UTF-8'))
 settings = site.data.fetch('donations').fetch('thankYou')
 config_before = JSON.generate(site.data['donations'])
+message_include = '{% include jcem/donation-thanks.html %}'
 home = Jekyll::PageWithoutAFile.new(site, source, '', 'index.html')
 home.content = '<p>Conteúdo canônico</p>'.dup
 home.data.merge!({ 'layout' => 'home', 'title' => 'Home', 'entries_layout' => 'grid',
@@ -53,7 +54,7 @@ check_page(page.data['title'] == settings.fetch('title') && page.data['jcem_dona
 %w[layout entries_layout author_profile custom].each do |key|
   check_page(page.data[key] == home.data[key], 'fidelidade: ' + key)
 end
-check_page(page.content == home.content, 'conteúdo derivado')
+check_page(page.content.start_with?(message_include) && page.content.delete_prefix(message_include) == home.content, 'mensagem compartilhada antes do conteúdo canônico integral')
 check_page(page.data['jcem_donation_thank_you'] == settings && page.data.dig('header', 'image') == settings.fetch('image').fetch('src'), 'apresentação deriva do JSON canônico')
 check_page(page.data.key?('jcem_cover') && page.data['jcem_cover'].nil?, 'resolvido antigo fica explicitamente ausente')
 check_page(page.data['canonical_default'] == home.data['canonical_default'], 'defaults da origem, não da rota')
@@ -69,7 +70,7 @@ home.content = '<p>Home futura</p>'
 home.data['layout'] = 'future-home'
 home.data['future'] = { 'value' => 'metadado novo' }
 future = Jcem::DonationReturn::Page.new(site, home)
-check_page(future.content == home.content && future.data['layout'] == 'future-home' && future.data['future'] == home.data['future'], 'propagação em nova derivação')
+check_page(future.content.start_with?(message_include) && future.content.delete_prefix(message_include) == home.content && future.data['layout'] == 'future-home' && future.data['future'] == home.data['future'], 'propagação em nova derivação')
 pager = Object.new
 home.pager = pager
 check_page(page.pager.nil?, 'sem instantâneo prematuro do pager')
@@ -85,6 +86,11 @@ begin
 rescue ArgumentError
 end
 check_page(site.pages == [home], 'classe não se registra por conta própria')
+empty_home = Jekyll::PageWithoutAFile.new(site, source, '', 'index.html')
+empty_home.content = nil
+empty_page = Jcem::DonationReturn::Page.new(site, empty_home)
+check_page(empty_page.content == message_include && empty_home.content.nil?, 'home sem corpo produz somente include e mantém origem nil')
+puts 'DONATION_RETURN_NIL_HOME_BODY_SUPPORTED_WITHOUT_SOURCE_MUTATION'
 removed_donations = site.data.delete('donations')
 begin
   Jcem::DonationReturn::Page.new(site, home)

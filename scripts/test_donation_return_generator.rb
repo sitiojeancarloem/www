@@ -59,6 +59,8 @@ records = []
   FileUtils.mkdir_p(File.join(source, '_posts'))
   FileUtils.mkdir_p(File.join(source, '_data'))
   File.write(File.join(source, '_data/donations.json'), JSON.generate({ 'thankYou' => thank_you_source }))
+  FileUtils.mkdir_p(File.join(source, '_includes/jcem'))
+  FileUtils.cp(File.join(root, '_includes/jcem/donation-thanks.html'), File.join(source, '_includes/jcem/donation-thanks.html'))
   extra = baseurl.empty? ? '' : '<p id="home-extra">Conteúdo futuro da home</p>'
   File.binwrite(File.join(source, 'index.html'), index_source + extra)
   File.write(File.join(source, '_layouts/home.html'), "---\n---\n" + layout_source)
@@ -85,7 +87,8 @@ records = []
   check_generator(site.instance_variable_get(:@ft109_template_observed).equal?(home), 'template real escolhido antes da paginação')
   check_generator(!Jekyll::Paginate::Pager.pagination_candidate?(site.config, page), 'clone não é candidato à paginação')
   check_generator(page.pager.posts.length == per_page && page.pager.total_posts == per_page + 2, 'contagens derivadas da configuração')
-  check_generator(page.data['entries_layout'] == home.data['entries_layout'] && page.content == home.content, 'dados/conteúdo canônicos')
+  # O renderer Jekyll já substituiu content; a paridade é conferida no DOM abaixo.
+  check_generator(page.data['entries_layout'] == home.data['entries_layout'], 'layout de entradas canônico')
   home_html = Nokogiri::HTML.fragment(File.read(home.destination(site.dest), encoding: 'UTF-8'))
   return_file = page.destination(site.dest)
   return_bytes = File.binread(return_file)
@@ -94,6 +97,10 @@ records = []
   check_generator(return_html.css('#posts li').length == per_page, 'posts renderizados pelo pager')
   check_generator(return_html.at_css('#next')['href'] == home_html.at_css('#next')['href'], 'links canônicos com baseurl')
   check_generator(extra.empty? || return_html.at_css('#home-extra'), 'propagação de mudança no conteúdo')
+  messages = return_html.css('[data-jcem-donation-thanks]')
+  check_generator(messages.length == 1 && messages.first.name == 'p' && messages.first.text == thank_you_source.fetch('message'), 'mensagem única canônica renderizada')
+  check_generator(home_html.css('[data-jcem-donation-thanks]').empty?, 'home não recebeu mensagem')
+  messages.remove
   home_html.css('h1').remove
   return_html.css('h1').remove
   check_generator(home_html.to_html == return_html.to_html, 'restante da home equivalente')
@@ -128,4 +135,11 @@ records = []
   records << { 'baseurl' => baseurl, 'posts' => per_page, 'total_posts' => per_page + 2 }
 end
 puts 'DONATION_RETURN_REAL_PAGINATION_IDEMPOTENCE_COLLISIONS_AND_HOME_PARITY_OK'
+unsafe_message = %q{</p><script>alert(1)</script><img src=x onerror="alert(1)"> & " '}
+partial_source = File.read(File.join(root, '_includes/jcem/donation-thanks.html'), encoding: 'UTF-8')
+escaped_html = Liquid::Template.parse(partial_source).render!({ 'page' => { 'jcem_donation_thank_you' => { 'message' => unsafe_message } } })
+escaped_fragment = Nokogiri::HTML.fragment(escaped_html)
+check_generator(escaped_fragment.css('[data-jcem-donation-thanks]').length == 1 && escaped_fragment.at_css('[data-jcem-donation-thanks]').text == unsafe_message, 'texto HTML é mostrado literalmente')
+check_generator(escaped_fragment.css('script, img').empty?, 'mensagem não cria marcação executável')
+puts 'DONATION_RETURN_SHARED_MESSAGE_CANONICAL_TEXT_AND_HTML_ESCAPING_OK'
 puts records.inspect

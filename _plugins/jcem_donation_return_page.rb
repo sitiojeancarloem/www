@@ -16,7 +16,9 @@ module Jcem
         end
         @canonical_home = canonical_home
         super(site, site.source, 'doe/obrigado', 'index.html')
-        self.content = DonationReturn.copy_data(canonical_home.content)
+        home_content = canonical_home.content
+        home_content = '' if home_content.nil?
+        self.content = "{% include jcem/donation-thanks.html %}" + DonationReturn.copy_data(home_content)
         self.data = Presentation.data_for(canonical_home.data, site.data.fetch('donations').fetch('thankYou'))
         data['permalink'] = '/doe/obrigado/'
         data['jcem_donation_return'] = true
