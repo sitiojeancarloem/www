@@ -129,5 +129,21 @@
       "licenseUrl": "https://raw.githubusercontent.com/FortAwesome/Font-Awesome/7.3.1/LICENSE.txt",
       "sha256": "75624025fc1c4dbba2826cf48af9eaef5507aada6ffa85c5ee40b09be994d8a5"
     }
-  ]
+  ],
+  "thankYou": {
+    "title": "Obrigado",
+    "message": "Seu apoio ajuda a manter este projeto. Muito obrigado por fazer parte dele!",
+    "image": {
+      "src": "/assets/images/doacoes/agradecimento-cover.webp",
+      "alt": "Mãos acolhendo um coração vermelho, em gesto de gratidão."
+    },
+    "cover": {
+      "mode": "wide",
+      "composition": "triptych",
+      "patterns": {
+        "left": "/assets/images/doacoes/agradecimento-left.webp",
+        "right": "/assets/images/doacoes/agradecimento-right.webp"
+      }
+    }
+  }
 }
