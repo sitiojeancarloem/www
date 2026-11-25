@@ -1,7 +1,7 @@
 <!-- AI-PROCESSED -->
 # Doações — dados, QR, assets e ações
 
-Escopo atual: fonte de dados, helpers e página pública `/doe`, com cópia integral, QR local, download PNG e fallback sem JavaScript. A FT-108 está tecnicamente concluída; a validação humana permanece externa.
+Escopo atual: fonte de dados, helpers e páginas públicas `/doe` e `/doe/obrigado`, com cópia integral, QR local, download PNG e fallback sem JavaScript. A FT-108 está tecnicamente concluída; a validação humana permanece externa.
 
 ## Fonte única
 
@@ -118,7 +118,25 @@ As três imagens exigem paths locais sob `/assets/`, com segmentos não vazios d
 
 Ausência de `thankYou` continua válida. O [teste permanente](../scripts/test_donations_thank_you.ts) cobre contrato integrado, compatibilidade, imutabilidade e entradas inválidas; a imagem é vinculada por hash à proveniência. O [original](../assets/images/doacoes/agradecimento-original.png) foi preservado.
 
-Estes metadados ainda não concluem a renderização de `/doe/obrigado`: integração visual, pipeline social e aprovação visual humana permanecem pendentes. A mensagem agradece o apoio e não comprova pagamento. O retorno externo PayPal já informado pelo responsável não é alterado por este código.
+#### Retorno `/doe/obrigado/`
+
+A página `/doe/obrigado/` é gerada por uma Page virtual derivada continuamente da home, mantendo o mesmo layout, posts e Pager, substituindo apenas o destaque pelo partial `COVER` oficial. A ordem da imagem, o H1 normal "Obrigado" e a mensagem escapada são preservados.
+
+A fonte de metadados é `_data/donations.json.thankYou`.
+
+Implementação e testes: [`_plugins/jcem_donation_return_page.rb`](../_plugins/jcem_donation_return_page.rb), [`_plugins/jcem_donation_return_rendered_cover.rb`](../_plugins/jcem_donation_return_rendered_cover.rb), [`scripts/test_donation_return_generator.rb`](../scripts/test_donation_return_generator.rb), [`scripts/test_donation_return_rendered_cover.rb`](../scripts/test_donation_return_rendered_cover.rb).
+
+Ilustração versionada: [`assets/images/doacoes/agradecimento-cover.webp`](../assets/images/doacoes/agradecimento-cover.webp) — mãos acolhendo coração vermelho sem texto. Crédito JeanCarloEM, CC-BY-NC-SA4.0.
+
+O pipeline social está registrado em `config/social-images.json` e `_data/jcem_social_images.json`. Não constitui aprovação humana da imagem.
+
+A validação técnica incluiu build Jekyll isolado em produção, 320 e 1366 px nos temas claro e escuro, ausência de overflow e navegação por teclado. Logo e fontes externos foram bloqueados no teste isolado e não foram validados.
+
+Sem JavaScript, `/doe/obrigado` preserva aviso genérico de consentimento do site e não exibe agradecimento. `/doe` mantém fallback próprio. A mensagem agradece apoio, não confirma pagamento; código não altera configuração remota PayPal já informada pelo responsável.
+
+Aceite humano externo permanece pendente. O workflow da FT-110 e a pré-chain global da FT-111 permanecem pendentes. Não houve publicação ou push.
+
+![Mãos acolhendo um coração vermelho em gesto de gratidão.](../assets/images/doacoes/agradecimento-cover.webp)
 
 
 <!-- donations-matrix-canvas:begin -->
