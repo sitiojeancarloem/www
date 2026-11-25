@@ -135,6 +135,13 @@
       "state": "pendente-validacao"
     },
     {
+      "id": "FT-108",
+      "name": "Implementação da página pública de doações",
+      "path": ".ia.rules/state/history/FT-108.ia",
+      "sha256": "c29987b6b2afd83a4692cfd4c821770e5f15f633ed37938a3de4259f2e1eb84e",
+      "state": "pendente-validacao"
+    },
+    {
       "id": "FT-112",
       "name": "Revisão integral da carta aberta",
       "path": ".ia.rules/state/history/FT-112.ia",

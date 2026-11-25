@@ -398,3 +398,6 @@ Thumbs.db
 # FT-117: somente esclarecimentos humanos versionados
 !/.ia.rules/state/requests/FT-117/
 !/.ia.rules/state/requests/FT-117/esclarecimentos-2026-11-16.md
+
+# FT-108: histórico técnico, sem expor outros estados ou cache.
+!/.ia.rules/state/history/FT-108.ia

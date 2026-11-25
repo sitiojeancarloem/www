@@ -21,4 +21,5 @@
 - FT-105 — Integração e validação da resiliência; estado: pendente-validacao; histórico: `history/FT-105.ia`; sha256: `703df388dbba509ad135c3d60aac51cd09c3f707bdc8c1e813c45385bf59be06`.
 - FT-106 — Normatização da experiência pública de doações; estado: validada; histórico: `history/FT-106.ia`; sha256: `289f85dbcedd24ff46ef552c4444e8cfe29cb4b0ac210d4102242c42a2dd8334`.
 - FT-107 — Implementação da fonte de dados e pipeline de QR; estado: pendente-validacao; histórico: `history/FT-107.ia`; sha256: `1e7e94864e406cb76435b2804e2a0e7464ec6ce555e5af19aeffd667ca249307`.
+- FT-108 — Implementação da página pública de doações; estado: pendente-validacao; histórico: `history/FT-108.ia`; sha256: `c29987b6b2afd83a4692cfd4c821770e5f15f633ed37938a3de4259f2e1eb84e`.
 - FT-112 — Revisão integral da carta aberta; estado: pendente-validacao; histórico: `history/FT-112.ia`; sha256: `6a48dbeea769e4322404e4448e6f6d93a157fe6dcec4311bc772cd6f7e8ecda8`.

@@ -230,26 +230,27 @@ verificacoes=Evidências aceitas U1/U2B/U3G/U4A; catálogo1972d950f7; exemplo554
 pendencias=Aceite humano permanece externo. UI, retorno, workflow e integração global pertencem às FTs108–111; não há alegação de conclusão dessas dependentes.
 historico=.ia.rules/state/history/FT-107.ia|sha256=1e7e94864e406cb76435b2804e2a0e7464ec6ce555e5af19aeffd667ca249307
 
-FT-108|nome=Implementação da página pública de doações|escopo=tecnico|status=registrada_bloqueada_por_dependencia|autorizacao=humana
+FT-108|nome=Implementação da página pública de doações|escopo=tecnico|status=concluida|autorizacao=humana|conclusao=2026-11-25T03:58:40.561Z|validacao=pendente_desenvolvedor
 objetivo=Implementar `/doe` responsiva, orientada por dados e integrada aos temas.
 origem=.ia.rules/state/requests/FT-106/prompt.md
-contexto=.ia.rules/state/contexts/FT-106/master.md
-dependencias=FT-107
-pendencias=Aguardar a FT-107.
+resultado=Página /doe orientada por dados, ícones locais, guia, cópia integral, QR client-side/download e fallback estático integrados ao tema.
+verificacoes=Build Jekyll real9043a3e9; gate strict320/darklight e NoScript d40a3fab; desktop1366/darklight,20cópias,20PNGs e20rasters canônicos,TS raiz/print3e3880c5. Capturas examinadas; Q8S registrado. Commits8dda4fe088,84cf45e08b,0e908f08b9,a3bc1801bf,87ae2a499d,9213de61cd,493b806e96.
+pendencias=Validação humana externa. Retorno/workflow/matriz global e cadeia integral build:prod pertencem às FTs109–111; sem publish ou prova do clipboard do SO.
+historico=.ia.rules/state/history/FT-108.ia|sha256=c29987b6b2afd83a4692cfd4c821770e5f15f633ed37938a3de4259f2e1eb84e
 
-FT-109|nome=Implementação do retorno de agradecimento|escopo=tecnico|status=registrada_bloqueada_por_dependencia|autorizacao=humana
+FT-109|nome=Implementação do retorno de agradecimento|escopo=tecnico|status=em_andamento|autorizacao=humana
 objetivo=Implementar `/doe/obrigado` derivada continuamente da home com substituição exclusiva do hero.
 origem=.ia.rules/state/requests/FT-106/prompt.md
 contexto=.ia.rules/state/contexts/FT-106/master.md
 dependencias=FT-106,FT-108
-pendencias=Aguardar as FTs 106 e 108.
+pendencias=Dependências106/108 tecnicamente concluídas; iniciar levantamento delimitado da home e hero, sem implementação nesta unidade.
 
-FT-110|nome=Automação de assets de doação|escopo=tecnico|status=registrada_bloqueada_por_dependencia|autorizacao=humana
+FT-110|nome=Automação de assets de doação|escopo=tecnico|status=registrada|autorizacao=humana
 objetivo=Implementar workflow mensal único para validar ícones oficiais, MIME, integridade, identidade e fallback.
 origem=.ia.rules/state/requests/FT-106/prompt.md
 contexto=.ia.rules/state/contexts/FT-106/master.md
 dependencias=FT-107
-pendencias=Aguardar a FT-107.
+pendencias=Dependência107 tecnicamente concluída; aguarda sua unidade delimitada de automação.
 
 FT-111|nome=Integração e validação da experiência de doações|escopo=tecnico|status=registrada_bloqueada_por_dependencia|autorizacao=humana
 objetivo=Validar JSON→UI, QR, payloads, temas, responsividade, teclado, retorno PayPal, assets, workflow e build.

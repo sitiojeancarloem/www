@@ -1,7 +1,7 @@
 <!-- AI-PROCESSED -->
 # Doações — dados, QR, assets e ações
 
-Escopo atual: helpers existentes. A página pública /doe, seus controles acessíveis e o download na interface pertencem à FT-108; esta documentação não afirma sua implementação.
+Escopo atual: fonte de dados, helpers e página pública `/doe`, com cópia integral, QR local, download PNG e fallback sem JavaScript. A FT-108 está tecnicamente concluída; a validação humana permanece externa.
 
 ## Fonte única
 
@@ -146,7 +146,7 @@ O módulo [donations-ui.ts](../assets/jcem/ts/donations-ui.ts) exporta `enhanceD
 - O bootstrap agenda a montagem após `DOMContentLoaded` e duas oportunidades de frame, e só então importa o conector. Não há requisição separada de dados nem inclusão global no tema.
 - `mountDonationCopy` evita montagem simultânea ou repetida. JSON inválido ou falha de inicialização preserva os campos e informa a alternativa de cópia manual em uma região de status.
 - A montagem também liga os controles QR. O host é importado ao ativar um botão; biblioteca, logo e preparação são carregados pelo produtor cancelável após a abertura do diálogo. A URL canônica e o caminho local do logo vêm de atributos escapados da partial.
-- O componente possui CSS e fallback estático. A validação atual cobre seu conteúdo e comportamento; o tema e o shell completos ainda dependem do build integrado.
+- O componente possui CSS e fallback estático. Seu conteúdo e comportamento foram conferidos no build integrado, com o tema e o shell reais.
 
 ### Ativação de QR por callback
 
@@ -181,7 +181,7 @@ A partial carrega [donations.css](../assets/jcem/css/donations.css) somente onde
 
 - O resumo visual contém até dez caracteres; o texto integral do resumo usa uma regra acessível restrita à doação. Os campos nativos continuam disponíveis.
 - O canvas mantém proporção e quiet zone. Vinte capturas dos QRs exibidos em dois temas e duas larguras foram decodificadas contra o JSON, com verificações de foco, contraste, alvos e overflow.
-- Essa validação usa a partial real e tokens extraídos da fonte; a integração com o tema e o shell completos ainda depende do build e da revisão final.
+- A validação inicial usou a partial real e tokens extraídos da fonte. Depois, a matriz do build integrado confirmou a composição nos dois temas e em mobile/desktop.
 - O diálogo mostra a legenda também em texto complementar legível no mobile. A correção passou em dois temas, dez capturas de QR decodificadas e revisão das duas imagens da interface; o PNG e o payload permanecem preservados.
 
 ### Ícones e orientação
@@ -190,7 +190,7 @@ O [include de assets](../_includes/jcem/donation-asset.html) resolve `iconAssetI
 
 - Ícones locais são decorativos, têm espaço reservado e conservam o rótulo textual. Um ID sem correspondência omite o ícone e preserva os dados e o texto.
 - O guia em três passos orienta escolher, transferir e conferir os dados. O link de créditos usa a página compartilhada de atribuições, cujos registros e licenças já existem.
-- A verificação cobriu os oito arquivos e seus hashes, dez imagens exibidas, extensão por dados, fallback, escape e quatro combinações de tema/largura. As capturas foram revistas; a integração ao shell completo segue para a próxima etapa.
+- A verificação cobriu os oito arquivos e seus hashes, dez imagens exibidas, extensão por dados, fallback, escape e quatro combinações de tema/largura. As capturas foram revistas; a integração ao shell completo também foi validada posteriormente.
 
 ### Conteúdo sem JavaScript
 
@@ -199,13 +199,17 @@ A fonte compartilhada de `noscript` compõe a mesma partial em `/doe/`. `static_
 - Os detalhes nativos abrem por teclado. Campos readonly permitem seleção manual; o link PayPal conserva endereço, alvo e proteção de origem.
 - O guia estático orienta copiar manualmente, sem sugerir um QR indisponível. As demais páginas conservam o painel genérico existente.
 - A validação em navegador com JavaScript desativado cobriu duas larguras, dados exatos, seleção, PayPal, IDs, ausência de pedidos de scripts e overflow. O modo normal também foi conferido.
-- A fixture isolou três includes de shell. O conteúdo foi aceito e as capturas examinadas; o shell real permanece pendente do build integrado.
+- A fixture inicial isolou três includes de shell. O gate oficial posterior conferiu o shell real sem JavaScript em mobile e desktop.
 
-## Validação integrada em andamento
+## Validação integrada
 
 O build Jekyll de produção foi concluído em destino isolado. O gate visual oficial passou em 320 px, nos temas claro e escuro, incluindo o shell NoScript real. O validador passou a conferir a variante de doações contra o JSON canônico; um PIX estático adulterado foi rejeitado e o ramo genérico de outra página permaneceu válido. A fonte TypeScript em `scripts/visual/noscript.ts` possui JavaScript gerado pareado e verificação de tipos em `check:ts`.
 
-Desktop e ações completas sobre o artefato real ainda estão em validação. Isso não comprova a matriz integral de publicação nem a cadeia completa de `build:prod`.
+A matriz integrada cobriu 320 e 1366 px, nos dois temas, com 20 cópias por teclado, 20 downloads PNG e 20 rasters exibidos decodificados contra o JSON canônico, além de foco, modal, PayPal e overflow. O clipboard foi um gravador injetado no navegador; não há alegação sobre a área de transferência do SO. Desktop strict e as verificações TypeScript passaram. Isso não comprova a matriz integral de publicação nem a cadeia completa de `build:prod`, reservadas à FT-111.
+
+![Página real em mobile escuro: diálogo PIX com QR, legenda visível, botão Fechar e download PNG com foco por teclado.](../assets/images/documentacao/doacoes/interface-mobile-qr.png)
+
+Captura do artefato real, com consentimento de teste já registrado, sem transação financeira. Para usar a página, abra o meio, escolha Copiar ou Ver QR e, no diálogo, Baixar PNG; Escape fecha o diálogo e devolve o foco. Sem JavaScript, selecione manualmente o campo integral.
 
 ## Fontes
 
@@ -247,5 +251,5 @@ console.log('DONATIONS_DOCUMENTED_APIS_EXAMPLE_OK');
 
 ## Dependências de interface
 
-- FT-108: página `/doe` responsiva e acessível.
+- FT-108: página `/doe` implementada e tecnicamente validada; aceite humano pendente.
 - FT-110: workflow mensal de verificação de assets.
