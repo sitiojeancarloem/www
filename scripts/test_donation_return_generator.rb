@@ -11,6 +11,7 @@ require 'nokogiri'
 require 'jekyll'
 require 'jekyll-paginate'
 require_relative '../_plugins/jcem_donation_return_generator'
+require_relative '../_plugins/jcem_cover_contract'
 
 # Observa o argumento real escolhido antes de o upstream criar páginas adicionais.
 module DonationReturnTemplateProbe
@@ -51,7 +52,7 @@ per_page = Integer(canonical.fetch('paginate'))
 check_generator(per_page.between?(1, 100), 'limite explícito da fixture: paginate de 1 a 100')
 index_source = File.read(File.join(root, 'index.html'), encoding: 'UTF-8')
 thank_you_source = JSON.parse(File.read(File.join(root, '_data/donations.json'), encoding: 'UTF-8')).fetch('thankYou')
-layout_source = '<h1>{{ page.title }}</h1>{{ content }}<ul id="posts">{% for post in paginator.posts %}<li>{{ post.title }}</li>{% endfor %}</ul><a id="next" href="{{ paginator.next_page_path | relative_url }}">Mais</a>'
+layout_source = '<div class="page__hero">Destaque da home</div><h1>{{ page.title }}</h1>{{ content }}<ul id="posts">{% for post in paginator.posts %}<li>{{ post.title }}</li>{% endfor %}</ul><a id="next" href="{{ paginator.next_page_path | relative_url }}">Mais</a>'
 records = []
 ['', '/prefixo'].each do |baseurl|
   source = Dir.mktmpdir('generator-', cache)
@@ -60,7 +61,14 @@ records = []
   FileUtils.mkdir_p(File.join(source, '_data'))
   File.write(File.join(source, '_data/donations.json'), JSON.generate({ 'thankYou' => thank_you_source }))
   FileUtils.mkdir_p(File.join(source, '_includes/jcem'))
-  FileUtils.cp(File.join(root, '_includes/jcem/donation-thanks.html'), File.join(source, '_includes/jcem/donation-thanks.html'))
+  # Fixture reutiliza os partials, configuração e assets canônicos do COVER.
+  resources = ['_includes/jcem/donation-thanks.html', '_includes/jcem/post-featured-image.html', '_includes/jcem/cover-hero.html', 'config/cover-system.json', 'scripts/check-cover-edges.mjs']
+  resources.concat([thank_you_source.fetch('image').fetch('src'), *thank_you_source.fetch('cover').fetch('patterns').values].map { |p| p.delete_prefix('/') })
+  resources.each do |relative|
+    destination = File.join(source, relative)
+    FileUtils.mkdir_p(File.dirname(destination))
+    FileUtils.cp(File.join(root, relative), destination)
+  end
   extra = baseurl.empty? ? '' : '<p id="home-extra">Conteúdo futuro da home</p>'
   File.binwrite(File.join(source, 'index.html'), index_source + extra)
   File.write(File.join(source, '_layouts/home.html'), "---\n---\n" + layout_source)
@@ -100,9 +108,24 @@ records = []
   messages = return_html.css('[data-jcem-donation-thanks]')
   check_generator(messages.length == 1 && messages.first.name == 'p' && messages.first.text == thank_you_source.fetch('message'), 'mensagem única canônica renderizada')
   check_generator(home_html.css('[data-jcem-donation-thanks]').empty?, 'home não recebeu mensagem')
+  covers = return_html.css('figure[data-jcem-cover]')
+  check_generator(covers.length == 1 && covers.first['data-jcem-cover-mode'] == thank_you_source.fetch('cover').fetch('mode'), 'COVER normalizado único no render real da Page')
+  image = covers.first.at_css('img')
+  check_generator(image['src'] == baseurl + thank_you_source.fetch('image').fetch('src') && image['alt'] == thank_you_source.fetch('image').fetch('alt'), 'imagem canônica e baseurl no render da Page')
+  check_generator(return_html.css('.page__hero, .page__hero--overlay').empty? && home_html.css('.page__hero').length == 1, 'substituição exclusiva do destaque derivado')
+  check_generator(home_html.css('figure[data-jcem-cover]').empty?, 'home não recebeu COVER do agradecimento')
+  check_generator(covers.first.next_element&.name == 'h1', 'COVER antecede título normal')
+  check_generator(return_html.at_css('h1').next_element&.key?('data-jcem-donation-thanks'), 'título antecede mensagem')
+  covers.remove
+  home_html.css('.page__hero').remove
   messages.remove
   home_html.css('h1').remove
   return_html.css('h1').remove
+  # Nokogiri serializa o documento completo; ignora só formatação na raiz da fixture.
+  # Texto não vazio, atributos, ordem e todo whitespace interno continuam comparados.
+  [home_html, return_html].each do |fragment|
+    fragment.children.select { |node| node.text? && node.text.match?(/\A[\t\n\r ]*\z/) }.each(&:remove)
+  end
   check_generator(home_html.to_html == return_html.to_html, 'restante da home equivalente')
   generator = Jcem::DonationReturn::Generator.new
   before = site.pages.dup

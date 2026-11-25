@@ -4,6 +4,7 @@
 # Página virtual derivada da raiz; não se registra nem escreve arquivos sozinha.
 require 'jekyll'
 require_relative 'jcem_donation_return_presentation'
+require_relative 'jcem_donation_return_rendered_cover'
 
 module Jcem
   module DonationReturn
@@ -22,6 +23,13 @@ module Jcem
         self.data = Presentation.data_for(canonical_home.data, site.data.fetch('donations').fetch('thankYou'))
         data['permalink'] = '/doe/obrigado/'
         data['jcem_donation_return'] = true
+      end
+
+      # O Site usa renderer.run; conserva os hooks antes do COVER desta instância.
+      def trigger_hooks(hook_name, *args)
+        result = super
+        self.output = RenderedCover.apply(self, renderer.payload) if hook_name == :post_render
+        result
       end
 
       # Chamado após geração/paginação; conserva o objeto canônico, inclusive nil.
