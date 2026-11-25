@@ -12,7 +12,7 @@
     "url": "https://github.com/sitiojeancarloem/www/issues"
   },
   "scripts": {
-    "check:ts": "tsc --noEmit && tsc -p src/jcem-print-ieee/tsconfig.json --noEmit",
+    "check:ts": "tsc --noEmit && tsc -p src/jcem-print-ieee/tsconfig.json --noEmit && tsc -p scripts/visual/tsconfig.json --noEmit",
     "build:ts": "tsc && node scripts/inject-code-headers.mjs assets/jcem/js/site.js",
     "build:print": "node scripts/analyze-print-full-width.mjs && tsc -p src/jcem-print-ieee/tsconfig.json && node scripts/build-print-ieee.mjs",
     "check:html": "bundle exec ruby scripts/test_html_compactor.rb",
