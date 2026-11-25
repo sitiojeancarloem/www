@@ -401,3 +401,9 @@ Thumbs.db
 
 # FT-108: histórico técnico, sem expor outros estados ou cache.
 !/.ia.rules/state/history/FT-108.ia
+
+# FT-109: proveniência da arte, sem expor outros arquivos de solicitação.
+!/.ia.rules/state/requests/FT-106/
+/.ia.rules/state/requests/FT-106/*
+!/.ia.rules/state/requests/FT-106/prompt.md
+!/.ia.rules/state/requests/FT-106/agradecimento-imagegen.json
