@@ -1,0 +1,65 @@
+{
+  "schema": "jcem-image-generation-source/v1",
+  "ft": "FT-109",
+  "purpose": "Proveniência da geração e derivação; o manifesto social continua sendo _data/jcem_social_images.json.",
+  "tool": "image_gen.imagegen",
+  "mode": "built-in",
+  "nativeArtifactId": "exec-b099e604-d033-4b5a-a554-ac63e4282c87",
+  "prompt": "Use case: illustration-story\nObjetivo: criar uma imagem-base de COVER para uma página pública brasileira de agradecimento após doação a um projeto independente. Tom cordial, próximo, acolhedor e profissional, sem aparência fria ou publicitária.\nComposição: uma única ilustração horizontal, proporção alvo 40:21 (1200:630), sem painéis ou molduras. Duas mãos humanas estilizadas, com anatomia natural e gesto delicado de oferecer/acolher um coração, simbolizando gratidão. Composição equilibrada, volume suave, formas elegantes e legíveis também em mobile. Fundo creme quente liso e contínuo de borda a borda; sombras delicadas restritas ao assunto. As laterais devem terminar naturalmente no mesmo fundo, sem objetos cortados, emendas, vinhetas ou faixas artificiais.\nSafe area: o coração e as partes essenciais das mãos ficam inteiros na região central, longe das bordas e da faixa inferior terminal que poderá receber uma sobreposição estrutural do site. Não existe overlay externo declarado neste contexto; não inventar logo nem reservar um retângulo vazio. O título ficará fora da imagem, abaixo dela, em HTML.\nElementos: somente o gesto de acolhimento e o coração; ilustração digital editorial refinada, volumes discretos e cores quentes harmoniosas. Nada de rostos ou personagens identificáveis.\nRestrições: absolutamente nenhum texto, letras, números, tipografia, legenda, marca, moeda, interface, assinatura ou marca-d'água. Não desenhar botões, página web, mockup, cartão ou dispositivo. Evitar dedos deformados, brilho exagerado, sentimentalismo infantil e decoração excessiva.\nRenderização: bitmap com fundo opaco, acabamento limpo e alta qualidade. Uma peça visual completa, sem corte dos elementos principais, pensada para uma COVER expansível horizontalmente.\nAceite: gratidão reconhecível sem palavras; imagem amigável, elegante e legível; conteúdo central preservado; fundo e luz contínuos nas bordas; ausência total de texto.",
+  "recordedAtUtc": "2026-11-25T08:04:06.461Z",
+  "original": {
+    "path": "assets/images/doacoes/agradecimento-original.png",
+    "sha256": "a45ff4137f7ef5c2e5384c40c0a5010300713cb5f559e64f5732d0b692f035eb",
+    "bytes": 1646971,
+    "width": 1731,
+    "height": 909
+  },
+  "derivation": {
+    "processingVersions": {
+      "node": "22.21.0",
+      "sharp": "0.34.4",
+      "vips": "8.17.2",
+      "webp": "1.6.0"
+    },
+    "geometrySource": "config/cover-system.json#/aspect_ratio",
+    "width": 1200,
+    "height": 630,
+    "fit": "cover",
+    "position": "centre",
+    "kernel": "lanczos3",
+    "colourspace": "srgb",
+    "codec": "webp lossless",
+    "effort": 4,
+    "patterns": "Colunas extremas da mesma central, repetíveis em x; sem geração independente."
+  },
+  "outputs": [
+    {
+      "path": "assets/images/doacoes/agradecimento-cover.webp",
+      "sha256": "25c3c46adf4bac02f8e6e510620053964e5555c6fdebc5ca3c683ec75c65ea8b",
+      "bytes": 596362,
+      "width": 1200,
+      "height": 630
+    },
+    {
+      "path": "assets/images/doacoes/agradecimento-left.webp",
+      "sha256": "5817aae0999ecac70443fe0b1f9aa9556f493e1d910c02d2ee472e0e0b2c84fe",
+      "bytes": 430,
+      "width": 1,
+      "height": 630
+    },
+    {
+      "path": "assets/images/doacoes/agradecimento-right.webp",
+      "sha256": "b9b0cae5e10e5e6ed12e8d5171932e33ddc684eefb764654f341a8df4aa211b5",
+      "bytes": 382,
+      "width": 1,
+      "height": 630
+    }
+  ],
+  "rightsSource": "config/social-images.json",
+  "creator": "Jean Carlo EM",
+  "license": "CC-BY-NC-SA-4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+  "technicalOriginalReview": "Examinado no chat: mãos/coração, sem texto; derivação/prévia ainda pendente de revisão.",
+  "humanVisualApproval": "pending",
+  "socialPipelineRegistration": "registered"
+}

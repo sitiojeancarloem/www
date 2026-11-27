@@ -66,7 +66,9 @@ assert(usage_status.success?, "inventário Git dos modos de uso falhou")
 usage_docs = usage_inventory.lines(chomp: true).select do |path|
   File.file?(File.join(ROOT, path)) && File.basename(path).match?(/\AMODO-DE-USO-.*\.md\z/)
 end
-assert(usage_docs.length == 4, "inventário de modos de uso divergente")
+declared_usage_docs = readme.scan(%r{\]\((docs/MODO-DE-USO-[^)#\s]+\.md)(?:#[^)]*)?\)}).flatten.uniq
+assert(!declared_usage_docs.empty?, "índice canônico de modos de uso ausente")
+assert(usage_docs.sort == declared_usage_docs.sort, "inventário de modos de uso divergente: declarados=#{declared_usage_docs.sort.join(',')} encontrados=#{usage_docs.sort.join(',')}")
 usage_docs.each do |path|
   assert(File.dirname(path).tr("\\", "/") == "docs", "modo de uso fora de ./docs/: #{path}")
 end
@@ -170,14 +172,21 @@ end
 private_package = JSON.parse(read("scripts/lib/package.json"))
 assert(private_package == { "private" => true, "type" => "commonjs" }, "manifesto técnico privado deixou de ser fronteira mínima")
 
-todo_operational = read("TODO.ia.md").split(/^# TO-DOs\s*$/, 2).last
+todo_source = read(".ia.rules/state/TODO.ia.md")
+todo_parts = todo_source.split(/^# TO-DOs\s*$/, 2)
+assert(todo_parts.length == 2, "marcador operacional da TO-DO canônica ausente")
+todo_operational = todo_parts.last
+equalizer = "- [ ] Equalizar e executar as TO-DOs como frentes convergentes de um único objetivo"
+assert(todo_source.lines.map(&:chomp).include?(equalizer), "Equalizer literal desmarcado ausente")
+assert(!todo_source.lines.any? { |line| line.strip == equalizer.sub("[ ]", "[x]") }, "Equalizer perene marcado como concluído")
 status_markers = "⬜|📌|📜|⚖️|⏳|🔄|🔎|✅"
-assert(!todo_operational.match?(/^- \[[ x]\]/), "item operacional ainda usa checkbox em vez de emoji isolado")
-assert(!todo_operational.match?(/^(?:#{status_markers}) \*\*[^*]+:\*\*/), "item operacional ainda repete o nome textual do status")
-operational_items = todo_operational.lines.grep(/^(?:#{status_markers}) /)
+invalid_child_checkboxes = todo_operational.lines.grep(/^\s+- \[[ x]\]/).reject { |line| line.strip == equalizer }
+assert(invalid_child_checkboxes.empty?, "item operacional subordinado ainda usa checkbox em vez de emoji isolado")
+assert(!todo_operational.match?(/^\s*(?:- )?(?:#{status_markers}) \*\*[^*]+:\*\*/), "item operacional ainda repete o nome textual do status")
+operational_items = todo_operational.lines.grep(/^\s*(?:- )?(?:#{status_markers}) /)
 assert(!operational_items.empty?, "TO-DO operacional sem item")
 operational_items.each do |line|
-  assert(line.match?(/^(?:#{status_markers}) \S/), "item operacional sem emoji de status isolado: #{line.strip}")
+  assert(line.match?(/^\s*(?:- )?(?:#{status_markers}) \S/), "item operacional sem emoji de status isolado: #{line.strip}")
 end
 
 print_doc = read(print_doc_path)

@@ -67,3 +67,7 @@ A integração cria fixture exclusiva sob `tmp`, limpa somente seus arquivos ap�
 Baseline comprovado em 2026-10-09: Node 24.19.0; checagem estrita e quatro suítes exit0 no job `88ae962c-9fc0-41a5-9bf0-dcc6797c6604`.
 A integração real também passou em Node 22.21.0 (commit `090649d1f5`): sucesso, saída3 e reuse com candidato invalidado.
 Regressão de alternativas entre múltiplos processos e gates de governança/rastreabilidade permanecem pendentes; esta evidência não conclui as FTs.
+
+## Regressão de alternativas entre processos — FT-105
+
+scripts/test_verified_process_alternatives.ts comprova composição explícita de duas estratégias previamente autorizadas: saída3 seguida de candidato verificado; saídas3/4 com esgotamento finito; timeout real com blocked e nenhuma alternativa iniciada. Tipos e execução Node24 aprovados no job 48c68da4-6f5a-4470-bb25-d0c6e2f68889. Cada estratégia usa executeVerifiedProcess e runLongProcess existentes. O teste não introduz executor assíncrono genérico nem fallback automático. IDs do adaptador são locais a cada chamada; o chamador controla a ordem da composição. Clones preservam JSON, não desfazem IO; timeout bloqueia avanço sem garantir término físico imediato. Elegibilidade e pós-condição puras permanecem em test_resilient_operation.ts.

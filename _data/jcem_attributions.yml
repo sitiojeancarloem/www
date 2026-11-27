@@ -36,12 +36,49 @@
     - assets/jcem/consent-manager/_silktide.scss
 - id: font-awesome-free
   name: Font Awesome Free
-  resource: Ícones, fontes e CSS carregados pelo tema
+  version: 7.3.1 (SVGs locais dos provedores)
+  resource: Ícones dos provedores e do tema, fontes e CSS
   author: Fonticons, Inc.
   origin: https://github.com/FortAwesome/Font-Awesome
   license: CC BY 4.0 (ícones), SIL OFL 1.1 (fontes) e MIT (código)
   license_url: https://fontawesome.com/license/free
   copyright: Copyright 2026 Fonticons, Inc.
-  embedded_notice: Os arquivos oficiais entregues pelo CDN conservam os avisos de atribuição incorporados pelo fornecedor.
+  embedded_notice: SVGs locais e arquivos oficiais do CDN preservam os avisos incorporados; a versão fixada indicada aplica-se aos SVGs dos provedores.
   evidence:
     - 404.main.html
+    - assets/jcem/img/donations/pix.svg
+    - assets/jcem/img/donations/paypal.svg
+    - assets/jcem/img/donations/FONT-AWESOME-LICENSE.txt
+
+- id: qrcode-generator
+  name: QR Code Generator for JavaScript
+  resource: Gerador QR local para doações; carregamento restrito ao recurso
+  version: 2.0.4
+  author: Kazuhiko Arase
+  origin: https://github.com/kazuhikoarase/qrcode-generator
+  license: MIT
+  license_url: https://github.com/kazuhikoarase/qrcode-generator/blob/js2.0.4/LICENSE
+  copyright: Copyright (c) 2009 Kazuhiko Arase
+  notice_ref: mit
+  evidence:
+    - assets/jcem/lib/qrcode-generator/2.0.4/qrcode.mjs
+    - assets/jcem/lib/qrcode-generator/2.0.4/LICENSE.txt
+
+- id: cryptocurrency-icons
+  name: Cryptocurrency Icons
+  resource: Ícones locais de criptomoedas e redes usados no catálogo de doações
+  version: 8dcc316d95f0bbdf6f3b220745ae05f1ef00e79e
+  author: Erik Thiart
+  origin: https://github.com/ErikThiart/cryptocurrency-icons
+  license: MIT
+  license_url: https://raw.githubusercontent.com/ErikThiart/cryptocurrency-icons/8dcc316d95f0bbdf6f3b220745ae05f1ef00e79e/LICENSE
+  copyright: Copyright (c) 2018 Erik Thiart
+  notice_ref: mit
+  evidence:
+    - assets/jcem/img/donations/bitcoin.png
+    - assets/jcem/img/donations/tether.png
+    - assets/jcem/img/donations/LICENSE.txt
+    - assets/jcem/img/donations/ecash.png
+    - assets/jcem/img/donations/tron.png
+    - assets/jcem/img/donations/bittorrent-new.png
+    - assets/jcem/img/donations/bnb.png

@@ -377,8 +377,33 @@ Thumbs.db
 !/.ia.rules/state/history/
 !/.ia.rules/state/history/FT-104.ia
 
+# FT-105: histórico técnico
+!/.ia.rules/state/history/FT-105.ia
 # FT-116: solicitação e evidência de integração, sem expor cache ou outros estados.
 !/.ia.rules/state/requests/FT-116/
 !/.ia.rules/state/requests/FT-116/prompt.md
 !/.ia.rules/state/contexts/FT-116/
 !/.ia.rules/state/contexts/FT-116/master.md
+!/.ia.rules/state/requests/FT-116/retomada-2026-11-16.md
+!/.ia.rules/state/contexts/FT-116/retomada-2026-11-16.md
+
+# FT-117: contexto local da publicidade Uber
+!/.ia.rules/state/contexts/FT-117/
+!/.ia.rules/state/contexts/FT-117/master.md
+
+# FT-106: contexto legado versionado, exceção local exata
+!/.ia.rules/state/contexts/FT-106/
+!/.ia.rules/state/contexts/FT-106/master.md
+
+# FT-117: somente esclarecimentos humanos versionados
+!/.ia.rules/state/requests/FT-117/
+!/.ia.rules/state/requests/FT-117/esclarecimentos-2026-11-16.md
+
+# FT-108: histórico técnico, sem expor outros estados ou cache.
+!/.ia.rules/state/history/FT-108.ia
+
+# FT-109: proveniência da arte, sem expor outros arquivos de solicitação.
+!/.ia.rules/state/requests/FT-106/
+/.ia.rules/state/requests/FT-106/*
+!/.ia.rules/state/requests/FT-106/prompt.md
+!/.ia.rules/state/requests/FT-106/agradecimento-imagegen.json

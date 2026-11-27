@@ -1,0 +1,23 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "target": "ES2023",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "lib": [
+      "ES2023",
+      "DOM"
+    ],
+    "rootDir": "../..",
+    "noEmit": true,
+    "incremental": false,
+    "strict": true,
+    "skipLibCheck": true,
+    "types": []
+  },
+  "files": [
+    "noscript.ts"
+  ],
+  "include": [],
+  "exclude": []
+}

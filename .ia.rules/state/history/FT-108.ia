@@ -1,0 +1,8 @@
+FT-108|nome=Implementação da página pública de doações|escopo=tecnico|status=concluida|autorizacao=humana|conclusao=2026-11-25T03:58:40.561Z
+objetivo=Implementar `/doe` responsiva, orientada por dados e integrada aos temas.
+origem=.ia.rules/state/requests/FT-106/prompt.md
+contexto=.ia.rules/state/contexts/FT-106/master.md
+dependencias=FT-107
+resultado=Página /doe orientada por dados, ícones locais, guia, cópia integral, QR client-side/download e fallback estático integrados ao tema.
+verificacoes=Build Jekyll real9043a3e9; gate strict320/darklight e NoScript d40a3fab; desktop1366/darklight,20cópias,20PNGs e20rasters canônicos,TS raiz/print3e3880c5. Capturas examinadas; Q8S registrado. Commits8dda4fe088,84cf45e08b,0e908f08b9,a3bc1801bf,87ae2a499d,9213de61cd,493b806e96.
+pendencias=Validação humana externa. Retorno/workflow/matriz global e cadeia integral build:prod pertencem às FTs109–111; sem publish ou prova do clipboard do SO.

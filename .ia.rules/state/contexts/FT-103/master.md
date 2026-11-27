@@ -37,3 +37,7 @@ Próximo: fechar gates de governança/rastreabilidade da FT-104; então completa
 ## Transição técnica — FT-104 para FT-105
 
 FT-104 tecnicamente concluída; aceite humano pendente. Auditoria: c759ba6dc7 e auditoria-ft104.md. Dez vínculos RCF validados; tipos e quatro suítes Node24 aprovados. Gate global com falha externa conhecida permanece sem aprovação. FT-105 liberada: provar alternativas finitas entre processos, esgotamento, preservação e ausência de bypass; não repetir a integração de execução única já aceita.
+
+## Encerramento técnico da FT-105
+
+Composição explícita validada em scripts/test_verified_process_alternatives.ts: sucesso pela segunda estratégia, esgotamento e timeout sem bypass. Job48c68da4 e commits942b030831/4244c101d7/a4abe6b034. FT-105 tecnicamente concluída; aceite humano pendente. Limites no guia e histórico canônico. Gate global externo não aprovado; nenhuma alteração de núcleo ou fallback automático.

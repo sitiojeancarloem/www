@@ -1,0 +1,149 @@
+{
+  "schemaVersion": 1,
+  "methods": [
+    {
+      "id": "pix",
+      "type": "pix",
+      "label": "PIX",
+      "key": "doe@jeancarloem.com",
+      "payload": "00020126630014br.gov.bcb.pix0119doe@jeancarloem.com0218Doacao_JeanCarloEM5204000053039865802BR5925JEAN_CARLO_DE_ELIAS_MOREI6012PIRASSUNUNGA62180514DOEJEANCARLOEM63040675",
+      "iconAssetId": "pix"
+    },
+    {
+      "id": "usdt-bnb",
+      "type": "crypto",
+      "label": "USDT",
+      "network": "BNB",
+      "address": "0xeb68c866073abd82e5c2e41831db57f8718f91e7",
+      "symbol": "USDT",
+      "name": "USDT",
+      "iconAssetId": "tether",
+      "networkAssetId": "bnb"
+    },
+    {
+      "id": "btc-bitcoin",
+      "type": "crypto",
+      "label": "BTC",
+      "network": "Bitcoin",
+      "address": "1JwTkF1HTd1isctQ7jumfCVQxhxVqKuMzN",
+      "symbol": "BTC",
+      "name": "Bitcoin",
+      "iconAssetId": "bitcoin",
+      "networkAssetId": "bitcoin"
+    },
+    {
+      "id": "xec-ecash",
+      "type": "crypto",
+      "label": "XEC",
+      "network": "XEC",
+      "address": "ecash:qqwtv7lfm6nn2u3vrrjuqtcfzc36y29ueshw9svgrt",
+      "symbol": "XEC",
+      "name": "eCash",
+      "iconAssetId": "ecash",
+      "networkAssetId": "ecash"
+    },
+    {
+      "id": "bttc-tron",
+      "type": "crypto",
+      "label": "BTTC",
+      "network": "TRON",
+      "address": "TFRTMVtsoxXsdCXaPJx6jCEep9eeKaZNH2",
+      "symbol": "BTTC",
+      "name": "BitTorrent",
+      "networkAssetId": "tron",
+      "iconAssetId": "bittorrent-new"
+    },
+    {
+      "id": "paypal",
+      "type": "paypal",
+      "label": "PayPal",
+      "url": "https://www.paypal.com/donate/?hosted_button_id=6V7J86DQ9VQBS",
+      "currency": "BRL",
+      "minimumAmount": 10,
+      "amountMode": "free",
+      "iconAssetId": "paypal"
+    }
+  ],
+  "assets": [
+    {
+      "id": "bitcoin",
+      "path": "/assets/jcem/img/donations/bitcoin.png",
+      "source": "https://raw.githubusercontent.com/ErikThiart/cryptocurrency-icons/8dcc316d95f0bbdf6f3b220745ae05f1ef00e79e/128/bitcoin.png",
+      "license": "MIT",
+      "licenseUrl": "https://raw.githubusercontent.com/ErikThiart/cryptocurrency-icons/8dcc316d95f0bbdf6f3b220745ae05f1ef00e79e/LICENSE",
+      "sha256": "d8acc669ca70a706e61fb3162811d3042d06701f56aac2a6f1ce1cfff08824f7"
+    },
+    {
+      "id": "tether",
+      "path": "/assets/jcem/img/donations/tether.png",
+      "source": "https://raw.githubusercontent.com/ErikThiart/cryptocurrency-icons/8dcc316d95f0bbdf6f3b220745ae05f1ef00e79e/128/tether.png",
+      "license": "MIT",
+      "licenseUrl": "https://raw.githubusercontent.com/ErikThiart/cryptocurrency-icons/8dcc316d95f0bbdf6f3b220745ae05f1ef00e79e/LICENSE",
+      "sha256": "094281ddb2a43d70d594f6be2c563dd9845f7f76d3746e784890de649ce92834"
+    },
+    {
+      "id": "ecash",
+      "path": "/assets/jcem/img/donations/ecash.png",
+      "source": "https://raw.githubusercontent.com/ErikThiart/cryptocurrency-icons/8dcc316d95f0bbdf6f3b220745ae05f1ef00e79e/128/ecash.png",
+      "license": "MIT",
+      "licenseUrl": "https://raw.githubusercontent.com/ErikThiart/cryptocurrency-icons/8dcc316d95f0bbdf6f3b220745ae05f1ef00e79e/LICENSE",
+      "sha256": "f440b8f2cc2a711e2e3d7905093512f8f84234994a9c2a74e7f83d5b10bb4f1b"
+    },
+    {
+      "id": "tron",
+      "path": "/assets/jcem/img/donations/tron.png",
+      "source": "https://raw.githubusercontent.com/ErikThiart/cryptocurrency-icons/8dcc316d95f0bbdf6f3b220745ae05f1ef00e79e/128/tron.png",
+      "license": "MIT",
+      "licenseUrl": "https://raw.githubusercontent.com/ErikThiart/cryptocurrency-icons/8dcc316d95f0bbdf6f3b220745ae05f1ef00e79e/LICENSE",
+      "sha256": "55e9697eff95b7e18cc0019494496af0edf14001e78274b9904d768ae6844fa1"
+    },
+    {
+      "id": "bittorrent-new",
+      "path": "/assets/jcem/img/donations/bittorrent-new.png",
+      "source": "https://raw.githubusercontent.com/ErikThiart/cryptocurrency-icons/8dcc316d95f0bbdf6f3b220745ae05f1ef00e79e/128/bittorrent-new.png",
+      "license": "MIT",
+      "licenseUrl": "https://raw.githubusercontent.com/ErikThiart/cryptocurrency-icons/8dcc316d95f0bbdf6f3b220745ae05f1ef00e79e/LICENSE",
+      "sha256": "226b31130858d772384bd395ee2cebaae0fe2f13c280ab169aa79021aeb46df3"
+    },
+    {
+      "id": "bnb",
+      "path": "/assets/jcem/img/donations/bnb.png",
+      "source": "https://raw.githubusercontent.com/ErikThiart/cryptocurrency-icons/8dcc316d95f0bbdf6f3b220745ae05f1ef00e79e/128/bnb.png",
+      "license": "MIT",
+      "licenseUrl": "https://raw.githubusercontent.com/ErikThiart/cryptocurrency-icons/8dcc316d95f0bbdf6f3b220745ae05f1ef00e79e/LICENSE",
+      "sha256": "48789653958b94f2d88bdfe49c8e600aa702d5ad9447628dce87f9b2f7204955"
+    },
+    {
+      "id": "pix",
+      "path": "/assets/jcem/img/donations/pix.svg",
+      "source": "https://raw.githubusercontent.com/FortAwesome/Font-Awesome/7.3.1/svgs/brands/pix.svg",
+      "license": "CC-BY-4.0",
+      "licenseUrl": "https://raw.githubusercontent.com/FortAwesome/Font-Awesome/7.3.1/LICENSE.txt",
+      "sha256": "b416ca372258c67714bbfed411bba4dfc1b00c54bf54a63053d2800ff6984b82"
+    },
+    {
+      "id": "paypal",
+      "path": "/assets/jcem/img/donations/paypal.svg",
+      "source": "https://raw.githubusercontent.com/FortAwesome/Font-Awesome/7.3.1/svgs/brands/paypal.svg",
+      "license": "CC-BY-4.0",
+      "licenseUrl": "https://raw.githubusercontent.com/FortAwesome/Font-Awesome/7.3.1/LICENSE.txt",
+      "sha256": "75624025fc1c4dbba2826cf48af9eaef5507aada6ffa85c5ee40b09be994d8a5"
+    }
+  ],
+  "thankYou": {
+    "title": "Obrigado",
+    "message": "Seu apoio ajuda a manter este projeto. Muito obrigado por fazer parte dele!",
+    "image": {
+      "src": "/assets/images/doacoes/agradecimento-cover.webp",
+      "alt": "Mãos acolhendo um coração vermelho, em gesto de gratidão."
+    },
+    "cover": {
+      "mode": "wide",
+      "composition": "triptych",
+      "patterns": {
+        "left": "/assets/images/doacoes/agradecimento-left.webp",
+        "right": "/assets/images/doacoes/agradecimento-right.webp"
+      }
+    }
+  }
+}

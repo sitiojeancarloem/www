@@ -678,142 +678,294 @@ Este arquivo preserva demandas do desenvolvedor. Estados operacionais seguem a g
   - Preservar integralmente as capacidades, contratos e comportamentos existentes.
 
 ⏳ **Normatizar e aplicar globalmente semântica forte de `fail-safe`/resiliência**
-  - Na governança aplicável, `fail-safe`, `resiliente` e equivalentes DEVEM significar **concluir efetivamente o objetivo solicitado apesar de falhas contornáveis**, não apenas “falhar sem quebrar”.
-  - Uma falha de método, comando, fonte ou estratégia NÃO encerra a operação se existir alternativa programática legítima.
-  - A implementação DEVE tentar, de forma limitada e determinística, alternativas técnicas até:
-    1. concluir corretamente; ou
-    2. esgotar possibilidades tecnicamente plausíveis.
 
-  - É PROIBIDO converter resiliência em loop infinito, tentativa ilimitada ou violação de segurança, contrato, governança ou escopo.
-  - Somente após esgotamento real das alternativas a operação PODE encerrar sem concluir; nesse caso, DEVE preservar o último estado
+- Na governança aplicável, `fail-safe`, `resiliente` e equivalentes DEVEM significar **concluir efetivamente o objetivo solicitado apesar de falhas contornáveis**, não apenas “falhar sem quebrar”.
+- Uma falha de método, comando, fonte ou estratégia NÃO encerra a operação se existir alternativa programática legítima.
+- A implementação DEVE tentar, de forma limitada e determinística, alternativas técnicas até:
+  1. concluir corretamente; ou
+  2. esgotar possibilidades tecnicamente plausíveis.
+
+- É PROIBIDO converter resiliência em loop infinito, tentativa ilimitada ou violação de segurança, contrato, governança ou escopo.
+- Somente após esgotamento real das alternativas a operação PODE encerrar sem concluir; nesse caso, DEVE preservar o último estado
 
 ⏳ **Criar/atualizar `/doe` como página pública de doações, responsiva, moderna e orientada por dados**
-  - Inspecionar primeiro tema, arquitetura, rotas, assets, componentes e governança existentes; NÃO presumir tecnologia, paths internos ou contratos não comprovados.
 
-  - `/doe` DEVE explicar, de forma cordial e sucinta, **por que doar, como doar e meios disponíveis**, sem prolixidade.
+- Inspecionar primeiro tema, arquitetura, rotas, assets, componentes e governança existentes; NÃO presumir tecnologia, paths internos ou contratos não comprovados.
 
-  - Layout DEVE ser **profissional, elegante, bonito, agradável, moderno, totalmente responsivo e aderente ao tema**, inclusive modos claro/escuro.
+- `/doe` DEVE explicar, de forma cordial e sucinta, **por que doar, como doar e meios disponíveis**, sem prolixidade.
 
-  - Otimizar espaço horizontal/vertical em linguagem **infográfica**, com hierarquia, iconização e escaneabilidade, sem poluir, condensar excessivamente ou recorrer desnecessariamente a layout tradicional.
+- Layout DEVE ser **profissional, elegante, bonito, agradável, moderno, totalmente responsivo e aderente ao tema**, inclusive modos claro/escuro.
 
-  - Criar **uma única fonte de verdade JSON**, em localização canônica adequada à arquitetura real, contendo meios de doação, provedores, moedas, redes, endereços e metadados; alteração válida nesse JSON DEVE refletir no site sem duplicação manual.
+- Otimizar espaço horizontal/vertical em linguagem **infográfica**, com hierarquia, iconização e escaneabilidade, sem poluir, condensar excessivamente ou recorrer desnecessariamente a layout tradicional.
 
-  - A estrutura DEVE permitir inclusão futura de novos meios/moedas/redes sem alteração estrutural da página.
+- Criar **uma única fonte de verdade JSON**, em localização canônica adequada à arquitetura real, contendo meios de doação, provedores, moedas, redes, endereços e metadados; alteração válida nesse JSON DEVE refletir no site sem duplicação manual.
 
-  - [ ] **PIX**
-    - Disponibilizar PIX com payload exato:
-      `00020126630014br.gov.bcb.pix0119doe@jeancarloem.com0218Doacao_JeanCarloEM5204000053039865802BR5925JEAN_CARLO_DE_ELIAS_MOREI6012PIRASSUNUNGA62180514DOEJEANCARLOEM63040675`
-    - Disponibilizar chave PIX (`<chave-pix>`), com cópia por ícone para área de transferência: `doe@jeancarloem.com`.
-    - Gerar QR Code **client-side**, em alta resolução/qualidade, sem serviço remoto para codificação.
-    - Exibição inicial PODE ser compacta, mas DEVE permitir expansão clicável para leitura confiável por outro celular.
-    - Permitir download do QR composto em **PNG ou JPG**, adequado ao carregamento pelo app bancário.
-    - O QR composto DEVE conter:
-      - QR funcional;
-      - apenas a **figura/símbolo** do logotipo já usado no site, sem texto/wordmark;
-      - logo centralizado, com contraste acentuado e área branca mínima necessária;
-      - moldura elegante e segura;
-      - legenda centralizada em toda a largura útil: `PIX: <chave-pix>`.
+- A estrutura DEVE permitir inclusão futura de novos meios/moedas/redes sem alteração estrutural da página.
 
-    - A inserção do logo NÃO PODE comprometer leitura: usar correção de erro adequada, preservar quiet zone/módulos funcionais e validar automaticamente o QR final após composição.
+- [ ] **PIX**
+  - Disponibilizar PIX com payload exato:
+    `00020126630014br.gov.bcb.pix0119doe@jeancarloem.com0218Doacao_JeanCarloEM5204000053039865802BR5925JEAN_CARLO_DE_ELIAS_MOREI6012PIRASSUNUNGA62180514DOEJEANCARLOEM63040675`
+  - Disponibilizar chave PIX (`<chave-pix>`), com cópia por ícone para área de transferência: `doe@jeancarloem.com`.
+  - Gerar QR Code **client-side**, em alta resolução/qualidade, sem serviço remoto para codificação.
+  - Exibição inicial PODE ser compacta, mas DEVE permitir expansão clicável para leitura confiável por outro celular.
+  - Permitir download do QR composto em **PNG ou JPG**, adequado ao carregamento pelo app bancário.
+  - O QR composto DEVE conter:
+    - QR funcional;
+    - apenas a **figura/símbolo** do logotipo já usado no site, sem texto/wordmark;
+    - logo centralizado, com contraste acentuado e área branca mínima necessária;
+    - moldura elegante e segura;
+    - legenda centralizada em toda a largura útil: `PIX: <chave-pix>`.
 
-  - [ ] **Criptomoedas**
-    - Criar seção própria; cada ativo DEVE exibir, no mínimo:
-      - logo/ícone real da moeda;
-      - nome;
-      - sigla;
-      - rede;
-      - endereço resumido, com **máximo de 10 caracteres visíveis**, em padrão análogo a `absxded...der`, mantendo o valor integral acessível;
-      - ícone clicável para copiar o endereço integral;
-      - QR Code do endereço.
+  - A inserção do logo NÃO PODE comprometer leitura: usar correção de erro adequada, preservar quiet zone/módulos funcionais e validar automaticamente o QR final após composição.
 
-    - Dados iniciais:
-      - `USDT` — `0xeb68c866073abd82e5c2e41831db57f8718f91e7` — rede `BNB`;
-      - `BTC` / Bitcoin — `1JwTkF1HTd1isctQ7jumfCVQxhxVqKuMzN` — rede `Bitcoin`;
-      - `XEC` / eCash — `ecash:qqwtv7lfm6nn2u3vrrjuqtcfzc36y29ueshw9svgrt` — rede `XEC`;
-      - `BTTC` / BitTorrent — `TFRTMVtsoxXsdCXaPJx6jCEep9eeKaZNH2` — rede `TRON`.
+- [ ] **Criptomoedas**
+  - Criar seção própria; cada ativo DEVE exibir, no mínimo:
+    - logo/ícone real da moeda;
+    - nome;
+    - sigla;
+    - rede;
+    - endereço resumido, com **máximo de 10 caracteres visíveis**, em padrão análogo a `absxded...der`, mantendo o valor integral acessível;
+    - ícone clicável para copiar o endereço integral;
+    - QR Code do endereço.
 
-    - Quando necessário para evitar envio incorreto, informar claramente **rede/tipo de endereço/carteira**; inferência automática somente PODE ocorrer se o dado estiver ausente e a conclusão for tecnicamente inequívoca.
-    - O QR DEVE seguir o mesmo pipeline visual/técnico do PIX, com legenda:
-      `<SIGLA> | <DOM>`
-      - `<SIGLA>` = sigla capitalizada;
-      - `<DOM>` = domínio canônico real, sem `www`, protocolo, path, query ou fragmento.
+  - Dados iniciais:
+    - `USDT` — `0xeb68c866073abd82e5c2e41831db57f8718f91e7` — rede `BNB`;
+    - `BTC` / Bitcoin — `1JwTkF1HTd1isctQ7jumfCVQxhxVqKuMzN` — rede `Bitcoin`;
+    - `XEC` / eCash — `ecash:qqwtv7lfm6nn2u3vrrjuqtcfzc36y29ueshw9svgrt` — rede `XEC`;
+    - `BTTC` / BitTorrent — `TFRTMVtsoxXsdCXaPJx6jCEep9eeKaZNH2` — rede `TRON`.
 
-    - O QR DEVE codificar o endereço correspondente sem alteração semântica.
+  - Quando necessário para evitar envio incorreto, informar claramente **rede/tipo de endereço/carteira**; inferência automática somente PODE ocorrer se o dado estiver ausente e a conclusão for tecnicamente inequívoca.
+  - O QR DEVE seguir o mesmo pipeline visual/técnico do PIX, com legenda:
+    `<SIGLA> | <DOM>`
+    - `<SIGLA>` = sigla capitalizada;
+    - `<DOM>` = domínio canônico real, sem `www`, protocolo, path, query ou fragmento.
 
-  - [ ] **PayPal**
-    - Criar seção específica, **bonita, elegante, sucinta e inequivocamente identificada como PayPal**, mantendo coerência visual com `/doe`.
-    - Usar link exato:
-      `https://www.paypal.com/donate/?hosted_button_id=6V7J86DQ9VQBS`
-    - Comunicar claramente que são aceitas doações de **R$ 10,00 ou mais**, com **valor livre à escolha do doador**.
-    - Usar **logotipo oficial do PayPal**, em alta qualidade, sem aproximações gráficas.
-    - O logo do PayPal DEVE integrar o mesmo mecanismo automatizado de resolução, verificação e atualização dos demais assets externos.
-    - CTA DEVE ser claro, cordial, seguro e abrir o fluxo oficial do PayPal sem intermediários indevidos.
+  - O QR DEVE codificar o endereço correspondente sem alteração semântica.
 
-  - [ ] **Criar `/doe/obrigado` como retorno/agradecimento do PayPal**
-    - Criar URI pública exata `/doe/obrigado`.
-    - A página DEVE **espelhar continuamente a página inicial do domínio**, inclusive após futuras alterações na home; É PROIBIDO manter uma cópia estática sujeita a divergência tanto quanto tecnicamente possível, viável e eficiente, caso conrário, implemente em tempo de build replica já alterada e adaptada.
-    - A implementação DEVE reutilizar/derivar a estrutura, conteúdo e componentes canônicos da home conforme a arquitetura real, evitando duplicação e drift.
-    - Única especialização estrutural:
-      - substituir o destaque/hero atual da home — inclusive eventual imagem, slider ou carrossel presente ou futuro — por um bloco de agradecimento;
-      - remover nesse contexto o título principal próprio do hero/slider/carrossel substituído;
-      - após o bloco de agradecimento, o restante da home DEVE seguir normalmente e permanecer equivalente à raiz.
+- [ ] **PayPal**
+  - Criar seção específica, **bonita, elegante, sucinta e inequivocamente identificada como PayPal**, mantendo coerência visual com `/doe`.
+  - Usar link exato:
+    `https://www.paypal.com/donate/?hosted_button_id=6V7J86DQ9VQBS`
+  - Comunicar claramente que são aceitas doações de **R$ 10,00 ou mais**, com **valor livre à escolha do doador**.
+  - Usar **logotipo oficial do PayPal**, em alta qualidade, sem aproximações gráficas.
+  - O logo do PayPal DEVE integrar o mesmo mecanismo automatizado de resolução, verificação e atualização dos demais assets externos.
+  - CTA DEVE ser claro, cordial, seguro e abrir o fluxo oficial do PayPal sem intermediários indevidos.
 
-    - O bloco superior DEVE conter, nesta ordem:
-      1. imagem **edge-to-edge**, em estilo visual “infinito”;
-      2. título, como título normal de artigo: **`Obrigado`**;
-      3. mensagem de agradecimento **cordial, simples, direta, clara, objetiva e sucinta**.
+✅ **Criar `/doe/obrigado` como retorno/agradecimento do PayPal**
+  - Criar URI pública exata `/doe/obrigado`.
+  - A página DEVE **espelhar continuamente a página inicial do domínio**, inclusive após futuras alterações na home; É PROIBIDO manter uma cópia estática sujeita a divergência tanto quanto tecnicamente possível, viável e eficiente, caso conrário, implemente em tempo de build replica já alterada e adaptada.
+  - A implementação DEVE reutilizar/derivar a estrutura, conteúdo e componentes canônicos da home conforme a arquitetura real, evitando duplicação e drift.
+  - Única especialização estrutural:
+    - substituir o destaque/hero atual da home — inclusive eventual imagem, slider ou carrossel presente ou futuro — por um bloco de agradecimento;
+    - remover nesse contexto o título principal próprio do hero/slider/carrossel substituído;
+    - após o bloco de agradecimento, o restante da home DEVE seguir normalmente e permanecer equivalente à raiz.
 
-    - A imagem:
-      - DEVE ser atraente, bonita, profissional, elegante, amistosa e acolhedora, **sem parecer fria ou distante**;
-      - DEVE ser predominantemente ilustrativa/simbólica de agradecimento e **evitar texto embutido**;
-      - DEVE obedecer às normas vigentes de proporção, composição e adequação ao efeito infinito;
-      - PODE usar composição central + `pattern-left` + `pattern-right`, inclusive patterns predominantemente cromáticos, se tecnicamente mais adequado;
-      - imagem central e patterns DEVEM possuir **casamento visual perfeito, continuidade e fluidez**, sem emendas perceptíveis, cortes abruptos ou diferenças incompatíveis de cor, luz, textura, escala ou perspectiva;
-      - a geração/derivação dos três segmentos DEVE considerar conjuntamente o resultado final, não tratá-los como imagens independentes desconectadas.
+  - O bloco superior DEVE conter, nesta ordem:
+    1. imagem **edge-to-edge**, em estilo visual “infinito”;
+    2. título, como título normal de artigo: **`Obrigado`**;
+    3. mensagem de agradecimento **cordial, simples, direta, clara, objetiva e sucinta**.
 
-    - Se a integração do PayPal permitir configurar o retorno no próprio repositório/fluxo existente, apontá-lo para `/doe/obrigado` (nota: já está configurado diretamente no paypal o retorno); se depender de configuração externa não disponível no estado real, NÃO presumir alteração e deixar o destino inequivocamente preparado/documentado.
+  - A imagem:
+    - DEVE ser atraente, bonita, profissional, elegante, amistosa e acolhedora, **sem parecer fria ou distante**;
+    - DEVE ser predominantemente ilustrativa/simbólica de agradecimento e **evitar texto embutido**;
+    - DEVE obedecer às normas vigentes de proporção, composição e adequação ao efeito infinito;
+    - PODE usar composição central + `pattern-left` + `pattern-right`, inclusive patterns predominantemente cromáticos, se tecnicamente mais adequado;
+    - imagem central e patterns DEVEM possuir **casamento visual perfeito, continuidade e fluidez**, sem emendas perceptíveis, cortes abruptos ou diferenças incompatíveis de cor, luz, textura, escala ou perspectiva;
+    - a geração/derivação dos três segmentos DEVE considerar conjuntamente o resultado final, não tratá-los como imagens independentes desconectadas.
 
-  - [ ] **Automatizar iconização confiável e verificação periódica**
-    - Moedas, **redes e provedores/meios de pagamento**, incluindo PayPal, DEVEM compartilhar o mesmo sistema de resolução/validação de ícones quando aplicável.
-    - Resolver automaticamente logos **oficiais/reais**, preferencialmente em **SVG transparente**; para raster, preferir aproximadamente **64×64 a 256×256 px** ou superior quando necessário.
-    - Fontes externas DEVEM ser confiáveis e, quando possível, **imutáveis/versionadas/pinadas**.
-    - NÃO usar ícones aproximados, inventados ou semanticamente incorretos.
-    - Criar **um único workflow GitHub Actions**, executado **ao menos mensalmente**, para moedas, redes e provedores, que:
-      - valide disponibilidade, MIME, integridade e correspondência do asset;
-      - confirme, tanto quanto programaticamente possível, que continua representando o item correto;
-      - tente fontes/estratégias alternativas válidas se a principal falhar;
-      - atualize referências/metadados quando necessário;
-      - preserve o último resultado válido enquanto procura substituição segura;
-      - registre claramente correções e falhas efetivamente incontornáveis.
+  - Se a integração do PayPal permitir configurar o retorno no próprio repositório/fluxo existente, apontá-lo para `/doe/obrigado` (nota: já está configurado diretamente no paypal o retorno); se depender de configuração externa não disponível no estado real, NÃO presumir alteração e deixar o destino inequivocamente preparado/documentado.
 
-    - Mudanças automáticas DEVEM ser determinísticas, auditáveis e evitar churn sem alteração material.
+- [ ] **Automatizar iconização confiável e verificação periódica**
+  - Moedas, **redes e provedores/meios de pagamento**, incluindo PayPal, DEVEM compartilhar o mesmo sistema de resolução/validação de ícones quando aplicável.
+  - Resolver automaticamente logos **oficiais/reais**, preferencialmente em **SVG transparente**; para raster, preferir aproximadamente **64×64 a 256×256 px** ou superior quando necessário.
+  - Fontes externas DEVEM ser confiáveis e, quando possível, **imutáveis/versionadas/pinadas**.
+  - NÃO usar ícones aproximados, inventados ou semanticamente incorretos.
+  - Criar **um único workflow GitHub Actions**, executado **ao menos mensalmente**, para moedas, redes e provedores, que:
+    - valide disponibilidade, MIME, integridade e correspondência do asset;
+    - confirme, tanto quanto programaticamente possível, que continua representando o item correto;
+    - tente fontes/estratégias alternativas válidas se a principal falhar;
+    - atualize referências/metadados quando necessário;
+    - preserve o último resultado válido enquanto procura substituição segura;
+    - registre claramente correções e falhas efetivamente incontornáveis.
 
-  - [ ] **UX, segurança e validação integral de `/doe`**
-    - Chaves/endereços DEVEM oferecer cópia explícita com feedback visual.
-    - Rede, moeda e meio de pagamento DEVEM permanecer visualmente distinguíveis.
-    - Endereço resumido NUNCA PODE alterar o valor copiado; cópia DEVE usar o conteúdo integral.
-    - Validar responsividade, contraste, teclado, foco, expansão/modal, claro/escuro e ausência de overflow/poluição.
-    - Nenhum tratamento visual PODE reduzir a confiabilidade dos QR Codes.
-    - Testar geração client-side, expansão, download e leitura real dos QRs PIX/cripto.
-    - Decodificar os QRs finais e confirmar **exatamente** payload/endereço esperado, inclusive após logo/moldura.
-    - Testar JSON→UI, inclusão de novo meio/moeda/rede sem duplicação estrutural, resolução de assets e workflow mensal.
-    - Validar PayPal, CTA/link oficial e `/doe/obrigado`.
-    - Validar que `/doe/obrigado` acompanha alterações futuras da home sem duplicação manual, preservando exclusivamente sua especialização de agradecimento.
-    - Validar visualmente e tecnicamente a continuidade da imagem infinita/patterns.
-    - Confirmar ausência de regressão, duplicação de fonte de dados ou dependência remota desnecessária para geração dos QR Codes.
+  - Mudanças automáticas DEVEM ser determinísticas, auditáveis e evitar churn sem alteração material.
+
+- [ ] **UX, segurança e validação integral de `/doe`**
+  - Chaves/endereços DEVEM oferecer cópia explícita com feedback visual.
+  - Rede, moeda e meio de pagamento DEVEM permanecer visualmente distinguíveis.
+  - Endereço resumido NUNCA PODE alterar o valor copiado; cópia DEVE usar o conteúdo integral.
+  - Validar responsividade, contraste, teclado, foco, expansão/modal, claro/escuro e ausência de overflow/poluição.
+  - Nenhum tratamento visual PODE reduzir a confiabilidade dos QR Codes.
+  - Testar geração client-side, expansão, download e leitura real dos QRs PIX/cripto.
+  - Decodificar os QRs finais e confirmar **exatamente** payload/endereço esperado, inclusive após logo/moldura.
+  - Testar JSON→UI, inclusão de novo meio/moeda/rede sem duplicação estrutural, resolução de assets e workflow mensal.
+  - Validar PayPal, CTA/link oficial e `/doe/obrigado`.
+  - Validar que `/doe/obrigado` acompanha alterações futuras da home sem duplicação manual, preservando exclusivamente sua especialização de agradecimento.
+  - Validar visualmente e tecnicamente a continuidade da imagem infinita/patterns.
+  - Confirmar ausência de regressão, duplicação de fonte de dados ou dependência remota desnecessária para geração dos QR Codes.
 
 ⏳ Implementar verificação reutilizável de fontes de Ellen G. White
-  - Escopo exclusivo:
-    - Implementar somente a solicitação de Skill, script ou recurso análogo contida no cabeçalho comentado do draft `carta-aberta-hierarquia-romanda-na-igreja`.
-    - Não editar, reestruturar, revisar, pesquisar referências específicas nem publicar o conteúdo do draft nesta frente.
-  - Capacidade:
-    - Localizar texto e variantes em biblioteca local de EPUB/PDF com entrada e raiz explícitas.
-    - Extrair contexto suficiente, preservar identidade da obra e cruzar EPUB com PDF quando a paginação precisar de confirmação.
-    - Distinguir resultado localizado, confirmado, divergente, ambíguo, ausente e indisponível sem fabricar citação ou referência.
-    - Produzir saída estruturada, sanitizada, reproduzível e somente leitura.
-  - Reutilização:
-    - Integrar a capacidade como Skill local estreita com script mecânico associado, sem duplicar `editorial-authoring` nem alterar o núcleo gerenciado.
-    - Parametrizar biblioteca, idioma, obra, consulta, tolerância, contexto e limites; não fixar o draft como caso único.
-  - Validação/aceite:
-    - Cobrir EPUB, PDF, normalização de variante, contexto, paginação, divergência, ausência, limite e dependência indisponível.
-    - Validar uma obra real da biblioteca em modo somente leitura e provar que o draft e a biblioteca externa permaneceram inalterados.
+
+- Escopo exclusivo:
+  - Implementar somente a solicitação de Skill, script ou recurso análogo contida no cabeçalho comentado do draft `carta-aberta-hierarquia-romanda-na-igreja`.
+  - Não editar, reestruturar, revisar, pesquisar referências específicas nem publicar o conteúdo do draft nesta frente.
+- Capacidade:
+  - Localizar texto e variantes em biblioteca local de EPUB/PDF com entrada e raiz explícitas.
+  - Extrair contexto suficiente, preservar identidade da obra e cruzar EPUB com PDF quando a paginação precisar de confirmação.
+  - Distinguir resultado localizado, confirmado, divergente, ambíguo, ausente e indisponível sem fabricar citação ou referência.
+  - Produzir saída estruturada, sanitizada, reproduzível e somente leitura.
+- Reutilização:
+  - Integrar a capacidade como Skill local estreita com script mecânico associado, sem duplicar `editorial-authoring` nem alterar o núcleo gerenciado.
+  - Parametrizar biblioteca, idioma, obra, consulta, tolerância, contexto e limites; não fixar o draft como caso único.
+- Validação/aceite:
+  - Cobrir EPUB, PDF, normalização de variante, contexto, paginação, divergência, ausência, limite e dependência indisponível.
+  - Validar uma obra real da biblioteca em modo somente leitura e provar que o draft e a biblioteca externa permaneceram inalterados.
+
+- [ ] Criar página `/anuncie/uber` para divulgação e contratação de publicidade em placas afixadas nos bancos de veículos utilizados em corridas por aplicativo
+  - **Objetivo e integração visual**
+    - Criar uma página comercial completa, preservando a identidade visual, o tema, a estilização, os componentes e os padrões de UX/UI já utilizados no blog/site.
+    - A página deve ser bonita, elegante, profissional, atraente, responsiva e persuasiva, com informações bem organizadas, hierarquia visual clara, boa diagramação, iconização apropriada e leitura facilitada em dispositivos móveis e desktops.
+    - Comunicar claramente o funcionamento do serviço, as opções de publicidade, os preços, as condições de contratação, a comprovação das corridas, os pagamentos e os meios de contato.
+    - Não criar uma página genérica ou desconectada da identidade visual existente. Antes de implementar, inspecionar o projeto e reutilizar seus padrões e componentes quando apropriado.
+
+  - **Política de anúncios aceitos e não aceitos**
+    - A página DEVE apresentar, de maneira explícita, clara e visualmente bem diagramada, os tipos de anúncios que NÃO são aceitos. Essa informação não pode ficar implícita, diluída em um disclaimer genérico ou disponível apenas no contrato.
+    - Incluir expressamente, entre os anúncios não aceitos, no mínimo:
+      - Anúncios de produtos, serviços ou atividades ilícitos;
+      - Horóscopos, cartomantes e similares;
+      - Bebidas alcoólicas;
+      - anuncios e venda de artigos espiritualistas, políticos e/ou religiosos.
+    - A relação deve ser apresentada de forma facilmente localizável e compreensível, com destaque visual adequado e sem linguagem ambígua. Não omitir, agrupar de modo a tornar irreconhecíveis ou substituir as categorias expressamente indicadas por uma formulação genérica.
+    - A expressão "entre eles" estabelece que a relação não precisa ser considerada exaustiva; contudo, NÃO inventar ou acrescentar outras categorias de proibição por suposição. Outras restrições somente poderão ser incluídas se já estiverem expressamente definidas em regras ou documentos do projeto, ou forem posteriormente aprovadas.
+
+  - **Modelos de publicidade e arquivos para download**
+    - Utilizar como referência os arquivos disponíveis em `assets/data/anexos/anuncios/uber`.
+    - Inspecionar os arquivos existentes, identificando seus formatos, dimensões, características visuais e finalidade.
+    - Disponibilizar os dois modelos existentes para consulta e download, com links funcionais e especificações curtas e objetivas de cada modelo.
+    - A área publicitária disponível é de **18,3 × 5 cm**.
+    - O contratante poderá escolher entre:
+      - Ocupação de 100% da área;
+      - Ocupação de 60% da área.
+    - Preservar a proporção e as características dos modelos ao apresentar as duas opções. Não presumir a orientação ou a distribuição geométrica da ocupação de 60% sem verificar os arquivos e a definição visual correspondente.
+    - Os modelos DEVEM ser impressos em material adesivo, adequado à aplicação pretendida.
+
+  - **Orientações de impressão**
+    - Incluir orientações objetivas sobre impressão, dimensões, sangria, margem de segurança e legibilidade.
+    - Para impressão profissional direta, considerar a sangria de **3 mm**, conforme informado para serviços como Printi.com, verificando também as especificações particulares do fornecedor escolhido.
+    - Independentemente do método de impressão, recomendar margem de segurança de **5 mm em relação às sangrias**, para preservar a legibilidade e evitar problemas de corte. Não alterar essa orientação sem justificativa técnica.
+    - Recomendar impressão profissional para obter melhor qualidade, acabamento e previsibilidade, citando Printi.com e outras alternativas pertinentes apenas como exemplos.
+    - A recomendação NÃO DEVE possuir caráter propagandístico, publicitário ou de endosso a qualquer fornecedor.
+    - Não restringir o contratante à impressão profissional: apresentar também alternativas acessíveis de impressão doméstica ou em papelarias.
+
+  - **Materiais adesivos compatíveis com impressão doméstica**
+    - Apresentar pelo menos **dois tipos de materiais/folhas adesivas** comumente encontrados e acessíveis em papelarias brasileiras, adequados às dimensões e à finalidade dos anúncios.
+    - Os materiais recomendados DEVEM ser compatíveis tanto com impressoras laser quanto com impressoras inkjet domésticas.
+    - Verificar essa compatibilidade nas especificações dos produtos ou fabricantes. Não presumir que todo papel adesivo seja compatível com ambas as tecnologias.
+    - Para cada opção, apresentar descrição curta, características relevantes, compatibilidade de impressão e orientações essenciais de utilização.
+    - Priorizar alternativas acessíveis, facilmente encontradas no mercado brasileiro, sem transformar a página em catálogo comercial ou promover marcas específicas.
+    - Não inventar modelos, fabricantes, características ou disponibilidade comercial.
+
+  - **Preços e condições comerciais**
+    - A cobrança será calculada por passageiro efetivamente transportado durante o prazo contratado, independentemente da duração ou da distância do percurso.
+    - Aplicar os seguintes valores por passageiro:
+      - **100% da área publicitária:** R$ 0,50 por passageiro;
+      - **60% da área publicitária horizontal:** R$ 0,40 por passageiro.
+    - Estabelecer valor mínimo de **R$ 50,00 por contratação**, independentemente da quantidade de passageiros transportados no período. Mesmo que a quantidade de passageiros não alcance o valor correspondente ao mínimo, o contratante deverá pagar R$ 50,00.
+    - O cálculo deverá considerar o valor por passageiro conforme a área escolhida, respeitando o mínimo contratual.
+    - **Prazo mínimo de contratação: uma semana.**
+    - Não confundir valor por passageiro, valor mínimo, valor antecipado e saldo diário. Apresentar essas condições de maneira explícita e compreensível.
+    - Não inventar faixas, descontos, pacotes, prazos ou condições comerciais adicionais.
+
+  - **Comprovação da quantidade de passageiros**
+    - A quantidade de passageiros deverá ser comprovada mediante envio de captura de tela (_*print*_) da tela do Uber.
+    - O comprovante deverá ser enviado pelo menos uma vez ao término da jornada ou do dia em que ocorreram as corridas.
+    - Quando a jornada ultrapassar a meia-noite, o envio deverá ocorrer ao término da jornada, e não obrigatoriamente à meia-noite.
+    - Explicar esse procedimento de maneira simples e objetiva na página e nas condições contratuais.
+    - Não inventar outros meios de comprovação, periodicidades ou critérios de contabilização.
+
+  - **Forma de pagamento**
+    - Aceitar exclusivamente PIX.
+    - Exigir **50% antecipadamente, à vista**.
+    - O saldo deverá ser pago diariamente, conforme a quantidade de passageiros transportados e comprovados.
+    - Explicar a dinâmica de pagamento sem ambiguidades.
+    - Não presumir a base de cálculo dos 50% antecipados ou criar regras de compensação do valor mínimo que não tenham sido definidas. Caso essas questões não estejam esclarecidas nas informações do projeto, identificá-las como pendências antes de formalizar o cálculo e o contrato.
+
+  - **PIX: QR Code e cópia da chave**
+    - Reservar local visualmente apropriado para apresentação do QR Code de pagamento.
+    - O QR Code deverá ser funcional e corresponder aos dados reais de recebimento disponibilizados pelo projeto.
+    - Permitir que o usuário clique na área correspondente e copie o código/chave PIX para pagamento.
+    - Apresentar indicação visual clara da ação de copiar e feedback de sucesso ou falha, conforme os padrões existentes no projeto.
+    - Não inventar chave PIX, beneficiário ou dados bancários. Utilizar exclusivamente informações efetivamente fornecidas ou já configuradas no projeto; sinalizar sua ausência como pendência.
+
+  - **Contato e contratação**
+    - Disponibilizar local apropriado para contato telefônico, exclusivamente pelo WhatsApp.
+    - O acesso deve abrir uma conversa no WhatsApp, sem oferecer ligação telefônica convencional como canal de atendimento.
+    - Exibir o contato de forma clara e acessível.
+    - Não inventar número de telefone. Localizar o contato comercial já configurado no projeto ou registrar sua ausência como pendência.
+
+  - **Informações jurídicas, disclaimers e contrato**
+    - Incluir disclaimers jurídicos adequados às situações efetivamente envolvidas na contratação, sem excesso de texto, ambiguidades ou afirmações jurídicas infundadas.
+    - Considerar, entre outros pontos pertinentes, a natureza publicitária do serviço, as responsabilidades das partes, a autorização para afixação e utilização do material, a comprovação das corridas, a apuração dos valores, os pagamentos, o prazo contratado e eventuais limitações de responsabilidade.
+    - Não presumir vínculo, parceria, autorização ou endosso do Uber ou de qualquer outra plataforma de transporte. A utilização do nome Uber para identificar o contexto do serviço não deverá sugerir associação comercial ou institucional inexistente.
+    - Avaliar os aspectos jurídicos relativos à publicidade em veículos, ao uso de marcas, à proteção de dados e às responsabilidades envolvidas. Não apresentar parecer jurídico definitivo sem validação apropriada.
+    - Ao final da página, disponibilizar um contrato curto, claro, explícito, coeso e juridicamente adequado ao contexto brasileiro, com redação direta, sem rodeios, redundâncias ou disposições supérfluas.
+    - O contrato deverá ser suficientemente completo para identificar inequivocamente o objeto, as partes, a área escolhida, os preços, o prazo, a comprovação, as condições de pagamento e as obrigações e responsabilidades aplicáveis.
+    - Não sacrificar a precisão jurídica em nome da brevidade. Não inventar dados cadastrais, qualificações, multas, penalidades, foro, obrigações ou condições não definidas.
+    - Se o contrato ficar médio ou extenso, criar uma subpágina específica em `/anuncie/uber/contrato`, com link explícito, claro e inequívoco na página principal.
+    - A página principal deverá manter acesso fácil ao contrato e deixar claro quando sua leitura e aceitação forem necessárias à contratação.
+    - Identificar como pendentes quaisquer dados ou decisões indispensáveis à validade e à precisão do instrumento. Submeter a redação à revisão jurídica apropriada antes de considerá-la definitiva.
+
+  - **UX, organização e apresentação comercial**
+    - Estruturar a página em seções bem delimitadas, com progressão lógica e leitura escaneável.
+    - A página DEVE apresentar as informações com diagramação visual deliberada, clara, fluida e responsiva, facilitando a compreensão, a leitura e a localização rápida de cada informação por pessoas. Esse requisito se aplica à página como um todo, não apenas à sua adaptação técnica a diferentes tamanhos de tela.
+    - Priorizar **alta densidade informacional com baixo volume de texto**: comunicar o máximo de informação útil com o mínimo de conteúdo textual necessário, por meio de hierarquia visual, agrupamento lógico, títulos objetivos, rótulos, destaques, iconização e recursos de apresentação adequados ao conteúdo.
+    - Evitar prolixidade, parágrafos longos, repetição, explicações redundantes, excesso de elementos decorativos, blocos visualmente pesados e poluição visual. A página NÃO DEVE ser excessivamente textual nem exigir leitura extensa para que o visitante encontre preços, condições, restrições, modelos, orientações ou meios de contratação.
+    - A concisão visual e textual NÃO pode eliminar, ocultar, enfraquecer ou tornar ambíguas informações relevantes, condições comerciais, restrições de anúncios, disclaimers ou disposições contratuais. Reduzir texto sem reduzir conteúdo essencial; organizar informações sem escondê-las ou dificultar seu acesso.
+    - A composição deve manter fluxo de leitura natural e hierarquia consistente em desktop, tablet e dispositivos móveis; não basta reduzir ou empilhar elementos sem reavaliar sua disposição, prioridade e legibilidade em cada contexto.
+    - Destacar visualmente, sem poluição:
+      - O que é o serviço;
+      - Onde a publicidade será exibida;
+      - Dimensões e opções de ocupação;
+      - Modelos disponíveis;
+      - Preço por passageiro;
+      - Valor mínimo de contratação;
+      - Prazo mínimo;
+      - Forma de comprovação;
+      - Forma e condições de pagamento;
+      - Orientações de impressão;
+      - Contrato e disclaimers;
+      - Contato pelo WhatsApp.
+    - Utilizar iconização coerente e semanticamente apropriada, sem substituir textos necessários à compreensão.
+    - Apresentar os valores e as condições comerciais com destaque suficiente para evitar interpretações equivocadas.
+    - Incluir chamadas para ação claras, especialmente para consultar os modelos, iniciar a contratação e realizar o pagamento.
+    - Não criar formulários, etapas, funcionalidades ou fluxos de contratação que não estejam definidos ou que dependam de dados inexistentes.
+
+  - **Implementação e validação**
+    - Antes de alterar arquivos, inspecionar a estrutura, os padrões visuais, os componentes, as configurações, os mecanismos de roteamento e os recursos de contato/pagamento existentes no projeto.
+    - Preservar as convenções arquiteturais e de nomenclatura já adotadas.
+    - Criar a rota pública `/anuncie/uber` ou `/anuncie:uber`.
+    - Se necessária, criar a subpágina `/anuncie/uber/contrato` ou `/anuncie:uber/contrato`.
+    - Garantir que os anexos e seus links de download sejam acessíveis publicamente pela página, sem expor caminhos internos do sistema de arquivos.
+    - Verificar responsividade, acessibilidade, legibilidade, funcionamento dos links, downloads, WhatsApp, cópia do PIX e QR Code.
+    - Validar os cálculos para as duas opções de área, incluindo o valor mínimo de R$ 50,00 e a contabilização por passageiro.
+    - Verificar se o conteúdo apresentado na página corresponde integralmente às condições contratuais.
+    - Não publicar valores, dados de contato, chave PIX ou termos contratuais fictícios.
+    - Não considerar concluída a tarefa enquanto houver dados essenciais ausentes ou divergências entre a página, os cálculos e o contrato. Registrar objetivamente as pendências e sua repercussão.
+    - Preservar e resolver explicitamente, antes da publicação e da validação final, a divergência já existente nesta TODO quanto à ocupação parcial: a especificação dos modelos e a precificação descrevem 60% da área, enquanto o critério de aceitação menciona 50%. NÃO escolher, corrigir ou harmonizar um dos percentuais por inferência; registrar a pendência e obter a definição correspondente. Até sua resolução, não tratar a opção parcial como requisito inequívoco.
+
+  - **Critérios de aceitação**
+    - Rota `/anuncie/uber` ou `/anuncie:uber` pública, funcional e integrada à identidade visual do site.
+    - Dois modelos existentes apresentados com especificações e downloads funcionais.
+    - Informações apresentadas em fluxo visual claro, fluido e responsivo, com alta densidade informacional e baixo volume textual; conteúdo fácil de compreender e localizar, sem prolixidade ou poluição visual e sem omitir informações essenciais.
+    - Tipos de anúncios não aceitos apresentados expressamente, incluindo anúncios ilícitos; horóscopos, cartomantes e similares; bebidas alcoólicas; e venda de artigos espiritualistas, políticos e/ou religiosos. A relação deve ser clara, facilmente localizável e visualmente bem diagramada.
+    - Duas opções de ocupação da área de 18,3 × 5 cm claramente apresentadas.
+    - Preços de R$ 0,50 por passageiro para 100% da área e R$ 0,40 por passageiro para 50%, com mínimo contratual de R$ 50,00 e prazo mínimo de uma semana.
+    - Procedimento de comprovação por print e suas regras de envio claramente documentados.
+    - Pagamento exclusivamente por PIX, com 50% antecipação e saldo diário apresentados sem contradições.
+    - QR Code funcional e recurso de cópia do código/chave PIX, desde que os dados reais estejam disponíveis.
+    - Contato exclusivamente pelo WhatsApp.
+    - Pelo menos dois tipos de materiais adesivos domésticos efetivamente verificados como compatíveis com laser e inkjet.
+    - Orientações de impressão, sangria de 3 mm e margem de segurança de 5 mm apresentadas corretamente.
+    - Recomendação de impressão profissional informativa, sem propaganda ou endosso.
+    - Disclaimers e contrato coerentes com o serviço, sem dados ou obrigações inventados.
+    - Experiência responsiva, elegante, profissional e consistente com o restante do site.

@@ -1,0 +1,9 @@
+FT-107|nome=Implementação da fonte de dados e pipeline de QR|escopo=tecnico|status=concluida|autorizacao=humana|conclusao=2026-11-24T01:49:57.528Z
+objetivo=Implementar JSON canônico, QR client-side, cópia, expansão, download, decodificação e assets comuns.
+origem=.ia.rules/state/requests/FT-106/prompt.md
+contexto=.ia.rules/state/contexts/FT-106/master.md
+dependencias=FT-106
+plano=U1-U3 e ações validados; catálogo de oito assets aceito em 1972d950f7; APIs documentadas e exemplo validado em 554836e601.
+resultado=JSON canônico, contrato tipado, QR composto e decodificado, helpers de ações, catálogo compartilhado de oito assets e documentação de uso concluídos.
+verificacoes=Evidências aceitas U1/U2B/U3G/U4A; catálogo1972d950f7; exemplo554836e601; documentação6193e1b829,bd11f2c341,414a55cabb e verificações documentais dos respectivos jobs. Conferência final sem repetir runtime aprovado.
+pendencias=Aceite humano permanece externo. UI, retorno, workflow e integração global pertencem às FTs108–111; não há alegação de conclusão dessas dependentes.

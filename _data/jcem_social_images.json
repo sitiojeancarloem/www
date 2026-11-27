@@ -29,6 +29,51 @@
 		}
 	},
 	"assets": {
+		"/assets/images/doacoes/agradecimento-cover.webp": {
+			"wide": {
+				"source": "assets/images/doacoes/agradecimento-original.png",
+				"sourceSha256": "a45ff4137f7ef5c2e5384c40c0a5010300713cb5f559e64f5732d0b692f035eb",
+				"sourceBytes": 1646971,
+				"parametersSha256": "ab3f049ab6017b9d45c984d64a03695a00c594808ca0a8ac5a4fc57ae14a1669",
+				"overlaySource": "",
+				"overlaySha256": "",
+				"width": 1200,
+				"height": 630,
+				"sourceMtimeUtc": "2026-11-25T07:46:58.000Z",
+				"creationDate": "2026-11-25T07:49:34.800Z",
+				"license": "CC-BY-NC-SA-4.0",
+				"licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+				"creator": "Jean Carlo EM",
+				"publicationSite": "https://www.jeancarloem.com",
+				"target": "/assets/images/social/agradecimento-doacoes-og-wide.jpg",
+				"targetSha256": "c5334e823de7979be4bbcb00832ce6d5e0de2cb79bbf5652fabe3f3461460dde",
+				"targetBytes": 52116,
+				"mediaType": "image/jpeg",
+				"generatedAtUtc": "2026-11-25T11:41:38.901Z"
+			},
+			"portrait": {
+				"source": "assets/images/doacoes/agradecimento-original.png",
+				"sourceSha256": "a45ff4137f7ef5c2e5384c40c0a5010300713cb5f559e64f5732d0b692f035eb",
+				"sourceBytes": 1646971,
+				"parametersSha256": "ab3f049ab6017b9d45c984d64a03695a00c594808ca0a8ac5a4fc57ae14a1669",
+				"overlaySource": "",
+				"overlaySha256": "",
+				"width": 1080,
+				"height": 1350,
+				"sourceMtimeUtc": "2026-11-25T07:46:58.000Z",
+				"creationDate": "2026-11-25T07:49:34.800Z",
+				"license": "CC-BY-NC-SA-4.0",
+				"licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+				"creator": "Jean Carlo EM",
+				"publicationSite": "https://www.jeancarloem.com",
+				"target": "/assets/images/social/agradecimento-doacoes-og-portrait.jpg",
+				"targetSha256": "7ee9e48355d14c4173d48a09f021a0c9e9836051231d2e45dfce0f472632e7bb",
+				"targetBytes": 74832,
+				"mediaType": "image/jpeg",
+				"generatedAtUtc": "2026-11-25T11:41:42.071Z"
+			},
+			"contexts": {}
+		},
 		"/assets/images/fixtures/covers/triptych-central.svg": {
 			"wide": {
 				"source": "assets/images/fixtures/covers/triptych-central.svg",
@@ -188,6 +233,51 @@
 				"targetBytes": 4661,
 				"mediaType": "image/jpeg",
 				"generatedAtUtc": "2026-09-25T02:01:00.343Z"
+			},
+			"contexts": {}
+		},
+		"/assets/images/posts/carta-aberta-hierarquia-papal-na-igreja/cover.png": {
+			"wide": {
+				"source": "assets/images/posts/carta-aberta-hierarquia-papal-na-igreja/cover.png",
+				"sourceSha256": "579b2f4608776df7d082979984fb841a238810b4aaa2ea81511a2e28af651019",
+				"sourceBytes": 2200920,
+				"parametersSha256": "ab3f049ab6017b9d45c984d64a03695a00c594808ca0a8ac5a4fc57ae14a1669",
+				"overlaySource": "",
+				"overlaySha256": "",
+				"width": 1200,
+				"height": 630,
+				"sourceMtimeUtc": "2026-10-11T05:36:44.000Z",
+				"creationDate": "2026-10-11T05:36:44.890Z",
+				"license": "CC-BY-NC-SA-4.0",
+				"licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+				"creator": "Jean Carlo EM",
+				"publicationSite": "https://www.jeancarloem.com",
+				"target": "/assets/images/social/cover-cover-a92cce47-og-wide.jpg",
+				"targetSha256": "599418b4c91692692f662afb8c31fd16ce3cade4936c042f0a06e1a3cdea90e3",
+				"targetBytes": 160428,
+				"mediaType": "image/jpeg",
+				"generatedAtUtc": "2026-11-25T11:41:44.390Z"
+			},
+			"portrait": {
+				"source": "assets/images/posts/carta-aberta-hierarquia-papal-na-igreja/cover.png",
+				"sourceSha256": "579b2f4608776df7d082979984fb841a238810b4aaa2ea81511a2e28af651019",
+				"sourceBytes": 2200920,
+				"parametersSha256": "ab3f049ab6017b9d45c984d64a03695a00c594808ca0a8ac5a4fc57ae14a1669",
+				"overlaySource": "",
+				"overlaySha256": "",
+				"width": 1080,
+				"height": 1350,
+				"sourceMtimeUtc": "2026-10-11T05:36:44.000Z",
+				"creationDate": "2026-10-11T05:36:44.890Z",
+				"license": "CC-BY-NC-SA-4.0",
+				"licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+				"creator": "Jean Carlo EM",
+				"publicationSite": "https://www.jeancarloem.com",
+				"target": "/assets/images/social/cover-cover-a92cce47-og-portrait.jpg",
+				"targetSha256": "d3fabb69368f1e4b39acc205b3849d9a551af1a455921d8930b09a1e1b85e9e4",
+				"targetBytes": 176011,
+				"mediaType": "image/jpeg",
+				"generatedAtUtc": "2026-11-25T11:41:47.627Z"
 			},
 			"contexts": {}
 		},

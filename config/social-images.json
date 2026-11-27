@@ -60,6 +60,11 @@
 			"id": "nenhum-alcool",
 			"canonical": "/assets/images/posts/recuperados/nenhum-nivel-de-alcool-faz-bem-a-saude.jpg",
 			"source": "assets/images/posts/recuperados/nenhum-nivel-de-alcool-faz-bem-a-saude.jpg"
+		},
+		{
+			"id": "agradecimento-doacoes",
+			"canonical": "/assets/images/doacoes/agradecimento-cover.webp",
+			"source": "assets/images/doacoes/agradecimento-original.png"
 		}
 	]
 }

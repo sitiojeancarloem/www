@@ -114,11 +114,39 @@
       "state": "pendente-validacao"
     },
     {
+      "id": "FT-105",
+      "name": "Integração e validação da resiliência",
+      "path": ".ia.rules/state/history/FT-105.ia",
+      "sha256": "703df388dbba509ad135c3d60aac51cd09c3f707bdc8c1e813c45385bf59be06",
+      "state": "pendente-validacao"
+    },
+    {
       "id": "FT-106",
       "name": "Normatização da experiência pública de doações",
       "path": ".ia.rules/state/history/FT-106.ia",
       "sha256": "289f85dbcedd24ff46ef552c4444e8cfe29cb4b0ac210d4102242c42a2dd8334",
       "state": "validada"
+    },
+    {
+      "id": "FT-107",
+      "name": "Implementação da fonte de dados e pipeline de QR",
+      "path": ".ia.rules/state/history/FT-107.ia",
+      "sha256": "1e7e94864e406cb76435b2804e2a0e7464ec6ce555e5af19aeffd667ca249307",
+      "state": "pendente-validacao"
+    },
+    {
+      "id": "FT-108",
+      "name": "Implementação da página pública de doações",
+      "path": ".ia.rules/state/history/FT-108.ia",
+      "sha256": "c29987b6b2afd83a4692cfd4c821770e5f15f633ed37938a3de4259f2e1eb84e",
+      "state": "pendente-validacao"
+    },
+    {
+      "id": "FT-109",
+      "name": "Implementação do retorno de agradecimento",
+      "path": ".ia.rules/state/history/FT-109.ia",
+      "sha256": "ff36a563b255249f63f66274220a8779f0966ea7ecd4137c35999c5338a59223",
+      "state": "pendente-validacao"
     },
     {
       "id": "FT-112",

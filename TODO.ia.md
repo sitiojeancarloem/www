@@ -751,7 +751,7 @@ Este arquivo preserva demandas do desenvolvedor. Estados operacionais seguem a g
   - O logo do PayPal DEVE integrar o mesmo mecanismo automatizado de resolução, verificação e atualização dos demais assets externos.
   - CTA DEVE ser claro, cordial, seguro e abrir o fluxo oficial do PayPal sem intermediários indevidos.
 
-- [ ] **Criar `/doe/obrigado` como retorno/agradecimento do PayPal**
+✅ **Criar `/doe/obrigado` como retorno/agradecimento do PayPal**
   - Criar URI pública exata `/doe/obrigado`.
   - A página DEVE **espelhar continuamente a página inicial do domínio**, inclusive após futuras alterações na home; É PROIBIDO manter uma cópia estática sujeita a divergência tanto quanto tecnicamente possível, viável e eficiente, caso conrário, implemente em tempo de build replica já alterada e adaptada.
   - A implementação DEVE reutilizar/derivar a estrutura, conteúdo e componentes canônicos da home conforme a arquitetura real, evitando duplicação e drift.

@@ -214,40 +214,44 @@ verificacoes=Node24: tipos e quatro suítes exit0 (job56c15176); dez vínculos R
 pendencias=Aceite humano; regressão entre múltiplos processos reservada à FT-105. Gate global possui falha externa conhecida em RCFs/bate-papo.md:12; sem alegação de aprovação global.
 historico=.ia.rules/state/history/FT-104.ia|sha256=ef15eddd6ce329d43e77458b2ef228ad70ef16885c189b3831af9f582c842ae5
 
-FT-105|nome=Integração e validação da resiliência|escopo=tecnico|status=em_andamento|autorizacao=humana
+FT-105|nome=Integração e validação da resiliência|escopo=tecnico|status=concluida|autorizacao=humana|conclusao=2026-10-17T18:13:27.663Z|validacao=pendente_desenvolvedor
 objetivo=Provar conclusão por alternativa, esgotamento real, preservação de estado e ausência de bypass.
 origem=.ia.rules/state/requests/FT-103/prompt.md
-contexto=.ia.rules/state/contexts/FT-103/master.md
-dependencias=FT-104
-pendencias=Executar regressão de alternativas finitas entre processos, esgotamento, preservação e ausência de bypass; FT-104 tecnicamente concluída, aceite humano pendente.
+resultado=Regressão da composição explícita e finita de processos reais concluída: falha seguida de sucesso, duas falhas esgotadas e timeout bloqueando alternativa.
+verificacoes=Tipos e scripts/test_verified_process_alternatives.ts exit0 no job 48c68da4-6f5a-4470-bb25-d0c6e2f68889; commits 942b030831,4244c101d7,a4abe6b034. Elegibilidade e clones do motor puro previamente aprovados no job56c15176.
+pendencias=Aceite humano. Sem fallback automático no adaptador; clones não desfazem IO. Timeout bloqueia avanço, sem provar término físico imediato. Gate global continua sem aprovação por pendência externa RCFs/bate-papo.md:12.
+historico=.ia.rules/state/history/FT-105.ia|sha256=703df388dbba509ad135c3d60aac51cd09c3f707bdc8c1e813c45385bf59be06
 
-FT-107|nome=Implementação da fonte de dados e pipeline de QR|escopo=tecnico|status=registrada_bloqueada_por_dependencia|autorizacao=humana
+FT-107|nome=Implementação da fonte de dados e pipeline de QR|escopo=tecnico|status=concluida|autorizacao=humana|conclusao=2026-11-24T01:49:57.528Z|validacao=pendente_desenvolvedor
 objetivo=Implementar JSON canônico, QR client-side, cópia, expansão, download, decodificação e assets comuns.
 origem=.ia.rules/state/requests/FT-106/prompt.md
-contexto=.ia.rules/state/contexts/FT-106/master.md
-dependencias=FT-106
-pendencias=Aguardar a FT-106.
+resultado=JSON canônico, contrato tipado, QR composto e decodificado, helpers de ações, catálogo compartilhado de oito assets e documentação de uso concluídos.
+verificacoes=Evidências aceitas U1/U2B/U3G/U4A; catálogo1972d950f7; exemplo554836e601; documentação6193e1b829,bd11f2c341,414a55cabb e verificações documentais dos respectivos jobs. Conferência final sem repetir runtime aprovado.
+pendencias=Aceite humano permanece externo. UI, retorno, workflow e integração global pertencem às FTs108–111; não há alegação de conclusão dessas dependentes.
+historico=.ia.rules/state/history/FT-107.ia|sha256=1e7e94864e406cb76435b2804e2a0e7464ec6ce555e5af19aeffd667ca249307
 
-FT-108|nome=Implementação da página pública de doações|escopo=tecnico|status=registrada_bloqueada_por_dependencia|autorizacao=humana
+FT-108|nome=Implementação da página pública de doações|escopo=tecnico|status=concluida|autorizacao=humana|conclusao=2026-11-25T03:58:40.561Z|validacao=pendente_desenvolvedor
 objetivo=Implementar `/doe` responsiva, orientada por dados e integrada aos temas.
 origem=.ia.rules/state/requests/FT-106/prompt.md
-contexto=.ia.rules/state/contexts/FT-106/master.md
-dependencias=FT-107
-pendencias=Aguardar a FT-107.
+resultado=Página /doe orientada por dados, ícones locais, guia, cópia integral, QR client-side/download e fallback estático integrados ao tema.
+verificacoes=Build Jekyll real9043a3e9; gate strict320/darklight e NoScript d40a3fab; desktop1366/darklight,20cópias,20PNGs e20rasters canônicos,TS raiz/print3e3880c5. Capturas examinadas; Q8S registrado. Commits8dda4fe088,84cf45e08b,0e908f08b9,a3bc1801bf,87ae2a499d,9213de61cd,493b806e96.
+pendencias=Validação humana externa. Retorno/workflow/matriz global e cadeia integral build:prod pertencem às FTs109–111; sem publish ou prova do clipboard do SO.
+historico=.ia.rules/state/history/FT-108.ia|sha256=c29987b6b2afd83a4692cfd4c821770e5f15f633ed37938a3de4259f2e1eb84e
 
-FT-109|nome=Implementação do retorno de agradecimento|escopo=tecnico|status=registrada_bloqueada_por_dependencia|autorizacao=humana
+FT-109|nome=Implementação do retorno de agradecimento|escopo=tecnico|status=concluida|autorizacao=humana|conclusao=2026-11-25T16:30:01.613Z|validacao=pendente_desenvolvedor
 objetivo=Implementar `/doe/obrigado` derivada continuamente da home com substituição exclusiva do hero.
 origem=.ia.rules/state/requests/FT-106/prompt.md
-contexto=.ia.rules/state/contexts/FT-106/master.md
-dependencias=FT-106,FT-108
-pendencias=Aguardar as FTs 106 e 108.
+resultado=Retorno /doe/obrigado implementado por Page virtual derivada continuamente da home, COVER triptych oficial, título normal e mensagem escapada; documentação atualizada.
+verificacoes=Fixtures reais2baseurls/paridade/paginação/idempotência/colisões/escape U6Iea9bb105; build Jekyll strictprod/17contratos U7Ab31cf14a;320/1366darklight/teclado/NoJS U7Bf0683d49 e capturas examinadas;gate documental U8C958a2309. Q8S registrados. Commits6b5b41f4f8,3cf5a11bf2,5fccc0d8ea.
+pendencias=Aceite humano externo. Logo/fontes externos bloqueados no teste isolado; NoJS preserva aviso genérico, sem agradecimento. Workflow e cadeia global nasFT110/111; sem publish/push nem mutação remota PayPal.
+historico=.ia.rules/state/history/FT-109.ia|sha256=ff36a563b255249f63f66274220a8779f0966ea7ecd4137c35999c5338a59223
 
-FT-110|nome=Automação de assets de doação|escopo=tecnico|status=registrada_bloqueada_por_dependencia|autorizacao=humana
+FT-110|nome=Automação de assets de doação|escopo=tecnico|status=registrada|autorizacao=humana
 objetivo=Implementar workflow mensal único para validar ícones oficiais, MIME, integridade, identidade e fallback.
 origem=.ia.rules/state/requests/FT-106/prompt.md
 contexto=.ia.rules/state/contexts/FT-106/master.md
 dependencias=FT-107
-pendencias=Aguardar a FT-107.
+pendencias=Dependência107 tecnicamente concluída; aguarda sua unidade delimitada de automação.
 
 FT-111|nome=Integração e validação da experiência de doações|escopo=tecnico|status=registrada_bloqueada_por_dependencia|autorizacao=humana
 objetivo=Validar JSON→UI, QR, payloads, temas, responsividade, teclado, retorno PayPal, assets, workflow e build.
@@ -265,10 +269,39 @@ verificacoes=M40 render: 44 blocos, 200 chamadas, 160 notas, tabela acessível, 
 pendencias=Sem pendência de execução editorial. Leitura/aceite autoral continuam humanos. Sem publicação/push; limites em fechamento-M42.md.
 historico=.ia.rules/state/history/FT-112.ia|sha256=6a48dbeea769e4322404e4448e6f6d93a157fe6dcec4311bc772cd6f7e8ecda8
 
-FT-116|nome=Integração preservadora do remoto e alterações locais|escopo=tecnico|tipo=operacional|status=concluida|autorizacao=humana|criado_em=2026-11-13T13:35:00-03:00|conclusao=2026-11-13T16:43:27Z|validacao=pendente_desenvolvedor
-objetivo=Concluir o merge iniciado de origin/dev com a evolução local e fazer push sem perda de conteúdo.
-origem=.ia.rules/state/requests/FT-116/prompt.md
-contexto=.ia.rules/state/contexts/FT-116/master.md
-resultado=Merge 8558a7869a77546057feaf2fd8043ff7725da2d2 enviado a origin/dev e confirmado por ls-remote; ambos os históricos e deltas preservados; build público e testes focados aprovados.
-verificacoes=Zero conflitos; árvore limpa após merge; projeções idênticas; auditoria de preservação e diff-check do delta sobre MERGE_HEAD aprovados.
-pendencias=Aceite humano; gate integral mantém falhas recebidas de imagens sociais, legenda no draft e inventário documental. Main não foi convergida sem sistema global funcional; nenhuma pendência de merge ou push.
+FT-116|nome=Integração preservadora do remoto e alterações locais|escopo=tecnico|tipo=operacional|status=em_andamento|autorizacao=humana|criado_em=2026-11-13T13:35:00-03:00|retomada=2026-11-16
+objetivo=Concluir o merge atual e integrar o upstream preservando fontes, históricos e alterações locais.
+origem=.ia.rules/state/requests/FT-116/retomada-2026-11-16.md
+contexto=.ia.rules/state/contexts/FT-116/retomada-2026-11-16.md
+historico_previo=.ia.rules/state/contexts/FT-116/master.md
+resultado_parcial=Integrações preservadoras commitadas em 5d4254371f e 4e23e3a66a; upstream obtido no fetch integrado. Auditoria de blobs e ancestralidade concluída.
+pendencias=Concluir validações globais e preservar alterações locais remanescentes. Estado de rastreamento registrado no checkpoint; demais FTs e página Uber continuam pendentes.
+historico_impedimentos=Rejeição inicial de staging/commit herdado e R5 CONTEXT_CAPACITY foram reconciliados por escopo fechado e evidências reaproveitadas; não constituem bloqueio atual do merge.
+
+FT-117|nome=Normatização da página de anúncio Uber|escopo=tecnico|tipo=implementacao_normativa|status=em_andamento|autorizacao=humana|criado_em=2026-11-16T18:32:22.234Z
+objetivo=Consolidar requisitos completos, inspecionar fontes e estabelecer RCF verificável sem inventar dados ou decisões comerciais.
+origem=TODO.ia.md@812f6270fb2c5470bd222464cb938669b767d2dd
+contexto=.ia.rules/state/contexts/FT-117/master.md
+dependencias=
+pendencias=Inventariar padrões locais, assets, PIX/WhatsApp e lacunas; normatizar por unidades pequenas.
+
+FT-118|nome=Dados e arquivos da publicidade Uber|escopo=tecnico|tipo=implementacao_codigo|status=registrada_bloqueada_por_dependencia|autorizacao=pendente_pos_norma|criado_em=2026-11-16T18:32:22.235Z
+objetivo=Implementar dados reais, arquivos/modelos e integrações reutilizáveis de pagamento conforme norma concluída.
+origem=TODO.ia.md@812f6270fb2c5470bd222464cb938669b767d2dd
+contexto=.ia.rules/state/contexts/FT-117/master.md
+dependencias=FT-117
+pendencias=Aguardar FT-117 e autorização de código aplicável; preservar payloads e esclarecer 50% antecipado.
+
+FT-119|nome=Página e contrato da publicidade Uber|escopo=tecnico|tipo=implementacao_codigo|status=registrada_bloqueada_por_dependencia|autorizacao=pendente_pos_norma|criado_em=2026-11-16T18:32:22.236Z
+objetivo=Implementar página integrada ao tema, publicidade, downloads, contato e minuta contratual aderente à fonte.
+origem=TODO.ia.md@812f6270fb2c5470bd222464cb938669b767d2dd
+contexto=.ia.rules/state/contexts/FT-117/master.md
+dependencias=FT-117,FT-118
+pendencias=Aguardar dependências; não inventar condições nem afirmar validade jurídica definitiva.
+
+FT-120|nome=Integração e validação da publicidade Uber|escopo=tecnico|tipo=tecnico|status=registrada_bloqueada_por_dependencia|autorizacao=pendente_pos_norma|criado_em=2026-11-16T18:32:22.237Z
+objetivo=Validar requisitos, rotas, contratos, downloads, QR/cópia, temas, responsividade, acessibilidade, build e regressões.
+origem=TODO.ia.md@812f6270fb2c5470bd222464cb938669b767d2dd
+contexto=.ia.rules/state/contexts/FT-117/master.md
+dependencias=FT-118,FT-119
+pendencias=Aguardar implementação e manter gates não executados/falhos explicitamente pendentes.
